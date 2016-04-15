@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0E9E7CF44B2FAC9667513636 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 177D12BE652A285B1BDD4D47 /* libPods.a */; };
+		AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */; };
+		AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAAA1CC08FCD00B101C2 /* NetworkFetcher.m */; };
+		AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */; };
+		AC71EAB51CC0A59C00B101C2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAB41CC0A59C00B101C2 /* LoginViewController.m */; };
 		ACF83EB01CBF97F800A962BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EAF1CBF97F800A962BD /* main.m */; };
 		ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB21CBF97F800A962BD /* AppDelegate.m */; };
 		ACF83EB61CBF97F800A962BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB51CBF97F800A962BD /* ViewController.m */; };
@@ -20,6 +24,14 @@
 		177D12BE652A285B1BDD4D47 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AC71EAA61CC08ECF00B101C2 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		AC71EAA91CC08FCD00B101C2 /* NetworkFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkFetcher.h; sourceTree = "<group>"; };
+		AC71EAAA1CC08FCD00B101C2 /* NetworkFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkFetcher.m; sourceTree = "<group>"; };
+		AC71EAAF1CC090EC00B101C2 /* NetworkFetcher+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+User.h"; sourceTree = "<group>"; };
+		AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+User.m"; sourceTree = "<group>"; };
+		AC71EAB31CC0A59C00B101C2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		AC71EAB41CC0A59C00B101C2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		ACF83EAB1CBF97F800A962BD /* Venus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF83EAF1CBF97F800A962BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ACF83EB11CBF97F800A962BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,6 +64,37 @@
 				7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC71EAA51CC08E8B00B101C2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AC71EAA61CC08ECF00B101C2 /* NetworkManager.h */,
+				AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */,
+				AC71EAA91CC08FCD00B101C2 /* NetworkFetcher.h */,
+				AC71EAAA1CC08FCD00B101C2 /* NetworkFetcher.m */,
+				AC71EAAF1CC090EC00B101C2 /* NetworkFetcher+User.h */,
+				AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AC71EAB21CC0A57400B101C2 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				AC71EAB31CC0A59C00B101C2 /* LoginViewController.h */,
+				AC71EAB41CC0A59C00B101C2 /* LoginViewController.m */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		AC71EAB61CC0A5B200B101C2 /* appDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				ACF83EB11CBF97F800A962BD /* AppDelegate.h */,
+				ACF83EB21CBF97F800A962BD /* AppDelegate.m */,
+			);
+			path = appDelegate;
 			sourceTree = "<group>";
 		};
 		ACF83EA21CBF97F800A962BD = {
@@ -96,6 +139,7 @@
 		ACF83EC81CBF989A00A962BD /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				AC71EAA51CC08E8B00B101C2 /* Network */,
 			);
 			path = BusinessLogicLayer;
 			sourceTree = "<group>";
@@ -103,8 +147,8 @@
 		ACF83EC91CBF98B500A962BD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				ACF83EB11CBF97F800A962BD /* AppDelegate.h */,
-				ACF83EB21CBF97F800A962BD /* AppDelegate.m */,
+				AC71EAB61CC0A5B200B101C2 /* appDelegate */,
+				AC71EAB21CC0A57400B101C2 /* login */,
 				ACF83EB41CBF97F800A962BD /* ViewController.h */,
 				ACF83EB51CBF97F800A962BD /* ViewController.m */,
 				ACF83EB71CBF97F800A962BD /* Main.storyboard */,
@@ -258,7 +302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */,
+				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
 				ACF83EB61CBF97F800A962BD /* ViewController.m in Sources */,
+				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
+				AC71EAB51CC0A59C00B101C2 /* LoginViewController.m in Sources */,
 				ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */,
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
 			);

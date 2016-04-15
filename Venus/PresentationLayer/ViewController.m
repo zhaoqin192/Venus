@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "NetworkFetcher+User.h"
 
 @interface ViewController ()
+- (IBAction)login:(id)sender;
+- (IBAction)qqLogin:(id)sender;
 
 @end
 
@@ -24,4 +27,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)login:(id)sender {
+    [NetworkFetcher userLoginWithAccount:@"" password:@"" success:^{
+        
+    } failure:^(NSString *error) {
+        
+    }];
+    
+    
+}
+
+- (IBAction)qqLogin:(id)sender {
+}
 @end
