@@ -11,7 +11,9 @@
 typedef void(^NetworkFetcherCompletionHandler)();
 typedef void(^NetworkFetcherErrorHandler)(NSString *error);
 
+#define deBUG true
 
 @interface NetworkFetcher : NSObject
+
 
 @end

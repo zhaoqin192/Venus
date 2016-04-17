@@ -18,12 +18,17 @@ static const NSString *URL_OF_USER_PREFIX = @"http://10.1.29.250:30222";
                      password:(NSString *)password
                       success:(NetworkFetcherCompletionHandler)success
                       failure:(NetworkFetcherErrorHandler)failure{
+
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/loginsubmit"]];
     NSDictionary *parameters = @{@"account": account, @"password": password};
     
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (true) {
+            NSLog(@"%@", responseObject);
+        }
         
         NSDictionary *response = responseObject;
         if(response[@"errCode"] == 0){
@@ -33,6 +38,11 @@ static const NSString *URL_OF_USER_PREFIX = @"http://10.1.29.250:30222";
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (true) {
+            NSLog(@"%@", error);
+        }
+        
         failure(@"Network Error");
     }];
     

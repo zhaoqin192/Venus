@@ -7,8 +7,13 @@
 //
 
 #import "LoginViewController.h"
+#import "MBProgressHUD.h"
+#import "NetworkFetcher+User.h"
+
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define kOFFSET_FOR_KEYBOARD 80.0
 
 
 @interface LoginViewController()<UITextFieldDelegate>
@@ -51,6 +56,36 @@
 }
 
 - (IBAction)accountLogin:(id)sender {
+    
+    if ([_accountTextField.text isEqualToString:@""] || [_passwordTextField isEqual:@""]) {
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"用户名或密码不能为空";
+        hud.mode = MBProgressHUDModeText;
+        [hud showAnimated:YES whileExecutingBlock:^{
+            //对话框显示时需要执行的操作
+            sleep(1.5);
+        } completionBlock:^{
+            //操作执行完后取消对话框
+            [hud removeFromSuperview];
+        }];
+    }else{
+        [NetworkFetcher userLoginWithAccount:_accountTextField.text password:_passwordTextField.text success:^{
+            
+        } failure:^(NSString *error) {
+            
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.labelText = error;
+            hud.mode = MBProgressHUDModeText;
+            [hud showAnimated:YES whileExecutingBlock:^{
+                sleep(1.5);
+            } completionBlock:^{
+                [hud removeFromSuperview];
+            }];
+            
+        }];
+    }
+    
 }
 
 - (IBAction)weixinLogin:(id)sender {
@@ -69,13 +104,15 @@
 }
 
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    
     if (textField.tag == 1) {
         [self setTextFieldLineWithField:self.accountTextField color:UIColorFromRGB(0xA6873B) image:@"loginAccountHL"];
     }else if (textField.tag == 2){
         [self setTextFieldLineWithField:self.passwordTextField color:UIColorFromRGB(0xA6873B) image:@"loginPasswordHL"];
+        [self setViewMovedUp:YES];
     }
-    return YES;
+    
 }
 
 - (void) setTextFieldLineWithField:(UITextField *)textField color:(UIColor *)color image:(NSString *)image{
@@ -90,13 +127,36 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
+    
     if (textField.tag == 1) {
         [self setTextFieldLineWithField:self.accountTextField color:UIColorFromRGB(0xFFFFFF) image:@"loginAccount"];
     }else if (textField.tag == 2){
         [self setTextFieldLineWithField:self.passwordTextField color:UIColorFromRGB(0xFFFFFF) image:@"loginPassword"];
+        [self setViewMovedUp:NO];
     }
 }
 
+//method to move the view up/down whenever the keyboard is shown/dismissed
+-(void)setViewMovedUp:(BOOL)movedUp {
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.25]; // if you want to slide up the view
+    
+    CGRect rect = self.view.frame;
+    if (movedUp)
+    {
+        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
+        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
+    }
+    else
+    {
+        // revert back to the normal state.
+        rect.origin.y += kOFFSET_FOR_KEYBOARD;
+    }
+    self.view.frame = rect;
+    
+    [UIView commitAnimations];
+}
 
 
 
