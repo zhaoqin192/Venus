@@ -30,6 +30,16 @@
 				<string>tencent1105340672</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>weChat</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wxbafcc387a8a8fe31</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

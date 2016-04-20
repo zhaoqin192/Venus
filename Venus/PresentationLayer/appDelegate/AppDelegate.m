@@ -8,9 +8,11 @@
 
 #import "AppDelegate.h"
 #import <TencentOpenAPI/TencentOAuth.h>
+#import "WXApi.h"
+#import "NetworkFetcher+User.h"
 
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WXApiDelegate>
 
 @end
 
@@ -19,6 +21,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.sdkSelection = [[NSString alloc] init];
+    [WXApi registerApp:@"wxbafcc387a8a8fe31"];
+    
+    
     return YES;
 }
 
@@ -127,11 +134,36 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    return [TencentOAuth HandleOpenURL:url];
+    if ([self.sdkSelection isEqualToString:@"Tencent"]) {
+        return [TencentOAuth HandleOpenURL:url];
+    }else if ([self.sdkSelection isEqualToString:@"WeChat"]){
+        return [WXApi handleOpenURL:url delegate:self];
+    }else{
+        return NO;
+    }
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    return [TencentOAuth HandleOpenURL:url];
+    
+    if ([self.sdkSelection isEqualToString:@"Tencent"]) {
+        return [TencentOAuth HandleOpenURL:url];
+    }else if ([self.sdkSelection isEqualToString:@"WeChat"]){
+        return [WXApi handleOpenURL:url delegate:self];
+    }else{
+        return NO;
+    }
+}
+
+- (void)onResp:(SendAuthResp*)resp{
+    if([resp errCode] == 0){
+        [NetworkFetcher userFetchAccessTokenWithCode:[resp code] success:^{
+        
+        } failure:^(NSString *error) {
+            
+        }];
+    }else{
+        NSLog(@"login error");
+    }
 }
 
 @end

@@ -10,6 +10,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/TencentOAuthObject.h>
 #import <TencentOpenAPI/TencentApiInterface.h>
+#import "WXApi.h"
 
 @interface SDKManager()<TencentSessionDelegate>
 
@@ -72,6 +73,15 @@ static NSString *tencentAppID = @"1105340672";
 - (void)tencentDidNotNetWork{
     NSLog(@"didNotNetwork");
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"loginFailed" object:self];
+}
+
+- (void)sendAuthRequestWithWeChat{
+    //构造SendAuthReq结构体
+    SendAuthReq* req = [[SendAuthReq alloc ] init];
+    req.scope = @"snsapi_userinfo" ;
+    req.state = @"123" ;
+    //第三方向微信终端发送一个SendAuthReq消息结构
+    [WXApi sendReq:req];
 }
 
 @end

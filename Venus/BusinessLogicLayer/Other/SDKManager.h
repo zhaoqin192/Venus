@@ -20,4 +20,5 @@
 
 - (void)authorWithQQ;
 
+- (void)sendAuthRequestWithWeChat;
 @end
