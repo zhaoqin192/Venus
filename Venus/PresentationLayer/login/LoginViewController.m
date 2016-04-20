@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "MBProgressHUD.h"
 #import "NetworkFetcher+User.h"
+#import "SDKManager.h"
 
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -89,12 +90,16 @@
 }
 
 - (IBAction)weixinLogin:(id)sender {
+    
 }
 
 - (IBAction)weiboLogin:(id)sender {
 }
 
 - (IBAction)qqLogin:(id)sender {
+    
+    [[SDKManager sharedInstance] authorWithQQ];
+    
 }
 
 - (IBAction)forgetPassword:(id)sender {
@@ -123,7 +128,6 @@
     UIView *paddingViewAccount = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     [paddingViewAccount addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:image]]];
     textField.leftView = paddingViewAccount;
-
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{

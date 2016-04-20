@@ -31,6 +31,7 @@ static const NSString *URL_OF_USER_PREFIX = @"http://10.1.29.250:30222";
         }
         
         NSDictionary *response = responseObject;
+        
         if(response[@"errCode"] == 0){
             success();
         }else{
@@ -57,7 +58,16 @@ static const NSString *URL_OF_USER_PREFIX = @"http://10.1.29.250:30222";
 
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
+        if (true) {
+            NSLog(@"%@", responseObject);
+        }
+
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (true) {
+            NSLog(@"%@", error);
+        }
         
     }];
 

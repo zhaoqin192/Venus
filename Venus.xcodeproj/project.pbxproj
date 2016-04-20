@@ -8,10 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		0E9E7CF44B2FAC9667513636 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 177D12BE652A285B1BDD4D47 /* libPods.a */; };
+		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
+		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
+		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
+		AC0359081CC4D78600EC7BBC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359071CC4D78600EC7BBC /* libz.tbd */; };
+		AC0359101CC4DB2500EC7BBC /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC03590E1CC4DB2500EC7BBC /* TencentOpenAPI.framework */; };
+		AC0359111CC4DB2500EC7BBC /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC03590F1CC4DB2500EC7BBC /* TencentOpenApi_IOS_Bundle.bundle */; };
+		AC0359151CC4F6DC00EC7BBC /* SDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0359141CC4F6DC00EC7BBC /* SDKManager.m */; };
 		AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */; };
 		AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAAA1CC08FCD00B101C2 /* NetworkFetcher.m */; };
 		AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */; };
 		AC71EAB51CC0A59C00B101C2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAB41CC0A59C00B101C2 /* LoginViewController.m */; };
+		AC7AD46D1CC723B4004D9B61 /* libMLeaksFinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7AD46C1CC723A6004D9B61 /* libMLeaksFinder.a */; };
+		AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C7C1CC4D23C00FA171B /* Security.framework */; };
+		AC970C851CC4D25600FA171B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C841CC4D25600FA171B /* SystemConfiguration.framework */; };
+		AC970C871CC4D26100FA171B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C861CC4D26100FA171B /* CoreGraphics.framework */; };
+		AC970C8D1CC4D27400FA171B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C8C1CC4D27300FA171B /* CoreTelephony.framework */; };
 		ACF83EB01CBF97F800A962BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EAF1CBF97F800A962BD /* main.m */; };
 		ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB21CBF97F800A962BD /* AppDelegate.m */; };
 		ACF83EB61CBF97F800A962BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB51CBF97F800A962BD /* ViewController.m */; };
@@ -20,10 +32,28 @@
 		ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBF1CBF97F800A962BD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AC7AD46B1CC723A6004D9B61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC7AD4671CC723A6004D9B61 /* MLeaksFinder.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3ADE16C1C1BD1D600AA4F63;
+			remoteInfo = MLeaksFinder;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		177D12BE652A285B1BDD4D47 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		AC0359071CC4D78600EC7BBC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		AC03590E1CC4DB2500EC7BBC /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		AC03590F1CC4DB2500EC7BBC /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		AC0359131CC4F6DC00EC7BBC /* SDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKManager.h; sourceTree = "<group>"; };
+		AC0359141CC4F6DC00EC7BBC /* SDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKManager.m; sourceTree = "<group>"; };
 		AC71EAA61CC08ECF00B101C2 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		AC71EAA91CC08FCD00B101C2 /* NetworkFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkFetcher.h; sourceTree = "<group>"; };
@@ -32,6 +62,11 @@
 		AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+User.m"; sourceTree = "<group>"; };
 		AC71EAB31CC0A59C00B101C2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		AC71EAB41CC0A59C00B101C2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		AC7AD4671CC723A6004D9B61 /* MLeaksFinder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MLeaksFinder.xcodeproj; path = "../../../Downloads/MLeaksFinder-master/MLeaksFinder.xcodeproj"; sourceTree = "<group>"; };
+		AC970C7C1CC4D23C00FA171B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AC970C841CC4D25600FA171B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AC970C861CC4D26100FA171B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AC970C8C1CC4D27300FA171B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		ACF83EAB1CBF97F800A962BD /* Venus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF83EAF1CBF97F800A962BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ACF83EB11CBF97F800A962BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,6 +85,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC7AD46D1CC723B4004D9B61 /* libMLeaksFinder.a in Frameworks */,
+				AC0359081CC4D78600EC7BBC /* libz.tbd in Frameworks */,
+				AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */,
+				AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */,
+				AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */,
+				AC970C8D1CC4D27400FA171B /* CoreTelephony.framework in Frameworks */,
+				AC970C871CC4D26100FA171B /* CoreGraphics.framework in Frameworks */,
+				AC970C851CC4D25600FA171B /* SystemConfiguration.framework in Frameworks */,
+				AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */,
+				AC0359101CC4DB2500EC7BBC /* TencentOpenAPI.framework in Frameworks */,
 				0E9E7CF44B2FAC9667513636 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +109,39 @@
 				7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC03590C1CC4DA7D00EC7BBC /* OtherSDK */ = {
+			isa = PBXGroup;
+			children = (
+				AC03590D1CC4DB2500EC7BBC /* Tencent */,
+			);
+			path = OtherSDK;
+			sourceTree = "<group>";
+		};
+		AC03590D1CC4DB2500EC7BBC /* Tencent */ = {
+			isa = PBXGroup;
+			children = (
+				AC03590E1CC4DB2500EC7BBC /* TencentOpenAPI.framework */,
+				AC03590F1CC4DB2500EC7BBC /* TencentOpenApi_IOS_Bundle.bundle */,
+			);
+			path = Tencent;
+			sourceTree = "<group>";
+		};
+		AC0359121CC4F6C200EC7BBC /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				AC0359131CC4F6DC00EC7BBC /* SDKManager.h */,
+				AC0359141CC4F6DC00EC7BBC /* SDKManager.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		AC6093D81CC3678C004B5767 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		AC71EAA51CC08E8B00B101C2 /* Network */ = {
@@ -97,9 +175,18 @@
 			path = appDelegate;
 			sourceTree = "<group>";
 		};
+		AC7AD4681CC723A6004D9B61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC7AD46C1CC723A6004D9B61 /* libMLeaksFinder.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		ACF83EA21CBF97F800A962BD = {
 			isa = PBXGroup;
 			children = (
+				AC7AD4671CC723A6004D9B61 /* MLeaksFinder.xcodeproj */,
 				ACF83EAD1CBF97F800A962BD /* Venus */,
 				ACF83EAC1CBF97F800A962BD /* Products */,
 				316E961895E367E514CC9FA4 /* Pods */,
@@ -118,6 +205,7 @@
 		ACF83EAD1CBF97F800A962BD /* Venus */ = {
 			isa = PBXGroup;
 			children = (
+				AC03590C1CC4DA7D00EC7BBC /* OtherSDK */,
 				ACF83ECA1CBF98D700A962BD /* PersistenceLayer */,
 				ACF83EC91CBF98B500A962BD /* PresentationLayer */,
 				ACF83EC81CBF989A00A962BD /* BusinessLogicLayer */,
@@ -139,6 +227,8 @@
 		ACF83EC81CBF989A00A962BD /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				AC0359121CC4F6C200EC7BBC /* Other */,
+				AC6093D81CC3678C004B5767 /* Database */,
 				AC71EAA51CC08E8B00B101C2 /* Network */,
 			);
 			path = BusinessLogicLayer;
@@ -176,6 +266,14 @@
 		E1998CF8726CD7D47CA05772 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC0359071CC4D78600EC7BBC /* libz.tbd */,
+				AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */,
+				AC0359031CC4D76A00EC7BBC /* libiconv.tbd */,
+				AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */,
+				AC970C8C1CC4D27300FA171B /* CoreTelephony.framework */,
+				AC970C861CC4D26100FA171B /* CoreGraphics.framework */,
+				AC970C841CC4D25600FA171B /* SystemConfiguration.framework */,
+				AC970C7C1CC4D23C00FA171B /* Security.framework */,
 				177D12BE652A285B1BDD4D47 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -229,6 +327,12 @@
 			mainGroup = ACF83EA21CBF97F800A962BD;
 			productRefGroup = ACF83EAC1CBF97F800A962BD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AC7AD4681CC723A6004D9B61 /* Products */;
+					ProjectRef = AC7AD4671CC723A6004D9B61 /* MLeaksFinder.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ACF83EAA1CBF97F800A962BD /* Venus */,
@@ -236,11 +340,22 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		AC7AD46C1CC723A6004D9B61 /* libMLeaksFinder.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMLeaksFinder.a;
+			remoteRef = AC7AD46B1CC723A6004D9B61 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		ACF83EA91CBF97F800A962BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC0359111CC4DB2500EC7BBC /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
 				ACF83EB91CBF97F800A962BD /* Main.storyboard in Resources */,
@@ -306,6 +421,7 @@
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
 				ACF83EB61CBF97F800A962BD /* ViewController.m in Sources */,
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
+				AC0359151CC4F6DC00EC7BBC /* SDKManager.m in Sources */,
 				AC71EAB51CC0A59C00B101C2 /* LoginViewController.m in Sources */,
 				ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */,
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
@@ -423,9 +539,29 @@
 			baseConfigurationReference = 90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Venus/OtherSDK/Tencent",
+				);
 				INFOPLIST_FILE = Venus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.Venus;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJExtension\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-fobjc-arc",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -435,9 +571,29 @@
 			baseConfigurationReference = 7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Venus/OtherSDK/Tencent",
+				);
 				INFOPLIST_FILE = Venus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.Venus;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJExtension\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-fobjc-arc",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
