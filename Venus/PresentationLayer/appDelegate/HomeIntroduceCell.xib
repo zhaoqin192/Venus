@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeIntroduceCell" rowHeight="150" id="KGk-i7-Jjw" customClass="HomeIntroduceCell">
+            <rect key="frame" x="0.0" y="0.0" width="397" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="397" height="149"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPQ-Ba-8uU">
+                        <rect key="frame" x="238" y="30" width="100" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="E4c-Dg-vdW"/>
+                            <constraint firstAttribute="height" constant="1" id="kwl-Ho-EPN"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBs-Pi-w92" customClass="GMLabel">
+                        <rect key="frame" x="165" y="20" width="68" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="3Wg-gD-cvc"/>
+                            <constraint firstAttribute="width" constant="68" id="jRU-qw-CrJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zl5-XK-85z">
+                        <rect key="frame" x="60" y="30" width="100" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="8gr-0R-2y2"/>
+                            <constraint firstAttribute="width" constant="100" id="GHY-aj-h5B"/>
+                        </constraints>
+                    </view>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Qz-tx-2Sd">
+                        <rect key="frame" x="5" y="51" width="387" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="90" id="8N6-CC-Mgn"/>
+                        </constraints>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="4Qz-tx-2Sd" secondAttribute="trailing" constant="5" id="4Od-Vu-Zxm"/>
+                    <constraint firstItem="4Qz-tx-2Sd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="DB1-XW-Zir"/>
+                    <constraint firstItem="mBs-Pi-w92" firstAttribute="leading" secondItem="zl5-XK-85z" secondAttribute="trailing" constant="5" id="H7G-QV-cFM"/>
+                    <constraint firstItem="mBs-Pi-w92" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="J9c-Xw-K8C"/>
+                    <constraint firstItem="zl5-XK-85z" firstAttribute="centerY" secondItem="mBs-Pi-w92" secondAttribute="centerY" id="RST-ap-8lT"/>
+                    <constraint firstItem="cPQ-Ba-8uU" firstAttribute="centerY" secondItem="mBs-Pi-w92" secondAttribute="centerY" id="RSp-CN-X9D"/>
+                    <constraint firstItem="mBs-Pi-w92" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="iHM-Th-b7m"/>
+                    <constraint firstItem="4Qz-tx-2Sd" firstAttribute="top" secondItem="mBs-Pi-w92" secondAttribute="bottom" constant="10" id="jJ2-mT-pS3"/>
+                    <constraint firstItem="cPQ-Ba-8uU" firstAttribute="leading" secondItem="mBs-Pi-w92" secondAttribute="trailing" constant="5" id="laN-gS-a6j"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="leftLine" destination="zl5-XK-85z" id="gbc-oB-VBG"/>
+                <outlet property="myScrollView" destination="4Qz-tx-2Sd" id="GFJ-6x-4n1"/>
+                <outlet property="rightLine" destination="cPQ-Ba-8uU" id="djk-Fl-FJE"/>
+            </connections>
+            <point key="canvasLocation" x="441.5" y="468"/>
+        </tableViewCell>
+    </objects>
+</document>
