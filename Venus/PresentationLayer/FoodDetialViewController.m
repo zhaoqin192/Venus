@@ -9,12 +9,14 @@
 #import "FoodDetialViewController.h"
 #import "XFSegementView.h"
 #import "FoodCommitViewController.h"
+#import "FoodOrderViewController.h"
 
 @interface FoodDetialViewController ()<TouchLabelDelegate>{
     XFSegementView *segementView;
 }
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (strong, nonatomic) FoodCommitViewController *commitVC;
+@property (strong, nonatomic) FoodOrderViewController *orderVC;
 @end
 
 @implementation FoodDetialViewController
@@ -29,6 +31,8 @@
 - (void)configureChildController{
     self.commitVC = [[FoodCommitViewController alloc] init];
     [self addChildViewController:self.commitVC];
+    self.orderVC = [[FoodOrderViewController alloc] init];
+    [self addChildViewController:self.orderVC];
 }
 
 - (void)configureSegmentView{
@@ -48,6 +52,10 @@
     if (index == 1) {
         self.commitVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180);
         [self.view addSubview:self.commitVC.view];
+    }
+    else{
+        self.orderVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180);
+        [self.view addSubview:self.orderVC.view];
     }
 }
 

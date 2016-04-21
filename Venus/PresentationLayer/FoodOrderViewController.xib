@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodOrderViewController">
+            <connections>
+                <outlet property="categoryTableView" destination="AXr-4G-GMT" id="29D-7U-gi6"/>
+                <outlet property="dataTableView" destination="yjQ-sN-Dey" id="0AQ-Um-tU6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AXr-4G-GMT">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="BmQ-Rl-7BO"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ciz-xu-mGa"/>
+                        <outlet property="delegate" destination="-1" id="vH1-Gt-YAF"/>
+                    </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yjQ-sN-Dey">
+                    <rect key="frame" x="100" y="0.0" width="275" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Ckg-e0-fcg"/>
+                        <outlet property="delegate" destination="-1" id="vvN-gy-Ore"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="yjQ-sN-Dey" secondAttribute="bottom" id="ApS-Ck-heA"/>
+                <constraint firstAttribute="bottom" secondItem="AXr-4G-GMT" secondAttribute="bottom" id="JvO-AC-uMw"/>
+                <constraint firstAttribute="trailing" secondItem="yjQ-sN-Dey" secondAttribute="trailing" id="W31-Vf-Qp6"/>
+                <constraint firstItem="AXr-4G-GMT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WKH-iC-1HN"/>
+                <constraint firstItem="yjQ-sN-Dey" firstAttribute="leading" secondItem="AXr-4G-GMT" secondAttribute="trailing" id="ghJ-6C-mWs"/>
+                <constraint firstItem="yjQ-sN-Dey" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pa2-G6-XCQ"/>
+                <constraint firstItem="AXr-4G-GMT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yYE-s8-ve9"/>
+                <constraint firstAttribute="trailing" secondItem="AXr-4G-GMT" secondAttribute="trailing" id="zVD-BV-iRd"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="zVD-BV-iRd"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="427.5" y="401.5"/>
+        </view>
+    </objects>
+</document>
