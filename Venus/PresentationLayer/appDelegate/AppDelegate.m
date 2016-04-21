@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "FoodViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,10 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    self.window = [[UIWindow alloc] init];
-//    GMRegisterViewController *vc = [[GMRegisterViewController alloc] init];
-//    self.window.rootViewController = vc;
-//    [self.window makeKeyAndVisible];
+    self.window = [[UIWindow alloc] init];
+    FoodViewController *vc = [[FoodViewController alloc] init];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
