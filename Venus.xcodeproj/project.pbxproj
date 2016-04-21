@@ -43,6 +43,9 @@
 		30D6D27E1CC87AF500FB0CFC /* FoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2791CC87AF500FB0CFC /* FoodViewController.xib */; };
 		30D6D27F1CC87AF500FB0CFC /* FoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D27B1CC87AF500FB0CFC /* FoodCell.m */; };
 		30D6D2801CC87AF500FB0CFC /* FoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D27C1CC87AF500FB0CFC /* FoodCell.xib */; };
+		30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2841CC8917E00FB0CFC /* XFSegementView.m */; };
+		30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2871CC891B500FB0CFC /* FoodDetialViewController.m */; };
+		30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2881CC891B500FB0CFC /* FoodDetialViewController.xib */; };
 		AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */; };
 		AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAAA1CC08FCD00B101C2 /* NetworkFetcher.m */; };
 		AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */; };
@@ -113,6 +116,11 @@
 		30D6D27A1CC87AF500FB0CFC /* FoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCell.h; sourceTree = "<group>"; };
 		30D6D27B1CC87AF500FB0CFC /* FoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCell.m; sourceTree = "<group>"; };
 		30D6D27C1CC87AF500FB0CFC /* FoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCell.xib; sourceTree = "<group>"; };
+		30D6D2831CC8917E00FB0CFC /* XFSegementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFSegementView.h; sourceTree = "<group>"; };
+		30D6D2841CC8917E00FB0CFC /* XFSegementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFSegementView.m; sourceTree = "<group>"; };
+		30D6D2861CC891B500FB0CFC /* FoodDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetialViewController.h; sourceTree = "<group>"; };
+		30D6D2871CC891B500FB0CFC /* FoodDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetialViewController.m; sourceTree = "<group>"; };
+		30D6D2881CC891B500FB0CFC /* FoodDetialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodDetialViewController.xib; sourceTree = "<group>"; };
 		7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AC71EAA61CC08ECF00B101C2 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
@@ -188,6 +196,7 @@
 		3086D3A81CC729BD007494D7 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				30D6D2821CC8917E00FB0CFC /* XFSegementView */,
 				30D6D26F1CC87ACE00FB0CFC /* JSDropDownMenu */,
 				3086D3A71CC729B3007494D7 /* WXTextField */,
 				3086D39E1CC72997007494D7 /* JZMTBtnView */,
@@ -253,17 +262,7 @@
 			children = (
 				3086D3C31CC72ABC007494D7 /* HomePageViewController.h */,
 				3086D3C41CC72ABC007494D7 /* HomePageViewController.m */,
-				3086D3C51CC72ABC007494D7 /* HomeMenuCell.h */,
-				3086D3C61CC72ABC007494D7 /* HomeMenuCell.m */,
-				3086D3C71CC72ABC007494D7 /* HomeNewsCell.h */,
-				3086D3C81CC72ABC007494D7 /* HomeNewsCell.m */,
-				3086D3C91CC72ABC007494D7 /* HomeNewsCell.xib */,
-				3086D3CA1CC72ABC007494D7 /* HomeIntroduceCell.h */,
-				3086D3CB1CC72ABC007494D7 /* HomeIntroduceCell.m */,
-				3086D3CC1CC72ABC007494D7 /* HomeIntroduceCell.xib */,
-				3086D3CD1CC72ABC007494D7 /* HomeCategoryCell.h */,
-				3086D3CE1CC72ABC007494D7 /* HomeCategoryCell.m */,
-				3086D3CF1CC72ABC007494D7 /* HomeCategoryCell.xib */,
+				30D6D2811CC87BEF00FB0CFC /* cell */,
 			);
 			name = HomePage;
 			path = appDelegate;
@@ -309,8 +308,38 @@
 				30D6D27A1CC87AF500FB0CFC /* FoodCell.h */,
 				30D6D27B1CC87AF500FB0CFC /* FoodCell.m */,
 				30D6D27C1CC87AF500FB0CFC /* FoodCell.xib */,
+				30D6D2861CC891B500FB0CFC /* FoodDetialViewController.h */,
+				30D6D2871CC891B500FB0CFC /* FoodDetialViewController.m */,
+				30D6D2881CC891B500FB0CFC /* FoodDetialViewController.xib */,
 			);
 			name = food;
+			sourceTree = "<group>";
+		};
+		30D6D2811CC87BEF00FB0CFC /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				3086D3C51CC72ABC007494D7 /* HomeMenuCell.h */,
+				3086D3C61CC72ABC007494D7 /* HomeMenuCell.m */,
+				3086D3C71CC72ABC007494D7 /* HomeNewsCell.h */,
+				3086D3C81CC72ABC007494D7 /* HomeNewsCell.m */,
+				3086D3C91CC72ABC007494D7 /* HomeNewsCell.xib */,
+				3086D3CA1CC72ABC007494D7 /* HomeIntroduceCell.h */,
+				3086D3CB1CC72ABC007494D7 /* HomeIntroduceCell.m */,
+				3086D3CC1CC72ABC007494D7 /* HomeIntroduceCell.xib */,
+				3086D3CD1CC72ABC007494D7 /* HomeCategoryCell.h */,
+				3086D3CE1CC72ABC007494D7 /* HomeCategoryCell.m */,
+				3086D3CF1CC72ABC007494D7 /* HomeCategoryCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
+		30D6D2821CC8917E00FB0CFC /* XFSegementView */ = {
+			isa = PBXGroup;
+			children = (
+				30D6D2831CC8917E00FB0CFC /* XFSegementView.h */,
+				30D6D2841CC8917E00FB0CFC /* XFSegementView.m */,
+			);
+			path = XFSegementView;
 			sourceTree = "<group>";
 		};
 		316E961895E367E514CC9FA4 /* Pods */ = {
@@ -516,6 +545,7 @@
 				3086D3E41CC72B19007494D7 /* Me.storyboard in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
 				3086D3E11CC72B19007494D7 /* Buy.storyboard in Resources */,
+				30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */,
 				3086D3DF1CC72B19007494D7 /* Main.storyboard in Resources */,
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
@@ -593,6 +623,7 @@
 				3086D3C01CC72A8C007494D7 /* GMLoginViewController.m in Sources */,
 				3086D3D41CC72ABC007494D7 /* HomeIntroduceCell.m in Sources */,
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
+				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
 				30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */,
 				3086D3A51CC729A9007494D7 /* WXTextField.m in Sources */,
 				3086D3B41CC72A09007494D7 /* GMButton.m in Sources */,
@@ -608,6 +639,7 @@
 				3086D3D21CC72ABC007494D7 /* HomeNewsCell.m in Sources */,
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
+				30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
