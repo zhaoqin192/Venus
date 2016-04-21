@@ -46,6 +46,10 @@
 		30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2841CC8917E00FB0CFC /* XFSegementView.m */; };
 		30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2871CC891B500FB0CFC /* FoodDetialViewController.m */; };
 		30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2881CC891B500FB0CFC /* FoodDetialViewController.xib */; };
+		30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D28C1CC89C7100FB0CFC /* FoodCommitViewController.m */; };
+		30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D28D1CC89C7100FB0CFC /* FoodCommitViewController.xib */; };
+		30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2911CC89E6E00FB0CFC /* FoodCommitCell.m */; };
+		30D6D2941CC89E6E00FB0CFC /* FoodCommitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2921CC89E6E00FB0CFC /* FoodCommitCell.xib */; };
 		AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */; };
 		AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAAA1CC08FCD00B101C2 /* NetworkFetcher.m */; };
 		AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */; };
@@ -121,6 +125,12 @@
 		30D6D2861CC891B500FB0CFC /* FoodDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetialViewController.h; sourceTree = "<group>"; };
 		30D6D2871CC891B500FB0CFC /* FoodDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetialViewController.m; sourceTree = "<group>"; };
 		30D6D2881CC891B500FB0CFC /* FoodDetialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodDetialViewController.xib; sourceTree = "<group>"; };
+		30D6D28B1CC89C7100FB0CFC /* FoodCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCommitViewController.h; sourceTree = "<group>"; };
+		30D6D28C1CC89C7100FB0CFC /* FoodCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCommitViewController.m; sourceTree = "<group>"; };
+		30D6D28D1CC89C7100FB0CFC /* FoodCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCommitViewController.xib; sourceTree = "<group>"; };
+		30D6D2901CC89E6E00FB0CFC /* FoodCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCommitCell.h; sourceTree = "<group>"; };
+		30D6D2911CC89E6E00FB0CFC /* FoodCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCommitCell.m; sourceTree = "<group>"; };
+		30D6D2921CC89E6E00FB0CFC /* FoodCommitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCommitCell.xib; sourceTree = "<group>"; };
 		7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AC71EAA61CC08ECF00B101C2 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
@@ -311,6 +321,12 @@
 				30D6D2861CC891B500FB0CFC /* FoodDetialViewController.h */,
 				30D6D2871CC891B500FB0CFC /* FoodDetialViewController.m */,
 				30D6D2881CC891B500FB0CFC /* FoodDetialViewController.xib */,
+				30D6D28B1CC89C7100FB0CFC /* FoodCommitViewController.h */,
+				30D6D28C1CC89C7100FB0CFC /* FoodCommitViewController.m */,
+				30D6D28D1CC89C7100FB0CFC /* FoodCommitViewController.xib */,
+				30D6D2901CC89E6E00FB0CFC /* FoodCommitCell.h */,
+				30D6D2911CC89E6E00FB0CFC /* FoodCommitCell.m */,
+				30D6D2921CC89E6E00FB0CFC /* FoodCommitCell.xib */,
 			);
 			name = food;
 			sourceTree = "<group>";
@@ -538,11 +554,13 @@
 				3086D3E31CC72B19007494D7 /* Life.storyboard in Resources */,
 				3086D3A61CC729A9007494D7 /* WXTextField.xib in Resources */,
 				3086D3D51CC72ABC007494D7 /* HomeIntroduceCell.xib in Resources */,
+				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
 				3086D3BB1CC72A1E007494D7 /* GMRegisterViewController.xib in Resources */,
 				3086D3E01CC72B19007494D7 /* Home.storyboard in Resources */,
 				30D6D27E1CC87AF500FB0CFC /* FoodViewController.xib in Resources */,
 				ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */,
 				3086D3E41CC72B19007494D7 /* Me.storyboard in Resources */,
+				30D6D2941CC89E6E00FB0CFC /* FoodCommitCell.xib in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
 				3086D3E11CC72B19007494D7 /* Buy.storyboard in Resources */,
 				30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */,
@@ -613,6 +631,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */,
+				30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */,
 				30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */,
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
 				3086D39D1CC7298B007494D7 /* JZMTBtnView.m in Sources */,
@@ -637,6 +656,7 @@
 				30D6D27F1CC87AF500FB0CFC /* FoodCell.m in Sources */,
 				3086D3BA1CC72A1E007494D7 /* GMRegisterViewController.m in Sources */,
 				3086D3D21CC72ABC007494D7 /* HomeNewsCell.m in Sources */,
+				30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */,
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
 				30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */,

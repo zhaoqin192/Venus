@@ -8,13 +8,13 @@
 
 #import "FoodDetialViewController.h"
 #import "XFSegementView.h"
+#import "FoodCommitViewController.h"
 
 @interface FoodDetialViewController ()<TouchLabelDelegate>{
     XFSegementView *segementView;
-
 }
 @property (weak, nonatomic) IBOutlet UIView *titleView;
-
+@property (strong, nonatomic) FoodCommitViewController *commitVC;
 @end
 
 @implementation FoodDetialViewController
@@ -22,7 +22,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.titleView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Group 11"]];
+    [self configureChildController];
     [self configureSegmentView];
+}
+
+- (void)configureChildController{
+    self.commitVC = [[FoodCommitViewController alloc] init];
+    [self addChildViewController:self.commitVC];
 }
 
 - (void)configureSegmentView{
@@ -39,7 +45,10 @@
 }
 
 - (void)touchLabelWithIndex:(NSInteger)index{
-    NSLog(@"我是第%ld个label",index);
+    if (index == 1) {
+        self.commitVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180);
+        [self.view addSubview:self.commitVC.view];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
