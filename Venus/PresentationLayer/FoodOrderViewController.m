@@ -8,6 +8,7 @@
 
 #import "FoodOrderViewController.h"
 #import "FoodCategoryCell.h"
+#import "FoodContentCell.h"
 
 @interface FoodOrderViewController () <UITableViewDelegate,UITableViewDataSource>
 
@@ -28,6 +29,9 @@
     [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([FoodCategoryCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([FoodCategoryCell class])];
     self.categoryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.categoryTableView.backgroundColor = GMBgColor;
+    [self.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+    
+    [self.dataTableView registerNib:[UINib nibWithNibName:NSStringFromClass([FoodContentCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([FoodContentCell class])];
 }
 
 #pragma mark <UITableView>
@@ -37,7 +41,7 @@
         return self.categoryArray.count;
     }
     else{
-        return 0;
+        return 5;
     }
 }
 
@@ -48,7 +52,17 @@
         return cell;
     }
     else{
-        return nil;
+        FoodContentCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FoodContentCell class])];
+        return cell;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView == self.categoryTableView) {
+        return 48;
+    }
+    else{
+        return 78;
     }
 }
 
