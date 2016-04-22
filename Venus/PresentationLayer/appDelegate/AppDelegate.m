@@ -11,11 +11,9 @@
 #import "WXApi.h"
 #import "NetworkFetcher+User.h"
 #import "GMLoginViewController.h"
-
+#import "FoodDetialViewController.h"
 
 @interface AppDelegate ()<WXApiDelegate>
-
-
 @end
 
 
@@ -26,7 +24,6 @@
     // Override point for customization after application launch.
     [WXApi registerApp:@"wxbafcc387a8a8fe31"];
 
-   
     return YES;
 }
 
