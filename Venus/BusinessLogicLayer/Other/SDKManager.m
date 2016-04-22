@@ -11,12 +11,14 @@
 #import <TencentOpenAPI/TencentOAuthObject.h>
 #import <TencentOpenAPI/TencentApiInterface.h>
 #import "WXApi.h"
+#import "NetworkFetcher+User.h"
 
 @interface SDKManager()<TencentSessionDelegate>
 
 @end
 
 @implementation SDKManager
+
 
 static NSString *tencentAppID = @"1105340672";
 
@@ -38,41 +40,42 @@ static NSString *tencentAppID = @"1105340672";
     return sharedInstance;
 }
 
-- (void)authorWithQQ{
+- (void)sendAuthRequestWithQQ{
     NSArray* permissions = [NSArray arrayWithObjects:
                             kOPEN_PERMISSION_GET_USER_INFO,
-//                            kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
-//                            kOPEN_PERMISSION_ADD_ALBUM,
-//                            kOPEN_PERMISSION_ADD_ONE_BLOG,
-//                            kOPEN_PERMISSION_ADD_SHARE,
-//                            kOPEN_PERMISSION_ADD_TOPIC,
-//                            kOPEN_PERMISSION_CHECK_PAGE_FANS,
-//                            kOPEN_PERMISSION_GET_INFO,
-//                            kOPEN_PERMISSION_GET_OTHER_INFO,
-//                            kOPEN_PERMISSION_LIST_ALBUM,
-//                            kOPEN_PERMISSION_UPLOAD_PIC,
-//                            kOPEN_PERMISSION_GET_VIP_INFO,
-//                            kOPEN_PERMISSION_GET_VIP_RICH_INFO,
+                            kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
+                            kOPEN_PERMISSION_ADD_ALBUM,
+                            kOPEN_PERMISSION_ADD_ONE_BLOG,
+                            kOPEN_PERMISSION_ADD_SHARE,
+                            kOPEN_PERMISSION_ADD_TOPIC,
+                            kOPEN_PERMISSION_CHECK_PAGE_FANS,
+                            kOPEN_PERMISSION_GET_INFO,
+                            kOPEN_PERMISSION_GET_OTHER_INFO,
+                            kOPEN_PERMISSION_LIST_ALBUM,
+                            kOPEN_PERMISSION_UPLOAD_PIC,
+                            kOPEN_PERMISSION_GET_VIP_INFO,
+                            kOPEN_PERMISSION_GET_VIP_RICH_INFO,
                             nil];
     [self.tencentOAuth authorize:permissions inSafari:YES];
 }
 
 - (void)tencentDidLogin{
-    NSLog(@"didLogin");
-    NSLog(@"%@", [self.tencentOAuth accessToken]);
-    NSLog(@"%@", [self.tencentOAuth openId]);
+
+    NSLog(@"%lu", (unsigned long)[[self.tencentOAuth openId] length]);
+    [NetworkFetcher userQQIsBoundWithOpenID:[self.tencentOAuth openId] token:[self.tencentOAuth accessToken] success:^{
+        
+    } failure:^(NSString *error) {
+        
+    }];
     
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccessed" object:self];
 }
 
 - (void)tencentDidNotLogin:(BOOL)cancelled{
-    NSLog(@"didNotLogin");
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"loginCancelled" object:self];
+    
 }
 
 - (void)tencentDidNotNetWork{
-    NSLog(@"didNotNetwork");
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"loginFailed" object:self];
+    
 }
 
 - (void)sendAuthRequestWithWeChat{

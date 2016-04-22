@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sTA-34-oG8">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--生活圈-->
+        <scene sceneID="0cK-vK-axf">
+            <objects>
+                <viewController id="sTA-34-oG8" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pyy-Fk-Mik"/>
+                        <viewControllerLayoutGuide type="bottom" id="h58-A1-RjS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="71D-aw-y6v">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="生活圈" image="生活圈" selectedImage="生活圈选中" id="Rie-go-GzR"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7VB-nR-3SF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2828" y="1832"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="生活圈" width="15" height="24"/>
+        <image name="生活圈选中" width="16" height="25"/>
+    </resources>
+</document>

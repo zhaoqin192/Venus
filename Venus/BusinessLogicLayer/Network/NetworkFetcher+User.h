@@ -32,19 +32,49 @@
 + (void)userQQLoginWithSuccess:(NetworkFetcherCompletionHandler)success
                         failure:(NetworkFetcherErrorHandler)failure;
 
+/**
+ *  获取QQ用户信息
+ *
+ *  @param token
+ *  @param openID
+ */
++ (void)userFetchUserInfoWithQQToken:(NSString *)token
+                         openID:(NSString *)openID
+                        success:(void (^)(NSDictionary *userInfo))success
+                        failure:(NetworkFetcherErrorHandler)failure;
 
-+ (void)userQQLoginCallBackWith:(NSString *)code
-                         success:(NetworkFetcherCompletionHandler)success
-                         failure:(NetworkFetcherErrorHandler)failure;
+/**
+ *  判断QQ是否绑定
+ *
+ *  @param openID
+ *  @param success
+ *  @param failure
+ */
++ (void)userQQIsBoundWithOpenID:(NSString *)openID
+                          token:(NSString *)token
+                        success:(NetworkFetcherCompletionHandler)success
+                        failure:(NetworkFetcherErrorHandler)failure;
 
-///**
-// *  微信登录授权
-// *
-// *  @param success
-// *  @param failure 
-// */
-//+ (void)userLoginWithWeiXinSuccess:(NetworkFetcherCompletionHandler)success
-//                            failure:(NetworkFetcherErrorHandler)failure;
+/**
+ *  绑定QQ号
+ *
+ *  @param openID
+ *  @param name
+ *  @param sex
+ *  @param avatar
+ *  @param account
+ *  @param password
+ *  @param success
+ *  @param failure
+ */
++ (void)userBindQQWithOpenID:(NSString *)openID
+                        name:(NSString *)name
+                      avatar:(NSString *)avatar
+                     account:(NSString *)phone
+                    password:(NSString *)password
+                       token:(NSString *)token
+                     success:(NetworkFetcherCompletionHandler)success
+                     failure:(NetworkFetcherErrorHandler)failure;
 
 /**
  *  获取token
@@ -58,16 +88,16 @@
                              failure:(NetworkFetcherErrorHandler)failure;
 
 /**
- *  获取用户信息
+ *  WeChat使用token及openID获取用户信息
  *
  *  @param token
  *  @param openID
  *  @param success
  *  @param faiure
  */
-+ (void)userFetchUserInfoWithToken:(NSString *)token
++ (void)userFetchUserInfoWithWeChatToken:(NSString *)token
                             openID:(NSString *)openID
-                           Success:(NetworkFetcherCompletionHandler)success
+                           Success:(void (^)(NSDictionary *userInfo))success
                            failure:(NetworkFetcherErrorHandler)faiure;
 
 /**
@@ -86,8 +116,9 @@
                             name:(NSString *)name
                              sex:(NSNumber *)sex
                           avatar:(NSString *)avatar
-                         account:(NSString *)account
+                         account:(NSString *)phone
                         password:(NSString *)password
+                           token:(NSString *)token
                          success:(NetworkFetcherCompletionHandler)success
                          failure:(NetworkFetcherErrorHandler)failure;
 
@@ -103,4 +134,102 @@
                             success:(NetworkFetcherCompletionHandler)success
                             failure:(NetworkFetcherErrorHandler)failure;
 
+/**
+ *  验证手机号
+ *
+ *  @param number
+ *  @param success
+ *  @param failure
+ */
++ (void)userCheckMobileWithNumber:(NSString *)number
+                          success:(NetworkFetcherCompletionHandler)success
+                          failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  注册用户
+ *
+ *  @param phone
+ *  @param password
+ *  @param code
+ *  @param success
+ *  @param failure
+ */
++ (void)userRegisterWithPhone:(NSString *)phone
+                     password:(NSString *)password
+                        token:(NSString *)token
+                      success:(NetworkFetcherCompletionHandler)success
+                      failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  发送验证码
+ *
+ *  @param number
+ *  @param success
+ *  @param failure
+ */
++ (void)userSendCodeWithNumber:(NSString *)number
+                       success:(NetworkFetcherCompletionHandler)success
+                       failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  检验短信验证码
+ *
+ *  @param code
+ *  @param number
+ *  @param success
+ *  @param failure
+ */
++ (void)userValidateSMS:(NSString *)code
+                 mobile:(NSString *)number
+                success:(void (^)(NSString *token))success
+                failure:(NetworkFetcherErrorHandler)failure;
+
+
+
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,10 +25,9 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         self.manager = [AFHTTPSessionManager manager];
-        self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", nil];
+        self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", @"text/html", nil];
     });
     return self.manager;
 }
-
 
 @end

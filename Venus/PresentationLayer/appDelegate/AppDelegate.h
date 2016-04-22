@@ -11,17 +11,23 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+typedef enum _ACCOUNT_STATE{
+    ORDINARY,
+    WECHAT,
+    QQ,
+    WEIBO
+}ACCOUNT_STATE;
+
 @property (strong, nonatomic) UIWindow *window;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (nonatomic, strong) NSString *sdkSelection;
+@property ACCOUNT_STATE state;
 
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
 
 @end
 

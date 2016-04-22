@@ -1,0 +1,25 @@
+//
+//  PrefixHeader.pch
+//  Venus
+//
+//  Created by 王霄 on 16/4/15.
+//  Copyright © 2016年 Neotel. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <YYCategories/YYCategories.h>
+
+#define GMRedColor [UIColor colorWithHexString:@"B01C2E"]
+#define GMBrownColor [UIColor colorWithHexString:@"A6873B"]
+#define GMBgColor [UIColor colorWithHexString:@"F5F5F5"]
+#define GMFontColor [UIColor colorWithHexString:@"4A4A4A"]
+#define GMTipFontColor [UIColor colorWithHexString:@"9B9B9B"]
+
+#import "GMButton.h"
+#import "GMLabel.h"
+#import "WXTextField.h"
+#import "LCUIKit.h"
+
+#endif /* PrefixHeader_pch */

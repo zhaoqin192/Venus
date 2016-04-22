@@ -18,7 +18,7 @@
 
 + (SDKManager *)sharedInstance;
 
-- (void)authorWithQQ;
+- (void)sendAuthRequestWithQQ;
 
 - (void)sendAuthRequestWithWeChat;
 @end
