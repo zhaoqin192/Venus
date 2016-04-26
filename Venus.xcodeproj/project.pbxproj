@@ -30,6 +30,12 @@
 		303519671CCF377A00EE0750 /* TicketDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519651CCF377A00EE0750 /* TicketDateCell.xib */; };
 		3035196B1CCF393700EE0750 /* TicketCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 303519691CCF393700EE0750 /* TicketCommitCell.m */; };
 		3035196C1CCF393700EE0750 /* TicketCommitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035196A1CCF393700EE0750 /* TicketCommitCell.xib */; };
+		303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035196F1CCF47CE00EE0750 /* ShopViewController.m */; };
+		303519721CCF47CE00EE0750 /* ShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519701CCF47CE00EE0750 /* ShopViewController.xib */; };
+		303519761CCF4B8A00EE0750 /* ShopCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303519741CCF4B8A00EE0750 /* ShopCommitViewController.m */; };
+		303519771CCF4B8A00EE0750 /* ShopCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519751CCF4B8A00EE0750 /* ShopCommitViewController.xib */; };
+		3035197C1CCF4CB900EE0750 /* ShopCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035197A1CCF4CB900EE0750 /* ShopCommitCell.m */; };
+		3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035197B1CCF4CB900EE0750 /* ShopCommitCell.xib */; };
 		3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3931CC72975007494D7 /* UIButton+LCAlignment.m */; };
 		3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3951CC72975007494D7 /* UIColor+LCHexValue.m */; };
 		3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3971CC72975007494D7 /* UILabel+LCConvenience.m */; };
@@ -153,6 +159,15 @@
 		303519681CCF393700EE0750 /* TicketCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketCommitCell.h; sourceTree = "<group>"; };
 		303519691CCF393700EE0750 /* TicketCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketCommitCell.m; sourceTree = "<group>"; };
 		3035196A1CCF393700EE0750 /* TicketCommitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketCommitCell.xib; sourceTree = "<group>"; };
+		3035196E1CCF47CE00EE0750 /* ShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopViewController.h; sourceTree = "<group>"; };
+		3035196F1CCF47CE00EE0750 /* ShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopViewController.m; sourceTree = "<group>"; };
+		303519701CCF47CE00EE0750 /* ShopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopViewController.xib; sourceTree = "<group>"; };
+		303519731CCF4B8A00EE0750 /* ShopCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCommitViewController.h; sourceTree = "<group>"; };
+		303519741CCF4B8A00EE0750 /* ShopCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCommitViewController.m; sourceTree = "<group>"; };
+		303519751CCF4B8A00EE0750 /* ShopCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCommitViewController.xib; sourceTree = "<group>"; };
+		303519791CCF4CB900EE0750 /* ShopCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCommitCell.h; sourceTree = "<group>"; };
+		3035197A1CCF4CB900EE0750 /* ShopCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCommitCell.m; sourceTree = "<group>"; };
+		3035197B1CCF4CB900EE0750 /* ShopCommitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCommitCell.xib; sourceTree = "<group>"; };
 		3086D38F1CC728F0007494D7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3086D3911CC72975007494D7 /* LCUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUIKit.h; sourceTree = "<group>"; };
 		3086D3921CC72975007494D7 /* UIButton+LCAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LCAlignment.h"; sourceTree = "<group>"; };
@@ -348,6 +363,30 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
+		3035196D1CCF47B800EE0750 /* shop */ = {
+			isa = PBXGroup;
+			children = (
+				303519781CCF4CA600EE0750 /* cell */,
+				3035196E1CCF47CE00EE0750 /* ShopViewController.h */,
+				3035196F1CCF47CE00EE0750 /* ShopViewController.m */,
+				303519701CCF47CE00EE0750 /* ShopViewController.xib */,
+				303519731CCF4B8A00EE0750 /* ShopCommitViewController.h */,
+				303519741CCF4B8A00EE0750 /* ShopCommitViewController.m */,
+				303519751CCF4B8A00EE0750 /* ShopCommitViewController.xib */,
+			);
+			name = shop;
+			sourceTree = "<group>";
+		};
+		303519781CCF4CA600EE0750 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				303519791CCF4CB900EE0750 /* ShopCommitCell.h */,
+				3035197A1CCF4CB900EE0750 /* ShopCommitCell.m */,
+				3035197B1CCF4CB900EE0750 /* ShopCommitCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 		3086D3901CC72975007494D7 /* LCUIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +525,7 @@
 		30D6D2751CC87AE100FB0CFC /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				3035196D1CCF47B800EE0750 /* shop */,
 				3025A98B1CCE3ED500C5EAAB /* group */,
 				30D6D2761CC87AE800FB0CFC /* food */,
 			);
@@ -862,6 +902,7 @@
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
 				303519581CCF1F9500EE0750 /* TicketHeaderCell.xib in Resources */,
 				30D6D29A1CC8A3F700FB0CFC /* FoodOrderViewController.xib in Resources */,
+				303519721CCF47CE00EE0750 /* ShopViewController.xib in Resources */,
 				3086D3E31CC72B19007494D7 /* Life.storyboard in Resources */,
 				303519451CCF0B0500EE0750 /* MoneyCell.xib in Resources */,
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
@@ -874,6 +915,7 @@
 				303519671CCF377A00EE0750 /* TicketDateCell.xib in Resources */,
 				3035196C1CCF393700EE0750 /* TicketCommitCell.xib in Resources */,
 				3086D3E01CC72B19007494D7 /* Home.storyboard in Resources */,
+				303519771CCF4B8A00EE0750 /* ShopCommitViewController.xib in Resources */,
 				30D6D27E1CC87AF500FB0CFC /* FoodViewController.xib in Resources */,
 				ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */,
 				3086D3E41CC72B19007494D7 /* Me.storyboard in Resources */,
@@ -888,6 +930,7 @@
 				303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */,
 				3086D3DF1CC72B19007494D7 /* Main.storyboard in Resources */,
 				3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */,
+				3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */,
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
 				3086D3E21CC72B19007494D7 /* Category.storyboard in Resources */,
@@ -962,6 +1005,7 @@
 				ACB78A451CC867BC00354B11 /* PresentationUtility.m in Sources */,
 				3086D3D01CC72ABC007494D7 /* HomePageViewController.m in Sources */,
 				3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */,
+				3035197C1CCF4CB900EE0750 /* ShopCommitCell.m in Sources */,
 				3086D3B51CC72A09007494D7 /* GMLabel.m in Sources */,
 				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
 				AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */,
@@ -980,6 +1024,7 @@
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
 				303519571CCF1F9500EE0750 /* TicketHeaderCell.m in Sources */,
 				AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */,
+				303519761CCF4B8A00EE0750 /* ShopCommitViewController.m in Sources */,
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,
 				30D6D29E1CC8A85B00FB0CFC /* FoodCategoryCell.m in Sources */,
@@ -1000,6 +1045,7 @@
 				303519491CCF0D3000EE0750 /* MoneyCardViewController.m in Sources */,
 				303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
+				303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */,
 				30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@
 #import "WXApi.h"
 #import "NetworkFetcher+User.h"
 #import "GMLoginViewController.h"
-#import "TicketDetailViewController.h"
+#import "ShopViewController.h"
 @interface AppDelegate ()<WXApiDelegate>
 @end
 
@@ -22,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] init];
-    TicketDetailViewController *vc = [[TicketDetailViewController alloc] init];
+    ShopViewController *vc = [[ShopViewController alloc] init];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
 
