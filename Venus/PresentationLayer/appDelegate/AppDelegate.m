@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "FoodDetialViewController.h"
+#import "GroupPurchaseViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] init];
-    FoodDetialViewController *vc = [[FoodDetialViewController alloc] init];
+    GroupPurchaseViewController *vc = [[GroupPurchaseViewController alloc] init];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
     return YES;

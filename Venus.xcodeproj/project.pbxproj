@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0E9E7CF44B2FAC9667513636 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 177D12BE652A285B1BDD4D47 /* libPods.a */; };
+		3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025A98D1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m */; };
+		3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3025A98E1CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib */; };
+		3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025A9921CCE3FD700C5EAAB /* PackageViewController.m */; };
+		3025A9951CCE3FD700C5EAAB /* PackageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3025A9931CCE3FD700C5EAAB /* PackageViewController.xib */; };
+		3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025A9971CCE40D800C5EAAB /* PackageCell.m */; };
+		3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3025A9981CCE40D800C5EAAB /* PackageCell.xib */; };
 		3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3931CC72975007494D7 /* UIButton+LCAlignment.m */; };
 		3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3951CC72975007494D7 /* UIColor+LCHexValue.m */; };
 		3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3971CC72975007494D7 /* UILabel+LCConvenience.m */; };
@@ -70,6 +76,15 @@
 
 /* Begin PBXFileReference section */
 		177D12BE652A285B1BDD4D47 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3025A98C1CCE3F2E00C5EAAB /* GroupPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupPurchaseViewController.h; sourceTree = "<group>"; };
+		3025A98D1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupPurchaseViewController.m; sourceTree = "<group>"; };
+		3025A98E1CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupPurchaseViewController.xib; sourceTree = "<group>"; };
+		3025A9911CCE3FD700C5EAAB /* PackageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageViewController.h; sourceTree = "<group>"; };
+		3025A9921CCE3FD700C5EAAB /* PackageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageViewController.m; sourceTree = "<group>"; };
+		3025A9931CCE3FD700C5EAAB /* PackageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PackageViewController.xib; sourceTree = "<group>"; };
+		3025A9961CCE40D800C5EAAB /* PackageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageCell.h; sourceTree = "<group>"; };
+		3025A9971CCE40D800C5EAAB /* PackageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageCell.m; sourceTree = "<group>"; };
+		3025A9981CCE40D800C5EAAB /* PackageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PackageCell.xib; sourceTree = "<group>"; };
 		3086D38F1CC728F0007494D7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3086D3911CC72975007494D7 /* LCUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUIKit.h; sourceTree = "<group>"; };
 		3086D3921CC72975007494D7 /* UIButton+LCAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LCAlignment.h"; sourceTree = "<group>"; };
@@ -181,6 +196,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3025A98B1CCE3ED500C5EAAB /* group */ = {
+			isa = PBXGroup;
+			children = (
+				3025A99B1CCE40E000C5EAAB /* cell */,
+				3025A98C1CCE3F2E00C5EAAB /* GroupPurchaseViewController.h */,
+				3025A98D1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m */,
+				3025A98E1CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib */,
+				3025A9911CCE3FD700C5EAAB /* PackageViewController.h */,
+				3025A9921CCE3FD700C5EAAB /* PackageViewController.m */,
+				3025A9931CCE3FD700C5EAAB /* PackageViewController.xib */,
+			);
+			name = group;
+			sourceTree = "<group>";
+		};
+		3025A99B1CCE40E000C5EAAB /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				3025A9961CCE40D800C5EAAB /* PackageCell.h */,
+				3025A9971CCE40D800C5EAAB /* PackageCell.m */,
+				3025A9981CCE40D800C5EAAB /* PackageCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 		3086D3901CC72975007494D7 /* LCUIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +358,7 @@
 		30D6D2751CC87AE100FB0CFC /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				3025A98B1CCE3ED500C5EAAB /* group */,
 				30D6D2761CC87AE800FB0CFC /* food */,
 			);
 			name = controller;
@@ -585,6 +625,7 @@
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
 				30D6D29A1CC8A3F700FB0CFC /* FoodOrderViewController.xib in Resources */,
 				3086D3E31CC72B19007494D7 /* Life.storyboard in Resources */,
+				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
 				3086D3A61CC729A9007494D7 /* WXTextField.xib in Resources */,
 				3086D3D51CC72ABC007494D7 /* HomeIntroduceCell.xib in Resources */,
 				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
@@ -594,12 +635,14 @@
 				ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */,
 				3086D3E41CC72B19007494D7 /* Me.storyboard in Resources */,
 				30D6D2A41CC8B1BF00FB0CFC /* FoodContentCell.xib in Resources */,
+				3025A9951CCE3FD700C5EAAB /* PackageViewController.xib in Resources */,
 				30D6D29F1CC8A85B00FB0CFC /* FoodCategoryCell.xib in Resources */,
 				30D6D2941CC89E6E00FB0CFC /* FoodCommitCell.xib in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
 				3086D3E11CC72B19007494D7 /* Buy.storyboard in Resources */,
 				30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */,
 				3086D3DF1CC72B19007494D7 /* Main.storyboard in Resources */,
+				3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */,
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
 				3086D3E21CC72B19007494D7 /* Category.storyboard in Resources */,
@@ -674,6 +717,7 @@
 				3086D3D01CC72ABC007494D7 /* HomePageViewController.m in Sources */,
 				3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */,
 				3086D3B51CC72A09007494D7 /* GMLabel.m in Sources */,
+				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
 				3086D3C01CC72A8C007494D7 /* GMLoginViewController.m in Sources */,
 				3086D3D41CC72ABC007494D7 /* HomeIntroduceCell.m in Sources */,
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
@@ -688,9 +732,11 @@
 				30D6D2991CC8A3F700FB0CFC /* FoodOrderViewController.m in Sources */,
 				3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */,
 				ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */,
+				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */,
 				3086D3B61CC72A09007494D7 /* GMXTextField.m in Sources */,
 				30D6D27F1CC87AF500FB0CFC /* FoodCell.m in Sources */,
+				3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */,
 				3086D3BA1CC72A1E007494D7 /* GMRegisterViewController.m in Sources */,
 				30D6D2A31CC8B1BF00FB0CFC /* FoodContentCell.m in Sources */,
 				3086D3D21CC72ABC007494D7 /* HomeNewsCell.m in Sources */,
