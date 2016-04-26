@@ -9,13 +9,14 @@
 #import "GroupPurchaseViewController.h"
 #import "XFSegementView.h"
 #import "PackageViewController.h"
+#import "MoneyCardViewController.h"
 
 @interface GroupPurchaseViewController ()<TouchLabelDelegate>{
     XFSegementView *segementView;
 }
 
 @property (strong, nonatomic) PackageViewController *packageVC;
-//@property (strong, nonatomic) FoodOrderViewController *orderVC;
+@property (strong, nonatomic) MoneyCardViewController *moneyVC;
 @end
 
 @implementation GroupPurchaseViewController
@@ -34,8 +35,8 @@
 - (void)configureChildController{
     self.packageVC = [[PackageViewController alloc] init];
     [self addChildViewController:self.packageVC];
-//    self.orderVC = [[FoodOrderViewController alloc] init];
-//    [self addChildViewController:self.orderVC];
+    self.moneyVC = [[MoneyCardViewController alloc] init];
+    [self addChildViewController:self.moneyVC];
 }
 
 - (void)configureSegmentView{
@@ -56,10 +57,10 @@
         self.packageVC.view.frame = CGRectMake(0, 104, kScreenWidth, kScreenHeight - 104);
         [self.view addSubview:self.packageVC.view];
     }
-//    else{
-//        self.orderVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180);
-//        [self.view addSubview:self.orderVC.view];
-//    }
+    else{
+        self.moneyVC.view.frame = CGRectMake(0, 104, kScreenWidth, kScreenHeight - 104);
+        [self.view addSubview:self.moneyVC.view];
+    }
 }
 
 

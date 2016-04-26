@@ -14,6 +14,10 @@
 		3025A9951CCE3FD700C5EAAB /* PackageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3025A9931CCE3FD700C5EAAB /* PackageViewController.xib */; };
 		3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025A9971CCE40D800C5EAAB /* PackageCell.m */; };
 		3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3025A9981CCE40D800C5EAAB /* PackageCell.xib */; };
+		303519441CCF0B0500EE0750 /* MoneyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 303519421CCF0B0500EE0750 /* MoneyCell.m */; };
+		303519451CCF0B0500EE0750 /* MoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519431CCF0B0500EE0750 /* MoneyCell.xib */; };
+		303519491CCF0D3000EE0750 /* MoneyCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303519471CCF0D3000EE0750 /* MoneyCardViewController.m */; };
+		3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519481CCF0D3000EE0750 /* MoneyCardViewController.xib */; };
 		3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3931CC72975007494D7 /* UIButton+LCAlignment.m */; };
 		3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3951CC72975007494D7 /* UIColor+LCHexValue.m */; };
 		3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3971CC72975007494D7 /* UILabel+LCConvenience.m */; };
@@ -85,6 +89,12 @@
 		3025A9961CCE40D800C5EAAB /* PackageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageCell.h; sourceTree = "<group>"; };
 		3025A9971CCE40D800C5EAAB /* PackageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageCell.m; sourceTree = "<group>"; };
 		3025A9981CCE40D800C5EAAB /* PackageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PackageCell.xib; sourceTree = "<group>"; };
+		303519411CCF0B0500EE0750 /* MoneyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyCell.h; sourceTree = "<group>"; };
+		303519421CCF0B0500EE0750 /* MoneyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyCell.m; sourceTree = "<group>"; };
+		303519431CCF0B0500EE0750 /* MoneyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoneyCell.xib; sourceTree = "<group>"; };
+		303519461CCF0D3000EE0750 /* MoneyCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyCardViewController.h; sourceTree = "<group>"; };
+		303519471CCF0D3000EE0750 /* MoneyCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyCardViewController.m; sourceTree = "<group>"; };
+		303519481CCF0D3000EE0750 /* MoneyCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoneyCardViewController.xib; sourceTree = "<group>"; };
 		3086D38F1CC728F0007494D7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3086D3911CC72975007494D7 /* LCUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUIKit.h; sourceTree = "<group>"; };
 		3086D3921CC72975007494D7 /* UIButton+LCAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LCAlignment.h"; sourceTree = "<group>"; };
@@ -206,6 +216,9 @@
 				3025A9911CCE3FD700C5EAAB /* PackageViewController.h */,
 				3025A9921CCE3FD700C5EAAB /* PackageViewController.m */,
 				3025A9931CCE3FD700C5EAAB /* PackageViewController.xib */,
+				303519461CCF0D3000EE0750 /* MoneyCardViewController.h */,
+				303519471CCF0D3000EE0750 /* MoneyCardViewController.m */,
+				303519481CCF0D3000EE0750 /* MoneyCardViewController.xib */,
 			);
 			name = group;
 			sourceTree = "<group>";
@@ -216,6 +229,9 @@
 				3025A9961CCE40D800C5EAAB /* PackageCell.h */,
 				3025A9971CCE40D800C5EAAB /* PackageCell.m */,
 				3025A9981CCE40D800C5EAAB /* PackageCell.xib */,
+				303519411CCF0B0500EE0750 /* MoneyCell.h */,
+				303519421CCF0B0500EE0750 /* MoneyCell.m */,
+				303519431CCF0B0500EE0750 /* MoneyCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -625,9 +641,11 @@
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
 				30D6D29A1CC8A3F700FB0CFC /* FoodOrderViewController.xib in Resources */,
 				3086D3E31CC72B19007494D7 /* Life.storyboard in Resources */,
+				303519451CCF0B0500EE0750 /* MoneyCell.xib in Resources */,
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
 				3086D3A61CC729A9007494D7 /* WXTextField.xib in Resources */,
 				3086D3D51CC72ABC007494D7 /* HomeIntroduceCell.xib in Resources */,
+				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
 				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
 				3086D3BB1CC72A1E007494D7 /* GMRegisterViewController.xib in Resources */,
 				3086D3E01CC72B19007494D7 /* Home.storyboard in Resources */,
@@ -725,6 +743,7 @@
 				30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */,
 				3086D3A51CC729A9007494D7 /* WXTextField.m in Sources */,
 				3086D3B41CC72A09007494D7 /* GMButton.m in Sources */,
+				303519441CCF0B0500EE0750 /* MoneyCell.m in Sources */,
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,
 				AC71EAB51CC0A59C00B101C2 /* LoginViewController.m in Sources */,
@@ -742,6 +761,7 @@
 				3086D3D21CC72ABC007494D7 /* HomeNewsCell.m in Sources */,
 				30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */,
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
+				303519491CCF0D3000EE0750 /* MoneyCardViewController.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
 				30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */,
 			);

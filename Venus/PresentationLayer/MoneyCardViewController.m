@@ -1,19 +1,19 @@
 //
-//  PackageViewController.m
+//  MoneyCardViewController.m
 //  Venus
 //
-//  Created by 王霄 on 16/4/25.
+//  Created by 王霄 on 16/4/26.
 //  Copyright © 2016年 Neotel. All rights reserved.
 //
 
-#import "PackageViewController.h"
-#import "PackageCell.h"
+#import "MoneyCardViewController.h"
+#import "MoneyCell.h"
 
-@interface PackageViewController () <UITableViewDataSource,UITableViewDelegate>
+@interface MoneyCardViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
-@implementation PackageViewController
+@implementation MoneyCardViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,11 +21,10 @@
 }
 
 - (void)configureTableView{
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([PackageCell class]) bundle:nil]  forCellReuseIdentifier:NSStringFromClass([PackageCell class])];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([MoneyCell class]) bundle:nil]  forCellReuseIdentifier:NSStringFromClass([MoneyCell class])];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = GMBgColor;
 }
-
 
 #pragma mark - UITableViewDataSource
 
@@ -34,13 +33,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    PackageCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([PackageCell class])];
+    MoneyCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MoneyCell class])];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 280;
+    return 100;
 }
-
 
 @end

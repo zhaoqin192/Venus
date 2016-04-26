@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoneyCell" id="KGk-i7-Jjw" customClass="MoneyCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zd3-lA-04z">
+                        <rect key="frame" x="5" y="5" width="151" height="89"/>
+                        <color key="backgroundColor" red="0.10916940789473684" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="151" id="NtP-vH-ZxH"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金福轩韩式自助烤肉火锅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDk-om-gQi">
+                        <rect key="frame" x="164" y="5" width="187" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="84k-Dm-rg9"/>
+                            <constraint firstAttribute="width" constant="187" id="HaP-rc-as4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="面值100元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQq-aG-gXK">
+                        <rect key="frame" x="164" y="51" width="80" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="Ksb-ty-KSo"/>
+                            <constraint firstAttribute="width" constant="80" id="saR-mX-y6G"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已售1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEa-Mw-xab">
+                        <rect key="frame" x="164" y="74" width="73" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="MPn-xF-kVm"/>
+                            <constraint firstAttribute="width" constant="73" id="Sv0-Sk-vin"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址：A座3f-1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3t-iW-1TQ">
+                        <rect key="frame" x="164" y="28" width="141" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="141" id="PZt-dT-BS4"/>
+                            <constraint firstAttribute="height" constant="15" id="SIj-1K-lgM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="QQq-aG-gXK" firstAttribute="leading" secondItem="s3t-iW-1TQ" secondAttribute="leading" id="6Q2-xZ-LIh"/>
+                    <constraint firstItem="s3t-iW-1TQ" firstAttribute="top" secondItem="XDk-om-gQi" secondAttribute="bottom" constant="8" id="9SF-He-Pry"/>
+                    <constraint firstAttribute="bottom" secondItem="zd3-lA-04z" secondAttribute="bottom" constant="5" id="DEG-KS-FYe"/>
+                    <constraint firstItem="XDk-om-gQi" firstAttribute="leading" secondItem="zd3-lA-04z" secondAttribute="trailing" constant="8" id="FPy-Xf-U7d"/>
+                    <constraint firstItem="s3t-iW-1TQ" firstAttribute="leading" secondItem="XDk-om-gQi" secondAttribute="leading" id="M5W-K3-mNo"/>
+                    <constraint firstItem="XDk-om-gQi" firstAttribute="top" secondItem="zd3-lA-04z" secondAttribute="top" id="Wi3-zj-YXo"/>
+                    <constraint firstItem="zd3-lA-04z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="dFG-jc-eV3"/>
+                    <constraint firstItem="QQq-aG-gXK" firstAttribute="top" secondItem="s3t-iW-1TQ" secondAttribute="bottom" constant="8" id="eKO-Ba-QXN"/>
+                    <constraint firstItem="pEa-Mw-xab" firstAttribute="leading" secondItem="QQq-aG-gXK" secondAttribute="leading" id="gWl-If-wff"/>
+                    <constraint firstItem="pEa-Mw-xab" firstAttribute="top" secondItem="QQq-aG-gXK" secondAttribute="bottom" constant="8" id="k3e-NW-Msk"/>
+                    <constraint firstItem="zd3-lA-04z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="pWq-oT-jBx"/>
+                    <constraint firstItem="XDk-om-gQi" firstAttribute="top" secondItem="zd3-lA-04z" secondAttribute="top" id="vnY-g8-UB9"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="vnY-g8-UB9"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="256.5" y="404"/>
+        </tableViewCell>
+    </objects>
+</document>
