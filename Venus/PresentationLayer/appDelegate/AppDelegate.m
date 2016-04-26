@@ -7,13 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "GroupPurchaseViewController.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "WXApi.h"
 #import "NetworkFetcher+User.h"
 #import "GMLoginViewController.h"
-#import "FoodDetialViewController.h"
-
+#import "TicketDetailViewController.h"
 @interface AppDelegate ()<WXApiDelegate>
 @end
 
@@ -24,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] init];
-    GroupPurchaseViewController *vc = [[GroupPurchaseViewController alloc] init];
+    TicketDetailViewController *vc = [[TicketDetailViewController alloc] init];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
 

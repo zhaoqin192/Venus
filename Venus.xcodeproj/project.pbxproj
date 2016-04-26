@@ -18,6 +18,18 @@
 		303519451CCF0B0500EE0750 /* MoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519431CCF0B0500EE0750 /* MoneyCell.xib */; };
 		303519491CCF0D3000EE0750 /* MoneyCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303519471CCF0D3000EE0750 /* MoneyCardViewController.m */; };
 		3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519481CCF0D3000EE0750 /* MoneyCardViewController.xib */; };
+		303519511CCF1B3F00EE0750 /* TicketDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035194F1CCF1B3F00EE0750 /* TicketDetailViewController.m */; };
+		303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519501CCF1B3F00EE0750 /* TicketDetailViewController.xib */; };
+		303519571CCF1F9500EE0750 /* TicketHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 303519551CCF1F9500EE0750 /* TicketHeaderCell.m */; };
+		303519581CCF1F9500EE0750 /* TicketHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519561CCF1F9500EE0750 /* TicketHeaderCell.xib */; };
+		3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035195A1CCF316800EE0750 /* TicketInformationCell.m */; };
+		3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035195B1CCF316800EE0750 /* TicketInformationCell.xib */; };
+		303519611CCF348F00EE0750 /* TicketCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035195F1CCF348F00EE0750 /* TicketCountCell.m */; };
+		303519621CCF348F00EE0750 /* TicketCountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519601CCF348F00EE0750 /* TicketCountCell.xib */; };
+		303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 303519641CCF377A00EE0750 /* TicketDateCell.m */; };
+		303519671CCF377A00EE0750 /* TicketDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519651CCF377A00EE0750 /* TicketDateCell.xib */; };
+		3035196B1CCF393700EE0750 /* TicketCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 303519691CCF393700EE0750 /* TicketCommitCell.m */; };
+		3035196C1CCF393700EE0750 /* TicketCommitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035196A1CCF393700EE0750 /* TicketCommitCell.xib */; };
 		3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3931CC72975007494D7 /* UIButton+LCAlignment.m */; };
 		3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3951CC72975007494D7 /* UIColor+LCHexValue.m */; };
 		3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3971CC72975007494D7 /* UILabel+LCConvenience.m */; };
@@ -47,15 +59,6 @@
 		3086D3E21CC72B19007494D7 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DC1CC72B19007494D7 /* Category.storyboard */; };
 		3086D3E31CC72B19007494D7 /* Life.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DD1CC72B19007494D7 /* Life.storyboard */; };
 		3086D3E41CC72B19007494D7 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DE1CC72B19007494D7 /* Me.storyboard */; };
-		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
-		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
-		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
-		AC0359081CC4D78600EC7BBC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359071CC4D78600EC7BBC /* libz.tbd */; };
-		AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */; };
-		AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48C81CCA48CA00724914 /* read_me.txt */; };
-		AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48CE1CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle */; };
-		AC5B48D11CCA496E00724914 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48CF1CCA496E00724914 /* TencentOpenAPI.framework */; };
-		AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5B48D31CCA49D200724914 /* SDKManager.m */; };
 		30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2701CC87ACE00FB0CFC /* ico_make.png */; };
 		30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2721CC87ACE00FB0CFC /* JSDropDownMenu.m */; };
 		30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2781CC87AF500FB0CFC /* FoodViewController.m */; };
@@ -75,6 +78,15 @@
 		30D6D29F1CC8A85B00FB0CFC /* FoodCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D29D1CC8A85B00FB0CFC /* FoodCategoryCell.xib */; };
 		30D6D2A31CC8B1BF00FB0CFC /* FoodContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2A11CC8B1BF00FB0CFC /* FoodContentCell.m */; };
 		30D6D2A41CC8B1BF00FB0CFC /* FoodContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2A21CC8B1BF00FB0CFC /* FoodContentCell.xib */; };
+		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
+		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
+		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
+		AC0359081CC4D78600EC7BBC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359071CC4D78600EC7BBC /* libz.tbd */; };
+		AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */; };
+		AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48C81CCA48CA00724914 /* read_me.txt */; };
+		AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48CE1CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		AC5B48D11CCA496E00724914 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48CF1CCA496E00724914 /* TencentOpenAPI.framework */; };
+		AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5B48D31CCA49D200724914 /* SDKManager.m */; };
 		AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */; };
 		AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAAA1CC08FCD00B101C2 /* NetworkFetcher.m */; };
 		AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */; };
@@ -123,6 +135,24 @@
 		303519461CCF0D3000EE0750 /* MoneyCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyCardViewController.h; sourceTree = "<group>"; };
 		303519471CCF0D3000EE0750 /* MoneyCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyCardViewController.m; sourceTree = "<group>"; };
 		303519481CCF0D3000EE0750 /* MoneyCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoneyCardViewController.xib; sourceTree = "<group>"; };
+		3035194E1CCF1B3F00EE0750 /* TicketDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketDetailViewController.h; sourceTree = "<group>"; };
+		3035194F1CCF1B3F00EE0750 /* TicketDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketDetailViewController.m; sourceTree = "<group>"; };
+		303519501CCF1B3F00EE0750 /* TicketDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketDetailViewController.xib; sourceTree = "<group>"; };
+		303519541CCF1F9500EE0750 /* TicketHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketHeaderCell.h; sourceTree = "<group>"; };
+		303519551CCF1F9500EE0750 /* TicketHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketHeaderCell.m; sourceTree = "<group>"; };
+		303519561CCF1F9500EE0750 /* TicketHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketHeaderCell.xib; sourceTree = "<group>"; };
+		303519591CCF316800EE0750 /* TicketInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketInformationCell.h; sourceTree = "<group>"; };
+		3035195A1CCF316800EE0750 /* TicketInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketInformationCell.m; sourceTree = "<group>"; };
+		3035195B1CCF316800EE0750 /* TicketInformationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketInformationCell.xib; sourceTree = "<group>"; };
+		3035195E1CCF348F00EE0750 /* TicketCountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketCountCell.h; sourceTree = "<group>"; };
+		3035195F1CCF348F00EE0750 /* TicketCountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketCountCell.m; sourceTree = "<group>"; };
+		303519601CCF348F00EE0750 /* TicketCountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketCountCell.xib; sourceTree = "<group>"; };
+		303519631CCF377A00EE0750 /* TicketDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketDateCell.h; sourceTree = "<group>"; };
+		303519641CCF377A00EE0750 /* TicketDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketDateCell.m; sourceTree = "<group>"; };
+		303519651CCF377A00EE0750 /* TicketDateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketDateCell.xib; sourceTree = "<group>"; };
+		303519681CCF393700EE0750 /* TicketCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketCommitCell.h; sourceTree = "<group>"; };
+		303519691CCF393700EE0750 /* TicketCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketCommitCell.m; sourceTree = "<group>"; };
+		3035196A1CCF393700EE0750 /* TicketCommitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TicketCommitCell.xib; sourceTree = "<group>"; };
 		3086D38F1CC728F0007494D7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3086D3911CC72975007494D7 /* LCUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUIKit.h; sourceTree = "<group>"; };
 		3086D3921CC72975007494D7 /* UIButton+LCAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LCAlignment.h"; sourceTree = "<group>"; };
@@ -283,6 +313,9 @@
 				303519461CCF0D3000EE0750 /* MoneyCardViewController.h */,
 				303519471CCF0D3000EE0750 /* MoneyCardViewController.m */,
 				303519481CCF0D3000EE0750 /* MoneyCardViewController.xib */,
+				3035194E1CCF1B3F00EE0750 /* TicketDetailViewController.h */,
+				3035194F1CCF1B3F00EE0750 /* TicketDetailViewController.m */,
+				303519501CCF1B3F00EE0750 /* TicketDetailViewController.xib */,
 			);
 			name = group;
 			sourceTree = "<group>";
@@ -296,6 +329,21 @@
 				303519411CCF0B0500EE0750 /* MoneyCell.h */,
 				303519421CCF0B0500EE0750 /* MoneyCell.m */,
 				303519431CCF0B0500EE0750 /* MoneyCell.xib */,
+				303519541CCF1F9500EE0750 /* TicketHeaderCell.h */,
+				303519551CCF1F9500EE0750 /* TicketHeaderCell.m */,
+				303519561CCF1F9500EE0750 /* TicketHeaderCell.xib */,
+				303519591CCF316800EE0750 /* TicketInformationCell.h */,
+				3035195A1CCF316800EE0750 /* TicketInformationCell.m */,
+				3035195B1CCF316800EE0750 /* TicketInformationCell.xib */,
+				3035195E1CCF348F00EE0750 /* TicketCountCell.h */,
+				3035195F1CCF348F00EE0750 /* TicketCountCell.m */,
+				303519601CCF348F00EE0750 /* TicketCountCell.xib */,
+				303519631CCF377A00EE0750 /* TicketDateCell.h */,
+				303519641CCF377A00EE0750 /* TicketDateCell.m */,
+				303519651CCF377A00EE0750 /* TicketDateCell.xib */,
+				303519681CCF393700EE0750 /* TicketCommitCell.h */,
+				303519691CCF393700EE0750 /* TicketCommitCell.m */,
+				3035196A1CCF393700EE0750 /* TicketCommitCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -812,15 +860,19 @@
 				3086D3D51CC72ABC007494D7 /* HomeIntroduceCell.xib in Resources */,
 				AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */,
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
+				303519581CCF1F9500EE0750 /* TicketHeaderCell.xib in Resources */,
 				30D6D29A1CC8A3F700FB0CFC /* FoodOrderViewController.xib in Resources */,
 				3086D3E31CC72B19007494D7 /* Life.storyboard in Resources */,
 				303519451CCF0B0500EE0750 /* MoneyCell.xib in Resources */,
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
 				3086D3A61CC729A9007494D7 /* WXTextField.xib in Resources */,
 				3086D3D51CC72ABC007494D7 /* HomeIntroduceCell.xib in Resources */,
+				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
 				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
 				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
 				3086D3BB1CC72A1E007494D7 /* GMRegisterViewController.xib in Resources */,
+				303519671CCF377A00EE0750 /* TicketDateCell.xib in Resources */,
+				3035196C1CCF393700EE0750 /* TicketCommitCell.xib in Resources */,
 				3086D3E01CC72B19007494D7 /* Home.storyboard in Resources */,
 				30D6D27E1CC87AF500FB0CFC /* FoodViewController.xib in Resources */,
 				ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */,
@@ -829,9 +881,11 @@
 				3025A9951CCE3FD700C5EAAB /* PackageViewController.xib in Resources */,
 				30D6D29F1CC8A85B00FB0CFC /* FoodCategoryCell.xib in Resources */,
 				30D6D2941CC89E6E00FB0CFC /* FoodCommitCell.xib in Resources */,
+				303519621CCF348F00EE0750 /* TicketCountCell.xib in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
 				3086D3E11CC72B19007494D7 /* Buy.storyboard in Resources */,
 				30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */,
+				303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */,
 				3086D3DF1CC72B19007494D7 /* Main.storyboard in Resources */,
 				3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */,
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
@@ -903,6 +957,7 @@
 				30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */,
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
 				AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */,
+				303519511CCF1B3F00EE0750 /* TicketDetailViewController.m in Sources */,
 				3086D39D1CC7298B007494D7 /* JZMTBtnView.m in Sources */,
 				ACB78A451CC867BC00354B11 /* PresentationUtility.m in Sources */,
 				3086D3D01CC72ABC007494D7 /* HomePageViewController.m in Sources */,
@@ -915,16 +970,18 @@
 				AC7AD4971CC7A6D2004D9B61 /* Account.m in Sources */,
 				3086D3D41CC72ABC007494D7 /* HomeIntroduceCell.m in Sources */,
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
+				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
+				3035196B1CCF393700EE0750 /* TicketCommitCell.m in Sources */,
 				30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */,
 				3086D3A51CC729A9007494D7 /* WXTextField.m in Sources */,
 				3086D3B41CC72A09007494D7 /* GMButton.m in Sources */,
 				303519441CCF0B0500EE0750 /* MoneyCell.m in Sources */,
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
+				303519571CCF1F9500EE0750 /* TicketHeaderCell.m in Sources */,
 				AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */,
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,
-				AC71EAB51CC0A59C00B101C2 /* LoginViewController.m in Sources */,
 				30D6D29E1CC8A85B00FB0CFC /* FoodCategoryCell.m in Sources */,
 				30D6D2991CC8A3F700FB0CFC /* FoodOrderViewController.m in Sources */,
 				3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */,
@@ -932,6 +989,7 @@
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */,
 				3086D3B61CC72A09007494D7 /* GMXTextField.m in Sources */,
+				303519611CCF348F00EE0750 /* TicketCountCell.m in Sources */,
 				30D6D27F1CC87AF500FB0CFC /* FoodCell.m in Sources */,
 				3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */,
 				3086D3BA1CC72A1E007494D7 /* GMRegisterViewController.m in Sources */,
@@ -940,6 +998,7 @@
 				30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */,
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
 				303519491CCF0D3000EE0750 /* MoneyCardViewController.m in Sources */,
+				303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
 				30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */,
 			);
