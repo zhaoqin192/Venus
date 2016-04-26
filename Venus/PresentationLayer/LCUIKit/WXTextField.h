@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class GMTextField;
 @interface WXTextField : UIView
+@property (weak, nonatomic) IBOutlet GMTextField *textField;
 @property (nonatomic, copy) NSString *imageName;
 @property (nonatomic, copy) NSString *selectImageName;
 @property (nonatomic, copy) NSString *placeHoleder;
-+ (instancetype)fetchTextField;
+
++ (instancetype)fetchTextView;
 @end

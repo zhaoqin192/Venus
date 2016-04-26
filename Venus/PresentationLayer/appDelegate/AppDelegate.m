@@ -8,10 +8,15 @@
 
 #import "AppDelegate.h"
 #import "GroupPurchaseViewController.h"
+#import <TencentOpenAPI/TencentOAuth.h>
+#import "WXApi.h"
+#import "NetworkFetcher+User.h"
+#import "GMLoginViewController.h"
+#import "FoodDetialViewController.h"
 
-@interface AppDelegate ()
-
+@interface AppDelegate ()<WXApiDelegate>
 @end
+
 
 @implementation AppDelegate
 
@@ -22,6 +27,9 @@
     GroupPurchaseViewController *vc = [[GroupPurchaseViewController alloc] init];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
+
+    // Override point for customization after application launch.
+    [WXApi registerApp:@"wxbafcc387a8a8fe31"];
     return YES;
 }
 
@@ -126,6 +134,39 @@
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
+    }
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    if (self.state == QQ) {
+        return [TencentOAuth HandleOpenURL:url];
+    }else if (self.state == WECHAT){
+        return [WXApi handleOpenURL:url delegate:self];
+    }else{
+        return NO;
+    }
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    
+    if (self.state == QQ) {
+        return [TencentOAuth HandleOpenURL:url];
+    }else if (self.state == WECHAT){
+        return [WXApi handleOpenURL:url delegate:self];
+    }else{
+        return NO;
+    }
+}
+
+- (void)onResp:(SendAuthResp*)resp{
+    if([resp errCode] == 0){
+        [NetworkFetcher userFetchAccessTokenWithCode:[resp code] success:^{
+            
+        } failure:^(NSString *error) {
+            
+        }];
+    }else{
+        NSLog(@"login error");
     }
 }
 

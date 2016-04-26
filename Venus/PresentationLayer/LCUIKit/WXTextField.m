@@ -10,8 +10,6 @@
 #import "GMTextField.h"
 
 @interface WXTextField ()
-
-@property (weak, nonatomic) IBOutlet GMTextField *textField;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 
@@ -19,12 +17,11 @@
 
 @implementation WXTextField
 
-+ (instancetype)fetchTextField{
++ (instancetype)fetchTextView{
     WXTextField *view = [[[UINib nibWithNibName:@"WXTextField" bundle:nil] instantiateWithOwner:nil options:nil] firstObject];
     [view setup];
     return view;
 }
-
 
 - (void)setup{
     self.backgroundColor = [UIColor clearColor];

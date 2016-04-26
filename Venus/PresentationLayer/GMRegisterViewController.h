@@ -10,4 +10,7 @@
 
 @interface GMRegisterViewController : UIViewController
 
+@property (nonatomic, copy) NSString *openID;
+@property (nonatomic, copy) NSString *token;
+
 @end

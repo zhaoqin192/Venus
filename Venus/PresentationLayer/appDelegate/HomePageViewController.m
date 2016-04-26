@@ -12,6 +12,10 @@
 #import "HomeNewsCell.h"
 #import "HomeIntroduceCell.h"
 #import "HomeCategoryCell.h"
+#import "DatabaseManager.h"
+#import "AccountDao.h"
+#import "Account.h"
+#import "GMLoginViewController.h"
 
 @interface HomePageViewController ()
 <UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>
@@ -20,14 +24,35 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) SDCycleScrollView *scrollAdView;
 @property (strong, nonatomic) NSMutableArray *menuArray;
+
 @end
 
 @implementation HomePageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    Account *account = [[[DatabaseManager sharedInstance] accountDao] fetchAccount];
+    if(account.token == nil){
+        self.view.hidden = YES;
+    }
+    
     self.titleView.backgroundColor = GMRedColor;
     [self configureTableView];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    if (self.view.isHidden) {
+        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+        __weak typeof(self) weakSelf = self;
+        [self presentViewController:vc animated:NO completion:^{
+            weakSelf.view.hidden = NO;
+        }];
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    
 }
 
 - (NSMutableArray *)menuArray{

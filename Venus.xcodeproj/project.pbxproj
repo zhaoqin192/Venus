@@ -47,6 +47,15 @@
 		3086D3E21CC72B19007494D7 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DC1CC72B19007494D7 /* Category.storyboard */; };
 		3086D3E31CC72B19007494D7 /* Life.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DD1CC72B19007494D7 /* Life.storyboard */; };
 		3086D3E41CC72B19007494D7 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DE1CC72B19007494D7 /* Me.storyboard */; };
+		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
+		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
+		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
+		AC0359081CC4D78600EC7BBC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359071CC4D78600EC7BBC /* libz.tbd */; };
+		AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */; };
+		AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48C81CCA48CA00724914 /* read_me.txt */; };
+		AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48CE1CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		AC5B48D11CCA496E00724914 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48CF1CCA496E00724914 /* TencentOpenAPI.framework */; };
+		AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5B48D31CCA49D200724914 /* SDKManager.m */; };
 		30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2701CC87ACE00FB0CFC /* ico_make.png */; };
 		30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2721CC87ACE00FB0CFC /* JSDropDownMenu.m */; };
 		30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2781CC87AF500FB0CFC /* FoodViewController.m */; };
@@ -69,14 +78,33 @@
 		AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */; };
 		AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAAA1CC08FCD00B101C2 /* NetworkFetcher.m */; };
 		AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */; };
-		AC71EAB51CC0A59C00B101C2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAB41CC0A59C00B101C2 /* LoginViewController.m */; };
+		AC7AD4781CC72ACC004D9B61 /* libMLeaksFinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7AD4771CC72ABE004D9B61 /* libMLeaksFinder.a */; };
+		AC7AD4831CC72BF2004D9B61 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7AD4821CC72BF2004D9B61 /* libc++.tbd */; };
+		AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD48F1CC7A5A8004D9B61 /* Venus.xcdatamodeld */; };
+		AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD4931CC7A6D2004D9B61 /* Account+CoreDataProperties.m */; };
+		AC7AD4971CC7A6D2004D9B61 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD4951CC7A6D2004D9B61 /* Account.m */; };
+		AC7AD49C1CC7AFD9004D9B61 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD49B1CC7AFD9004D9B61 /* DatabaseManager.m */; };
+		AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD49F1CC7B01A004D9B61 /* AccountDao.m */; };
+		AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C7C1CC4D23C00FA171B /* Security.framework */; };
+		AC970C851CC4D25600FA171B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C841CC4D25600FA171B /* SystemConfiguration.framework */; };
+		AC970C871CC4D26100FA171B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C861CC4D26100FA171B /* CoreGraphics.framework */; };
+		AC970C8D1CC4D27400FA171B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C8C1CC4D27300FA171B /* CoreTelephony.framework */; };
+		ACB78A451CC867BC00354B11 /* PresentationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB78A441CC867BC00354B11 /* PresentationUtility.m */; };
 		ACF83EB01CBF97F800A962BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EAF1CBF97F800A962BD /* main.m */; };
 		ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB21CBF97F800A962BD /* AppDelegate.m */; };
-		ACF83EB61CBF97F800A962BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB51CBF97F800A962BD /* ViewController.m */; };
-		ACF83EB91CBF97F800A962BD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EB71CBF97F800A962BD /* Login.storyboard */; };
 		ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBD1CBF97F800A962BD /* Assets.xcassets */; };
 		ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBF1CBF97F800A962BD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC7AD4761CC72ABE004D9B61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC7AD4721CC72ABE004D9B61 /* MLeaksFinder.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3ADE16C1C1BD1D600AA4F63;
+			remoteInfo = MLeaksFinder;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		177D12BE652A285B1BDD4D47 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,22 +201,46 @@
 		30D6D2A21CC8B1BF00FB0CFC /* FoodContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodContentCell.xib; sourceTree = "<group>"; };
 		7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		AC0359071CC4D78600EC7BBC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		AC5B48C81CCA48CA00724914 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
+		AC5B48C91CCA48CA00724914 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		AC5B48CA1CCA48CA00724914 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		AC5B48CB1CCA48CA00724914 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		AC5B48CE1CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		AC5B48CF1CCA496E00724914 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		AC5B48D21CCA49D200724914 /* SDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKManager.h; sourceTree = "<group>"; };
+		AC5B48D31CCA49D200724914 /* SDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKManager.m; sourceTree = "<group>"; };
 		AC71EAA61CC08ECF00B101C2 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		AC71EAA91CC08FCD00B101C2 /* NetworkFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkFetcher.h; sourceTree = "<group>"; };
 		AC71EAAA1CC08FCD00B101C2 /* NetworkFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkFetcher.m; sourceTree = "<group>"; };
 		AC71EAAF1CC090EC00B101C2 /* NetworkFetcher+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+User.h"; sourceTree = "<group>"; };
 		AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+User.m"; sourceTree = "<group>"; };
-		AC71EAB31CC0A59C00B101C2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		AC71EAB41CC0A59C00B101C2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		AC7AD4721CC72ABE004D9B61 /* MLeaksFinder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MLeaksFinder.xcodeproj; sourceTree = "<group>"; };
+		AC7AD4821CC72BF2004D9B61 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		AC7AD4901CC7A5A8004D9B61 /* Venus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Venus.xcdatamodel; sourceTree = "<group>"; };
+		AC7AD4921CC7A6D2004D9B61 /* Account+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Account+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AC7AD4931CC7A6D2004D9B61 /* Account+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Account+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AC7AD4941CC7A6D2004D9B61 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		AC7AD4951CC7A6D2004D9B61 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		AC7AD49A1CC7AFD9004D9B61 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
+		AC7AD49B1CC7AFD9004D9B61 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
+		AC7AD49E1CC7B01A004D9B61 /* AccountDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDao.h; sourceTree = "<group>"; };
+		AC7AD49F1CC7B01A004D9B61 /* AccountDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDao.m; sourceTree = "<group>"; };
+		AC970C7C1CC4D23C00FA171B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		AC970C841CC4D25600FA171B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AC970C861CC4D26100FA171B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AC970C8C1CC4D27300FA171B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		ACB78A431CC867BC00354B11 /* PresentationUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationUtility.h; sourceTree = "<group>"; };
+		ACB78A441CC867BC00354B11 /* PresentationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationUtility.m; sourceTree = "<group>"; };
 		ACF83EAB1CBF97F800A962BD /* Venus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF83EAF1CBF97F800A962BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ACF83EB11CBF97F800A962BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ACF83EB21CBF97F800A962BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		ACF83EB41CBF97F800A962BD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
-		ACF83EB51CBF97F800A962BD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
-		ACF83EB81CBF97F800A962BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
-		ACF83EBB1CBF97F800A962BD /* Venus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Venus.xcdatamodel; sourceTree = "<group>"; };
 		ACF83EBD1CBF97F800A962BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF83EC01CBF97F800A962BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF83EC21CBF97F800A962BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -199,6 +251,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC5B48D11CCA496E00724914 /* TencentOpenAPI.framework in Frameworks */,
+				AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */,
+				AC7AD4831CC72BF2004D9B61 /* libc++.tbd in Frameworks */,
+				AC7AD4781CC72ACC004D9B61 /* libMLeaksFinder.a in Frameworks */,
+				AC0359081CC4D78600EC7BBC /* libz.tbd in Frameworks */,
+				AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */,
+				AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */,
+				AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */,
+				AC970C8D1CC4D27400FA171B /* CoreTelephony.framework in Frameworks */,
+				AC970C871CC4D26100FA171B /* CoreGraphics.framework in Frameworks */,
+				AC970C851CC4D25600FA171B /* SystemConfiguration.framework in Frameworks */,
+				AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */,
 				0E9E7CF44B2FAC9667513636 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,6 +519,42 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AC03590C1CC4DA7D00EC7BBC /* OtherSDK */ = {
+			isa = PBXGroup;
+			children = (
+				AC7AD4791CC72AF3004D9B61 /* WeChat */,
+				AC03590D1CC4DB2500EC7BBC /* Tencent */,
+			);
+			path = OtherSDK;
+			sourceTree = "<group>";
+		};
+		AC03590D1CC4DB2500EC7BBC /* Tencent */ = {
+			isa = PBXGroup;
+			children = (
+				AC5B48CE1CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle */,
+				AC5B48CF1CCA496E00724914 /* TencentOpenAPI.framework */,
+			);
+			path = Tencent;
+			sourceTree = "<group>";
+		};
+		AC0359121CC4F6C200EC7BBC /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				AC5B48D21CCA49D200724914 /* SDKManager.h */,
+				AC5B48D31CCA49D200724914 /* SDKManager.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		AC6093D81CC3678C004B5767 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				AC7AD49A1CC7AFD9004D9B61 /* DatabaseManager.h */,
+				AC7AD49B1CC7AFD9004D9B61 /* DatabaseManager.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		AC71EAA51CC08E8B00B101C2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,18 +568,6 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		AC71EAB21CC0A57400B101C2 /* login */ = {
-			isa = PBXGroup;
-			children = (
-				AC71EAB31CC0A59C00B101C2 /* LoginViewController.h */,
-				ACF83EB41CBF97F800A962BD /* ViewController.h */,
-				ACF83EB51CBF97F800A962BD /* ViewController.m */,
-				ACF83EB71CBF97F800A962BD /* Login.storyboard */,
-				AC71EAB41CC0A59C00B101C2 /* LoginViewController.m */,
-			);
-			path = login;
-			sourceTree = "<group>";
-		};
 		AC71EAB61CC0A5B200B101C2 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,9 +578,56 @@
 			path = appDelegate;
 			sourceTree = "<group>";
 		};
+		AC7AD4711CC72A5D004D9B61 /* MLeaksFinder */ = {
+			isa = PBXGroup;
+			children = (
+				AC7AD4721CC72ABE004D9B61 /* MLeaksFinder.xcodeproj */,
+			);
+			path = MLeaksFinder;
+			sourceTree = "<group>";
+		};
+		AC7AD4731CC72ABE004D9B61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC7AD4771CC72ABE004D9B61 /* libMLeaksFinder.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC7AD4791CC72AF3004D9B61 /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */,
+				AC5B48C81CCA48CA00724914 /* read_me.txt */,
+				AC5B48C91CCA48CA00724914 /* WechatAuthSDK.h */,
+				AC5B48CA1CCA48CA00724914 /* WXApi.h */,
+				AC5B48CB1CCA48CA00724914 /* WXApiObject.h */,
+			);
+			path = WeChat;
+			sourceTree = "<group>";
+		};
+		AC7AD49D1CC7AFF4004D9B61 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				AC7AD49E1CC7B01A004D9B61 /* AccountDao.h */,
+				AC7AD49F1CC7B01A004D9B61 /* AccountDao.m */,
+			);
+			path = Dao;
+			sourceTree = "<group>";
+		};
+		ACB78A411CC8678E00354B11 /* PresentationUtility */ = {
+			isa = PBXGroup;
+			children = (
+				ACB78A431CC867BC00354B11 /* PresentationUtility.h */,
+				ACB78A441CC867BC00354B11 /* PresentationUtility.m */,
+			);
+			path = PresentationUtility;
+			sourceTree = "<group>";
+		};
 		ACF83EA21CBF97F800A962BD = {
 			isa = PBXGroup;
 			children = (
+				AC7AD4711CC72A5D004D9B61 /* MLeaksFinder */,
 				ACF83EAD1CBF97F800A962BD /* Venus */,
 				ACF83EAC1CBF97F800A962BD /* Products */,
 				316E961895E367E514CC9FA4 /* Pods */,
@@ -511,6 +646,7 @@
 		ACF83EAD1CBF97F800A962BD /* Venus */ = {
 			isa = PBXGroup;
 			children = (
+				AC03590C1CC4DA7D00EC7BBC /* OtherSDK */,
 				ACF83ECA1CBF98D700A962BD /* PersistenceLayer */,
 				ACF83EC91CBF98B500A962BD /* PresentationLayer */,
 				ACF83EC81CBF989A00A962BD /* BusinessLogicLayer */,
@@ -534,6 +670,9 @@
 		ACF83EC81CBF989A00A962BD /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				AC7AD49D1CC7AFF4004D9B61 /* Dao */,
+				AC0359121CC4F6C200EC7BBC /* Other */,
+				AC6093D81CC3678C004B5767 /* Database */,
 				AC71EAA51CC08E8B00B101C2 /* Network */,
 			);
 			path = BusinessLogicLayer;
@@ -542,9 +681,9 @@
 		ACF83EC91CBF98B500A962BD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				ACB78A411CC8678E00354B11 /* PresentationUtility */,
 				3086D3E51CC72B25007494D7 /* StoryBoard */,
 				AC71EAB61CC0A5B200B101C2 /* AppDelegate */,
-				AC71EAB21CC0A57400B101C2 /* login */,
 				3086D3D81CC72ACB007494D7 /* HomePage */,
 				3086D3C21CC72A92007494D7 /* Login */,
 				3086D3BC1CC72A24007494D7 /* Register */,
@@ -565,7 +704,11 @@
 		ACF83ECB1CBF99DB00A962BD /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				ACF83EBA1CBF97F800A962BD /* Venus.xcdatamodeld */,
+				AC7AD48F1CC7A5A8004D9B61 /* Venus.xcdatamodeld */,
+				AC7AD4921CC7A6D2004D9B61 /* Account+CoreDataProperties.h */,
+				AC7AD4931CC7A6D2004D9B61 /* Account+CoreDataProperties.m */,
+				AC7AD4941CC7A6D2004D9B61 /* Account.h */,
+				AC7AD4951CC7A6D2004D9B61 /* Account.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -573,6 +716,15 @@
 		E1998CF8726CD7D47CA05772 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC7AD4821CC72BF2004D9B61 /* libc++.tbd */,
+				AC0359071CC4D78600EC7BBC /* libz.tbd */,
+				AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */,
+				AC0359031CC4D76A00EC7BBC /* libiconv.tbd */,
+				AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */,
+				AC970C8C1CC4D27300FA171B /* CoreTelephony.framework */,
+				AC970C861CC4D26100FA171B /* CoreGraphics.framework */,
+				AC970C841CC4D25600FA171B /* SystemConfiguration.framework */,
+				AC970C7C1CC4D23C00FA171B /* Security.framework */,
 				177D12BE652A285B1BDD4D47 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -626,6 +778,12 @@
 			mainGroup = ACF83EA21CBF97F800A962BD;
 			productRefGroup = ACF83EAC1CBF97F800A962BD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AC7AD4731CC72ABE004D9B61 /* Products */;
+					ProjectRef = AC7AD4721CC72ABE004D9B61 /* MLeaksFinder.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ACF83EAA1CBF97F800A962BD /* Venus */,
@@ -633,11 +791,26 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		AC7AD4771CC72ABE004D9B61 /* libMLeaksFinder.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMLeaksFinder.a;
+			remoteRef = AC7AD4761CC72ABE004D9B61 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		ACF83EA91CBF97F800A962BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				3086D3E31CC72B19007494D7 /* Life.storyboard in Resources */,
+				3086D3A61CC729A9007494D7 /* WXTextField.xib in Resources */,
+				3086D3D51CC72ABC007494D7 /* HomeIntroduceCell.xib in Resources */,
+				AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */,
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
 				30D6D29A1CC8A3F700FB0CFC /* FoodOrderViewController.xib in Resources */,
 				3086D3E31CC72B19007494D7 /* Life.storyboard in Resources */,
@@ -664,7 +837,6 @@
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
 				3086D3E21CC72B19007494D7 /* Category.storyboard in Resources */,
-				ACF83EB91CBF97F800A962BD /* Login.storyboard in Resources */,
 				3086D3D71CC72ABC007494D7 /* HomeCategoryCell.xib in Resources */,
 				30D6D2801CC87AF500FB0CFC /* FoodCell.xib in Resources */,
 				3086D3D31CC72ABC007494D7 /* HomeNewsCell.xib in Resources */,
@@ -730,13 +902,17 @@
 				30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */,
 				30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */,
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
+				AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */,
 				3086D39D1CC7298B007494D7 /* JZMTBtnView.m in Sources */,
-				ACF83EB61CBF97F800A962BD /* ViewController.m in Sources */,
+				ACB78A451CC867BC00354B11 /* PresentationUtility.m in Sources */,
 				3086D3D01CC72ABC007494D7 /* HomePageViewController.m in Sources */,
 				3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */,
 				3086D3B51CC72A09007494D7 /* GMLabel.m in Sources */,
 				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
+				AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */,
+				AC7AD49C1CC7AFD9004D9B61 /* DatabaseManager.m in Sources */,
 				3086D3C01CC72A8C007494D7 /* GMLoginViewController.m in Sources */,
+				AC7AD4971CC7A6D2004D9B61 /* Account.m in Sources */,
 				3086D3D41CC72ABC007494D7 /* HomeIntroduceCell.m in Sources */,
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
@@ -745,6 +921,8 @@
 				3086D3B41CC72A09007494D7 /* GMButton.m in Sources */,
 				303519441CCF0B0500EE0750 /* MoneyCell.m in Sources */,
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
+				AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */,
+				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,
 				AC71EAB51CC0A59C00B101C2 /* LoginViewController.m in Sources */,
 				30D6D29E1CC8A85B00FB0CFC /* FoodCategoryCell.m in Sources */,
@@ -770,15 +948,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ACF83EB71CBF97F800A962BD /* Login.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ACF83EB81CBF97F800A962BD /* Base */,
-			);
-			name = Login.storyboard;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		ACF83EBF1CBF97F800A962BD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -877,11 +1046,36 @@
 			baseConfigurationReference = 90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Venus/OtherSDK/Tencent",
+				);
 				GCC_PREFIX_HEADER = Venus/PrefixHeader.pch;
 				INFOPLIST_FILE = Venus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.Venus;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Venus/OtherSDK/WeChat",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJExtension\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-fobjc-arc",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -891,11 +1085,36 @@
 			baseConfigurationReference = 7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Venus/OtherSDK/Tencent",
+				);
 				GCC_PREFIX_HEADER = Venus/PrefixHeader.pch;
 				INFOPLIST_FILE = Venus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.Venus;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Venus/OtherSDK/WeChat",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJExtension\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-fobjc-arc",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -924,14 +1143,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		ACF83EBA1CBF97F800A962BD /* Venus.xcdatamodeld */ = {
+		AC7AD48F1CC7A5A8004D9B61 /* Venus.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				ACF83EBB1CBF97F800A962BD /* Venus.xcdatamodel */,
+				AC7AD4901CC7A5A8004D9B61 /* Venus.xcdatamodel */,
 			);
-			currentVersion = ACF83EBB1CBF97F800A962BD /* Venus.xcdatamodel */;
-			name = Venus.xcdatamodeld;
-			path = ../Venus.xcdatamodeld;
+			currentVersion = AC7AD4901CC7A5A8004D9B61 /* Venus.xcdatamodel */;
+			path = Venus.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
