@@ -63,7 +63,7 @@
 //        [self.view addSubview:self.moneyVC.view];
     }
     else{
-        self.commitVC.view.frame = CGRectMake(0, 260, kScreenWidth, kScreenHeight - 260);
+        self.commitVC.view.frame = CGRectMake(0, 270, kScreenWidth, kScreenHeight - 270);
         [self.view addSubview:self.commitVC.view];
     }
 }
