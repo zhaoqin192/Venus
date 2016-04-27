@@ -9,13 +9,13 @@
 #import "ShopViewController.h"
 #import "XFSegementView.h"
 #import "ShopCommitViewController.h"
-
+#import "ShopAllViewController.h"
 @interface ShopViewController ()<TouchLabelDelegate>{
     XFSegementView *segementView;
 }
 
 @property (strong, nonatomic) ShopCommitViewController *commitVC;
-//@property (strong, nonatomic) MoneyCardViewController *moneyVC;
+@property (strong, nonatomic) ShopAllViewController *allVC;
 @end
 
 @implementation ShopViewController
@@ -35,8 +35,8 @@
 - (void)configureChildController{
     self.commitVC = [[ShopCommitViewController alloc] init];
     [self addChildViewController:self.commitVC];
-//    self.moneyVC = [[MoneyCardViewController alloc] init];
-//    [self addChildViewController:self.moneyVC];
+    self.allVC = [[ShopAllViewController alloc] init];
+    [self addChildViewController:self.allVC];
 }
 
 - (void)configureSegmentView{
@@ -59,8 +59,8 @@
 //        [self.view addSubview:self.packageVC.view];
     }
     else if(index == 1){
-//        self.moneyVC.view.frame = CGRectMake(0, 104, kScreenWidth, kScreenHeight - 104);
-//        [self.view addSubview:self.moneyVC.view];
+        self.allVC.view.frame = CGRectMake(0, 270, kScreenWidth, kScreenHeight - 270);
+        [self.view addSubview:self.allVC.view];
     }
     else{
         self.commitVC.view.frame = CGRectMake(0, 270, kScreenWidth, kScreenHeight - 270);

@@ -65,6 +65,10 @@
 		3086D3E21CC72B19007494D7 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DC1CC72B19007494D7 /* Category.storyboard */; };
 		3086D3E31CC72B19007494D7 /* Life.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DD1CC72B19007494D7 /* Life.storyboard */; };
 		3086D3E41CC72B19007494D7 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DE1CC72B19007494D7 /* Me.storyboard */; };
+		30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601B81CD05DA4003ED671 /* ShopAllViewController.m */; };
+		30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B601B91CD05DA4003ED671 /* ShopAllViewController.xib */; };
+		30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601BE1CD05E88003ED671 /* ShopAllCell.m */; };
+		30B601C11CD05E88003ED671 /* ShopAllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B601BF1CD05E88003ED671 /* ShopAllCell.xib */; };
 		30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2701CC87ACE00FB0CFC /* ico_make.png */; };
 		30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2721CC87ACE00FB0CFC /* JSDropDownMenu.m */; };
 		30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2781CC87AF500FB0CFC /* FoodViewController.m */; };
@@ -215,6 +219,12 @@
 		3086D3DC1CC72B19007494D7 /* Category.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		3086D3DD1CC72B19007494D7 /* Life.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Life.storyboard; sourceTree = "<group>"; };
 		3086D3DE1CC72B19007494D7 /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
+		30B601B71CD05DA4003ED671 /* ShopAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopAllViewController.h; sourceTree = "<group>"; };
+		30B601B81CD05DA4003ED671 /* ShopAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopAllViewController.m; sourceTree = "<group>"; };
+		30B601B91CD05DA4003ED671 /* ShopAllViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopAllViewController.xib; sourceTree = "<group>"; };
+		30B601BD1CD05E88003ED671 /* ShopAllCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopAllCell.h; sourceTree = "<group>"; };
+		30B601BE1CD05E88003ED671 /* ShopAllCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopAllCell.m; sourceTree = "<group>"; };
+		30B601BF1CD05E88003ED671 /* ShopAllCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopAllCell.xib; sourceTree = "<group>"; };
 		30D6D2701CC87ACE00FB0CFC /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
 		30D6D2711CC87ACE00FB0CFC /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDropDownMenu.h; sourceTree = "<group>"; };
 		30D6D2721CC87ACE00FB0CFC /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDropDownMenu.m; sourceTree = "<group>"; };
@@ -373,6 +383,9 @@
 				303519731CCF4B8A00EE0750 /* ShopCommitViewController.h */,
 				303519741CCF4B8A00EE0750 /* ShopCommitViewController.m */,
 				303519751CCF4B8A00EE0750 /* ShopCommitViewController.xib */,
+				30B601B71CD05DA4003ED671 /* ShopAllViewController.h */,
+				30B601B81CD05DA4003ED671 /* ShopAllViewController.m */,
+				30B601B91CD05DA4003ED671 /* ShopAllViewController.xib */,
 			);
 			name = shop;
 			sourceTree = "<group>";
@@ -383,6 +396,9 @@
 				303519791CCF4CB900EE0750 /* ShopCommitCell.h */,
 				3035197A1CCF4CB900EE0750 /* ShopCommitCell.m */,
 				3035197B1CCF4CB900EE0750 /* ShopCommitCell.xib */,
+				30B601BD1CD05E88003ED671 /* ShopAllCell.h */,
+				30B601BE1CD05E88003ED671 /* ShopAllCell.m */,
+				30B601BF1CD05E88003ED671 /* ShopAllCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -902,6 +918,7 @@
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
 				303519581CCF1F9500EE0750 /* TicketHeaderCell.xib in Resources */,
 				30D6D29A1CC8A3F700FB0CFC /* FoodOrderViewController.xib in Resources */,
+				30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */,
 				303519721CCF47CE00EE0750 /* ShopViewController.xib in Resources */,
 				3086D3E31CC72B19007494D7 /* Life.storyboard in Resources */,
 				303519451CCF0B0500EE0750 /* MoneyCell.xib in Resources */,
@@ -937,6 +954,7 @@
 				3086D3D71CC72ABC007494D7 /* HomeCategoryCell.xib in Resources */,
 				30D6D2801CC87AF500FB0CFC /* FoodCell.xib in Resources */,
 				3086D3D31CC72ABC007494D7 /* HomeNewsCell.xib in Resources */,
+				30B601C11CD05E88003ED671 /* ShopAllCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1008,6 +1026,7 @@
 				3035197C1CCF4CB900EE0750 /* ShopCommitCell.m in Sources */,
 				3086D3B51CC72A09007494D7 /* GMLabel.m in Sources */,
 				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
+				30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */,
 				AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */,
 				AC7AD49C1CC7AFD9004D9B61 /* DatabaseManager.m in Sources */,
 				3086D3C01CC72A8C007494D7 /* GMLoginViewController.m in Sources */,
@@ -1016,6 +1035,7 @@
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
 				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
+				30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */,
 				3035196B1CCF393700EE0750 /* TicketCommitCell.m in Sources */,
 				30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */,
 				3086D3A51CC729A9007494D7 /* WXTextField.m in Sources */,
