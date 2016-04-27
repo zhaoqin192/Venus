@@ -44,7 +44,7 @@
 }
 
 -(void)OnTapBtnView:(UITapGestureRecognizer *)sender{
-    NSLog(@"tag:%ld",sender.view.tag);
+//    NSLog(@"tag:%ld",sender.view.tag);
 }
 
 

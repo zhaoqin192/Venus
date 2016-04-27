@@ -43,7 +43,7 @@ static const BOOL LOGDEBUG = YES;
             [accountDao save];
             success();
         }else{
-            failure(responseObject[@"msg"]);
+            failure(@"用户名或密码错误");
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -52,7 +52,7 @@ static const BOOL LOGDEBUG = YES;
             NSLog(@"%@", error);
         }
         
-        failure(@"Network Error");
+        failure(@"网络异常");
     }];
     
 }
@@ -191,7 +191,7 @@ static const BOOL LOGDEBUG = YES;
             NSLog(@"%@", error);
         }
         
-        failure(@"Network Error");
+        failure(@"网络异常");
     }];
     
 }
@@ -278,7 +278,7 @@ static const BOOL LOGDEBUG = YES;
             NSLog(@"%@", error);
         }
         
-        failure(@"Network Error");
+        failure(@"网络异常");
     }];
 }
 
@@ -302,7 +302,7 @@ static const BOOL LOGDEBUG = YES;
         if (LOGDEBUG) {
             NSLog(@"%@", error);
         }
-        failure(@"Network error");
+        failure(@"网络异常");
     }];
 }
 
@@ -329,7 +329,7 @@ static const BOOL LOGDEBUG = YES;
         if (LOGDEBUG) {
             NSLog(@"%@", error);
         }
-        failure(@"Network error");
+        failure(@"网络异常");
     }];
     
 }
@@ -356,7 +356,7 @@ static const BOOL LOGDEBUG = YES;
         if (LOGDEBUG) {
             NSLog(@"%@", error);
         }
-        failure(@"Network error");
+        failure(@"网络异常");
     }];
 
     
@@ -389,7 +389,7 @@ static const BOOL LOGDEBUG = YES;
         if (LOGDEBUG) {
             NSLog(@"%@", error);
         }
-        failure(@"Network error");
+        failure(@"网络异常");
     }];
     
 }
@@ -437,7 +437,7 @@ static const BOOL LOGDEBUG = YES;
             NSLog(@"%@", error);
         }
         
-        failure(@"Network Error");
+        failure(@"网络异常");
     }];
 
     

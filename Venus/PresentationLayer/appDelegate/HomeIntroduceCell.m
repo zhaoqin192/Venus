@@ -7,6 +7,9 @@
 //
 
 #import "HomeIntroduceCell.h"
+#import <SDWebImage/UIButton+WebCache.h>
+
+
 @interface HomeIntroduceCell()
 @property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
 @property (weak, nonatomic) IBOutlet UIView *rightLine;
@@ -18,6 +21,7 @@
 - (void)awakeFromNib {
     _rightLine.backgroundColor = GMBrownColor;
     _leftLine.backgroundColor = GMBrownColor;
+    [_myScrollView setShowsHorizontalScrollIndicator:NO];
 }
 
 - (void)setList:(NSMutableArray *)list{
@@ -31,7 +35,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(margin*i + i*width, 0, width, height);
         button.tag = i;
-        button.backgroundColor = [UIColor greenColor];
+        [button sd_setBackgroundImageWithURL:list[i] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self.myScrollView addSubview:button];
         self.myScrollView.contentSize = CGSizeMake((i+1)*(margin+width), 0);

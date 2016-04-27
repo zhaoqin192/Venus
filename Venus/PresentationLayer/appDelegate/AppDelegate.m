@@ -21,10 +21,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.window = [[UIWindow alloc] init];
-    ShopViewController *vc = [[ShopViewController alloc] init];
-    self.window.rootViewController = vc;
-    [self.window makeKeyAndVisible];
+//    self.window = [[UIWindow alloc] init];
+//    ShopViewController *vc = [[ShopViewController alloc] init];
+//    self.window.rootViewController = vc;
+//    [self.window makeKeyAndVisible];
 
     // Override point for customization after application launch.
     [WXApi registerApp:@"wxbafcc387a8a8fe31"];
