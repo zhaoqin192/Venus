@@ -18,6 +18,8 @@
 - (void)awakeFromNib {
     _rightLine.backgroundColor = GMBrownColor;
     _leftLine.backgroundColor = GMBrownColor;
+    _myScrollView.showsHorizontalScrollIndicator = NO;
+    _myScrollView.showsVerticalScrollIndicator = NO;
 }
 
 - (void)setList:(NSMutableArray *)list{
