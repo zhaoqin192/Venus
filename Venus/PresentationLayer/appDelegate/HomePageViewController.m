@@ -150,7 +150,7 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
     WebViewController *webVC = [[WebViewController alloc] init];
     Picture *picture = _pictureManager.loopPictureArray[index];
     webVC.url = picture.url;
-    [self.navigationController pushViewController:webVC animated:YES];
+    [self.navigationController pushViewController:webVC animated:NO];
     
 }
 
@@ -221,7 +221,8 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
 - (void)categoryButtonClicked:(UIButton *)sender{
     WebViewController *webVC = [[WebViewController alloc] init];
     webVC.url = _buttonURL;
-    [self.navigationController pushViewController:webVC animated:YES];}
+    [self.navigationController pushViewController:webVC animated:NO];
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {

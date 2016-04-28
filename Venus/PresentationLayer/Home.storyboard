@@ -7,7 +7,7 @@
         <!--Navigation Controller-->
         <scene sceneID="f3C-dy-AfB">
             <objects>
-                <navigationController hidesBottomBarWhenPushed="YES" hidesBarsOnSwipe="YES" id="Uq4-hE-M1y" sceneMemberID="viewController">
+                <navigationController hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" hidesBarsOnSwipe="YES" id="Uq4-hE-M1y" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eSY-zi-KQw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gku-Ex-fnd">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gku-Ex-fnd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="首页国贸Stylelogo" translatesAutoresizingMaskIntoConstraints="NO" id="OTV-oZ-Yaq">
