@@ -16,16 +16,33 @@
 #import "AccountDao.h"
 #import "Account.h"
 #import "GMLoginViewController.h"
+#import "NetworkFetcher+Home.h"
+#import "PictureManager.h"
+#import "Picture.h"
+#import "WebViewController.h"
+#import "AdvertisementManager.h"
+#import "Adversitement.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIButton+WebCache.h>
 
-@interface HomePageViewController ()
-<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>
+
+@interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) SDCycleScrollView *scrollAdView;
 @property (strong, nonatomic) NSMutableArray *menuArray;
+@property (nonatomic, copy) NSMutableArray *scrollArray;
+@property (nonatomic, copy) NSMutableArray *recommendArray;
+@property (nonatomic, strong) PictureManager *pictureManager;
+@property (nonatomic, strong) AdvertisementManager *advertisementManager;
+@property (nonatomic, copy) NSMutableArray *advertisementArray;
+@property (nonatomic, copy) NSString *buttonURL;
 
 @end
+
+static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/image/OnlyForTest/";
+
 
 @implementation HomePageViewController
 
@@ -39,19 +56,70 @@
     
     self.titleView.backgroundColor = GMRedColor;
     [self configureTableView];
+    
+    [self netWorkRequest];
+    self.hidesBottomBarWhenPushed = YES;
+    self.navigationController.navigationBar.barTintColor = GMRedColor;
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.tintColor = GMBrownColor;
+//    self.navigationController.hidesBarsOnSwipe = YES;
+
+    UIImageView *titleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
+    titleImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [titleImageView setImage:[UIImage imageNamed:@"loginLogo"]];
+    self.navigationItem.titleView = titleImageView;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     if (self.view.isHidden) {
         GMLoginViewController *vc = [[GMLoginViewController alloc] init];
-        __weak typeof(self) weakSelf = self;
         [self presentViewController:vc animated:NO completion:^{
-            weakSelf.view.hidden = NO;
+            self.view.hidden = NO;
         }];
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated{
+- (void)netWorkRequest {
+    
+    _pictureManager = [PictureManager sharedInstance];
+    
+    [NetworkFetcher homeFetcherLoopPictureWithSuccess:^{
+        
+        _scrollArray = [[NSMutableArray alloc] init];
+        for (Picture *picture in _pictureManager.loopPictureArray) {
+            NSString *urlPath = [PICTUREURL stringByAppendingString:picture.pictureUrl];
+            [_scrollArray addObject:urlPath];
+        }
+        self.scrollAdView.imageURLStringsGroup = _scrollArray;
+        
+    } failure:^(NSString *error) {
+        
+    }];
+    
+    [NetworkFetcher homeFetcherRecommmendWithSuccess:^{
+        
+        _recommendArray= [[NSMutableArray alloc] init];
+        for (Picture *picture in _pictureManager.recommendPictureArray) {
+            NSString *urlPath = [PICTUREURL stringByAppendingString:picture.pictureUrl];
+            [_recommendArray addObject:urlPath];
+        }
+        [_tableView reloadData];
+        
+    } failure:^(NSString *error) {
+        
+    }];
+    
+    [NetworkFetcher homeFetcherListADWithSuccess:^{
+       
+        _advertisementManager = [AdvertisementManager sharedInstance];
+        _advertisementArray = _advertisementManager.advertisementArray;
+        
+        [_tableView reloadData];
+        
+    } failure:^(NSString *error) {
+        
+    }];
     
 }
 
@@ -68,34 +136,28 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCategoryCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([HomeCategoryCell class])];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableHeaderView = ({
-        self.scrollAdView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 220) delegate:self placeholderImage:[UIImage imageNamed:@"1"]];
-        self.scrollAdView.localizationImageNamesGroup = @[[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"]];
+        self.scrollAdView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 220) delegate:self placeholderImage:[UIImage imageNamed:@""]];
         self.scrollAdView;
     });
 }
 
 - (void)configureScrollView{
-//    [NetworkRequest requestSalesType:@(0) success:^{
-//        self.salesArray = [SalesManager sharedManager].roundArray;
-//        self.imageUrlArray = [[NSMutableArray alloc] init];
-//        for (Sales *sale in self.salesArray) {
-//            [self.imageUrlArray addObject:sale.imageURL];
-//        }
-//        self.scrollAdView.imageURLStringsGroup = self.imageUrlArray;
-//    } failure:^{
-//        [SVProgressHUD showErrorWithStatus:@"加载数据失败"];
-//        [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5f];
-//    }];
+
 }
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    NSLog(@"%ld",(long)index);
+    
+    WebViewController *webVC = [[WebViewController alloc] init];
+    Picture *picture = _pictureManager.loopPictureArray[index];
+    webVC.url = picture.url;
+    [self.navigationController pushViewController:webVC animated:NO];
+    
 }
 
 #pragma mark <TableViewDelegate>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3 + 7;
+    return 3 + _advertisementArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -118,9 +180,14 @@
             break;
         case 2:{
             HomeIntroduceCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeIntroduceCell class])];
-            cell.list = [@[@"1",@"2",@"3",@"4"] mutableCopy];
+            cell.list = _recommendArray;
             cell.buttonClicked = ^(UIButton *button){
-                NSLog(@"%ld",(long)button.tag);
+                
+                WebViewController *webVC = [[WebViewController alloc] init];
+                Picture *picture = _pictureManager.recommendPictureArray[button.tag];
+                webVC.url = picture.url;
+                [self.navigationController pushViewController:webVC animated:YES];
+                
             };
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
@@ -128,12 +195,33 @@
             break;
         default:{
             HomeCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeCategoryCell class])];
+            Adversitement *advertisement = _advertisementArray[indexPath.row - 3];
+            cell.title.text = advertisement.name;
+            [cell.mainPicture sd_setImageWithURL:[NSURL URLWithString:[PICTUREURL stringByAppendingString:advertisement.pictureUrl]] placeholderImage:[UIImage imageNamed:@"1"]];
+            
+            for (int i = 0; i < advertisement.advertisementArray.count; i++) {
+                Picture *picture = advertisement.advertisementArray[i];
+                if ([[cell.contentView viewWithTag:i + 1] isKindOfClass:[UIButton class]]) {
+                    UIButton *button = [cell.contentView viewWithTag:i+1];
+                    [button sd_setBackgroundImageWithURL:[NSURL URLWithString:[PICTUREURL stringByAppendingString:picture.pictureUrl]] forState:UIControlStateNormal];
+                    [button setTitle:picture.name forState:UIControlStateNormal];
+                    _buttonURL = picture.url;
+                    [button addTarget:self action:@selector(categoryButtonClicked:) forControlEvents:UIControlEventTouchDown];
+                }
+            }
+        
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
             break;
     }
     return nil;
+}
+
+- (void)categoryButtonClicked:(UIButton *)sender{
+    WebViewController *webVC = [[WebViewController alloc] init];
+    webVC.url = _buttonURL;
+    [self.navigationController pushViewController:webVC animated:NO];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
