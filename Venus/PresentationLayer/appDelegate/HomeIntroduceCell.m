@@ -22,6 +22,7 @@
     _rightLine.backgroundColor = GMBrownColor;
     _leftLine.backgroundColor = GMBrownColor;
     [_myScrollView setShowsHorizontalScrollIndicator:NO];
+
 }
 
 - (void)setList:(NSMutableArray *)list{
