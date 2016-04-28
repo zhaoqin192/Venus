@@ -73,6 +73,10 @@
 		30B601C61CD07BDC003ED671 /* ShopHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B601C41CD07BDC003ED671 /* ShopHomeViewController.xib */; };
 		30B601CA1CD07C54003ED671 /* ShopCycleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601C81CD07C54003ED671 /* ShopCycleCell.m */; };
 		30B601CB1CD07C54003ED671 /* ShopCycleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B601C91CD07C54003ED671 /* ShopCycleCell.xib */; };
+		30B601F61CD1F92D003ED671 /* BeautifulFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601F41CD1F92D003ED671 /* BeautifulFoodViewController.m */; };
+		30B601F71CD1F92D003ED671 /* BeautifulFoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B601F51CD1F92D003ED671 /* BeautifulFoodViewController.xib */; };
+		30B601FC1CD1FA94003ED671 /* BeautifulFoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601FA1CD1FA94003ED671 /* BeautifulFoodCell.m */; };
+		30B601FD1CD1FA94003ED671 /* BeautifulFoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B601FB1CD1FA94003ED671 /* BeautifulFoodCell.xib */; };
 		30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2701CC87ACE00FB0CFC /* ico_make.png */; };
 		30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2721CC87ACE00FB0CFC /* JSDropDownMenu.m */; };
 		30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2781CC87AF500FB0CFC /* FoodViewController.m */; };
@@ -235,6 +239,12 @@
 		30B601C71CD07C54003ED671 /* ShopCycleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCycleCell.h; sourceTree = "<group>"; };
 		30B601C81CD07C54003ED671 /* ShopCycleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCycleCell.m; sourceTree = "<group>"; };
 		30B601C91CD07C54003ED671 /* ShopCycleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCycleCell.xib; sourceTree = "<group>"; };
+		30B601F31CD1F92D003ED671 /* BeautifulFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulFoodViewController.h; sourceTree = "<group>"; };
+		30B601F41CD1F92D003ED671 /* BeautifulFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulFoodViewController.m; sourceTree = "<group>"; };
+		30B601F51CD1F92D003ED671 /* BeautifulFoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeautifulFoodViewController.xib; sourceTree = "<group>"; };
+		30B601F91CD1FA94003ED671 /* BeautifulFoodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulFoodCell.h; sourceTree = "<group>"; };
+		30B601FA1CD1FA94003ED671 /* BeautifulFoodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulFoodCell.m; sourceTree = "<group>"; };
+		30B601FB1CD1FA94003ED671 /* BeautifulFoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeautifulFoodCell.xib; sourceTree = "<group>"; };
 		30D6D2701CC87ACE00FB0CFC /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
 		30D6D2711CC87ACE00FB0CFC /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDropDownMenu.h; sourceTree = "<group>"; };
 		30D6D2721CC87ACE00FB0CFC /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDropDownMenu.m; sourceTree = "<group>"; };
@@ -544,6 +554,27 @@
 			name = StoryBoard;
 			sourceTree = "<group>";
 		};
+		30B601F11CD1F8F6003ED671 /* beauty */ = {
+			isa = PBXGroup;
+			children = (
+				30B601F81CD1FA58003ED671 /* cell */,
+				30B601F31CD1F92D003ED671 /* BeautifulFoodViewController.h */,
+				30B601F41CD1F92D003ED671 /* BeautifulFoodViewController.m */,
+				30B601F51CD1F92D003ED671 /* BeautifulFoodViewController.xib */,
+			);
+			name = beauty;
+			sourceTree = "<group>";
+		};
+		30B601F81CD1FA58003ED671 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				30B601F91CD1FA94003ED671 /* BeautifulFoodCell.h */,
+				30B601FA1CD1FA94003ED671 /* BeautifulFoodCell.m */,
+				30B601FB1CD1FA94003ED671 /* BeautifulFoodCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 		30D6D26F1CC87ACE00FB0CFC /* JSDropDownMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,6 +588,7 @@
 		30D6D2751CC87AE100FB0CFC /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				30B601F11CD1F8F6003ED671 /* beauty */,
 				3035196D1CCF47B800EE0750 /* shop */,
 				3025A98B1CCE3ED500C5EAAB /* group */,
 				30D6D2761CC87AE800FB0CFC /* food */,
@@ -934,6 +966,7 @@
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
 				303519581CCF1F9500EE0750 /* TicketHeaderCell.xib in Resources */,
 				30D6D29A1CC8A3F700FB0CFC /* FoodOrderViewController.xib in Resources */,
+				30B601F71CD1F92D003ED671 /* BeautifulFoodViewController.xib in Resources */,
 				30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */,
 				303519721CCF47CE00EE0750 /* ShopViewController.xib in Resources */,
 				3086D3E31CC72B19007494D7 /* Life.storyboard in Resources */,
@@ -943,6 +976,7 @@
 				3086D3D51CC72ABC007494D7 /* HomeIntroduceCell.xib in Resources */,
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
 				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
+				30B601FD1CD1FA94003ED671 /* BeautifulFoodCell.xib in Resources */,
 				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
 				3086D3BB1CC72A1E007494D7 /* GMRegisterViewController.xib in Resources */,
 				303519671CCF377A00EE0750 /* TicketDateCell.xib in Resources */,
@@ -1068,6 +1102,7 @@
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,
 				30D6D29E1CC8A85B00FB0CFC /* FoodCategoryCell.m in Sources */,
+				30B601F61CD1F92D003ED671 /* BeautifulFoodViewController.m in Sources */,
 				30D6D2991CC8A3F700FB0CFC /* FoodOrderViewController.m in Sources */,
 				3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */,
 				ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */,
@@ -1079,6 +1114,7 @@
 				3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */,
 				3086D3BA1CC72A1E007494D7 /* GMRegisterViewController.m in Sources */,
 				30D6D2A31CC8B1BF00FB0CFC /* FoodContentCell.m in Sources */,
+				30B601FC1CD1FA94003ED671 /* BeautifulFoodCell.m in Sources */,
 				3086D3D21CC72ABC007494D7 /* HomeNewsCell.m in Sources */,
 				30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */,
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
