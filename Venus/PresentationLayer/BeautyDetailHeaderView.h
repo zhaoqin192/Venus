@@ -10,4 +10,6 @@
 
 @interface BeautyDetailHeaderView : UIView
 
++ (instancetype)headView;
+
 @end

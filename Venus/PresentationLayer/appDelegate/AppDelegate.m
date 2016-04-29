@@ -10,8 +10,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "WXApi.h"
 #import "NetworkFetcher+User.h"
-//#import "GMLoginViewController.h"
-#import "BeautifulFoodViewController.h"
+#import "BeautifulDetailViewController.h"
 @interface AppDelegate ()<WXApiDelegate>
 @end
 
@@ -22,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] init];
-    BeautifulFoodViewController *vc = [[BeautifulFoodViewController alloc] init];
+    BeautifulDetailViewController *vc = [[BeautifulDetailViewController alloc] init];
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
 

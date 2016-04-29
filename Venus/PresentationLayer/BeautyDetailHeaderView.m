@@ -10,12 +10,10 @@
 
 @implementation BeautyDetailHeaderView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
++ (instancetype)headView {
+    BeautyDetailHeaderView *view = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([BeautyDetailHeaderView class]) owner:nil options:nil] firstObject];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
 }
-*/
 
 @end
