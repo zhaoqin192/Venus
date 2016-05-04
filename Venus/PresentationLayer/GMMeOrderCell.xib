@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GMMeOrderCell" id="KGk-i7-Jjw" customClass="GMMeOrderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="98"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="97"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view tag="10" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnd-J7-V3D">
+                        <rect key="frame" x="0.0" y="34" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.28235294119999998" green="0.89411764709999997" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="7WD-nb-NOo"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的订单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbZ-tD-HW2">
+                        <rect key="frame" x="15" y="8" width="56" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMi-0C-d2e">
+                        <rect key="frame" x="141" y="45" width="38" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="aLy-bm-NlO"/>
+                            <constraint firstAttribute="width" constant="38" id="hCq-9f-bVe"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="我的外卖"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUj-cN-m8d">
+                        <rect key="frame" x="33" y="45" width="38" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="38" id="Ah0-3x-eZa"/>
+                            <constraint firstAttribute="height" constant="29" id="npY-ew-N7q"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="团购券"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvL-sx-jq9">
+                        <rect key="frame" x="249" y="45" width="38" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="38" id="DmZ-ue-KqW"/>
+                            <constraint firstAttribute="height" constant="29" id="zar-TJ-9G6"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="商城"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="团购券" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buf-eX-7vY">
+                        <rect key="frame" x="34" y="80" width="36" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="外卖" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXX-9E-wPU">
+                        <rect key="frame" x="148" y="80" width="24" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商城" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkh-NG-Qz5">
+                        <rect key="frame" x="256" y="80" width="24" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="dnd-J7-V3D" secondAttribute="trailing" id="0zm-aj-7yf"/>
+                    <constraint firstItem="dkh-NG-Qz5" firstAttribute="centerX" secondItem="xvL-sx-jq9" secondAttribute="centerX" id="1BZ-b5-9Ns"/>
+                    <constraint firstItem="cXX-9E-wPU" firstAttribute="centerY" secondItem="buf-eX-7vY" secondAttribute="centerY" id="1OZ-ul-ht8"/>
+                    <constraint firstItem="xvL-sx-jq9" firstAttribute="centerY" secondItem="AMi-0C-d2e" secondAttribute="centerY" id="8Yf-vd-DLD"/>
+                    <constraint firstItem="AMi-0C-d2e" firstAttribute="leading" secondItem="NUj-cN-m8d" secondAttribute="trailing" constant="70" id="Dlz-ql-UCz"/>
+                    <constraint firstItem="AMi-0C-d2e" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="GdX-6n-Fg9"/>
+                    <constraint firstItem="NUj-cN-m8d" firstAttribute="centerY" secondItem="AMi-0C-d2e" secondAttribute="centerY" id="IW4-3u-4xV"/>
+                    <constraint firstItem="AMi-0C-d2e" firstAttribute="top" secondItem="dnd-J7-V3D" secondAttribute="bottom" constant="10" id="IYq-7q-2r3"/>
+                    <constraint firstItem="dnd-J7-V3D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LRc-97-eLl"/>
+                    <constraint firstItem="sbZ-tD-HW2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Pyy-Rf-PCd"/>
+                    <constraint firstItem="cXX-9E-wPU" firstAttribute="centerX" secondItem="AMi-0C-d2e" secondAttribute="centerX" id="XDp-lK-ct1"/>
+                    <constraint firstItem="buf-eX-7vY" firstAttribute="centerX" secondItem="NUj-cN-m8d" secondAttribute="centerX" id="fke-If-pGH"/>
+                    <constraint firstItem="buf-eX-7vY" firstAttribute="top" secondItem="NUj-cN-m8d" secondAttribute="bottom" constant="6" id="hNQ-zP-1dW"/>
+                    <constraint firstItem="dnd-J7-V3D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="34" id="m0a-p0-5BL"/>
+                    <constraint firstItem="sbZ-tD-HW2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="nL8-Jo-g3O"/>
+                    <constraint firstItem="dkh-NG-Qz5" firstAttribute="centerY" secondItem="cXX-9E-wPU" secondAttribute="centerY" id="wG0-ul-MlE"/>
+                    <constraint firstItem="xvL-sx-jq9" firstAttribute="leading" secondItem="AMi-0C-d2e" secondAttribute="trailing" constant="70" id="zZV-Z5-H4W"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="商城" width="31" height="28"/>
+        <image name="团购券" width="39" height="28"/>
+        <image name="我的外卖" width="38" height="29"/>
+    </resources>
+</document>

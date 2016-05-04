@@ -36,6 +36,12 @@
 		303519771CCF4B8A00EE0750 /* ShopCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519751CCF4B8A00EE0750 /* ShopCommitViewController.xib */; };
 		3035197C1CCF4CB900EE0750 /* ShopCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035197A1CCF4CB900EE0750 /* ShopCommitCell.m */; };
 		3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3035197B1CCF4CB900EE0750 /* ShopCommitCell.xib */; };
+		3057B1ED1CD99221008172DD /* GMMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1EB1CD99221008172DD /* GMMeViewController.m */; };
+		3057B1EE1CD99221008172DD /* GMMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1EC1CD99221008172DD /* GMMeViewController.xib */; };
+		3057B1F21CD998C3008172DD /* GMMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1F01CD998C3008172DD /* GMMeCell.m */; };
+		3057B1F31CD998C3008172DD /* GMMeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1F11CD998C3008172DD /* GMMeCell.xib */; };
+		3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1F61CD99B66008172DD /* GMMeOrderCell.m */; };
+		3057B1F91CD99B66008172DD /* GMMeOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1F71CD99B66008172DD /* GMMeOrderCell.xib */; };
 		3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3931CC72975007494D7 /* UIButton+LCAlignment.m */; };
 		3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3951CC72975007494D7 /* UIColor+LCHexValue.m */; };
 		3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3971CC72975007494D7 /* UILabel+LCConvenience.m */; };
@@ -192,6 +198,15 @@
 		303519791CCF4CB900EE0750 /* ShopCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCommitCell.h; sourceTree = "<group>"; };
 		3035197A1CCF4CB900EE0750 /* ShopCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopCommitCell.m; sourceTree = "<group>"; };
 		3035197B1CCF4CB900EE0750 /* ShopCommitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopCommitCell.xib; sourceTree = "<group>"; };
+		3057B1EA1CD99221008172DD /* GMMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeViewController.h; sourceTree = "<group>"; };
+		3057B1EB1CD99221008172DD /* GMMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeViewController.m; sourceTree = "<group>"; };
+		3057B1EC1CD99221008172DD /* GMMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeViewController.xib; sourceTree = "<group>"; };
+		3057B1EF1CD998C3008172DD /* GMMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeCell.h; sourceTree = "<group>"; };
+		3057B1F01CD998C3008172DD /* GMMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeCell.m; sourceTree = "<group>"; };
+		3057B1F11CD998C3008172DD /* GMMeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeCell.xib; sourceTree = "<group>"; };
+		3057B1F51CD99B66008172DD /* GMMeOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeOrderCell.h; sourceTree = "<group>"; };
+		3057B1F61CD99B66008172DD /* GMMeOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeOrderCell.m; sourceTree = "<group>"; };
+		3057B1F71CD99B66008172DD /* GMMeOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeOrderCell.xib; sourceTree = "<group>"; };
 		3086D38F1CC728F0007494D7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3086D3911CC72975007494D7 /* LCUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUIKit.h; sourceTree = "<group>"; };
 		3086D3921CC72975007494D7 /* UIButton+LCAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LCAlignment.h"; sourceTree = "<group>"; };
@@ -458,6 +473,30 @@
 				30B601C71CD07C54003ED671 /* ShopCycleCell.h */,
 				30B601C81CD07C54003ED671 /* ShopCycleCell.m */,
 				30B601C91CD07C54003ED671 /* ShopCycleCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
+		3057B1E81CD991F5008172DD /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				3057B1F41CD998CA008172DD /* cell */,
+				3057B1EA1CD99221008172DD /* GMMeViewController.h */,
+				3057B1EB1CD99221008172DD /* GMMeViewController.m */,
+				3057B1EC1CD99221008172DD /* GMMeViewController.xib */,
+			);
+			name = Me;
+			sourceTree = "<group>";
+		};
+		3057B1F41CD998CA008172DD /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				3057B1EF1CD998C3008172DD /* GMMeCell.h */,
+				3057B1F01CD998C3008172DD /* GMMeCell.m */,
+				3057B1F11CD998C3008172DD /* GMMeCell.xib */,
+				3057B1F51CD99B66008172DD /* GMMeOrderCell.h */,
+				3057B1F61CD99B66008172DD /* GMMeOrderCell.m */,
+				3057B1F71CD99B66008172DD /* GMMeOrderCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -917,6 +956,7 @@
 		ACF83EC91CBF98B500A962BD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				3057B1E81CD991F5008172DD /* Me */,
 				AC90F5761CD05FF9004C4C55 /* WebView */,
 				ACB78A411CC8678E00354B11 /* PresentationUtility */,
 				3086D3E51CC72B25007494D7 /* StoryBoard */,
@@ -1056,6 +1096,7 @@
 				30B601F71CD1F92D003ED671 /* BeautifulFoodViewController.xib in Resources */,
 				30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */,
 				303519721CCF47CE00EE0750 /* ShopViewController.xib in Resources */,
+				3057B1F31CD998C3008172DD /* GMMeCell.xib in Resources */,
 				303519451CCF0B0500EE0750 /* MoneyCell.xib in Resources */,
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
@@ -1070,10 +1111,12 @@
 				30D6D27E1CC87AF500FB0CFC /* FoodViewController.xib in Resources */,
 				ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */,
 				30B602151CD308F3003ED671 /* ShopActivityCell.xib in Resources */,
+				3057B1EE1CD99221008172DD /* GMMeViewController.xib in Resources */,
 				3086D3E41CC72B19007494D7 /* Me.storyboard in Resources */,
 				30D6D2A41CC8B1BF00FB0CFC /* FoodContentCell.xib in Resources */,
 				3025A9951CCE3FD700C5EAAB /* PackageViewController.xib in Resources */,
 				30B6020F1CD20930003ED671 /* BeautyDetailHeaderView.xib in Resources */,
+				3057B1F91CD99B66008172DD /* GMMeOrderCell.xib in Resources */,
 				30D6D29F1CC8A85B00FB0CFC /* FoodCategoryCell.xib in Resources */,
 				30B601C61CD07BDC003ED671 /* ShopHomeViewController.xib in Resources */,
 				30D6D2941CC89E6E00FB0CFC /* FoodCommitCell.xib in Resources */,
@@ -1153,6 +1196,7 @@
 			files = (
 				AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */,
 				30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */,
+				3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */,
 				30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */,
 				30B601C51CD07BDC003ED671 /* ShopHomeViewController.m in Sources */,
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
@@ -1167,6 +1211,7 @@
 				3086D3B51CC72A09007494D7 /* GMLabel.m in Sources */,
 				AC90F5711CCFAADF004C4C55 /* Picture.m in Sources */,
 				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
+				3057B1ED1CD99221008172DD /* GMMeViewController.m in Sources */,
 				30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */,
 				AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */,
 				AC7AD49C1CC7AFD9004D9B61 /* DatabaseManager.m in Sources */,
@@ -1206,6 +1251,7 @@
 				AC90F5831CD08EEE004C4C55 /* Adversitement.m in Sources */,
 				AC90F5791CD0604F004C4C55 /* WebViewController.m in Sources */,
 				3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */,
+				3057B1F21CD998C3008172DD /* GMMeCell.m in Sources */,
 				3086D3BA1CC72A1E007494D7 /* GMRegisterViewController.m in Sources */,
 				30D6D2A31CC8B1BF00FB0CFC /* FoodContentCell.m in Sources */,
 				30B601FC1CD1FA94003ED671 /* BeautifulFoodCell.m in Sources */,
