@@ -15,6 +15,7 @@
     // Initialization code
     UIView *lineView = [self.contentView viewWithTag:10];
     lineView.backgroundColor = GMBgColor;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -9,6 +9,7 @@
 #import "BeautifulFoodViewController.h"
 #import "JSDropDownMenu.h"
 #import "BeautifulFoodCell.h"
+#import "BeautifulDetailViewController.h"
 
 @interface BeautifulFoodViewController()
 <JSDropDownMenuDataSource,JSDropDownMenuDelegate,UITableViewDelegate,UITableViewDataSource>{
@@ -69,6 +70,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 88;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    BeautifulDetailViewController *vc = [[BeautifulDetailViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

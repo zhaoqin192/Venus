@@ -24,7 +24,9 @@
 #import "Adversitement.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
-
+#import "BeautifulFoodViewController.h"
+#import "GroupPurchaseViewController.h"
+#import "FoodViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>
 
@@ -168,6 +170,54 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
             if (cell == nil) {
                 cell = [[HomeMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier menuArray:self.menuArray];
             }
+            __weak typeof(self)weakSelf = self;
+            cell.buttonClickedWithTag = ^(NSInteger *tag){
+                switch ((int)tag) {
+                    case 10:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                    case 11:{
+                        BeautifulFoodViewController *vc = [[BeautifulFoodViewController alloc] init];
+                        [weakSelf.navigationController pushViewController:vc animated:YES];
+                        break;
+                    }
+                    case 12:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                    case 13:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                    case 14:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                    case 15:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                    case 16:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                    case 17:{
+                        FoodViewController *vc = [[FoodViewController alloc] init];
+                        [self.navigationController pushViewController:vc animated:YES];
+                        break;
+                    }
+                    case 18:{
+                        GroupPurchaseViewController *vc = [[GroupPurchaseViewController alloc] init];
+                        [self.navigationController pushViewController:vc animated:YES];
+                        break;
+                    }
+                    case 19:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                }
+            };
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }

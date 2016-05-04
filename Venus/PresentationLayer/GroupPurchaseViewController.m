@@ -23,13 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureChildController];
     [self configureSegmentView];
+    [self configureChildController];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self touchLabelWithIndex:0];
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.packageVC.view.frame = CGRectMake(0, 104, kScreenWidth, kScreenHeight - 104);
+    [self.view addSubview:self.packageVC.view];
 }
 
 - (void)configureChildController{

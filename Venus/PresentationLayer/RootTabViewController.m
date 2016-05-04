@@ -8,7 +8,9 @@
 
 #import "RootTabViewController.h"
 #import "RDVTabBarItem.h"
+
 #import "GMMeViewController.h"
+#import "HomePageViewController.h"
 
 @interface RootTabViewController ()
 
@@ -27,10 +29,12 @@
     GMMeViewController *meVC = [[GMMeViewController alloc] init];
     UINavigationController *meNVC = [[UINavigationController alloc] initWithRootViewController:meVC];
     
+    UINavigationController *homeNVC = [[UIStoryboard storyboardWithName:@"Home" bundle:nil] instantiateInitialViewController];
+    
     UIViewController *vvc = [[UIViewController alloc] init];
     vvc.view.backgroundColor = [UIColor redColor];
     vvc.tabBarItem.badgeValue = @"1";
-    [self setViewControllers:@[vvc,vvc,vvc,vvc,meNVC]];
+    [self setViewControllers:@[homeNVC,vvc,vvc,vvc,meNVC]];
     [self customizeTabBarForController];
     self.delegate = self;
 }

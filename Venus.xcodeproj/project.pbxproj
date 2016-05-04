@@ -43,6 +43,7 @@
 		3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1F61CD99B66008172DD /* GMMeOrderCell.m */; };
 		3057B1F91CD99B66008172DD /* GMMeOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1F71CD99B66008172DD /* GMMeOrderCell.xib */; };
 		3057B1FF1CD9B9E8008172DD /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1FE1CD9B9E8008172DD /* RootTabViewController.m */; };
+		3057B2071CD9BDC4008172DD /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3057B2061CD9BDC4008172DD /* Home.storyboard */; };
 		3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3931CC72975007494D7 /* UIButton+LCAlignment.m */; };
 		3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3951CC72975007494D7 /* UIColor+LCHexValue.m */; };
 		3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3971CC72975007494D7 /* UILabel+LCConvenience.m */; };
@@ -204,6 +205,7 @@
 		3057B1F71CD99B66008172DD /* GMMeOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeOrderCell.xib; sourceTree = "<group>"; };
 		3057B1FD1CD9B9E8008172DD /* RootTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabViewController.h; sourceTree = "<group>"; };
 		3057B1FE1CD9B9E8008172DD /* RootTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabViewController.m; sourceTree = "<group>"; };
+		3057B2061CD9BDC4008172DD /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3086D38F1CC728F0007494D7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3086D3911CC72975007494D7 /* LCUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUIKit.h; sourceTree = "<group>"; };
 		3086D3921CC72975007494D7 /* UIButton+LCAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LCAlignment.h"; sourceTree = "<group>"; };
@@ -596,6 +598,7 @@
 		3086D3D81CC72ACB007494D7 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				3057B2061CD9BDC4008172DD /* Home.storyboard */,
 				3086D3C31CC72ABC007494D7 /* HomePageViewController.h */,
 				3086D3C41CC72ABC007494D7 /* HomePageViewController.m */,
 				30D6D2811CC87BEF00FB0CFC /* cell */,
@@ -1096,6 +1099,7 @@
 				30D6D29F1CC8A85B00FB0CFC /* FoodCategoryCell.xib in Resources */,
 				30B601C61CD07BDC003ED671 /* ShopHomeViewController.xib in Resources */,
 				30D6D2941CC89E6E00FB0CFC /* FoodCommitCell.xib in Resources */,
+				3057B2071CD9BDC4008172DD /* Home.storyboard in Resources */,
 				303519621CCF348F00EE0750 /* TicketCountCell.xib in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
 				30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */,

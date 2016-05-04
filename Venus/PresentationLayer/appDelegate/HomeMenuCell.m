@@ -44,7 +44,9 @@
 }
 
 -(void)OnTapBtnView:(UITapGestureRecognizer *)sender{
-//    NSLog(@"tag:%ld",sender.view.tag);
+    if (self.buttonClickedWithTag) {
+        self.buttonClickedWithTag(sender.view.tag);
+    }
 }
 
 

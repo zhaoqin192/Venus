@@ -11,7 +11,6 @@
 
 
 @interface HomeMenuCell : UITableViewCell
-
--(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier menuArray:(NSMutableArray *)menuArray;
-
+@property (nonatomic ,copy) void(^buttonClickedWithTag)(NSInteger *tag);
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier menuArray:(NSMutableArray *)menuArray;
 @end
