@@ -42,6 +42,7 @@
 		3057B1F31CD998C3008172DD /* GMMeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1F11CD998C3008172DD /* GMMeCell.xib */; };
 		3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1F61CD99B66008172DD /* GMMeOrderCell.m */; };
 		3057B1F91CD99B66008172DD /* GMMeOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3057B1F71CD99B66008172DD /* GMMeOrderCell.xib */; };
+		3057B1FF1CD9B9E8008172DD /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3057B1FE1CD9B9E8008172DD /* RootTabViewController.m */; };
 		3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3931CC72975007494D7 /* UIButton+LCAlignment.m */; };
 		3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3951CC72975007494D7 /* UIColor+LCHexValue.m */; };
 		3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3971CC72975007494D7 /* UILabel+LCConvenience.m */; };
@@ -63,11 +64,6 @@
 		3086D3D41CC72ABC007494D7 /* HomeIntroduceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3CB1CC72ABC007494D7 /* HomeIntroduceCell.m */; };
 		3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3CE1CC72ABC007494D7 /* HomeCategoryCell.m */; };
 		3086D3D71CC72ABC007494D7 /* HomeCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3CF1CC72ABC007494D7 /* HomeCategoryCell.xib */; };
-		3086D3DF1CC72B19007494D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3D91CC72B19007494D7 /* Main.storyboard */; };
-		3086D3E01CC72B19007494D7 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DA1CC72B19007494D7 /* Home.storyboard */; };
-		3086D3E11CC72B19007494D7 /* Buy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DB1CC72B19007494D7 /* Buy.storyboard */; };
-		3086D3E21CC72B19007494D7 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DC1CC72B19007494D7 /* Category.storyboard */; };
-		3086D3E41CC72B19007494D7 /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DE1CC72B19007494D7 /* Me.storyboard */; };
 		30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601B81CD05DA4003ED671 /* ShopAllViewController.m */; };
 		30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B601B91CD05DA4003ED671 /* ShopAllViewController.xib */; };
 		30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601BE1CD05E88003ED671 /* ShopAllCell.m */; };
@@ -125,7 +121,6 @@
 		AC7AD49C1CC7AFD9004D9B61 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD49B1CC7AFD9004D9B61 /* DatabaseManager.m */; };
 		AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD49F1CC7B01A004D9B61 /* AccountDao.m */; };
 		AC90F5641CCFA292004C4C55 /* WXTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3A31CC729A9007494D7 /* WXTextField.xib */; };
-		AC90F5651CCFA292004C4C55 /* Life.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3DD1CC72B19007494D7 /* Life.storyboard */; };
 		AC90F5661CCFA292004C4C55 /* HomeIntroduceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3CC1CC72ABC007494D7 /* HomeIntroduceCell.xib */; };
 		AC90F56A1CCFA4E7004C4C55 /* NetworkFetcher+Home.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5691CCFA4E7004C4C55 /* NetworkFetcher+Home.m */; };
 		AC90F5711CCFAADF004C4C55 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5701CCFAADF004C4C55 /* Picture.m */; };
@@ -207,6 +202,8 @@
 		3057B1F51CD99B66008172DD /* GMMeOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeOrderCell.h; sourceTree = "<group>"; };
 		3057B1F61CD99B66008172DD /* GMMeOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeOrderCell.m; sourceTree = "<group>"; };
 		3057B1F71CD99B66008172DD /* GMMeOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeOrderCell.xib; sourceTree = "<group>"; };
+		3057B1FD1CD9B9E8008172DD /* RootTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabViewController.h; sourceTree = "<group>"; };
+		3057B1FE1CD9B9E8008172DD /* RootTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabViewController.m; sourceTree = "<group>"; };
 		3086D38F1CC728F0007494D7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3086D3911CC72975007494D7 /* LCUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUIKit.h; sourceTree = "<group>"; };
 		3086D3921CC72975007494D7 /* UIButton+LCAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LCAlignment.h"; sourceTree = "<group>"; };
@@ -248,12 +245,6 @@
 		3086D3CD1CC72ABC007494D7 /* HomeCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCategoryCell.h; sourceTree = "<group>"; };
 		3086D3CE1CC72ABC007494D7 /* HomeCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCategoryCell.m; sourceTree = "<group>"; };
 		3086D3CF1CC72ABC007494D7 /* HomeCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCategoryCell.xib; sourceTree = "<group>"; };
-		3086D3D91CC72B19007494D7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		3086D3DA1CC72B19007494D7 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		3086D3DB1CC72B19007494D7 /* Buy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Buy.storyboard; sourceTree = "<group>"; };
-		3086D3DC1CC72B19007494D7 /* Category.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
-		3086D3DD1CC72B19007494D7 /* Life.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Life.storyboard; sourceTree = "<group>"; };
-		3086D3DE1CC72B19007494D7 /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
 		30B601B71CD05DA4003ED671 /* ShopAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopAllViewController.h; sourceTree = "<group>"; };
 		30B601B81CD05DA4003ED671 /* ShopAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopAllViewController.m; sourceTree = "<group>"; };
 		30B601B91CD05DA4003ED671 /* ShopAllViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopAllViewController.xib; sourceTree = "<group>"; };
@@ -613,19 +604,6 @@
 			path = appDelegate;
 			sourceTree = "<group>";
 		};
-		3086D3E51CC72B25007494D7 /* StoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-				3086D3D91CC72B19007494D7 /* Main.storyboard */,
-				3086D3DA1CC72B19007494D7 /* Home.storyboard */,
-				3086D3DB1CC72B19007494D7 /* Buy.storyboard */,
-				3086D3DC1CC72B19007494D7 /* Category.storyboard */,
-				3086D3DD1CC72B19007494D7 /* Life.storyboard */,
-				3086D3DE1CC72B19007494D7 /* Me.storyboard */,
-			);
-			name = StoryBoard;
-			sourceTree = "<group>";
-		};
 		30B601F11CD1F8F6003ED671 /* beauty */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,10 +934,11 @@
 		ACF83EC91CBF98B500A962BD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				3057B1FD1CD9B9E8008172DD /* RootTabViewController.h */,
+				3057B1FE1CD9B9E8008172DD /* RootTabViewController.m */,
 				3057B1E81CD991F5008172DD /* Me */,
 				AC90F5761CD05FF9004C4C55 /* WebView */,
 				ACB78A411CC8678E00354B11 /* PresentationUtility */,
-				3086D3E51CC72B25007494D7 /* StoryBoard */,
 				AC71EAB61CC0A5B200B101C2 /* AppDelegate */,
 				3086D3D81CC72ACB007494D7 /* HomePage */,
 				3086D3C21CC72A92007494D7 /* Login */,
@@ -1085,7 +1064,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
-				AC90F5651CCFA292004C4C55 /* Life.storyboard in Resources */,
 				AC90F5641CCFA292004C4C55 /* WXTextField.xib in Resources */,
 				AC90F5661CCFA292004C4C55 /* HomeIntroduceCell.xib in Resources */,
 				AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */,
@@ -1106,13 +1084,11 @@
 				3086D3BB1CC72A1E007494D7 /* GMRegisterViewController.xib in Resources */,
 				303519671CCF377A00EE0750 /* TicketDateCell.xib in Resources */,
 				3035196C1CCF393700EE0750 /* TicketCommitCell.xib in Resources */,
-				3086D3E01CC72B19007494D7 /* Home.storyboard in Resources */,
 				303519771CCF4B8A00EE0750 /* ShopCommitViewController.xib in Resources */,
 				30D6D27E1CC87AF500FB0CFC /* FoodViewController.xib in Resources */,
 				ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */,
 				30B602151CD308F3003ED671 /* ShopActivityCell.xib in Resources */,
 				3057B1EE1CD99221008172DD /* GMMeViewController.xib in Resources */,
-				3086D3E41CC72B19007494D7 /* Me.storyboard in Resources */,
 				30D6D2A41CC8B1BF00FB0CFC /* FoodContentCell.xib in Resources */,
 				3025A9951CCE3FD700C5EAAB /* PackageViewController.xib in Resources */,
 				30B6020F1CD20930003ED671 /* BeautyDetailHeaderView.xib in Resources */,
@@ -1122,16 +1098,13 @@
 				30D6D2941CC89E6E00FB0CFC /* FoodCommitCell.xib in Resources */,
 				303519621CCF348F00EE0750 /* TicketCountCell.xib in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
-				3086D3E11CC72B19007494D7 /* Buy.storyboard in Resources */,
 				30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */,
 				303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */,
-				3086D3DF1CC72B19007494D7 /* Main.storyboard in Resources */,
 				3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */,
 				3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */,
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
 				30B601CB1CD07C54003ED671 /* ShopCycleCell.xib in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
-				3086D3E21CC72B19007494D7 /* Category.storyboard in Resources */,
 				3086D3D71CC72ABC007494D7 /* HomeCategoryCell.xib in Resources */,
 				30D6D2801CC87AF500FB0CFC /* FoodCell.xib in Resources */,
 				3086D3D31CC72ABC007494D7 /* HomeNewsCell.xib in Resources */,
@@ -1205,6 +1178,7 @@
 				3086D39D1CC7298B007494D7 /* JZMTBtnView.m in Sources */,
 				ACB78A451CC867BC00354B11 /* PresentationUtility.m in Sources */,
 				3086D3D01CC72ABC007494D7 /* HomePageViewController.m in Sources */,
+				3057B1FF1CD9B9E8008172DD /* RootTabViewController.m in Sources */,
 				3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */,
 				3035197C1CCF4CB900EE0750 /* ShopCommitCell.m in Sources */,
 				30B6020D1CD2091C003ED671 /* BeautyDetailHeaderView.m in Sources */,

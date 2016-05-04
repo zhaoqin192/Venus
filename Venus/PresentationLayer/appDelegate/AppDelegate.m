@@ -10,7 +10,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "WXApi.h"
 #import "NetworkFetcher+User.h"
-#import "GMMeViewController.h"
+#import "RootTabViewController.h"
 @interface AppDelegate ()<WXApiDelegate>
 @end
 
@@ -21,8 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] init];
-    GMMeViewController *vc = [[GMMeViewController alloc] init];
-    self.window.rootViewController = vc;
+    self.window.rootViewController = [[RootTabViewController alloc] init];
     [self.window makeKeyAndVisible];
 
     // Override point for customization after application launch.
