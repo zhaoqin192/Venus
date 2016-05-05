@@ -59,6 +59,10 @@
     switch (indexPath.section) {
         case 0:{
             TicketHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TicketHeaderCell class])];
+            __weak typeof(self)weakSelf = self;
+            cell.ButtonClicked = ^{
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            };
             return cell;
             break;
         }

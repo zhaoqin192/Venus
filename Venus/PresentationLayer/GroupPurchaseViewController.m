@@ -24,14 +24,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"团购券";
+    self.packageVC.view.frame = CGRectMake(0, 40, kScreenWidth, kScreenHeight - 40);
+    [self.view addSubview:self.packageVC.view];
     [self configureSegmentView];
     [self configureChildController];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.packageVC.view.frame = CGRectMake(0, 40, kScreenWidth, kScreenHeight - 40);
-    [self.view addSubview:self.packageVC.view];
+    [segementView selectLabelWithIndex:0];
 }
 
 - (void)configureChildController{

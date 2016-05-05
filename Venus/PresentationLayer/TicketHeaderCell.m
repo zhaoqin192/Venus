@@ -20,6 +20,11 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.buyButton.backgroundColor = GMRedColor;
 }
+- (IBAction)returnButtonClicked {
+    if (self.ButtonClicked) {
+        self.ButtonClicked();
+    }
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

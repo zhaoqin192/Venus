@@ -122,6 +122,9 @@
                             <constraint firstAttribute="height" constant="20" id="AIW-ZH-ZtR"/>
                         </constraints>
                         <state key="normal" backgroundImage="返回"/>
+                        <connections>
+                            <action selector="returnButtonClicked" destination="KGk-i7-Jjw" eventType="touchUpInside" id="L3e-1Q-QyH"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPA-xf-oAn">
                         <rect key="frame" x="343" y="26" width="24" height="24"/>
