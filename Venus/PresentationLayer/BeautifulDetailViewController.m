@@ -26,6 +26,12 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)configureTableView {
@@ -34,6 +40,9 @@
         view.frame = CGRectMake(0, 0, kScreenWidth, 286);
         BeautyDetailHeaderView *headview = [BeautyDetailHeaderView headView];
         headview.frame = CGRectMake(0, 0, kScreenWidth, 286);
+        headview.returnButtonClicked = ^{
+            [self.navigationController popViewControllerAnimated:YES];
+        };
         [view addSubview:headview];
         view;
     });

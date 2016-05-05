@@ -28,6 +28,16 @@
     [self configureSegmentView];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
 - (void)configureChildController{
     self.commitVC = [[FoodCommitViewController alloc] init];
     [self addChildViewController:self.commitVC];
@@ -57,6 +67,9 @@
         self.orderVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180);
         [self.view addSubview:self.orderVC.view];
     }
+}
+- (IBAction)returnButtonClicked {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

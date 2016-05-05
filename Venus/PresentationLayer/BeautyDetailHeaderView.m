@@ -15,5 +15,10 @@
     view.backgroundColor = [UIColor clearColor];
     return view;
 }
+- (IBAction)returnButtonClicked:(id)sender {
+    if (self.returnButtonClicked) {
+        self.returnButtonClicked();
+    }
+}
 
 @end

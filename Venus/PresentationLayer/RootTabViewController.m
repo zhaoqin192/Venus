@@ -29,7 +29,8 @@
     GMMeViewController *meVC = [[GMMeViewController alloc] init];
     UINavigationController *meNVC = [[UINavigationController alloc] initWithRootViewController:meVC];
     
-    UINavigationController *homeNVC = [[UIStoryboard storyboardWithName:@"Home" bundle:nil] instantiateInitialViewController];
+    HomePageViewController *homeVC = [[UIStoryboard storyboardWithName:@"Home" bundle:nil] instantiateInitialViewController];
+    UINavigationController *homeNVC = [[UINavigationController alloc] initWithRootViewController:homeVC];
     
     UIViewController *vvc = [[UIViewController alloc] init];
     vvc.view.backgroundColor = [UIColor redColor];

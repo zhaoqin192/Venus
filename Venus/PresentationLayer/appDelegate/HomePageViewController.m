@@ -64,7 +64,13 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
     self.navigationController.navigationBar.barTintColor = GMRedColor;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = GMBrownColor;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:GMBrownColor};
 //    self.navigationController.hidesBarsOnSwipe = YES;
+    self.navigationItem.backBarButtonItem = ({
+        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
+        back.title = @"";
+        back;
+    });
 
     UIImageView *titleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
     titleImageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -80,6 +86,16 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
             self.view.hidden = NO;
         }];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)netWorkRequest {

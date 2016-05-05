@@ -35,6 +35,9 @@
                                 <constraint firstAttribute="height" constant="20" id="CEz-og-31C"/>
                             </constraints>
                             <state key="normal" backgroundImage="返回"/>
+                            <connections>
+                                <action selector="returnButtonClicked" destination="-1" eventType="touchUpInside" id="LZV-Pw-gl1"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ei1-Nv-A4c">
                             <rect key="frame" x="341" y="23" width="24" height="24"/>

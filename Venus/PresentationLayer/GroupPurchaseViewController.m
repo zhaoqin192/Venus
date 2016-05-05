@@ -23,13 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"团购券";
     [self configureSegmentView];
     [self configureChildController];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.packageVC.view.frame = CGRectMake(0, 104, kScreenWidth, kScreenHeight - 104);
+    self.packageVC.view.frame = CGRectMake(0, 40, kScreenWidth, kScreenHeight - 40);
     [self.view addSubview:self.packageVC.view];
 }
 
@@ -41,7 +42,7 @@
 }
 
 - (void)configureSegmentView{
-    segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 40)];
+    segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
     segementView.titleArray = @[@"套餐券",@"代金券"];
     segementView.titleColor = [UIColor lightGrayColor];
     segementView.haveRightLine = YES;
@@ -55,11 +56,11 @@
 
 - (void)touchLabelWithIndex:(NSInteger)index{
     if (index == 0) {
-        self.packageVC.view.frame = CGRectMake(0, 104, kScreenWidth, kScreenHeight - 104);
+        self.packageVC.view.frame = CGRectMake(0, 40, kScreenWidth, kScreenHeight - 40);
         [self.view addSubview:self.packageVC.view];
     }
     else{
-        self.moneyVC.view.frame = CGRectMake(0, 104, kScreenWidth, kScreenHeight - 104);
+        self.moneyVC.view.frame = CGRectMake(0, 40, kScreenWidth, kScreenHeight - 40);
         [self.view addSubview:self.moneyVC.view];
     }
 }
