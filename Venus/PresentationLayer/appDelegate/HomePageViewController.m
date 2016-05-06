@@ -25,7 +25,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
 #import "BeautifulFoodViewController.h"
-#import "GroupPurchaseViewController.h"
+#import "MoneyCardViewController.h"
 #import "FoodViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>
@@ -224,7 +224,7 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
                         break;
                     }
                     case 18:{
-                        GroupPurchaseViewController *vc = [[GroupPurchaseViewController alloc] init];
+                        MoneyCardViewController *vc = [[MoneyCardViewController alloc] init];
                         [self.navigationController pushViewController:vc animated:YES];
                         break;
                     }
