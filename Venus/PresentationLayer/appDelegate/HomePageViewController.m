@@ -27,7 +27,7 @@
 #import "FoodViewController.h"
 
 #import "BeautifulFoodViewController.h"
-#import "GroupPurchaseViewController.h"
+#import "MoneyCardViewController.h"
 #import "FoodViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate, HomeMenuCellDelegate>
@@ -45,7 +45,9 @@
 
 @end
 
+
 static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/files/image/OnlyForTest/";
+
 
 
 @implementation HomePageViewController
@@ -227,7 +229,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
                         break;
                     }
                     case 18:{
-                        GroupPurchaseViewController *vc = [[GroupPurchaseViewController alloc] init];
+                        MoneyCardViewController *vc = [[MoneyCardViewController alloc] init];
                         [self.navigationController pushViewController:vc animated:YES];
                         break;
                     }

@@ -62,7 +62,7 @@ static const BOOL LOGDEBUG = NO;
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/qqlogin"]];
-    NSDictionary *parameters = @{@"redirectUrl": @"http://buscome.neoap.com/"};
+    NSDictionary *parameters = @{@"redirectUrl": @"www.chinaworldstyle.com/"};
 
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         

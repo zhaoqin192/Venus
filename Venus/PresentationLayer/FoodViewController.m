@@ -36,7 +36,7 @@
 
 @end
 
-static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/image/OnlyForTest/";
+static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image/OnlyForTest/";
 
 
 @implementation FoodViewController
