@@ -16,8 +16,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oWS-8W-yTy">
-                    <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                    <rect key="frame" x="0.0" y="45" width="375" height="622"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Ieu-Yp-wqP"/>
                         <outlet property="delegate" destination="-1" id="nEv-XE-9m3"/>
@@ -26,7 +27,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="oWS-8W-yTy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="HEA-dO-lsx"/>
+                <constraint firstItem="oWS-8W-yTy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="HEA-dO-lsx"/>
                 <constraint firstAttribute="bottom" secondItem="oWS-8W-yTy" secondAttribute="bottom" id="JPd-iA-TOm"/>
                 <constraint firstAttribute="trailing" secondItem="oWS-8W-yTy" secondAttribute="trailing" id="Nod-D1-eJa"/>
                 <constraint firstItem="oWS-8W-yTy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="z6U-Yn-zgf"/>

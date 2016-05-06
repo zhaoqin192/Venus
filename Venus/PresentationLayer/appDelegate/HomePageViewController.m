@@ -24,11 +24,13 @@
 #import "Adversitement.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
+#import "FoodViewController.h"
+
 #import "BeautifulFoodViewController.h"
 #import "MoneyCardViewController.h"
 #import "FoodViewController.h"
 
-@interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>
+@interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate, HomeMenuCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -43,7 +45,7 @@
 
 @end
 
-static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/image/OnlyForTest/";
+static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image/OnlyForTest/";
 
 
 @implementation HomePageViewController
@@ -64,8 +66,8 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
     self.navigationController.navigationBar.barTintColor = GMRedColor;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = GMBrownColor;
+
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:GMBrownColor};
-//    self.navigationController.hidesBarsOnSwipe = YES;
     self.navigationItem.backBarButtonItem = ({
         UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
         back.title = @"";
@@ -183,6 +185,7 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
         case 0:{
             static NSString *cellIndentifier = @"menucell";
             HomeMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+            [cell setDelegate:self];
             if (cell == nil) {
                 cell = [[HomeMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier menuArray:self.menuArray];
             }
@@ -252,7 +255,7 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
                 WebViewController *webVC = [[WebViewController alloc] init];
                 Picture *picture = _pictureManager.recommendPictureArray[button.tag];
                 webVC.url = picture.url;
-                [self.navigationController pushViewController:webVC animated:YES];
+                [self.navigationController pushViewController:webVC animated:NO];
                 
             };
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -307,5 +310,14 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
     }
     return 0;
 }
+
+#pragma mark <HomeMenuDelegate>
+- (void)enterSubViewController:(NSInteger)menuNumber {
+    if (menuNumber == 17) {
+        FoodViewController *foodVC = [[FoodViewController alloc] init];
+        [self.navigationController pushViewController:foodVC animated:YES];
+    }
+}
+
 
 @end

@@ -10,4 +10,6 @@
 
 @interface FoodOrderViewController : UIViewController
 
+- (void)updateOrder;
+
 @end

@@ -45,14 +45,8 @@
                 <constraint firstItem="yjQ-sN-Dey" firstAttribute="leading" secondItem="AXr-4G-GMT" secondAttribute="trailing" id="ghJ-6C-mWs"/>
                 <constraint firstItem="yjQ-sN-Dey" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pa2-G6-XCQ"/>
                 <constraint firstItem="AXr-4G-GMT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yYE-s8-ve9"/>
-                <constraint firstAttribute="trailing" secondItem="AXr-4G-GMT" secondAttribute="trailing" id="zVD-BV-iRd"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="zVD-BV-iRd"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="427.5" y="401.5"/>
         </view>
     </objects>
