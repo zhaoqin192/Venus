@@ -98,7 +98,6 @@
     
 }
 
-
 - (void)configureChildController{
     self.commitVC = [[FoodCommitViewController alloc] init];
     self.commitVC.restaurant = _restaurant;
@@ -130,6 +129,7 @@
         [self.view addSubview:self.orderVC.view];
     }
 }
+
 - (IBAction)getBackToLastView:(id)sender {
     
     [self.navigationController popViewControllerAnimated:YES];

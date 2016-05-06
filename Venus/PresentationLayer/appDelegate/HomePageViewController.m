@@ -26,6 +26,9 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import "FoodViewController.h"
 
+#import "BeautifulFoodViewController.h"
+#import "GroupPurchaseViewController.h"
+#import "FoodViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate, HomeMenuCellDelegate>
 
@@ -64,6 +67,13 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = GMBrownColor;
 
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:GMBrownColor};
+    self.navigationItem.backBarButtonItem = ({
+        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
+        back.title = @"";
+        back;
+    });
+
     UIImageView *titleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
     titleImageView.contentMode = UIViewContentModeScaleAspectFit;
     [titleImageView setImage:[UIImage imageNamed:@"loginLogo"]];
@@ -78,6 +88,16 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
             self.view.hidden = NO;
         }];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)netWorkRequest {
@@ -169,6 +189,54 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
             if (cell == nil) {
                 cell = [[HomeMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier menuArray:self.menuArray];
             }
+            __weak typeof(self)weakSelf = self;
+            cell.buttonClickedWithTag = ^(NSInteger *tag){
+                switch ((int)tag) {
+                    case 10:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                    case 11:{
+                        BeautifulFoodViewController *vc = [[BeautifulFoodViewController alloc] init];
+                        [weakSelf.navigationController pushViewController:vc animated:YES];
+                        break;
+                    }
+                    case 12:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                    case 13:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                    case 14:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                    case 15:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                    case 16:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                    case 17:{
+                        FoodViewController *vc = [[FoodViewController alloc] init];
+                        [self.navigationController pushViewController:vc animated:YES];
+                        break;
+                    }
+                    case 18:{
+                        GroupPurchaseViewController *vc = [[GroupPurchaseViewController alloc] init];
+                        [self.navigationController pushViewController:vc animated:YES];
+                        break;
+                    }
+                    case 19:{
+                        NSLog(@"官网");
+                        break;
+                    }
+                }
+            };
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }

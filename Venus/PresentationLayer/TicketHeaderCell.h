@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TicketHeaderCell : UITableViewCell
-
+@property (nonatomic, copy) void(^ButtonClicked)();
 @end

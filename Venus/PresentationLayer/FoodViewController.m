@@ -15,6 +15,7 @@
 #import "FoodDetialViewController.h"
 #import "Restaurant.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "FoodDetialViewController.h"
 
 
 @interface FoodViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate,UITableViewDelegate,UITableViewDataSource>{
@@ -42,6 +43,7 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"外卖";
     [self configureMenu];
     [self configureTableView];
     
@@ -164,7 +166,6 @@ static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/imag
     FoodDetialViewController *foodDetailVC = [[FoodDetialViewController alloc] init];
     foodDetailVC.restaurant = restaurant;
     [self.navigationController pushViewController:foodDetailVC animated:YES];
-    
 }
 
 

@@ -20,6 +20,7 @@
     self.lineView.backgroundColor = GMBrownColor;
     [self.contentLabel setTextColor:[UIColor lightGrayColor]];
     self.contentView.backgroundColor = GMBgColor;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

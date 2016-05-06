@@ -49,6 +49,7 @@
     
     if ([_delegate respondsToSelector:@selector(enterSubViewController:)]) {
         [_delegate enterSubViewController:sender.view.tag];
+
     }
 }
 
