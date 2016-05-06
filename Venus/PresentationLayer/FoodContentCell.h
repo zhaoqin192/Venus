@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface FoodContentCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *pictureUrl;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *sales;
+@property (weak, nonatomic) IBOutlet GMLabel *price;
+@property (weak, nonatomic) IBOutlet GMLabel *count;
+@property (weak, nonatomic) IBOutlet UIButton *minus;
+@property (weak, nonatomic) IBOutlet UIButton *add;
 
 @end

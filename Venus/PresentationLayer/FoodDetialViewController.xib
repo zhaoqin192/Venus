@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodDetialViewController">
             <connections>
+                <outlet property="noteText" destination="il8-vW-bLt" id="bbe-yp-Yxi"/>
+                <outlet property="priceText" destination="Gld-nC-Hgy" id="6cF-i8-NvY"/>
+                <outlet property="restaurantPic" destination="ffW-IQ-1mr" id="41L-X6-wyP"/>
+                <outlet property="salesText" destination="pJn-3P-OnH" id="JZf-C9-p75"/>
                 <outlet property="titleView" destination="uDY-8c-1Zy" id="MPG-xU-l7L"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,7 +22,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDY-8c-1Zy">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="万滩日本料理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSm-GC-QaN" customClass="GMLabel">
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="万滩日本料理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSm-GC-QaN" customClass="GMLabel">
                             <rect key="frame" x="112" y="20" width="150" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="ylu-cB-B4z"/>
@@ -29,29 +32,32 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5t-6Y-Ma9">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5t-6Y-Ma9">
                             <rect key="frame" x="10" y="25" width="12" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="12" id="8LS-l8-nBL"/>
                                 <constraint firstAttribute="height" constant="20" id="CEz-og-31C"/>
                             </constraints>
                             <state key="normal" backgroundImage="返回"/>
+                            <connections>
+                                <action selector="getBackToLastView:" destination="-1" eventType="touchUpInside" id="uHD-Fg-lBr"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ei1-Nv-A4c">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ei1-Nv-A4c">
                             <rect key="frame" x="341" y="23" width="24" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="24" id="Kmt-Zp-nRv"/>
                                 <constraint firstAttribute="height" constant="24" id="ZRh-5p-0MM"/>
                             </constraints>
-                            <state key="normal" backgroundImage="团"/>
+                            <state key="normal" image="groupBuy"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ama-2c-kW7">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ama-2c-kW7">
                             <rect key="frame" x="307" y="23" width="24" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="24" id="hFl-fl-r2e"/>
                                 <constraint firstAttribute="height" constant="24" id="m1g-Yb-e8B"/>
                             </constraints>
-                            <state key="normal" backgroundImage="店铺 "/>
+                            <state key="normal" image="store"/>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ffW-IQ-1mr">
                             <rect key="frame" x="30" y="62" width="68" height="68"/>
@@ -136,8 +142,8 @@
         </view>
     </objects>
     <resources>
-        <image name="团" width="24" height="24"/>
-        <image name="店铺 " width="24" height="24"/>
+        <image name="groupBuy" width="24" height="24"/>
+        <image name="store" width="24" height="24"/>
         <image name="返回" width="12" height="20"/>
     </resources>
 </document>

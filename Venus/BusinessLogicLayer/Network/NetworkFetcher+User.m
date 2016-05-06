@@ -16,7 +16,7 @@
 @implementation NetworkFetcher (User)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://10.1.29.250:30222";
-static const BOOL LOGDEBUG = YES;
+static const BOOL LOGDEBUG = NO;
 
 + (void)userLoginWithAccount:(NSString *)phone
                      password:(NSString *)password

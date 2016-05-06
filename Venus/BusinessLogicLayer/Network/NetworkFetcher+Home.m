@@ -18,7 +18,7 @@
 @implementation NetworkFetcher (Home)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://buscome.neoap.com";
-static const BOOL LOGDEBUG = YES;
+static const BOOL LOGDEBUG = NO;
 
 
 + (void)homeFetcherLoopPictureWithSuccess:(NetworkFetcherCompletionHandler)success

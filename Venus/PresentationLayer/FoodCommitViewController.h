@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Restaurant;
+
 @interface FoodCommitViewController : UIViewController
+
+@property (nonatomic, strong) Restaurant *restaurant;
 
 @end

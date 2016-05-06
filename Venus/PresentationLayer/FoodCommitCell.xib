@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -12,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="107"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="107.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Thg-Wz-Ji8">
@@ -77,6 +76,13 @@
                     <constraint firstItem="vIh-mP-f5o" firstAttribute="leading" secondItem="4Fx-yb-zRN" secondAttribute="leading" id="xJI-3n-6uM"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="avatar" destination="Thg-Wz-Ji8" id="k4f-ut-gd5"/>
+                <outlet property="content" destination="vIh-mP-f5o" id="RXA-Jx-1Cz"/>
+                <outlet property="costTime" destination="4Fx-yb-zRN" id="Wbs-L6-I3E"/>
+                <outlet property="createTime" destination="wZd-T5-xOW" id="0WQ-0w-NVk"/>
+                <outlet property="nickName" destination="fPd-Xg-bee" id="kci-Uc-FLW"/>
+            </connections>
             <point key="canvasLocation" x="298.5" y="407"/>
         </tableViewCell>
     </objects>

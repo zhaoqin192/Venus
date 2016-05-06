@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
@@ -11,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KXz-z6-bhx">
@@ -20,8 +19,8 @@
                             <constraint firstAttribute="width" constant="100" id="bj7-uy-I8U"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="万滩日本料理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffd-Il-yHm">
-                        <rect key="frame" x="118" y="10" width="194" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="万滩日本料理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffd-Il-yHm">
+                        <rect key="frame" x="118" y="10" width="249" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="Zdq-Lw-fQM"/>
                         </constraints>
@@ -155,6 +154,14 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="basePrice" destination="alV-Ti-UEY" id="e0T-GU-ACj"/>
+                <outlet property="costTime" destination="QxH-pr-l0K" id="R8L-tf-vpa"/>
+                <outlet property="name" destination="ffd-Il-yHm" id="gtT-Kg-0vB"/>
+                <outlet property="packFee" destination="GZp-nl-gtl" id="kwC-h9-vnJ"/>
+                <outlet property="picture" destination="KXz-z6-bhx" id="LXd-Uc-wvE"/>
+                <outlet property="sales" destination="6Oz-0k-jos" id="9Sg-bZ-TgG"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

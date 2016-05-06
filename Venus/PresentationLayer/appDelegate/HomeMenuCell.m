@@ -7,6 +7,7 @@
 //
 
 #import "HomeMenuCell.h"
+#import "FoodViewController.h"
 
 @interface HomeMenuCell ()
 
@@ -16,6 +17,7 @@
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier menuArray:(NSMutableArray *)menuArray{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
     if (self) {
         for (int i = 0; i < 10; i++) {
             if (i < 5) {
@@ -44,8 +46,10 @@
 }
 
 -(void)OnTapBtnView:(UITapGestureRecognizer *)sender{
-//    NSLog(@"tag:%ld",sender.view.tag);
+    
+    if ([_delegate respondsToSelector:@selector(enterSubViewController:)]) {
+        [_delegate enterSubViewController:sender.view.tag];
+    }
 }
-
 
 @end

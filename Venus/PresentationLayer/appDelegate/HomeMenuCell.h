@@ -9,9 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "JZMTBtnView.h"
 
+@protocol HomeMenuCellDelegate <NSObject>
+
+
+- (void)enterSubViewController:(NSInteger) menuNumber;
+
+@end
 
 @interface HomeMenuCell : UITableViewCell
+
+@property (nonatomic, weak) id<HomeMenuCellDelegate> delegate;
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier menuArray:(NSMutableArray *)menuArray;
 
 @end
+

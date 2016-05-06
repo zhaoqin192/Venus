@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class Restaurant;
+
+@protocol FoodDetailDelegate <NSObject>
+
+- (void)updateOrder;
+
+@end
+
+
 @interface FoodDetialViewController : UIViewController
+
+@property (nonatomic, strong) Restaurant *restaurant;
+@property (nonatomic, weak) id<FoodDetailDelegate> delegate;
 
 @end

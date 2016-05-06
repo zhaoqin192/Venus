@@ -10,4 +10,6 @@
 
 @interface FoodCategoryCell : UITableViewCell
 @property (copy, nonatomic) NSString *content;
+
+
 @end

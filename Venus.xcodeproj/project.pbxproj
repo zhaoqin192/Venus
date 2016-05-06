@@ -117,11 +117,19 @@
 		AC90F5791CD0604F004C4C55 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5781CD0604F004C4C55 /* WebViewController.m */; };
 		AC90F5831CD08EEE004C4C55 /* Adversitement.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5821CD08EEE004C4C55 /* Adversitement.m */; };
 		AC90F5861CD08F11004C4C55 /* AdvertisementManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5851CD08F11004C4C55 /* AdvertisementManager.m */; };
+		AC90F5A11CD1DDD2004C4C55 /* NetworkFetcher+Food.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5A01CD1DDD2004C4C55 /* NetworkFetcher+Food.m */; };
+		AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5A41CD1EA8A004C4C55 /* FoodClass.m */; };
+		AC90F5A81CD1EB12004C4C55 /* FoodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5A71CD1EB12004C4C55 /* FoodManager.m */; };
+		AC90F5AB1CD20523004C4C55 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5AA1CD20523004C4C55 /* Restaurant.m */; };
 		AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C7C1CC4D23C00FA171B /* Security.framework */; };
 		AC970C851CC4D25600FA171B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C841CC4D25600FA171B /* SystemConfiguration.framework */; };
 		AC970C871CC4D26100FA171B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C861CC4D26100FA171B /* CoreGraphics.framework */; };
 		AC970C8D1CC4D27400FA171B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C8C1CC4D27300FA171B /* CoreTelephony.framework */; };
+		ACAC17471CD8DCEB00E04499 /* ResFoodClass.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAC17461CD8DCEB00E04499 /* ResFoodClass.m */; };
+		ACAC174B1CD8DDCD00E04499 /* ResFood.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAC174A1CD8DDCD00E04499 /* ResFood.m */; };
 		ACB78A451CC867BC00354B11 /* PresentationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB78A441CC867BC00354B11 /* PresentationUtility.m */; };
+		ACE0668F1CDB741C0000D335 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0668E1CDB741C0000D335 /* Comment.m */; };
+		ACE066931CDB75BF0000D335 /* CommentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE066921CDB75BF0000D335 /* CommentManager.m */; };
 		ACF83EB01CBF97F800A962BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EAF1CBF97F800A962BD /* main.m */; };
 		ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB21CBF97F800A962BD /* AppDelegate.m */; };
 		ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBD1CBF97F800A962BD /* Assets.xcassets */; };
@@ -314,12 +322,28 @@
 		AC90F5821CD08EEE004C4C55 /* Adversitement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Adversitement.m; sourceTree = "<group>"; };
 		AC90F5841CD08F11004C4C55 /* AdvertisementManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertisementManager.h; sourceTree = "<group>"; };
 		AC90F5851CD08F11004C4C55 /* AdvertisementManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertisementManager.m; sourceTree = "<group>"; };
+		AC90F59F1CD1DDD2004C4C55 /* NetworkFetcher+Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+Food.h"; sourceTree = "<group>"; };
+		AC90F5A01CD1DDD2004C4C55 /* NetworkFetcher+Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+Food.m"; sourceTree = "<group>"; };
+		AC90F5A31CD1EA8A004C4C55 /* FoodClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodClass.h; sourceTree = "<group>"; };
+		AC90F5A41CD1EA8A004C4C55 /* FoodClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodClass.m; sourceTree = "<group>"; };
+		AC90F5A61CD1EB12004C4C55 /* FoodManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodManager.h; sourceTree = "<group>"; };
+		AC90F5A71CD1EB12004C4C55 /* FoodManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodManager.m; sourceTree = "<group>"; };
+		AC90F5A91CD20523004C4C55 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
+		AC90F5AA1CD20523004C4C55 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 		AC970C7C1CC4D23C00FA171B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AC970C841CC4D25600FA171B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AC970C861CC4D26100FA171B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		AC970C8C1CC4D27300FA171B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		ACAC17451CD8DCEB00E04499 /* ResFoodClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResFoodClass.h; sourceTree = "<group>"; };
+		ACAC17461CD8DCEB00E04499 /* ResFoodClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResFoodClass.m; sourceTree = "<group>"; };
+		ACAC17491CD8DDCD00E04499 /* ResFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResFood.h; sourceTree = "<group>"; };
+		ACAC174A1CD8DDCD00E04499 /* ResFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResFood.m; sourceTree = "<group>"; };
 		ACB78A431CC867BC00354B11 /* PresentationUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationUtility.h; sourceTree = "<group>"; };
 		ACB78A441CC867BC00354B11 /* PresentationUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentationUtility.m; sourceTree = "<group>"; };
+		ACE0668D1CDB741C0000D335 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		ACE0668E1CDB741C0000D335 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		ACE066911CDB75BF0000D335 /* CommentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentManager.h; sourceTree = "<group>"; };
+		ACE066921CDB75BF0000D335 /* CommentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentManager.m; sourceTree = "<group>"; };
 		ACF83EAB1CBF97F800A962BD /* Venus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Venus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF83EAF1CBF97F800A962BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ACF83EB11CBF97F800A962BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -704,6 +728,8 @@
 				AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */,
 				AC90F5681CCFA4E7004C4C55 /* NetworkFetcher+Home.h */,
 				AC90F5691CCFA4E7004C4C55 /* NetworkFetcher+Home.m */,
+				AC90F59F1CD1DDD2004C4C55 /* NetworkFetcher+Food.h */,
+				AC90F5A01CD1DDD2004C4C55 /* NetworkFetcher+Food.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -762,6 +788,16 @@
 				AC90F5701CCFAADF004C4C55 /* Picture.m */,
 				AC90F5811CD08EEE004C4C55 /* Adversitement.h */,
 				AC90F5821CD08EEE004C4C55 /* Adversitement.m */,
+				AC90F5A31CD1EA8A004C4C55 /* FoodClass.h */,
+				AC90F5A41CD1EA8A004C4C55 /* FoodClass.m */,
+				AC90F5A91CD20523004C4C55 /* Restaurant.h */,
+				AC90F5AA1CD20523004C4C55 /* Restaurant.m */,
+				ACAC17451CD8DCEB00E04499 /* ResFoodClass.h */,
+				ACAC17461CD8DCEB00E04499 /* ResFoodClass.m */,
+				ACAC17491CD8DDCD00E04499 /* ResFood.h */,
+				ACAC174A1CD8DDCD00E04499 /* ResFood.m */,
+				ACE0668D1CDB741C0000D335 /* Comment.h */,
+				ACE0668E1CDB741C0000D335 /* Comment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -773,6 +809,10 @@
 				AC90F5741CCFABE1004C4C55 /* PictureManager.m */,
 				AC90F5841CD08F11004C4C55 /* AdvertisementManager.h */,
 				AC90F5851CD08F11004C4C55 /* AdvertisementManager.m */,
+				AC90F5A61CD1EB12004C4C55 /* FoodManager.h */,
+				AC90F5A71CD1EB12004C4C55 /* FoodManager.m */,
+				ACE066911CDB75BF0000D335 /* CommentManager.h */,
+				ACE066921CDB75BF0000D335 /* CommentManager.m */,
 			);
 			path = ModelManager;
 			sourceTree = "<group>";
@@ -1084,6 +1124,7 @@
 			files = (
 				AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */,
 				30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */,
+				ACAC17471CD8DCEB00E04499 /* ResFoodClass.m in Sources */,
 				30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */,
 				30B601C51CD07BDC003ED671 /* ShopHomeViewController.m in Sources */,
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
@@ -1103,6 +1144,7 @@
 				3086D3C01CC72A8C007494D7 /* GMLoginViewController.m in Sources */,
 				AC7AD4971CC7A6D2004D9B61 /* Account.m in Sources */,
 				3086D3D41CC72ABC007494D7 /* HomeIntroduceCell.m in Sources */,
+				AC90F5A11CD1DDD2004C4C55 /* NetworkFetcher+Food.m in Sources */,
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
 				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
@@ -1114,9 +1156,11 @@
 				30B601CA1CD07C54003ED671 /* ShopCycleCell.m in Sources */,
 				303519441CCF0B0500EE0750 /* MoneyCell.m in Sources */,
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
+				ACAC174B1CD8DDCD00E04499 /* ResFood.m in Sources */,
 				303519571CCF1F9500EE0750 /* TicketHeaderCell.m in Sources */,
 				AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */,
 				303519761CCF4B8A00EE0750 /* ShopCommitViewController.m in Sources */,
+				AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */,
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,
 				AC90F5861CD08F11004C4C55 /* AdvertisementManager.m in Sources */,
@@ -1127,10 +1171,13 @@
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */,
 				3086D3B61CC72A09007494D7 /* GMXTextField.m in Sources */,
+				AC90F5A81CD1EB12004C4C55 /* FoodManager.m in Sources */,
 				303519611CCF348F00EE0750 /* TicketCountCell.m in Sources */,
 				AC90F5751CCFABE1004C4C55 /* PictureManager.m in Sources */,
+				ACE0668F1CDB741C0000D335 /* Comment.m in Sources */,
 				30D6D27F1CC87AF500FB0CFC /* FoodCell.m in Sources */,
 				AC90F5831CD08EEE004C4C55 /* Adversitement.m in Sources */,
+				AC90F5AB1CD20523004C4C55 /* Restaurant.m in Sources */,
 				AC90F5791CD0604F004C4C55 /* WebViewController.m in Sources */,
 				3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */,
 				3086D3BA1CC72A1E007494D7 /* GMRegisterViewController.m in Sources */,
@@ -1140,6 +1187,7 @@
 				30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */,
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
 				303519491CCF0D3000EE0750 /* MoneyCardViewController.m in Sources */,
+				ACE066931CDB75BF0000D335 /* CommentManager.m in Sources */,
 				303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
 				303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */,

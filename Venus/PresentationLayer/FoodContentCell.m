@@ -19,5 +19,20 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)addCount:(id)sender {
+    NSNumber *number = [NSNumber numberWithString:_count.text];
+    NSInteger integer = [number integerValue];
+    integer++;
+    _count.text = [NSString stringWithFormat:@"%ld", (long)integer];
+}
+
+- (IBAction)minusCount:(id)sender {
+    NSNumber *number = [NSNumber numberWithString:_count.text];
+    NSInteger integer = [number integerValue];
+    if (integer != 0) {
+        integer--;
+    }
+    _count.text = [NSString stringWithFormat:@"%ld", (long)integer];
+}
 
 @end

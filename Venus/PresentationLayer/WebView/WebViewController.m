@@ -22,6 +22,7 @@
     _webView = [[UIWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _webView.delegate = self;
     self.navigationController.navigationBarHidden = NO;
+    self.navigationController.hidesBarsOnSwipe = YES;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:_url]];
     [self.view addSubview:_webView];
     [_webView loadRequest:request];
@@ -29,6 +30,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     self.navigationController.navigationBarHidden = YES;
+    self.navigationController.hidesBarsOnSwipe = NO;
 }
 
 
