@@ -21,7 +21,7 @@
 
 @implementation NetworkFetcher (Food)
 
-static const NSString *URL_OF_USER_PREFIX = @"http://buscome.neoap.com";
+static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
 static const BOOL LOGDEBUG = YES;
 
 + (void)foodFetcherClassWithSuccess:(NetworkFetcherCompletionHandler)success

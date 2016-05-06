@@ -45,7 +45,7 @@
 
 @end
 
-static const NSString *PICTUREURL = @"http://buscome.neoap.com/hestia/files/image/OnlyForTest/";
+static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/files/image/OnlyForTest/";
 
 
 @implementation HomePageViewController
