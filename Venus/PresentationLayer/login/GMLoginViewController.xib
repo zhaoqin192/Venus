@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GMLoginViewController">
             <connections>
+                <outlet property="createAccountButton" destination="Y0N-VW-GY5" id="njv-rF-A0y"/>
                 <outlet property="loginButton" destination="I6y-zM-Sf7" id="gdD-QP-6Is"/>
+                <outlet property="qqButton" destination="rg7-TZ-IZV" id="LNR-3O-KWs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weChatButton" destination="0pw-eL-h08" id="aXE-YL-1xv"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -30,9 +33,6 @@
                         <constraint firstAttribute="width" constant="60" id="j2d-Ee-Ngf"/>
                     </constraints>
                     <state key="normal" title="创建账号"/>
-                    <connections>
-                        <action selector="createAccount:" destination="-1" eventType="touchUpInside" id="UNW-O2-zc8"/>
-                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="其他登录方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFx-sP-6z1" customClass="GMLabel">
                     <rect key="frame" x="136" y="526" width="102" height="21"/>
@@ -59,9 +59,6 @@
                         <constraint firstAttribute="width" constant="36" id="bnK-vz-FMs"/>
                     </constraints>
                     <state key="normal" backgroundImage="qq"/>
-                    <connections>
-                        <action selector="loginWithQQ:" destination="-1" eventType="touchUpInside" id="R0Z-2j-5iS"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pw-eL-h08">
                     <rect key="frame" x="84" y="567" width="36" height="36"/>
@@ -70,9 +67,6 @@
                         <constraint firstAttribute="width" constant="36" id="PZW-6F-AAT"/>
                     </constraints>
                     <state key="normal" backgroundImage="微信"/>
-                    <connections>
-                        <action selector="loginWithWeChat:" destination="-1" eventType="touchUpInside" id="U61-Nf-kiW"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6y-zM-Sf7" customClass="GMButton">
                     <rect key="frame" x="41" y="435" width="292" height="76"/>
@@ -83,9 +77,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="17"/>
                     <state key="normal" title="登    录" backgroundImage="登录"/>
-                    <connections>
-                        <action selector="loginWithAccount:" destination="-1" eventType="touchUpInside" id="Cx7-Q8-l8B"/>
-                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="国贸Stylelogo" translatesAutoresizingMaskIntoConstraints="NO" id="sOI-Q1-12p">
                     <rect key="frame" x="81" y="200" width="214" height="76"/>

@@ -121,6 +121,8 @@
 		AC7AD4971CC7A6D2004D9B61 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD4951CC7A6D2004D9B61 /* Account.m */; };
 		AC7AD49C1CC7AFD9004D9B61 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD49B1CC7AFD9004D9B61 /* DatabaseManager.m */; };
 		AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD49F1CC7B01A004D9B61 /* AccountDao.m */; };
+		AC7B3AD91CDF2C7E0039C2A5 /* SignUpViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7B3AD81CDF2C7E0039C2A5 /* SignUpViewModel.m */; };
+		AC7B3ADC1CDF2D7F0039C2A5 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7B3ADA1CDF2D7F0039C2A5 /* LoginViewModel.m */; };
 		AC90F5641CCFA292004C4C55 /* WXTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3A31CC729A9007494D7 /* WXTextField.xib */; };
 		AC90F5661CCFA292004C4C55 /* HomeIntroduceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3CC1CC72ABC007494D7 /* HomeIntroduceCell.xib */; };
 		AC90F56A1CCFA4E7004C4C55 /* NetworkFetcher+Home.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5691CCFA4E7004C4C55 /* NetworkFetcher+Home.m */; };
@@ -344,6 +346,10 @@
 		AC7AD49B1CC7AFD9004D9B61 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		AC7AD49E1CC7B01A004D9B61 /* AccountDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDao.h; sourceTree = "<group>"; };
 		AC7AD49F1CC7B01A004D9B61 /* AccountDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDao.m; sourceTree = "<group>"; };
+		AC7B3AD71CDF2C7E0039C2A5 /* SignUpViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewModel.h; sourceTree = "<group>"; };
+		AC7B3AD81CDF2C7E0039C2A5 /* SignUpViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewModel.m; sourceTree = "<group>"; };
+		AC7B3ADA1CDF2D7F0039C2A5 /* LoginViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
+		AC7B3ADB1CDF2D7F0039C2A5 /* LoginViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
 		AC90F5681CCFA4E7004C4C55 /* NetworkFetcher+Home.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+Home.h"; sourceTree = "<group>"; };
 		AC90F5691CCFA4E7004C4C55 /* NetworkFetcher+Home.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+Home.m"; sourceTree = "<group>"; };
 		AC90F56F1CCFAADF004C4C55 /* Picture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picture.h; sourceTree = "<group>"; };
@@ -868,6 +874,17 @@
 			path = Dao;
 			sourceTree = "<group>";
 		};
+		AC7B3AD51CDF2C580039C2A5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AC7B3ADB1CDF2D7F0039C2A5 /* LoginViewModel.h */,
+				AC7B3ADA1CDF2D7F0039C2A5 /* LoginViewModel.m */,
+				AC7B3AD71CDF2C7E0039C2A5 /* SignUpViewModel.h */,
+				AC7B3AD81CDF2C7E0039C2A5 /* SignUpViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		AC90F56D1CCFAABE004C4C55 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -968,6 +985,7 @@
 		ACF83EC81CBF989A00A962BD /* BusinessLogicLayer */ = {
 			isa = PBXGroup;
 			children = (
+				AC7B3AD51CDF2C580039C2A5 /* ViewModel */,
 				AC90F5721CCFABC0004C4C55 /* ModelManager */,
 				AC7AD49D1CC7AFF4004D9B61 /* Dao */,
 				AC0359121CC4F6C200EC7BBC /* Other */,
@@ -1247,6 +1265,7 @@
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
 				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
+				AC7B3AD91CDF2C7E0039C2A5 /* SignUpViewModel.m in Sources */,
 				30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */,
 				3035196B1CCF393700EE0750 /* TicketCommitCell.m in Sources */,
 				30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */,
@@ -1269,6 +1288,7 @@
 				30D6D2991CC8A3F700FB0CFC /* FoodOrderViewController.m in Sources */,
 				3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */,
 				30B602081CD2072C003ED671 /* BeautifulDetailViewController.m in Sources */,
+				AC7B3ADC1CDF2D7F0039C2A5 /* LoginViewModel.m in Sources */,
 				ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */,
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */,

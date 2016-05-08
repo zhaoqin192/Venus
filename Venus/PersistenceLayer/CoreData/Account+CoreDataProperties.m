@@ -2,7 +2,7 @@
 //  Account+CoreDataProperties.m
 //  Venus
 //
-//  Created by zhaoqin on 4/22/16.
+//  Created by zhaoqin on 5/8/16.
 //  Copyright © 2016 Neotel. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -20,5 +20,6 @@
 @dynamic phone;
 @dynamic sex;
 @dynamic token;
+@dynamic unionID;
 
 @end
