@@ -146,6 +146,7 @@
 		ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB21CBF97F800A962BD /* AppDelegate.m */; };
 		ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBD1CBF97F800A962BD /* Assets.xcassets */; };
 		ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBF1CBF97F800A962BD /* LaunchScreen.storyboard */; };
+		E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047B01CDF84070032EE91 /* GMNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -384,6 +385,8 @@
 		ACF83EBD1CBF97F800A962BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF83EC01CBF97F800A962BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF83EC21CBF97F800A962BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8F047AF1CDF84070032EE91 /* GMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMNavigationController.h; sourceTree = "<group>"; };
+		E8F047B01CDF84070032EE91 /* GMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -979,6 +982,8 @@
 			children = (
 				3057B1FD1CD9B9E8008172DD /* RootTabViewController.h */,
 				3057B1FE1CD9B9E8008172DD /* RootTabViewController.m */,
+				E8F047AF1CDF84070032EE91 /* GMNavigationController.h */,
+				E8F047B01CDF84070032EE91 /* GMNavigationController.m */,
 				3057B1E81CD991F5008172DD /* Me */,
 				AC90F5761CD05FF9004C4C55 /* WebView */,
 				ACB78A411CC8678E00354B11 /* PresentationUtility */,
@@ -1222,6 +1227,7 @@
 				303519511CCF1B3F00EE0750 /* TicketDetailViewController.m in Sources */,
 				3086D39D1CC7298B007494D7 /* JZMTBtnView.m in Sources */,
 				ACB78A451CC867BC00354B11 /* PresentationUtility.m in Sources */,
+				E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */,
 				3086D3D01CC72ABC007494D7 /* HomePageViewController.m in Sources */,
 				3057B1FF1CD9B9E8008172DD /* RootTabViewController.m in Sources */,
 				3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */,
@@ -1477,7 +1483,7 @@
 				ACF83EC41CBF97F800A962BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		ACF83EC51CBF97F800A962BD /* Build configuration list for PBXNativeTarget "Venus" */ = {
 			isa = XCConfigurationList;
@@ -1486,7 +1492,7 @@
 				ACF83EC71CBF97F800A962BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 

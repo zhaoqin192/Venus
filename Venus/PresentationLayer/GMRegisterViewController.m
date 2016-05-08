@@ -38,6 +38,10 @@
     [self configureUI];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)selectTextForTitle{
     switch (self.appDelegate.state) {
         case WECHAT:

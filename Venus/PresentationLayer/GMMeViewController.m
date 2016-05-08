@@ -31,6 +31,10 @@
     [self.navigationController setNavigationBarHidden:NO];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)configureTableView {
     self.tableView.backgroundColor = GMBgColor;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GMMeCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([GMMeCell class])];

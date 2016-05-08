@@ -11,6 +11,7 @@
 
 #import "GMMeViewController.h"
 #import "HomePageViewController.h"
+#import "GMNavigationController.h"
 
 @interface RootTabViewController ()
 
@@ -27,10 +28,13 @@
 
 - (void)setupViewControllers {
     GMMeViewController *meVC = [[GMMeViewController alloc] init];
-    UINavigationController *meNVC = [[UINavigationController alloc] initWithRootViewController:meVC];
+//    UINavigationController *meNVC = [[UINavigationController alloc] initWithRootViewController:meVC];
+    GMNavigationController *meNVC = [[GMNavigationController alloc] initWithRootViewController:meVC];
+    
     
     HomePageViewController *homeVC = [[UIStoryboard storyboardWithName:@"Home" bundle:nil] instantiateInitialViewController];
-    UINavigationController *homeNVC = [[UINavigationController alloc] initWithRootViewController:homeVC];
+//    UINavigationController *homeNVC = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    GMNavigationController *homeNVC = [[GMNavigationController alloc] initWithRootViewController:homeVC];
     
     UIViewController *vvc = [[UIViewController alloc] init];
     vvc.view.backgroundColor = [UIColor redColor];

@@ -41,6 +41,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)configureTextField{
     _passwordView = [WXTextField fetchTextView];
     _passwordView.frame = CGRectMake((kScreenWidth - 250)/2, self.loginButton.frame.origin.y - 70, 250, 40);
