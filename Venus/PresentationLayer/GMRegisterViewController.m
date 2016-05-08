@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "GMXTextField.h"
 #import "PresentationUtility.h"
+#import "SignUpViewModel.h"
 
 
 @interface GMRegisterViewController () <UITextFieldDelegate>
@@ -21,9 +22,11 @@
 @property (weak, nonatomic) IBOutlet GMXTextField *passwordTF;
 @property (weak, nonatomic) IBOutlet GMXTextField *repasswordTF;
 @property (weak, nonatomic) IBOutlet GMButton *agreeButton;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
 @property (nonatomic, strong) AppDelegate *appDelegate;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSNumber *timerCount;
+@property (nonatomic, strong) SignUpViewModel *viewModel;
 
 @end
 
@@ -36,6 +39,108 @@
     self.appDelegate = [[UIApplication sharedApplication] delegate];
     [self selectTextForTitle];
     [self configureUI];
+    
+    [self bindViewModel];
+    [self onClick];
+}
+
+- (void)bindViewModel {
+    _viewModel = [[SignUpViewModel alloc] init];
+    RAC(self.viewModel, phone) = self.phoneTF.rac_textSignal;
+    RAC(self.viewModel, authCode) = self.codeTF.rac_textSignal;
+    RAC(self.viewModel, password) = self.passwordTF.rac_textSignal;
+    RAC(self.viewModel, rePassword) = self.repasswordTF.rac_textSignal;
+    RAC(self.codeButton, enabled) = [self.viewModel authIsValid];
+    RAC(self.codeButton, alpha) = [self.viewModel authAlpha];
+    RAC(self.agreeButton, enabled) = [self.viewModel signUpIsValid];
+    
+    @weakify(self);
+    [self.viewModel.authSuccessSubject subscribeNext:^(id x) {
+        @strongify(self);
+        [PresentationUtility showTextDialog:self.view text:@"验证码已发送" success:nil];
+        
+        _timerCount = @30;
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 block:^(NSTimer * _Nonnull timer) {
+            int value = [self.timerCount intValue];
+            value--;
+            self.timerCount = [NSNumber numberWithInt:value];
+            NSString *string = [NSString stringWithFormat:@"已发送%d", [self.timerCount intValue]];
+            [self.codeButton setTitle:string forState:UIControlStateNormal];
+            if (value == 0) {
+                self.codeButton.enabled = YES;
+                [self.codeButton setAlpha:1.0f];
+                [self.codeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
+                [self.timer invalidate];
+                self.timer = nil;
+            }
+        } repeats:YES];
+    }];
+    
+    [self.viewModel.authFailureSubject subscribeNext:^(NSString *message) {
+        @strongify(self);
+        [PresentationUtility showTextDialog:self.view text:message success:nil];
+    }];
+    
+    [self.viewModel.signUpSuccessSubject subscribeNext:^(NSString *message) {
+        [PresentationUtility showTextDialog:self.view text:message success:nil];
+        self.appDelegate.state = ORDINARY;
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }];
+    
+    [self.viewModel.signUpFailureSubject subscribeNext:^(NSString *failure) {
+        [PresentationUtility showTextDialog:self.view text:failure success:nil];
+    }];
+    
+    [self.viewModel.errorSubject subscribeNext:^(NSString *errCode) {
+        [PresentationUtility showTextDialog:self.view text:errCode success:nil];
+    }];
+    
+    [self.viewModel.smsSuccessSubject subscribeNext:^(id x) {
+        switch (self.appDelegate.state) {
+            case ORDINARY:
+                [self.viewModel originalSignUp];
+                break;
+            case WECHAT:
+                [self.viewModel wechatSignUpWithToken:self.token openID:self.openID];
+                break;
+            case QQ:
+                [self.viewModel qqSignUpWithToken:self.token openID:self.openID];
+                break;
+            case WEIBO:
+            default:
+                break;
+        }
+    }];
+    
+}
+
+- (void)onClick {
+    @weakify(self);
+    [[self.codeButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+     subscribeNext:^(id x) {
+         @strongify(self);
+         self.codeButton.enabled = NO;
+         [self.codeButton setAlpha:0.5f];
+         [self.viewModel auth];
+     }];
+    
+    [[self.agreeButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+     subscribeNext:^(id x) {
+         @strongify(self);
+         if (![_passwordTF.text isEqualToString:_repasswordTF.text]) {
+             [PresentationUtility showTextDialog:self.view text:@"两次密码不一致" success:nil];
+         } else {
+             [self.viewModel smsAuth];
+         }
+     }];
+    
+    [[self.closeButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+     subscribeNext:^(id x) {
+         @strongify(self);
+         self.appDelegate.state = ORDINARY;
+         [self dismissViewControllerAnimated:YES completion:nil];
+     }];
 }
 
 - (void)selectTextForTitle{
@@ -70,7 +175,7 @@
 
 #pragma mark <UITextFieldDelegate>
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
     NSUInteger lineTag = textField.tag + 100;
     UIView *lineView = [self.view viewWithTag:lineTag];
     lineView.backgroundColor = GMBrownColor;
@@ -82,7 +187,7 @@
     
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField{
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     NSUInteger lineTag = textField.tag + 100;
     UIView *lineView = [self.view viewWithTag:lineTag];
     lineView.backgroundColor = GMBgColor;
@@ -93,134 +198,9 @@
     }
 }
 
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
-    
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
-}
-
-- (IBAction)fetchCode:(id)sender {
-    [self enterCode];
-}
-
-- (void)enterCode{
-    if ([self.phoneTF.text length] < 11) {
-        [PresentationUtility showTextDialog:self.view text:@"请输入中国大陆11位手机号" success:nil];
-    }else{
-        __weak typeof(self) weakSelf = self;
-        self.codeButton.enabled = NO;
-        [self.codeButton setAlpha:0.5f];
-        _timerCount = @30;
-        [NetworkFetcher userSendCodeWithNumber:self.phoneTF.text success:^{
-            [PresentationUtility showTextDialog:weakSelf.view text:@"验证码已发送" success:nil];
-            weakSelf.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 block:^(NSTimer * _Nonnull timer) {
-                int value = [weakSelf.timerCount intValue];
-                value--;
-                weakSelf.timerCount = [NSNumber numberWithInt:value];
-                NSString *string = @"已发送";
-                string = [string stringByAppendingString:[NSString stringWithFormat:@"%d", [weakSelf.timerCount intValue]]];
-                [weakSelf.codeButton setTitle:string forState:UIControlStateNormal];
-                if (value == 0) {
-                    weakSelf.codeButton.enabled = YES;
-                    [weakSelf.codeButton setAlpha:1.0f];
-                    [weakSelf.codeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
-                    [weakSelf.timer invalidate];
-                    weakSelf.timer = nil;
-                }
-            } repeats:YES];
-        } failure:^(NSString *error) {
-            [PresentationUtility showTextDialog:self.view text:error success:nil];
-            self.codeButton.enabled = YES;
-            [self.codeButton setAlpha:1.0f];
-        }];
-    }
-}
-
-- (IBAction)closeView:(id)sender {
-    self.appDelegate.state = ORDINARY;
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)agreeAndRegister:(id)sender {
-    __weak typeof(self) weakSelf = self;
-    if (![_passwordTF.text isEqualToString:_repasswordTF.text]) {
-        [PresentationUtility showTextDialog:weakSelf.view text:@"密码不一致" success:nil];
-    }else{
-        switch (self.appDelegate.state) {
-            case ORDINARY:{
-                [NetworkFetcher userValidateSMS:_codeTF.text mobile:_phoneTF.text success:^(NSString *token) {
-                    [NetworkFetcher userRegisterWithPhone:_phoneTF.text password:_passwordTF.text token:token success:^{
-                        [PresentationUtility showTextDialog:weakSelf.view text:@"注册成功" success:^{
-                            self.appDelegate.state = ORDINARY;
-                            [self dismissViewControllerAnimated:YES completion:nil];
-                        }];
-                    } failure:^(NSString *error) {
-                        [PresentationUtility showTextDialog:weakSelf.view text:error success:nil];
-                    }];
-                } failure:^(NSString *error) {
-                    [PresentationUtility showTextDialog:weakSelf.view text:error success:nil];
-                }];
-                break;
-            }
-            case WECHAT:{
-                //验证手机号并绑定
-                [NetworkFetcher userValidateSMS:_codeTF.text mobile:_phoneTF.text success:^(NSString *token) {
-                    //向第三方请求用户信息
-                    [NetworkFetcher userFetchUserInfoWithWeChatToken:self.token openID:self.openID Success:^(NSDictionary *userInfo) {
-
-                        [NetworkFetcher userBindWeChatWithOpenID:userInfo[@"openid"] name:userInfo[@"nickname"] sex:userInfo[@"sex"] avatar:userInfo[@"headimgurl"] account:self.phoneTF.text password:self.passwordTF.text token:token success:^{
-                            [PresentationUtility showTextDialog:weakSelf.view text:@"绑定成功" success:^{
-                                self.appDelegate.state = ORDINARY;
-                                [self dismissViewControllerAnimated:NO completion:^{
-                                    [[NSNotificationCenter defaultCenter] postNotificationName:@"ENTER_HOME" object:nil];
-                                }];
-                            }];
-                        } failure:^(NSString *error) {
-                            [PresentationUtility showTextDialog:weakSelf.view text:error success:nil];
-                        }];
-                    } failure:^(NSString *error) {
-                        [PresentationUtility showTextDialog:weakSelf.view text:error success:nil];
-                    }];
-                } failure:^(NSString *error) {
-                    [PresentationUtility showTextDialog:weakSelf.view text:error success:nil];
-
-                }];
-                break;
-            }
-            case QQ:{
-
-                
-                [NetworkFetcher userValidateSMS:_codeTF.text mobile:_phoneTF.text success:^(NSString *token) {
-                    //向QQ请求用户信息
-                    [NetworkFetcher userFetchUserInfoWithQQToken:self.token openID:self.openID success:^(NSDictionary *userInfo) {
-                        [NetworkFetcher userBindQQWithOpenID:self.openID name:userInfo[@"nickname"] avatar:userInfo[@"figureurl"] account:self.phoneTF.text password:self.passwordTF.text token:token success:^{
-                            [PresentationUtility showTextDialog:weakSelf.view text:@"绑定成功" success:^{
-                                self.appDelegate.state = ORDINARY;
-                                [self dismissViewControllerAnimated:NO completion:^{
-                                    [[NSNotificationCenter defaultCenter] postNotificationName:@"ENTER_HOME" object:nil];
-                                }];
-                            }];
-                        } failure:^(NSString *error) {
-                            [PresentationUtility showTextDialog:weakSelf.view text:error success:nil];
-                        }];
-                    } failure:^(NSString *error) {
-                        [PresentationUtility showTextDialog:weakSelf.view text:error success:nil];
-                    }];
-                } failure:^(NSString *error) {
-                    [PresentationUtility showTextDialog:weakSelf.view text:error success:nil];
-                }];
-                break;
-            }
-            case WEIBO:{
-                
-            }
-            default:
-                break;
-        }
-        
-        
-        
-    }
 }
 
 @end

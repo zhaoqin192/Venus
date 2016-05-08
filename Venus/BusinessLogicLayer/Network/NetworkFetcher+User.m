@@ -15,14 +15,14 @@
 
 @implementation NetworkFetcher (User)
 
-static const NSString *URL_OF_USER_PREFIX = @"http://10.1.29.250:30222";
-static const BOOL LOGDEBUG = NO;
+static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
+static const BOOL LOGDEBUG = YES;
 
 + (void)userLoginWithAccount:(NSString *)phone
-                     password:(NSString *)password
-                      success:(NetworkFetcherCompletionHandler)success
-                      failure:(NetworkFetcherErrorHandler)failure{
-
+                    password:(NSString *)password
+                     success:(void (^)(NSDictionary *response))success
+                     failure:(NetworkFetcherErrorHandler)failure{
+    
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/loginsubmit"]];
@@ -33,18 +33,8 @@ static const BOOL LOGDEBUG = NO;
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-    
-        if([responseObject[@"errCode"] isEqualToNumber:@0]){
-            AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-            Account *account = [accountDao fetchAccount];
-            account.phone = phone;
-            account.password = password;
-            account.token = responseObject[@"userid"];
-            [accountDao save];
-            success();
-        }else{
-            failure(@"用户名或密码错误");
-        }
+        
+        success(responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -58,18 +48,18 @@ static const BOOL LOGDEBUG = NO;
 }
 
 + (void)userQQLoginWithSuccess:(NetworkFetcherCompletionHandler)success
-                        failure:(NetworkFetcherErrorHandler)failure{
+                       failure:(NetworkFetcherErrorHandler)failure{
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/qqlogin"]];
     NSDictionary *parameters = @{@"redirectUrl": @"www.chinaworldstyle.com/"};
-
+    
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-
+        
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -78,12 +68,12 @@ static const BOOL LOGDEBUG = NO;
         }
         
     }];
-
+    
 }
 
 + (void)userQQLoginCallBackWith:(NSString *)code
-                         success:(NetworkFetcherCompletionHandler)success
-                         failure:(NetworkFetcherErrorHandler)failure{
+                        success:(NetworkFetcherCompletionHandler)success
+                        failure:(NetworkFetcherErrorHandler)failure{
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/qqlogin/redirect"]];
@@ -125,9 +115,9 @@ static const BOOL LOGDEBUG = NO;
 }
 
 + (void)userFetchUserInfoWithWeChatToken:(NSString *)token
-                            openID:(NSString *)openID
-                           Success:(void (^)(NSDictionary *userInfo))success
-                           failure:(NetworkFetcherErrorHandler)faiure{
+                                  openID:(NSString *)openID
+                                 Success:(void (^)(NSDictionary *userInfo))success
+                                 failure:(NetworkFetcherErrorHandler)faiure{
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:@"https://api.weixin.qq.com/sns/userinfo"];
     NSDictionary *parameters = @{@"access_token": token, @"openid": openID};
@@ -153,16 +143,17 @@ static const BOOL LOGDEBUG = NO;
                          account:(NSString *)phone
                         password:(NSString *)password
                            token:(NSString *)token
-                         success:(NetworkFetcherCompletionHandler)success
+                         unionID:(NSString *)unionID
+                         success:(NetworkFetcherSuccessHandler)success
                          failure:(NetworkFetcherErrorHandler)failure{
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     
     NSString *urlString = [[[[[[[[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/api/weixin/bind/mobile?openId="] stringByAppendingString:openID] stringByAppendingString:@"&name="] stringByAppendingString:name] stringByAppendingString:@"&sex="] stringByAppendingString:[NSString stringWithFormat:@"%d", [sex intValue]]] stringByAppendingString:@"&headImgUrl="] stringByAppendingString:avatar];
     
-
+    
     urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-
+    
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSDictionary *parameters = @{@"token": token, @"password": password};
@@ -172,18 +163,8 @@ static const BOOL LOGDEBUG = NO;
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-        if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
-            AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-            Account *account = [accountDao fetchAccount];
-            account.openID = openID;
-            account.nickName = name;
-            account.sex = sex;
-            account.avatar = avatar;
-            account.phone = phone;
-            account.password = password;
-            account.token = responseObject[@"userid"];
-            [accountDao save];
-        }
+        
+        success(responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -255,7 +236,7 @@ static const BOOL LOGDEBUG = NO;
 + (void)userRegisterWithPhone:(NSString *)phone
                      password:(NSString *)password
                         token:(NSString *)token
-                      success:(NetworkFetcherCompletionHandler)success
+                      success:(NetworkFetcherSuccessHandler)success
                       failure:(NetworkFetcherErrorHandler)failure{
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/customer/register/mobile"]];
@@ -265,12 +246,16 @@ static const BOOL LOGDEBUG = NO;
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-        NSDictionary *response = responseObject;
-        if([response[@"errCode"] isEqualToNumber:@0]){
-            success();
-        }else{
-            failure(response[@"msg"]);
-        }
+        
+        success(responseObject);
+        
+        
+        //        NSDictionary *response = responseObject;
+        //        if([response[@"errCode"] isEqualToNumber:@0]){
+        //            success();
+        //        }else{
+        //            failure(response[@"msg"]);
+        //        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -283,7 +268,7 @@ static const BOOL LOGDEBUG = NO;
 }
 
 + (void)userSendCodeWithNumber:(NSString *)number
-                       success:(NetworkFetcherCompletionHandler)success
+                       success:(NetworkFetcherSuccessHandler)success
                        failure:(NetworkFetcherErrorHandler)failure{
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
@@ -295,9 +280,11 @@ static const BOOL LOGDEBUG = NO;
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-        if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
-            success();
-        }
+        success(responseObject);
+        
+        //        if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
+        //            success();
+        //        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (LOGDEBUG) {
             NSLog(@"%@", error);
@@ -309,7 +296,7 @@ static const BOOL LOGDEBUG = NO;
 
 + (void)userValidateSMS:(NSString *)code
                  mobile:(NSString *)number
-                success:(void (^)(NSString *token))success
+                success:(void (^)(NSDictionary *response))success
                 failure:(NetworkFetcherErrorHandler)failure{
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
@@ -320,11 +307,13 @@ static const BOOL LOGDEBUG = NO;
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-        if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
-            success(responseObject[@"token"]);
-        }else{
-            failure(@"验证码不正确");
-        }
+        
+        success(responseObject);
+        //        if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
+        //            success(responseObject[@"token"]);
+        //        }else{
+        //            failure(@"验证码不正确");
+        //        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (LOGDEBUG) {
             NSLog(@"%@", error);
@@ -358,7 +347,7 @@ static const BOOL LOGDEBUG = NO;
         }
         failure(@"网络异常");
     }];
-
+    
     
 }
 
@@ -400,7 +389,7 @@ static const BOOL LOGDEBUG = NO;
                      account:(NSString *)phone
                     password:(NSString *)password
                        token:(NSString *)token
-                     success:(NetworkFetcherCompletionHandler)success
+                     success:(NetworkFetcherSuccessHandler)success
                      failure:(NetworkFetcherErrorHandler)failure{
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
@@ -408,7 +397,7 @@ static const BOOL LOGDEBUG = NO;
     NSString *urlString = [[[[[[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/api/qq/bind/mobile?openId="] stringByAppendingString:openID] stringByAppendingString:@"&name="] stringByAppendingString:name] stringByAppendingString:@"&figure="] stringByAppendingString:avatar];
     
     urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-
+    
     
     NSURL *url = [NSURL URLWithString:urlString];
     
@@ -419,17 +408,20 @@ static const BOOL LOGDEBUG = NO;
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-        if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
-            AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-            Account *account = [accountDao fetchAccount];
-            account.openID = openID;
-            account.nickName = name;
-            account.avatar = avatar;
-            account.phone = phone;
-            account.password = password;
-            account.token = responseObject[@"userid"];
-            [accountDao save];
-        }
+        
+        success(responseObject);
+        
+        //        if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
+        //            AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        //            Account *account = [accountDao fetchAccount];
+        //            account.openID = openID;
+        //            account.nickName = name;
+        //            account.avatar = avatar;
+        //            account.phone = phone;
+        //            account.password = password;
+        //            account.token = responseObject[@"userid"];
+        //            [accountDao save];
+        //        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -439,7 +431,7 @@ static const BOOL LOGDEBUG = NO;
         
         failure(@"网络异常");
     }];
-
+    
     
 }
 

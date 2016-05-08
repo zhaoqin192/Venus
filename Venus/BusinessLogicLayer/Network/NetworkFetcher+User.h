@@ -19,9 +19,9 @@
  *  @param failure
  */
 + (void)userLoginWithAccount:(NSString *)account
-                     password:(NSString *)password
-                      success:(NetworkFetcherCompletionHandler)success
-                      failure:(NetworkFetcherErrorHandler)failure;
+                    password:(NSString *)password
+                     success:(void (^)(NSDictionary *response))success
+                     failure:(NetworkFetcherErrorHandler)failure;
 
 /**
  *  QQ登录授权
@@ -30,7 +30,7 @@
  *  @param failure
  */
 + (void)userQQLoginWithSuccess:(NetworkFetcherCompletionHandler)success
-                        failure:(NetworkFetcherErrorHandler)failure;
+                       failure:(NetworkFetcherErrorHandler)failure;
 
 /**
  *  获取QQ用户信息
@@ -39,9 +39,9 @@
  *  @param openID
  */
 + (void)userFetchUserInfoWithQQToken:(NSString *)token
-                         openID:(NSString *)openID
-                        success:(void (^)(NSDictionary *userInfo))success
-                        failure:(NetworkFetcherErrorHandler)failure;
+                              openID:(NSString *)openID
+                             success:(void (^)(NSDictionary *userInfo))success
+                             failure:(NetworkFetcherErrorHandler)failure;
 
 /**
  *  判断QQ是否绑定
@@ -73,7 +73,7 @@
                      account:(NSString *)phone
                     password:(NSString *)password
                        token:(NSString *)token
-                     success:(NetworkFetcherCompletionHandler)success
+                     success:(NetworkFetcherSuccessHandler)success
                      failure:(NetworkFetcherErrorHandler)failure;
 
 /**
@@ -96,9 +96,9 @@
  *  @param faiure
  */
 + (void)userFetchUserInfoWithWeChatToken:(NSString *)token
-                            openID:(NSString *)openID
-                           Success:(void (^)(NSDictionary *userInfo))success
-                           failure:(NetworkFetcherErrorHandler)faiure;
+                                  openID:(NSString *)openID
+                                 Success:(void (^)(NSDictionary *userInfo))success
+                                 failure:(NetworkFetcherErrorHandler)faiure;
 
 /**
  *  绑定微信号
@@ -119,7 +119,8 @@
                          account:(NSString *)phone
                         password:(NSString *)password
                            token:(NSString *)token
-                         success:(NetworkFetcherCompletionHandler)success
+                         unionID:(NSString *)unionID
+                         success:(NetworkFetcherSuccessHandler)success
                          failure:(NetworkFetcherErrorHandler)failure;
 
 /**
@@ -127,7 +128,7 @@
  *
  *  @param openID
  *  @param success
- *  @param failure 
+ *  @param failure
  */
 + (void)userWeChatIsBoundWithOpenID:(NSString *)openID
                               token:(NSString *)token
@@ -157,7 +158,7 @@
 + (void)userRegisterWithPhone:(NSString *)phone
                      password:(NSString *)password
                         token:(NSString *)token
-                      success:(NetworkFetcherCompletionHandler)success
+                      success:(NetworkFetcherSuccessHandler)success
                       failure:(NetworkFetcherErrorHandler)failure;
 
 /**
@@ -168,7 +169,7 @@
  *  @param failure
  */
 + (void)userSendCodeWithNumber:(NSString *)number
-                       success:(NetworkFetcherCompletionHandler)success
+                       success:(NetworkFetcherSuccessHandler)success
                        failure:(NetworkFetcherErrorHandler)failure;
 
 /**
@@ -181,7 +182,7 @@
  */
 + (void)userValidateSMS:(NSString *)code
                  mobile:(NSString *)number
-                success:(void (^)(NSString *token))success
+                success:(void (^)(NSDictionary *response))success
                 failure:(NetworkFetcherErrorHandler)failure;
 
 

@@ -10,6 +10,7 @@
 
 typedef void(^NetworkFetcherCompletionHandler)();
 typedef void(^NetworkFetcherErrorHandler)(NSString *error);
+typedef void(^NetworkFetcherSuccessHandler)(NSDictionary *response);
 
 #define deBUG true
 
