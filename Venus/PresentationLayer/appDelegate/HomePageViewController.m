@@ -228,6 +228,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
                         break;
                     }
                     case 17:{
+                        NSLog(@"外卖");
                         FoodViewController *vc = [[FoodViewController alloc] init];
                         [self.navigationController pushViewController:vc animated:YES];
                         break;
