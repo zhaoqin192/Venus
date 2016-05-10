@@ -102,6 +102,11 @@
 		30D6D29F1CC8A85B00FB0CFC /* FoodCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D29D1CC8A85B00FB0CFC /* FoodCategoryCell.xib */; };
 		30D6D2A31CC8B1BF00FB0CFC /* FoodContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2A11CC8B1BF00FB0CFC /* FoodContentCell.m */; };
 		30D6D2A41CC8B1BF00FB0CFC /* FoodContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2A21CC8B1BF00FB0CFC /* FoodContentCell.xib */; };
+		30FD1F441CE1A329003C91A5 /* IndoorSwitchDemo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F431CE1A329003C91A5 /* IndoorSwitchDemo.mm */; };
+		30FD1F471CE1A40C003C91A5 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30FD1F461CE1A40C003C91A5 /* BaiduMapAPI_Base.framework */; };
+		30FD1F491CE1A437003C91A5 /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30FD1F481CE1A437003C91A5 /* BaiduMapAPI_Map.framework */; };
+		30FD1F4B1CE1A44D003C91A5 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30FD1F4A1CE1A44D003C91A5 /* BaiduMapAPI_Location.framework */; };
+		30FD1F4F1CE1A80B003C91A5 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F4E1CE1A80B003C91A5 /* mapapi.bundle */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -314,6 +319,12 @@
 		30D6D2A01CC8B1BF00FB0CFC /* FoodContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodContentCell.h; sourceTree = "<group>"; };
 		30D6D2A11CC8B1BF00FB0CFC /* FoodContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodContentCell.m; sourceTree = "<group>"; };
 		30D6D2A21CC8B1BF00FB0CFC /* FoodContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodContentCell.xib; sourceTree = "<group>"; };
+		30FD1F421CE1A329003C91A5 /* IndoorSwitchDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorSwitchDemo.h; sourceTree = "<group>"; };
+		30FD1F431CE1A329003C91A5 /* IndoorSwitchDemo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IndoorSwitchDemo.mm; sourceTree = "<group>"; };
+		30FD1F461CE1A40C003C91A5 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
+		30FD1F481CE1A437003C91A5 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
+		30FD1F4A1CE1A44D003C91A5 /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
+		30FD1F4E1CE1A80B003C91A5 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
 		7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -408,11 +419,14 @@
 				AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */,
 				AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */,
 				AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */,
+				30FD1F491CE1A437003C91A5 /* BaiduMapAPI_Map.framework in Frameworks */,
 				AC970C8D1CC4D27400FA171B /* CoreTelephony.framework in Frameworks */,
 				AC970C871CC4D26100FA171B /* CoreGraphics.framework in Frameworks */,
 				AC970C851CC4D25600FA171B /* SystemConfiguration.framework in Frameworks */,
+				30FD1F471CE1A40C003C91A5 /* BaiduMapAPI_Base.framework in Frameworks */,
 				AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */,
 				0E9E7CF44B2FAC9667513636 /* libPods.a in Frameworks */,
+				30FD1F4B1CE1A44D003C91A5 /* BaiduMapAPI_Location.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,6 +791,7 @@
 		AC03590C1CC4DA7D00EC7BBC /* OtherSDK */ = {
 			isa = PBXGroup;
 			children = (
+				30FD1F4E1CE1A80B003C91A5 /* mapapi.bundle */,
 				AC7AD4791CC72AF3004D9B61 /* WeChat */,
 				AC03590D1CC4DB2500EC7BBC /* Tencent */,
 			);
@@ -998,6 +1013,8 @@
 		ACF83EC91CBF98B500A962BD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				30FD1F421CE1A329003C91A5 /* IndoorSwitchDemo.h */,
+				30FD1F431CE1A329003C91A5 /* IndoorSwitchDemo.mm */,
 				3057B1FD1CD9B9E8008172DD /* RootTabViewController.h */,
 				3057B1FE1CD9B9E8008172DD /* RootTabViewController.m */,
 				E8F047AF1CDF84070032EE91 /* GMNavigationController.h */,
@@ -1044,6 +1061,9 @@
 				AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */,
 				AC0359031CC4D76A00EC7BBC /* libiconv.tbd */,
 				AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */,
+				30FD1F4A1CE1A44D003C91A5 /* BaiduMapAPI_Location.framework */,
+				30FD1F481CE1A437003C91A5 /* BaiduMapAPI_Map.framework */,
+				30FD1F461CE1A40C003C91A5 /* BaiduMapAPI_Base.framework */,
 				AC970C8C1CC4D27300FA171B /* CoreTelephony.framework */,
 				AC970C861CC4D26100FA171B /* CoreGraphics.framework */,
 				AC970C841CC4D25600FA171B /* SystemConfiguration.framework */,
@@ -1174,6 +1194,7 @@
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
 				3086D3D71CC72ABC007494D7 /* HomeCategoryCell.xib in Resources */,
 				30D6D2801CC87AF500FB0CFC /* FoodCell.xib in Resources */,
+				30FD1F4F1CE1A80B003C91A5 /* mapapi.bundle in Resources */,
 				3086D3D31CC72ABC007494D7 /* HomeNewsCell.xib in Resources */,
 				30B601C11CD05E88003ED671 /* ShopAllCell.xib in Resources */,
 			);
@@ -1265,6 +1286,7 @@
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
 				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
+				30FD1F441CE1A329003C91A5 /* IndoorSwitchDemo.mm in Sources */,
 				AC7B3AD91CDF2C7E0039C2A5 /* SignUpViewModel.m in Sources */,
 				30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */,
 				3035196B1CCF393700EE0750 /* TicketCommitCell.m in Sources */,
@@ -1420,10 +1442,12 @@
 			baseConfigurationReference = 90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libstdc++";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Venus/OtherSDK/Tencent",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = Venus/PrefixHeader.pch;
 				INFOPLIST_FILE = Venus/Info.plist;
@@ -1459,10 +1483,12 @@
 			baseConfigurationReference = 7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libstdc++";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Venus/OtherSDK/Tencent",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = Venus/PrefixHeader.pch;
 				INFOPLIST_FILE = Venus/Info.plist;

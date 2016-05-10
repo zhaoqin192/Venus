@@ -12,6 +12,7 @@
 #import "GMMeViewController.h"
 #import "HomePageViewController.h"
 #import "GMNavigationController.h"
+#import "IndoorSwitchDemo.h"
 
 @interface RootTabViewController ()
 
@@ -28,18 +29,18 @@
 
 - (void)setupViewControllers {
     GMMeViewController *meVC = [[GMMeViewController alloc] init];
-//    UINavigationController *meNVC = [[UINavigationController alloc] initWithRootViewController:meVC];
     GMNavigationController *meNVC = [[GMNavigationController alloc] initWithRootViewController:meVC];
     
-    
     HomePageViewController *homeVC = [[UIStoryboard storyboardWithName:@"Home" bundle:nil] instantiateInitialViewController];
-//    UINavigationController *homeNVC = [[UINavigationController alloc] initWithRootViewController:homeVC];
     GMNavigationController *homeNVC = [[GMNavigationController alloc] initWithRootViewController:homeVC];
+    
+    IndoorSwitchDemo *mapVC = [[IndoorSwitchDemo alloc] init];
+    GMNavigationController *mapNVC = [[GMNavigationController alloc] initWithRootViewController:mapVC];
     
     UIViewController *vvc = [[UIViewController alloc] init];
     vvc.view.backgroundColor = [UIColor redColor];
     vvc.tabBarItem.badgeValue = @"1";
-    [self setViewControllers:@[homeNVC,vvc,vvc,vvc,meNVC]];
+    [self setViewControllers:@[homeNVC,mapNVC,vvc,vvc,meNVC]];
     [self customizeTabBarForController];
     self.delegate = self;
 }
