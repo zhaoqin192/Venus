@@ -112,6 +112,8 @@
 		30FD1FA61CE2CAE9003C91A5 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FA41CE2CAE9003C91A5 /* UIView+SDAutoLayout.m */; };
 		30FD1FAA1CE2D012003C91A5 /* MapHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FA91CE2D012003C91A5 /* MapHeadView.m */; };
 		30FD1FAC1CE2D023003C91A5 /* MapHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FAB1CE2D023003C91A5 /* MapHeadView.xib */; };
+		30FD1FB31CE2D432003C91A5 /* WXLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FB11CE2D432003C91A5 /* WXLifeViewController.m */; };
+		30FD1FB41CE2D432003C91A5 /* WXLifeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FB21CE2D432003C91A5 /* WXLifeViewController.xib */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -339,6 +341,9 @@
 		30FD1FA81CE2D012003C91A5 /* MapHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapHeadView.h; sourceTree = "<group>"; };
 		30FD1FA91CE2D012003C91A5 /* MapHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapHeadView.m; sourceTree = "<group>"; };
 		30FD1FAB1CE2D023003C91A5 /* MapHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapHeadView.xib; sourceTree = "<group>"; };
+		30FD1FB01CE2D432003C91A5 /* WXLifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXLifeViewController.h; sourceTree = "<group>"; };
+		30FD1FB11CE2D432003C91A5 /* WXLifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXLifeViewController.m; sourceTree = "<group>"; };
+		30FD1FB21CE2D432003C91A5 /* WXLifeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXLifeViewController.xib; sourceTree = "<group>"; };
 		7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -819,6 +824,16 @@
 			path = SDAutoLayout;
 			sourceTree = "<group>";
 		};
+		30FD1FAE1CE2D418003C91A5 /* Life */ = {
+			isa = PBXGroup;
+			children = (
+				30FD1FB01CE2D432003C91A5 /* WXLifeViewController.h */,
+				30FD1FB11CE2D432003C91A5 /* WXLifeViewController.m */,
+				30FD1FB21CE2D432003C91A5 /* WXLifeViewController.xib */,
+			);
+			name = Life;
+			sourceTree = "<group>";
+		};
 		316E961895E367E514CC9FA4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1057,6 +1072,7 @@
 				3057B1FE1CD9B9E8008172DD /* RootTabViewController.m */,
 				E8F047AF1CDF84070032EE91 /* GMNavigationController.h */,
 				E8F047B01CDF84070032EE91 /* GMNavigationController.m */,
+				30FD1FAE1CE2D418003C91A5 /* Life */,
 				30FD1F9A1CE2BBFA003C91A5 /* Map */,
 				3057B1E81CD991F5008172DD /* Me */,
 				AC90F5761CD05FF9004C4C55 /* WebView */,
@@ -1193,6 +1209,7 @@
 				AC90F5661CCFA292004C4C55 /* HomeIntroduceCell.xib in Resources */,
 				AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */,
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
+				30FD1FB41CE2D432003C91A5 /* WXLifeViewController.xib in Resources */,
 				303519581CCF1F9500EE0750 /* TicketHeaderCell.xib in Resources */,
 				30B602091CD2072C003ED671 /* BeautifulDetailViewController.xib in Resources */,
 				30D6D29A1CC8A3F700FB0CFC /* FoodOrderViewController.xib in Resources */,
@@ -1342,6 +1359,7 @@
 				AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */,
 				303519761CCF4B8A00EE0750 /* ShopCommitViewController.m in Sources */,
 				30FD1FA61CE2CAE9003C91A5 /* UIView+SDAutoLayout.m in Sources */,
+				30FD1FB31CE2D432003C91A5 /* WXLifeViewController.m in Sources */,
 				AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */,
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,

@@ -13,6 +13,7 @@
 #import "HomePageViewController.h"
 #import "GMNavigationController.h"
 #import "IndoorSwitchDemo.h"
+#import "WXLifeViewController.h"
 
 @interface RootTabViewController ()
 
@@ -37,10 +38,13 @@
     IndoorSwitchDemo *mapVC = [[IndoorSwitchDemo alloc] init];
     GMNavigationController *mapNVC = [[GMNavigationController alloc] initWithRootViewController:mapVC];
     
+    WXLifeViewController *lifeVC = [[WXLifeViewController alloc] init];
+    GMNavigationController *lifeNVC = [[GMNavigationController alloc] initWithRootViewController:lifeVC];
+    
     UIViewController *vvc = [[UIViewController alloc] init];
     vvc.view.backgroundColor = [UIColor redColor];
     vvc.tabBarItem.badgeValue = @"1";
-    [self setViewControllers:@[homeNVC,mapNVC,vvc,vvc,meNVC]];
+    [self setViewControllers:@[homeNVC,mapNVC,vvc,lifeNVC,meNVC]];
     [self customizeTabBarForController];
     self.delegate = self;
 }
