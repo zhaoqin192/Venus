@@ -108,6 +108,10 @@
 		30FD1F4B1CE1A44D003C91A5 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30FD1F4A1CE1A44D003C91A5 /* BaiduMapAPI_Location.framework */; };
 		30FD1F4F1CE1A80B003C91A5 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1F4E1CE1A80B003C91A5 /* mapapi.bundle */; };
 		30FD1F9E1CE2C0B8003C91A5 /* MapFloorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1F9D1CE2C0B8003C91A5 /* MapFloorCell.m */; };
+		30FD1FA51CE2CAE9003C91A5 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FA21CE2CAE9003C91A5 /* UITableView+SDAutoTableViewCellHeight.m */; };
+		30FD1FA61CE2CAE9003C91A5 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FA41CE2CAE9003C91A5 /* UIView+SDAutoLayout.m */; };
+		30FD1FAA1CE2D012003C91A5 /* MapHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FA91CE2D012003C91A5 /* MapHeadView.m */; };
+		30FD1FAC1CE2D023003C91A5 /* MapHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FAB1CE2D023003C91A5 /* MapHeadView.xib */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -328,6 +332,13 @@
 		30FD1F4E1CE1A80B003C91A5 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
 		30FD1F9C1CE2C0B8003C91A5 /* MapFloorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFloorCell.h; sourceTree = "<group>"; };
 		30FD1F9D1CE2C0B8003C91A5 /* MapFloorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFloorCell.m; sourceTree = "<group>"; };
+		30FD1FA11CE2CAE9003C91A5 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		30FD1FA21CE2CAE9003C91A5 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		30FD1FA31CE2CAE9003C91A5 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		30FD1FA41CE2CAE9003C91A5 /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
+		30FD1FA81CE2D012003C91A5 /* MapHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapHeadView.h; sourceTree = "<group>"; };
+		30FD1FA91CE2D012003C91A5 /* MapHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapHeadView.m; sourceTree = "<group>"; };
+		30FD1FAB1CE2D023003C91A5 /* MapHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapHeadView.xib; sourceTree = "<group>"; };
 		7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -584,6 +595,7 @@
 		3086D3A81CC729BD007494D7 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				30FD1FA01CE2CAE9003C91A5 /* SDAutoLayout */,
 				30D6D2821CC8917E00FB0CFC /* XFSegementView */,
 				30D6D26F1CC87ACE00FB0CFC /* JSDropDownMenu */,
 				3086D3A71CC729B3007494D7 /* WXTextField */,
@@ -789,8 +801,22 @@
 				30FD1F431CE1A329003C91A5 /* IndoorSwitchDemo.mm */,
 				30FD1F9C1CE2C0B8003C91A5 /* MapFloorCell.h */,
 				30FD1F9D1CE2C0B8003C91A5 /* MapFloorCell.m */,
+				30FD1FA81CE2D012003C91A5 /* MapHeadView.h */,
+				30FD1FA91CE2D012003C91A5 /* MapHeadView.m */,
+				30FD1FAB1CE2D023003C91A5 /* MapHeadView.xib */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		30FD1FA01CE2CAE9003C91A5 /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				30FD1FA11CE2CAE9003C91A5 /* UITableView+SDAutoTableViewCellHeight.h */,
+				30FD1FA21CE2CAE9003C91A5 /* UITableView+SDAutoTableViewCellHeight.m */,
+				30FD1FA31CE2CAE9003C91A5 /* UIView+SDAutoLayout.h */,
+				30FD1FA41CE2CAE9003C91A5 /* UIView+SDAutoLayout.m */,
+			);
+			path = SDAutoLayout;
 			sourceTree = "<group>";
 		};
 		316E961895E367E514CC9FA4 /* Pods */ = {
@@ -1178,6 +1204,7 @@
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
 				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
+				30FD1FAC1CE2D023003C91A5 /* MapHeadView.xib in Resources */,
 				30B601FD1CD1FA94003ED671 /* BeautifulFoodCell.xib in Resources */,
 				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
 				3086D3BB1CC72A1E007494D7 /* GMRegisterViewController.xib in Resources */,
@@ -1277,6 +1304,7 @@
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
 				AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */,
 				303519511CCF1B3F00EE0750 /* TicketDetailViewController.m in Sources */,
+				30FD1FA51CE2CAE9003C91A5 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				3086D39D1CC7298B007494D7 /* JZMTBtnView.m in Sources */,
 				ACB78A451CC867BC00354B11 /* PresentationUtility.m in Sources */,
 				E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */,
@@ -1313,6 +1341,7 @@
 				303519571CCF1F9500EE0750 /* TicketHeaderCell.m in Sources */,
 				AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */,
 				303519761CCF4B8A00EE0750 /* ShopCommitViewController.m in Sources */,
+				30FD1FA61CE2CAE9003C91A5 /* UIView+SDAutoLayout.m in Sources */,
 				AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */,
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,
@@ -1328,6 +1357,7 @@
 				30FD1F9E1CE2C0B8003C91A5 /* MapFloorCell.m in Sources */,
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */,
+				30FD1FAA1CE2D012003C91A5 /* MapHeadView.m in Sources */,
 				3086D3B61CC72A09007494D7 /* GMXTextField.m in Sources */,
 				AC90F5A81CD1EB12004C4C55 /* FoodManager.m in Sources */,
 				303519611CCF348F00EE0750 /* TicketCountCell.m in Sources */,

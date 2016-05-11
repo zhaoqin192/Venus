@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MapHeadView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="新品" translatesAutoresizingMaskIntoConstraints="NO" id="msi-Lq-HbX">
+                    <rect key="frame" x="50" y="323" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="DDu-Hr-XbG"/>
+                        <constraint firstAttribute="width" constant="22" id="gsX-v4-c4D"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="满减" translatesAutoresizingMaskIntoConstraints="NO" id="4OW-C6-mFa">
+                    <rect key="frame" x="220" y="323" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="EUt-zf-Xj6"/>
+                        <constraint firstAttribute="height" constant="22" id="eE1-Pb-jVT"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新品打折" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lm7-gL-d0c" customClass="GMLabel">
+                    <rect key="frame" x="87" y="324" width="68" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="满减优惠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKV-Rv-Oj9" customClass="GMLabel">
+                    <rect key="frame" x="257" y="323" width="68" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="4OW-C6-mFa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="30" id="33M-nu-vmY"/>
+                <constraint firstItem="vKV-Rv-Oj9" firstAttribute="leading" secondItem="4OW-C6-mFa" secondAttribute="trailing" constant="15" id="DvJ-ps-hjo"/>
+                <constraint firstAttribute="trailing" secondItem="vKV-Rv-Oj9" secondAttribute="trailing" constant="50" id="Fae-xw-y2Q"/>
+                <constraint firstItem="vKV-Rv-Oj9" firstAttribute="centerY" secondItem="4OW-C6-mFa" secondAttribute="centerY" id="NJO-I0-OZT"/>
+                <constraint firstItem="4OW-C6-mFa" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="RDw-R9-Oo2"/>
+                <constraint firstItem="Lm7-gL-d0c" firstAttribute="centerY" secondItem="msi-Lq-HbX" secondAttribute="centerY" id="RrI-2s-Kdd"/>
+                <constraint firstItem="msi-Lq-HbX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oH8-5b-Fkz"/>
+                <constraint firstItem="msi-Lq-HbX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-120" id="p9o-Lw-ana"/>
+                <constraint firstItem="msi-Lq-HbX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="rIr-dX-IDa"/>
+                <constraint firstItem="Lm7-gL-d0c" firstAttribute="leading" secondItem="msi-Lq-HbX" secondAttribute="trailing" constant="15" id="tUi-uR-hd5"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="p9o-Lw-ana"/>
+                    <exclude reference="33M-nu-vmY"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="364.5" y="333.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="新品" width="22" height="22"/>
+        <image name="满减" width="24" height="24"/>
+    </resources>
+</document>

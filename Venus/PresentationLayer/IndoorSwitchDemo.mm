@@ -7,6 +7,7 @@
 
 #import "IndoorSwitchDemo.h"
 #import "MapFloorCell.h"
+#import "MapHeadView.h"
 
 @interface IndoorSwitchDemo ()<BMKMapViewDelegate> {
     BMKMapView * _mapView;
@@ -34,7 +35,7 @@ BMKUserLocation* userLoc;
     }
 //	_mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0,20,414,800)];
 //    _mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0,0,414,736)];
-    _mapView = [[BMKMapView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 84, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     _mapView.autoresizesSubviews = YES;
     [_mapView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleTopMargin];
     [self.view addSubview:_mapView];
@@ -51,7 +52,7 @@ BMKUserLocation* userLoc;
     [_mapView setZoomLevel:18];
     
     _baseIndoorMapInfo= [[BMKBaseIndoorMapInfo alloc]init];
-    _floorTableView = [[UITableView alloc] initWithFrame:CGRectMake(30, 667 - 180 - 180 , 60, 180)];
+    _floorTableView = [[UITableView alloc] initWithFrame:CGRectMake(30, [UIScreen mainScreen].bounds.size.height - 180 - 90 , 60, 180)];
     _floorTableView.delegate = self;
     _floorTableView.dataSource = self;
     _floorTableView.layer.cornerRadius = _floorTableView.width/2;
@@ -67,6 +68,7 @@ BMKUserLocation* userLoc;
     
     [_floorTableView registerClass:[MapFloorCell class] forCellReuseIdentifier:NSStringFromClass([MapFloorCell class])];
     
+    [self configureTitleView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -74,8 +76,7 @@ BMKUserLocation* userLoc;
     [_mapView viewWillAppear];
     _mapView.delegate = self;
     _locService.delegate = self;
-    
-    
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -83,6 +84,13 @@ BMKUserLocation* userLoc;
     [_mapView viewWillDisappear];
     _mapView.delegate = nil;
     _locService.delegate = nil;
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
+- (void)configureTitleView {
+    MapHeadView *headView = [MapHeadView headView];
+    headView.frame = CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 64);
+    [self.view addSubview:headView];
 }
 
 #pragma mark - UITableViewDataSource&Delegate
