@@ -6,6 +6,8 @@
 //
 
 #import "IndoorSwitchDemo.h"
+#import "MapFloorCell.h"
+
 @interface IndoorSwitchDemo ()<BMKMapViewDelegate> {
     BMKMapView * _mapView;
     BMKLocationService* _locService;
@@ -49,12 +51,21 @@ BMKUserLocation* userLoc;
     [_mapView setZoomLevel:18];
     
     _baseIndoorMapInfo= [[BMKBaseIndoorMapInfo alloc]init];
-    _floorTableView = [[UITableView alloc] initWithFrame:CGRectMake(10, 100, 62, 300)];
+    _floorTableView = [[UITableView alloc] initWithFrame:CGRectMake(30, 667 - 180 - 180 , 60, 180)];
     _floorTableView.delegate = self;
     _floorTableView.dataSource = self;
+    _floorTableView.layer.cornerRadius = _floorTableView.width/2;
+    _floorTableView.layer.masksToBounds = YES;
+    _floorTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _floorTableView.backgroundColor = [UIColor colorWithRed:166./255 green:135./255 blue:59./255 alpha:0.6];
+    _floorTableView.showsVerticalScrollIndicator = NO;
+    _floorTableView.layer.borderWidth = 1;
+    _floorTableView.layer.borderColor = GMBrownColor.CGColor;
     [self.view addSubview:_floorTableView];
     _floorTableView.hidden = true;
     [_mapView setBaseIndoorEnabled:YES];
+    
+    [_floorTableView registerClass:[MapFloorCell class] forCellReuseIdentifier:NSStringFromClass([MapFloorCell class])];
     
 }
 
@@ -77,20 +88,13 @@ BMKUserLocation* userLoc;
 #pragma mark - UITableViewDataSource&Delegate
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FloorCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FloorCell"];
-    }
+    MapFloorCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MapFloorCell class])];
     
     NSString *title = [NSString stringWithFormat:@"%@",[_baseIndoorMapInfo.arrStrFloors objectAtIndex:indexPath.row]];
     [cell.textLabel setText:title];
     [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
     [cell.textLabel setFont:[UIFont systemFontOfSize:21]];
-    [cell.textLabel setTextColor:[UIColor blackColor]];
-    [cell.textLabel setHighlightedTextColor:[UIColor blackColor]];
-    [cell setSelectedBackgroundView:[[UIView alloc] init]];
-    cell.backgroundColor = [UIColor greenColor];
-    
+    cell.contentView.backgroundColor = [UIColor colorWithRed:166./255 green:135./255 blue:59./255 alpha:0.6];
     return cell;
     
 }
