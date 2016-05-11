@@ -114,6 +114,10 @@
 		30FD1FAC1CE2D023003C91A5 /* MapHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FAB1CE2D023003C91A5 /* MapHeadView.xib */; };
 		30FD1FB31CE2D432003C91A5 /* WXLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FB11CE2D432003C91A5 /* WXLifeViewController.m */; };
 		30FD1FB41CE2D432003C91A5 /* WXLifeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FB21CE2D432003C91A5 /* WXLifeViewController.xib */; };
+		30FD1FBA1CE2E7C5003C91A5 /* WXCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FB81CE2E7C5003C91A5 /* WXCategoryViewController.m */; };
+		30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FB91CE2E7C5003C91A5 /* WXCategoryViewController.xib */; };
+		30FD1FC01CE2EFB6003C91A5 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */; };
+		30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -344,6 +348,12 @@
 		30FD1FB01CE2D432003C91A5 /* WXLifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXLifeViewController.h; sourceTree = "<group>"; };
 		30FD1FB11CE2D432003C91A5 /* WXLifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXLifeViewController.m; sourceTree = "<group>"; };
 		30FD1FB21CE2D432003C91A5 /* WXLifeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXLifeViewController.xib; sourceTree = "<group>"; };
+		30FD1FB71CE2E7C5003C91A5 /* WXCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCategoryViewController.h; sourceTree = "<group>"; };
+		30FD1FB81CE2E7C5003C91A5 /* WXCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCategoryViewController.m; sourceTree = "<group>"; };
+		30FD1FB91CE2E7C5003C91A5 /* WXCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXCategoryViewController.xib; sourceTree = "<group>"; };
+		30FD1FBD1CE2EFB6003C91A5 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
+		30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -834,6 +844,43 @@
 			name = Life;
 			sourceTree = "<group>";
 		};
+		30FD1FB51CE2E579003C91A5 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				30FD1FBC1CE2EF9C003C91A5 /* cell */,
+				30FD1FB71CE2E7C5003C91A5 /* WXCategoryViewController.h */,
+				30FD1FB81CE2E7C5003C91A5 /* WXCategoryViewController.m */,
+				30FD1FB91CE2E7C5003C91A5 /* WXCategoryViewController.xib */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		30FD1FB61CE2E5B6003C91A5 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				3086D3D81CC72ACB007494D7 /* HomePage */,
+				30FD1F9A1CE2BBFA003C91A5 /* Map */,
+				30FD1FB51CE2E579003C91A5 /* Category */,
+				30FD1FAE1CE2D418003C91A5 /* Life */,
+				3057B1E81CD991F5008172DD /* Me */,
+				3057B1FD1CD9B9E8008172DD /* RootTabViewController.h */,
+				3057B1FE1CD9B9E8008172DD /* RootTabViewController.m */,
+				E8F047AF1CDF84070032EE91 /* GMNavigationController.h */,
+				E8F047B01CDF84070032EE91 /* GMNavigationController.m */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
+		30FD1FBC1CE2EF9C003C91A5 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				30FD1FBD1CE2EFB6003C91A5 /* CategoryCell.h */,
+				30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */,
+				30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 		316E961895E367E514CC9FA4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1068,17 +1115,10 @@
 		ACF83EC91CBF98B500A962BD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				3057B1FD1CD9B9E8008172DD /* RootTabViewController.h */,
-				3057B1FE1CD9B9E8008172DD /* RootTabViewController.m */,
-				E8F047AF1CDF84070032EE91 /* GMNavigationController.h */,
-				E8F047B01CDF84070032EE91 /* GMNavigationController.m */,
-				30FD1FAE1CE2D418003C91A5 /* Life */,
-				30FD1F9A1CE2BBFA003C91A5 /* Map */,
-				3057B1E81CD991F5008172DD /* Me */,
+				30FD1FB61CE2E5B6003C91A5 /* Root */,
 				AC90F5761CD05FF9004C4C55 /* WebView */,
 				ACB78A411CC8678E00354B11 /* PresentationUtility */,
 				AC71EAB61CC0A5B200B101C2 /* AppDelegate */,
-				3086D3D81CC72ACB007494D7 /* HomePage */,
 				3086D3C21CC72A92007494D7 /* Login */,
 				3086D3BC1CC72A24007494D7 /* Register */,
 				3086D3A91CC729D2007494D7 /* Others */,
@@ -1240,12 +1280,14 @@
 				30B601C61CD07BDC003ED671 /* ShopHomeViewController.xib in Resources */,
 				30D6D2941CC89E6E00FB0CFC /* FoodCommitCell.xib in Resources */,
 				3057B2071CD9BDC4008172DD /* Home.storyboard in Resources */,
+				30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */,
 				303519621CCF348F00EE0750 /* TicketCountCell.xib in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
 				30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */,
 				303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */,
 				3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */,
 				3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */,
+				30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */,
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
 				30B601CB1CD07C54003ED671 /* ShopCycleCell.xib in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
@@ -1313,6 +1355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */,
+				30FD1FC01CE2EFB6003C91A5 /* CategoryCell.m in Sources */,
 				30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */,
 				ACAC17471CD8DCEB00E04499 /* ResFoodClass.m in Sources */,
 				3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */,
@@ -1357,6 +1400,7 @@
 				ACAC174B1CD8DDCD00E04499 /* ResFood.m in Sources */,
 				303519571CCF1F9500EE0750 /* TicketHeaderCell.m in Sources */,
 				AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */,
+				30FD1FBA1CE2E7C5003C91A5 /* WXCategoryViewController.m in Sources */,
 				303519761CCF4B8A00EE0750 /* ShopCommitViewController.m in Sources */,
 				30FD1FA61CE2CAE9003C91A5 /* UIView+SDAutoLayout.m in Sources */,
 				30FD1FB31CE2D432003C91A5 /* WXLifeViewController.m in Sources */,

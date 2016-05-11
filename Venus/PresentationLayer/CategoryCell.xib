@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="gTV-IL-0wX" customClass="CategoryCell">
+            <rect key="frame" x="0.0" y="0.0" width="208" height="96"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="208" height="96"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中餐" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCH-a6-pIR">
+                        <rect key="frame" x="0.0" y="0.0" width="208" height="96"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="VCH-a6-pIR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2EF-v5-B6F"/>
+                <constraint firstAttribute="bottom" secondItem="VCH-a6-pIR" secondAttribute="bottom" id="Chh-2k-Z8C"/>
+                <constraint firstItem="VCH-a6-pIR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TUp-ae-xGe"/>
+                <constraint firstItem="VCH-a6-pIR" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ZBc-ZR-Thb"/>
+                <constraint firstAttribute="trailing" secondItem="VCH-a6-pIR" secondAttribute="trailing" id="hQv-SJ-fo0"/>
+                <constraint firstItem="VCH-a6-pIR" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="ifG-aY-lZj"/>
+            </constraints>
+            <size key="customSize" width="208" height="96"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="ZBc-ZR-Thb"/>
+                    <exclude reference="ifG-aY-lZj"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="contentLabel" destination="VCH-a6-pIR" id="xgm-k4-nUa"/>
+            </connections>
+            <point key="canvasLocation" x="335" y="418"/>
+        </collectionViewCell>
+    </objects>
+</document>
