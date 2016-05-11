@@ -17,6 +17,7 @@
     [super awakeFromNib];
     self.contentLabel.layer.borderWidth = 1;
     self.contentLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.contentLabel.font = [UIFont systemFontOfSize:12];
 }
 
 @end

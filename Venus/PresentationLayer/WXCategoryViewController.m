@@ -8,6 +8,7 @@
 
 #import "WXCategoryViewController.h"
 #import "CategoryCell.h"
+#import "ReusableView.h"
 
 @interface WXCategoryViewController ()
 <UICollectionViewDelegate,UICollectionViewDataSource>
@@ -16,10 +17,13 @@
 
 @implementation WXCategoryViewController
 
+static NSString *headerID = @"headerID";
+static NSString *footerID = @"footerID";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"全部分类";
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     [self configureNavigationBar];
     [self configureCollectionView];
 }
@@ -29,10 +33,12 @@
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 0;
     self.myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 10, kScreenWidth, kScreenHeight - 10) collectionViewLayout:flowLayout];
-    self.myCollectionView.backgroundColor = GMBgColor;
+    self.myCollectionView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     [self.myCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([CategoryCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([CategoryCell class])];
     self.myCollectionView.delegate = self;
     self.myCollectionView.dataSource = self;
+    [self.myCollectionView registerClass:[ReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader  withReuseIdentifier:headerID];
+    [self.myCollectionView registerClass:[ReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter  withReuseIdentifier:footerID];
     [self.view addSubview:self.myCollectionView];
 }
 
@@ -53,10 +59,10 @@
      numberOfItemsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 15;
+        return 8;
     }
     else {
-        return 10;
+        return 4;
     }
 }
 
@@ -64,7 +70,7 @@
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CategoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CategoryCell class]) forIndexPath:indexPath];
-    
+    cell.contentView.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 
@@ -76,18 +82,27 @@
     NSLog(@"%zd",indexPath.row);
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-
-{
-    UICollectionReusableView *reusableview = nil;
-    if (kind == UICollectionElementKindSectionHeader) {
-        reusableview = [UIButton buttonWithType:UIButtonTypeContactAdd];
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    
+    if (kind==UICollectionElementKindSectionFooter) {
+        ReusableView *footer = [collectionView  dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:footerID forIndexPath:indexPath];
+        footer.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
+        return footer;
     }
     
-    if (kind == UICollectionElementKindSectionFooter) {
-        reusableview = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    }
-    return reusableview;
+    ReusableView *header = [collectionView  dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerID forIndexPath:indexPath];
+    header.backgroundColor = [UIColor whiteColor];
+    header.text = indexPath.section == 0 ? @"美食" : @"购物";
+    return header;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    return CGSizeMake(0, 32);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    return CGSizeMake(0, 10);
 }
 
 @end
