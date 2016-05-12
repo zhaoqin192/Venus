@@ -25,12 +25,14 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
 #import "FoodViewController.h"
+#import "QRCodeReaderViewController.h"
+#import "QRCodeReader.h"
 
 #import "BeautifulFoodViewController.h"
 #import "MoneyCardViewController.h"
 #import "FoodViewController.h"
 
-@interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate>
+@interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -42,6 +44,8 @@
 @property (nonatomic, strong) AdvertisementManager *advertisementManager;
 @property (nonatomic, copy) NSMutableArray *advertisementArray;
 @property (nonatomic, copy) NSString *buttonURL;
+@property (weak, nonatomic) IBOutlet UIButton *QCodeButton;
+@property (strong, nonatomic) QRCodeReaderViewController *reader;
 
 @end
 
@@ -69,6 +73,27 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = GMBrownColor;
     
+    [self.QCodeButton bk_whenTapped:^{
+        if ([QRCodeReader supportsMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]]) {
+            static QRCodeReaderViewController *reader = nil;
+            static dispatch_once_t onceToken;
+            
+            dispatch_once(&onceToken, ^{
+                reader = [QRCodeReaderViewController new];
+            });
+            reader.delegate = self;
+            
+            [reader setCompletionWithBlock:^(NSString *resultAsString) {
+                NSLog(@"Completion with result: %@", resultAsString);
+            }];
+            
+            [self presentViewController:reader animated:YES completion:NULL];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Reader not supported by the current device" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -326,6 +351,20 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.view endEditing:YES];
+}
+
+#pragma mark - QRCodeReader Delegate Methods
+
+- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"%@",result);
+    }];
+}
+
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end
