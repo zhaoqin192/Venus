@@ -10,5 +10,6 @@
 
 @interface HomeIntroduceCell : UITableViewCell
 @property (nonatomic, strong) NSMutableArray *list;
+@property (weak, nonatomic) IBOutlet GMLabel *myTitle;
 @property (nonatomic, copy) void(^buttonClicked)(UIButton *button);
 @end

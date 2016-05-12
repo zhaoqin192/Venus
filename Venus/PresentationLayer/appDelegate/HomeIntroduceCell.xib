@@ -61,6 +61,7 @@
             <connections>
                 <outlet property="leftLine" destination="zl5-XK-85z" id="gbc-oB-VBG"/>
                 <outlet property="myScrollView" destination="4Qz-tx-2Sd" id="GFJ-6x-4n1"/>
+                <outlet property="myTitle" destination="mBs-Pi-w92" id="hks-vi-iPB"/>
                 <outlet property="rightLine" destination="cPQ-Ba-8uU" id="djk-Fl-FJE"/>
             </connections>
             <point key="canvasLocation" x="441.5" y="468"/>

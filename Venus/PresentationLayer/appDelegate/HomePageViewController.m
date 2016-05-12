@@ -171,7 +171,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 #pragma mark <TableViewDelegate>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3 + _advertisementArray.count;
+    return 4 + _advertisementArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -256,9 +256,27 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             return cell;
         }
             break;
+            
+        case 3:{
+            HomeIntroduceCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeIntroduceCell class])];
+            cell.myTitle.text = @"热门单品";
+            cell.list = _recommendArray;
+            cell.buttonClicked = ^(UIButton *button){
+                
+                WebViewController *webVC = [[WebViewController alloc] init];
+                Picture *picture = _pictureManager.recommendPictureArray[button.tag];
+                webVC.url = picture.url;
+                [self.navigationController pushViewController:webVC animated:NO];
+                
+            };
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
+            break;
+            
         default:{
             HomeCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeCategoryCell class])];
-            Adversitement *advertisement = _advertisementArray[indexPath.row - 3];
+            Adversitement *advertisement = _advertisementArray[indexPath.row - 4];
             cell.title.text = advertisement.name;
             [cell.mainPicture sd_setImageWithURL:[NSURL URLWithString:[PICTUREURL stringByAppendingString:advertisement.pictureUrl]] placeholderImage:[UIImage imageNamed:@"1"]];
             
@@ -296,6 +314,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             return 50;
             break;
         case 2:
+        case 3:
             return 150;
             break;
         default:
