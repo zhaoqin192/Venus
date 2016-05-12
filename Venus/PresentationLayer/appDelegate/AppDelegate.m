@@ -36,7 +36,14 @@
 
     // Override point for customization after application launch.
     [WXApi registerApp:@"wxbafcc387a8a8fe31"];
+    [self configureNavigationBar];
     return YES;
+}
+
+- (void)configureNavigationBar {
+    [[UINavigationBar appearance] setBarTintColor:GMRedColor];
+    [[UINavigationBar appearance] setTintColor:GMBrownColor];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: GMBrownColor}];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

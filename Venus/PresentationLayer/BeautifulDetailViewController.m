@@ -37,9 +37,9 @@
 - (void)configureTableView {
     UIView *headView = ({
         UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(0, 0, kScreenWidth, 286);
+        view.frame = CGRectMake(0, 0, kScreenWidth, 296);
         BeautyDetailHeaderView *headview = [BeautyDetailHeaderView headView];
-        headview.frame = CGRectMake(0, 0, kScreenWidth, 286);
+        headview.frame = CGRectMake(0, 0, kScreenWidth, 296);
         headview.returnButtonClicked = ^{
             [self.navigationController popViewControllerAnimated:YES];
         };
@@ -101,6 +101,30 @@
             break;
     }
     return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 32;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *header = [[UIView alloc] init];
+    header.backgroundColor = [UIColor whiteColor];
+    UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(20, 9, kScreenWidth, 14)];
+    label.font = [UIFont systemFontOfSize:14];
+    [header addSubview:label];
+    label.text = @"当前购物券";
+    if (section == 1) {
+        label.text = @"店铺活动";
+    }
+    if (section == 2) {
+        label.text = @"商品列表";
+    }
+    return header;
 }
 
 @end
