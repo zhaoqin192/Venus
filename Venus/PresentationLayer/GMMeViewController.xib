@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GMMeViewController">
             <connections>
+                <outlet property="iconView" destination="B0H-kx-OQG" id="jAL-Bv-CNQ"/>
                 <outlet property="tableView" destination="J4f-so-sWy" id="y6v-3K-Op0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,15 +23,8 @@
                         <constraint firstAttribute="height" constant="140" id="YVn-cV-QD6"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="返回" translatesAutoresizingMaskIntoConstraints="NO" id="wq0-cV-Wg1">
-                    <rect key="frame" x="10" y="28" width="12" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="12" id="Dq2-22-eai"/>
-                        <constraint firstAttribute="height" constant="20" id="iOf-aL-xWY"/>
-                    </constraints>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B0H-kx-OQG">
-                    <rect key="frame" x="20" y="63" width="60" height="60"/>
+                    <rect key="frame" x="20" y="53" width="60" height="60"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="039-OX-O17"/>
@@ -38,13 +32,13 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LINDSAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTO-Vy-YdX">
-                    <rect key="frame" x="100" y="63" width="69" height="21"/>
+                    <rect key="frame" x="100" y="53" width="69" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金牌用户" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DX9-2e-7Ij" customClass="GMLabel">
-                    <rect key="frame" x="100" y="92" width="68" height="21"/>
+                    <rect key="frame" x="100" y="82" width="68" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -60,10 +54,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="B0H-kx-OQG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="53" id="0pW-6Z-Jo6"/>
                 <constraint firstItem="DX9-2e-7Ij" firstAttribute="top" secondItem="vTO-Vy-YdX" secondAttribute="bottom" constant="8" id="0uj-VO-FRb"/>
                 <constraint firstItem="UGZ-gb-JHN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="515-qB-HGw"/>
                 <constraint firstAttribute="trailing" secondItem="UGZ-gb-JHN" secondAttribute="trailing" id="6kc-GJ-fiF"/>
-                <constraint firstItem="wq0-cV-Wg1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="7sW-UE-Nhf"/>
                 <constraint firstAttribute="bottom" secondItem="J4f-so-sWy" secondAttribute="bottom" id="92D-9d-Iql"/>
                 <constraint firstItem="J4f-so-sWy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Aho-qZ-h0J"/>
                 <constraint firstAttribute="trailing" secondItem="J4f-so-sWy" secondAttribute="trailing" id="BCJ-3v-1St"/>
@@ -71,9 +65,7 @@
                 <constraint firstItem="UGZ-gb-JHN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fjo-8G-wDM"/>
                 <constraint firstItem="vTO-Vy-YdX" firstAttribute="leading" secondItem="B0H-kx-OQG" secondAttribute="trailing" constant="20" id="L7L-i3-N6H"/>
                 <constraint firstItem="vTO-Vy-YdX" firstAttribute="top" secondItem="B0H-kx-OQG" secondAttribute="top" id="fFI-Ew-Ir6"/>
-                <constraint firstItem="B0H-kx-OQG" firstAttribute="top" secondItem="wq0-cV-Wg1" secondAttribute="bottom" constant="15" id="gdo-mR-evp"/>
                 <constraint firstItem="DX9-2e-7Ij" firstAttribute="leading" secondItem="vTO-Vy-YdX" secondAttribute="leading" id="gzF-oc-vNs"/>
-                <constraint firstItem="wq0-cV-Wg1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="iXA-4u-KF3"/>
                 <constraint firstItem="J4f-so-sWy" firstAttribute="top" secondItem="UGZ-gb-JHN" secondAttribute="bottom" id="wDi-ED-gW3"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -81,6 +73,5 @@
     </objects>
     <resources>
         <image name="Rectangle 259" width="375" height="139"/>
-        <image name="返回" width="12" height="20"/>
     </resources>
 </document>

@@ -11,6 +11,7 @@
 #import "GMMeOrderCell.h"
 
 @interface GMMeViewController () <UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
@@ -18,6 +19,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.iconView.layer.cornerRadius = self.iconView.width/2;
+    self.iconView.layer.masksToBounds = YES;
     [self configureTableView];
 }
 

@@ -324,5 +324,8 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     return 0;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
+}
 
 @end
