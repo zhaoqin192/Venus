@@ -8,10 +8,13 @@
 
 #import "RootTabViewController.h"
 #import "RDVTabBarItem.h"
+#import "GMNavigationController.h"
 
 #import "GMMeViewController.h"
 #import "HomePageViewController.h"
-#import "GMNavigationController.h"
+#import "IndoorSwitchDemo.h"
+#import "WXLifeViewController.h"
+#import "WXCategoryViewController.h"
 
 @interface RootTabViewController ()
 
@@ -28,18 +31,21 @@
 
 - (void)setupViewControllers {
     GMMeViewController *meVC = [[GMMeViewController alloc] init];
-//    UINavigationController *meNVC = [[UINavigationController alloc] initWithRootViewController:meVC];
     GMNavigationController *meNVC = [[GMNavigationController alloc] initWithRootViewController:meVC];
     
-    
     HomePageViewController *homeVC = [[UIStoryboard storyboardWithName:@"Home" bundle:nil] instantiateInitialViewController];
-//    UINavigationController *homeNVC = [[UINavigationController alloc] initWithRootViewController:homeVC];
     GMNavigationController *homeNVC = [[GMNavigationController alloc] initWithRootViewController:homeVC];
     
-    UIViewController *vvc = [[UIViewController alloc] init];
-    vvc.view.backgroundColor = [UIColor redColor];
-    vvc.tabBarItem.badgeValue = @"1";
-    [self setViewControllers:@[homeNVC,vvc,vvc,vvc,meNVC]];
+    IndoorSwitchDemo *mapVC = [[IndoorSwitchDemo alloc] init];
+    GMNavigationController *mapNVC = [[GMNavigationController alloc] initWithRootViewController:mapVC];
+    
+    WXLifeViewController *lifeVC = [[WXLifeViewController alloc] init];
+    GMNavigationController *lifeNVC = [[GMNavigationController alloc] initWithRootViewController:lifeVC];
+    
+    WXCategoryViewController *cateVC = [[WXCategoryViewController alloc] init];
+    GMNavigationController *cateNVC = [[GMNavigationController alloc] initWithRootViewController:cateVC];
+   
+    [self setViewControllers:@[homeNVC,mapNVC,cateNVC,lifeNVC,meNVC]];
     [self customizeTabBarForController];
     self.delegate = self;
 }
