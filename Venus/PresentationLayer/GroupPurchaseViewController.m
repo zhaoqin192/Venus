@@ -35,7 +35,7 @@
 - (void)configureChildController{
     self.moneyVC = [[MoneyCardViewController alloc] init];
     [self addChildViewController:self.moneyVC];
-    self.moneyVC.view.frame = CGRectMake(0, 65, kScreenWidth, kScreenHeight - 65);
+    self.moneyVC.view.frame = CGRectMake(0, 45, kScreenWidth, kScreenHeight - 45);
     [self.view addSubview:self.moneyVC.view];
 }
 

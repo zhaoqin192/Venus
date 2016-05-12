@@ -26,4 +26,13 @@
     return self.topViewController;
 }
 
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    viewController.navigationItem.backBarButtonItem = ({
+        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
+        back.title = @"";
+        back;
+    });
+    [super pushViewController:viewController animated:animated];
+}
+
 @end
