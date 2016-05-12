@@ -131,7 +131,6 @@
 		AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */; };
 		AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAAA1CC08FCD00B101C2 /* NetworkFetcher.m */; };
 		AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */; };
-		AC7AD4781CC72ACC004D9B61 /* libMLeaksFinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7AD4771CC72ABE004D9B61 /* libMLeaksFinder.a */; };
 		AC7AD4831CC72BF2004D9B61 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7AD4821CC72BF2004D9B61 /* libc++.tbd */; };
 		AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD48F1CC7A5A8004D9B61 /* Venus.xcdatamodeld */; };
 		AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD4931CC7A6D2004D9B61 /* Account+CoreDataProperties.m */; };
@@ -167,16 +166,6 @@
 		ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBF1CBF97F800A962BD /* LaunchScreen.storyboard */; };
 		E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047B01CDF84070032EE91 /* GMNavigationController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		AC7AD4761CC72ABE004D9B61 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC7AD4721CC72ABE004D9B61 /* MLeaksFinder.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B3ADE16C1C1BD1D600AA4F63;
-			remoteInfo = MLeaksFinder;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		177D12BE652A285B1BDD4D47 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -378,7 +367,6 @@
 		AC71EAAA1CC08FCD00B101C2 /* NetworkFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkFetcher.m; sourceTree = "<group>"; };
 		AC71EAAF1CC090EC00B101C2 /* NetworkFetcher+User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+User.h"; sourceTree = "<group>"; };
 		AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+User.m"; sourceTree = "<group>"; };
-		AC7AD4721CC72ABE004D9B61 /* MLeaksFinder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MLeaksFinder.xcodeproj; sourceTree = "<group>"; };
 		AC7AD4821CC72BF2004D9B61 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		AC7AD4901CC7A5A8004D9B61 /* Venus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Venus.xcdatamodel; sourceTree = "<group>"; };
 		AC7AD4921CC7A6D2004D9B61 /* Account+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Account+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -446,7 +434,6 @@
 				AC5B48D11CCA496E00724914 /* TencentOpenAPI.framework in Frameworks */,
 				AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */,
 				AC7AD4831CC72BF2004D9B61 /* libc++.tbd in Frameworks */,
-				AC7AD4781CC72ACC004D9B61 /* libMLeaksFinder.a in Frameworks */,
 				AC0359081CC4D78600EC7BBC /* libz.tbd in Frameworks */,
 				AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */,
 				AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */,
@@ -959,22 +946,6 @@
 			path = appDelegate;
 			sourceTree = "<group>";
 		};
-		AC7AD4711CC72A5D004D9B61 /* MLeaksFinder */ = {
-			isa = PBXGroup;
-			children = (
-				AC7AD4721CC72ABE004D9B61 /* MLeaksFinder.xcodeproj */,
-			);
-			path = MLeaksFinder;
-			sourceTree = "<group>";
-		};
-		AC7AD4731CC72ABE004D9B61 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AC7AD4771CC72ABE004D9B61 /* libMLeaksFinder.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		AC7AD4791CC72AF3004D9B61 /* WeChat */ = {
 			isa = PBXGroup;
 			children = (
@@ -1064,7 +1035,6 @@
 		ACF83EA21CBF97F800A962BD = {
 			isa = PBXGroup;
 			children = (
-				AC7AD4711CC72A5D004D9B61 /* MLeaksFinder */,
 				ACF83EAD1CBF97F800A962BD /* Venus */,
 				ACF83EAC1CBF97F800A962BD /* Products */,
 				316E961895E367E514CC9FA4 /* Pods */,
@@ -1221,28 +1191,12 @@
 			mainGroup = ACF83EA21CBF97F800A962BD;
 			productRefGroup = ACF83EAC1CBF97F800A962BD /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = AC7AD4731CC72ABE004D9B61 /* Products */;
-					ProjectRef = AC7AD4721CC72ABE004D9B61 /* MLeaksFinder.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				ACF83EAA1CBF97F800A962BD /* Venus */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		AC7AD4771CC72ABE004D9B61 /* libMLeaksFinder.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMLeaksFinder.a;
-			remoteRef = AC7AD4761CC72ABE004D9B61 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ACF83EA91CBF97F800A962BD /* Resources */ = {
