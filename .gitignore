@@ -25,6 +25,7 @@ xcuserdata
 *.swp
 *~.nib
 .DS_Store
+/MLeaksFinder
 
 ## Obj-C/Swift specific
 *.hmap

@@ -121,11 +121,11 @@
 
 - (void)touchLabelWithIndex:(NSInteger)index{
     if (index == 1) {
-        self.commitVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180);
+        self.commitVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180 - 49);
         [self.view addSubview:self.commitVC.view];
     }
     else{
-        self.orderVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180);
+        self.orderVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180 - 49);
         [self.view addSubview:self.orderVC.view];
     }
 }

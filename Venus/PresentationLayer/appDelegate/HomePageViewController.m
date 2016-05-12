@@ -30,7 +30,7 @@
 #import "MoneyCardViewController.h"
 #import "FoodViewController.h"
 
-@interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate, HomeMenuCellDelegate>
+@interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -68,18 +68,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     self.navigationController.navigationBar.barTintColor = GMRedColor;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = GMBrownColor;
-
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:GMBrownColor};
-    self.navigationItem.backBarButtonItem = ({
-        UIBarButtonItem *back = [[UIBarButtonItem alloc] init];
-        back.title = @"";
-        back;
-    });
-
-    UIImageView *titleImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 40)];
-    titleImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [titleImageView setImage:[UIImage imageNamed:@"loginLogo"]];
-    self.navigationItem.titleView = titleImageView;
     
 }
 
@@ -191,7 +179,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         case 0:{
             static NSString *cellIndentifier = @"menucell";
             HomeMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
-            [cell setDelegate:self];
             if (cell == nil) {
                 cell = [[HomeMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier menuArray:self.menuArray];
             }
@@ -316,14 +303,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             break;
     }
     return 0;
-}
-
-#pragma mark <HomeMenuDelegate>
-- (void)enterSubViewController:(NSInteger)menuNumber {
-    if (menuNumber == 17) {
-        FoodViewController *foodVC = [[FoodViewController alloc] init];
-        [self.navigationController pushViewController:foodVC animated:YES];
-    }
 }
 
 
