@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BeautifulFood;
 
 @interface BeautifulFoodCell : UITableViewCell
-
+@property (nonatomic, strong) BeautifulFood *model;
 @end

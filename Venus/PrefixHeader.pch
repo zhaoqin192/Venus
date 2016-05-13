@@ -17,12 +17,16 @@
 #import "UIImageView+WebCache.h"
 #import "EAIntroView.h"
 #import "BlocksKit+UIKit.h"
+#import "NetworkManager.h"
+#import "AFNetworking.h"
+#import "MJExtension.h"
 
 #define GMRedColor [UIColor colorWithHexString:@"B01C2E"]
 #define GMBrownColor [UIColor colorWithHexString:@"A6873B"]
 #define GMBgColor [UIColor colorWithHexString:@"F5F5F5"]
 #define GMFontColor [UIColor colorWithHexString:@"4A4A4A"]
 #define GMTipFontColor [UIColor colorWithHexString:@"9B9B9B"]
+#define URL_PREFIX  @"http://www.chinaworldstyle.com"
 
 #import "GMButton.h"
 #import "GMLabel.h"

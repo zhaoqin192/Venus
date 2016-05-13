@@ -22,9 +22,9 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="万滩日本料理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssq-fG-mzg">
-                        <rect key="frame" x="123" y="10" width="102" height="21"/>
+                        <rect key="frame" x="123" y="10" width="96" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="102" id="a9J-nA-6B2"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="102" id="a9J-nA-6B2"/>
                             <constraint firstAttribute="height" constant="21" id="dKs-Ln-xPy"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -32,30 +32,35 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店铺地址:海淀区知春路21号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1A6-Qz-2bT">
-                        <rect key="frame" x="123" y="33" width="210" height="21"/>
+                        <rect key="frame" x="123" y="33" width="242" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="210" id="Ttw-uJ-VtZ"/>
                             <constraint firstAttribute="height" constant="21" id="XVy-zX-L79"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ttw-uJ-VtZ"/>
+                            </mask>
+                        </variation>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="惠" translatesAutoresizingMaskIntoConstraints="NO" id="lee-ug-K29">
-                        <rect key="frame" x="235" y="12" width="18" height="18"/>
+                        <rect key="frame" x="229" y="12" width="18" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="5ie-LK-bI5"/>
                             <constraint firstAttribute="width" constant="18" id="xCU-NE-cnZ"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="外" translatesAutoresizingMaskIntoConstraints="NO" id="gEW-Lb-XNx">
-                        <rect key="frame" x="263" y="12" width="18" height="18"/>
+                        <rect key="frame" x="252" y="12" width="18" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="KwF-DA-IXa"/>
                             <constraint firstAttribute="width" constant="18" id="nAZ-aG-WgJ"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="活动" translatesAutoresizingMaskIntoConstraints="NO" id="JSL-Ch-txt">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="美食活动" translatesAutoresizingMaskIntoConstraints="NO" id="JSL-Ch-txt">
                         <rect key="frame" x="123" y="58" width="32" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="R05-Sr-uBm"/>
@@ -68,14 +73,16 @@
                             <constraint firstAttribute="width" constant="150" id="ePs-Dg-SUz"/>
                             <constraint firstAttribute="height" constant="21" id="mco-oG-UWV"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="gEW-Lb-XNx" firstAttribute="leading" secondItem="ssq-fG-mzg" secondAttribute="trailing" constant="33" id="8RN-Vk-CSa"/>
                     <constraint firstItem="JSL-Ch-txt" firstAttribute="leading" secondItem="1A6-Qz-2bT" secondAttribute="leading" id="A7F-u8-41P"/>
                     <constraint firstItem="yhu-7n-HsW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="D0p-tH-DZ1"/>
+                    <constraint firstAttribute="trailing" secondItem="1A6-Qz-2bT" secondAttribute="trailing" constant="10" id="Jsh-QD-zNw"/>
                     <constraint firstItem="lee-ug-K29" firstAttribute="centerY" secondItem="ssq-fG-mzg" secondAttribute="centerY" id="Q6R-lp-G66"/>
                     <constraint firstItem="JSL-Ch-txt" firstAttribute="top" secondItem="1A6-Qz-2bT" secondAttribute="bottom" constant="4" id="TVu-zI-7dr"/>
                     <constraint firstItem="Orh-B3-dPn" firstAttribute="leading" secondItem="JSL-Ch-txt" secondAttribute="trailing" constant="10" id="Xlk-DJ-e9n"/>
@@ -89,12 +96,27 @@
                     <constraint firstItem="yhu-7n-HsW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="teQ-EM-SkP"/>
                     <constraint firstItem="lee-ug-K29" firstAttribute="leading" secondItem="ssq-fG-mzg" secondAttribute="trailing" constant="10" id="uzc-UF-QJ5"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="edZ-WA-fBU"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="activityView" destination="JSL-Ch-txt" id="1rm-rX-IO2"/>
+                <outlet property="despLabel" destination="Orh-B3-dPn" id="5bS-Qe-6tz"/>
+                <outlet property="iconView" destination="yhu-7n-HsW" id="eeo-0M-bPX"/>
+                <outlet property="locationLabel" destination="1A6-Qz-2bT" id="ex3-Fe-4Jc"/>
+                <outlet property="nameLabel" destination="ssq-fG-mzg" id="Zue-HN-I12"/>
+                <outlet property="tuanView" destination="lee-ug-K29" id="zdr-3L-YIt"/>
+                <outlet property="waiConstraint" destination="8RN-Vk-CSa" id="JKE-wB-QYd"/>
+                <outlet property="waiView" destination="gEW-Lb-XNx" id="V4G-6u-Gmr"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>
         <image name="外" width="18" height="18"/>
         <image name="惠" width="18" height="18"/>
-        <image name="活动" width="130" height="130"/>
+        <image name="美食活动" width="32" height="18"/>
     </resources>
 </document>

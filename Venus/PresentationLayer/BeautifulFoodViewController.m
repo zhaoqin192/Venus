@@ -10,6 +10,7 @@
 #import "JSDropDownMenu.h"
 #import "BeautifulFoodCell.h"
 #import "BeautifulDetailViewController.h"
+#import "BeautifulFood.h"
 
 @interface BeautifulFoodViewController()
 <JSDropDownMenuDataSource,JSDropDownMenuDelegate,UITableViewDelegate,UITableViewDataSource>{
@@ -22,7 +23,7 @@
     NSInteger _currentData3Index;
 }
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
-
+@property (nonatomic, copy) NSArray *foodArray;
 @end
 
 @implementation BeautifulFoodViewController
@@ -34,6 +35,29 @@
     self.navigationItem.title = @"美食";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"搜索"] style:UIBarButtonItemStyleDone handler:^(id sender) {
         NSLog(@"搜索");
+    }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self loadData];
+}
+
+- (void)loadData {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/listShops?id=10001"]];
+    NSDictionary *parameters = nil;
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        [BeautifulFood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"desp": @"description"
+                     };
+        }];
+        self.foodArray = [BeautifulFood mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.myTableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
     }];
 }
 
@@ -64,11 +88,12 @@
 #pragma mark <TableDelegate>
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 15;
+    return self.foodArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     BeautifulFoodCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BeautifulFoodCell class])];
+    cell.model = self.foodArray[indexPath.row];
     return cell;
 }
 
