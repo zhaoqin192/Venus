@@ -14,11 +14,14 @@
 #import "ShopCommitCell.h"
 #import "BeautifulFood.h"
 #import "FoodDetail.h"
+#import "Activity.h"
 
 @interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, copy) NSString *currentSegmentName;
 @property (nonatomic, copy) NSArray *allFoodArray;
+@property (nonatomic, copy) NSArray *allActivityArray;
+@property (nonatomic, strong) UIWebView *webView;
 @end
 
 @implementation BeautifulDetailViewController
@@ -27,6 +30,7 @@
     [super viewDidLoad];
     self.currentSegmentName = @"店铺首页";
     [self configureTableView];
+    [self loadHomeData];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -40,7 +44,20 @@
     [self.navigationController setNavigationBarHidden:NO];
 }
 
-- (void)configureTableView {
+- (void)configureFootView {
+    if ([self.currentSegmentName isEqualToString:@"店铺首页"]) {
+        self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+        self.myTableView.tableFooterView = self.webView;
+        if (self.foodModel.description_url.length == 0) {
+            self.webView.hidden = YES;
+            return;
+        }
+        self.webView.hidden = NO;
+        [self.webView loadHTMLString:self.foodModel.description_url baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]];
+    }
+}
+
+- (void)configureHeadView {
     UIView *headView = ({
         UIView *view = [[UIView alloc] init];
         view.frame = CGRectMake(0, 0, kScreenWidth, 346);
@@ -52,7 +69,7 @@
         headview.segmentButtonClicked = ^(NSInteger index) {
             if (index == 0) {
                 self.currentSegmentName = @"店铺首页";
-                [self.myTableView reloadData];
+                [self loadHomeData];
             }
             else if (index == 1) {
                 self.currentSegmentName = @"全部宝贝";
@@ -68,13 +85,36 @@
         view;
     });
     self.myTableView.tableHeaderView = headView;
+}
+
+- (void)configureTableView {
+    [self configureHeadView];
+    [self configureFootView];
     self.myTableView.backgroundColor = GMBgColor;
     self.myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([MoneyCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([MoneyCell class])];
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ShopActivityCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopActivityCell class])];
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([FoodContentCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([FoodContentCell class])];
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ShopCommitCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopCommitCell class])];
-    
+}
+
+- (void)loadHomeData {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/mallActivity/listActivityWithBrand"]];
+    NSDictionary *parameters = @{@"brandId":@(self.foodModel.shopId)};
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        //        [BeautifulFood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        //            return @{
+        //                     @"desp": @"description"
+        //                     };
+        //        }];
+        self.allActivityArray = [Activity mj_objectArrayWithKeyValuesArray:responseObject[@"activity"]];
+        [self configureFootView];
+        [self.myTableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 - (void)loadFoodItem {
@@ -90,6 +130,7 @@
 //                     };
 //        }];
         self.allFoodArray = [FoodDetail mj_objectArrayWithKeyValuesArray:responseObject[@"items"]];
+        self.myTableView.tableFooterView = [[UIView alloc] init];
         [self.myTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
@@ -108,6 +149,11 @@
     if ([self.currentSegmentName isEqualToString:@"全部宝贝"]) {
         return self.allFoodArray.count;
     }
+    if ([self.currentSegmentName isEqualToString:@"店铺首页"]) {
+        if (section == 1) {
+            return self.allActivityArray.count;
+        }
+    }
     return 3;
 }
 
@@ -121,6 +167,7 @@
                 break;
             case 1:{
                 ShopActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopActivityCell class])];
+                cell.activityModel = self.allActivityArray[indexPath.row];
                 return cell;
             }
                 break;

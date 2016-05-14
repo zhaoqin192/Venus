@@ -17,4 +17,5 @@
 @property (nonatomic, assign) NSUInteger shopId;
 @property (nonatomic, copy) NSString *desp;
 @property (nonatomic, copy) NSString *phone;
+@property (nonatomic, copy) NSString *description_url;
 @end

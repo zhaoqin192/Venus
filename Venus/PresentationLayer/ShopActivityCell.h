@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Activity;
 @interface ShopActivityCell : UITableViewCell
-
+@property (nonatomic, strong) Activity *activityModel;
 @end

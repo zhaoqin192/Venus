@@ -7,6 +7,13 @@
 //
 
 #import "ShopActivityCell.h"
+#import "Activity.h"
+
+@interface ShopActivityCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+@end
 
 @implementation ShopActivityCell
 
@@ -20,6 +27,12 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setActivityModel:(Activity *)activityModel {
+    _activityModel = activityModel;
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:activityModel.img_url]];
+    self.nameLabel.text = activityModel.name;
 }
 
 @end
