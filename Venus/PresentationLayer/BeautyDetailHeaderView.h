@@ -10,6 +10,7 @@
 
 @interface BeautyDetailHeaderView : UIView
 @property (nonatomic, copy) void(^returnButtonClicked)();
+@property (nonatomic, copy) void(^segmentButtonClicked)(NSInteger index);
 + (instancetype)headView;
 
 @end
