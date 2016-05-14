@@ -12,10 +12,13 @@
 #import "ShopActivityCell.h"
 #import "FoodContentCell.h"
 #import "ShopCommitCell.h"
+#import "BeautifulFood.h"
+#import "FoodDetail.h"
 
 @interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, copy) NSString *currentSegmentName;
+@property (nonatomic, copy) NSArray *allFoodArray;
 @end
 
 @implementation BeautifulDetailViewController
@@ -53,13 +56,14 @@
             }
             else if (index == 1) {
                 self.currentSegmentName = @"全部宝贝";
-                [self.myTableView reloadData];
+                [self loadFoodItem];
             }
             else {
                 self.currentSegmentName = @"评价";
                 [self.myTableView reloadData];
             }
         };
+        headview.foodModel = self.foodModel;
         [view addSubview:headview];
         view;
     });
@@ -73,6 +77,25 @@
     
 }
 
+- (void)loadFoodItem {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/getShopItem"]];
+    NSDictionary *parameters = @{@"id":@(self.foodModel.shopId)};
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+//        [BeautifulFood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+//            return @{
+//                     @"desp": @"description"
+//                     };
+//        }];
+        self.allFoodArray = [FoodDetail mj_objectArrayWithKeyValuesArray:responseObject[@"items"]];
+        [self.myTableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if ([self.currentSegmentName isEqualToString:@"店铺首页"]) {
@@ -82,6 +105,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if ([self.currentSegmentName isEqualToString:@"全部宝贝"]) {
+        return self.allFoodArray.count;
+    }
     return 3;
 }
 
@@ -104,6 +130,7 @@
     else if ([self.currentSegmentName isEqualToString:@"全部宝贝"]) {
         FoodContentCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FoodContentCell class])];
         cell.contentView.backgroundColor = GMBgColor;
+        cell.foodModel = self.allFoodArray[indexPath.row];
         return cell;
     }
     else {

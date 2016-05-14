@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class FoodDetail;
 @interface FoodContentCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *pictureUrl;
 @property (weak, nonatomic) IBOutlet UILabel *name;
@@ -16,5 +16,5 @@
 @property (weak, nonatomic) IBOutlet GMLabel *count;
 @property (weak, nonatomic) IBOutlet UIButton *minus;
 @property (weak, nonatomic) IBOutlet UIButton *add;
-
+@property (nonatomic, strong) FoodDetail *foodModel;
 @end

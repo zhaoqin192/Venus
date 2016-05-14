@@ -186,6 +186,13 @@
                     <exclude reference="wre-jK-3WN"/>
                 </mask>
             </variation>
+            <connections>
+                <outlet property="iconView" destination="6DU-9W-dIM" id="TFM-YA-zM3"/>
+                <outlet property="locationLabel" destination="TTE-rb-iNL" id="LKb-AN-C1M"/>
+                <outlet property="nameLabel" destination="dKo-DU-RyO" id="WAK-2g-yaH"/>
+                <outlet property="phoneNumLabel" destination="AcR-sF-BPV" id="lyX-Hc-hBK"/>
+                <outlet property="waiView" destination="cQU-eO-Rlk" id="xyp-9N-4LC"/>
+            </connections>
             <point key="canvasLocation" x="347.5" y="385.5"/>
         </view>
     </objects>

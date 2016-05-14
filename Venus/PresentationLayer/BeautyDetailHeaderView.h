@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class BeautifulFood;
 @interface BeautyDetailHeaderView : UIView
+@property (nonatomic, strong) BeautifulFood *foodModel;
 @property (nonatomic, copy) void(^returnButtonClicked)();
 @property (nonatomic, copy) void(^segmentButtonClicked)(NSInteger index);
 + (instancetype)headView;

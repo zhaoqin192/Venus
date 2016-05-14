@@ -7,6 +7,7 @@
 //
 
 #import "FoodContentCell.h"
+#import "FoodDetail.h"
 
 @implementation FoodContentCell
 
@@ -33,6 +34,14 @@
         integer--;
     }
     _count.text = [NSString stringWithFormat:@"%ld", (long)integer];
+}
+
+- (void)setFoodModel:(FoodDetail *)foodModel {
+    _foodModel = foodModel;
+    [self.pictureUrl sd_setImageWithURL:[NSURL URLWithString:foodModel.pic]];
+    self.name.text = foodModel.name;
+    self.price.text = [NSString stringWithFormat:@"%ld/份",(long)foodModel.price];
+    self.sales.hidden = YES;
 }
 
 @end

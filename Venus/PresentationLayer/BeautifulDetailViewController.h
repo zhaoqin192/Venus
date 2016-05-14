@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class BeautifulFood;
 @interface BeautifulDetailViewController : UIViewController
-
+@property (nonatomic, strong) BeautifulFood *foodModel;
 @end
