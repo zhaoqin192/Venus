@@ -16,6 +16,7 @@
 #import "Restaurant.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FoodDetialViewController.h"
+#import "RDVTabBarController.h"
 
 
 @interface FoodViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate,UITableViewDelegate,UITableViewDataSource>{
@@ -53,7 +54,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     
     [self initObjects];
     [self networkRequest];
-    
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

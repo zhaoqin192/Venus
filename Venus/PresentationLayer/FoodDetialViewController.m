@@ -24,11 +24,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *salesText;
 @property (weak, nonatomic) IBOutlet UILabel *noteText;
 @property (weak, nonatomic) IBOutlet UILabel *priceText;
-
-
+@property (weak, nonatomic) IBOutlet UIView *placeholderView;
 
 @property (strong, nonatomic) FoodCommitViewController *commitVC;
 @property (strong, nonatomic) FoodOrderViewController *orderVC;
+@property (assign, nonatomic) NSInteger currentVCIndex;
 @end
 
 @implementation FoodDetialViewController
@@ -99,11 +99,15 @@
 }
 
 - (void)configureChildController{
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.commitVC = [[FoodCommitViewController alloc] init];
     self.commitVC.restaurant = _restaurant;
-    [self addChildViewController:self.commitVC];
-    self.orderVC = [[FoodOrderViewController alloc] init];
+     self.orderVC = [[FoodOrderViewController alloc] init];
     [self addChildViewController:self.orderVC];
+    [self.orderVC didMoveToParentViewController:self];
+    
+    [self.orderVC.view setFrame:self.placeholderView.bounds];
+    [self.placeholderView addSubview:self.orderVC.view];
 }
 
 - (void)configureSegmentView{
@@ -116,19 +120,56 @@
     segementView.titleSelectedColor = GMBrownColor;
     segementView.touchDelegate = self;
     [segementView selectLabelWithIndex:0];
+    _currentVCIndex = 0;
     [self.view addSubview:segementView];
 }
 
 - (void)touchLabelWithIndex:(NSInteger)index{
-    if (index == 1) {
-        self.commitVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180 - 49);
-        [self.view addSubview:self.commitVC.view];
+    if (index == _currentVCIndex) {
+        return;
+    } else {
+        switch (index) {
+            case 0:
+                [self cycleFromViewController:_commitVC toViewController:_orderVC];
+                _currentVCIndex = 0;
+                break;
+            case 1:
+                [self cycleFromViewController:_orderVC toViewController:_commitVC];
+                _currentVCIndex = 1;
+            default:
+                break;
+        }
     }
-    else{
-        self.orderVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180 - 49);
-        [self.view addSubview:self.orderVC.view];
-    }
+    
+//    if (index == 1) {
+//        self.commitVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180 - 49);
+//        [self.view addSubview:self.commitVC.view];
+//    }
+//    else{
+//        self.orderVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180 - 49);
+//        [self.view addSubview:self.orderVC.view];
+//    }
 }
+
+- (void)cycleFromViewController: (UIViewController*) oldVC
+               toViewController: (UIViewController*) newVC {
+    // Prepare the two view controllers for the change.
+    [oldVC willMoveToParentViewController:nil];
+    [self addChildViewController:newVC];
+    
+    // Queue up the transition animation.
+    [self transitionFromViewController: oldVC toViewController: newVC
+                              duration: 0.25 options:UIViewAnimationOptionTransitionNone
+                            animations:nil
+                            completion:^(BOOL finished) {
+                                if (finished) {
+                                    [newVC didMoveToParentViewController:self];
+                                    [oldVC willMoveToParentViewController:nil];
+                                    [oldVC removeFromParentViewController];
+                                }
+                            }];
+}
+
 
 - (IBAction)getBackToLastView:(id)sender {
     

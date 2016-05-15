@@ -168,6 +168,7 @@
 		ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB21CBF97F800A962BD /* AppDelegate.m */; };
 		ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBD1CBF97F800A962BD /* Assets.xcassets */; };
 		ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBF1CBF97F800A962BD /* LaunchScreen.storyboard */; };
+		E89BD3261CE8567E007CCF49 /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E89BD3251CE8567E007CCF49 /* CALayer+XibConfiguration.m */; };
 		E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047B01CDF84070032EE91 /* GMNavigationController.m */; };
 /* End PBXBuildFile section */
 
@@ -434,6 +435,8 @@
 		ACF83EBD1CBF97F800A962BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF83EC01CBF97F800A962BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF83EC21CBF97F800A962BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E89BD3241CE8567E007CCF49 /* CALayer+XibConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XibConfiguration.h"; sourceTree = "<group>"; };
+		E89BD3251CE8567E007CCF49 /* CALayer+XibConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XibConfiguration.m"; sourceTree = "<group>"; };
 		E8F047AF1CDF84070032EE91 /* GMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMNavigationController.h; sourceTree = "<group>"; };
 		E8F047B01CDF84070032EE91 /* GMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1134,6 +1137,8 @@
 				3086D3BC1CC72A24007494D7 /* Register */,
 				3086D3A91CC729D2007494D7 /* Others */,
 				3086D3A81CC729BD007494D7 /* ThirdParty */,
+				E89BD3241CE8567E007CCF49 /* CALayer+XibConfiguration.h */,
+				E89BD3251CE8567E007CCF49 /* CALayer+XibConfiguration.m */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -1377,6 +1382,7 @@
 				AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */,
 				AC7AD49C1CC7AFD9004D9B61 /* DatabaseManager.m in Sources */,
 				3086D3C01CC72A8C007494D7 /* GMLoginViewController.m in Sources */,
+				E89BD3261CE8567E007CCF49 /* CALayer+XibConfiguration.m in Sources */,
 				AC7AD4971CC7A6D2004D9B61 /* Account.m in Sources */,
 				3086D3D41CC72ABC007494D7 /* HomeIntroduceCell.m in Sources */,
 				30D018091CE613E000E50B23 /* NSArray+Log.m in Sources */,

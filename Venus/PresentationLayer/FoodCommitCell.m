@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    NSLog(@"我的宽度是%f",self.contentView.frame.size.width);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
