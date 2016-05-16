@@ -89,13 +89,13 @@
 
 - (void)configureTableView {
     [self configureHeadView];
-    [self configureFootView];
     self.myTableView.backgroundColor = GMBgColor;
     self.myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([MoneyCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([MoneyCell class])];
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ShopActivityCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopActivityCell class])];
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([FoodContentCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([FoodContentCell class])];
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ShopCommitCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopCommitCell class])];
+   // [self configureFootView];
 }
 
 - (void)loadHomeData {
@@ -178,6 +178,7 @@
         FoodContentCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FoodContentCell class])];
         cell.contentView.backgroundColor = GMBgColor;
         cell.foodModel = self.allFoodArray[indexPath.row];
+        cell.isDisplay = YES;
         return cell;
     }
     else {

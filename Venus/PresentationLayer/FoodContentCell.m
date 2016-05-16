@@ -9,10 +9,23 @@
 #import "FoodContentCell.h"
 #import "FoodDetail.h"
 
+@interface FoodContentCell ()
+@property (weak, nonatomic) IBOutlet UIView *countView;
+
+@end
+
 @implementation FoodContentCell
 
 - (void)awakeFromNib {
+    self.countView.hidden = NO;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+- (void)setIsDisplay:(BOOL)isDisplay {
+    _isDisplay = isDisplay;
+    if (self.isDisplay) {
+        self.countView.hidden = YES;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

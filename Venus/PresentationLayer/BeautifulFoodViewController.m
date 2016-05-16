@@ -42,6 +42,16 @@
     [self loadData];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.rdv_tabBarController setTabBarHidden:NO];
+}
+
 - (void)loadData {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/listShops?id=10001"]];
