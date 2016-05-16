@@ -16,6 +16,7 @@
 #import "FoodDetail.h"
 #import "Activity.h"
 #import "Commit.h"
+#import "WXCoupon.h"
 
 @interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -23,6 +24,7 @@
 @property (nonatomic, copy) NSArray *allFoodArray;
 @property (nonatomic, copy) NSArray *allActivityArray;
 @property (nonatomic, strong) NSMutableArray *allCommitArray;
+@property (nonatomic, copy) NSArray *allCouponsArray;
 @property (nonatomic, strong) UIWebView *webView;
 @end
 
@@ -113,6 +115,24 @@
         //                     };
         //        }];
         self.allActivityArray = [Activity mj_objectArrayWithKeyValuesArray:responseObject[@"activity"]];
+        [self loadCoupons];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+- (void)loadCoupons {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/couponz/customer/storeAndCoupons"]];
+    NSDictionary *parameters = @{@"storeWmId":@(self.foodModel.shopId)};
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        //        [BeautifulFood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        //            return @{
+        //                     @"desp": @"description"
+        //                     };
+        //        }];
+        self.allCouponsArray = [WXCoupon mj_objectArrayWithKeyValuesArray:responseObject[@"coupons"]];
         [self configureFootView];
         [self.myTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -144,7 +164,7 @@
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/comment/getStoreComment"]];
     NSDictionary* parameters = @{
-                                    @"storeId":@"100014",
+                                    @"storeId":@(self.foodModel.shopId),
                                     @"page":@"1",
                                     @"pageSize":@"20",
                                 };
@@ -182,7 +202,7 @@
             return self.allActivityArray.count;
         }
         else {
-            return 4;
+            return self.allCouponsArray.count;
         }
     }
     return self.allCommitArray.count;
@@ -193,6 +213,7 @@
         switch (indexPath.section) {
             case 0:{
                 MoneyCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MoneyCell class])];
+                cell.foodModel = self.allCouponsArray[indexPath.row];
                 return cell;
             }
                 break;

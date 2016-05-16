@@ -81,6 +81,13 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="s3t-iW-1TQ" id="Cd8-RA-d8T"/>
+                <outlet property="iconView" destination="zd3-lA-04z" id="Fnw-TM-azp"/>
+                <outlet property="nameLabel" destination="XDk-om-gQi" id="Byf-Kh-e9z"/>
+                <outlet property="numLabel" destination="pEa-Mw-xab" id="skw-u1-PJg"/>
+                <outlet property="priceLabel" destination="QQq-aG-gXK" id="rbE-Qe-1GY"/>
+            </connections>
             <point key="canvasLocation" x="256.5" y="404"/>
         </tableViewCell>
     </objects>

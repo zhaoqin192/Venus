@@ -89,6 +89,7 @@
 		30D018101CE6DA6700E50B23 /* FoodDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0180F1CE6DA6700E50B23 /* FoodDetail.m */; };
 		30D018131CE6E84400E50B23 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018121CE6E84400E50B23 /* Activity.m */; };
 		30D018171CE9859000E50B23 /* Commit.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018161CE9859000E50B23 /* Commit.m */; };
+		30D0181A1CE99F1500E50B23 /* WXCoupon.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018191CE99F1500E50B23 /* WXCoupon.m */; };
 		30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2701CC87ACE00FB0CFC /* ico_make.png */; };
 		30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2721CC87ACE00FB0CFC /* JSDropDownMenu.m */; };
 		30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2781CC87AF500FB0CFC /* FoodViewController.m */; };
@@ -308,6 +309,8 @@
 		30D018121CE6E84400E50B23 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		30D018151CE9859000E50B23 /* Commit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commit.h; sourceTree = "<group>"; };
 		30D018161CE9859000E50B23 /* Commit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commit.m; sourceTree = "<group>"; };
+		30D018181CE99F1500E50B23 /* WXCoupon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCoupon.h; sourceTree = "<group>"; };
+		30D018191CE99F1500E50B23 /* WXCoupon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCoupon.m; sourceTree = "<group>"; };
 		30D6D2701CC87ACE00FB0CFC /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
 		30D6D2711CC87ACE00FB0CFC /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDropDownMenu.h; sourceTree = "<group>"; };
 		30D6D2721CC87ACE00FB0CFC /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDropDownMenu.m; sourceTree = "<group>"; };
@@ -749,6 +752,8 @@
 				30D018121CE6E84400E50B23 /* Activity.m */,
 				30D018151CE9859000E50B23 /* Commit.h */,
 				30D018161CE9859000E50B23 /* Commit.m */,
+				30D018181CE99F1500E50B23 /* WXCoupon.h */,
+				30D018191CE99F1500E50B23 /* WXCoupon.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1359,6 +1364,7 @@
 				30D018101CE6DA6700E50B23 /* FoodDetail.m in Sources */,
 				30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */,
 				ACAC17471CD8DCEB00E04499 /* ResFoodClass.m in Sources */,
+				30D0181A1CE99F1500E50B23 /* WXCoupon.m in Sources */,
 				3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */,
 				30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */,
 				30B601C51CD07BDC003ED671 /* ShopHomeViewController.m in Sources */,
