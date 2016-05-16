@@ -7,6 +7,15 @@
 //
 
 #import "ShopCommitCell.h"
+#import "Commit.h"
+
+@interface ShopCommitCell ()
+@property (weak, nonatomic) IBOutlet GMLabel *userName;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+
+@end
 
 @implementation ShopCommitCell
 
@@ -20,6 +29,13 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setFoodModel:(Commit *)foodModel {
+    _foodModel = foodModel;
+    self.userName.text = foodModel.userName;
+    self.contentLabel.text = foodModel.content;
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:foodModel.headImg]];
 }
 
 @end

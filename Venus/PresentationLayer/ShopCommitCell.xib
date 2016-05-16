@@ -64,6 +64,12 @@
                     <constraint firstItem="Moc-86-vPU" firstAttribute="baseline" secondItem="Pyk-Ua-Q0y" secondAttribute="baseline" id="zvm-zv-bj7"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="jcH-na-pbO" id="m9W-OJ-Gmu"/>
+                <outlet property="dateLabel" destination="Moc-86-vPU" id="AKW-Mb-Wtw"/>
+                <outlet property="iconView" destination="6DW-dg-Uv0" id="dYf-oE-yZr"/>
+                <outlet property="userName" destination="Pyk-Ua-Q0y" id="YzM-MW-b0O"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

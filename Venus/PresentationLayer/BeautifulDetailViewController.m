@@ -15,12 +15,14 @@
 #import "BeautifulFood.h"
 #import "FoodDetail.h"
 #import "Activity.h"
+#import "Commit.h"
 
 @interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, copy) NSString *currentSegmentName;
 @property (nonatomic, copy) NSArray *allFoodArray;
 @property (nonatomic, copy) NSArray *allActivityArray;
+@property (nonatomic, strong) NSMutableArray *allCommitArray;
 @property (nonatomic, strong) UIWebView *webView;
 @end
 
@@ -29,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentSegmentName = @"店铺首页";
+    self.allCommitArray = [NSMutableArray array];
     [self configureTableView];
     [self loadHomeData];
 }
@@ -77,7 +80,7 @@
             }
             else {
                 self.currentSegmentName = @"评价";
-                [self.myTableView reloadData];
+                [self loadCommit];
             }
         };
         headview.foodModel = self.foodModel;
@@ -137,6 +140,31 @@
     }];
 }
 
+- (void)loadCommit {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/comment/getStoreComment"]];
+    NSDictionary* parameters = @{
+                                    @"storeId":@"100014",
+                                    @"page":@"1",
+                                    @"pageSize":@"20",
+                                };
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        //        [BeautifulFood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        //            return @{
+        //                     @"desp": @"description"
+        //                     };
+        //        }];
+        NSMutableArray *tempArray = [Commit mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [self.allCommitArray addObjectsFromArray:tempArray];
+        self.myTableView.tableFooterView = [[UIView alloc] init];
+        [self.myTableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if ([self.currentSegmentName isEqualToString:@"店铺首页"]) {
@@ -153,8 +181,11 @@
         if (section == 1) {
             return self.allActivityArray.count;
         }
+        else {
+            return 4;
+        }
     }
-    return 3;
+    return self.allCommitArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -184,6 +215,7 @@
     else {
         ShopCommitCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopCommitCell class])];
         cell.contentView.backgroundColor = GMBgColor;
+        cell.foodModel = self.allCommitArray[indexPath.row];
         return cell;
     }
 }
