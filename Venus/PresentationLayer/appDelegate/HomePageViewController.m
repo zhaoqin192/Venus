@@ -31,6 +31,7 @@
 #import "BeautifulFoodViewController.h"
 #import "MoneyCardViewController.h"
 #import "FoodViewController.h"
+#import "GroupViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate>
 
@@ -68,7 +69,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     [self configureTableView];
     
     [self netWorkRequest];
-    self.hidesBottomBarWhenPushed = YES;
+//    self.hidesBottomBarWhenPushed = YES;
     self.navigationController.navigationBar.barTintColor = GMRedColor;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = GMBrownColor;
@@ -108,6 +109,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -246,7 +248,8 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
                         break;
                     }
                     case 18:{
-                        MoneyCardViewController *vc = [[MoneyCardViewController alloc] init];
+                        UIStoryboard *group = [UIStoryboard storyboardWithName:@"group" bundle:nil];
+                        GroupViewController *vc = (GroupViewController *)[group instantiateViewControllerWithIdentifier:@"group"];
                         [self.navigationController pushViewController:vc animated:YES];
                         break;
                     }

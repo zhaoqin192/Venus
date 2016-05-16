@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E9E7CF44B2FAC9667513636 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 177D12BE652A285B1BDD4D47 /* libPods.a */; };
 		3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025A98D1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m */; };
 		3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3025A98E1CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib */; };
 		3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025A9921CCE3FD700C5EAAB /* PackageViewController.m */; };
@@ -123,6 +122,7 @@
 		30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FB91CE2E7C5003C91A5 /* WXCategoryViewController.xib */; };
 		30FD1FC01CE2EFB6003C91A5 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */; };
 		30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */; };
+		830FDD1DD6BAF4247564A010 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B804492D81F6BF74F0882CC1 /* libPods.a */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -155,10 +155,20 @@
 		AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5A41CD1EA8A004C4C55 /* FoodClass.m */; };
 		AC90F5A81CD1EB12004C4C55 /* FoodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5A71CD1EB12004C4C55 /* FoodManager.m */; };
 		AC90F5AB1CD20523004C4C55 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5AA1CD20523004C4C55 /* Restaurant.m */; };
+		AC96F2F11CE9747E001B2DDE /* CouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC96F2F01CE9747E001B2DDE /* CouponCell.m */; };
+		AC96F2F91CE9963F001B2DDE /* CouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC96F2F81CE9963F001B2DDE /* CouponViewController.m */; };
+		AC96F2FD1CE997FD001B2DDE /* CouponViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC96F2FC1CE997FD001B2DDE /* CouponViewModel.m */; };
+		AC96F3031CE9C72A001B2DDE /* LoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC96F3021CE9C72A001B2DDE /* LoadingCell.m */; };
 		AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C7C1CC4D23C00FA171B /* Security.framework */; };
 		AC970C851CC4D25600FA171B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C841CC4D25600FA171B /* SystemConfiguration.framework */; };
 		AC970C871CC4D26100FA171B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C861CC4D26100FA171B /* CoreGraphics.framework */; };
 		AC970C8D1CC4D27400FA171B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C8C1CC4D27300FA171B /* CoreTelephony.framework */; };
+		AC987D351CE89B8A00E11CC5 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC987D341CE89B8A00E11CC5 /* GroupViewController.m */; };
+		AC987D371CE89B9C00E11CC5 /* group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC987D361CE89B9C00E11CC5 /* group.storyboard */; };
+		AC987D3B1CE8A95E00E11CC5 /* GroupViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC987D3A1CE8A95E00E11CC5 /* GroupViewModel.m */; };
+		AC987D401CE8AF9900E11CC5 /* NetworkFetcher+Group.m in Sources */ = {isa = PBXBuildFile; fileRef = AC987D3F1CE8AF9900E11CC5 /* NetworkFetcher+Group.m */; };
+		AC987D441CE8B32A00E11CC5 /* GroupCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = AC987D431CE8B32A00E11CC5 /* GroupCategory.m */; };
+		AC987D471CE8BDD100E11CC5 /* CouponModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC987D461CE8BDD100E11CC5 /* CouponModel.m */; };
 		ACAC17471CD8DCEB00E04499 /* ResFoodClass.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAC17461CD8DCEB00E04499 /* ResFoodClass.m */; };
 		ACAC174B1CD8DDCD00E04499 /* ResFood.m in Sources */ = {isa = PBXBuildFile; fileRef = ACAC174A1CD8DDCD00E04499 /* ResFood.m */; };
 		ACB78A451CC867BC00354B11 /* PresentationUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB78A441CC867BC00354B11 /* PresentationUtility.m */; };
@@ -172,7 +182,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		177D12BE652A285B1BDD4D47 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3025A98C1CCE3F2E00C5EAAB /* GroupPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupPurchaseViewController.h; sourceTree = "<group>"; };
 		3025A98D1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupPurchaseViewController.m; sourceTree = "<group>"; };
 		3025A98E1CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupPurchaseViewController.xib; sourceTree = "<group>"; };
@@ -413,10 +422,29 @@
 		AC90F5A71CD1EB12004C4C55 /* FoodManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodManager.m; sourceTree = "<group>"; };
 		AC90F5A91CD20523004C4C55 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
 		AC90F5AA1CD20523004C4C55 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		AC96F2EF1CE9747E001B2DDE /* CouponCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCell.h; sourceTree = "<group>"; };
+		AC96F2F01CE9747E001B2DDE /* CouponCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCell.m; sourceTree = "<group>"; };
+		AC96F2F71CE9963F001B2DDE /* CouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponViewController.h; sourceTree = "<group>"; };
+		AC96F2F81CE9963F001B2DDE /* CouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponViewController.m; sourceTree = "<group>"; };
+		AC96F2FB1CE997FD001B2DDE /* CouponViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponViewModel.h; sourceTree = "<group>"; };
+		AC96F2FC1CE997FD001B2DDE /* CouponViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponViewModel.m; sourceTree = "<group>"; };
+		AC96F3011CE9C72A001B2DDE /* LoadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingCell.h; sourceTree = "<group>"; };
+		AC96F3021CE9C72A001B2DDE /* LoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingCell.m; sourceTree = "<group>"; };
 		AC970C7C1CC4D23C00FA171B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AC970C841CC4D25600FA171B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AC970C861CC4D26100FA171B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		AC970C8C1CC4D27300FA171B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		AC987D331CE89B8A00E11CC5 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
+		AC987D341CE89B8A00E11CC5 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
+		AC987D361CE89B9C00E11CC5 /* group.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = group.storyboard; sourceTree = "<group>"; };
+		AC987D391CE8A95E00E11CC5 /* GroupViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewModel.h; sourceTree = "<group>"; };
+		AC987D3A1CE8A95E00E11CC5 /* GroupViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewModel.m; sourceTree = "<group>"; };
+		AC987D3E1CE8AF9900E11CC5 /* NetworkFetcher+Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+Group.h"; sourceTree = "<group>"; };
+		AC987D3F1CE8AF9900E11CC5 /* NetworkFetcher+Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+Group.m"; sourceTree = "<group>"; };
+		AC987D421CE8B32A00E11CC5 /* GroupCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupCategory.h; sourceTree = "<group>"; };
+		AC987D431CE8B32A00E11CC5 /* GroupCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupCategory.m; sourceTree = "<group>"; };
+		AC987D451CE8BDD100E11CC5 /* CouponModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponModel.h; sourceTree = "<group>"; };
+		AC987D461CE8BDD100E11CC5 /* CouponModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponModel.m; sourceTree = "<group>"; };
 		ACAC17451CD8DCEB00E04499 /* ResFoodClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResFoodClass.h; sourceTree = "<group>"; };
 		ACAC17461CD8DCEB00E04499 /* ResFoodClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResFoodClass.m; sourceTree = "<group>"; };
 		ACAC17491CD8DDCD00E04499 /* ResFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResFood.h; sourceTree = "<group>"; };
@@ -434,6 +462,7 @@
 		ACF83EBD1CBF97F800A962BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF83EC01CBF97F800A962BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF83EC21CBF97F800A962BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B804492D81F6BF74F0882CC1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8F047AF1CDF84070032EE91 /* GMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMNavigationController.h; sourceTree = "<group>"; };
 		E8F047B01CDF84070032EE91 /* GMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -456,8 +485,8 @@
 				AC970C851CC4D25600FA171B /* SystemConfiguration.framework in Frameworks */,
 				30FD1F471CE1A40C003C91A5 /* BaiduMapAPI_Base.framework in Frameworks */,
 				AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */,
-				0E9E7CF44B2FAC9667513636 /* libPods.a in Frameworks */,
 				30FD1F4B1CE1A44D003C91A5 /* BaiduMapAPI_Location.framework in Frameworks */,
+				830FDD1DD6BAF4247564A010 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +707,7 @@
 		3086D3D81CC72ACB007494D7 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				AC987D2F1CE89B3D00E11CC5 /* group */,
 				3057B2061CD9BDC4008172DD /* Home.storyboard */,
 				3086D3C31CC72ABC007494D7 /* HomePageViewController.h */,
 				3086D3C41CC72ABC007494D7 /* HomePageViewController.m */,
@@ -968,6 +998,8 @@
 				AC90F5691CCFA4E7004C4C55 /* NetworkFetcher+Home.m */,
 				AC90F59F1CD1DDD2004C4C55 /* NetworkFetcher+Food.h */,
 				AC90F5A01CD1DDD2004C4C55 /* NetworkFetcher+Food.m */,
+				AC987D3E1CE8AF9900E11CC5 /* NetworkFetcher+Group.h */,
+				AC987D3F1CE8AF9900E11CC5 /* NetworkFetcher+Group.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1006,6 +1038,7 @@
 		AC7B3AD51CDF2C580039C2A5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AC987D381CE8A94300E11CC5 /* group */,
 				AC7B3ADB1CDF2D7F0039C2A5 /* LoginViewModel.h */,
 				AC7B3ADA1CDF2D7F0039C2A5 /* LoginViewModel.m */,
 				AC7B3AD71CDF2C7E0039C2A5 /* SignUpViewModel.h */,
@@ -1031,6 +1064,10 @@
 				ACAC174A1CD8DDCD00E04499 /* ResFood.m */,
 				ACE0668D1CDB741C0000D335 /* Comment.h */,
 				ACE0668E1CDB741C0000D335 /* Comment.m */,
+				AC987D421CE8B32A00E11CC5 /* GroupCategory.h */,
+				AC987D431CE8B32A00E11CC5 /* GroupCategory.m */,
+				AC987D451CE8BDD100E11CC5 /* CouponModel.h */,
+				AC987D461CE8BDD100E11CC5 /* CouponModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1057,6 +1094,41 @@
 				AC90F5781CD0604F004C4C55 /* WebViewController.m */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		AC96F2F31CE99088001B2DDE /* groupDetail */ = {
+			isa = PBXGroup;
+			children = (
+				AC96F2F71CE9963F001B2DDE /* CouponViewController.h */,
+				AC96F2F81CE9963F001B2DDE /* CouponViewController.m */,
+			);
+			path = groupDetail;
+			sourceTree = "<group>";
+		};
+		AC987D2F1CE89B3D00E11CC5 /* group */ = {
+			isa = PBXGroup;
+			children = (
+				AC96F2F31CE99088001B2DDE /* groupDetail */,
+				AC987D331CE89B8A00E11CC5 /* GroupViewController.h */,
+				AC987D341CE89B8A00E11CC5 /* GroupViewController.m */,
+				AC987D361CE89B9C00E11CC5 /* group.storyboard */,
+				AC96F2EF1CE9747E001B2DDE /* CouponCell.h */,
+				AC96F2F01CE9747E001B2DDE /* CouponCell.m */,
+				AC96F3011CE9C72A001B2DDE /* LoadingCell.h */,
+				AC96F3021CE9C72A001B2DDE /* LoadingCell.m */,
+			);
+			path = group;
+			sourceTree = "<group>";
+		};
+		AC987D381CE8A94300E11CC5 /* group */ = {
+			isa = PBXGroup;
+			children = (
+				AC987D391CE8A95E00E11CC5 /* GroupViewModel.h */,
+				AC987D3A1CE8A95E00E11CC5 /* GroupViewModel.m */,
+				AC96F2FB1CE997FD001B2DDE /* CouponViewModel.h */,
+				AC96F2FC1CE997FD001B2DDE /* CouponViewModel.m */,
+			);
+			path = group;
 			sourceTree = "<group>";
 		};
 		ACB78A411CC8678E00354B11 /* PresentationUtility */ = {
@@ -1174,7 +1246,7 @@
 				AC970C861CC4D26100FA171B /* CoreGraphics.framework */,
 				AC970C841CC4D25600FA171B /* SystemConfiguration.framework */,
 				AC970C7C1CC4D23C00FA171B /* Security.framework */,
-				177D12BE652A285B1BDD4D47 /* libPods.a */,
+				B804492D81F6BF74F0882CC1 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1284,6 +1356,7 @@
 				3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */,
 				30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */,
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
+				AC987D371CE89B9C00E11CC5 /* group.storyboard in Resources */,
 				30B601CB1CD07C54003ED671 /* ShopCycleCell.xib in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
 				3086D3D71CC72ABC007494D7 /* HomeCategoryCell.xib in Resources */,
@@ -1369,8 +1442,11 @@
 				3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */,
 				3035197C1CCF4CB900EE0750 /* ShopCommitCell.m in Sources */,
 				30B6020D1CD2091C003ED671 /* BeautyDetailHeaderView.m in Sources */,
+				AC96F2F11CE9747E001B2DDE /* CouponCell.m in Sources */,
 				3086D3B51CC72A09007494D7 /* GMLabel.m in Sources */,
 				AC90F5711CCFAADF004C4C55 /* Picture.m in Sources */,
+				AC96F2F91CE9963F001B2DDE /* CouponViewController.m in Sources */,
+				AC987D471CE8BDD100E11CC5 /* CouponModel.m in Sources */,
 				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
 				3057B1ED1CD99221008172DD /* GMMeViewController.m in Sources */,
 				30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */,
@@ -1385,6 +1461,7 @@
 				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
 				30FD1F441CE1A329003C91A5 /* IndoorSwitchDemo.mm in Sources */,
+				AC987D3B1CE8A95E00E11CC5 /* GroupViewModel.m in Sources */,
 				AC7B3AD91CDF2C7E0039C2A5 /* SignUpViewModel.m in Sources */,
 				30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */,
 				30D017FF1CE360DE00E50B23 /* ReusableView.m in Sources */,
@@ -1393,9 +1470,11 @@
 				3086D3A51CC729A9007494D7 /* WXTextField.m in Sources */,
 				3086D3B41CC72A09007494D7 /* GMButton.m in Sources */,
 				30B601CA1CD07C54003ED671 /* ShopCycleCell.m in Sources */,
+				AC987D401CE8AF9900E11CC5 /* NetworkFetcher+Group.m in Sources */,
 				303519441CCF0B0500EE0750 /* MoneyCell.m in Sources */,
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
 				ACAC174B1CD8DDCD00E04499 /* ResFood.m in Sources */,
+				AC987D351CE89B8A00E11CC5 /* GroupViewController.m in Sources */,
 				303519571CCF1F9500EE0750 /* TicketHeaderCell.m in Sources */,
 				AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */,
 				30FD1FBA1CE2E7C5003C91A5 /* WXCategoryViewController.m in Sources */,
@@ -1429,6 +1508,7 @@
 				AC90F5831CD08EEE004C4C55 /* Adversitement.m in Sources */,
 				AC90F5AB1CD20523004C4C55 /* Restaurant.m in Sources */,
 				AC90F5791CD0604F004C4C55 /* WebViewController.m in Sources */,
+				AC96F3031CE9C72A001B2DDE /* LoadingCell.m in Sources */,
 				3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */,
 				3057B1F21CD998C3008172DD /* GMMeCell.m in Sources */,
 				3086D3BA1CC72A1E007494D7 /* GMRegisterViewController.m in Sources */,
@@ -1438,10 +1518,12 @@
 				AC90F56A1CCFA4E7004C4C55 /* NetworkFetcher+Home.m in Sources */,
 				30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */,
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
+				AC987D441CE8B32A00E11CC5 /* GroupCategory.m in Sources */,
 				303519491CCF0D3000EE0750 /* MoneyCardViewController.m in Sources */,
 				ACE066931CDB75BF0000D335 /* CommentManager.m in Sources */,
 				303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
+				AC96F2FD1CE997FD001B2DDE /* CouponViewModel.m in Sources */,
 				303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */,
 				30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */,
 			);

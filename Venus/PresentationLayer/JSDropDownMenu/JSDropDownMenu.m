@@ -120,7 +120,7 @@
     _cellTextLabel.text = text;
     // 只取宽度
     CGSize textSize = [text textSizeWithFont:[UIFont systemFontOfSize:14.0f] constrainedToSize:CGSizeMake(MAXFLOAT, 14) lineBreakMode:NSLineBreakByWordWrapping];
-//    CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14.0f] constrainedToSize:CGSizeMake(MAXFLOAT, 14)];
+    //    CGSize textSize = [text sizeWithFont:[UIFont systemFontOfSize:14.0f] constrainedToSize:CGSizeMake(MAXFLOAT, 14)];
     
     CGFloat marginX = 20;
     
@@ -259,11 +259,11 @@
         [tempIndicators addObject:indicator];
         
         //separator
-         if (i != _numOfMenu - 1) {
-             CGPoint separatorPosition = CGPointMake((i + 1) * separatorLineInterval, self.frame.size.height/2);
-             CAShapeLayer *separator = [self createSeparatorLineWithColor:self.separatorColor andPosition:separatorPosition];
-             [self.layer addSublayer:separator];
-         }
+        if (i != _numOfMenu - 1) {
+            CGPoint separatorPosition = CGPointMake((i + 1) * separatorLineInterval, self.frame.size.height/2);
+            CAShapeLayer *separator = [self createSeparatorLineWithColor:self.separatorColor andPosition:separatorPosition];
+            [self.layer addSublayer:separator];
+        }
     }
     
     _bottomShadow.backgroundColor = self.separatorColor;
@@ -382,7 +382,7 @@
     CGPathRelease(bound);
     
     layer.position = point;
-
+    
     return layer;
 }
 
@@ -473,7 +473,7 @@
     } else{
         
         BOOL haveRightTableView = [_dataSource haveRightTableViewInColumn:tapIndex];
-//        UITableView *leftTableView = _leftTableView;
+        //        UITableView *leftTableView = _leftTableView;
         UITableView *rightTableView = nil;
         
         if (haveRightTableView) {
@@ -617,16 +617,18 @@
             [self.superview addSubview:leftTableView];
             
             leftTableViewHeight = ([leftTableView numberOfRowsInSection:0] > 5) ? (5 * leftTableView.rowHeight) : ([leftTableView numberOfRowsInSection:0] * leftTableView.rowHeight);
-
+            
         }
         
-        if (rightTableView) {
-            
-            rightTableView.frame = CGRectMake(_origin.x+leftTableView.frame.size.width, self.frame.origin.y + self.frame.size.height, self.frame.size.width*(1-ratio), 0);
-            
-            [self.superview addSubview:rightTableView];
-            
-            rightTableViewHeight = ([rightTableView numberOfRowsInSection:0] > 5) ? (5 * rightTableView.rowHeight) : ([rightTableView numberOfRowsInSection:0] * rightTableView.rowHeight);
+        if([self.dataSource haveRightTableViewInColumn:_currentSelectedMenudIndex]){
+            if (rightTableView) {
+                
+                rightTableView.frame = CGRectMake(_origin.x+leftTableView.frame.size.width, self.frame.origin.y + self.frame.size.height, self.frame.size.width*(1-ratio), 0);
+                
+                [self.superview addSubview:rightTableView];
+                
+                rightTableViewHeight = ([rightTableView numberOfRowsInSection:0] > 5) ? (5 * rightTableView.rowHeight) : ([rightTableView numberOfRowsInSection:0] * rightTableView.rowHeight);
+            }
         }
         
         CGFloat tableViewHeight = MAX(leftTableViewHeight, rightTableViewHeight);
@@ -676,7 +678,7 @@
             collectionView.frame = CGRectMake(_origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, 0);
             [self.superview addSubview:collectionView];
             
-            collectionViewHeight = ([collectionView numberOfItemsInSection:0] > 10) ? (5 * 38) : (ceil([collectionView numberOfItemsInSection:0]/2) * 38);
+            collectionViewHeight = ([collectionView numberOfItemsInSection:0] > 10) ? (5 * 38) : (ceil([collectionView numberOfItemsInSection:0]/2.0) * 38);
         }
         
         [UIView animateWithDuration:0.2 animations:^{
@@ -739,7 +741,7 @@
 
 #pragma mark - table datasource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+    // 0 左边   1 右边
     NSInteger leftOrRight = 0;
     if (_rightTableView==tableView) {
         leftOrRight = 1;
@@ -765,17 +767,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"DropDownMenuCell";
-
+    
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        
+    
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = BackColor;
-        
+    
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.textColor = self.textColor;
     titleLabel.tag = 1;
     titleLabel.font = [UIFont systemFontOfSize:14.0];
-        
+    
     [cell addSubview:titleLabel];
     
     
@@ -786,7 +788,7 @@
         leftOrRight = 1;
     }
     
-//    UILabel *titleLabel = (UILabel*)[cell viewWithTag:1];
+    //    UILabel *titleLabel = (UILabel*)[cell viewWithTag:1];
     
     CGSize textSize;
     
@@ -972,7 +974,7 @@
     [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView collectionView:_collectionView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
         _show = NO;
     }];
-
+    
     [(CALayer *)self.bgLayers[_currentSelectedMenudIndex] setBackgroundColor:BackColor.CGColor];
     
     CAShapeLayer *indicator = (CAShapeLayer *)_indicators[_currentSelectedMenudIndex];

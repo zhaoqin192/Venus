@@ -11,8 +11,6 @@
 #import "GMTextField.h"
 #import "MBProgressHUD.H"
 #import "LoginViewModel.h"
-//#import "ReactiveCocoa.h"r
-
 
 
 @interface GMLoginViewController ()<UITextFieldDelegate>

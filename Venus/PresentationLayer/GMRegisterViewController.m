@@ -15,7 +15,7 @@
 #import "SignUpViewModel.h"
 
 
-@interface GMRegisterViewController () <UITextFieldDelegate>
+@interface GMRegisterViewController () <UITextFieldDelegate, UIApplicationDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 @property (weak, nonatomic) IBOutlet UIButton *codeButton;
 @property (weak, nonatomic) IBOutlet GMXTextField *codeTF;
