@@ -9,7 +9,7 @@
 #import "FoodOrderViewController.h"
 #import "FoodCategoryCell.h"
 #import "FoodContentCell.h"
-#import "FoodDetialViewController.h"
+#import "FoodDetailViewController.h"
 #import "FoodManager.h"
 #import "ResFoodClass.h"
 #import "ResFood.h"
@@ -26,6 +26,7 @@
 @property (nonatomic, strong) ResFoodClass *resFoodClass;
 @property (nonatomic, strong) ResFood *resFood;
 @property (nonatomic, strong) FoodManager *foodManager;
+@property (nonatomic, strong) NSMutableArray *foodCountArray;
 
 @end
 
@@ -37,7 +38,7 @@
     _categoryArray = [[NSMutableArray alloc] init];
     [_categoryArray addObject:@"热门"];
     [_categoryArray addObject:@"特色菜"];
-    
+
     [self configureTableView];
 }
 
@@ -77,8 +78,47 @@
         cell.name.text = _resFood.name;
         cell.sales.text = [NSString stringWithFormat:@"月销量%@", _resFood.sales];
         cell.price.text = [NSString stringWithFormat:@"%@元/份", _resFood.price];
-        cell.count.text = @"0";
+        cell.foodCount = 0;
+        cell.minus.enabled = NO;
+        [cell.minus addTarget:self action:@selector(cellMinusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.add addTarget:self action:@selector(cellAddButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
+    }
+}
+
+- (void)cellMinusButtonClicked:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    FoodContentCell *cell = (FoodContentCell *)[[button superview] superview];
+    if (cell) {
+        NSLog(@"cell不为空！");
+        if (cell.foodCount != 0) {
+            if (cell.foodCount == 1) {
+                cell.minus.enabled = NO;
+            }
+            cell.foodCount = cell.foodCount - 1;
+            __weak FoodDetailViewController *foodDetailViewController = (FoodDetailViewController *)self.parentViewController;
+            if (foodDetailViewController) {
+                if (foodDetailViewController.trollyButtonBadgeCount != 0) {
+                    foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount - 1;
+                }
+            }
+        }
+    }
+}
+
+- (void)cellAddButtonClicked:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    FoodContentCell *cell = (FoodContentCell *)[[button superview] superview];
+    if (cell) {
+        NSLog(@"cell就是不为空！");
+        if (cell.foodCount == 0) {
+            cell.minus.enabled = YES;
+        }
+        cell.foodCount = cell.foodCount + 1;
+        __weak FoodDetailViewController *foodDetailViewController = (FoodDetailViewController *)self.parentViewController;
+        if (foodDetailViewController) {
+            foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount + 1;
+        }
     }
 }
 
@@ -118,21 +158,33 @@
     }
 }
 
-
-
 - (void)updateOrder {
     _foodManager = [FoodManager sharedInstance];
     _foodClassArray = _foodManager.resFoodClassArray;
     [self.categoryArray removeAllObjects];
     for (ResFoodClass *resFoodClass in _foodClassArray) {
-        [_categoryArray addObject:resFoodClass.name];
+       [_categoryArray addObject:resFoodClass.name];
     }
     _resFoodClass = _foodClassArray[0];
     _foodArray = _resFoodClass.foodArray;
     if ([_foodArray count] != 0) {
         _resFoodClass = _foodClassArray[0];
     }
-
+    
+    self.foodCountArray = [[NSMutableArray alloc] init];
+    if (_foodClassArray.count != 0) {
+        for (int i = 0; i < _foodClassArray.count; i++) {
+            NSMutableArray *foodCount = [[NSMutableArray alloc] init];
+            if (_foodClassArray[i].foodArray,count) {
+                for (int j = 0; j < _foodArray.count; j++) {
+                    [foodCount addObject:[NSNumber numberWithInt:0]];
+                }
+            }
+            [self.foodCountArray addObject:foodCount];
+        }
+    }
+    
+    NSLog(@"array是%@",self.foodCountArray);
     [_categoryTableView reloadData];
     [_dataTableView reloadData];
     NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];

@@ -9,31 +9,21 @@
 #import "FoodContentCell.h"
 #import "FoodDetail.h"
 
+@interface FoodContentCell()
+
+
+
+@end
+
 @implementation FoodContentCell
 
 - (void)awakeFromNib {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-- (IBAction)addCount:(id)sender {
-    NSNumber *number = [NSNumber numberWithString:_count.text];
-    NSInteger integer = [number integerValue];
-    integer++;
-    _count.text = [NSString stringWithFormat:@"%ld", (long)integer];
-}
-
-- (IBAction)minusCount:(id)sender {
-    NSNumber *number = [NSNumber numberWithString:_count.text];
-    NSInteger integer = [number integerValue];
-    if (integer != 0) {
-        integer--;
-    }
-    _count.text = [NSString stringWithFormat:@"%ld", (long)integer];
+- (void)setFoodCount:(NSInteger)foodCount {
+    _foodCount = foodCount;
+    _count.text = [NSString stringWithFormat:@"%ld", (long)foodCount];
 }
 
 - (void)setFoodModel:(FoodDetail *)foodModel {

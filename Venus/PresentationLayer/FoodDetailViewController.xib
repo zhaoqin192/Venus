@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodDetialViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodDetailViewController">
             <connections>
                 <outlet property="noteText" destination="il8-vW-bLt" id="bbe-yp-Yxi"/>
                 <outlet property="placeholderView" destination="xyL-lI-SDN" id="him-gn-Luq"/>
@@ -12,6 +12,7 @@
                 <outlet property="restaurantPic" destination="ffW-IQ-1mr" id="41L-X6-wyP"/>
                 <outlet property="salesText" destination="pJn-3P-OnH" id="JZf-C9-p75"/>
                 <outlet property="titleView" destination="uDY-8c-1Zy" id="MPG-xU-l7L"/>
+                <outlet property="trollyButton" destination="The-hj-Ksk" id="gaY-hZ-DnV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -67,13 +68,17 @@
                         <constraint firstAttribute="height" constant="49" id="tcF-vT-e3C"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="购物车" translatesAutoresizingMaskIntoConstraints="NO" id="dfb-Z5-8wk">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="The-hj-Ksk" userLabel="购物车">
                     <rect key="frame" x="15" y="594" width="58" height="58"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="58" id="Jvr-69-A34"/>
-                        <constraint firstAttribute="height" constant="58" id="NAu-5a-5U8"/>
+                        <constraint firstAttribute="width" constant="58" id="EuG-Qc-ftO"/>
+                        <constraint firstAttribute="height" constant="58" id="R8i-na-AM3"/>
                     </constraints>
-                </imageView>
+                    <state key="normal" title="Button" image="购物车"/>
+                    <connections>
+                        <action selector="trollyButtonClicked:" destination="-1" eventType="touchUpInside" id="6bo-wS-ugR"/>
+                    </connections>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDY-8c-1Zy">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                     <subviews>
@@ -191,17 +196,17 @@
             <constraints>
                 <constraint firstItem="xyL-lI-SDN" firstAttribute="top" secondItem="uDY-8c-1Zy" secondAttribute="bottom" constant="40" id="00P-DN-Zqr"/>
                 <constraint firstAttribute="trailing" secondItem="uDY-8c-1Zy" secondAttribute="trailing" id="A8g-mt-SXV"/>
-                <constraint firstItem="1jb-h3-h0S" firstAttribute="leading" secondItem="dfb-Z5-8wk" secondAttribute="trailing" constant="15" id="FRw-ox-Hsf"/>
+                <constraint firstItem="The-hj-Ksk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="Db0-HO-ISw"/>
                 <constraint firstItem="uDY-8c-1Zy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NAe-IX-2N1"/>
                 <constraint firstItem="uDY-8c-1Zy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PG3-eP-rQB"/>
                 <constraint firstAttribute="trailing" secondItem="0yf-uN-Isd" secondAttribute="trailing" id="RIw-JK-fqn"/>
-                <constraint firstAttribute="bottom" secondItem="dfb-Z5-8wk" secondAttribute="bottom" constant="15" id="ZYk-PH-bhA"/>
+                <constraint firstItem="1jb-h3-h0S" firstAttribute="leading" secondItem="The-hj-Ksk" secondAttribute="trailing" constant="15" id="SVN-zB-T1j"/>
                 <constraint firstItem="xyL-lI-SDN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hAq-mg-68Z"/>
                 <constraint firstItem="0yf-uN-Isd" firstAttribute="top" secondItem="xyL-lI-SDN" secondAttribute="bottom" id="hNX-NP-tAj"/>
-                <constraint firstItem="dfb-Z5-8wk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="iCu-Uu-lbV"/>
                 <constraint firstItem="0yf-uN-Isd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="paf-3y-MU6"/>
                 <constraint firstAttribute="trailing" secondItem="xyL-lI-SDN" secondAttribute="trailing" id="qPx-sR-5hd"/>
                 <constraint firstAttribute="bottom" secondItem="0yf-uN-Isd" secondAttribute="bottom" id="qSC-Zf-Zdk"/>
+                <constraint firstAttribute="bottom" secondItem="The-hj-Ksk" secondAttribute="bottom" constant="15" id="zE9-CT-UwG"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>

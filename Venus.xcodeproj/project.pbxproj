@@ -95,8 +95,8 @@
 		30D6D27F1CC87AF500FB0CFC /* FoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D27B1CC87AF500FB0CFC /* FoodCell.m */; };
 		30D6D2801CC87AF500FB0CFC /* FoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D27C1CC87AF500FB0CFC /* FoodCell.xib */; };
 		30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2841CC8917E00FB0CFC /* XFSegementView.m */; };
-		30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2871CC891B500FB0CFC /* FoodDetialViewController.m */; };
-		30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2881CC891B500FB0CFC /* FoodDetialViewController.xib */; };
+		30D6D2891CC891B500FB0CFC /* FoodDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2871CC891B500FB0CFC /* FoodDetailViewController.m */; };
+		30D6D28A1CC891B500FB0CFC /* FoodDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2881CC891B500FB0CFC /* FoodDetailViewController.xib */; };
 		30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D28C1CC89C7100FB0CFC /* FoodCommitViewController.m */; };
 		30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D28D1CC89C7100FB0CFC /* FoodCommitViewController.xib */; };
 		30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2911CC89E6E00FB0CFC /* FoodCommitCell.m */; };
@@ -123,6 +123,7 @@
 		30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FB91CE2E7C5003C91A5 /* WXCategoryViewController.xib */; };
 		30FD1FC01CE2EFB6003C91A5 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */; };
 		30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */; };
+		7F7025481CE96651009653A6 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025471CE96651009653A6 /* UIButton+Badge.m */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -317,9 +318,9 @@
 		30D6D27C1CC87AF500FB0CFC /* FoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCell.xib; sourceTree = "<group>"; };
 		30D6D2831CC8917E00FB0CFC /* XFSegementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFSegementView.h; sourceTree = "<group>"; };
 		30D6D2841CC8917E00FB0CFC /* XFSegementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFSegementView.m; sourceTree = "<group>"; };
-		30D6D2861CC891B500FB0CFC /* FoodDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetialViewController.h; sourceTree = "<group>"; };
-		30D6D2871CC891B500FB0CFC /* FoodDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetialViewController.m; sourceTree = "<group>"; };
-		30D6D2881CC891B500FB0CFC /* FoodDetialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodDetialViewController.xib; sourceTree = "<group>"; };
+		30D6D2861CC891B500FB0CFC /* FoodDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetailViewController.h; sourceTree = "<group>"; };
+		30D6D2871CC891B500FB0CFC /* FoodDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetailViewController.m; sourceTree = "<group>"; };
+		30D6D2881CC891B500FB0CFC /* FoodDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodDetailViewController.xib; sourceTree = "<group>"; };
 		30D6D28B1CC89C7100FB0CFC /* FoodCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCommitViewController.h; sourceTree = "<group>"; };
 		30D6D28C1CC89C7100FB0CFC /* FoodCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCommitViewController.m; sourceTree = "<group>"; };
 		30D6D28D1CC89C7100FB0CFC /* FoodCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCommitViewController.xib; sourceTree = "<group>"; };
@@ -360,6 +361,8 @@
 		30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7F7025461CE96651009653A6 /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
+		7F7025471CE96651009653A6 /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
 		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -779,9 +782,9 @@
 				30D6D2771CC87AF500FB0CFC /* FoodViewController.h */,
 				30D6D2781CC87AF500FB0CFC /* FoodViewController.m */,
 				30D6D2791CC87AF500FB0CFC /* FoodViewController.xib */,
-				30D6D2861CC891B500FB0CFC /* FoodDetialViewController.h */,
-				30D6D2871CC891B500FB0CFC /* FoodDetialViewController.m */,
-				30D6D2881CC891B500FB0CFC /* FoodDetialViewController.xib */,
+				30D6D2861CC891B500FB0CFC /* FoodDetailViewController.h */,
+				30D6D2871CC891B500FB0CFC /* FoodDetailViewController.m */,
+				30D6D2881CC891B500FB0CFC /* FoodDetailViewController.xib */,
 				30D6D28B1CC89C7100FB0CFC /* FoodCommitViewController.h */,
 				30D6D28C1CC89C7100FB0CFC /* FoodCommitViewController.m */,
 				30D6D28D1CC89C7100FB0CFC /* FoodCommitViewController.xib */,
@@ -919,6 +922,17 @@
 				7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		7F7025451CE96619009653A6 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7F7025461CE96651009653A6 /* UIButton+Badge.h */,
+				7F7025471CE96651009653A6 /* UIButton+Badge.m */,
+				E89BD3241CE8567E007CCF49 /* CALayer+XibConfiguration.h */,
+				E89BD3251CE8567E007CCF49 /* CALayer+XibConfiguration.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		AC03590C1CC4DA7D00EC7BBC /* OtherSDK */ = {
@@ -1129,6 +1143,7 @@
 		ACF83EC91CBF98B500A962BD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7F7025451CE96619009653A6 /* Category */,
 				30FD1FB61CE2E5B6003C91A5 /* Root */,
 				AC90F5761CD05FF9004C4C55 /* WebView */,
 				ACB78A411CC8678E00354B11 /* PresentationUtility */,
@@ -1137,8 +1152,6 @@
 				3086D3BC1CC72A24007494D7 /* Register */,
 				3086D3A91CC729D2007494D7 /* Others */,
 				3086D3A81CC729BD007494D7 /* ThirdParty */,
-				E89BD3241CE8567E007CCF49 /* CALayer+XibConfiguration.h */,
-				E89BD3251CE8567E007CCF49 /* CALayer+XibConfiguration.m */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -1283,7 +1296,7 @@
 				30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */,
 				303519621CCF348F00EE0750 /* TicketCountCell.xib in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
-				30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */,
+				30D6D28A1CC891B500FB0CFC /* FoodDetailViewController.xib in Resources */,
 				303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */,
 				3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */,
 				3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */,
@@ -1445,11 +1458,12 @@
 				30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */,
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
 				303519491CCF0D3000EE0750 /* MoneyCardViewController.m in Sources */,
+				7F7025481CE96651009653A6 /* UIButton+Badge.m in Sources */,
 				ACE066931CDB75BF0000D335 /* CommentManager.m in Sources */,
 				303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
 				303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */,
-				30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */,
+				30D6D2891CC891B500FB0CFC /* FoodDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1641,7 +1655,7 @@
 				ACF83EC41CBF97F800A962BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		ACF83EC51CBF97F800A962BD /* Build configuration list for PBXNativeTarget "Venus" */ = {
 			isa = XCConfigurationList;
@@ -1650,7 +1664,7 @@
 				ACF83EC71CBF97F800A962BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

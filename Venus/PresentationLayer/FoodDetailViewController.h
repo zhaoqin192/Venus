@@ -1,5 +1,5 @@
 //
-//  FoodDetialViewController.h
+//  FoodDetailViewController.h
 //  Venus
 //
 //  Created by 王霄 on 16/4/21.
@@ -17,9 +17,10 @@
 @end
 
 
-@interface FoodDetialViewController : UIViewController
+@interface FoodDetailViewController : UIViewController
 
 @property (nonatomic, strong) Restaurant *restaurant;
+@property (assign, nonatomic) NSInteger trollyButtonBadgeCount;
 @property (nonatomic, weak) id<FoodDetailDelegate> delegate;
 
 @end

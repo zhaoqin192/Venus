@@ -17,4 +17,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *minus;
 @property (weak, nonatomic) IBOutlet UIButton *add;
 @property (nonatomic, strong) FoodDetail *foodModel;
+@property (assign, nonatomic) NSInteger foodCount;
 @end

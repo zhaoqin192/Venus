@@ -12,10 +12,10 @@
 #import "NetworkFetcher+Food.h"
 #import "FoodManager.h"
 #import "FoodClass.h"
-#import "FoodDetialViewController.h"
+#import "FoodDetailViewController.h"
 #import "Restaurant.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "FoodDetialViewController.h"
+#import "FoodDetailViewController.h"
 #import "RDVTabBarController.h"
 
 
@@ -164,7 +164,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     Restaurant *restaurant = _restaurantArray[indexPath.row];
-    FoodDetialViewController *foodDetailVC = [[FoodDetialViewController alloc] init];
+    FoodDetailViewController *foodDetailVC = [[FoodDetailViewController alloc] init];
     foodDetailVC.restaurant = restaurant;
     [self.navigationController pushViewController:foodDetailVC animated:YES];
 }

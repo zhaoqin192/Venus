@@ -1,22 +1,23 @@
 //
-//  FoodDetialViewController.m
+//  FoodDetailViewController.m
 //  Venus
 //
 //  Created by 王霄 on 16/4/21.
 //  Copyright © 2016年 Neotel. All rights reserved.
 //
 
-#import "FoodDetialViewController.h"
+#import "FoodDetailViewController.h"
 #import "XFSegementView.h"
 #import "FoodCommitViewController.h"
 #import "FoodOrderViewController.h"
 #import "Restaurant.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "NetworkFetcher+Food.h"
+#import "UIButton+Badge.h"
 
 
 
-@interface FoodDetialViewController ()<TouchLabelDelegate>{
+@interface FoodDetailViewController ()<TouchLabelDelegate>{
     XFSegementView *segementView;
 }
 @property (weak, nonatomic) IBOutlet UIView *titleView;
@@ -25,21 +26,23 @@
 @property (weak, nonatomic) IBOutlet UILabel *noteText;
 @property (weak, nonatomic) IBOutlet UILabel *priceText;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
+@property (weak, nonatomic) IBOutlet UIButton *trollyButton;
 
 @property (strong, nonatomic) FoodCommitViewController *commitVC;
 @property (strong, nonatomic) FoodOrderViewController *orderVC;
 @property (assign, nonatomic) NSInteger currentVCIndex;
+
 @end
 
-@implementation FoodDetialViewController
+@implementation FoodDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     self.titleView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Group 11"]];
     [self configureChildController];
     [self configureSegmentView];
+    _trollyButtonBadgeCount = 0;
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
@@ -71,8 +74,13 @@
     [self.restaurantPic sd_setImageWithURL:[NSURL URLWithString:_restaurant.pictureUrl]];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.translucent = YES;
     self.navigationItem.title = _restaurant.name;
     
     UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
@@ -83,11 +91,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.backgroundColor = GMRedColor;
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-
 }
 
 - (void)enterStore {
@@ -98,7 +101,19 @@
     
 }
 
-- (void)configureChildController{
+- (void)setTrollyButtonBadgeCount: (NSInteger)trollyButtonBadgeCount {
+    _trollyButtonBadgeCount = trollyButtonBadgeCount;
+    if (trollyButtonBadgeCount != 0) {
+        _trollyButton.badgeValue = [NSString stringWithFormat:@"%ld",(long)trollyButtonBadgeCount];
+        _trollyButton.badgeBGColor = GMBrownColor;
+        _trollyButton.badgeOriginX = _trollyButton.frame.size.width * 0.5;
+        _trollyButton.badgeOriginY = _trollyButton.frame.size.height * 0.2;
+    } else {
+        _trollyButton.badgeValue = nil;
+    }
+}
+
+- (void)configureChildController {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.commitVC = [[FoodCommitViewController alloc] init];
     self.commitVC.restaurant = _restaurant;
@@ -110,7 +125,7 @@
     [self.placeholderView addSubview:self.orderVC.view];
 }
 
-- (void)configureSegmentView{
+- (void)configureSegmentView {
     segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 140, [UIScreen mainScreen].bounds.size.width, 40)];
     segementView.titleArray = @[@"点菜",@"评论"];
     segementView.titleColor = [UIColor lightGrayColor];
@@ -140,24 +155,13 @@
                 break;
         }
     }
-    
-//    if (index == 1) {
-//        self.commitVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180 - 49);
-//        [self.view addSubview:self.commitVC.view];
-//    }
-//    else{
-//        self.orderVC.view.frame = CGRectMake(0, 180, kScreenWidth, kScreenHeight - 180 - 49);
-//        [self.view addSubview:self.orderVC.view];
-//    }
 }
 
 - (void)cycleFromViewController: (UIViewController*) oldVC
                toViewController: (UIViewController*) newVC {
-    // Prepare the two view controllers for the change.
     [oldVC willMoveToParentViewController:nil];
     [self addChildViewController:newVC];
     
-    // Queue up the transition animation.
     [self transitionFromViewController: oldVC toViewController: newVC
                               duration: 0.25 options:UIViewAnimationOptionTransitionNone
                             animations:nil
@@ -178,9 +182,8 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)trollyButtonClicked:(id)sender {
+    
 }
 
 @end
