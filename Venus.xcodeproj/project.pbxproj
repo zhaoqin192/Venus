@@ -90,6 +90,9 @@
 		30D018131CE6E84400E50B23 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018121CE6E84400E50B23 /* Activity.m */; };
 		30D018171CE9859000E50B23 /* Commit.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018161CE9859000E50B23 /* Commit.m */; };
 		30D0181A1CE99F1500E50B23 /* WXCoupon.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018191CE99F1500E50B23 /* WXCoupon.m */; };
+		30D018311CEAF04600E50B23 /* WXMapShopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018301CEAF04600E50B23 /* WXMapShopView.m */; };
+		30D018331CEAF05500E50B23 /* WXMapShopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D018321CEAF05500E50B23 /* WXMapShopView.xib */; };
+		30D018361CEAF55800E50B23 /* WXMapShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018351CEAF55800E50B23 /* WXMapShopModel.m */; };
 		30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2701CC87ACE00FB0CFC /* ico_make.png */; };
 		30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2721CC87ACE00FB0CFC /* JSDropDownMenu.m */; };
 		30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2781CC87AF500FB0CFC /* FoodViewController.m */; };
@@ -311,6 +314,11 @@
 		30D018161CE9859000E50B23 /* Commit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commit.m; sourceTree = "<group>"; };
 		30D018181CE99F1500E50B23 /* WXCoupon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCoupon.h; sourceTree = "<group>"; };
 		30D018191CE99F1500E50B23 /* WXCoupon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCoupon.m; sourceTree = "<group>"; };
+		30D0182F1CEAF04600E50B23 /* WXMapShopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMapShopView.h; sourceTree = "<group>"; };
+		30D018301CEAF04600E50B23 /* WXMapShopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMapShopView.m; sourceTree = "<group>"; };
+		30D018321CEAF05500E50B23 /* WXMapShopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMapShopView.xib; sourceTree = "<group>"; };
+		30D018341CEAF55800E50B23 /* WXMapShopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMapShopModel.h; sourceTree = "<group>"; };
+		30D018351CEAF55800E50B23 /* WXMapShopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMapShopModel.m; sourceTree = "<group>"; };
 		30D6D2701CC87ACE00FB0CFC /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
 		30D6D2711CC87ACE00FB0CFC /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDropDownMenu.h; sourceTree = "<group>"; };
 		30D6D2721CC87ACE00FB0CFC /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDropDownMenu.m; sourceTree = "<group>"; };
@@ -855,6 +863,11 @@
 				30FD1FA81CE2D012003C91A5 /* MapHeadView.h */,
 				30FD1FA91CE2D012003C91A5 /* MapHeadView.m */,
 				30FD1FAB1CE2D023003C91A5 /* MapHeadView.xib */,
+				30D0182F1CEAF04600E50B23 /* WXMapShopView.h */,
+				30D018301CEAF04600E50B23 /* WXMapShopView.m */,
+				30D018321CEAF05500E50B23 /* WXMapShopView.xib */,
+				30D018341CEAF55800E50B23 /* WXMapShopModel.h */,
+				30D018351CEAF55800E50B23 /* WXMapShopModel.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -1264,6 +1277,7 @@
 				3057B1F31CD998C3008172DD /* GMMeCell.xib in Resources */,
 				303519451CCF0B0500EE0750 /* MoneyCell.xib in Resources */,
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
+				30D018331CEAF05500E50B23 /* WXMapShopView.xib in Resources */,
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
 				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
 				30FD1FAC1CE2D023003C91A5 /* MapHeadView.xib in Resources */,
@@ -1375,6 +1389,7 @@
 				30D018171CE9859000E50B23 /* Commit.m in Sources */,
 				3086D39D1CC7298B007494D7 /* JZMTBtnView.m in Sources */,
 				ACB78A451CC867BC00354B11 /* PresentationUtility.m in Sources */,
+				30D018361CEAF55800E50B23 /* WXMapShopModel.m in Sources */,
 				E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */,
 				3086D3D01CC72ABC007494D7 /* HomePageViewController.m in Sources */,
 				3057B1FF1CD9B9E8008172DD /* RootTabViewController.m in Sources */,
@@ -1445,6 +1460,7 @@
 				3057B1F21CD998C3008172DD /* GMMeCell.m in Sources */,
 				3086D3BA1CC72A1E007494D7 /* GMRegisterViewController.m in Sources */,
 				30D6D2A31CC8B1BF00FB0CFC /* FoodContentCell.m in Sources */,
+				30D018311CEAF04600E50B23 /* WXMapShopView.m in Sources */,
 				30B601FC1CD1FA94003ED671 /* BeautifulFoodCell.m in Sources */,
 				3086D3D21CC72ABC007494D7 /* HomeNewsCell.m in Sources */,
 				AC90F56A1CCFA4E7004C4C55 /* NetworkFetcher+Home.m in Sources */,

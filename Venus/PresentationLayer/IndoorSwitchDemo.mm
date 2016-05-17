@@ -8,6 +8,8 @@
 #import "IndoorSwitchDemo.h"
 #import "MapFloorCell.h"
 #import "MapHeadView.h"
+#import "WXMapShopView.h"
+#import "WXMapShopModel.h"
 
 @interface IndoorSwitchDemo ()<BMKMapViewDelegate> {
     BMKMapView * _mapView;
@@ -18,7 +20,8 @@
     UIButton* stopBtn;
     BMKBaseIndoorMapInfo* _baseIndoorMapInfo;
 }
-
+@property (nonatomic, copy) NSArray *newsArray;
+@property (nonatomic, copy) NSArray *discountArray;
 @end
 
 @implementation IndoorSwitchDemo
@@ -69,6 +72,7 @@ BMKUserLocation* userLoc;
     [_floorTableView registerClass:[MapFloorCell class] forCellReuseIdentifier:NSStringFromClass([MapFloorCell class])];
     
     [self configureTitleView];
+    [self loadData];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -91,6 +95,38 @@ BMKUserLocation* userLoc;
     MapHeadView *headView = [MapHeadView headView];
     headView.frame = CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 64);
     [self.view addSubview:headView];
+    
+    headView.newsLabelTapped = ^{
+        for (WXMapShopModel *model in self.newsArray) {
+            NSLog(@"%f %f",model.lon,model.lat);
+        }
+    };
+    
+    headView.discountLabelTapped = ^{
+        for (WXMapShopModel *model in self.discountArray) {
+            NSLog(@"%f %f",model.lon,model.lat);
+        }
+    };
+    
+}
+
+- (void)loadData {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/mall/shopping"]];
+    NSDictionary *parameters = @{@"build":@(1),@"floor":@(1)};
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+                [WXMapShopModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                    return @{
+                             @"desp": @"description",
+                             @"identify" : @"id"
+                             };
+                }];
+        self.newsArray = [WXMapShopModel mj_objectArrayWithKeyValuesArray:responseObject[@"new"]];
+        self.discountArray = [WXMapShopModel mj_objectArrayWithKeyValuesArray:responseObject[@"discount"]];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 #pragma mark - UITableViewDataSource&Delegate

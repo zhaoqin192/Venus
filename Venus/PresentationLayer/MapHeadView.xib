@@ -57,6 +57,10 @@
                     <exclude reference="33M-nu-vmY"/>
                 </mask>
             </variation>
+            <connections>
+                <outlet property="discountLabel" destination="vKV-Rv-Oj9" id="UFk-N8-HCc"/>
+                <outlet property="newsLabel" destination="Lm7-gL-d0c" id="U3K-Fj-4rd"/>
+            </connections>
             <point key="canvasLocation" x="364.5" y="333.5"/>
         </view>
     </objects>
