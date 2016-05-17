@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WXMapShopModel;
 @interface WXMapShopView : UIView
-
+@property (nonatomic, strong) WXMapShopModel *model;
++ (instancetype)shopView;
 @end
