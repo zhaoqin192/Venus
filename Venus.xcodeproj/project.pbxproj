@@ -173,6 +173,12 @@
 		ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB21CBF97F800A962BD /* AppDelegate.m */; };
 		ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBD1CBF97F800A962BD /* Assets.xcassets */; };
 		ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBF1CBF97F800A962BD /* LaunchScreen.storyboard */; };
+		E8226C211CEB52B000980E30 /* FoodPaymentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8226C1F1CEB52B000980E30 /* FoodPaymentCell.m */; };
+		E8226C221CEB52B000980E30 /* FoodPaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8226C201CEB52B000980E30 /* FoodPaymentCell.xib */; };
+		E89BD32D1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89BD32B1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m */; };
+		E89BD32E1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89BD32C1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib */; };
+		E89BD3331CEB1228007CCF49 /* FoodAddAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E89BD3311CEB1228007CCF49 /* FoodAddAddressCell.m */; };
+		E89BD3341CEB1228007CCF49 /* FoodAddAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89BD3321CEB1228007CCF49 /* FoodAddAddressCell.xib */; };
 		E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047B01CDF84070032EE91 /* GMNavigationController.m */; };
 /* End PBXBuildFile section */
 
@@ -448,6 +454,15 @@
 		ACF83EBD1CBF97F800A962BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF83EC01CBF97F800A962BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF83EC21CBF97F800A962BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8226C1E1CEB52B000980E30 /* FoodPaymentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodPaymentCell.h; sourceTree = "<group>"; };
+		E8226C1F1CEB52B000980E30 /* FoodPaymentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodPaymentCell.m; sourceTree = "<group>"; };
+		E8226C201CEB52B000980E30 /* FoodPaymentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodPaymentCell.xib; sourceTree = "<group>"; };
+		E89BD32A1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodSubmitOrderViewController.h; sourceTree = "<group>"; };
+		E89BD32B1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodSubmitOrderViewController.m; sourceTree = "<group>"; };
+		E89BD32C1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodSubmitOrderViewController.xib; sourceTree = "<group>"; };
+		E89BD3301CEB1228007CCF49 /* FoodAddAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodAddAddressCell.h; sourceTree = "<group>"; };
+		E89BD3311CEB1228007CCF49 /* FoodAddAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddAddressCell.m; sourceTree = "<group>"; };
+		E89BD3321CEB1228007CCF49 /* FoodAddAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodAddAddressCell.xib; sourceTree = "<group>"; };
 		E8F047AF1CDF84070032EE91 /* GMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMNavigationController.h; sourceTree = "<group>"; };
 		E8F047B01CDF84070032EE91 /* GMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -803,6 +818,9 @@
 				30D6D2961CC8A3F700FB0CFC /* FoodOrderViewController.h */,
 				30D6D2971CC8A3F700FB0CFC /* FoodOrderViewController.m */,
 				30D6D2981CC8A3F700FB0CFC /* FoodOrderViewController.xib */,
+				E89BD32A1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.h */,
+				E89BD32B1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m */,
+				E89BD32C1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib */,
 			);
 			name = food;
 			sourceTree = "<group>";
@@ -837,6 +855,7 @@
 		30D6D2951CC8A3D800FB0CFC /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				E89BD32F1CEB11F6007CCF49 /* submitOrderCell */,
 				30D6D27A1CC87AF500FB0CFC /* FoodCell.h */,
 				30D6D27B1CC87AF500FB0CFC /* FoodCell.m */,
 				30D6D27C1CC87AF500FB0CFC /* FoodCell.xib */,
@@ -1202,6 +1221,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E89BD32F1CEB11F6007CCF49 /* submitOrderCell */ = {
+			isa = PBXGroup;
+			children = (
+				E89BD3301CEB1228007CCF49 /* FoodAddAddressCell.h */,
+				E89BD3311CEB1228007CCF49 /* FoodAddAddressCell.m */,
+				E89BD3321CEB1228007CCF49 /* FoodAddAddressCell.xib */,
+				E8226C1E1CEB52B000980E30 /* FoodPaymentCell.h */,
+				E8226C1F1CEB52B000980E30 /* FoodPaymentCell.m */,
+				E8226C201CEB52B000980E30 /* FoodPaymentCell.xib */,
+			);
+			name = submitOrderCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1267,6 +1299,7 @@
 				AC90F5661CCFA292004C4C55 /* HomeIntroduceCell.xib in Resources */,
 				AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */,
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
+				E89BD3341CEB1228007CCF49 /* FoodAddAddressCell.xib in Resources */,
 				30FD1FB41CE2D432003C91A5 /* WXLifeViewController.xib in Resources */,
 				303519581CCF1F9500EE0750 /* TicketHeaderCell.xib in Resources */,
 				30B602091CD2072C003ED671 /* BeautifulDetailViewController.xib in Resources */,
@@ -1305,11 +1338,13 @@
 				30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */,
 				303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */,
 				3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */,
+				E89BD32E1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib in Resources */,
 				3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */,
 				30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */,
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
 				30B601CB1CD07C54003ED671 /* ShopCycleCell.xib in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
+				E8226C221CEB52B000980E30 /* FoodPaymentCell.xib in Resources */,
 				3086D3D71CC72ABC007494D7 /* HomeCategoryCell.xib in Resources */,
 				30D6D2801CC87AF500FB0CFC /* FoodCell.xib in Resources */,
 				30FD1F4F1CE1A80B003C91A5 /* mapapi.bundle in Resources */,
@@ -1418,6 +1453,7 @@
 				3035196B1CCF393700EE0750 /* TicketCommitCell.m in Sources */,
 				30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */,
 				3086D3A51CC729A9007494D7 /* WXTextField.m in Sources */,
+				E89BD32D1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m in Sources */,
 				3086D3B41CC72A09007494D7 /* GMButton.m in Sources */,
 				30B601CA1CD07C54003ED671 /* ShopCycleCell.m in Sources */,
 				303519441CCF0B0500EE0750 /* MoneyCell.m in Sources */,
@@ -1427,6 +1463,7 @@
 				AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */,
 				30FD1FBA1CE2E7C5003C91A5 /* WXCategoryViewController.m in Sources */,
 				303519761CCF4B8A00EE0750 /* ShopCommitViewController.m in Sources */,
+				E89BD3331CEB1228007CCF49 /* FoodAddAddressCell.m in Sources */,
 				30FD1FA61CE2CAE9003C91A5 /* UIView+SDAutoLayout.m in Sources */,
 				30FD1FB31CE2D432003C91A5 /* WXLifeViewController.m in Sources */,
 				AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */,
@@ -1445,6 +1482,7 @@
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */,
 				30FD1FAA1CE2D012003C91A5 /* MapHeadView.m in Sources */,
+				E8226C211CEB52B000980E30 /* FoodPaymentCell.m in Sources */,
 				30D018131CE6E84400E50B23 /* Activity.m in Sources */,
 				30D0180D1CE6158400E50B23 /* BeautifulFood.m in Sources */,
 				3086D3B61CC72A09007494D7 /* GMXTextField.m in Sources */,
