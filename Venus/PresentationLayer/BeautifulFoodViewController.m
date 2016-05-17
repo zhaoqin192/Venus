@@ -78,12 +78,8 @@
 
 - (void)configureMenu{
     
-    NSArray *food = @[@"全部美食", @"火锅", @"川菜", @"西餐", @"自助餐"];
-    NSArray *travel = @[@"全部旅游", @"周边游", @"景点门票", @"国内游", @"境外游"];
-    
-    _data1 = [NSMutableArray arrayWithObjects:@{@"title":@"美食", @"data":food}, @{@"title":@"旅游", @"data":travel}, nil];
-    _data2 = [NSMutableArray arrayWithObjects:@"智能排序", @"离我最近", @"评价最高", @"最新发布", @"人气最高", @"价格最低", @"价格最高", nil];
-    _data3 = [NSMutableArray arrayWithObjects:@"不限人数", @"单人餐", @"双人餐", @"3~4人餐", nil];
+    _data1 = [NSMutableArray arrayWithObjects:@"分类", @"离我最近", @"评价最高", @"最新发布", @"人气最高", @"价格最低", @"价格最高", nil];
+    _data2 = [NSMutableArray arrayWithObjects:@"排序", @"单人餐", @"双人餐", @"3~4人餐", nil];
     
     JSDropDownMenu *menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:45];
     menu.indicatorColor = [UIColor colorWithRed:175.0f/255.0f green:175.0f/255.0f blue:175.0f/255.0f alpha:1.0];
@@ -122,33 +118,18 @@
 
 - (NSInteger)numberOfColumnsInMenu:(JSDropDownMenu *)menu {
     
-    return 3;
+    return 2;
 }
 
 -(BOOL)displayByCollectionViewInColumn:(NSInteger)column{
-    
-    if (column==2) {
-        
-        return YES;
-    }
-    
     return NO;
 }
 
 -(BOOL)haveRightTableViewInColumn:(NSInteger)column{
-    
-    if (column==0) {
-        return YES;
-    }
     return NO;
 }
 
 -(CGFloat)widthRatioOfLeftColumn:(NSInteger)column{
-    
-    if (column==0) {
-        return 0.3;
-    }
-    
     return 1;
 }
 
@@ -170,14 +151,7 @@
 - (NSInteger)menu:(JSDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column leftOrRight:(NSInteger)leftOrRight leftRow:(NSInteger)leftRow{
     
     if (column==0) {
-        if (leftOrRight==0) {
-            
-            return _data1.count;
-        } else{
-            
-            NSDictionary *menuDic = [_data1 objectAtIndex:leftRow];
-            return [[menuDic objectForKey:@"data"] count];
-        }
+        return _data1.count;
     } else if (column==1){
         
         return _data2.count;
@@ -193,7 +167,7 @@
 - (NSString *)menu:(JSDropDownMenu *)menu titleForColumn:(NSInteger)column{
     
     switch (column) {
-        case 0: return [[_data1[0] objectForKey:@"data"] objectAtIndex:0];
+        case 0: return _data1[0];
             break;
         case 1: return _data2[0];
             break;
@@ -208,14 +182,7 @@
 - (NSString *)menu:(JSDropDownMenu *)menu titleForRowAtIndexPath:(JSIndexPath *)indexPath {
     
     if (indexPath.column==0) {
-        if (indexPath.leftOrRight==0) {
-            NSDictionary *menuDic = [_data1 objectAtIndex:indexPath.row];
-            return [menuDic objectForKey:@"title"];
-        } else{
-            NSInteger leftRow = indexPath.leftRow;
-            NSDictionary *menuDic = [_data1 objectAtIndex:leftRow];
-            return [[menuDic objectForKey:@"data"] objectAtIndex:indexPath.row];
-        }
+        return _data1[indexPath.row];
     } else if (indexPath.column==1) {
         
         return _data2[indexPath.row];
@@ -229,20 +196,12 @@
 - (void)menu:(JSDropDownMenu *)menu didSelectRowAtIndexPath:(JSIndexPath *)indexPath {
     
     if (indexPath.column == 0) {
-        
-        if(indexPath.leftOrRight==0){
-            
-            _currentData1Index = indexPath.row;
-            
-            return;
-        }
-        
-    } else if(indexPath.column == 1){
-        
         _currentData2Index = indexPath.row;
-        
+        NSLog(@"%@",_data1[indexPath.row]);
+    } else if(indexPath.column == 1){
+        _currentData2Index = indexPath.row;
+        NSLog(@"%@",_data2[indexPath.row]);
     } else{
-        
         _currentData3Index = indexPath.row;
     }
 }

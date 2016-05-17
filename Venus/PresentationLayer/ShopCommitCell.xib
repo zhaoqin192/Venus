@@ -27,7 +27,7 @@
                             <constraint firstAttribute="height" constant="21" id="7Q7-J7-GAH"/>
                             <constraint firstAttribute="width" constant="104" id="ek6-b1-nRq"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -52,22 +52,39 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ed-IS-Jei">
+                        <rect key="frame" x="0.0" y="88" width="320" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="D7O-Xi-CVh"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="jcH-na-pbO" firstAttribute="leading" secondItem="Pyk-Ua-Q0y" secondAttribute="leading" id="1Kx-aE-F4G"/>
+                    <constraint firstAttribute="trailing" secondItem="0ed-IS-Jei" secondAttribute="trailing" id="1j5-em-CKV"/>
+                    <constraint firstItem="Moc-86-vPU" firstAttribute="centerY" secondItem="Pyk-Ua-Q0y" secondAttribute="centerY" id="4O3-9r-5IX"/>
                     <constraint firstItem="Pyk-Ua-Q0y" firstAttribute="top" secondItem="6DW-dg-Uv0" secondAttribute="top" id="5an-wW-XiJ"/>
+                    <constraint firstItem="0ed-IS-Jei" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Cxe-Cf-vv5"/>
                     <constraint firstAttribute="trailing" secondItem="Moc-86-vPU" secondAttribute="trailing" constant="8" id="M4b-Xk-J0S"/>
                     <constraint firstItem="6DW-dg-Uv0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Mex-KS-dI7"/>
                     <constraint firstItem="jcH-na-pbO" firstAttribute="top" secondItem="Pyk-Ua-Q0y" secondAttribute="bottom" constant="2" id="Q0j-F4-J2x"/>
                     <constraint firstItem="6DW-dg-Uv0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="kNm-Fb-ljs"/>
+                    <constraint firstAttribute="bottom" secondItem="0ed-IS-Jei" secondAttribute="bottom" id="uSf-os-wgT"/>
                     <constraint firstItem="Pyk-Ua-Q0y" firstAttribute="leading" secondItem="6DW-dg-Uv0" secondAttribute="trailing" constant="15" id="vrB-VE-mtK"/>
                     <constraint firstItem="Moc-86-vPU" firstAttribute="baseline" secondItem="Pyk-Ua-Q0y" secondAttribute="baseline" id="zvm-zv-bj7"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="zvm-zv-bj7"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLabel" destination="jcH-na-pbO" id="m9W-OJ-Gmu"/>
                 <outlet property="dateLabel" destination="Moc-86-vPU" id="AKW-Mb-Wtw"/>
                 <outlet property="iconView" destination="6DW-dg-Uv0" id="dYf-oE-yZr"/>
+                <outlet property="lineView" destination="0ed-IS-Jei" id="KcL-97-bdu"/>
                 <outlet property="userName" destination="Pyk-Ua-Q0y" id="YzM-MW-b0O"/>
             </connections>
         </tableViewCell>

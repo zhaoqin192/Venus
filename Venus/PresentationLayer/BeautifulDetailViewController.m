@@ -35,6 +35,7 @@
     self.currentSegmentName = @"店铺首页";
     self.allCommitArray = [NSMutableArray array];
     [self configureTableView];
+    [SVProgressHUD show];
     [self loadHomeData];
 }
 
@@ -42,11 +43,13 @@
     [super viewWillAppear:animated];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.navigationController setNavigationBarHidden:YES];
+    [self.rdv_tabBarController setTabBarHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+    [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
 - (void)configureFootView {
@@ -74,14 +77,20 @@
         headview.segmentButtonClicked = ^(NSInteger index) {
             if (index == 0) {
                 self.currentSegmentName = @"店铺首页";
+                [SVProgressHUD dismiss];
+                [SVProgressHUD show];
                 [self loadHomeData];
             }
             else if (index == 1) {
                 self.currentSegmentName = @"全部宝贝";
+                [SVProgressHUD dismiss];
+                [SVProgressHUD show];
                 [self loadFoodItem];
             }
             else {
                 self.currentSegmentName = @"评价";
+                [SVProgressHUD dismiss];
+                [SVProgressHUD show];
                 [self loadCommit];
             }
         };
@@ -101,6 +110,10 @@
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([FoodContentCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([FoodContentCell class])];
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ShopCommitCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopCommitCell class])];
    // [self configureFootView];
+}
+
+- (void)dismiss {
+    [SVProgressHUD dismiss];
 }
 
 - (void)loadHomeData {
@@ -135,11 +148,11 @@
         self.allCouponsArray = [WXCoupon mj_objectArrayWithKeyValuesArray:responseObject[@"coupons"]];
         [self configureFootView];
         [self.myTableView reloadData];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
 }
-
 - (void)loadFoodItem {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/getShopItem"]];
@@ -155,6 +168,7 @@
         self.allFoodArray = [FoodDetail mj_objectArrayWithKeyValuesArray:responseObject[@"items"]];
         self.myTableView.tableFooterView = [[UIView alloc] init];
         [self.myTableView reloadData];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -176,10 +190,10 @@
         //                     @"desp": @"description"
         //                     };
         //        }];
-        NSMutableArray *tempArray = [Commit mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        [self.allCommitArray addObjectsFromArray:tempArray];
+        self.allCommitArray = [Commit mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         self.myTableView.tableFooterView = [[UIView alloc] init];
         [self.myTableView reloadData];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -235,7 +249,7 @@
     }
     else {
         ShopCommitCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopCommitCell class])];
-        cell.contentView.backgroundColor = GMBgColor;
+       // cell.contentView.backgroundColor = GMBgColor;
         cell.foodModel = self.allCommitArray[indexPath.row];
         return cell;
     }
