@@ -109,6 +109,9 @@ BMKUserLocation* userLoc;
     [self.view addSubview:headView];
     
     headView.newsLabelTapped = ^{
+        if ([self.selectType isEqualToString:@"新品打折"]) {
+            return ;
+        }
         self.selectType = @"新品打折";
         [_mapView removeAnnotations:self.discountPointArray];
         NSMutableArray *tempArray = [NSMutableArray array];
@@ -126,6 +129,9 @@ BMKUserLocation* userLoc;
     };
     
     headView.discountLabelTapped = ^{
+        if ([self.selectType isEqualToString:@"满减优惠"]) {
+            return ;
+        }
         self.selectType = @"满减优惠";
         [_mapView removeAnnotations:self.newsPointArray];
         NSMutableArray *tempArray = [NSMutableArray array];
@@ -155,7 +161,12 @@ BMKUserLocation* userLoc;
         newAnnotationView.annotation = annotation;
         newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
         newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
-        
+        if ([self.selectType isEqualToString:@"新品打折"]) {
+            newAnnotationView.image = [UIImage imageNamed:@"新品带投影"];
+        }
+        else {
+            newAnnotationView.image = [UIImage imageNamed:@"满减带投影"];
+        }
 //        UIButton *btn = [UIButton buttonWithType:UIButtonTypeContactAdd];
 //        [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
 //        newAnnotationView.rightCalloutAccessoryView = btn;
@@ -296,6 +307,12 @@ BMKUserLocation* userLoc;
         pinView.pinColor = BMKPinAnnotationColorGreen;
         pinView.animatesDrop = YES;
         pinView.draggable = YES;
+        if ([self.selectType isEqualToString:@"新品打折"]) {
+            pinView.image = [UIImage imageNamed:@"新品带投影"];
+        }
+        else {
+            pinView.image = [UIImage imageNamed:@"满减带投影"];
+        }
     }
 }
 
