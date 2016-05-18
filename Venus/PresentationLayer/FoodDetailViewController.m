@@ -117,7 +117,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.commitVC = [[FoodCommitViewController alloc] init];
     self.commitVC.restaurant = _restaurant;
-     self.orderVC = [[FoodOrderViewController alloc] init];
+    self.orderVC = [[FoodOrderViewController alloc] init];
     [self addChildViewController:self.orderVC];
     [self.orderVC didMoveToParentViewController:self];
     
@@ -173,7 +173,6 @@
                                 }
                             }];
 }
-
 
 - (IBAction)getBackToLastView:(id)sender {
     

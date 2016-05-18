@@ -72,7 +72,7 @@
 
 - (void)setFoodModel:(BeautifulFood *)foodModel {
     _foodModel = foodModel;
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:foodModel.shopLogo]];
+   // [self.iconView sd_setImageWithURL:[NSURL URLWithString:foodModel.shopLogo]];
     self.nameLabel.text = foodModel.shopName;
     self.phoneNumLabel.text = [NSString stringWithFormat:@"店铺电话：%@",foodModel.phone];
     self.locationLabel.text = [NSString stringWithFormat:@"店铺地址：%@",foodModel.location];

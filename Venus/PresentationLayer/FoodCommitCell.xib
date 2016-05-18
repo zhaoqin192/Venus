@@ -2,8 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,59 +13,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="107"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Thg-Wz-Ji8">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Thg-Wz-Ji8">
                         <rect key="frame" x="23" y="23" width="36" height="36"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="134****3456" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPd-Xg-bee" customClass="GMLabel">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="134****3456" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPd-Xg-bee" customClass="GMLabel">
                         <rect key="frame" x="79" y="23" width="104" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="104" id="qpb-uJ-sW4"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="配送时间 34分钟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fx-yb-zRN">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="配送时间 34分钟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fx-yb-zRN">
                         <rect key="frame" x="79" y="46" width="100" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="100" id="Fsx-4b-CLP"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-05-16" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZd-T5-xOW">
-                        <rect key="frame" x="245" y="46" width="212" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2016-05-16" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZd-T5-xOW">
+                        <rect key="frame" x="245" y="46" width="100" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="米线味道非常正宗，配送大叔也很热情，送来的时候还很新鲜" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIh-mP-f5o">
-                        <rect key="frame" x="79" y="67" width="378" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="米线味道非常正宗，配送大叔也很热情，送来的时候还很新鲜" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIh-mP-f5o">
+                        <rect key="frame" x="79" y="67" width="266" height="34"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="4Fx-yb-zRN" firstAttribute="leading" secondItem="vIh-mP-f5o" secondAttribute="leading" id="29f-0G-0PQ"/>
-                    <constraint firstItem="vIh-mP-f5o" firstAttribute="top" secondItem="4Fx-yb-zRN" secondAttribute="bottom" constant="5" id="3t5-L1-hBc"/>
-                    <constraint firstItem="vIh-mP-f5o" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="71" id="5DH-dO-X1f"/>
-                    <constraint firstItem="wZd-T5-xOW" firstAttribute="leading" secondItem="4Fx-yb-zRN" secondAttribute="trailing" constant="66" id="944-od-o1X"/>
-                    <constraint firstItem="4Fx-yb-zRN" firstAttribute="top" secondItem="fPd-Xg-bee" secondAttribute="bottom" constant="2" id="JFE-jp-ZL8"/>
-                    <constraint firstItem="wZd-T5-xOW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="38" id="Lpn-Dr-Rqe"/>
-                    <constraint firstItem="wZd-T5-xOW" firstAttribute="trailing" secondItem="vIh-mP-f5o" secondAttribute="trailing" id="Q7I-hN-5ua"/>
-                    <constraint firstItem="4Fx-yb-zRN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QRi-fp-Kbe"/>
-                    <constraint firstItem="fPd-Xg-bee" firstAttribute="leading" secondItem="Thg-Wz-Ji8" secondAttribute="trailing" constant="20" id="TgG-Mc-Q7Z"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Thg-Wz-Ji8" secondAttribute="bottom" constant="40" id="UTX-d1-CuC"/>
-                    <constraint firstItem="Thg-Wz-Ji8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="V3z-Uq-oQn"/>
-                    <constraint firstItem="4Fx-yb-zRN" firstAttribute="firstBaseline" secondItem="wZd-T5-xOW" secondAttribute="firstBaseline" id="X67-I3-gu3"/>
-                    <constraint firstItem="4Fx-yb-zRN" firstAttribute="baseline" secondItem="wZd-T5-xOW" secondAttribute="baseline" id="Z1N-t1-Jum"/>
-                    <constraint firstItem="Thg-Wz-Ji8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="cNE-4v-PtQ"/>
-                    <constraint firstItem="Thg-Wz-Ji8" firstAttribute="top" secondItem="fPd-Xg-bee" secondAttribute="top" id="cpV-ph-JKm"/>
-                    <constraint firstItem="fPd-Xg-bee" firstAttribute="leading" secondItem="4Fx-yb-zRN" secondAttribute="leading" id="itE-Ym-1Qd"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatar" destination="Thg-Wz-Ji8" id="k4f-ut-gd5"/>

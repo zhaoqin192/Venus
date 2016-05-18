@@ -1,23 +1,23 @@
 //
-//  FoodCommitCell.m
+//  FoodPaymentCell.m
 //  Venus
 //
-//  Created by 王霄 on 16/4/21.
+//  Created by EdwinZhou on 16/5/17.
 //  Copyright © 2016年 Neotel. All rights reserved.
 //
 
-#import "FoodCommitCell.h"
+#import "FoodPaymentCell.h"
 
-@implementation FoodCommitCell
+@implementation FoodPaymentCell
 
 - (void)awakeFromNib {
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    [super awakeFromNib];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+    [super setSelected:NO animated:NO];
 
-    // Configure the view for the selected state
 }
 
 @end

@@ -2,7 +2,7 @@
 //  CALayer+XibConfiguration.m
 //  Venus
 //
-//  Created by EdwinZhou on 16/5/15.
+//  Created by EdwinZhou on 16/5/18.
 //  Copyright © 2016年 Neotel. All rights reserved.
 //
 

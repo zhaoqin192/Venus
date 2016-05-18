@@ -171,18 +171,18 @@
         _resFoodClass = _foodClassArray[0];
     }
     
-    self.foodCountArray = [[NSMutableArray alloc] init];
-    if (_foodClassArray.count != 0) {
-        for (int i = 0; i < _foodClassArray.count; i++) {
-            NSMutableArray *foodCount = [[NSMutableArray alloc] init];
-            if (_foodClassArray[i].foodArray,count) {
-                for (int j = 0; j < _foodArray.count; j++) {
-                    [foodCount addObject:[NSNumber numberWithInt:0]];
-                }
-            }
-            [self.foodCountArray addObject:foodCount];
-        }
-    }
+//    self.foodCountArray = [[NSMutableArray alloc] init];
+//    if (_foodClassArray.count != 0) {
+//        for (int i = 0; i < _foodClassArray.count; i++) {
+//            NSMutableArray *foodCount = [[NSMutableArray alloc] init];
+//            if (_foodClassArray[i].foodArray.count) {
+//                for (int j = 0; j < _foodArray.count; j++) {
+//                    [foodCount addObject:[NSNumber numberWithInt:0]];
+//                }
+//            }
+//            [self.foodCountArray addObject:foodCount];
+//        }
+//    }
     
     NSLog(@"array是%@",self.foodCountArray);
     [_categoryTableView reloadData];

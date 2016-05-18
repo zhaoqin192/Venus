@@ -9,21 +9,28 @@
 #import "FoodContentCell.h"
 #import "FoodDetail.h"
 
-@interface FoodContentCell()
-
-
+@interface FoodContentCell ()
+@property (weak, nonatomic) IBOutlet UIView *countView;
 
 @end
 
 @implementation FoodContentCell
 
 - (void)awakeFromNib {
+    self.countView.hidden = NO;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setFoodCount:(NSInteger)foodCount {
     _foodCount = foodCount;
     _count.text = [NSString stringWithFormat:@"%ld", (long)foodCount];
+}
+
+- (void)setIsDisplay:(BOOL)isDisplay {
+    _isDisplay = isDisplay;
+    if (self.isDisplay) {
+        self.countView.hidden = YES;
+    }
 }
 
 - (void)setFoodModel:(FoodDetail *)foodModel {
