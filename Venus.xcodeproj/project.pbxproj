@@ -130,6 +130,10 @@
 		30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */; };
 		7F7025481CE96651009653A6 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025471CE96651009653A6 /* UIButton+Badge.m */; };
 		7F70254E1CEC0682009653A6 /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70254D1CEC0682009653A6 /* CALayer+XibConfiguration.m */; };
+		7F7025521CEC63A2009653A6 /* FoodTrolleyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */; };
+		7F7025531CEC63A2009653A6 /* FoodTrolleyTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7025511CEC63A2009653A6 /* FoodTrolleyTableViewController.xib */; };
+		7F7025571CEC6458009653A6 /* FoodTrolleyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025551CEC6458009653A6 /* FoodTrolleyTableViewCell.m */; };
+		7F7025581CEC6458009653A6 /* FoodTrolleyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7025561CEC6458009653A6 /* FoodTrolleyTableViewCell.xib */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -385,6 +389,12 @@
 		7F7025471CE96651009653A6 /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
 		7F70254C1CEC0682009653A6 /* CALayer+XibConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XibConfiguration.h"; sourceTree = "<group>"; };
 		7F70254D1CEC0682009653A6 /* CALayer+XibConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XibConfiguration.m"; sourceTree = "<group>"; };
+		7F70254F1CEC63A2009653A6 /* FoodTrolleyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrolleyTableViewController.h; sourceTree = "<group>"; };
+		7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTrolleyTableViewController.m; sourceTree = "<group>"; };
+		7F7025511CEC63A2009653A6 /* FoodTrolleyTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodTrolleyTableViewController.xib; sourceTree = "<group>"; };
+		7F7025541CEC6458009653A6 /* FoodTrolleyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrolleyTableViewCell.h; sourceTree = "<group>"; };
+		7F7025551CEC6458009653A6 /* FoodTrolleyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTrolleyTableViewCell.m; sourceTree = "<group>"; };
+		7F7025561CEC6458009653A6 /* FoodTrolleyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodTrolleyTableViewCell.xib; sourceTree = "<group>"; };
 		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -827,6 +837,9 @@
 				E89BD32A1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.h */,
 				E89BD32B1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m */,
 				E89BD32C1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib */,
+				7F70254F1CEC63A2009653A6 /* FoodTrolleyTableViewController.h */,
+				7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */,
+				7F7025511CEC63A2009653A6 /* FoodTrolleyTableViewController.xib */,
 			);
 			name = food;
 			sourceTree = "<group>";
@@ -874,6 +887,9 @@
 				30D6D2A01CC8B1BF00FB0CFC /* FoodContentCell.h */,
 				30D6D2A11CC8B1BF00FB0CFC /* FoodContentCell.m */,
 				30D6D2A21CC8B1BF00FB0CFC /* FoodContentCell.xib */,
+				7F7025541CEC6458009653A6 /* FoodTrolleyTableViewCell.h */,
+				7F7025551CEC6458009653A6 /* FoodTrolleyTableViewCell.m */,
+				7F7025561CEC6458009653A6 /* FoodTrolleyTableViewCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -1321,6 +1337,7 @@
 				30FD1FB41CE2D432003C91A5 /* WXLifeViewController.xib in Resources */,
 				303519581CCF1F9500EE0750 /* TicketHeaderCell.xib in Resources */,
 				30B602091CD2072C003ED671 /* BeautifulDetailViewController.xib in Resources */,
+				7F7025531CEC63A2009653A6 /* FoodTrolleyTableViewController.xib in Resources */,
 				30D6D29A1CC8A3F700FB0CFC /* FoodOrderViewController.xib in Resources */,
 				30B601F71CD1F92D003ED671 /* BeautifulFoodViewController.xib in Resources */,
 				30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */,
@@ -1332,6 +1349,7 @@
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
 				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
 				30FD1FAC1CE2D023003C91A5 /* MapHeadView.xib in Resources */,
+				7F7025581CEC6458009653A6 /* FoodTrolleyTableViewCell.xib in Resources */,
 				30B601FD1CD1FA94003ED671 /* BeautifulFoodCell.xib in Resources */,
 				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
 				3086D3BB1CC72A1E007494D7 /* GMRegisterViewController.xib in Resources */,
@@ -1488,6 +1506,7 @@
 				AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */,
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,
+				7F7025521CEC63A2009653A6 /* FoodTrolleyTableViewController.m in Sources */,
 				AC90F5861CD08F11004C4C55 /* AdvertisementManager.m in Sources */,
 				30D6D29E1CC8A85B00FB0CFC /* FoodCategoryCell.m in Sources */,
 				30B601F61CD1F92D003ED671 /* BeautifulFoodViewController.m in Sources */,
@@ -1518,6 +1537,7 @@
 				3086D3BA1CC72A1E007494D7 /* GMRegisterViewController.m in Sources */,
 				30D6D2A31CC8B1BF00FB0CFC /* FoodContentCell.m in Sources */,
 				30D018311CEAF04600E50B23 /* WXMapShopView.m in Sources */,
+				7F7025571CEC6458009653A6 /* FoodTrolleyTableViewCell.m in Sources */,
 				30B601FC1CD1FA94003ED671 /* BeautifulFoodCell.m in Sources */,
 				3086D3D21CC72ABC007494D7 /* HomeNewsCell.m in Sources */,
 				AC90F56A1CCFA4E7004C4C55 /* NetworkFetcher+Home.m in Sources */,

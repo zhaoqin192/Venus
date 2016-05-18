@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceText;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
 @property (weak, nonatomic) IBOutlet UIButton *trollyButton;
+@property (weak, nonatomic) IBOutlet UIView *shadowView;
+
 
 @property (strong, nonatomic) FoodCommitViewController *commitVC;
 @property (strong, nonatomic) FoodOrderViewController *orderVC;
@@ -182,7 +184,20 @@
 }
 
 - (IBAction)trollyButtonClicked:(id)sender {
+    if (self.shadowView.hidden == YES) {
+        self.shadowView.hidden = NO;
+        [self.view insertSubview:segementView belowSubview:_shadowView];
+        [self.view insertSubview:self.navigationController.navigationBar belowSubview:_shadowView];
+    } else {
+        self.shadowView.hidden = YES;
+    }
     
+    
+    
+}
+
+- (IBAction)shadowViewTouched:(id)sender {
+    self.shadowView.hidden = YES;
 }
 
 @end

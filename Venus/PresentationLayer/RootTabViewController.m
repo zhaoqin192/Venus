@@ -50,6 +50,10 @@
     self.delegate = self;
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)customizeTabBarForController {
     UIImage *backgroundImage = [UIImage imageWithColor:[UIColor colorWithHexString:@"#FFFFFF"]];
     NSArray *tabBarItemImages = @[@"首页", @"逛街", @"分类", @"生活圈",@"我的"];
