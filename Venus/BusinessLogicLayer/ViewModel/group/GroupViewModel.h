@@ -25,11 +25,16 @@
 @property (nonatomic, assign) NSInteger currentPage;
 @property (nonatomic, assign) NSInteger totalPage;
 
+
 - (void)fetchMenuData;
+
+- (void)cachedMenuData;
 
 - (void)fetchCouponDataWithType:(NSString *)type
                            sort:(NSString *)sort
                            page:(NSNumber *)page;
+
+- (void)cachedCouponData;
 
 - (void)loadMoreCouponDataWithType:(NSString *)type
                               sort:(NSString *)sort

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GroupCategory : NSObject
+@interface GroupCategory : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *name;

@@ -10,4 +10,25 @@
 
 @implementation GroupCategory
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    
+    [aCoder encodeObject:self.identifier forKey:@"identifier"];
+    [aCoder encodeObject:self.name forKey:@"name"];
+    
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    
+    self = [super init];
+    
+    if (self) {
+        self.identifier = [aDecoder decodeObjectForKey:@"identifier"];
+        self.name = [aDecoder decodeObjectForKey:@"name"];
+    }
+    
+    return self;
+    
+}
+
+
 @end

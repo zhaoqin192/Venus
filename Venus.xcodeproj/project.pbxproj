@@ -127,11 +127,19 @@
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
 		AC0359081CC4D78600EC7BBC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359071CC4D78600EC7BBC /* libz.tbd */; };
+		AC2E04331CEAEEC400476087 /* CouponCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04321CEAEEC400476087 /* CouponCommentModel.m */; };
+		AC2E04361CEB2D3800476087 /* CouponPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04351CEB2D3800476087 /* CouponPictureCell.m */; };
+		AC2E04391CEB374E00476087 /* CouponStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04381CEB374E00476087 /* CouponStoreCell.m */; };
+		AC2E043C1CEB462F00476087 /* CouponCaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E043B1CEB462F00476087 /* CouponCaseCell.m */; };
+		AC2E043F1CEB493E00476087 /* CouponInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E043E1CEB493E00476087 /* CouponInformationCell.m */; };
+		AC2E04421CEB554900476087 /* CouponCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04411CEB554900476087 /* CouponCommentCell.m */; };
+		AC2E04451CEB5DAE00476087 /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */; };
 		AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */; };
 		AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48C81CCA48CA00724914 /* read_me.txt */; };
 		AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48CE1CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		AC5B48D11CCA496E00724914 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48CF1CCA496E00724914 /* TencentOpenAPI.framework */; };
 		AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5B48D31CCA49D200724914 /* SDKManager.m */; };
+		AC6A4EE01CEA06D5000DD815 /* CouponDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6A4EDF1CEA06D5000DD815 /* CouponDetailViewModel.m */; };
 		AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */; };
 		AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAAA1CC08FCD00B101C2 /* NetworkFetcher.m */; };
 		AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */ = {isa = PBXBuildFile; fileRef = AC71EAB01CC090EC00B101C2 /* NetworkFetcher+User.m */; };
@@ -157,7 +165,6 @@
 		AC90F5AB1CD20523004C4C55 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5AA1CD20523004C4C55 /* Restaurant.m */; };
 		AC96F2F11CE9747E001B2DDE /* CouponCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC96F2F01CE9747E001B2DDE /* CouponCell.m */; };
 		AC96F2F91CE9963F001B2DDE /* CouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC96F2F81CE9963F001B2DDE /* CouponViewController.m */; };
-		AC96F2FD1CE997FD001B2DDE /* CouponViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC96F2FC1CE997FD001B2DDE /* CouponViewModel.m */; };
 		AC96F3031CE9C72A001B2DDE /* LoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC96F3021CE9C72A001B2DDE /* LoadingCell.m */; };
 		AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C7C1CC4D23C00FA171B /* Security.framework */; };
 		AC970C851CC4D25600FA171B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC970C841CC4D25600FA171B /* SystemConfiguration.framework */; };
@@ -373,6 +380,20 @@
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		AC0359071CC4D78600EC7BBC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		AC2E04311CEAEEC400476087 /* CouponCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentModel.h; sourceTree = "<group>"; };
+		AC2E04321CEAEEC400476087 /* CouponCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentModel.m; sourceTree = "<group>"; };
+		AC2E04341CEB2D3800476087 /* CouponPictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponPictureCell.h; sourceTree = "<group>"; };
+		AC2E04351CEB2D3800476087 /* CouponPictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponPictureCell.m; sourceTree = "<group>"; };
+		AC2E04371CEB374E00476087 /* CouponStoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponStoreCell.h; sourceTree = "<group>"; };
+		AC2E04381CEB374E00476087 /* CouponStoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponStoreCell.m; sourceTree = "<group>"; };
+		AC2E043A1CEB462F00476087 /* CouponCaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCaseCell.h; sourceTree = "<group>"; };
+		AC2E043B1CEB462F00476087 /* CouponCaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCaseCell.m; sourceTree = "<group>"; };
+		AC2E043D1CEB493E00476087 /* CouponInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponInformationCell.h; sourceTree = "<group>"; };
+		AC2E043E1CEB493E00476087 /* CouponInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponInformationCell.m; sourceTree = "<group>"; };
+		AC2E04401CEB554900476087 /* CouponCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentCell.h; sourceTree = "<group>"; };
+		AC2E04411CEB554900476087 /* CouponCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentCell.m; sourceTree = "<group>"; };
+		AC2E04431CEB5DAE00476087 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
+		AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
 		AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		AC5B48C81CCA48CA00724914 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		AC5B48C91CCA48CA00724914 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
@@ -382,6 +403,8 @@
 		AC5B48CF1CCA496E00724914 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		AC5B48D21CCA49D200724914 /* SDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKManager.h; sourceTree = "<group>"; };
 		AC5B48D31CCA49D200724914 /* SDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKManager.m; sourceTree = "<group>"; };
+		AC6A4EDE1CEA06D5000DD815 /* CouponDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponDetailViewModel.h; sourceTree = "<group>"; };
+		AC6A4EDF1CEA06D5000DD815 /* CouponDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponDetailViewModel.m; sourceTree = "<group>"; };
 		AC71EAA61CC08ECF00B101C2 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		AC71EAA71CC08ECF00B101C2 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		AC71EAA91CC08FCD00B101C2 /* NetworkFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkFetcher.h; sourceTree = "<group>"; };
@@ -426,8 +449,6 @@
 		AC96F2F01CE9747E001B2DDE /* CouponCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCell.m; sourceTree = "<group>"; };
 		AC96F2F71CE9963F001B2DDE /* CouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponViewController.h; sourceTree = "<group>"; };
 		AC96F2F81CE9963F001B2DDE /* CouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponViewController.m; sourceTree = "<group>"; };
-		AC96F2FB1CE997FD001B2DDE /* CouponViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponViewModel.h; sourceTree = "<group>"; };
-		AC96F2FC1CE997FD001B2DDE /* CouponViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponViewModel.m; sourceTree = "<group>"; };
 		AC96F3011CE9C72A001B2DDE /* LoadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingCell.h; sourceTree = "<group>"; };
 		AC96F3021CE9C72A001B2DDE /* LoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingCell.m; sourceTree = "<group>"; };
 		AC970C7C1CC4D23C00FA171B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -1068,6 +1089,8 @@
 				AC987D431CE8B32A00E11CC5 /* GroupCategory.m */,
 				AC987D451CE8BDD100E11CC5 /* CouponModel.h */,
 				AC987D461CE8BDD100E11CC5 /* CouponModel.m */,
+				AC2E04311CEAEEC400476087 /* CouponCommentModel.h */,
+				AC2E04321CEAEEC400476087 /* CouponCommentModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1101,6 +1124,18 @@
 			children = (
 				AC96F2F71CE9963F001B2DDE /* CouponViewController.h */,
 				AC96F2F81CE9963F001B2DDE /* CouponViewController.m */,
+				AC2E04341CEB2D3800476087 /* CouponPictureCell.h */,
+				AC2E04351CEB2D3800476087 /* CouponPictureCell.m */,
+				AC2E04371CEB374E00476087 /* CouponStoreCell.h */,
+				AC2E04381CEB374E00476087 /* CouponStoreCell.m */,
+				AC2E043A1CEB462F00476087 /* CouponCaseCell.h */,
+				AC2E043B1CEB462F00476087 /* CouponCaseCell.m */,
+				AC2E043D1CEB493E00476087 /* CouponInformationCell.h */,
+				AC2E043E1CEB493E00476087 /* CouponInformationCell.m */,
+				AC2E04401CEB554900476087 /* CouponCommentCell.h */,
+				AC2E04411CEB554900476087 /* CouponCommentCell.m */,
+				AC2E04431CEB5DAE00476087 /* ImageCollectionViewCell.h */,
+				AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */,
 			);
 			path = groupDetail;
 			sourceTree = "<group>";
@@ -1125,8 +1160,8 @@
 			children = (
 				AC987D391CE8A95E00E11CC5 /* GroupViewModel.h */,
 				AC987D3A1CE8A95E00E11CC5 /* GroupViewModel.m */,
-				AC96F2FB1CE997FD001B2DDE /* CouponViewModel.h */,
-				AC96F2FC1CE997FD001B2DDE /* CouponViewModel.m */,
+				AC6A4EDE1CEA06D5000DD815 /* CouponDetailViewModel.h */,
+				AC6A4EDF1CEA06D5000DD815 /* CouponDetailViewModel.m */,
 			);
 			path = group;
 			sourceTree = "<group>";
@@ -1425,6 +1460,7 @@
 				AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */,
 				30FD1FC01CE2EFB6003C91A5 /* CategoryCell.m in Sources */,
 				30D018101CE6DA6700E50B23 /* FoodDetail.m in Sources */,
+				AC2E04331CEAEEC400476087 /* CouponCommentModel.m in Sources */,
 				30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */,
 				ACAC17471CD8DCEB00E04499 /* ResFoodClass.m in Sources */,
 				3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */,
@@ -1446,10 +1482,12 @@
 				3086D3B51CC72A09007494D7 /* GMLabel.m in Sources */,
 				AC90F5711CCFAADF004C4C55 /* Picture.m in Sources */,
 				AC96F2F91CE9963F001B2DDE /* CouponViewController.m in Sources */,
+				AC2E04451CEB5DAE00476087 /* ImageCollectionViewCell.m in Sources */,
 				AC987D471CE8BDD100E11CC5 /* CouponModel.m in Sources */,
 				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
 				3057B1ED1CD99221008172DD /* GMMeViewController.m in Sources */,
 				30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */,
+				AC2E04421CEB554900476087 /* CouponCommentCell.m in Sources */,
 				AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */,
 				AC7AD49C1CC7AFD9004D9B61 /* DatabaseManager.m in Sources */,
 				3086D3C01CC72A8C007494D7 /* GMLoginViewController.m in Sources */,
@@ -1462,6 +1500,7 @@
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
 				30FD1F441CE1A329003C91A5 /* IndoorSwitchDemo.mm in Sources */,
 				AC987D3B1CE8A95E00E11CC5 /* GroupViewModel.m in Sources */,
+				AC2E043F1CEB493E00476087 /* CouponInformationCell.m in Sources */,
 				AC7B3AD91CDF2C7E0039C2A5 /* SignUpViewModel.m in Sources */,
 				30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */,
 				30D017FF1CE360DE00E50B23 /* ReusableView.m in Sources */,
@@ -1473,6 +1512,7 @@
 				AC987D401CE8AF9900E11CC5 /* NetworkFetcher+Group.m in Sources */,
 				303519441CCF0B0500EE0750 /* MoneyCell.m in Sources */,
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
+				AC2E04361CEB2D3800476087 /* CouponPictureCell.m in Sources */,
 				ACAC174B1CD8DDCD00E04499 /* ResFood.m in Sources */,
 				AC987D351CE89B8A00E11CC5 /* GroupViewController.m in Sources */,
 				303519571CCF1F9500EE0750 /* TicketHeaderCell.m in Sources */,
@@ -1492,12 +1532,14 @@
 				3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */,
 				30B602081CD2072C003ED671 /* BeautifulDetailViewController.m in Sources */,
 				AC7B3ADC1CDF2D7F0039C2A5 /* LoginViewModel.m in Sources */,
+				AC6A4EE01CEA06D5000DD815 /* CouponDetailViewModel.m in Sources */,
 				ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */,
 				30FD1F9E1CE2C0B8003C91A5 /* MapFloorCell.m in Sources */,
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */,
 				30FD1FAA1CE2D012003C91A5 /* MapHeadView.m in Sources */,
 				30D018131CE6E84400E50B23 /* Activity.m in Sources */,
+				AC2E043C1CEB462F00476087 /* CouponCaseCell.m in Sources */,
 				30D0180D1CE6158400E50B23 /* BeautifulFood.m in Sources */,
 				3086D3B61CC72A09007494D7 /* GMXTextField.m in Sources */,
 				AC90F5A81CD1EB12004C4C55 /* FoodManager.m in Sources */,
@@ -1523,7 +1565,7 @@
 				ACE066931CDB75BF0000D335 /* CommentManager.m in Sources */,
 				303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
-				AC96F2FD1CE997FD001B2DDE /* CouponViewModel.m in Sources */,
+				AC2E04391CEB374E00476087 /* CouponStoreCell.m in Sources */,
 				303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */,
 				30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */,
 			);

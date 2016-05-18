@@ -40,13 +40,23 @@
 
 -(void)fetchMenuData {
     
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachesDirectory = [paths objectAtIndex:0];
+    NSString *archivePath = [cachesDirectory stringByAppendingPathComponent:@"MenuArray.archive"];
+    NSMutableArray *cachedArray = [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
+    
+    if (cachedArray != nil) {
+        self.typeArray = cachedArray;
+        [self.menuSuccessObject sendNext:nil];
+    }
+   
     @weakify(self)
     [NetworkFetcher groupFetchMenuDataWithSuccess:^(NSDictionary *response) {
         if ([response[@"errCode"] isEqualToNumber:@0]) {
-         
+            
             [GroupCategory mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
-                            @"identifier": @"id"
+                         @"identifier": @"id"
                          };
             }];
             @strongify(self)
@@ -66,24 +76,47 @@
     
 }
 
+- (void)cachedMenuData {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachesDirectory = [paths objectAtIndex:0];
+    NSString *archivePath = [cachesDirectory stringByAppendingPathComponent:@"MenuArray.archive"];
+    
+    [NSKeyedArchiver archiveRootObject:self.typeArray toFile:archivePath];
+    
+}
 
 - (void)fetchCouponDataWithType:(NSString *)type
                            sort:(NSString *)sort
                            page:(NSNumber *)page {
     
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachesDirectory = [paths objectAtIndex:0];
+    NSString *archivePath = [cachesDirectory stringByAppendingPathComponent:@"CouponArray.archive"];
+    NSMutableArray *cachedArray = [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
+    
+    if (cachedArray != nil) {
+        self.couponArray = cachedArray;
+        [self.couponSuccessObject sendNext:nil];
+    }
+    
     @weakify(self)
     [NetworkFetcher groupFetchCouponsWithType:type sort:sort page:page capacity:[NSNumber numberWithInteger:self.capacity] success:^(NSDictionary *response) {
-       
+        
         if ([response[@"errCode"] isEqualToNumber:@0]) {
             
             [CouponModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
-                         @"identifier": @"storeId",
+                         @"identifier": @"coupon.id",
                          @"name": @"storeName",
+                         @"address": @"storeAddress",
                          @"price": @"coupon.price",
                          @"purchaseNum": @"coupon.purchaseNum",
                          @"pictureUrl": @"coupon.picUrl",
-                         @"asPrice": @"coupon.asPrice"
+                         @"asPrice": @"coupon.asPrice",
+                         @"abstract": @"coupon.abstract",
+                         @"startTime": @"coupon.startTime",
+                         @"endTime": @"coupon.endTime"
                          };
             }];
             NSInteger totalpage = [response[@"totalNum"] integerValue];
@@ -101,10 +134,28 @@
         }
         
     } failure:^(NSString *error) {
-        
+        [self.errorObject sendNext:@"网络异常"];
     }];
     
 }
+
+- (void)cachedCouponData {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachesDirectory = [paths objectAtIndex:0];
+    NSString *archivePath = [cachesDirectory stringByAppendingPathComponent:@"CouponArray.archive"];
+    
+    NSArray *array = nil;
+    
+    if (self.couponArray.count > 10) {
+        array = [self.couponArray subarrayWithRange:NSMakeRange(0, 9)];
+    }else {
+        array = self.couponArray;
+    }
+    [NSKeyedArchiver archiveRootObject:array toFile:archivePath];
+    
+}
+
 
 - (void)loadMoreCouponDataWithType:(NSString *)type
                               sort:(NSString *)sort
@@ -117,12 +168,14 @@
             
             [CouponModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
-                         @"identifier": @"storeId",
+                         @"identifier": @"coupon.id",
                          @"name": @"storeName",
+                         @"address": @"storeAddress",
                          @"price": @"coupon.price",
                          @"purchaseNum": @"coupon.purchaseNum",
                          @"pictureUrl": @"coupon.picUrl",
-                         @"asPrice": @"coupon.asPrice"
+                         @"asPrice": @"coupon.asPrice",
+                         @"abstract": @"coupon.abstract"
                          };
             }];
             @strongify(self)
@@ -140,7 +193,8 @@
         }
         
     } failure:^(NSString *error) {
-        
+        [self.errorObject sendNext:@"网络异常"];
+
     }];
     
     

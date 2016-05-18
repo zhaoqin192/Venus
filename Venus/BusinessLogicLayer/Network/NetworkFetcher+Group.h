@@ -25,6 +25,7 @@
  *  @param type
  *  @param sort
  *  @param page
+ *  @param capacity
  *  @param success
  *  @param failure
  */
@@ -35,6 +36,30 @@
                           success:(NetworkFetcherSuccessHandler)success
                           failure:(NetworkFetcherErrorHandler)failure;
 
-//+ (void)groupFetchCouponDetailWith
+/**
+ *  团购劵详情接口
+ *
+ *  @param couponID
+ *  @param success
+ *  @param failure
+ */
++ (void)groupFetchCouponDetailWithCouponID:(NSString *)couponID
+                                   success:(NetworkFetcherSuccessHandler)success
+                                   failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  团购劵获取评论接口
+ *
+ *  @param couponID
+ *  @param page
+ *  @param capacity
+ *  @param success
+ *  @param failure
+ */
++ (void)groupFetchCommentsWithCouponID:(NSString *)couponID
+                                  page:(NSNumber *)page
+                              capacity:(NSNumber *)capacity
+                               success:(NetworkFetcherSuccessHandler)success
+                               failure:(NetworkFetcherErrorHandler)failure;
 
 @end

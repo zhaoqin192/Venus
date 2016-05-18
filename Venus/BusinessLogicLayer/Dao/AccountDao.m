@@ -22,7 +22,7 @@
 
 - (instancetype)init{
     self = [super init];
-    self.appDelegate = [[UIApplication sharedApplication] delegate];
+    self.appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     self.appContext = [self.appDelegate managedObjectContext];
     return self;
 }

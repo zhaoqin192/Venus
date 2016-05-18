@@ -35,7 +35,7 @@
         _successObject = [RACSubject subject];
         _failureObject = [RACSubject subject];
         _errorObject = [RACSubject subject];
-        _appDelegate = [[UIApplication sharedApplication] delegate];
+        _appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     }
     return self;
 }

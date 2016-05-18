@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class CouponModel;
+
 @interface CouponViewController : UITableViewController
 
-//@property (nonatomic, stron;g)
+@property (nonatomic, strong) CouponModel *couponModel;
 
 @end

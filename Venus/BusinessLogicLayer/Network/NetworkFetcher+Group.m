@@ -11,7 +11,7 @@
 @implementation NetworkFetcher (Group)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
-static const BOOL LOGDEBUG = YES;
+static const BOOL LOGDEBUG = NO;
 
 + (void)groupFetchMenuDataWithSuccess:(NetworkFetcherSuccessHandler)success
                               failure:(NetworkFetcherErrorHandler)failure {
@@ -66,10 +66,53 @@ static const BOOL LOGDEBUG = YES;
         failure(nil);
     }];
     
+}
+
++ (void)groupFetchCouponDetailWithCouponID:(NSString *)couponID
+                                   success:(NetworkFetcherSuccessHandler)success
+                                   failure:(NetworkFetcherErrorHandler)failure {
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/couponz/customer/getCouponDetail"]];
+    NSDictionary *parameters = @{@"couponId": couponID};
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        failure(nil);
+    }];
+}
+
++ (void)groupFetchCommentsWithCouponID:(NSString *)couponID
+                                  page:(NSNumber *)page
+                              capacity:(NSNumber *)capacity
+                               success:(NetworkFetcherSuccessHandler)success
+                               failure:(NetworkFetcherErrorHandler)failure {
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/couponz/customer/couponComment"]];
+    NSDictionary *parameters = @{@"couponId": couponID, @"page": page, @"capacity": capacity};
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        failure(nil);
+    }];
     
     
 }
-
 
 
 @end

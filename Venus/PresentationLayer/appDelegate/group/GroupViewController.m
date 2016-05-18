@@ -27,7 +27,6 @@
 
 @end
 
-static NSString *CELLIDENTIFIER = @"couponCell";
 
 
 @implementation GroupViewController
@@ -43,11 +42,18 @@ static NSString *CELLIDENTIFIER = @"couponCell";
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    
+    [self.viewModel fetchMenuData];
+    [self.viewModel fetchCouponDataWithType:self.viewModel.type sort:self.viewModel.sort page:[NSNumber numberWithInteger:self.viewModel.currentPage]];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+    
+    [self.viewModel cachedMenuData];
+    [self.viewModel cachedCouponData];
 }
 
 - (void)initMenu {
@@ -114,8 +120,6 @@ static NSString *CELLIDENTIFIER = @"couponCell";
         [hud hide:YES afterDelay:1.5f];
     }];
     
-    [self.viewModel fetchMenuData];
-    [self.viewModel fetchCouponDataWithType:self.viewModel.type sort:self.viewModel.sort page:[NSNumber numberWithInteger:self.viewModel.currentPage]];
     
 }
 
@@ -170,8 +174,8 @@ static NSString *CELLIDENTIFIER = @"couponCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    self.viewModel.couponModel = [self.viewModel.couponArray objectAtIndex:indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 
@@ -260,6 +264,21 @@ static NSString *CELLIDENTIFIER = @"couponCell";
         }
         [self.viewModel fetchCouponDataWithType:self.viewModel.type sort:self.viewModel.sort page:@1];
     }
+}
+
+#pragma mark -prepareForSegue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    
+    if ([segue.identifier isEqualToString:@"couponIdentifier"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        CouponViewController *couponVC = segue.destinationViewController;
+        couponVC.couponModel = [self.viewModel.couponArray objectAtIndex:indexPath.row];
+    }
+    
+    
+    
 }
 
 
