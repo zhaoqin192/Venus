@@ -10,22 +10,27 @@
 #import "Account.h"
 #import "AppDelegate.h"
 
-@implementation AccountDao{
-    AppDelegate *appDelegate;
-    NSManagedObjectContext *appContext;
-}
+@interface AccountDao ()
+
+@property (nonatomic, strong) AppDelegate *appDelegate;
+@property (nonatomic, strong) NSManagedObjectContext *appContext;
+
+@end
+
+@implementation AccountDao
+
 
 - (instancetype)init{
     self = [super init];
-    appDelegate = [[UIApplication sharedApplication] delegate];
-    appContext = [appDelegate managedObjectContext];
+    self.appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    self.appContext = [self.appDelegate managedObjectContext];
     return self;
 }
 
 - (Account *)fetchAccount{
     NSArray *array = [self fetchAccountArray];
     if (array.count == 0) {
-        return [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:appContext];;
+        return [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:self.appContext];;
     }else{
         return [array objectAtIndex:0];
     }
@@ -43,21 +48,21 @@
 - (void)deleteAccount{
     NSArray *array = [self fetchAccountArray];
     if ([array count] != 0) {
-        [appContext deleteObject:[array objectAtIndex:0]];
+        [self.appContext deleteObject:[array objectAtIndex:0]];
     }
 }
 
 - (NSArray *)fetchAccountArray{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:appContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Account" inManagedObjectContext:self.appContext];
     [fetchRequest setEntity:entity];
     NSError *error = nil;
-    NSArray *fetchedObjects = [appContext executeFetchRequest:fetchRequest error:&error];
+    NSArray *fetchedObjects = [self.appContext executeFetchRequest:fetchRequest error:&error];
     return fetchedObjects;
 }
 
 - (void)save{
-    [appDelegate saveContext];
+    [self.appDelegate saveContext];
 }
 
 @end

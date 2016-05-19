@@ -48,7 +48,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     [self configureMenu];
     [self configureTableView];
     
-    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBarHidden = YES;
     self.navigationItem.title = @"外卖";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: GMBrownColor}];
     
@@ -58,7 +58,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
 }
 
 

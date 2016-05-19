@@ -15,7 +15,7 @@
 #import "SignUpViewModel.h"
 
 
-@interface GMRegisterViewController () <UITextFieldDelegate>
+@interface GMRegisterViewController () <UITextFieldDelegate, UIApplicationDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 @property (weak, nonatomic) IBOutlet UIButton *codeButton;
 @property (weak, nonatomic) IBOutlet GMXTextField *codeTF;
@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"手机注册"]];
-    self.appDelegate = [[UIApplication sharedApplication] delegate];
+    self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [self selectTextForTitle];
     [self configureUI];
     

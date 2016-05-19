@@ -25,7 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViewControllers];
+
 }
+
 
 #pragma mark Private_M
 
@@ -34,6 +36,7 @@
     GMNavigationController *meNVC = [[GMNavigationController alloc] initWithRootViewController:meVC];
     
     HomePageViewController *homeVC = [[UIStoryboard storyboardWithName:@"Home" bundle:nil] instantiateInitialViewController];
+
     GMNavigationController *homeNVC = [[GMNavigationController alloc] initWithRootViewController:homeVC];
     
     IndoorSwitchDemo *mapVC = [[IndoorSwitchDemo alloc] init];
@@ -80,5 +83,7 @@
 - (BOOL)tabBarController:(RDVTabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     return YES;
 }
+
+
 
 @end
