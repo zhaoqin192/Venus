@@ -12,10 +12,11 @@
 #import "NetworkFetcher+Food.h"
 #import "FoodManager.h"
 #import "FoodClass.h"
-#import "FoodDetialViewController.h"
+#import "FoodDetailViewController.h"
 #import "Restaurant.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "FoodDetialViewController.h"
+#import "FoodDetailViewController.h"
+#import "RDVTabBarController.h"
 
 
 @interface FoodViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate,UITableViewDelegate,UITableViewDataSource>{
@@ -53,7 +54,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     
     [self initObjects];
     [self networkRequest];
-    
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -163,7 +164,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     Restaurant *restaurant = _restaurantArray[indexPath.row];
-    FoodDetialViewController *foodDetailVC = [[FoodDetialViewController alloc] init];
+    FoodDetailViewController *foodDetailVC = [[FoodDetailViewController alloc] init];
     foodDetailVC.restaurant = restaurant;
     [self.navigationController pushViewController:foodDetailVC animated:YES];
 }

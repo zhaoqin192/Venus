@@ -32,6 +32,7 @@
 #import "MoneyCardViewController.h"
 #import "FoodViewController.h"
 #import "GroupViewController.h"
+#import "RDVTabBarController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate>
 
@@ -60,10 +61,10 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    Account *account = [[[DatabaseManager sharedInstance] accountDao] fetchAccount];
-    if(account.token == nil){
-        self.view.hidden = YES;
-    }
+//    Account *account = [[[DatabaseManager sharedInstance] accountDao] fetchAccount];
+//    if(account.token == nil){
+//        self.view.hidden = YES;
+//    }
     
     self.titleView.backgroundColor = GMRedColor;
     [self configureTableView];
@@ -104,6 +105,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             self.view.hidden = NO;
         }];
     }
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

@@ -10,4 +10,6 @@
 
 @interface MapHeadView : UIView
 + (instancetype)headView;
+@property (nonatomic, copy) void(^newsLabelTapped)();
+@property (nonatomic, copy) void(^discountLabelTapped)();
 @end

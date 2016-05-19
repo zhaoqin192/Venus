@@ -15,12 +15,16 @@
 #import "BeautifulFood.h"
 #import "FoodDetail.h"
 #import "Activity.h"
+#import "Commit.h"
+#import "WXCoupon.h"
 
 @interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, copy) NSString *currentSegmentName;
 @property (nonatomic, copy) NSArray *allFoodArray;
 @property (nonatomic, copy) NSArray *allActivityArray;
+@property (nonatomic, strong) NSMutableArray *allCommitArray;
+@property (nonatomic, copy) NSArray *allCouponsArray;
 @property (nonatomic, strong) UIWebView *webView;
 @end
 
@@ -29,7 +33,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.currentSegmentName = @"店铺首页";
+    self.allCommitArray = [NSMutableArray array];
     [self configureTableView];
+    [SVProgressHUD show];
     [self loadHomeData];
 }
 
@@ -37,11 +43,13 @@
     [super viewWillAppear:animated];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.navigationController setNavigationBarHidden:YES];
+    [self.rdv_tabBarController setTabBarHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
+    [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
 - (void)configureFootView {
@@ -69,15 +77,21 @@
         headview.segmentButtonClicked = ^(NSInteger index) {
             if (index == 0) {
                 self.currentSegmentName = @"店铺首页";
+                [SVProgressHUD dismiss];
+                [SVProgressHUD show];
                 [self loadHomeData];
             }
             else if (index == 1) {
                 self.currentSegmentName = @"全部宝贝";
+                [SVProgressHUD dismiss];
+                [SVProgressHUD show];
                 [self loadFoodItem];
             }
             else {
                 self.currentSegmentName = @"评价";
-                [self.myTableView reloadData];
+                [SVProgressHUD dismiss];
+                [SVProgressHUD show];
+                [self loadCommit];
             }
         };
         headview.foodModel = self.foodModel;
@@ -89,13 +103,17 @@
 
 - (void)configureTableView {
     [self configureHeadView];
-    [self configureFootView];
     self.myTableView.backgroundColor = GMBgColor;
     self.myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([MoneyCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([MoneyCell class])];
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ShopActivityCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopActivityCell class])];
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([FoodContentCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([FoodContentCell class])];
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([ShopCommitCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ShopCommitCell class])];
+   // [self configureFootView];
+}
+
+- (void)dismiss {
+    [SVProgressHUD dismiss];
 }
 
 - (void)loadHomeData {
@@ -110,13 +128,31 @@
         //                     };
         //        }];
         self.allActivityArray = [Activity mj_objectArrayWithKeyValuesArray:responseObject[@"activity"]];
-        [self configureFootView];
-        [self.myTableView reloadData];
+        [self loadCoupons];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
 }
 
+- (void)loadCoupons {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/couponz/customer/storeAndCoupons"]];
+    NSDictionary *parameters = @{@"storeWmId":@(self.foodModel.shopId)};
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        //        [BeautifulFood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        //            return @{
+        //                     @"desp": @"description"
+        //                     };
+        //        }];
+        self.allCouponsArray = [WXCoupon mj_objectArrayWithKeyValuesArray:responseObject[@"coupons"]];
+        [self configureFootView];
+        [self.myTableView reloadData];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
 - (void)loadFoodItem {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/getShopItem"]];
@@ -132,6 +168,32 @@
         self.allFoodArray = [FoodDetail mj_objectArrayWithKeyValuesArray:responseObject[@"items"]];
         self.myTableView.tableFooterView = [[UIView alloc] init];
         [self.myTableView reloadData];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+- (void)loadCommit {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/comment/getStoreComment"]];
+    NSDictionary* parameters = @{
+                                    @"storeId":@(self.foodModel.shopId),
+                                    @"page":@"1",
+                                    @"pageSize":@"20",
+                                };
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        //        [BeautifulFood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        //            return @{
+        //                     @"desp": @"description"
+        //                     };
+        //        }];
+        self.allCommitArray = [Commit mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        self.myTableView.tableFooterView = [[UIView alloc] init];
+        [self.myTableView reloadData];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -153,8 +215,11 @@
         if (section == 1) {
             return self.allActivityArray.count;
         }
+        else {
+            return self.allCouponsArray.count;
+        }
     }
-    return 3;
+    return self.allCommitArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -162,6 +227,7 @@
         switch (indexPath.section) {
             case 0:{
                 MoneyCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MoneyCell class])];
+                cell.foodModel = self.allCouponsArray[indexPath.row];
                 return cell;
             }
                 break;
@@ -178,11 +244,13 @@
         FoodContentCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FoodContentCell class])];
         cell.contentView.backgroundColor = GMBgColor;
         cell.foodModel = self.allFoodArray[indexPath.row];
+        cell.isDisplay = YES;
         return cell;
     }
     else {
         ShopCommitCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ShopCommitCell class])];
-        cell.contentView.backgroundColor = GMBgColor;
+       // cell.contentView.backgroundColor = GMBgColor;
+        cell.foodModel = self.allCommitArray[indexPath.row];
         return cell;
     }
 }

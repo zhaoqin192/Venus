@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *tuanView;
 @property (weak, nonatomic) IBOutlet UIImageView *waiView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *waiConstraint;
+@property (weak, nonatomic) IBOutlet UIView *lineView;
 
 @end
 
@@ -27,6 +28,7 @@
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.lineView.backgroundColor = GMBgColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

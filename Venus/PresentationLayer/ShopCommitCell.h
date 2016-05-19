@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Commit;
 @interface ShopCommitCell : UITableViewCell
-
+@property (nonatomic, strong) Commit *foodModel;
 @end

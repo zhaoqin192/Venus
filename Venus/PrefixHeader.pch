@@ -20,6 +20,8 @@
 #import "NetworkManager.h"
 #import "AFNetworking.h"
 #import "MJExtension.h"
+#import "RDVTabBarItem.h"
+#import "RDVTabBarController.h"
 
 #define GMRedColor [UIColor colorWithHexString:@"B01C2E"]
 #define GMBrownColor [UIColor colorWithHexString:@"A6873B"]

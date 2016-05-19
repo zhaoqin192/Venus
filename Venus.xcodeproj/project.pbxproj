@@ -87,6 +87,11 @@
 		30D0180D1CE6158400E50B23 /* BeautifulFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0180C1CE6158400E50B23 /* BeautifulFood.m */; };
 		30D018101CE6DA6700E50B23 /* FoodDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D0180F1CE6DA6700E50B23 /* FoodDetail.m */; };
 		30D018131CE6E84400E50B23 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018121CE6E84400E50B23 /* Activity.m */; };
+		30D018171CE9859000E50B23 /* Commit.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018161CE9859000E50B23 /* Commit.m */; };
+		30D0181A1CE99F1500E50B23 /* WXCoupon.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018191CE99F1500E50B23 /* WXCoupon.m */; };
+		30D018311CEAF04600E50B23 /* WXMapShopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018301CEAF04600E50B23 /* WXMapShopView.m */; };
+		30D018331CEAF05500E50B23 /* WXMapShopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D018321CEAF05500E50B23 /* WXMapShopView.xib */; };
+		30D018361CEAF55800E50B23 /* WXMapShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D018351CEAF55800E50B23 /* WXMapShopModel.m */; };
 		30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2701CC87ACE00FB0CFC /* ico_make.png */; };
 		30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2721CC87ACE00FB0CFC /* JSDropDownMenu.m */; };
 		30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2781CC87AF500FB0CFC /* FoodViewController.m */; };
@@ -94,8 +99,8 @@
 		30D6D27F1CC87AF500FB0CFC /* FoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D27B1CC87AF500FB0CFC /* FoodCell.m */; };
 		30D6D2801CC87AF500FB0CFC /* FoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D27C1CC87AF500FB0CFC /* FoodCell.xib */; };
 		30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2841CC8917E00FB0CFC /* XFSegementView.m */; };
-		30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2871CC891B500FB0CFC /* FoodDetialViewController.m */; };
-		30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2881CC891B500FB0CFC /* FoodDetialViewController.xib */; };
+		30D6D2891CC891B500FB0CFC /* FoodDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2871CC891B500FB0CFC /* FoodDetailViewController.m */; };
+		30D6D28A1CC891B500FB0CFC /* FoodDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D2881CC891B500FB0CFC /* FoodDetailViewController.xib */; };
 		30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D28C1CC89C7100FB0CFC /* FoodCommitViewController.m */; };
 		30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D6D28D1CC89C7100FB0CFC /* FoodCommitViewController.xib */; };
 		30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D6D2911CC89E6E00FB0CFC /* FoodCommitCell.m */; };
@@ -123,6 +128,12 @@
 		30FD1FC01CE2EFB6003C91A5 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */; };
 		30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */; };
 		3CF4CA9789414D3B550F01BA /* libPods-Venus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B01B89E20396A14693D41C /* libPods-Venus.a */; };
+		7F7025481CE96651009653A6 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025471CE96651009653A6 /* UIButton+Badge.m */; };
+		7F70254E1CEC0682009653A6 /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70254D1CEC0682009653A6 /* CALayer+XibConfiguration.m */; };
+		7F7025521CEC63A2009653A6 /* FoodTrolleyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */; };
+		7F7025531CEC63A2009653A6 /* FoodTrolleyTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7025511CEC63A2009653A6 /* FoodTrolleyTableViewController.xib */; };
+		7F7025571CEC6458009653A6 /* FoodTrolleyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025551CEC6458009653A6 /* FoodTrolleyTableViewCell.m */; };
+		7F7025581CEC6458009653A6 /* FoodTrolleyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7025561CEC6458009653A6 /* FoodTrolleyTableViewCell.xib */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -194,6 +205,12 @@
 		ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB21CBF97F800A962BD /* AppDelegate.m */; };
 		ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBD1CBF97F800A962BD /* Assets.xcassets */; };
 		ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBF1CBF97F800A962BD /* LaunchScreen.storyboard */; };
+		E8226C211CEB52B000980E30 /* FoodPaymentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8226C1F1CEB52B000980E30 /* FoodPaymentCell.m */; };
+		E8226C221CEB52B000980E30 /* FoodPaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8226C201CEB52B000980E30 /* FoodPaymentCell.xib */; };
+		E89BD32D1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89BD32B1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m */; };
+		E89BD32E1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89BD32C1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib */; };
+		E89BD3331CEB1228007CCF49 /* FoodAddAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E89BD3311CEB1228007CCF49 /* FoodAddAddressCell.m */; };
+		E89BD3341CEB1228007CCF49 /* FoodAddAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89BD3321CEB1228007CCF49 /* FoodAddAddressCell.xib */; };
 		E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047B01CDF84070032EE91 /* GMNavigationController.m */; };
 /* End PBXBuildFile section */
 
@@ -341,6 +358,15 @@
 		30D0180F1CE6DA6700E50B23 /* FoodDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetail.m; sourceTree = "<group>"; };
 		30D018111CE6E84400E50B23 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		30D018121CE6E84400E50B23 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		30D018151CE9859000E50B23 /* Commit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commit.h; sourceTree = "<group>"; };
+		30D018161CE9859000E50B23 /* Commit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Commit.m; sourceTree = "<group>"; };
+		30D018181CE99F1500E50B23 /* WXCoupon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXCoupon.h; sourceTree = "<group>"; };
+		30D018191CE99F1500E50B23 /* WXCoupon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXCoupon.m; sourceTree = "<group>"; };
+		30D0182F1CEAF04600E50B23 /* WXMapShopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMapShopView.h; sourceTree = "<group>"; };
+		30D018301CEAF04600E50B23 /* WXMapShopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMapShopView.m; sourceTree = "<group>"; };
+		30D018321CEAF05500E50B23 /* WXMapShopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXMapShopView.xib; sourceTree = "<group>"; };
+		30D018341CEAF55800E50B23 /* WXMapShopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXMapShopModel.h; sourceTree = "<group>"; };
+		30D018351CEAF55800E50B23 /* WXMapShopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXMapShopModel.m; sourceTree = "<group>"; };
 		30D6D2701CC87ACE00FB0CFC /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
 		30D6D2711CC87ACE00FB0CFC /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDropDownMenu.h; sourceTree = "<group>"; };
 		30D6D2721CC87ACE00FB0CFC /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDropDownMenu.m; sourceTree = "<group>"; };
@@ -352,9 +378,9 @@
 		30D6D27C1CC87AF500FB0CFC /* FoodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCell.xib; sourceTree = "<group>"; };
 		30D6D2831CC8917E00FB0CFC /* XFSegementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFSegementView.h; sourceTree = "<group>"; };
 		30D6D2841CC8917E00FB0CFC /* XFSegementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFSegementView.m; sourceTree = "<group>"; };
-		30D6D2861CC891B500FB0CFC /* FoodDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetialViewController.h; sourceTree = "<group>"; };
-		30D6D2871CC891B500FB0CFC /* FoodDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetialViewController.m; sourceTree = "<group>"; };
-		30D6D2881CC891B500FB0CFC /* FoodDetialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodDetialViewController.xib; sourceTree = "<group>"; };
+		30D6D2861CC891B500FB0CFC /* FoodDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetailViewController.h; sourceTree = "<group>"; };
+		30D6D2871CC891B500FB0CFC /* FoodDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetailViewController.m; sourceTree = "<group>"; };
+		30D6D2881CC891B500FB0CFC /* FoodDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodDetailViewController.xib; sourceTree = "<group>"; };
 		30D6D28B1CC89C7100FB0CFC /* FoodCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCommitViewController.h; sourceTree = "<group>"; };
 		30D6D28C1CC89C7100FB0CFC /* FoodCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCommitViewController.m; sourceTree = "<group>"; };
 		30D6D28D1CC89C7100FB0CFC /* FoodCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCommitViewController.xib; sourceTree = "<group>"; };
@@ -395,6 +421,18 @@
 		30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		752E96DBB53D789B7DC8BED6 /* Pods-Venus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.debug.xcconfig"; sourceTree = "<group>"; };
+		7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7F7025461CE96651009653A6 /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
+		7F7025471CE96651009653A6 /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
+		7F70254C1CEC0682009653A6 /* CALayer+XibConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XibConfiguration.h"; sourceTree = "<group>"; };
+		7F70254D1CEC0682009653A6 /* CALayer+XibConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XibConfiguration.m"; sourceTree = "<group>"; };
+		7F70254F1CEC63A2009653A6 /* FoodTrolleyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrolleyTableViewController.h; sourceTree = "<group>"; };
+		7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTrolleyTableViewController.m; sourceTree = "<group>"; };
+		7F7025511CEC63A2009653A6 /* FoodTrolleyTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodTrolleyTableViewController.xib; sourceTree = "<group>"; };
+		7F7025541CEC6458009653A6 /* FoodTrolleyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrolleyTableViewCell.h; sourceTree = "<group>"; };
+		7F7025551CEC6458009653A6 /* FoodTrolleyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTrolleyTableViewCell.m; sourceTree = "<group>"; };
+		7F7025561CEC6458009653A6 /* FoodTrolleyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodTrolleyTableViewCell.xib; sourceTree = "<group>"; };
+		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -521,6 +559,15 @@
 		ACF83EC01CBF97F800A962BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF83EC21CBF97F800A962BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC30EBBFD81544C3DD01918 /* Pods-Venus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.release.xcconfig"; sourceTree = "<group>"; };
+		E8226C1E1CEB52B000980E30 /* FoodPaymentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodPaymentCell.h; sourceTree = "<group>"; };
+		E8226C1F1CEB52B000980E30 /* FoodPaymentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodPaymentCell.m; sourceTree = "<group>"; };
+		E8226C201CEB52B000980E30 /* FoodPaymentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodPaymentCell.xib; sourceTree = "<group>"; };
+		E89BD32A1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodSubmitOrderViewController.h; sourceTree = "<group>"; };
+		E89BD32B1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodSubmitOrderViewController.m; sourceTree = "<group>"; };
+		E89BD32C1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodSubmitOrderViewController.xib; sourceTree = "<group>"; };
+		E89BD3301CEB1228007CCF49 /* FoodAddAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodAddAddressCell.h; sourceTree = "<group>"; };
+		E89BD3311CEB1228007CCF49 /* FoodAddAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddAddressCell.m; sourceTree = "<group>"; };
+		E89BD3321CEB1228007CCF49 /* FoodAddAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodAddAddressCell.xib; sourceTree = "<group>"; };
 		E8F047AF1CDF84070032EE91 /* GMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMNavigationController.h; sourceTree = "<group>"; };
 		E8F047B01CDF84070032EE91 /* GMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -832,6 +879,10 @@
 				30D0180F1CE6DA6700E50B23 /* FoodDetail.m */,
 				30D018111CE6E84400E50B23 /* Activity.h */,
 				30D018121CE6E84400E50B23 /* Activity.m */,
+				30D018151CE9859000E50B23 /* Commit.h */,
+				30D018161CE9859000E50B23 /* Commit.m */,
+				30D018181CE99F1500E50B23 /* WXCoupon.h */,
+				30D018191CE99F1500E50B23 /* WXCoupon.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -864,15 +915,21 @@
 				30D6D2771CC87AF500FB0CFC /* FoodViewController.h */,
 				30D6D2781CC87AF500FB0CFC /* FoodViewController.m */,
 				30D6D2791CC87AF500FB0CFC /* FoodViewController.xib */,
-				30D6D2861CC891B500FB0CFC /* FoodDetialViewController.h */,
-				30D6D2871CC891B500FB0CFC /* FoodDetialViewController.m */,
-				30D6D2881CC891B500FB0CFC /* FoodDetialViewController.xib */,
+				30D6D2861CC891B500FB0CFC /* FoodDetailViewController.h */,
+				30D6D2871CC891B500FB0CFC /* FoodDetailViewController.m */,
+				30D6D2881CC891B500FB0CFC /* FoodDetailViewController.xib */,
 				30D6D28B1CC89C7100FB0CFC /* FoodCommitViewController.h */,
 				30D6D28C1CC89C7100FB0CFC /* FoodCommitViewController.m */,
 				30D6D28D1CC89C7100FB0CFC /* FoodCommitViewController.xib */,
 				30D6D2961CC8A3F700FB0CFC /* FoodOrderViewController.h */,
 				30D6D2971CC8A3F700FB0CFC /* FoodOrderViewController.m */,
 				30D6D2981CC8A3F700FB0CFC /* FoodOrderViewController.xib */,
+				E89BD32A1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.h */,
+				E89BD32B1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m */,
+				E89BD32C1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib */,
+				7F70254F1CEC63A2009653A6 /* FoodTrolleyTableViewController.h */,
+				7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */,
+				7F7025511CEC63A2009653A6 /* FoodTrolleyTableViewController.xib */,
 			);
 			name = food;
 			sourceTree = "<group>";
@@ -907,6 +964,7 @@
 		30D6D2951CC8A3D800FB0CFC /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				E89BD32F1CEB11F6007CCF49 /* submitOrderCell */,
 				30D6D27A1CC87AF500FB0CFC /* FoodCell.h */,
 				30D6D27B1CC87AF500FB0CFC /* FoodCell.m */,
 				30D6D27C1CC87AF500FB0CFC /* FoodCell.xib */,
@@ -919,6 +977,9 @@
 				30D6D2A01CC8B1BF00FB0CFC /* FoodContentCell.h */,
 				30D6D2A11CC8B1BF00FB0CFC /* FoodContentCell.m */,
 				30D6D2A21CC8B1BF00FB0CFC /* FoodContentCell.xib */,
+				7F7025541CEC6458009653A6 /* FoodTrolleyTableViewCell.h */,
+				7F7025551CEC6458009653A6 /* FoodTrolleyTableViewCell.m */,
+				7F7025561CEC6458009653A6 /* FoodTrolleyTableViewCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -933,6 +994,11 @@
 				30FD1FA81CE2D012003C91A5 /* MapHeadView.h */,
 				30FD1FA91CE2D012003C91A5 /* MapHeadView.m */,
 				30FD1FAB1CE2D023003C91A5 /* MapHeadView.xib */,
+				30D0182F1CEAF04600E50B23 /* WXMapShopView.h */,
+				30D018301CEAF04600E50B23 /* WXMapShopView.m */,
+				30D018321CEAF05500E50B23 /* WXMapShopView.xib */,
+				30D018341CEAF55800E50B23 /* WXMapShopModel.h */,
+				30D018351CEAF55800E50B23 /* WXMapShopModel.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -995,6 +1061,26 @@
 				30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */,
 			);
 			name = cell;
+			sourceTree = "<group>";
+		};
+		316E961895E367E514CC9FA4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */,
+				7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7F7025451CE96619009653A6 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7F7025461CE96651009653A6 /* UIButton+Badge.h */,
+				7F7025471CE96651009653A6 /* UIButton+Badge.m */,
+				7F70254C1CEC0682009653A6 /* CALayer+XibConfiguration.h */,
+				7F70254D1CEC0682009653A6 /* CALayer+XibConfiguration.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 		AC03590C1CC4DA7D00EC7BBC /* OtherSDK */ = {
@@ -1303,6 +1389,7 @@
 		ACF83EC91CBF98B500A962BD /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7F7025451CE96619009653A6 /* Category */,
 				30FD1FB61CE2E5B6003C91A5 /* Root */,
 				AC90F5761CD05FF9004C4C55 /* WebView */,
 				ACB78A411CC8678E00354B11 /* PresentationUtility */,
@@ -1363,6 +1450,19 @@
 				10B01B89E20396A14693D41C /* libPods-Venus.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E89BD32F1CEB11F6007CCF49 /* submitOrderCell */ = {
+			isa = PBXGroup;
+			children = (
+				E89BD3301CEB1228007CCF49 /* FoodAddAddressCell.h */,
+				E89BD3311CEB1228007CCF49 /* FoodAddAddressCell.m */,
+				E89BD3321CEB1228007CCF49 /* FoodAddAddressCell.xib */,
+				E8226C1E1CEB52B000980E30 /* FoodPaymentCell.h */,
+				E8226C1F1CEB52B000980E30 /* FoodPaymentCell.m */,
+				E8226C201CEB52B000980E30 /* FoodPaymentCell.xib */,
+			);
+			name = submitOrderCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1446,9 +1546,11 @@
 				AC90F5661CCFA292004C4C55 /* HomeIntroduceCell.xib in Resources */,
 				AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */,
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
+				E89BD3341CEB1228007CCF49 /* FoodAddAddressCell.xib in Resources */,
 				30FD1FB41CE2D432003C91A5 /* WXLifeViewController.xib in Resources */,
 				303519581CCF1F9500EE0750 /* TicketHeaderCell.xib in Resources */,
 				30B602091CD2072C003ED671 /* BeautifulDetailViewController.xib in Resources */,
+				7F7025531CEC63A2009653A6 /* FoodTrolleyTableViewController.xib in Resources */,
 				30D6D29A1CC8A3F700FB0CFC /* FoodOrderViewController.xib in Resources */,
 				30B601F71CD1F92D003ED671 /* BeautifulFoodViewController.xib in Resources */,
 				30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */,
@@ -1456,9 +1558,11 @@
 				3057B1F31CD998C3008172DD /* GMMeCell.xib in Resources */,
 				303519451CCF0B0500EE0750 /* MoneyCell.xib in Resources */,
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
+				30D018331CEAF05500E50B23 /* WXMapShopView.xib in Resources */,
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
 				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
 				30FD1FAC1CE2D023003C91A5 /* MapHeadView.xib in Resources */,
+				7F7025581CEC6458009653A6 /* FoodTrolleyTableViewCell.xib in Resources */,
 				30B601FD1CD1FA94003ED671 /* BeautifulFoodCell.xib in Resources */,
 				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
 				3086D3BB1CC72A1E007494D7 /* GMRegisterViewController.xib in Resources */,
@@ -1481,15 +1585,17 @@
 				30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */,
 				303519621CCF348F00EE0750 /* TicketCountCell.xib in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
-				30D6D28A1CC891B500FB0CFC /* FoodDetialViewController.xib in Resources */,
+				30D6D28A1CC891B500FB0CFC /* FoodDetailViewController.xib in Resources */,
 				303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */,
 				3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */,
+				E89BD32E1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib in Resources */,
 				3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */,
 				30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */,
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
 				AC987D371CE89B9C00E11CC5 /* group.storyboard in Resources */,
 				30B601CB1CD07C54003ED671 /* ShopCycleCell.xib in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
+				E8226C221CEB52B000980E30 /* FoodPaymentCell.xib in Resources */,
 				3086D3D71CC72ABC007494D7 /* HomeCategoryCell.xib in Resources */,
 				30D6D2801CC87AF500FB0CFC /* FoodCell.xib in Resources */,
 				30FD1F4F1CE1A80B003C91A5 /* mapapi.bundle in Resources */,
@@ -1559,6 +1665,7 @@
 				AC2E04331CEAEEC400476087 /* CouponCommentModel.m in Sources */,
 				30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */,
 				ACAC17471CD8DCEB00E04499 /* ResFoodClass.m in Sources */,
+				30D0181A1CE99F1500E50B23 /* WXCoupon.m in Sources */,
 				3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */,
 				30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */,
 				30B601C51CD07BDC003ED671 /* ShopHomeViewController.m in Sources */,
@@ -1568,11 +1675,14 @@
 				AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */,
 				303519511CCF1B3F00EE0750 /* TicketDetailViewController.m in Sources */,
 				30FD1FA51CE2CAE9003C91A5 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				30D018171CE9859000E50B23 /* Commit.m in Sources */,
 				3086D39D1CC7298B007494D7 /* JZMTBtnView.m in Sources */,
 				ACB78A451CC867BC00354B11 /* PresentationUtility.m in Sources */,
+				30D018361CEAF55800E50B23 /* WXMapShopModel.m in Sources */,
 				E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */,
 				3086D3D01CC72ABC007494D7 /* HomePageViewController.m in Sources */,
 				3057B1FF1CD9B9E8008172DD /* RootTabViewController.m in Sources */,
+				7F70254E1CEC0682009653A6 /* CALayer+XibConfiguration.m in Sources */,
 				3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */,
 				3035197C1CCF4CB900EE0750 /* ShopCommitCell.m in Sources */,
 				30B6020D1CD2091C003ED671 /* BeautyDetailHeaderView.m in Sources */,
@@ -1610,6 +1720,7 @@
 				3035196B1CCF393700EE0750 /* TicketCommitCell.m in Sources */,
 				30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */,
 				3086D3A51CC729A9007494D7 /* WXTextField.m in Sources */,
+				E89BD32D1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m in Sources */,
 				3086D3B41CC72A09007494D7 /* GMButton.m in Sources */,
 				30B601CA1CD07C54003ED671 /* ShopCycleCell.m in Sources */,
 				AC987D401CE8AF9900E11CC5 /* NetworkFetcher+Group.m in Sources */,
@@ -1622,11 +1733,13 @@
 				AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */,
 				30FD1FBA1CE2E7C5003C91A5 /* WXCategoryViewController.m in Sources */,
 				303519761CCF4B8A00EE0750 /* ShopCommitViewController.m in Sources */,
+				E89BD3331CEB1228007CCF49 /* FoodAddAddressCell.m in Sources */,
 				30FD1FA61CE2CAE9003C91A5 /* UIView+SDAutoLayout.m in Sources */,
 				30FD1FB31CE2D432003C91A5 /* WXLifeViewController.m in Sources */,
 				AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */,
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,
+				7F7025521CEC63A2009653A6 /* FoodTrolleyTableViewController.m in Sources */,
 				AC90F5861CD08F11004C4C55 /* AdvertisementManager.m in Sources */,
 				30D6D29E1CC8A85B00FB0CFC /* FoodCategoryCell.m in Sources */,
 				30B601F61CD1F92D003ED671 /* BeautifulFoodViewController.m in Sources */,
@@ -1641,6 +1754,7 @@
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */,
 				30FD1FAA1CE2D012003C91A5 /* MapHeadView.m in Sources */,
+				E8226C211CEB52B000980E30 /* FoodPaymentCell.m in Sources */,
 				30D018131CE6E84400E50B23 /* Activity.m in Sources */,
 				AC2E043C1CEB462F00476087 /* CouponCaseCell.m in Sources */,
 				30D0180D1CE6158400E50B23 /* BeautifulFood.m in Sources */,
@@ -1658,6 +1772,8 @@
 				3057B1F21CD998C3008172DD /* GMMeCell.m in Sources */,
 				3086D3BA1CC72A1E007494D7 /* GMRegisterViewController.m in Sources */,
 				30D6D2A31CC8B1BF00FB0CFC /* FoodContentCell.m in Sources */,
+				30D018311CEAF04600E50B23 /* WXMapShopView.m in Sources */,
+				7F7025571CEC6458009653A6 /* FoodTrolleyTableViewCell.m in Sources */,
 				30B601FC1CD1FA94003ED671 /* BeautifulFoodCell.m in Sources */,
 				3086D3D21CC72ABC007494D7 /* HomeNewsCell.m in Sources */,
 				AC90F56A1CCFA4E7004C4C55 /* NetworkFetcher+Home.m in Sources */,
@@ -1665,13 +1781,14 @@
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
 				AC987D441CE8B32A00E11CC5 /* GroupCategory.m in Sources */,
 				303519491CCF0D3000EE0750 /* MoneyCardViewController.m in Sources */,
+				7F7025481CE96651009653A6 /* UIButton+Badge.m in Sources */,
 				ACE066931CDB75BF0000D335 /* CommentManager.m in Sources */,
 				303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
 				AC545F871CED827C00133F25 /* UIViewController+MemoryLeak.m in Sources */,
 				AC2E04391CEB374E00476087 /* CouponStoreCell.m in Sources */,
 				303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */,
-				30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */,
+				30D6D2891CC891B500FB0CFC /* FoodDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1863,7 +1980,7 @@
 				ACF83EC41CBF97F800A962BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		ACF83EC51CBF97F800A962BD /* Build configuration list for PBXNativeTarget "Venus" */ = {
 			isa = XCConfigurationList;
@@ -1872,7 +1989,7 @@
 				ACF83EC71CBF97F800A962BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

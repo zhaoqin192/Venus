@@ -8,6 +8,8 @@
 #import "IndoorSwitchDemo.h"
 #import "MapFloorCell.h"
 #import "MapHeadView.h"
+#import "WXMapShopView.h"
+#import "WXMapShopModel.h"
 
 @interface IndoorSwitchDemo ()<BMKMapViewDelegate> {
     BMKMapView * _mapView;
@@ -18,7 +20,12 @@
     UIButton* stopBtn;
     BMKBaseIndoorMapInfo* _baseIndoorMapInfo;
 }
-
+@property (nonatomic, copy) NSArray *newsArray;
+@property (nonatomic, copy) NSArray *newsPointArray;
+@property (nonatomic, copy) NSArray *discountArray;
+@property (nonatomic, copy) NSArray *discountPointArray;
+@property (nonatomic, copy) NSString *selectType;
+@property (nonatomic, strong) WXMapShopView *shopView;
 @end
 
 @implementation IndoorSwitchDemo
@@ -69,6 +76,8 @@ BMKUserLocation* userLoc;
     [_floorTableView registerClass:[MapFloorCell class] forCellReuseIdentifier:NSStringFromClass([MapFloorCell class])];
     
     [self configureTitleView];
+    [self loadData];
+    [self configureShopView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -87,10 +96,109 @@ BMKUserLocation* userLoc;
     [self.navigationController setNavigationBarHidden:NO];
 }
 
+- (void)configureShopView {
+    self.shopView = [WXMapShopView shopView];
+    self.shopView.frame = CGRectMake(18, 84, [UIScreen mainScreen].bounds.size.width - 36, 180);
+    [self.view addSubview:self.shopView];
+    self.shopView.hidden = YES;
+}
+
 - (void)configureTitleView {
     MapHeadView *headView = [MapHeadView headView];
     headView.frame = CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 64);
     [self.view addSubview:headView];
+    
+    headView.newsLabelTapped = ^{
+        if ([self.selectType isEqualToString:@"新品打折"]) {
+            return ;
+        }
+        self.selectType = @"新品打折";
+        [_mapView removeAnnotations:self.discountPointArray];
+        NSMutableArray *tempArray = [NSMutableArray array];
+        for (WXMapShopModel *model in self.newsArray) {
+            BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
+            CLLocationCoordinate2D coor;
+            coor.latitude = model.lat;
+            coor.longitude = model.lon;
+            annotation.coordinate = coor;
+            annotation.title = model.name;
+            [tempArray addObject:annotation];
+            [_mapView addAnnotation:annotation];
+        }
+        self.newsPointArray = [tempArray copy];
+    };
+    
+    headView.discountLabelTapped = ^{
+        if ([self.selectType isEqualToString:@"满减优惠"]) {
+            return ;
+        }
+        self.selectType = @"满减优惠";
+        [_mapView removeAnnotations:self.newsPointArray];
+        NSMutableArray *tempArray = [NSMutableArray array];
+        for (WXMapShopModel *model in self.discountArray) {
+            BMKPointAnnotation* annotation1 = [[BMKPointAnnotation alloc]init];
+            CLLocationCoordinate2D coor1;
+            coor1.latitude = model.lat;
+            coor1.longitude = model.lon;
+            annotation1.coordinate = coor1;
+            annotation1.title = model.name;
+            [tempArray addObject:annotation1];
+            [_mapView addAnnotation:annotation1];
+        }
+        self.discountPointArray = [tempArray copy];
+    };
+    
+}
+
+- (BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id <BMKAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[BMKPointAnnotation class]]) {
+        static NSString *pinID = @"PIN";
+        BMKPinAnnotationView *newAnnotationView = (BMKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:pinID];
+        if (newAnnotationView == nil) {
+            newAnnotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pinID];
+        }
+        newAnnotationView.annotation = annotation;
+        newAnnotationView.pinColor = BMKPinAnnotationColorPurple;
+        newAnnotationView.animatesDrop = YES;// 设置该标注点动画显示
+        if ([self.selectType isEqualToString:@"新品打折"]) {
+            newAnnotationView.image = [UIImage imageNamed:@"新品带投影"];
+        }
+        else {
+            newAnnotationView.image = [UIImage imageNamed:@"满减带投影"];
+        }
+//        UIButton *btn = [UIButton buttonWithType:UIButtonTypeContactAdd];
+//        [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
+//        newAnnotationView.rightCalloutAccessoryView = btn;
+        
+        return newAnnotationView;
+    }
+    return nil;
+}
+
+//- (void)click{
+//    UIViewController *vc = [[UIViewController alloc] init];
+//    vc.title = @"具体活动介绍页面";
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
+
+- (void)loadData {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/mall/shopping"]];
+    NSDictionary *parameters = @{@"build":@(1),@"floor":@(1)};
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+                [WXMapShopModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                    return @{
+                             @"desp": @"description",
+                             @"identify" : @"id"
+                             };
+                }];
+        self.newsArray = [WXMapShopModel mj_objectArrayWithKeyValuesArray:responseObject[@"new"]];
+        self.discountArray = [WXMapShopModel mj_objectArrayWithKeyValuesArray:responseObject[@"discount"]];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 #pragma mark - UITableViewDataSource&Delegate
@@ -183,16 +291,31 @@ BMKUserLocation* userLoc;
 - (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view
 {
     NSLog(@"didSelectAnnotationView");
+    if ([self.selectType isEqualToString:@"新品打折"]) {
+        NSInteger index = [self.newsPointArray indexOfObject:view.annotation];
+        WXMapShopModel *model = self.newsArray[index];
+        self.shopView.model = model;
+    }
+    else {
+        NSInteger index = [self.discountPointArray indexOfObject:view.annotation];
+        WXMapShopModel *model = self.discountArray[index];
+        self.shopView.model = model;
+    }
+    self.shopView.hidden = NO;
     if (![view.annotation isKindOfClass:[BMKUserLocation class]]) {
         BMKPinAnnotationView* pinView = (BMKPinAnnotationView *)view;
         pinView.pinColor = BMKPinAnnotationColorGreen;
         pinView.animatesDrop = YES;
         pinView.draggable = YES;
+        if ([self.selectType isEqualToString:@"新品打折"]) {
+            pinView.image = [UIImage imageNamed:@"新品带投影"];
+        }
+        else {
+            pinView.image = [UIImage imageNamed:@"满减带投影"];
+        }
     }
-    
-    
-    
 }
+
 - (void)BaseIndoorMapMode:(BMKMapView *)mapView withIn:(BOOL)bFlag withInfo:(BMKBaseIndoorMapInfo* )info
 {
     NSLog(@"BaseIndoorMapMode");
@@ -234,11 +357,16 @@ BMKUserLocation* userLoc;
  */
 - (void)mapView:(BMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate
 {
+    self.shopView.hidden = YES;
     NSLog(@"onClickedMapBlank-latitude==%f,longitude==%f",coordinate.latitude,coordinate.longitude);
     NSString* showmeg = [NSString stringWithFormat:@"您点击了地图空白处(blank click).\r\n当前经度:%f,当前纬度:%f,\r\nZoomLevel=%d;RotateAngle=%d;OverlookAngle=%d", coordinate.longitude,coordinate.latitude,
                          (int)_mapView.zoomLevel,_mapView.rotation,_mapView.overlooking];
     //_showMsgLabel.text = showmeg;
     NSLog(@"*****%@",showmeg);
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    self.shopView.hidden = YES;
 }
 
 @end

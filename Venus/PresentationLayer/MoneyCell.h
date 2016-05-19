@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WXCoupon;
 @interface MoneyCell : UITableViewCell
-
+@property (nonatomic, strong) WXCoupon *foodModel;
 @end
