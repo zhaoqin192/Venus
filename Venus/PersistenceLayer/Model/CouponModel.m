@@ -22,6 +22,7 @@
     [coder encodeObject:self.abstract forKey:@"abstract"];
     [coder encodeObject:self.startTime forKey:@"startTime"];
     [coder encodeObject:self.endTime forKey:@"endTime"];
+    [coder encodeObject:self.phone forKey:@"phone"];
     
 }
 
@@ -39,6 +40,7 @@
         self.abstract = [coder decodeObjectForKey:@"abstract"];
         self.startTime = [coder decodeObjectForKey:@"startTime"];
         self.endTime = [coder decodeObjectForKey:@"endTime"];
+        self.phone = [coder decodeObjectForKey:@"phone"];
     }
     return self;
     

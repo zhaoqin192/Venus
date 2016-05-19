@@ -122,7 +122,7 @@
 		30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FB91CE2E7C5003C91A5 /* WXCategoryViewController.xib */; };
 		30FD1FC01CE2EFB6003C91A5 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */; };
 		30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */; };
-		830FDD1DD6BAF4247564A010 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B804492D81F6BF74F0882CC1 /* libPods.a */; };
+		3CF4CA9789414D3B550F01BA /* libPods-Venus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B01B89E20396A14693D41C /* libPods-Venus.a */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -134,6 +134,15 @@
 		AC2E043F1CEB493E00476087 /* CouponInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E043E1CEB493E00476087 /* CouponInformationCell.m */; };
 		AC2E04421CEB554900476087 /* CouponCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04411CEB554900476087 /* CouponCommentCell.m */; };
 		AC2E04451CEB5DAE00476087 /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */; };
+		AC545F801CED827C00133F25 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AC545F6B1CED827C00133F25 /* .gitignore */; };
+		AC545F811CED827C00133F25 /* NSObject+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F6F1CED827C00133F25 /* NSObject+MemoryLeak.m */; };
+		AC545F821CED827C00133F25 /* UINavigationController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F711CED827C00133F25 /* UINavigationController+MemoryLeak.m */; };
+		AC545F831CED827C00133F25 /* UIPageViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F731CED827C00133F25 /* UIPageViewController+MemoryLeak.m */; };
+		AC545F841CED827C00133F25 /* UISplitViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F751CED827C00133F25 /* UISplitViewController+MemoryLeak.m */; };
+		AC545F851CED827C00133F25 /* UITabBarController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F771CED827C00133F25 /* UITabBarController+MemoryLeak.m */; };
+		AC545F861CED827C00133F25 /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F791CED827C00133F25 /* UIView+MemoryLeak.m */; };
+		AC545F871CED827C00133F25 /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F7B1CED827C00133F25 /* UIViewController+MemoryLeak.m */; };
+		AC545F881CED827C00133F25 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AC545F7F1CED827C00133F25 /* README.md */; };
 		AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */; };
 		AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48C81CCA48CA00724914 /* read_me.txt */; };
 		AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48CE1CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle */; };
@@ -188,7 +197,18 @@
 		E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047B01CDF84070032EE91 /* GMNavigationController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AC545F8A1CED827C00133F25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC545F7C1CED827C00133F25 /* MLeaksFinder.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3ADE16C1C1BD1D600AA4F63;
+			remoteInfo = MLeaksFinder;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		10B01B89E20396A14693D41C /* libPods-Venus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Venus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3025A98C1CCE3F2E00C5EAAB /* GroupPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupPurchaseViewController.h; sourceTree = "<group>"; };
 		3025A98D1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupPurchaseViewController.m; sourceTree = "<group>"; };
 		3025A98E1CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupPurchaseViewController.xib; sourceTree = "<group>"; };
@@ -374,8 +394,7 @@
 		30FD1FBD1CE2EFB6003C91A5 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
 		30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
-		7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		752E96DBB53D789B7DC8BED6 /* Pods-Venus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.debug.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -394,6 +413,24 @@
 		AC2E04411CEB554900476087 /* CouponCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentCell.m; sourceTree = "<group>"; };
 		AC2E04431CEB5DAE00476087 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
 		AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
+		AC545F6B1CED827C00133F25 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		AC545F6D1CED827C00133F25 /* MLeaksFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaksFinder.h; sourceTree = "<group>"; };
+		AC545F6E1CED827C00133F25 /* NSObject+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC545F6F1CED827C00133F25 /* NSObject+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC545F701CED827C00133F25 /* UINavigationController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC545F711CED827C00133F25 /* UINavigationController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC545F721CED827C00133F25 /* UIPageViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC545F731CED827C00133F25 /* UIPageViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC545F741CED827C00133F25 /* UISplitViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC545F751CED827C00133F25 /* UISplitViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC545F761CED827C00133F25 /* UITabBarController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC545F771CED827C00133F25 /* UITabBarController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC545F781CED827C00133F25 /* UIView+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC545F791CED827C00133F25 /* UIView+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC545F7A1CED827C00133F25 /* UIViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC545F7B1CED827C00133F25 /* UIViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC545F7C1CED827C00133F25 /* MLeaksFinder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MLeaksFinder.xcodeproj; sourceTree = "<group>"; };
+		AC545F7F1CED827C00133F25 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		AC5B48C81CCA48CA00724914 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		AC5B48C91CCA48CA00724914 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
@@ -483,7 +520,7 @@
 		ACF83EBD1CBF97F800A962BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF83EC01CBF97F800A962BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF83EC21CBF97F800A962BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B804492D81F6BF74F0882CC1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEC30EBBFD81544C3DD01918 /* Pods-Venus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.release.xcconfig"; sourceTree = "<group>"; };
 		E8F047AF1CDF84070032EE91 /* GMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMNavigationController.h; sourceTree = "<group>"; };
 		E8F047B01CDF84070032EE91 /* GMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -507,7 +544,7 @@
 				30FD1F471CE1A40C003C91A5 /* BaiduMapAPI_Base.framework in Frameworks */,
 				AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */,
 				30FD1F4B1CE1A44D003C91A5 /* BaiduMapAPI_Location.framework in Frameworks */,
-				830FDD1DD6BAF4247564A010 /* libPods.a in Frameworks */,
+				3CF4CA9789414D3B550F01BA /* libPods-Venus.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -960,15 +997,6 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
-		316E961895E367E514CC9FA4 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */,
-				7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		AC03590C1CC4DA7D00EC7BBC /* OtherSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -995,6 +1023,47 @@
 				AC5B48D31CCA49D200724914 /* SDKManager.m */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		AC545F6A1CED827C00133F25 /* MLeaksFinder */ = {
+			isa = PBXGroup;
+			children = (
+				AC545F6B1CED827C00133F25 /* .gitignore */,
+				AC545F6C1CED827C00133F25 /* MLeaksFinder */,
+				AC545F7C1CED827C00133F25 /* MLeaksFinder.xcodeproj */,
+				AC545F7F1CED827C00133F25 /* README.md */,
+			);
+			path = MLeaksFinder;
+			sourceTree = "<group>";
+		};
+		AC545F6C1CED827C00133F25 /* MLeaksFinder */ = {
+			isa = PBXGroup;
+			children = (
+				AC545F6D1CED827C00133F25 /* MLeaksFinder.h */,
+				AC545F6E1CED827C00133F25 /* NSObject+MemoryLeak.h */,
+				AC545F6F1CED827C00133F25 /* NSObject+MemoryLeak.m */,
+				AC545F701CED827C00133F25 /* UINavigationController+MemoryLeak.h */,
+				AC545F711CED827C00133F25 /* UINavigationController+MemoryLeak.m */,
+				AC545F721CED827C00133F25 /* UIPageViewController+MemoryLeak.h */,
+				AC545F731CED827C00133F25 /* UIPageViewController+MemoryLeak.m */,
+				AC545F741CED827C00133F25 /* UISplitViewController+MemoryLeak.h */,
+				AC545F751CED827C00133F25 /* UISplitViewController+MemoryLeak.m */,
+				AC545F761CED827C00133F25 /* UITabBarController+MemoryLeak.h */,
+				AC545F771CED827C00133F25 /* UITabBarController+MemoryLeak.m */,
+				AC545F781CED827C00133F25 /* UIView+MemoryLeak.h */,
+				AC545F791CED827C00133F25 /* UIView+MemoryLeak.m */,
+				AC545F7A1CED827C00133F25 /* UIViewController+MemoryLeak.h */,
+				AC545F7B1CED827C00133F25 /* UIViewController+MemoryLeak.m */,
+			);
+			path = MLeaksFinder;
+			sourceTree = "<group>";
+		};
+		AC545F7D1CED827C00133F25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC545F8B1CED827C00133F25 /* libMLeaksFinder.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		AC6093D81CC3678C004B5767 /* Database */ = {
@@ -1178,10 +1247,11 @@
 		ACF83EA21CBF97F800A962BD = {
 			isa = PBXGroup;
 			children = (
+				AC545F6A1CED827C00133F25 /* MLeaksFinder */,
 				ACF83EAD1CBF97F800A962BD /* Venus */,
 				ACF83EAC1CBF97F800A962BD /* Products */,
-				316E961895E367E514CC9FA4 /* Pods */,
 				E1998CF8726CD7D47CA05772 /* Frameworks */,
+				DACC19ED8D344D1BAE443DAD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1266,6 +1336,15 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		DACC19ED8D344D1BAE443DAD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				752E96DBB53D789B7DC8BED6 /* Pods-Venus.debug.xcconfig */,
+				BEC30EBBFD81544C3DD01918 /* Pods-Venus.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E1998CF8726CD7D47CA05772 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1281,7 +1360,7 @@
 				AC970C861CC4D26100FA171B /* CoreGraphics.framework */,
 				AC970C841CC4D25600FA171B /* SystemConfiguration.framework */,
 				AC970C7C1CC4D23C00FA171B /* Security.framework */,
-				B804492D81F6BF74F0882CC1 /* libPods.a */,
+				10B01B89E20396A14693D41C /* libPods-Venus.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1293,12 +1372,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACF83EC51CBF97F800A962BD /* Build configuration list for PBXNativeTarget "Venus" */;
 			buildPhases = (
-				AEC41FBA2E6AFB17195A561A /* Check Pods Manifest.lock */,
+				D0684A4F182D1DEBE94986A9 /* 📦 Check Pods Manifest.lock */,
 				ACF83EA71CBF97F800A962BD /* Sources */,
 				ACF83EA81CBF97F800A962BD /* Frameworks */,
 				ACF83EA91CBF97F800A962BD /* Resources */,
-				7B155C15DB1756F65496B20C /* Embed Pods Frameworks */,
-				31DF6ED9FF3B1014876683E5 /* Copy Pods Resources */,
+				1B49DFEF7E53A82733D64EBE /* 📦 Embed Pods Frameworks */,
+				F46AE7F528202350513C4545 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1334,12 +1413,28 @@
 			mainGroup = ACF83EA21CBF97F800A962BD;
 			productRefGroup = ACF83EAC1CBF97F800A962BD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AC545F7D1CED827C00133F25 /* Products */;
+					ProjectRef = AC545F7C1CED827C00133F25 /* MLeaksFinder.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ACF83EAA1CBF97F800A962BD /* Venus */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AC545F8B1CED827C00133F25 /* libMLeaksFinder.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMLeaksFinder.a;
+			remoteRef = AC545F8A1CED827C00133F25 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ACF83EA91CBF97F800A962BD /* Resources */ = {
@@ -1380,6 +1475,7 @@
 				3057B1F91CD99B66008172DD /* GMMeOrderCell.xib in Resources */,
 				30D6D29F1CC8A85B00FB0CFC /* FoodCategoryCell.xib in Resources */,
 				30B601C61CD07BDC003ED671 /* ShopHomeViewController.xib in Resources */,
+				AC545F801CED827C00133F25 /* .gitignore in Resources */,
 				30D6D2941CC89E6E00FB0CFC /* FoodCommitCell.xib in Resources */,
 				3057B2071CD9BDC4008172DD /* Home.storyboard in Resources */,
 				30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */,
@@ -1405,49 +1501,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		31DF6ED9FF3B1014876683E5 /* Copy Pods Resources */ = {
+		1B49DFEF7E53A82733D64EBE /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venus/Pods-Venus-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7B155C15DB1756F65496B20C /* Embed Pods Frameworks */ = {
+		D0684A4F182D1DEBE94986A9 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AEC41FBA2E6AFB17195A561A /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F46AE7F528202350513C4545 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venus/Pods-Venus-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1466,6 +1562,8 @@
 				3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */,
 				30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */,
 				30B601C51CD07BDC003ED671 /* ShopHomeViewController.m in Sources */,
+				AC545F851CED827C00133F25 /* UITabBarController+MemoryLeak.m in Sources */,
+				AC545F841CED827C00133F25 /* UISplitViewController+MemoryLeak.m in Sources */,
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
 				AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */,
 				303519511CCF1B3F00EE0750 /* TicketDetailViewController.m in Sources */,
@@ -1485,6 +1583,7 @@
 				AC2E04451CEB5DAE00476087 /* ImageCollectionViewCell.m in Sources */,
 				AC987D471CE8BDD100E11CC5 /* CouponModel.m in Sources */,
 				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
+				AC545F861CED827C00133F25 /* UIView+MemoryLeak.m in Sources */,
 				3057B1ED1CD99221008172DD /* GMMeViewController.m in Sources */,
 				30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */,
 				AC2E04421CEB554900476087 /* CouponCommentCell.m in Sources */,
@@ -1494,16 +1593,20 @@
 				AC7AD4971CC7A6D2004D9B61 /* Account.m in Sources */,
 				3086D3D41CC72ABC007494D7 /* HomeIntroduceCell.m in Sources */,
 				30D018091CE613E000E50B23 /* NSArray+Log.m in Sources */,
+				AC545F821CED827C00133F25 /* UINavigationController+MemoryLeak.m in Sources */,
 				AC90F5A11CD1DDD2004C4C55 /* NetworkFetcher+Food.m in Sources */,
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
 				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
+				AC545F881CED827C00133F25 /* README.md in Sources */,
+				AC545F811CED827C00133F25 /* NSObject+MemoryLeak.m in Sources */,
 				30FD1F441CE1A329003C91A5 /* IndoorSwitchDemo.mm in Sources */,
 				AC987D3B1CE8A95E00E11CC5 /* GroupViewModel.m in Sources */,
 				AC2E043F1CEB493E00476087 /* CouponInformationCell.m in Sources */,
 				AC7B3AD91CDF2C7E0039C2A5 /* SignUpViewModel.m in Sources */,
 				30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */,
 				30D017FF1CE360DE00E50B23 /* ReusableView.m in Sources */,
+				AC545F831CED827C00133F25 /* UIPageViewController+MemoryLeak.m in Sources */,
 				3035196B1CCF393700EE0750 /* TicketCommitCell.m in Sources */,
 				30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */,
 				3086D3A51CC729A9007494D7 /* WXTextField.m in Sources */,
@@ -1565,6 +1668,7 @@
 				ACE066931CDB75BF0000D335 /* CommentManager.m in Sources */,
 				303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
+				AC545F871CED827C00133F25 /* UIViewController+MemoryLeak.m in Sources */,
 				AC2E04391CEB374E00476087 /* CouponStoreCell.m in Sources */,
 				303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */,
 				30D6D2891CC891B500FB0CFC /* FoodDetialViewController.m in Sources */,
@@ -1669,7 +1773,7 @@
 		};
 		ACF83EC61CBF97F800A962BD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 752E96DBB53D789B7DC8BED6 /* Pods-Venus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libstdc++";
@@ -1710,7 +1814,7 @@
 		};
 		ACF83EC71CBF97F800A962BD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7606BA04C8AD458BD6521D32 /* Pods.release.xcconfig */;
+			baseConfigurationReference = BEC30EBBFD81544C3DD01918 /* Pods-Venus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libstdc++";

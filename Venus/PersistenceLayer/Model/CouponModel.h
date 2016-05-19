@@ -20,5 +20,7 @@
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSNumber *startTime;
 @property (nonatomic, strong) NSNumber *endTime;
+@property (nonatomic, strong) NSString *phone;
+
 
 @end

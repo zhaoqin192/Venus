@@ -49,12 +49,13 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+    [super viewWillDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
     
     [self.viewModel cachedMenuData];
     [self.viewModel cachedCouponData];
 }
+
 
 - (void)initMenu {
     

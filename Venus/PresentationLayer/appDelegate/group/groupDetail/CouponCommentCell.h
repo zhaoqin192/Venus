@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class SDWeiXinPhotoContainerView;
+
 @interface CouponCommentCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UILabel *content;
 
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet SDWeiXinPhotoContainerView *pictureContainView;
 @property (nonatomic, strong) NSMutableArray *imageArray;
 
 - (void)updateCollection;
