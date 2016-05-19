@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class FoodForOrdering;
+
 @interface FoodTrolleyTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) FoodForOrdering *food;
+@property (weak, nonatomic) IBOutlet UIButton *minusButton;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 
 @end

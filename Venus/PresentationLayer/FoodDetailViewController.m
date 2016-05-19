@@ -10,11 +10,14 @@
 #import "XFSegementView.h"
 #import "FoodCommitViewController.h"
 #import "FoodOrderViewController.h"
+#import "FoodTrolleyTableViewController.h"
 #import "Restaurant.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "NetworkFetcher+Food.h"
 #import "UIButton+Badge.h"
-
+#import "FoodManager.h"
+#import "ResFoodClass.h"
+#import "ResFood.h"
 
 
 @interface FoodDetailViewController ()<TouchLabelDelegate>{
@@ -26,12 +29,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *noteText;
 @property (weak, nonatomic) IBOutlet UILabel *priceText;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
+@property (weak, nonatomic) IBOutlet UIView *priceView;
 @property (weak, nonatomic) IBOutlet UIButton *trollyButton;
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
 
-
 @property (strong, nonatomic) FoodCommitViewController *commitVC;
 @property (strong, nonatomic) FoodOrderViewController *orderVC;
+@property (strong, nonatomic) FoodTrolleyTableViewController *foodTrolleyTableViewController;
 @property (assign, nonatomic) NSInteger currentVCIndex;
 
 @end
@@ -57,6 +61,7 @@
     
     [NetworkFetcher foodFetcherRestaurantListWithID:_restaurant.identifier sort:@"2" success:^{
         [_orderVC updateOrder];
+        [self configureFoodArray];
     } failure:^(NSString *error) {
         
     }];
@@ -141,7 +146,22 @@
     [self.view addSubview:segementView];
 }
 
-- (void)touchLabelWithIndex:(NSInteger)index{
+- (void)configureFoodArray {
+//    _foodArray = [[NSMutableArray alloc] init];
+//    
+//    FoodManager *foodManager = [FoodManager sharedInstance];
+//    for (ResFoodClass *resFoodClass in foodManager.resFoodClassArray) {
+//        NSMutableArray *foodArray = [[NSMutableArray alloc] init];
+//        for (ResFood *resFood in resFoodClass.foodArray) {
+//            resFood.count
+//            [foodArray addObject:food];
+//        }
+//        [self.foodGroupArray addObject:foodArray];
+//    }
+//    NSLog(@"食物数组现在是：%@",self.foodGroupArray);
+}
+
+- (void)touchLabelWithIndex:(NSInteger)index {
     if (index == _currentVCIndex) {
         return;
     } else {
@@ -149,10 +169,18 @@
             case 0:
                 [self cycleFromViewController:_commitVC toViewController:_orderVC];
                 _currentVCIndex = 0;
+                if (self.priceView.hidden == YES) {
+                    self.priceView.hidden = NO;
+                    self.trollyButton.hidden = NO;
+                }
                 break;
             case 1:
                 [self cycleFromViewController:_orderVC toViewController:_commitVC];
                 _currentVCIndex = 1;
+                if (self.priceView.hidden == NO) {
+                    self.priceView.hidden = YES;
+                    self.trollyButton.hidden = YES;
+                }
             default:
                 break;
         }
@@ -160,10 +188,10 @@
 }
 
 - (void)cycleFromViewController: (UIViewController*) oldVC
-               toViewController: (UIViewController*) newVC {
-    [oldVC willMoveToParentViewController:nil];
+                toViewController: (UIViewController*) newVC {
     [self addChildViewController:newVC];
-    
+    [oldVC willMoveToParentViewController:nil];
+
     [self transitionFromViewController: oldVC toViewController: newVC
                               duration: 0.25 options:UIViewAnimationOptionTransitionNone
                             animations:nil
@@ -177,23 +205,43 @@
 }
 
 - (IBAction)getBackToLastView:(id)sender {
-    
     [self.navigationController popViewControllerAnimated:YES];
     self.navigationController.navigationBarHidden = NO;
-    
 }
 
 - (IBAction)trollyButtonClicked:(id)sender {
-    if (self.shadowView.hidden == YES) {
-        self.shadowView.hidden = NO;
-        [self.view insertSubview:segementView belowSubview:_shadowView];
-        [self.view insertSubview:self.navigationController.navigationBar belowSubview:_shadowView];
-    } else {
-        self.shadowView.hidden = YES;
+    if (_trollyButtonBadgeCount != 0) {
+        // 背景变暗
+        if (self.shadowView.hidden == YES) {
+            self.shadowView.hidden = NO;
+            [self.view insertSubview:segementView belowSubview:_shadowView];
+            [self.view insertSubview:self.navigationController.navigationBar belowSubview:_shadowView];
+        } else {
+            self.shadowView.hidden = YES;
+        }
+        
+//        // 弹出table view
+//        if (_foodTrolleyTableViewController) {
+//            _foodTrolleyTableViewController.view.hidden = !_foodTrolleyTableViewController.view.hidden;
+//        } else {
+//            _foodForTrolleyArray = [[NSMutableArray alloc] init];
+//            for (NSMutableArray *foodArray in _foodGroupArray) {
+//                for (FoodForOrdering *food in foodArray) {
+//                    if (food.foodCount > 0) {
+//                        [_foodForTrolleyArray addObject:food];
+//                    }
+//                }
+//            }
+//            _foodTrolleyTableViewController = [[FoodTrolleyTableViewController alloc] initWithFoodArray:_foodForTrolleyArray];
+//            [self addChildViewController:_foodTrolleyTableViewController];
+//            [_foodTrolleyTableViewController didMoveToParentViewController:self];
+//            CGFloat width = [UIScreen mainScreen].bounds.size.width;
+//            CGFloat height = 32.0 + 22.0 * _foodForTrolleyArray.count;
+//            CGFloat y = [UIScreen mainScreen].bounds.size.height - height - 50.0;
+//            _foodTrolleyTableViewController.view.frame = CGRectMake(0, y, width, height);
+//            [self.view addSubview:_foodTrolleyTableViewController.view];
+//        }
     }
-    
-    
-    
 }
 
 - (IBAction)shadowViewTouched:(id)sender {

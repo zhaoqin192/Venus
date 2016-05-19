@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="FoodTrolleyTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodTrolleyTableViewCell" id="KGk-i7-Jjw" customClass="FoodTrolleyTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -14,41 +14,79 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="黄焖鸡" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yE-Iw-uL2" userLabel="FoodName">
-                        <rect key="frame" x="26" y="11" width="50" height="21"/>
+                        <rect key="frame" x="25" y="11" width="80" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="TXZ-Ne-WMJ"/>
-                            <constraint firstAttribute="width" constant="50" id="agg-tN-Mtz"/>
+                            <constraint firstAttribute="width" constant="80" id="agg-tN-Mtz"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxh-MK-PX3" userLabel="Price">
-                        <rect key="frame" x="134" y="11" width="42" height="21"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3K3-Ov-wKN" userLabel="MinusButton">
+                        <rect key="frame" x="235" y="9" width="26" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="iHT-sJ-yzf"/>
+                            <constraint firstAttribute="width" constant="26" id="uS2-aA-Z8g"/>
+                        </constraints>
+                        <state key="normal" image="减"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlN-eO-1d7" userLabel="AddButton">
+                        <rect key="frame" x="291" y="10" width="24" height="24"/>
+                        <state key="normal" image="加"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKV-oH-Qbf" userLabel="Count">
+                        <rect key="frame" x="266" y="10" width="20" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="MCg-ck-QQW"/>
+                            <constraint firstAttribute="height" constant="24" id="bEc-GU-mag"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3K3-Ov-wKN" userLabel="MinusButton">
-                        <rect key="frame" x="208" y="7" width="46" height="30"/>
-                        <state key="normal" title="Button"/>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlN-eO-1d7" userLabel="AddButton">
-                        <rect key="frame" x="274" y="7" width="46" height="30"/>
-                        <state key="normal" title="Button"/>
-                    </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKV-oH-Qbf" userLabel="Count">
-                        <rect key="frame" x="241" y="11" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥12.3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxh-MK-PX3" userLabel="Price">
+                        <rect key="frame" x="110" y="11" width="100" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="Cu7-Z5-BQb"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Keg-Sc-2qU"/>
+                            <constraint firstAttribute="height" constant="21" id="qcI-Yv-jIj"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="PlN-eO-1d7" secondAttribute="trailing" constant="5" id="B2V-Qb-daG"/>
+                    <constraint firstItem="PlN-eO-1d7" firstAttribute="leading" secondItem="AKV-oH-Qbf" secondAttribute="trailing" constant="5" id="Gh2-IL-1eu"/>
                     <constraint firstItem="1yE-Iw-uL2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HZh-MU-ANO"/>
-                    <constraint firstItem="1yE-Iw-uL2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="XOb-vD-CKZ"/>
+                    <constraint firstItem="3K3-Ov-wKN" firstAttribute="centerY" secondItem="PlN-eO-1d7" secondAttribute="centerY" id="JT2-Kz-89G"/>
+                    <constraint firstItem="Nxh-MK-PX3" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="K4F-Fj-Iw5"/>
+                    <constraint firstItem="AKV-oH-Qbf" firstAttribute="centerY" secondItem="PlN-eO-1d7" secondAttribute="centerY" id="PRt-Ai-gid"/>
+                    <constraint firstItem="Nxh-MK-PX3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="UoS-DI-ez5"/>
+                    <constraint firstItem="1yE-Iw-uL2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="XOb-vD-CKZ"/>
+                    <constraint firstItem="PlN-eO-1d7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cUw-B5-Qe8"/>
+                    <constraint firstItem="AKV-oH-Qbf" firstAttribute="leading" secondItem="3K3-Ov-wKN" secondAttribute="trailing" constant="5" id="kyV-AD-13E"/>
+                    <constraint firstItem="1yE-Iw-uL2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="whH-xs-HBq"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="whH-xs-HBq"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addButton" destination="PlN-eO-1d7" id="7gg-5F-lVW"/>
+                <outlet property="foodCount" destination="AKV-oH-Qbf" id="6UO-hX-yHf"/>
+                <outlet property="foodName" destination="1yE-Iw-uL2" id="E8L-uh-aSR"/>
+                <outlet property="foodTotalPrice" destination="Nxh-MK-PX3" id="dPW-da-F9r"/>
+                <outlet property="minusButton" destination="3K3-Ov-wKN" id="viX-9K-cru"/>
+            </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="减" width="26" height="26"/>
+        <image name="加" width="24" height="24"/>
+    </resources>
 </document>

@@ -1,1 +1,0 @@
-../../../QRCodeReaderViewController/QRCodeReaderViewController/QRCodeReaderView/QRCodeReaderMaskView.h

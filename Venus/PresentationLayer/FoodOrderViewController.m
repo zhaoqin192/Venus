@@ -14,6 +14,7 @@
 #import "ResFoodClass.h"
 #import "ResFood.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "FoodForOrdering.h"
 
 
 @interface FoodOrderViewController () <UITableViewDelegate,UITableViewDataSource>
@@ -26,8 +27,6 @@
 @property (nonatomic, strong) ResFoodClass *resFoodClass;
 @property (nonatomic, strong) ResFood *resFood;
 @property (nonatomic, strong) FoodManager *foodManager;
-@property (nonatomic, strong) NSMutableArray *foodCountArray;
-@property (assign, nonatomic) NSInteger currentFoodClassIndex;
 
 @end
 
@@ -69,7 +68,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (tableView == _dataTableView) {
         if (_foodClassArray) {
-            NSLog(@"section个数为%lu",(unsigned long)_foodClassArray.count);
             return _foodClassArray.count;
         } else {
             return 1;
@@ -104,18 +102,31 @@
 - (void)cellMinusButtonClicked:(id)sender {
     UIButton *button = (UIButton *)sender;
     FoodContentCell *cell = (FoodContentCell *)[[button superview] superview];
+    NSIndexPath *indexPath = [self.dataTableView indexPathForCell:cell];
     if (cell) {
         if (cell.foodCount != 0) {
+            // 控制减button的可用性
             if (cell.foodCount == 1) {
                 cell.minus.enabled = NO;
             }
+            
+            // 减少cell上的数量
             cell.foodCount = cell.foodCount - 1;
+            
+            // 改变parentController
             __weak FoodDetailViewController *foodDetailViewController = (FoodDetailViewController *)self.parentViewController;
-            if (foodDetailViewController) {
-                if (foodDetailViewController.trollyButtonBadgeCount != 0) {
-                    foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount - 1;
-                }
-            }
+//            if (foodDetailViewController) {
+//                if (foodDetailViewController.trollyButtonBadgeCount != 0) {
+//                    foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount - 1;
+//                    if (foodDetailViewController.foodGroupArray) {
+//                        NSMutableArray *foodArray = foodDetailViewController.foodGroupArray[indexPath.section];
+//                        FoodForOrdering *food = (FoodForOrdering *)foodArray[indexPath.row];
+//                        if (food.foodCount > 0) {
+//                            food.foodCount = food.foodCount - 1;
+//                        }
+//                    }
+//                }
+//            }
         }
     }
 }
@@ -123,6 +134,7 @@
 - (void)cellAddButtonClicked:(id)sender {
     UIButton *button = (UIButton *)sender;
     FoodContentCell *cell = (FoodContentCell *)[[button superview] superview];
+    NSIndexPath *indexPath = [self.dataTableView indexPathForCell:cell];
     if (cell) {
         if (cell.foodCount == 0) {
             cell.minus.enabled = YES;
@@ -130,9 +142,14 @@
 
         cell.foodCount = cell.foodCount + 1;
         __weak FoodDetailViewController *foodDetailViewController = (FoodDetailViewController *)self.parentViewController;
-        if (foodDetailViewController) {
-            foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount + 1;
-        }
+//        if (foodDetailViewController) {
+//            foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount + 1;
+//            if (foodDetailViewController.foodGroupArray) {
+//                NSMutableArray *foodArray = foodDetailViewController.foodGroupArray[indexPath.section];
+//                FoodForOrdering *food = (FoodForOrdering *)foodArray[indexPath.row];
+//                food.foodCount = food.foodCount + 1;
+//            }
+//        }
     }
 }
 
@@ -209,7 +226,6 @@
     _foodManager = [FoodManager sharedInstance];
     // 食物类型的数组
     _foodClassArray = _foodManager.resFoodClassArray;
-    NSLog(@"foodClassArray%@",_foodClassArray);
     [self.categoryArray removeAllObjects];
     for (ResFoodClass *resFoodClass in _foodClassArray) {
        [_categoryArray addObject:resFoodClass.name];
@@ -236,7 +252,6 @@
 //    }
 //    _currentFoodClassIndex = 0;
     
-    NSLog(@"array是%@",self.foodCountArray);
     [self.categoryTableView reloadData];
     [self.dataTableView reloadData];
     NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];

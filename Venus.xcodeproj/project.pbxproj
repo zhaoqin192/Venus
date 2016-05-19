@@ -134,6 +134,8 @@
 		7F7025531CEC63A2009653A6 /* FoodTrolleyTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7025511CEC63A2009653A6 /* FoodTrolleyTableViewController.xib */; };
 		7F7025571CEC6458009653A6 /* FoodTrolleyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025551CEC6458009653A6 /* FoodTrolleyTableViewCell.m */; };
 		7F7025581CEC6458009653A6 /* FoodTrolleyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7025561CEC6458009653A6 /* FoodTrolleyTableViewCell.xib */; };
+		7F70255B1CED573C009653A6 /* FoodForOrdering.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70255A1CED573C009653A6 /* FoodForOrdering.m */; };
+		7F70255E1CEDAF31009653A6 /* ResFood+count.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70255D1CEDAF31009653A6 /* ResFood+count.m */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -395,6 +397,10 @@
 		7F7025541CEC6458009653A6 /* FoodTrolleyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodTrolleyTableViewCell.h; sourceTree = "<group>"; };
 		7F7025551CEC6458009653A6 /* FoodTrolleyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTrolleyTableViewCell.m; sourceTree = "<group>"; };
 		7F7025561CEC6458009653A6 /* FoodTrolleyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodTrolleyTableViewCell.xib; sourceTree = "<group>"; };
+		7F7025591CED573C009653A6 /* FoodForOrdering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodForOrdering.h; sourceTree = "<group>"; };
+		7F70255A1CED573C009653A6 /* FoodForOrdering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodForOrdering.m; sourceTree = "<group>"; };
+		7F70255C1CEDAF31009653A6 /* ResFood+count.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ResFood+count.h"; sourceTree = "<group>"; };
+		7F70255D1CEDAF31009653A6 /* ResFood+count.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ResFood+count.m"; sourceTree = "<group>"; };
 		90BDB886ABAAAD5B9A260451 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -682,6 +688,8 @@
 			isa = PBXGroup;
 			children = (
 				3086D3AB1CC729EA007494D7 /* menuData.plist */,
+				7F7025591CED573C009653A6 /* FoodForOrdering.h */,
+				7F70255A1CED573C009653A6 /* FoodForOrdering.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1106,6 +1114,8 @@
 				ACAC174A1CD8DDCD00E04499 /* ResFood.m */,
 				ACE0668D1CDB741C0000D335 /* Comment.h */,
 				ACE0668E1CDB741C0000D335 /* Comment.m */,
+				7F70255C1CEDAF31009653A6 /* ResFood+count.h */,
+				7F70255D1CEDAF31009653A6 /* ResFood+count.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1452,6 +1462,7 @@
 				30D0181A1CE99F1500E50B23 /* WXCoupon.m in Sources */,
 				3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */,
 				30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */,
+				7F70255E1CEDAF31009653A6 /* ResFood+count.m in Sources */,
 				30B601C51CD07BDC003ED671 /* ShopHomeViewController.m in Sources */,
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
 				AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */,
@@ -1501,6 +1512,7 @@
 				30FD1FBA1CE2E7C5003C91A5 /* WXCategoryViewController.m in Sources */,
 				303519761CCF4B8A00EE0750 /* ShopCommitViewController.m in Sources */,
 				E89BD3331CEB1228007CCF49 /* FoodAddAddressCell.m in Sources */,
+				7F70255B1CED573C009653A6 /* FoodForOrdering.m in Sources */,
 				30FD1FA61CE2CAE9003C91A5 /* UIView+SDAutoLayout.m in Sources */,
 				30FD1FB31CE2D432003C91A5 /* WXLifeViewController.m in Sources */,
 				AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */,

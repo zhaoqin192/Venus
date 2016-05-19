@@ -23,4 +23,6 @@
 @property (assign, nonatomic) NSInteger trollyButtonBadgeCount;
 @property (nonatomic, weak) id<FoodDetailDelegate> delegate;
 
+@property (strong, nonatomic) NSMutableArray *foodArray;
+
 @end

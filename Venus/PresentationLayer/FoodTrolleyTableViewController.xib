@@ -6,14 +6,75 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodTrolleyTableViewController">
             <connections>
+                <outlet property="tableView" destination="U7L-xM-GBp" id="cAx-GP-ynt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SN7-N6-Zc0">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shopingbag" translatesAutoresizingMaskIntoConstraints="NO" id="NH4-ua-UHm">
+                            <rect key="frame" x="10" y="6" width="19" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="1hI-9s-g5W"/>
+                                <constraint firstAttribute="width" constant="19" id="eBS-oB-ak9"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购物车" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSU-jk-Rh2">
+                            <rect key="frame" x="37" y="6" width="42" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="42" id="WXS-T5-ZaE"/>
+                                <constraint firstAttribute="height" constant="21" id="pUh-cb-MWm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nd-qr-m0e">
+                            <rect key="frame" x="343" y="5" width="22" height="22"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="22" id="PLg-4t-VYU"/>
+                                <constraint firstAttribute="height" constant="22" id="okJ-uh-isH"/>
+                            </constraints>
+                            <state key="normal" image="dustbin"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ZSU-jk-Rh2" firstAttribute="leading" secondItem="NH4-ua-UHm" secondAttribute="trailing" constant="8" id="2yY-ds-obt"/>
+                        <constraint firstItem="4Nd-qr-m0e" firstAttribute="centerY" secondItem="SN7-N6-Zc0" secondAttribute="centerY" id="3jU-Ti-wXK"/>
+                        <constraint firstItem="ZSU-jk-Rh2" firstAttribute="centerY" secondItem="SN7-N6-Zc0" secondAttribute="centerY" id="K5C-1q-tjE"/>
+                        <constraint firstItem="NH4-ua-UHm" firstAttribute="leading" secondItem="SN7-N6-Zc0" secondAttribute="leading" constant="10" id="TxS-q5-UWl"/>
+                        <constraint firstItem="NH4-ua-UHm" firstAttribute="centerY" secondItem="SN7-N6-Zc0" secondAttribute="centerY" id="U8d-Iy-AN3"/>
+                        <constraint firstAttribute="trailing" secondItem="4Nd-qr-m0e" secondAttribute="trailing" constant="10" id="cld-3c-Ewc"/>
+                        <constraint firstAttribute="height" constant="32" id="sHU-3y-0xH"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U7L-xM-GBp">
+                    <rect key="frame" x="0.0" y="32" width="375" height="635"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="U7L-xM-GBp" secondAttribute="trailing" id="0yb-mh-8SV"/>
+                <constraint firstItem="U7L-xM-GBp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Clt-qv-sgx"/>
+                <constraint firstAttribute="trailing" secondItem="SN7-N6-Zc0" secondAttribute="trailing" id="SuM-T2-dXw"/>
+                <constraint firstAttribute="bottom" secondItem="U7L-xM-GBp" secondAttribute="bottom" id="bc3-2s-poI"/>
+                <constraint firstItem="SN7-N6-Zc0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gPS-Ix-lSF"/>
+                <constraint firstItem="U7L-xM-GBp" firstAttribute="top" secondItem="SN7-N6-Zc0" secondAttribute="bottom" id="guL-OZ-6VM"/>
+                <constraint firstItem="SN7-N6-Zc0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iwm-Si-tq2"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
+    <resources>
+        <image name="dustbin" width="22" height="22"/>
+        <image name="shopingbag" width="19" height="20"/>
+    </resources>
 </document>
