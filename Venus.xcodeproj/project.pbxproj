@@ -13,8 +13,6 @@
 		3025A9951CCE3FD700C5EAAB /* PackageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3025A9931CCE3FD700C5EAAB /* PackageViewController.xib */; };
 		3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025A9971CCE40D800C5EAAB /* PackageCell.m */; };
 		3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3025A9981CCE40D800C5EAAB /* PackageCell.xib */; };
-		303519441CCF0B0500EE0750 /* MoneyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 303519421CCF0B0500EE0750 /* MoneyCell.m */; };
-		303519451CCF0B0500EE0750 /* MoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519431CCF0B0500EE0750 /* MoneyCell.xib */; };
 		303519491CCF0D3000EE0750 /* MoneyCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 303519471CCF0D3000EE0750 /* MoneyCardViewController.m */; };
 		3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303519481CCF0D3000EE0750 /* MoneyCardViewController.xib */; };
 		303519511CCF1B3F00EE0750 /* TicketDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035194F1CCF1B3F00EE0750 /* TicketDetailViewController.m */; };
@@ -70,6 +68,8 @@
 		308E0D6E1CF002200048F38A /* BeautyDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308E0D6C1CF002200048F38A /* BeautyDetailHeaderView.xib */; };
 		308E0D721CF0023C0048F38A /* FoodContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 308E0D701CF0023C0048F38A /* FoodContentCell.m */; };
 		308E0D731CF0023C0048F38A /* FoodContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308E0D711CF0023C0048F38A /* FoodContentCell.xib */; };
+		308E0D771CF003290048F38A /* MoneyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 308E0D751CF003290048F38A /* MoneyCell.m */; };
+		308E0D781CF003290048F38A /* MoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308E0D761CF003290048F38A /* MoneyCell.xib */; };
 		30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601B81CD05DA4003ED671 /* ShopAllViewController.m */; };
 		30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B601B91CD05DA4003ED671 /* ShopAllViewController.xib */; };
 		30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601BE1CD05E88003ED671 /* ShopAllCell.m */; };
@@ -217,9 +217,6 @@
 		3025A9961CCE40D800C5EAAB /* PackageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageCell.h; sourceTree = "<group>"; };
 		3025A9971CCE40D800C5EAAB /* PackageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageCell.m; sourceTree = "<group>"; };
 		3025A9981CCE40D800C5EAAB /* PackageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PackageCell.xib; sourceTree = "<group>"; };
-		303519411CCF0B0500EE0750 /* MoneyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyCell.h; sourceTree = "<group>"; };
-		303519421CCF0B0500EE0750 /* MoneyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyCell.m; sourceTree = "<group>"; };
-		303519431CCF0B0500EE0750 /* MoneyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoneyCell.xib; sourceTree = "<group>"; };
 		303519461CCF0D3000EE0750 /* MoneyCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyCardViewController.h; sourceTree = "<group>"; };
 		303519471CCF0D3000EE0750 /* MoneyCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyCardViewController.m; sourceTree = "<group>"; };
 		303519481CCF0D3000EE0750 /* MoneyCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoneyCardViewController.xib; sourceTree = "<group>"; };
@@ -312,6 +309,9 @@
 		308E0D6F1CF0023C0048F38A /* FoodContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodContentCell.h; sourceTree = "<group>"; };
 		308E0D701CF0023C0048F38A /* FoodContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodContentCell.m; sourceTree = "<group>"; };
 		308E0D711CF0023C0048F38A /* FoodContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodContentCell.xib; sourceTree = "<group>"; };
+		308E0D741CF003290048F38A /* MoneyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyCell.h; sourceTree = "<group>"; };
+		308E0D751CF003290048F38A /* MoneyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyCell.m; sourceTree = "<group>"; };
+		308E0D761CF003290048F38A /* MoneyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoneyCell.xib; sourceTree = "<group>"; };
 		30B601B71CD05DA4003ED671 /* ShopAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopAllViewController.h; sourceTree = "<group>"; };
 		30B601B81CD05DA4003ED671 /* ShopAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopAllViewController.m; sourceTree = "<group>"; };
 		30B601B91CD05DA4003ED671 /* ShopAllViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopAllViewController.xib; sourceTree = "<group>"; };
@@ -585,12 +585,12 @@
 		3025A99B1CCE40E000C5EAAB /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				308E0D741CF003290048F38A /* MoneyCell.h */,
+				308E0D751CF003290048F38A /* MoneyCell.m */,
+				308E0D761CF003290048F38A /* MoneyCell.xib */,
 				3025A9961CCE40D800C5EAAB /* PackageCell.h */,
 				3025A9971CCE40D800C5EAAB /* PackageCell.m */,
 				3025A9981CCE40D800C5EAAB /* PackageCell.xib */,
-				303519411CCF0B0500EE0750 /* MoneyCell.h */,
-				303519421CCF0B0500EE0750 /* MoneyCell.m */,
-				303519431CCF0B0500EE0750 /* MoneyCell.xib */,
 				303519541CCF1F9500EE0750 /* TicketHeaderCell.h */,
 				303519551CCF1F9500EE0750 /* TicketHeaderCell.m */,
 				303519561CCF1F9500EE0750 /* TicketHeaderCell.xib */,
@@ -1455,7 +1455,6 @@
 				30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */,
 				303519721CCF47CE00EE0750 /* ShopViewController.xib in Resources */,
 				3057B1F31CD998C3008172DD /* GMMeCell.xib in Resources */,
-				303519451CCF0B0500EE0750 /* MoneyCell.xib in Resources */,
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
 				30D018331CEAF05500E50B23 /* WXMapShopView.xib in Resources */,
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
@@ -1479,6 +1478,7 @@
 				30B601C61CD07BDC003ED671 /* ShopHomeViewController.xib in Resources */,
 				30D6D2941CC89E6E00FB0CFC /* FoodCommitCell.xib in Resources */,
 				3057B2071CD9BDC4008172DD /* Home.storyboard in Resources */,
+				308E0D781CF003290048F38A /* MoneyCell.xib in Resources */,
 				30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */,
 				303519621CCF348F00EE0750 /* TicketCountCell.xib in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
@@ -1632,7 +1632,6 @@
 				3086D3B41CC72A09007494D7 /* GMButton.m in Sources */,
 				30B601CA1CD07C54003ED671 /* ShopCycleCell.m in Sources */,
 				AC987D401CE8AF9900E11CC5 /* NetworkFetcher+Group.m in Sources */,
-				303519441CCF0B0500EE0750 /* MoneyCell.m in Sources */,
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
 				AC2E04361CEB2D3800476087 /* CouponPictureCell.m in Sources */,
 				ACAC174B1CD8DDCD00E04499 /* ResFood.m in Sources */,
@@ -1661,6 +1660,7 @@
 				30FD1F9E1CE2C0B8003C91A5 /* MapFloorCell.m in Sources */,
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */,
+				308E0D771CF003290048F38A /* MoneyCell.m in Sources */,
 				30FD1FAA1CE2D012003C91A5 /* MapHeadView.m in Sources */,
 				308E0D681CF002070048F38A /* BeautifulDetailViewController.m in Sources */,
 				E8226C211CEB52B000980E30 /* FoodPaymentCell.m in Sources */,
