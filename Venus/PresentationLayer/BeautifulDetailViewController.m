@@ -16,7 +16,8 @@
 #import "FoodDetail.h"
 #import "Activity.h"
 #import "Commit.h"
-#import "WXCoupon.h"
+#import "CouponModel.h"
+#import "CouponViewController.h"
 
 @interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -68,9 +69,9 @@
 - (void)configureHeadView {
     UIView *headView = ({
         UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(0, 0, kScreenWidth, 346);
+        view.frame = CGRectMake(0, 0, kScreenWidth, 362);
         BeautyDetailHeaderView *headview = [BeautyDetailHeaderView headView];
-        headview.frame = CGRectMake(0, 0, kScreenWidth, 346);
+        headview.frame = CGRectMake(0, 0, kScreenWidth, 362);
         headview.returnButtonClicked = ^{
             [self.navigationController popViewControllerAnimated:YES];
         };
@@ -145,7 +146,13 @@
         //                     @"desp": @"description"
         //                     };
         //        }];
-        self.allCouponsArray = [WXCoupon mj_objectArrayWithKeyValuesArray:responseObject[@"coupons"]];
+        [CouponModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"identifier": @"id",
+                     @"pictureUrl": @"picUrl",
+                     };
+        }];
+        self.allCouponsArray = [CouponModel mj_objectArrayWithKeyValuesArray:responseObject[@"coupons"]];
         [self configureFootView];
         [self.myTableView reloadData];
         [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
@@ -220,6 +227,19 @@
         }
     }
     return self.allCommitArray.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.currentSegmentName isEqualToString:@"店铺首页"]) {
+        switch (indexPath.section) {
+            case 0:{
+                CouponViewController *vc = [[UIStoryboard storyboardWithName:@"group" bundle:nil] instantiateViewControllerWithIdentifier:@"CouponViewController"];
+                vc.couponModel = self.allCouponsArray[indexPath.row];
+                [self.navigationController pushViewController:vc animated:YES];
+                break;
+            }
+        }
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
