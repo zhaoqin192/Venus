@@ -20,7 +20,7 @@
     self.sendButton.userInteractionEnabled = YES;
     [self.sendButton bk_whenTapped:^{
         if (self.sendButtonTapped) {
-            self.sendButtonTapped();
+            self.sendButtonTapped(self.textField.text);
         }
     }];
 }

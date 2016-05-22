@@ -121,11 +121,23 @@
    // [self configureFootView];
     self.commitView = [BeautifulCommitView commitView];
     self.commitView.frame = CGRectMake(0, kScreenHeight-48, kScreenWidth, 48);
+    __weak typeof(self)weakSelf = self;
+    self.commitView.sendButtonTapped = ^(NSString *text){
+        NSLog(@"hhaha");
+        [weakSelf sendCommit:text];
+    };
     [self.view addSubview:self.commitView];
 }
 
 - (void)sendCommit:(NSString *)text {
-    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/comment/insertComment"]];
+    NSDictionary *parameters = @{@"storeId":@(self.foodModel.shopId),@"ser_grade":@(5),@"des_grade":@(5),@"content":@"haha",@"itemId":@(0)};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 - (void)dismiss {

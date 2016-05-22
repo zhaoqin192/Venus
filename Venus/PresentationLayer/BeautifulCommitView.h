@@ -10,5 +10,5 @@
 
 @interface BeautifulCommitView : UIView
 + (instancetype) commitView;
-@property (nonatomic, copy) void(^sendButtonTapped)();
+@property (nonatomic, copy) void(^sendButtonTapped)(NSString *text);
 @end
