@@ -70,6 +70,8 @@
 		308E0D731CF0023C0048F38A /* FoodContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308E0D711CF0023C0048F38A /* FoodContentCell.xib */; };
 		308E0D771CF003290048F38A /* MoneyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 308E0D751CF003290048F38A /* MoneyCell.m */; };
 		308E0D781CF003290048F38A /* MoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308E0D761CF003290048F38A /* MoneyCell.xib */; };
+		308E0D811CF1CAB30048F38A /* BeautifulCommitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 308E0D801CF1CAB30048F38A /* BeautifulCommitView.m */; };
+		308E0D831CF1CABF0048F38A /* BeautifulCommitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308E0D821CF1CABF0048F38A /* BeautifulCommitView.xib */; };
 		30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601B81CD05DA4003ED671 /* ShopAllViewController.m */; };
 		30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B601B91CD05DA4003ED671 /* ShopAllViewController.xib */; };
 		30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601BE1CD05E88003ED671 /* ShopAllCell.m */; };
@@ -312,6 +314,9 @@
 		308E0D741CF003290048F38A /* MoneyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyCell.h; sourceTree = "<group>"; };
 		308E0D751CF003290048F38A /* MoneyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyCell.m; sourceTree = "<group>"; };
 		308E0D761CF003290048F38A /* MoneyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoneyCell.xib; sourceTree = "<group>"; };
+		308E0D7F1CF1CAB30048F38A /* BeautifulCommitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulCommitView.h; sourceTree = "<group>"; };
+		308E0D801CF1CAB30048F38A /* BeautifulCommitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulCommitView.m; sourceTree = "<group>"; };
+		308E0D821CF1CABF0048F38A /* BeautifulCommitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeautifulCommitView.xib; sourceTree = "<group>"; };
 		30B601B71CD05DA4003ED671 /* ShopAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopAllViewController.h; sourceTree = "<group>"; };
 		30B601B81CD05DA4003ED671 /* ShopAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopAllViewController.m; sourceTree = "<group>"; };
 		30B601B91CD05DA4003ED671 /* ShopAllViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopAllViewController.xib; sourceTree = "<group>"; };
@@ -823,6 +828,9 @@
 				308E0D6A1CF002200048F38A /* BeautyDetailHeaderView.h */,
 				308E0D6B1CF002200048F38A /* BeautyDetailHeaderView.m */,
 				308E0D6C1CF002200048F38A /* BeautyDetailHeaderView.xib */,
+				308E0D7F1CF1CAB30048F38A /* BeautifulCommitView.h */,
+				308E0D801CF1CAB30048F38A /* BeautifulCommitView.m */,
+				308E0D821CF1CABF0048F38A /* BeautifulCommitView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1482,6 +1490,7 @@
 				30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */,
 				303519621CCF348F00EE0750 /* TicketCountCell.xib in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
+				308E0D831CF1CABF0048F38A /* BeautifulCommitView.xib in Resources */,
 				30D6D28A1CC891B500FB0CFC /* FoodDetailViewController.xib in Resources */,
 				308E0D691CF002070048F38A /* BeautifulDetailViewController.xib in Resources */,
 				303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */,
@@ -1618,6 +1627,7 @@
 				308E0D721CF0023C0048F38A /* FoodContentCell.m in Sources */,
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
 				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
+				308E0D811CF1CAB30048F38A /* BeautifulCommitView.m in Sources */,
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
 				30FD1F441CE1A329003C91A5 /* IndoorSwitchDemo.mm in Sources */,
 				AC987D3B1CE8A95E00E11CC5 /* GroupViewModel.m in Sources */,

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BeautifulCommitView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" 输入评价" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uuJ-mm-wVM">
+                    <rect key="frame" x="6" y="6" width="300" height="36"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="2hf-3K-FrW"/>
+                        <constraint firstAttribute="width" constant="300" id="ASq-r8-rey"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="发送" translatesAutoresizingMaskIntoConstraints="NO" id="7nu-dP-QNs">
+                    <rect key="frame" x="321" y="8" width="39" height="32"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="uuJ-mm-wVM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="6" id="OFh-AZ-e5p"/>
+                <constraint firstItem="uuJ-mm-wVM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="PlL-eD-4aJ"/>
+                <constraint firstAttribute="trailing" secondItem="7nu-dP-QNs" secondAttribute="trailing" constant="15" id="pND-8e-mNr"/>
+                <constraint firstItem="7nu-dP-QNs" firstAttribute="centerY" secondItem="uuJ-mm-wVM" secondAttribute="centerY" id="ycv-Ef-Ss1"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <connections>
+                <outlet property="sendButton" destination="7nu-dP-QNs" id="rqr-JL-VFC"/>
+                <outlet property="textField" destination="uuJ-mm-wVM" id="F2x-Aa-gf6"/>
+            </connections>
+            <point key="canvasLocation" x="297.5" y="406.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="发送" width="39" height="32"/>
+    </resources>
+</document>
