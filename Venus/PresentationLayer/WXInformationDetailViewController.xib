@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXInformationDetailViewController">
+            <connections>
+                <outlet property="textField" destination="pdK-Ar-M9a" id="35V-cu-138"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNO-rb-y2v">
+                    <rect key="frame" x="0.0" y="65" width="375" height="50"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="pdK-Ar-M9a">
+                            <rect key="frame" x="15" y="10" width="300" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="jHU-Mm-abz"/>
+                            </constraints>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="pdK-Ar-M9a" firstAttribute="leading" secondItem="CNO-rb-y2v" secondAttribute="leading" constant="15" id="D4H-uZ-8Zt"/>
+                        <constraint firstItem="pdK-Ar-M9a" firstAttribute="centerY" secondItem="CNO-rb-y2v" secondAttribute="centerY" id="Wfn-CY-RcR"/>
+                        <constraint firstItem="pdK-Ar-M9a" firstAttribute="top" secondItem="CNO-rb-y2v" secondAttribute="top" id="mvH-Rn-O4C"/>
+                        <constraint firstAttribute="trailing" secondItem="pdK-Ar-M9a" secondAttribute="trailing" constant="60" id="reG-ax-vKN"/>
+                        <constraint firstAttribute="height" constant="50" id="zV3-i5-WXe"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="mvH-Rn-O4C"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="CNO-rb-y2v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Y8E-yT-POK"/>
+                <constraint firstAttribute="trailing" secondItem="CNO-rb-y2v" secondAttribute="trailing" id="Zaj-ea-6BS"/>
+                <constraint firstItem="CNO-rb-y2v" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="k4F-5w-nKm"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="228.5" y="409.5"/>
+        </view>
+    </objects>
+</document>
