@@ -44,11 +44,11 @@ PODS:
   - ReactiveCocoa/no-arc (2.3.1)
   - ReactiveCocoa/UI (2.3.1):
     - ReactiveCocoa/Core
-  - SDCycleScrollView (1.62):
+  - SDCycleScrollView (1.64):
     - SDWebImage (~> 3.7)
-  - SDWebImage (3.7.5):
-    - SDWebImage/Core (= 3.7.5)
-  - SDWebImage/Core (3.7.5)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
   - SVProgressHUD (2.0.3)
   - UITableView+FDTemplateLayoutCell (1.4)
   - YFStartView (0.0.1)
@@ -93,13 +93,13 @@ SPEC CHECKSUMS:
   QRCodeReaderViewController: 557e3291d8fe8adf20d62b7f6bd79a3941f8ec31
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   ReactiveCocoa: 3fe9b233ca6db810e86681b5749488564c1179a1
-  SDCycleScrollView: ae016cb4cc4036523917f146ede6f7b11d408f6a
-  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  SDCycleScrollView: 806fedb9342ab03b58b84442f985517b42c7cbb7
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   YFStartView: 0f81260cc7da743133c738d9154e4e7d9cf20314
   YYCategories: 7319e4ba4f4d4dbcec0094abaab540e98f04a65f
 
-PODFILE CHECKSUM: 5bf0946673e82deda30a4c721df1758fc29d2225
+PODFILE CHECKSUM: c9b5a9f82d367ac3a7ef0372c81dd8b9a914dff4
 
 COCOAPODS: 1.0.0

@@ -7,14 +7,14 @@
 //
 
 #import "MoneyCell.h"
-#import "WXCoupon.h"
+#import "CouponModel.h"
 
 @interface MoneyCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
+@property (weak, nonatomic) IBOutlet UILabel *realPriceLabel;
 
 @end
 
@@ -32,12 +32,13 @@
     // Configure the view for the selected state
 }
 
-- (void)setFoodModel:(WXCoupon *)foodModel {
+- (void)setFoodModel:(CouponModel *)foodModel {
     _foodModel = foodModel;
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:foodModel.picUrl]];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:foodModel.pictureUrl]];
     self.nameLabel.text = foodModel.abstract;
-    self.priceLabel.text = [NSString stringWithFormat:@"面值%ld元",(long)foodModel.asPrice];
-    self.numLabel.text = [NSString stringWithFormat:@"已售%ld",(long)foodModel.purchaseNum];
+    self.priceLabel.text = [NSString stringWithFormat:@"面值:￥%@",foodModel.asPrice];
+    self.numLabel.text = [NSString stringWithFormat:@"已售:%@",foodModel.purchaseNum];
+    self.realPriceLabel.text = [NSString stringWithFormat:@"%@元",foodModel.price];
 }
 
 @end

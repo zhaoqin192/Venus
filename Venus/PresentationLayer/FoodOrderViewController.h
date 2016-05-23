@@ -10,6 +10,10 @@
 
 @interface FoodOrderViewController : UIViewController
 
-- (void)updateOrder;
+@property (copy, nonatomic) NSString *restaurantIdentifier;
+@property (strong, nonatomic) NSMutableArray *sections;
+@property (weak, nonatomic) IBOutlet UITableView *dataTableView;
+
+- (instancetype)initWithRestaurantIdentifier:(NSString *)identifier;
 
 @end

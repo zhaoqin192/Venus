@@ -10,35 +10,46 @@
 #import "FoodCategoryCell.h"
 #import "FoodContentCell.h"
 #import "FoodDetailViewController.h"
+#import "NetworkFetcher+Food.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "FoodOrderViewSectionObject.h"
+#import "FoodOrderViewBaseItem.h"
+
 #import "FoodManager.h"
 #import "ResFoodClass.h"
 #import "ResFood.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "ResFood+count.h"
 
 
 @interface FoodOrderViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
-@property (weak, nonatomic) IBOutlet UITableView *dataTableView;
-@property (copy, nonatomic) NSMutableArray *categoryArray;
-@property (nonatomic, copy) NSMutableArray *foodClassArray;
-@property (nonatomic, copy) NSMutableArray *foodArray;
-@property (nonatomic, strong) ResFoodClass *resFoodClass;
-@property (nonatomic, strong) ResFood *resFood;
-@property (nonatomic, strong) FoodManager *foodManager;
-@property (nonatomic, strong) NSMutableArray *foodCountArray;
-@property (assign, nonatomic) NSInteger currentFoodClassIndex;
 
 @end
 
 @implementation FoodOrderViewController
 
+#pragma mark - init methods
+- (instancetype)initWithRestaurantIdentifier:(NSString *)identifier {
+    self = [super init];
+    if (self) {
+        _restaurantIdentifier = identifier;
+    }
+    return self;
+}
+
+#pragma mark - life circle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (_restaurantIdentifier) {
+        [NetworkFetcher foodFetcherRestaurantListWithID:_restaurantIdentifier sort:@"2" success:^{
+            [self configureSections];
+        } failure:^(NSString *error) {
+            NSLog(@"获取食物信息失败,错误是：%@",error);
+        }];
+    }
 
-    _categoryArray = [[NSMutableArray alloc] init];
-    [_categoryArray addObject:@"热门"];
-    [_categoryArray addObject:@"特色菜"];
     [self configureTableView];
 }
 
@@ -58,80 +69,62 @@
 
 #pragma mark <UITableView>
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (tableView == self.categoryTableView) {
-        return _categoryArray.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (tableView == _categoryTableView) {
+        if (self.sections.count == 0) {
+            return 1;
+        } else {
+            return self.sections.count;
+        }
     } else {
-        return [(ResFoodClass *)_foodClassArray[section] foodArray].count;
+        if (self.sections.count > section) {
+            FoodOrderViewSectionObject *sectionObject = self.sections[section];
+            if (sectionObject.items.count == 0) {
+                return 1;
+            } else {
+                return sectionObject.items.count;
+            }
+        } else {
+            return 1;
+        }
     }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (tableView == _dataTableView) {
-        if (_foodClassArray) {
-            NSLog(@"section个数为%lu",(unsigned long)_foodClassArray.count);
-            return _foodClassArray.count;
-        } else {
-            return 1;
-        }
-    } else {
+    if (tableView == _categoryTableView) {
         return 1;
+    } else {
+        if (self.sections.count == 0) {
+            return 1;
+        } else {
+            return self.sections.count;
+        }
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView == _categoryTableView) {
         FoodCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FoodCategoryCell class])];
-        cell.content = _categoryArray[indexPath.row];
+        if (self.sections.count > indexPath.row) {
+            cell.content = [(FoodOrderViewSectionObject *)self.sections[indexPath.row] headerTitle];
+        } else {
+            cell.content = @"";
+        }
         return cell;
     } else {
-        FoodContentCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FoodContentCell class])];
-        
-        ResFoodClass *foodClass = _foodClassArray[indexPath.section];
-        _resFood = foodClass.foodArray[indexPath.row];
-        [cell.pictureUrl sd_setImageWithURL:[NSURL URLWithString:_resFood.pictureUrl]];
-        cell.name.text = _resFood.name;
-        cell.sales.text = [NSString stringWithFormat:@"月销量%@", _resFood.sales];
-        cell.price.text = [NSString stringWithFormat:@"%@元/份", _resFood.price];
-        cell.foodCount = 0;
-        cell.minus.enabled = NO;
-        [cell.minus addTarget:self action:@selector(cellMinusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.add addTarget:self action:@selector(cellAddButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        return cell;
-    }
-}
-
-- (void)cellMinusButtonClicked:(id)sender {
-    UIButton *button = (UIButton *)sender;
-    FoodContentCell *cell = (FoodContentCell *)[[button superview] superview];
-    if (cell) {
-        if (cell.foodCount != 0) {
-            if (cell.foodCount == 1) {
-                cell.minus.enabled = NO;
+        if (self.sections.count > indexPath.section) {
+            FoodContentCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FoodContentCell class])];
+            FoodOrderViewSectionObject *sectionObject = (FoodOrderViewSectionObject *)self.sections[indexPath.section];
+            if (sectionObject.items.count > indexPath.row) {
+                cell.baseItem = (FoodOrderViewBaseItem *)sectionObject.items[indexPath.row];
             }
-            cell.foodCount = cell.foodCount - 1;
-            __weak FoodDetailViewController *foodDetailViewController = (FoodDetailViewController *)self.parentViewController;
-            if (foodDetailViewController) {
-                if (foodDetailViewController.trollyButtonBadgeCount != 0) {
-                    foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount - 1;
-                }
-            }
-        }
-    }
-}
-
-- (void)cellAddButtonClicked:(id)sender {
-    UIButton *button = (UIButton *)sender;
-    FoodContentCell *cell = (FoodContentCell *)[[button superview] superview];
-    if (cell) {
-        if (cell.foodCount == 0) {
-            cell.minus.enabled = YES;
-        }
-
-        cell.foodCount = cell.foodCount + 1;
-        __weak FoodDetailViewController *foodDetailViewController = (FoodDetailViewController *)self.parentViewController;
-        if (foodDetailViewController) {
-            foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount + 1;
+            [cell.minus addTarget:self action:@selector(cellMinusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.add addTarget:self action:@selector(cellAddButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            cell.minus.enabled = NO;
+            return cell;
+        } else {
+            UITableViewCell *cell = [[UITableViewCell alloc] init];
+            return cell;
         }
     }
 }
@@ -142,11 +135,12 @@
         view.backgroundColor = [UIColor colorWithRed:168.0/255.0 green:127.0/255.0 blue:14.0/255.0 alpha:0.34];
         UILabel *title = [[UILabel alloc] init];
         title.frame = CGRectMake(10, 0, 100, 22);
-        if (_foodClassArray[section]) {
-            title.text = [(ResFoodClass *)_foodClassArray[section] name];
-        }
         title.textColor = [UIColor colorWithWhite:0.3 alpha:0.8];
         title.font = [UIFont systemFontOfSize:12.0];
+        
+        if (self.sections.count > section) {
+            title.text = [(FoodOrderViewSectionObject *)self.sections[section] headerTitle];
+        }
         [view addSubview:title];
         return view;
     } else {
@@ -177,13 +171,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == _categoryTableView) {
         [self.dataTableView scrollToRow:0 inSection:indexPath.row atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-        
-//        _resFoodClass = _foodManager.resFoodClassArray[indexPath.row];
-//        _currentFoodClassIndex = indexPath.row;
-//        _foodArray = _resFoodClass.foodArray;
-//        [_dataTableView reloadData];
-    } else {
-        _resFood = _foodArray[indexPath.row];
     }
 }
 
@@ -205,40 +192,84 @@
     }
 }
 
-- (void)updateOrder {
-    _foodManager = [FoodManager sharedInstance];
-    // 食物类型的数组
-    _foodClassArray = _foodManager.resFoodClassArray;
-    NSLog(@"foodClassArray%@",_foodClassArray);
-    [self.categoryArray removeAllObjects];
-    for (ResFoodClass *resFoodClass in _foodClassArray) {
-       [_categoryArray addObject:resFoodClass.name];
-    }
-    // 第一个食物类型
-    _resFoodClass = _foodClassArray[0];
-    // 该食物类型下的所有食物
-    _foodArray = _resFoodClass.foodArray;
-    if ([_foodArray count] != 0) {
-        _resFoodClass = _foodClassArray[0];
-    }
+#pragma mark - event response
+- (void)cellMinusButtonClicked:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    FoodContentCell *cell = (FoodContentCell *)[[[button superview] superview] superview];
+    NSIndexPath *indexPath = [self.dataTableView indexPathForCell:cell];
     
-//    _foodCountArray = [[NSMutableArray alloc] init];
-//    if (_foodClassArray.count != 0) {
-//        for (int i = 0; i < _foodClassArray.count; i++) {
-//            NSMutableArray *countArray = [[NSMutableArray alloc] init];
-//            if ([(ResFoodClass *)_foodClassArray[i] foodArray].count != 0) {
-//                for (int j = 0; j < [(ResFoodClass *)_foodClassArray[i] foodArray].count; j++) {
-//                    [countArray addObject:[NSNumber numberWithInt:0]];
-//                }
-//                [_foodCountArray addObject:countArray];
-//            }
-//        }
-//    }
-//    _currentFoodClassIndex = 0;
-    
-    NSLog(@"array是%@",self.foodCountArray);
-    [self.categoryTableView reloadData];
+    if (cell) {
+        if (cell.foodCount != 0) {
+            // 控制减button的可用性
+            if (cell.foodCount == 1) {
+                cell.minus.enabled = NO;
+            }
+            
+            // 减少cell上的数量
+            FoodOrderViewSectionObject *sectionObject = (FoodOrderViewSectionObject *)self.sections[indexPath.section];
+            FoodOrderViewBaseItem *baseItem = (FoodOrderViewBaseItem *)sectionObject.items[indexPath.row];
+            baseItem.orderCount = baseItem.orderCount - 1;
+            cell.foodCount = baseItem.orderCount;
+            // 改变parentController
+            __weak FoodDetailViewController *foodDetailViewController = (FoodDetailViewController *)self.parentViewController;
+            if (foodDetailViewController) {
+                if (foodDetailViewController.trollyButtonBadgeCount != 0) {
+                    foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount - 1;
+                }
+            }
+        }
+    }
+}
+
+- (void)cellAddButtonClicked:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    FoodContentCell *cell = (FoodContentCell *)[[[button superview] superview] superview];
+    NSIndexPath *indexPath = [self.dataTableView indexPathForCell:cell];
+    if (cell) {
+        if (cell.foodCount == 0) {
+            cell.minus.enabled = YES;
+        }
+        
+        FoodOrderViewSectionObject *sectionObject = (FoodOrderViewSectionObject *)self.sections[indexPath.section];
+        FoodOrderViewBaseItem *baseItem = (FoodOrderViewBaseItem *)sectionObject.items[indexPath.row];
+        baseItem.orderCount = baseItem.orderCount + 1;
+        cell.foodCount = baseItem.orderCount;
+        
+        __weak FoodDetailViewController *foodDetailViewController = (FoodDetailViewController *)self.parentViewController;
+        if (foodDetailViewController) {
+            foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount + 1;
+        }
+    }
+}
+
+#pragma mark - private methods
+
+
+#pragma mark - getters and setters
+
+- (NSMutableArray *)sections {
+    if (_sections) {
+        return _sections;
+    } else {
+        _sections = [[NSMutableArray alloc] init];
+        return _sections;
+    }
+}
+
+- (void)configureSections {
+    FoodManager *foodManager = [FoodManager sharedInstance];
+    NSMutableArray *foodClassArray = foodManager.resFoodClassArray;
+    for (ResFoodClass *resFoodClass in foodClassArray) {
+        FoodOrderViewSectionObject *sectionObject = [[FoodOrderViewSectionObject alloc] init];
+        sectionObject.headerTitle = resFoodClass.name;
+        for (ResFood *food in resFoodClass.foodArray) {
+            FoodOrderViewBaseItem *baseItem = [[FoodOrderViewBaseItem alloc] initWithResFood:food];
+            [sectionObject.items addObject:baseItem];
+        }
+        [self.sections addObject:sectionObject];
+    }
     [self.dataTableView reloadData];
+    [self.categoryTableView reloadData];
     NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
     [self.categoryTableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionBottom];
 }

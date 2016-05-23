@@ -10,4 +10,7 @@
 
 @interface FoodTrolleyTableViewController : UIViewController
 
+@property (strong, nonatomic) NSMutableArray *foodArray;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end

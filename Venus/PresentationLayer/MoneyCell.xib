@@ -31,7 +31,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="面值100元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQq-aG-gXK">
-                        <rect key="frame" x="164" y="51" width="80" height="15"/>
+                        <rect key="frame" x="164" y="28" width="80" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="Ksb-ty-KSo"/>
                             <constraint firstAttribute="width" constant="80" id="saR-mX-y6G"/>
@@ -41,7 +41,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已售1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEa-Mw-xab">
-                        <rect key="frame" x="164" y="74" width="73" height="15"/>
+                        <rect key="frame" x="164" y="51" width="73" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="MPn-xF-kVm"/>
                             <constraint firstAttribute="width" constant="73" id="Sv0-Sk-vin"/>
@@ -50,26 +50,22 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址：A座3f-1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3t-iW-1TQ">
-                        <rect key="frame" x="164" y="28" width="141" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="141" id="PZt-dT-BS4"/>
-                            <constraint firstAttribute="height" constant="15" id="SIj-1K-lgM"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6000元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNZ-LR-LvS">
+                        <rect key="frame" x="164" y="74" width="56" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="QQq-aG-gXK" firstAttribute="leading" secondItem="s3t-iW-1TQ" secondAttribute="leading" id="6Q2-xZ-LIh"/>
-                    <constraint firstItem="s3t-iW-1TQ" firstAttribute="top" secondItem="XDk-om-gQi" secondAttribute="bottom" constant="8" id="9SF-He-Pry"/>
+                    <constraint firstItem="fNZ-LR-LvS" firstAttribute="top" secondItem="pEa-Mw-xab" secondAttribute="bottom" constant="8" id="6jq-qU-oYJ"/>
+                    <constraint firstItem="fNZ-LR-LvS" firstAttribute="leading" secondItem="pEa-Mw-xab" secondAttribute="leading" id="BOa-Na-9X1"/>
+                    <constraint firstItem="QQq-aG-gXK" firstAttribute="leading" secondItem="XDk-om-gQi" secondAttribute="leading" id="D3v-UI-UcH"/>
                     <constraint firstAttribute="bottom" secondItem="zd3-lA-04z" secondAttribute="bottom" constant="5" id="DEG-KS-FYe"/>
                     <constraint firstItem="XDk-om-gQi" firstAttribute="leading" secondItem="zd3-lA-04z" secondAttribute="trailing" constant="8" id="FPy-Xf-U7d"/>
-                    <constraint firstItem="s3t-iW-1TQ" firstAttribute="leading" secondItem="XDk-om-gQi" secondAttribute="leading" id="M5W-K3-mNo"/>
+                    <constraint firstItem="QQq-aG-gXK" firstAttribute="top" secondItem="XDk-om-gQi" secondAttribute="bottom" constant="8" id="U4v-3Z-CI5"/>
                     <constraint firstItem="XDk-om-gQi" firstAttribute="top" secondItem="zd3-lA-04z" secondAttribute="top" id="Wi3-zj-YXo"/>
                     <constraint firstItem="zd3-lA-04z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="dFG-jc-eV3"/>
-                    <constraint firstItem="QQq-aG-gXK" firstAttribute="top" secondItem="s3t-iW-1TQ" secondAttribute="bottom" constant="8" id="eKO-Ba-QXN"/>
                     <constraint firstItem="pEa-Mw-xab" firstAttribute="leading" secondItem="QQq-aG-gXK" secondAttribute="leading" id="gWl-If-wff"/>
                     <constraint firstItem="pEa-Mw-xab" firstAttribute="top" secondItem="QQq-aG-gXK" secondAttribute="bottom" constant="8" id="k3e-NW-Msk"/>
                     <constraint firstItem="zd3-lA-04z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="pWq-oT-jBx"/>
@@ -82,11 +78,11 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="addressLabel" destination="s3t-iW-1TQ" id="Cd8-RA-d8T"/>
                 <outlet property="iconView" destination="zd3-lA-04z" id="Fnw-TM-azp"/>
                 <outlet property="nameLabel" destination="XDk-om-gQi" id="Byf-Kh-e9z"/>
                 <outlet property="numLabel" destination="pEa-Mw-xab" id="skw-u1-PJg"/>
                 <outlet property="priceLabel" destination="QQq-aG-gXK" id="rbE-Qe-1GY"/>
+                <outlet property="realPriceLabel" destination="fNZ-LR-LvS" id="ps5-7c-vrV"/>
             </connections>
             <point key="canvasLocation" x="256.5" y="404"/>
         </tableViewCell>

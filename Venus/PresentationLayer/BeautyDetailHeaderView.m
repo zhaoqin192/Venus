@@ -7,57 +7,98 @@
 //
 
 #import "BeautyDetailHeaderView.h"
-#import "XFSegementView.h"
 #import "BeautifulFood.h"
 
-@interface BeautyDetailHeaderView ()<TouchLabelDelegate>{
-    XFSegementView *segementView;
-}
+@interface BeautyDetailHeaderView ()
+@property (weak, nonatomic) IBOutlet UIView *commitView;
+@property (weak, nonatomic) IBOutlet UIView *babyView;
+@property (weak, nonatomic) IBOutlet UIView *shopView;
 @property (weak, nonatomic) IBOutlet GMLabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *waiView;
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (weak, nonatomic) IBOutlet UIView *locateView;
+@property (nonatomic, strong) UIView *selectView;
 @end
 
 @implementation BeautyDetailHeaderView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self configureSegmentView];
+- (void)awakeFromNib {
+    [self configureSegmentView];
+}
+
+- (void)configureSegmentView {
+    self.selectView = self.shopView;
+    [self configureSelectWithView:self.shopView select:YES];
+    [self configureSelectWithView:self.babyView select:NO];
+    [self configureSelectWithView:self.commitView select:NO];
+    
+    self.shopView.userInteractionEnabled = YES;
+    [self.shopView bk_whenTapped:^{
+        NSLog(@"shop");
+        [self configureViewTapped:self.shopView];
+    }];
+    
+    self.babyView.userInteractionEnabled = YES;
+    [self.babyView bk_whenTapped:^{
+        NSLog(@"babay");
+        [self configureViewTapped:self.babyView];
+    }];
+    
+    self.commitView.userInteractionEnabled = YES;
+    [self.commitView bk_whenTapped:^{
+        [self configureViewTapped:self.commitView];
+    }];
+}
+
+- (void)configureViewTapped:(UIView *)view {
+    NSLog(@"configure tapped");
+    if (self.selectView == view) {
+        return ;
     }
-    return  self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self configureSegmentView];
-    }
-    return self;
-}
-
-- (void)configureSegmentView{
-    segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 296, [UIScreen mainScreen].bounds.size.width, 40)];
-    segementView.titleArray = @[@"店铺首页",@"全部宝贝",@"评价"];
-    segementView.titleColor = [UIColor lightGrayColor];
-    segementView.haveRightLine = YES;
-    segementView.separateColor = [UIColor grayColor];
-    [segementView.scrollLine setBackgroundColor:GMBrownColor];
-    segementView.titleSelectedColor = GMBrownColor;
-    segementView.touchDelegate = self;
-    segementView.backgroundColor = [UIColor whiteColor];
-    [segementView selectLabelWithIndex:0];
-    [self addSubview:segementView];
-}
-
-- (void)touchLabelWithIndex:(NSInteger)index{
-    if (self.segmentButtonClicked) {
-        self.segmentButtonClicked(index);
+    else {
+        NSLog(@"%d",view.tag/10 -1);
+        [self configureSelectWithView:self.selectView select:NO];
+        self.selectView = view;
+        [self configureSelectWithView:self.selectView select:YES];
+        if (self.segmentButtonClicked) {
+            self.segmentButtonClicked(view.tag/10 -1);
+        }
     }
 }
 
+- (void)configureSelectWithView:(UIView *)view select:(BOOL)select {
+    if (select) {
+        UILabel *label = [view viewWithTag:view.tag + 2];
+        [label setTextColor:GMBrownColor];
+        UIView *lineView = [view viewWithTag:view.tag + 3];
+        lineView.backgroundColor = GMBrownColor;
+        lineView.hidden = NO;
+        UIImageView *imageView = [view viewWithTag:view.tag + 1];
+        imageView.image = [UIImage imageNamed:@"店铺选中"];
+        if (view.tag == 20) {
+            imageView.image = [UIImage imageNamed:@"全部宝贝选中"];
+        }
+        if (view.tag == 30) {
+            imageView.image = [UIImage imageNamed:@"评价选中"];
+        }
+    }
+    else {
+        UILabel *label = [view viewWithTag:view.tag + 2];
+        [label setTextColor:GMFontColor];
+        UIView *lineView = [view viewWithTag:view.tag + 3];
+        lineView.hidden = YES;
+        UIImageView *imageView = [view viewWithTag:view.tag + 1];
+        imageView.image = [UIImage imageNamed:@"店铺"];
+        if (view.tag == 20) {
+            imageView.image = [UIImage imageNamed:@"全部宝贝"];
+        }
+        if (view.tag == 30) {
+            imageView.image = [UIImage imageNamed:@"评价"];
+        }
+    }
+}
 
 + (instancetype)headView {
     BeautyDetailHeaderView *view = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([BeautyDetailHeaderView class]) owner:nil options:nil] firstObject];

@@ -29,8 +29,8 @@
  */
 
 /*
- * 当前版本为1.61
- * 更新日期：2016.03.31
+ * 当前版本为1.62
+ * 更新日期：2016.04.21
  */
 
 #import <UIKit/UIKit.h>
@@ -108,8 +108,11 @@ typedef enum {
 
 @property (nonatomic, weak) id<SDCycleScrollViewDelegate> delegate;
 
-/** block监听点击方式 */
+/** block方式监听点击 */
 @property (nonatomic, copy) void (^clickItemOperationBlock)(NSInteger currentIndex);
+
+/** block方式监听滚动 */
+@property (nonatomic, copy) void (^itemDidScrollOperationBlock)(NSInteger currentIndex);
 
 
 

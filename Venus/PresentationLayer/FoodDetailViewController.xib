@@ -9,6 +9,7 @@
                 <outlet property="noteText" destination="il8-vW-bLt" id="bbe-yp-Yxi"/>
                 <outlet property="placeholderView" destination="xyL-lI-SDN" id="him-gn-Luq"/>
                 <outlet property="priceText" destination="Gld-nC-Hgy" id="6cF-i8-NvY"/>
+                <outlet property="priceView" destination="0yf-uN-Isd" id="VrI-L9-5qV"/>
                 <outlet property="restaurantPic" destination="ffW-IQ-1mr" id="41L-X6-wyP"/>
                 <outlet property="salesText" destination="pJn-3P-OnH" id="JZf-C9-p75"/>
                 <outlet property="shadowView" destination="FPh-bZ-HuZ" id="LV8-Hl-JGP"/>
@@ -23,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyL-lI-SDN" userLabel="placeholderView">
-                    <rect key="frame" x="0.0" y="180" width="375" height="438"/>
+                    <rect key="frame" x="0.0" y="180" width="375" height="437"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDY-8c-1Zy">
@@ -139,18 +140,18 @@
                     </variation>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FPh-bZ-HuZ" userLabel="ShadowView">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                     <color key="backgroundColor" white="0.0" alpha="0.7967403017241379" colorSpace="calibratedWhite"/>
                     <gestureRecognizers/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="0Fl-Qp-4Dq" appends="YES" id="7WW-99-qXm"/>
                     </connections>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yf-uN-Isd">
-                    <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yf-uN-Isd" userLabel="PriceView">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共68元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jb-h3-h0S">
-                            <rect key="frame" x="88" y="14" width="66" height="21"/>
+                            <rect key="frame" x="88" y="15" width="66" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="66" id="cSR-KE-7EI"/>
                                 <constraint firstAttribute="height" constant="21" id="rJ1-Zb-ge5"/>
@@ -160,7 +161,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcj-Lx-l9y">
-                            <rect key="frame" x="240" y="6" width="120" height="36"/>
+                            <rect key="frame" x="240" y="7" width="120" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="pZv-fw-OWJ"/>
                                 <constraint firstAttribute="width" constant="120" id="tyq-vS-Lcd"/>
@@ -186,7 +187,7 @@
                         <constraint firstAttribute="bottom" secondItem="1jb-h3-h0S" secondAttribute="bottom" constant="14" id="Qqc-L1-abp"/>
                         <constraint firstAttribute="trailing" secondItem="xcj-Lx-l9y" secondAttribute="trailing" constant="15" id="ZOs-Oa-Mew"/>
                         <constraint firstAttribute="bottom" secondItem="xcj-Lx-l9y" secondAttribute="bottom" constant="7" id="cJb-IJ-pe8"/>
-                        <constraint firstAttribute="height" constant="49" id="tcF-vT-e3C"/>
+                        <constraint firstAttribute="height" constant="50" id="tcF-vT-e3C"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="The-hj-Ksk" userLabel="购物车">

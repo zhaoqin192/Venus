@@ -10,15 +10,20 @@
 #import "XFSegementView.h"
 #import "FoodCommitViewController.h"
 #import "FoodOrderViewController.h"
+#import "FoodTrolleyTableViewController.h"
 #import "Restaurant.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "NetworkFetcher+Food.h"
+//#import "NetworkFetcher+Food.h"
 #import "UIButton+Badge.h"
-
+#import "FoodOrderViewSectionObject.h"
+#import "FoodOrderViewBaseItem.h"
+//#import "FoodManager.h"
+//#import "ResFoodClass.h"
+//#import "ResFood.h"
 
 
 @interface FoodDetailViewController ()<TouchLabelDelegate>{
-    XFSegementView *segementView;
+    XFSegementView *_segementView;
 }
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UIImageView *restaurantPic;
@@ -26,58 +31,41 @@
 @property (weak, nonatomic) IBOutlet UILabel *noteText;
 @property (weak, nonatomic) IBOutlet UILabel *priceText;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
+@property (weak, nonatomic) IBOutlet UIView *priceView;
 @property (weak, nonatomic) IBOutlet UIButton *trollyButton;
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
 
-
 @property (strong, nonatomic) FoodCommitViewController *commitVC;
-@property (strong, nonatomic) FoodOrderViewController *orderVC;
+
+@property (strong, nonatomic) FoodTrolleyTableViewController *foodTrolleyTableViewController;
 @property (assign, nonatomic) NSInteger currentVCIndex;
 
 @end
 
 @implementation FoodDetailViewController
 
+#pragma mark - life circle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.titleView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Group 11"]];
-    [self configureChildController];
-    [self configureSegmentView];
-    _trollyButtonBadgeCount = 0;
-    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
-    
     [self initViews];
     
-    [NetworkFetcher foodFetcherRestaurantListWithID:_restaurant.identifier sort:@"2" success:^{
-        [_orderVC updateOrder];
-    } failure:^(NSString *error) {
-        
-    }];
-    
-    [NetworkFetcher foodFetcherCommentListWithID:_restaurant.identifier level:@"0" success:^{
-        
-    } failure:^(NSString *error) {
-        
-    }];
-    
-}
+    [self configureChildController];
+    [self.view addSubview:[self segementView]];
 
-- (void)initViews {
-    self.salesText.text = [@"月销量 " stringByAppendingString:_restaurant.sales];
-    self.noteText.text = [@"通知:" stringByAppendingString:_restaurant.describer];
-    self.priceText.text = [NSString stringWithFormat:@"起送价￥%@ 配送费￥%@ 配送时间%@分钟", _restaurant.basePrice, _restaurant.packFee, _restaurant.costTime];
-    [self.restaurantPic sd_setImageWithURL:[NSURL URLWithString:_restaurant.pictureUrl]];
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+    // 移动到commentController
+//    [NetworkFetcher foodFetcherCommentListWithID:_restaurant.identifier level:@"0" success:^{
+//        
+//    } failure:^(NSString *error) {
+//        
+//    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -95,6 +83,7 @@
     self.navigationController.navigationBar.translucent = NO;
 }
 
+#pragma mark - event response
 - (void)enterStore {
     
 }
@@ -103,45 +92,7 @@
     
 }
 
-- (void)setTrollyButtonBadgeCount: (NSInteger)trollyButtonBadgeCount {
-    _trollyButtonBadgeCount = trollyButtonBadgeCount;
-    if (trollyButtonBadgeCount != 0) {
-        _trollyButton.badgeValue = [NSString stringWithFormat:@"%ld",(long)trollyButtonBadgeCount];
-        _trollyButton.badgeBGColor = GMBrownColor;
-        _trollyButton.badgeOriginX = _trollyButton.frame.size.width * 0.5;
-        _trollyButton.badgeOriginY = _trollyButton.frame.size.height * 0.2;
-    } else {
-        _trollyButton.badgeValue = nil;
-    }
-}
-
-- (void)configureChildController {
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.commitVC = [[FoodCommitViewController alloc] init];
-    self.commitVC.restaurant = _restaurant;
-    self.orderVC = [[FoodOrderViewController alloc] init];
-    [self addChildViewController:self.orderVC];
-    [self.orderVC didMoveToParentViewController:self];
-    
-    [self.orderVC.view setFrame:self.placeholderView.bounds];
-    [self.placeholderView addSubview:self.orderVC.view];
-}
-
-- (void)configureSegmentView {
-    segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 140, [UIScreen mainScreen].bounds.size.width, 40)];
-    segementView.titleArray = @[@"点菜",@"评论"];
-    segementView.titleColor = [UIColor lightGrayColor];
-    segementView.haveRightLine = YES;
-    segementView.separateColor = [UIColor grayColor];
-    [segementView.scrollLine setBackgroundColor:GMBrownColor];
-    segementView.titleSelectedColor = GMBrownColor;
-    segementView.touchDelegate = self;
-    [segementView selectLabelWithIndex:0];
-    _currentVCIndex = 0;
-    [self.view addSubview:segementView];
-}
-
-- (void)touchLabelWithIndex:(NSInteger)index{
+- (void)touchLabelWithIndex:(NSInteger)index {
     if (index == _currentVCIndex) {
         return;
     } else {
@@ -149,20 +100,113 @@
             case 0:
                 [self cycleFromViewController:_commitVC toViewController:_orderVC];
                 _currentVCIndex = 0;
+                if (self.priceView.hidden == YES) {
+                    self.priceView.hidden = NO;
+                    self.trollyButton.hidden = NO;
+                }
                 break;
             case 1:
                 [self cycleFromViewController:_orderVC toViewController:_commitVC];
                 _currentVCIndex = 1;
+                if (self.priceView.hidden == NO) {
+                    self.priceView.hidden = YES;
+                    self.trollyButton.hidden = YES;
+                }
             default:
                 break;
         }
     }
 }
 
+- (IBAction)getBackToLastView:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+    self.navigationController.navigationBarHidden = NO;
+}
+
+- (IBAction)trollyButtonClicked:(id)sender {
+    if (_trollyButtonBadgeCount != 0) {
+        // 背景变暗
+        if (self.shadowView.hidden == YES) {
+            self.shadowView.hidden = NO;
+            [self.view insertSubview:_segementView belowSubview:_shadowView];
+            [self.view insertSubview:self.navigationController.navigationBar belowSubview:_shadowView];
+        } else {
+            self.shadowView.hidden = YES;
+        }
+        
+        // 弹出table view
+        if (_foodTrolleyTableViewController) {
+            [_foodTrolleyTableViewController.foodArray removeAllObjects];
+            for (FoodOrderViewSectionObject *sectionObject in _orderVC.sections) {
+                for (FoodOrderViewBaseItem *baseItem in sectionObject.items) {
+                    if (baseItem.orderCount > 0) {
+                        [_foodTrolleyTableViewController.foodArray addObject:baseItem];
+                    }
+                }
+            }
+            
+            CGFloat width = [UIScreen mainScreen].bounds.size.width;
+            CGFloat height = 32.0 + 40.0 * _foodTrolleyTableViewController.foodArray.count + 20.0;
+            CGFloat y = [UIScreen mainScreen].bounds.size.height - height - 50.0;
+            _foodTrolleyTableViewController.view.frame = CGRectMake(0, y, width, height);
+            
+            [_foodTrolleyTableViewController.tableView reloadData];
+            _foodTrolleyTableViewController.view.hidden = !_foodTrolleyTableViewController.view.hidden;
+        } else {
+            _foodTrolleyTableViewController = [[FoodTrolleyTableViewController alloc] init];
+            [self addChildViewController:_foodTrolleyTableViewController];
+            [_foodTrolleyTableViewController didMoveToParentViewController:self];
+            
+            for (FoodOrderViewSectionObject *sectionObject in _orderVC.sections) {
+                for (FoodOrderViewBaseItem *baseItem in sectionObject.items) {
+                    if (baseItem.orderCount > 0) {
+                        [_foodTrolleyTableViewController.foodArray addObject:baseItem];
+                    }
+                }
+            }
+            
+            CGFloat width = [UIScreen mainScreen].bounds.size.width;
+            CGFloat height = 32.0 + 40.0 * _foodTrolleyTableViewController.foodArray.count + 25.0;
+            CGFloat y = [UIScreen mainScreen].bounds.size.height - height - 50.0;
+            _foodTrolleyTableViewController.view.frame = CGRectMake(0, y, width, height);
+            [self.view insertSubview:_foodTrolleyTableViewController.view belowSubview:self.trollyButton];
+        }
+    }
+}
+
+- (IBAction)shadowViewTouched:(id)sender {
+    [self trollyButtonClicked:sender];
+}
+
+#pragma mark - private methods
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+- (void)initViews {
+    self.salesText.text = [@"月销量 " stringByAppendingString:_restaurant.sales];
+    self.noteText.text = [@"通知:" stringByAppendingString:_restaurant.describer];
+    self.priceText.text = [NSString stringWithFormat:@"起送价￥%@ 配送费￥%@ 配送时间%@分钟", _restaurant.basePrice, _restaurant.packFee, _restaurant.costTime];
+    [self.restaurantPic sd_setImageWithURL:[NSURL URLWithString:_restaurant.pictureUrl]];
+}
+
+- (void)configureChildController {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.commitVC = [[FoodCommitViewController alloc] init];
+    self.commitVC.restaurant = _restaurant;
+    self.orderVC = [[FoodOrderViewController alloc] initWithRestaurantIdentifier:_restaurant.identifier];
+    [self addChildViewController:self.orderVC];
+    [self.orderVC didMoveToParentViewController:self];
+    
+    [self.orderVC.view setFrame:self.placeholderView.bounds];
+    [self.placeholderView addSubview:self.orderVC.view];
+}
+
 - (void)cycleFromViewController: (UIViewController*) oldVC
                toViewController: (UIViewController*) newVC {
-    [oldVC willMoveToParentViewController:nil];
     [self addChildViewController:newVC];
+    [oldVC willMoveToParentViewController:nil];
     
     [self transitionFromViewController: oldVC toViewController: newVC
                               duration: 0.25 options:UIViewAnimationOptionTransitionNone
@@ -176,28 +220,41 @@
                             }];
 }
 
-- (IBAction)getBackToLastView:(id)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    self.navigationController.navigationBarHidden = NO;
-    
-}
-
-- (IBAction)trollyButtonClicked:(id)sender {
-    if (self.shadowView.hidden == YES) {
-        self.shadowView.hidden = NO;
-        [self.view insertSubview:segementView belowSubview:_shadowView];
-        [self.view insertSubview:self.navigationController.navigationBar belowSubview:_shadowView];
-    } else {
-        self.shadowView.hidden = YES;
-    }
-    
-    
-    
-}
-
-- (IBAction)shadowViewTouched:(id)sender {
+- (void)deleteTrolly {
     self.shadowView.hidden = YES;
+    self.foodTrolleyTableViewController.view.hidden = YES;
+}
+
+#pragma mark - getters and setters
+
+- (void)setTrollyButtonBadgeCount: (NSInteger)trollyButtonBadgeCount {
+    _trollyButtonBadgeCount = trollyButtonBadgeCount;
+    if (trollyButtonBadgeCount != 0) {
+        _trollyButton.badgeValue = [NSString stringWithFormat:@"%ld",(long)trollyButtonBadgeCount];
+        _trollyButton.badgeBGColor = GMBrownColor;
+        _trollyButton.badgeOriginX = _trollyButton.frame.size.width * 0.5;
+        _trollyButton.badgeOriginY = _trollyButton.frame.size.height * 0.2;
+    } else {
+        _trollyButton.badgeValue = nil;
+    }
+}
+
+- (XFSegementView *)segementView {
+    if (_segementView) {
+        return _segementView;
+    } else {
+        _segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 140, [UIScreen mainScreen].bounds.size.width, 40)];
+        _segementView.titleArray = @[@"点菜",@"评论"];
+        _segementView.titleColor = [UIColor lightGrayColor];
+        _segementView.haveRightLine = YES;
+        _segementView.separateColor = [UIColor grayColor];
+        [_segementView.scrollLine setBackgroundColor:GMBrownColor];
+        _segementView.titleSelectedColor = GMBrownColor;
+        _segementView.touchDelegate = self;
+        [_segementView selectLabelWithIndex:0];
+        _currentVCIndex = 0;
+        return _segementView;
+    }
 }
 
 @end
