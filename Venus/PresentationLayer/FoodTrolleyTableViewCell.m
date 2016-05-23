@@ -7,7 +7,7 @@
 //
 
 #import "FoodTrolleyTableViewCell.h"
-#import "FoodForOrdering.h"
+#import "FoodOrderViewBaseItem.h"
 
 @interface FoodTrolleyTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *foodName;
@@ -22,17 +22,17 @@
 + (instancetype)cellWithTableView:(UITableView *)tableView {
     static NSString *identifier = @"FoodTrolleyTableViewCell";
     FoodTrolleyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell) {
+    if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"FoodTrolleyTableViewCell" owner:nil options:nil] firstObject];
     }
     return cell;
 }
 
-- (void)setFood:(FoodForOrdering *)food {
+- (void)setFood:(FoodOrderViewBaseItem *)food {
     _food = food;
-    _foodTotalPrice.text = [NSString stringWithFormat:@"￥%f",food.foodTotalPrice];
-    _foodName.text = food.foodName;
-    _foodCount.text = [NSString stringWithFormat:@"%li",(long)food.foodCount];
+    _foodName.text = food.name;
+    _foodTotalPrice.text = [NSString stringWithFormat:@"￥%.2f",(CGFloat)(food.unitPrice * food.orderCount)];
+    _foodCount.text = [NSString stringWithFormat:@"%li",(long)food.orderCount];
 }
 
 - (void)awakeFromNib {
@@ -45,5 +45,7 @@
 
     // Configure the view for the selected state
 }
+
+#pragma mark - getters and setters
 
 @end

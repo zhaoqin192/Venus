@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class ResFood;
+
 @interface FoodOrderViewBaseItem : NSObject
+
+@property (copy, nonatomic) NSString *pictureURL;
+@property (copy, nonatomic) NSString *name;
+@property (assign, nonatomic) NSInteger soldCount;
+@property (assign, nonatomic) CGFloat unitPrice;
+@property (assign, nonatomic) NSInteger orderCount;
+
+- (instancetype)initWithResFood:(ResFood *)resFood;
 
 @end

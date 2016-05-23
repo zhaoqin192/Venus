@@ -8,6 +8,7 @@
 
 #import "FoodContentCell.h"
 #import "FoodDetail.h"
+#import "FoodOrderViewBaseItem.h"
 
 @interface FoodContentCell ()
 @property (weak, nonatomic) IBOutlet UIView *countView;
@@ -39,6 +40,15 @@
     self.name.text = foodModel.name;
     self.price.text = [NSString stringWithFormat:@"%ld/份",(long)foodModel.price];
     self.sales.hidden = YES;
+}
+
+- (void)setBaseItem:(FoodOrderViewBaseItem *)baseItem {
+    _baseItem = baseItem;
+    [self.pictureUrl sd_setImageWithURL:[NSURL URLWithString:baseItem.pictureURL]];
+    self.name.text = baseItem.name;
+    self.price.text = [NSString stringWithFormat:@"%li元/份",(long)baseItem.unitPrice];
+    self.sales.text = [NSString stringWithFormat:@"月销量%li",(long)baseItem.soldCount];
+    self.count.text = [NSString stringWithFormat:@"%li",(long)baseItem.orderCount];
 }
 
 @end

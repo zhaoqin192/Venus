@@ -137,6 +137,8 @@
 		7F7025581CEC6458009653A6 /* FoodTrolleyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7025561CEC6458009653A6 /* FoodTrolleyTableViewCell.xib */; };
 		7F70255B1CED573C009653A6 /* FoodForOrdering.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70255A1CED573C009653A6 /* FoodForOrdering.m */; };
 		7F70255E1CEDAF31009653A6 /* ResFood+count.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70255D1CEDAF31009653A6 /* ResFood+count.m */; };
+		7F7025611CF2C7A6009653A6 /* FoodOrderViewSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025601CF2C7A6009653A6 /* FoodOrderViewSectionObject.m */; };
+		7F7025641CF2C814009653A6 /* FoodOrderViewBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025631CF2C814009653A6 /* FoodOrderViewBaseItem.m */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -420,6 +422,10 @@
 		7F70255A1CED573C009653A6 /* FoodForOrdering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodForOrdering.m; sourceTree = "<group>"; };
 		7F70255C1CEDAF31009653A6 /* ResFood+count.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ResFood+count.h"; sourceTree = "<group>"; };
 		7F70255D1CEDAF31009653A6 /* ResFood+count.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ResFood+count.m"; sourceTree = "<group>"; };
+		7F70255F1CF2C7A6009653A6 /* FoodOrderViewSectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodOrderViewSectionObject.h; sourceTree = "<group>"; };
+		7F7025601CF2C7A6009653A6 /* FoodOrderViewSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodOrderViewSectionObject.m; sourceTree = "<group>"; };
+		7F7025621CF2C814009653A6 /* FoodOrderViewBaseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodOrderViewBaseItem.h; sourceTree = "<group>"; };
+		7F7025631CF2C814009653A6 /* FoodOrderViewBaseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodOrderViewBaseItem.m; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -890,18 +896,22 @@
 				30D6D2861CC891B500FB0CFC /* FoodDetailViewController.h */,
 				30D6D2871CC891B500FB0CFC /* FoodDetailViewController.m */,
 				30D6D2881CC891B500FB0CFC /* FoodDetailViewController.xib */,
-				30D6D28B1CC89C7100FB0CFC /* FoodCommitViewController.h */,
-				30D6D28C1CC89C7100FB0CFC /* FoodCommitViewController.m */,
-				30D6D28D1CC89C7100FB0CFC /* FoodCommitViewController.xib */,
 				30D6D2961CC8A3F700FB0CFC /* FoodOrderViewController.h */,
 				30D6D2971CC8A3F700FB0CFC /* FoodOrderViewController.m */,
 				30D6D2981CC8A3F700FB0CFC /* FoodOrderViewController.xib */,
-				E89BD32A1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.h */,
-				E89BD32B1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m */,
-				E89BD32C1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib */,
+				7F70255F1CF2C7A6009653A6 /* FoodOrderViewSectionObject.h */,
+				7F7025601CF2C7A6009653A6 /* FoodOrderViewSectionObject.m */,
+				7F7025621CF2C814009653A6 /* FoodOrderViewBaseItem.h */,
+				7F7025631CF2C814009653A6 /* FoodOrderViewBaseItem.m */,
 				7F70254F1CEC63A2009653A6 /* FoodTrolleyTableViewController.h */,
 				7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */,
 				7F7025511CEC63A2009653A6 /* FoodTrolleyTableViewController.xib */,
+				30D6D28B1CC89C7100FB0CFC /* FoodCommitViewController.h */,
+				30D6D28C1CC89C7100FB0CFC /* FoodCommitViewController.m */,
+				30D6D28D1CC89C7100FB0CFC /* FoodCommitViewController.xib */,
+				E89BD32A1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.h */,
+				E89BD32B1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m */,
+				E89BD32C1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib */,
 			);
 			name = food;
 			sourceTree = "<group>";
@@ -1612,6 +1622,7 @@
 				AC96F2F91CE9963F001B2DDE /* CouponViewController.m in Sources */,
 				AC2E04451CEB5DAE00476087 /* ImageCollectionViewCell.m in Sources */,
 				AC987D471CE8BDD100E11CC5 /* CouponModel.m in Sources */,
+				7F7025611CF2C7A6009653A6 /* FoodOrderViewSectionObject.m in Sources */,
 				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
 				3057B1ED1CD99221008172DD /* GMMeViewController.m in Sources */,
 				30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */,
@@ -1676,6 +1687,7 @@
 				E8226C211CEB52B000980E30 /* FoodPaymentCell.m in Sources */,
 				30D018131CE6E84400E50B23 /* Activity.m in Sources */,
 				AC2E043C1CEB462F00476087 /* CouponCaseCell.m in Sources */,
+				7F7025641CF2C814009653A6 /* FoodOrderViewBaseItem.m in Sources */,
 				30D0180D1CE6158400E50B23 /* BeautifulFood.m in Sources */,
 				3086D3B61CC72A09007494D7 /* GMXTextField.m in Sources */,
 				AC90F5A81CD1EB12004C4C55 /* FoodManager.m in Sources */,

@@ -35,13 +35,16 @@
                             <color key="textColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nd-qr-m0e">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Nd-qr-m0e" userLabel="Delete">
                             <rect key="frame" x="343" y="5" width="22" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="22" id="PLg-4t-VYU"/>
                                 <constraint firstAttribute="height" constant="22" id="okJ-uh-isH"/>
                             </constraints>
                             <state key="normal" image="dustbin"/>
+                            <connections>
+                                <action selector="deleteButtonClicked:" destination="-1" eventType="touchUpInside" id="bfL-JX-OR7"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,8 +58,8 @@
                         <constraint firstAttribute="height" constant="32" id="sHU-3y-0xH"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U7L-xM-GBp">
-                    <rect key="frame" x="0.0" y="32" width="375" height="635"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U7L-xM-GBp">
+                    <rect key="frame" x="0.0" y="32" width="375" height="610"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
@@ -65,7 +68,7 @@
                 <constraint firstAttribute="trailing" secondItem="U7L-xM-GBp" secondAttribute="trailing" id="0yb-mh-8SV"/>
                 <constraint firstItem="U7L-xM-GBp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Clt-qv-sgx"/>
                 <constraint firstAttribute="trailing" secondItem="SN7-N6-Zc0" secondAttribute="trailing" id="SuM-T2-dXw"/>
-                <constraint firstAttribute="bottom" secondItem="U7L-xM-GBp" secondAttribute="bottom" id="bc3-2s-poI"/>
+                <constraint firstAttribute="bottom" secondItem="U7L-xM-GBp" secondAttribute="bottom" constant="25" id="bc3-2s-poI"/>
                 <constraint firstItem="SN7-N6-Zc0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gPS-Ix-lSF"/>
                 <constraint firstItem="U7L-xM-GBp" firstAttribute="top" secondItem="SN7-N6-Zc0" secondAttribute="bottom" id="guL-OZ-6VM"/>
                 <constraint firstItem="SN7-N6-Zc0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iwm-Si-tq2"/>

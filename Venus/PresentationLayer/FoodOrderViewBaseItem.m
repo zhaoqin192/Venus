@@ -7,7 +7,22 @@
 //
 
 #import "FoodOrderViewBaseItem.h"
+#import "ResFood.h"
 
 @implementation FoodOrderViewBaseItem
+
+- (instancetype)initWithResFood:(ResFood *)resFood {
+    if (self = [super init]) {
+        if (resFood.pictureUrl) {
+            _pictureURL = resFood.pictureUrl;
+            _name = resFood.name;
+            _soldCount = [resFood.sales integerValue];
+            _unitPrice = [resFood.price floatValue];
+            _orderCount = 0;
+            
+        }
+    }
+    return self;
+}
 
 @end
