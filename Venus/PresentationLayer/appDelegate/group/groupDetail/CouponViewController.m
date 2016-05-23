@@ -18,6 +18,7 @@
 #import "CouponCommentCell.h"
 #import "MBProgressHUD.h"
 #import "CouponCommentModel.h"
+#import "CommitOrderViewController.h"
 
 @interface CouponViewController ()
 
@@ -41,7 +42,6 @@
 
     [self.viewModel fetchCommentWithCouponID:self.couponModel.identifier page:[NSNumber numberWithInteger:self.viewModel.currentPage]];
     
-    self.tableView.fd_debugLogEnabled = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -198,5 +198,14 @@
     return CGFLOAT_MIN;
 }
 
+
+#pragma mark -prepareForSegue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"CommitOrder"]) {
+        CommitOrderViewController *commitVC = segue.destinationViewController;
+        commitVC.couponModel = self.couponModel;
+    }
+}
 
 @end

@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSNumber *startTime;
 @property (nonatomic, strong) NSNumber *endTime;
 @property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSString *storeID;
 
 
 @end

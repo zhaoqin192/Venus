@@ -9,20 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @class Restaurant;
-
-@protocol FoodDetailDelegate <NSObject>
-
-- (void)updateOrder;
-
-@end
-
+@class FoodOrderViewController;
 
 @interface FoodDetailViewController : UIViewController
 
 @property (nonatomic, strong) Restaurant *restaurant;
-@property (assign, nonatomic) NSInteger trollyButtonBadgeCount;
-@property (nonatomic, weak) id<FoodDetailDelegate> delegate;
+@property (strong, nonatomic) FoodOrderViewController *orderVC;
 
-@property (strong, nonatomic) NSMutableArray *foodArray;
+@property (assign, nonatomic) NSInteger trollyButtonBadgeCount;
+
+- (void)deleteTrolly;
 
 @end

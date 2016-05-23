@@ -62,4 +62,19 @@
                                success:(NetworkFetcherSuccessHandler)success
                                failure:(NetworkFetcherErrorHandler)failure;
 
+/**
+ *  客户下单生成orderID
+ *
+ *  @param couponID
+ *  @param storeID
+ *  @param num
+ *  @param success
+ *  @param failure
+ */
++ (void)groupCreateOrderWithCouponID:(NSString *)couponID
+                             storeID:(NSString *)storeID
+                                 num:(NSNumber *)num
+                             success:(NetworkFetcherSuccessHandler)success
+                             failure:(NetworkFetcherErrorHandler)failure;
+
 @end

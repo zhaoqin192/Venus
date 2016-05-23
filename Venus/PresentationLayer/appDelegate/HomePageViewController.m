@@ -33,6 +33,8 @@
 #import "FoodViewController.h"
 #import "GroupViewController.h"
 #import "RDVTabBarController.h"
+#import "MallViewController.h"
+#import "HomeViewModel.h"
 
 @interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate>
 
@@ -48,6 +50,7 @@
 @property (nonatomic, copy) NSString *buttonURL;
 @property (weak, nonatomic) IBOutlet UIButton *QCodeButton;
 @property (strong, nonatomic) QRCodeReaderViewController *reader;
+@property (nonatomic, strong) HomeViewModel *viewModel;
 
 @end
 
@@ -96,6 +99,28 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             [alert show];
         }
     }];
+    
+    [self bindViewModel];
+    
+}
+
+- (void)bindViewModel {
+ 
+    self.viewModel = [[HomeViewModel alloc] init];
+    
+    [self.viewModel.loginSuccessObject subscribeNext:^(id x) {
+        
+    }];
+    
+    @weakify(self)
+    [self.viewModel.loginFailureObject subscribeNext:^(id x) {
+        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+        @strongify(self)
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
+    
+    [self.viewModel login];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -224,6 +249,9 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
                         break;
                     }
                     case 12:{
+                        UIStoryboard *mall = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
+                        MallViewController *mallVC = (MallViewController *)[mall instantiateViewControllerWithIdentifier:@"mall"];
+                        [weakSelf.navigationController pushViewController:mallVC animated:YES];
                         NSLog(@"官网");
                         break;
                     }

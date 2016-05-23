@@ -23,6 +23,9 @@
     self.iconView.layer.cornerRadius = self.iconView.width/2;
     self.iconView.layer.masksToBounds = YES;
     [self configureTableView];
+    
+    [self onClickEvent];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -43,6 +46,24 @@
     self.tableView.backgroundColor = GMBgColor;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GMMeCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([GMMeCell class])];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GMMeOrderCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([GMMeOrderCell class])];
+}
+
+
+- (void)onClickEvent {
+    
+    @weakify(self)
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showCoupon" object:nil]
+    takeUntil:[self rac_willDeallocSignal]]
+    subscribeNext:^(id x) {
+       
+        @strongify(self)
+        
+        
+        
+//        self.navigationController pushViewController:<#(nonnull UIViewController *)#> animated:<#(BOOL)#>
+        
+    }];
+    
 }
 
 #pragma mark - UITableViewDataSource

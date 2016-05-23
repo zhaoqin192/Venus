@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class FoodForOrdering;
+@class FoodOrderViewBaseItem;
 
 @interface FoodTrolleyTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) FoodForOrdering *food;
+@property (strong, nonatomic) FoodOrderViewBaseItem *food;
 @property (weak, nonatomic) IBOutlet UIButton *minusButton;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 

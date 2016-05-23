@@ -14,12 +14,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="黄焖鸡" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yE-Iw-uL2" userLabel="FoodName">
-                        <rect key="frame" x="25" y="11" width="80" height="21"/>
+                        <rect key="frame" x="25" y="11" width="100" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="TXZ-Ne-WMJ"/>
-                            <constraint firstAttribute="width" constant="80" id="agg-tN-Mtz"/>
+                            <constraint firstAttribute="width" constant="100" id="agg-tN-Mtz"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>

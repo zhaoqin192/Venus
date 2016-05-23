@@ -16,7 +16,7 @@
 @implementation NetworkFetcher (User)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
-static const BOOL LOGDEBUG = YES;
+static const BOOL LOGDEBUG = NO;
 
 + (void)userLoginWithAccount:(NSString *)phone
                     password:(NSString *)password
@@ -28,7 +28,18 @@ static const BOOL LOGDEBUG = YES;
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/loginsubmit"]];
     NSDictionary *parameters = @{@"account": phone, @"password": password};
     
+    @weakify(manager)
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+        
+        for (NSString *key in cookieHeaders) {
+            
+            @strongify(manager)
+            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+            
+        }
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);

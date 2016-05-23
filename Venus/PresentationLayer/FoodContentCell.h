@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @class FoodDetail;
+@class FoodOrderViewBaseItem;
 @interface FoodContentCell : UITableViewCell
+
+@property (strong, nonatomic) FoodOrderViewBaseItem *baseItem;
+
 @property (weak, nonatomic) IBOutlet UIImageView *pictureUrl;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *sales;
