@@ -20,7 +20,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="send"/>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="发送" translatesAutoresizingMaskIntoConstraints="NO" id="7nu-dP-QNs">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="发送" translatesAutoresizingMaskIntoConstraints="NO" id="7nu-dP-QNs">
                     <rect key="frame" x="321" y="8" width="39" height="32"/>
                 </imageView>
             </subviews>

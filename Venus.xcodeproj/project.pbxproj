@@ -72,6 +72,24 @@
 		308E0D781CF003290048F38A /* MoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308E0D761CF003290048F38A /* MoneyCell.xib */; };
 		308E0D811CF1CAB30048F38A /* BeautifulCommitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 308E0D801CF1CAB30048F38A /* BeautifulCommitView.m */; };
 		308E0D831CF1CABF0048F38A /* BeautifulCommitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308E0D821CF1CABF0048F38A /* BeautifulCommitView.xib */; };
+		308E0D871CF2A4EF0048F38A /* GMMeInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 308E0D851CF2A4EF0048F38A /* GMMeInformationViewController.m */; };
+		308E0D881CF2A4EF0048F38A /* GMMeInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 308E0D861CF2A4EF0048F38A /* GMMeInformationViewController.xib */; };
+		30B509D21CF2A79700A2C30A /* userIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509D01CF2A79700A2C30A /* userIconCell.m */; };
+		30B509D31CF2A79700A2C30A /* userIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B509D11CF2A79700A2C30A /* userIconCell.xib */; };
+		30B509D71CF2AD5500A2C30A /* WXInformationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509D51CF2AD5500A2C30A /* WXInformationDetailViewController.m */; };
+		30B509D81CF2AD5500A2C30A /* WXInformationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B509D61CF2AD5500A2C30A /* WXInformationDetailViewController.xib */; };
+		30B509EC1CF2D27C00A2C30A /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509DC1CF2D27C00A2C30A /* AbstractActionSheetPicker.m */; };
+		30B509ED1CF2D27C00A2C30A /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509DE1CF2D27C00A2C30A /* ActionSheetCustomPicker.m */; };
+		30B509EE1CF2D27C00A2C30A /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509E11CF2D27C00A2C30A /* ActionSheetDatePicker.m */; };
+		30B509EF1CF2D27C00A2C30A /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509E31CF2D27C00A2C30A /* ActionSheetDistancePicker.m */; };
+		30B509F01CF2D27C00A2C30A /* ActionSheetLocalePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509E51CF2D27C00A2C30A /* ActionSheetLocalePicker.m */; };
+		30B509F11CF2D27C00A2C30A /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509E71CF2D27C00A2C30A /* ActionSheetStringPicker.m */; };
+		30B509F21CF2D27C00A2C30A /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509E91CF2D27C00A2C30A /* DistancePickerView.m */; };
+		30B509F31CF2D27C00A2C30A /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509EB1CF2D27C00A2C30A /* SWActionSheet.m */; };
+		30B509FC1CF2D2F400A2C30A /* NSDate+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509F61CF2D2F400A2C30A /* NSDate+Common.m */; };
+		30B509FD1CF2D2F400A2C30A /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509F81CF2D2F400A2C30A /* NSDate+convenience.m */; };
+		30B509FE1CF2D2F400A2C30A /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509FA1CF2D2F400A2C30A /* NSDate+Helper.m */; };
+		30B509FF1CF2D2F400A2C30A /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = 30B509FB1CF2D2F400A2C30A /* README.textile */; };
 		30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601B81CD05DA4003ED671 /* ShopAllViewController.m */; };
 		30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B601B91CD05DA4003ED671 /* ShopAllViewController.xib */; };
 		30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601BE1CD05E88003ED671 /* ShopAllCell.m */; };
@@ -319,6 +337,39 @@
 		308E0D7F1CF1CAB30048F38A /* BeautifulCommitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulCommitView.h; sourceTree = "<group>"; };
 		308E0D801CF1CAB30048F38A /* BeautifulCommitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulCommitView.m; sourceTree = "<group>"; };
 		308E0D821CF1CABF0048F38A /* BeautifulCommitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeautifulCommitView.xib; sourceTree = "<group>"; };
+		308E0D841CF2A4EF0048F38A /* GMMeInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeInformationViewController.h; sourceTree = "<group>"; };
+		308E0D851CF2A4EF0048F38A /* GMMeInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeInformationViewController.m; sourceTree = "<group>"; };
+		308E0D861CF2A4EF0048F38A /* GMMeInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeInformationViewController.xib; sourceTree = "<group>"; };
+		30B509CF1CF2A79700A2C30A /* userIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userIconCell.h; sourceTree = "<group>"; };
+		30B509D01CF2A79700A2C30A /* userIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userIconCell.m; sourceTree = "<group>"; };
+		30B509D11CF2A79700A2C30A /* userIconCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = userIconCell.xib; sourceTree = "<group>"; };
+		30B509D41CF2AD5500A2C30A /* WXInformationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXInformationDetailViewController.h; sourceTree = "<group>"; };
+		30B509D51CF2AD5500A2C30A /* WXInformationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXInformationDetailViewController.m; sourceTree = "<group>"; };
+		30B509D61CF2AD5500A2C30A /* WXInformationDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WXInformationDetailViewController.xib; sourceTree = "<group>"; };
+		30B509DB1CF2D27C00A2C30A /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		30B509DC1CF2D27C00A2C30A /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		30B509DD1CF2D27C00A2C30A /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		30B509DE1CF2D27C00A2C30A /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		30B509DF1CF2D27C00A2C30A /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		30B509E01CF2D27C00A2C30A /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		30B509E11CF2D27C00A2C30A /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		30B509E21CF2D27C00A2C30A /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		30B509E31CF2D27C00A2C30A /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		30B509E41CF2D27C00A2C30A /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetLocalePicker.h; sourceTree = "<group>"; };
+		30B509E51CF2D27C00A2C30A /* ActionSheetLocalePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePicker.m; sourceTree = "<group>"; };
+		30B509E61CF2D27C00A2C30A /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		30B509E71CF2D27C00A2C30A /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		30B509E81CF2D27C00A2C30A /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		30B509E91CF2D27C00A2C30A /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		30B509EA1CF2D27C00A2C30A /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
+		30B509EB1CF2D27C00A2C30A /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
+		30B509F51CF2D2F400A2C30A /* NSDate+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Common.h"; sourceTree = "<group>"; };
+		30B509F61CF2D2F400A2C30A /* NSDate+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Common.m"; sourceTree = "<group>"; };
+		30B509F71CF2D2F400A2C30A /* NSDate+convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+convenience.h"; sourceTree = "<group>"; };
+		30B509F81CF2D2F400A2C30A /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
+		30B509F91CF2D2F400A2C30A /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		30B509FA1CF2D2F400A2C30A /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
+		30B509FB1CF2D2F400A2C30A /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
 		30B601B71CD05DA4003ED671 /* ShopAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopAllViewController.h; sourceTree = "<group>"; };
 		30B601B81CD05DA4003ED671 /* ShopAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopAllViewController.m; sourceTree = "<group>"; };
 		30B601B91CD05DA4003ED671 /* ShopAllViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopAllViewController.xib; sourceTree = "<group>"; };
@@ -664,6 +715,12 @@
 				3057B1EA1CD99221008172DD /* GMMeViewController.h */,
 				3057B1EB1CD99221008172DD /* GMMeViewController.m */,
 				3057B1EC1CD99221008172DD /* GMMeViewController.xib */,
+				308E0D841CF2A4EF0048F38A /* GMMeInformationViewController.h */,
+				308E0D851CF2A4EF0048F38A /* GMMeInformationViewController.m */,
+				308E0D861CF2A4EF0048F38A /* GMMeInformationViewController.xib */,
+				30B509D41CF2AD5500A2C30A /* WXInformationDetailViewController.h */,
+				30B509D51CF2AD5500A2C30A /* WXInformationDetailViewController.m */,
+				30B509D61CF2AD5500A2C30A /* WXInformationDetailViewController.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -671,6 +728,9 @@
 		3057B1F41CD998CA008172DD /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				30B509CF1CF2A79700A2C30A /* userIconCell.h */,
+				30B509D01CF2A79700A2C30A /* userIconCell.m */,
+				30B509D11CF2A79700A2C30A /* userIconCell.xib */,
 				3057B1EF1CD998C3008172DD /* GMMeCell.h */,
 				3057B1F01CD998C3008172DD /* GMMeCell.m */,
 				3057B1F11CD998C3008172DD /* GMMeCell.xib */,
@@ -721,6 +781,8 @@
 		3086D3A81CC729BD007494D7 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				30B509F41CF2D2F400A2C30A /* NSDate+Helper */,
+				30B509DA1CF2D27C00A2C30A /* ActionSheetPicker */,
 				30D018061CE613C600E50B23 /* Log */,
 				30FD1FA01CE2CAE9003C91A5 /* SDAutoLayout */,
 				30D6D2821CC8917E00FB0CFC /* XFSegementView */,
@@ -797,6 +859,44 @@
 			);
 			name = HomePage;
 			path = appDelegate;
+			sourceTree = "<group>";
+		};
+		30B509DA1CF2D27C00A2C30A /* ActionSheetPicker */ = {
+			isa = PBXGroup;
+			children = (
+				30B509DB1CF2D27C00A2C30A /* AbstractActionSheetPicker.h */,
+				30B509DC1CF2D27C00A2C30A /* AbstractActionSheetPicker.m */,
+				30B509DD1CF2D27C00A2C30A /* ActionSheetCustomPicker.h */,
+				30B509DE1CF2D27C00A2C30A /* ActionSheetCustomPicker.m */,
+				30B509DF1CF2D27C00A2C30A /* ActionSheetCustomPickerDelegate.h */,
+				30B509E01CF2D27C00A2C30A /* ActionSheetDatePicker.h */,
+				30B509E11CF2D27C00A2C30A /* ActionSheetDatePicker.m */,
+				30B509E21CF2D27C00A2C30A /* ActionSheetDistancePicker.h */,
+				30B509E31CF2D27C00A2C30A /* ActionSheetDistancePicker.m */,
+				30B509E41CF2D27C00A2C30A /* ActionSheetLocalePicker.h */,
+				30B509E51CF2D27C00A2C30A /* ActionSheetLocalePicker.m */,
+				30B509E61CF2D27C00A2C30A /* ActionSheetStringPicker.h */,
+				30B509E71CF2D27C00A2C30A /* ActionSheetStringPicker.m */,
+				30B509E81CF2D27C00A2C30A /* DistancePickerView.h */,
+				30B509E91CF2D27C00A2C30A /* DistancePickerView.m */,
+				30B509EA1CF2D27C00A2C30A /* SWActionSheet.h */,
+				30B509EB1CF2D27C00A2C30A /* SWActionSheet.m */,
+			);
+			path = ActionSheetPicker;
+			sourceTree = "<group>";
+		};
+		30B509F41CF2D2F400A2C30A /* NSDate+Helper */ = {
+			isa = PBXGroup;
+			children = (
+				30B509F51CF2D2F400A2C30A /* NSDate+Common.h */,
+				30B509F61CF2D2F400A2C30A /* NSDate+Common.m */,
+				30B509F71CF2D2F400A2C30A /* NSDate+convenience.h */,
+				30B509F81CF2D2F400A2C30A /* NSDate+convenience.m */,
+				30B509F91CF2D2F400A2C30A /* NSDate+Helper.h */,
+				30B509FA1CF2D2F400A2C30A /* NSDate+Helper.m */,
+				30B509FB1CF2D2F400A2C30A /* README.textile */,
+			);
+			path = "NSDate+Helper";
 			sourceTree = "<group>";
 		};
 		30B601F11CD1F8F6003ED671 /* beauty */ = {
@@ -1461,6 +1561,7 @@
 			files = (
 				AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				AC90F5641CCFA292004C4C55 /* WXTextField.xib in Resources */,
+				308E0D881CF2A4EF0048F38A /* GMMeInformationViewController.xib in Resources */,
 				AC90F5661CCFA292004C4C55 /* HomeIntroduceCell.xib in Resources */,
 				AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */,
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
@@ -1492,11 +1593,14 @@
 				3025A9951CCE3FD700C5EAAB /* PackageViewController.xib in Resources */,
 				3057B1F91CD99B66008172DD /* GMMeOrderCell.xib in Resources */,
 				30D6D29F1CC8A85B00FB0CFC /* FoodCategoryCell.xib in Resources */,
+				30B509D81CF2AD5500A2C30A /* WXInformationDetailViewController.xib in Resources */,
 				308E0D6E1CF002200048F38A /* BeautyDetailHeaderView.xib in Resources */,
 				30B601C61CD07BDC003ED671 /* ShopHomeViewController.xib in Resources */,
 				30D6D2941CC89E6E00FB0CFC /* FoodCommitCell.xib in Resources */,
 				3057B2071CD9BDC4008172DD /* Home.storyboard in Resources */,
 				308E0D781CF003290048F38A /* MoneyCell.xib in Resources */,
+				30B509D31CF2A79700A2C30A /* userIconCell.xib in Resources */,
+				30B509FF1CF2D2F400A2C30A /* README.textile in Resources */,
 				30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */,
 				303519621CCF348F00EE0750 /* TicketCountCell.xib in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
@@ -1595,6 +1699,7 @@
 				AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */,
 				30FD1FC01CE2EFB6003C91A5 /* CategoryCell.m in Sources */,
 				30D018101CE6DA6700E50B23 /* FoodDetail.m in Sources */,
+				30B509F21CF2D27C00A2C30A /* DistancePickerView.m in Sources */,
 				AC2E04331CEAEEC400476087 /* CouponCommentModel.m in Sources */,
 				30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */,
 				ACAC17471CD8DCEB00E04499 /* ResFoodClass.m in Sources */,
@@ -1603,6 +1708,7 @@
 				7F70255E1CEDAF31009653A6 /* ResFood+count.m in Sources */,
 				30B601C51CD07BDC003ED671 /* ShopHomeViewController.m in Sources */,
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
+				30B509FD1CF2D2F400A2C30A /* NSDate+convenience.m in Sources */,
 				AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */,
 				303519511CCF1B3F00EE0750 /* TicketDetailViewController.m in Sources */,
 				30FD1FA51CE2CAE9003C91A5 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
@@ -1613,19 +1719,24 @@
 				E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */,
 				3086D3D01CC72ABC007494D7 /* HomePageViewController.m in Sources */,
 				3057B1FF1CD9B9E8008172DD /* RootTabViewController.m in Sources */,
+				30B509EE1CF2D27C00A2C30A /* ActionSheetDatePicker.m in Sources */,
 				7F70254E1CEC0682009653A6 /* CALayer+XibConfiguration.m in Sources */,
 				3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */,
 				3035197C1CCF4CB900EE0750 /* ShopCommitCell.m in Sources */,
 				AC96F2F11CE9747E001B2DDE /* CouponCell.m in Sources */,
 				3086D3B51CC72A09007494D7 /* GMLabel.m in Sources */,
+				30B509ED1CF2D27C00A2C30A /* ActionSheetCustomPicker.m in Sources */,
 				AC90F5711CCFAADF004C4C55 /* Picture.m in Sources */,
 				AC96F2F91CE9963F001B2DDE /* CouponViewController.m in Sources */,
 				AC2E04451CEB5DAE00476087 /* ImageCollectionViewCell.m in Sources */,
 				AC987D471CE8BDD100E11CC5 /* CouponModel.m in Sources */,
 				7F7025611CF2C7A6009653A6 /* FoodOrderViewSectionObject.m in Sources */,
+				30B509F11CF2D27C00A2C30A /* ActionSheetStringPicker.m in Sources */,
 				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
+				30B509EC1CF2D27C00A2C30A /* AbstractActionSheetPicker.m in Sources */,
 				3057B1ED1CD99221008172DD /* GMMeViewController.m in Sources */,
 				30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */,
+				308E0D871CF2A4EF0048F38A /* GMMeInformationViewController.m in Sources */,
 				AC2E04421CEB554900476087 /* CouponCommentCell.m in Sources */,
 				AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */,
 				AC7AD49C1CC7AFD9004D9B61 /* DatabaseManager.m in Sources */,
@@ -1634,8 +1745,10 @@
 				3086D3D41CC72ABC007494D7 /* HomeIntroduceCell.m in Sources */,
 				308E0D6D1CF002200048F38A /* BeautyDetailHeaderView.m in Sources */,
 				30D018091CE613E000E50B23 /* NSArray+Log.m in Sources */,
+				30B509F01CF2D27C00A2C30A /* ActionSheetLocalePicker.m in Sources */,
 				AC90F5A11CD1DDD2004C4C55 /* NetworkFetcher+Food.m in Sources */,
 				308E0D721CF0023C0048F38A /* FoodContentCell.m in Sources */,
+				30B509F31CF2D27C00A2C30A /* SWActionSheet.m in Sources */,
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
 				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
 				308E0D811CF1CAB30048F38A /* BeautifulCommitView.m in Sources */,
@@ -1644,7 +1757,10 @@
 				AC987D3B1CE8A95E00E11CC5 /* GroupViewModel.m in Sources */,
 				AC2E043F1CEB493E00476087 /* CouponInformationCell.m in Sources */,
 				AC7B3AD91CDF2C7E0039C2A5 /* SignUpViewModel.m in Sources */,
+				30B509FE1CF2D2F400A2C30A /* NSDate+Helper.m in Sources */,
+				30B509D71CF2AD5500A2C30A /* WXInformationDetailViewController.m in Sources */,
 				30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */,
+				30B509FC1CF2D2F400A2C30A /* NSDate+Common.m in Sources */,
 				30D017FF1CE360DE00E50B23 /* ReusableView.m in Sources */,
 				3035196B1CCF393700EE0750 /* TicketCommitCell.m in Sources */,
 				30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */,
@@ -1681,6 +1797,7 @@
 				30FD1F9E1CE2C0B8003C91A5 /* MapFloorCell.m in Sources */,
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */,
+				30B509D21CF2A79700A2C30A /* userIconCell.m in Sources */,
 				308E0D771CF003290048F38A /* MoneyCell.m in Sources */,
 				30FD1FAA1CE2D012003C91A5 /* MapHeadView.m in Sources */,
 				308E0D681CF002070048F38A /* BeautifulDetailViewController.m in Sources */,
@@ -1705,6 +1822,7 @@
 				30D018311CEAF04600E50B23 /* WXMapShopView.m in Sources */,
 				7F7025571CEC6458009653A6 /* FoodTrolleyTableViewCell.m in Sources */,
 				30B601FC1CD1FA94003ED671 /* BeautifulFoodCell.m in Sources */,
+				30B509EF1CF2D27C00A2C30A /* ActionSheetDistancePicker.m in Sources */,
 				3086D3D21CC72ABC007494D7 /* HomeNewsCell.m in Sources */,
 				AC90F56A1CCFA4E7004C4C55 /* NetworkFetcher+Home.m in Sources */,
 				30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */,

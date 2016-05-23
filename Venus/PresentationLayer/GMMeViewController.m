@@ -9,6 +9,7 @@
 #import "GMMeViewController.h"
 #import "GMMeCell.h"
 #import "GMMeOrderCell.h"
+#import "GMMeInformationViewController.h"
 
 @interface GMMeViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -132,6 +133,16 @@
         }
     }
     return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0:{
+            GMMeInformationViewController *vc = [[GMMeInformationViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
