@@ -33,6 +33,7 @@
 #import "FoodViewController.h"
 #import "GroupViewController.h"
 #import "RDVTabBarController.h"
+#import "MallViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate>
 
@@ -224,6 +225,9 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
                         break;
                     }
                     case 12:{
+                        UIStoryboard *mall = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
+                        MallViewController *mallVC = (MallViewController *)[mall instantiateViewControllerWithIdentifier:@"mall"];
+                        [weakSelf.navigationController pushViewController:mallVC animated:YES];
                         NSLog(@"官网");
                         break;
                     }

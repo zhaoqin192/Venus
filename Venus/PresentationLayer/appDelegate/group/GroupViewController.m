@@ -37,15 +37,15 @@
     
     [self initTableView];
     [self bindViewModel];
+    
+    [self.viewModel fetchMenuData];
+    [self.viewModel fetchCouponDataWithType:self.viewModel.type sort:self.viewModel.sort page:[NSNumber numberWithInteger:self.viewModel.currentPage]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     
-    [self.viewModel fetchMenuData];
-    [self.viewModel fetchCouponDataWithType:self.viewModel.type sort:self.viewModel.sort page:[NSNumber numberWithInteger:self.viewModel.currentPage]];
-
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -172,6 +172,10 @@
     }
     
     return 128;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return CGFLOAT_MIN;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
