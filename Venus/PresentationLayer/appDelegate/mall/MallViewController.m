@@ -16,6 +16,8 @@
 #import "BrandViewCell.h"
 #import "MoreViewCell.h"
 #import "KindViewController.h"
+#import "MallKindModel.h"
+#import "MBProgressHUD.h"
 
 @interface MallViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
@@ -38,7 +40,7 @@
     [self bindViewModel];
     
     [self.viewModel fetchCategory];
-
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -68,14 +70,27 @@
         self.viewModel.categoryModel = [self.viewModel.categoryArray objectAtIndex:0];
     }];
     
-    [self.viewModel.categoryFailureObject subscribeNext:^(id x) {
-        
+    
+    [self.viewModel.errorObject subscribeNext:^(NSString *message) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = message;
+        [hud hide:YES afterDelay:1.5f];
     }];
     
-    [self.viewModel.errorObject subscribeNext:^(id x) {
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showKindView" object:nil]
+    takeUntil:[self rac_willDeallocSignal]]
+    subscribeNext:^(NSNotification *notification) {
+       
+        UIStoryboard *kind = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
+        KindViewController *kindVC = (KindViewController *)[kind instantiateViewControllerWithIdentifier:@"kind"];
+        NSDictionary *userInfo = notification.userInfo;
+        kindVC.kindModel = userInfo[@"kindModel"];
+        @strongify(self)
+        [self.navigationController pushViewController:kindVC animated:YES];
         
     }];
-    
 }
 
 - (void)configureTableView {
@@ -240,22 +255,14 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (tableView == self.contentTableView) {
+    
+    if (tableView == self.categoryTableView) {
         
-        if (indexPath.section == 1) {
-            
-            
-            
-        }
-        else {
-            
-        }
-        
-    }
-    else {
         self.viewModel.categoryModel = [self.viewModel.categoryArray objectAtIndex:indexPath.row];
         [self.contentTableView reloadData];
+        
     }
+    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -280,28 +287,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark -prepareForSegue
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([segue.identifier isEqualToString:@"kindIdentifier"]) {
-        
-        NSIndexPath *indexPath = [self.contentTableView indexPathForSelectedRow];
-        
-        KindViewController *kindVC = segue.destinationViewController;
-        kindVC.kindModel = [self.viewModel.categoryModel.kindArray objectAtIndex:indexPath.row];
-        
-    }
-    else if ([segue.identifier isEqualToString:@"moreIdentifier"]) {
-        
-        NSIndexPath *indexPath = [self.contentTableView indexPathForSelectedRow];
-        
-        KindViewController *kindVC = segue.destinationViewController;
-        kindVC.kindModel = [self.viewModel.categoryModel.kindArray objectAtIndex:indexPath.row + 9];
-        
-    }
-    
-}
 
 @end

@@ -148,7 +148,6 @@
                                                             <connections>
                                                                 <outlet property="image" destination="TlO-e8-hdc" id="4tw-M9-uFl"/>
                                                                 <outlet property="name" destination="uAq-Uz-WCs" id="v3p-Qm-Dx5"/>
-                                                                <segue destination="h9u-QW-hpd" kind="show" identifier="kindIdentifier" id="heg-5Z-99T"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -262,7 +261,6 @@
                                                             </constraints>
                                                             <connections>
                                                                 <outlet property="title" destination="JMJ-Jv-KFq" id="Jwn-1Z-FAR"/>
-                                                                <segue destination="h9u-QW-hpd" kind="show" identifier="moreIdentifier" id="2Ay-Q9-a6v"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -313,7 +311,7 @@
         <!--Kind View Controller-->
         <scene sceneID="tgo-UP-Ugk">
             <objects>
-                <viewController id="h9u-QW-hpd" customClass="KindViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="kind" id="h9u-QW-hpd" customClass="KindViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e44-WF-o0h"/>
                         <viewControllerLayoutGuide type="bottom" id="1vQ-dz-sDi"/>
@@ -389,14 +387,16 @@
                                             <outlet property="image" destination="Iu6-w5-SDV" id="Tla-fD-5kX"/>
                                             <outlet property="priceLabel" destination="hUe-N5-Te0" id="NNP-MX-po7"/>
                                             <outlet property="title" destination="35b-uz-v7T" id="ccm-c4-hYu"/>
+                                            <segue destination="ohR-kQ-bv1" kind="show" identifier="showKindDetail" id="Tny-6q-8bs"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCc-FW-daq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCc-FW-daq">
                                 <rect key="frame" x="188" y="0.0" width="187" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="上架时间">
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="上架时间" image="arrowDown">
                                     <color key="titleColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -404,7 +404,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="187" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="价格">
+                                <state key="normal" title="价格" image="arrowDown">
                                     <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -443,8 +443,27 @@
             </objects>
             <point key="canvasLocation" x="850.5" y="425.5"/>
         </scene>
+        <!--Kind Detail View Controller-->
+        <scene sceneID="yai-Xb-mz6">
+            <objects>
+                <viewController storyboardIdentifier="KindDetailViewController" id="ohR-kQ-bv1" customClass="KindDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RSw-Dl-ofQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wrq-DS-Hqq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X0G-bL-6FW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jnB-jh-xAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1316.5" y="425.5"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="2Ay-Q9-a6v"/>
-    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="arrowDown" width="10" height="6"/>
+    </resources>
 </document>

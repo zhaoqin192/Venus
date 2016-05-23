@@ -11,11 +11,10 @@
 @implementation NetworkFetcher (Group)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
-static const BOOL LOGDEBUG = NO;
+static const BOOL LOGDEBUG = YES;
 
 + (void)groupFetchMenuDataWithSuccess:(NetworkFetcherSuccessHandler)success
                               failure:(NetworkFetcherErrorHandler)failure {
-    
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/couponz/customer/listCategory"]];
@@ -111,6 +110,32 @@ static const BOOL LOGDEBUG = NO;
         failure(nil);
     }];
     
+}
+
++ (void)groupCreateOrderWithCouponID:(NSString *)couponID
+                             storeID:(NSString *)storeID
+                                 num:(NSNumber *)num
+                             success:(NetworkFetcherSuccessHandler)success
+                             failure:(NetworkFetcherErrorHandler)failure {
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/couponz/customer/trade/preCreateForApp"]];
+    
+    [[manager requestSerializer] setHTTPShouldHandleCookies:YES];
+    
+    NSDictionary *parameters = @{@"couponId": couponID, @"storeId": storeID, @"num": num};
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        failure(nil);
+    }];
     
 }
 

@@ -47,11 +47,49 @@
                          @"pictureURL": @"picUrl"
                         };
             }];
+            
             @strongify(self)
+            
+            self.currentPage = [response[@"page"] integerValue];
+            self.totalPage = [response[@"pagination"] integerValue];
+            
             self.merchandiseArray = [MerchandiseModel mj_objectArrayWithKeyValuesArray:response[@"items"]];
             [self.kindSuccessObject sendNext:nil];
+            
         }
         
+        
+    } failure:^(NSString *error) {
+        
+    }];
+    
+}
+
+- (void)loadMoreKindArrayWithIdentifier:(NSString *)identifier
+                                   page:(NSInteger)page
+                                   sort:(NSNumber *)sort {
+    
+    @weakify(self)
+    [NetworkFetcher mallGetKindArrayWithIdentifier:identifier page:[NSNumber numberWithInteger:page] capacity:[NSNumber numberWithInteger:self.capacity] sort:sort success:^(NSDictionary *response) {
+        
+        if ([response[@"errCode"] isEqualToNumber:@0]) {
+            
+            [MerchandiseModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                         @"identifier": @"brandID",
+                         @"pictureURL": @"picUrl"
+                         };
+            }];
+            
+            @strongify(self)
+            
+            self.currentPage = [response[@"page"] integerValue];
+            self.totalPage = [response[@"pagination"] integerValue];
+            
+            [self.merchandiseArray addObjectsFromArray:[MerchandiseModel mj_objectArrayWithKeyValuesArray:response[@"items"]]];
+            [self.kindSuccessObject sendNext:nil];
+            
+        }
         
     } failure:^(NSString *error) {
         

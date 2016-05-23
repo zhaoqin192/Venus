@@ -76,10 +76,12 @@
 
 - (void)onCliceEvent {
     
+    @weakify(self)
     [[self.commitButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
        
-        
+        @strongify(self)
+        [self.viewModel createOrderWithCouponID:self.couponModel.identifier storeID:self.couponModel.storeID num:[NSNumber numberWithInteger:self.viewModel.countNumber]];
         
     }];
     

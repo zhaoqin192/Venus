@@ -12,4 +12,5 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collection;
 @property (nonatomic, strong) NSArray *kindArray;
+@property (nonatomic, strong) RACSubject *kindObject;
 @end

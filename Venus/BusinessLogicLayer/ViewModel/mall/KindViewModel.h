@@ -23,4 +23,8 @@
                                 page:(NSInteger)page
                                 sort:(NSNumber *)sort;
 
+- (void)loadMoreKindArrayWithIdentifier:(NSString *)identifier
+                                   page:(NSInteger)page
+                                   sort:(NSNumber *)sort;
+
 @end

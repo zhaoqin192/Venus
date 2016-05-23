@@ -12,6 +12,8 @@
 #import "MallKindModel.h"
 #import "MerchandiseCollectionViewCell.h"
 #import "MerchandiseModel.h"
+#import "MBProgressHUD.h"
+#import "KindDetailViewController.h"
 
 @interface KindViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -29,6 +31,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //configure title
+    self.navigationItem.title = self.kindModel.name;
+    
     //configure UICollectionView
     self.collection.delegate = self;
     self.collection.dataSource = self;
@@ -40,24 +45,40 @@
     [self.collection addSubview:self.refreshControl];
     self.collection.alwaysBounceVertical = YES;
     
-    [self bindViewModel];
     
+    //configure ViewModel and clickEvent
+    [self bindViewModel];
+    [self onClickEvent];
+    
+    //configure Button
+    self.priceButton.transform = CGAffineTransformMakeScale(-1.0, 1.0);
+    self.priceButton.titleLabel.transform = CGAffineTransformMakeScale(-1.0, 1.0);
+    self.priceButton.imageView.transform = CGAffineTransformMakeScale(-1.0, 1.0);
+    
+    
+    self.timeButton.transform = CGAffineTransformMakeScale(-1.0, 1.0);
+    self.timeButton.titleLabel.transform = CGAffineTransformMakeScale(-1.0, 1.0);
+    self.timeButton.imageView.transform = CGAffineTransformMakeScale(-1.0, 1.0);
+
+    CGFloat spacing = 10; // the amount of spacing to appear between image and title
+    self.priceButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, spacing);
+    self.priceButton.titleEdgeInsets = UIEdgeInsetsMake(0, spacing, 0, 0);
+    self.timeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, spacing);
+    self.timeButton.titleEdgeInsets = UIEdgeInsetsMake(0, spacing, 0, 0);
+
+    //request Data
     [self.viewModel fetchKindArrayWithIdentifier:self.kindModel.identifier page:self.viewModel.currentPage sort:self.viewModel.sort];
     
-    [self onClickEvent];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
-    
 }
 
 
@@ -74,8 +95,13 @@
         [self.collection reloadData];
     }];
     
-    [self.viewModel.kindFailureObject subscribeNext:^(id x) {
-        
+    
+    [self.viewModel.errorObject subscribeNext:^(NSString *message) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = message;
+        [hud hide:YES afterDelay:1.5f];
     }];
     
 }
@@ -89,9 +115,11 @@
         @strongify(self)
         if (![self.viewModel.sort isEqualToNumber:@1]) {
             self.viewModel.sort = @1;
+            [self.priceButton setImage:[UIImage imageNamed:@"arrowDown"] forState:UIControlStateNormal];
         }
         else {
             self.viewModel.sort = @2;
+            [self.priceButton setImage:[UIImage imageNamed:@"arrowUP"] forState:UIControlStateNormal];
         }
         
         
@@ -107,9 +135,11 @@
         @strongify(self)
         if (![self.viewModel.sort isEqualToNumber:@4]) {
             self.viewModel.sort = @4;
+            [self.timeButton setImage:[UIImage imageNamed:@"arrowDown"] forState:UIControlStateNormal];
         }
         else {
             self.viewModel.sort = @3;
+            [self.timeButton setImage:[UIImage imageNamed:@"arrowUP"] forState:UIControlStateNormal];
         }
         
         
@@ -122,12 +152,12 @@
 
 }
 
-
 - (void)refreshControlAction {
     
     [self.viewModel fetchKindArrayWithIdentifier:self.kindModel.identifier page:1 sort:self.viewModel.sort];
     
 }
+
 
 #pragma mark -UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -145,6 +175,25 @@
     cell.priceLabel.text = [NSString stringWithFormat:@"￥%@", model.price];
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(8_0) {
+    
+    if (indexPath.item == self.viewModel.merchandiseArray.count - 1) {
+        [self.viewModel loadMoreKindArrayWithIdentifier:self.kindModel.identifier page:++self.viewModel.currentPage sort:self.viewModel.sort];
+    }
+    
+}
+
+#pragma mark -prepareForSegue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"showKindDetail"]) {
+        NSArray *indexPaths = [self.collection indexPathsForSelectedItems];
+        KindDetailViewController *kindDetailVC = segue.destinationViewController;
+        kindDetailVC.merchandiseModel = [self.viewModel.merchandiseArray objectAtIndex:[[indexPaths objectAtIndex:0] row]];
+    }
+    
 }
 
 

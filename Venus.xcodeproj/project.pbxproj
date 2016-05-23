@@ -145,6 +145,14 @@
 		AC2E043F1CEB493E00476087 /* CouponInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E043E1CEB493E00476087 /* CouponInformationCell.m */; };
 		AC2E04421CEB554900476087 /* CouponCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04411CEB554900476087 /* CouponCommentCell.m */; };
 		AC2E04451CEB5DAE00476087 /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */; };
+		AC31AD851CF327A2006F0608 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC31AD831CF327A2006F0608 /* AlipaySDK.framework */; };
+		AC31AD891CF327BE006F0608 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC31AD881CF327BE006F0608 /* QuartzCore.framework */; };
+		AC31AD8B1CF327C9006F0608 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC31AD8A1CF327C9006F0608 /* CoreText.framework */; };
+		AC31AD8D1CF327DD006F0608 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC31AD8C1CF327DD006F0608 /* UIKit.framework */; };
+		AC31AD8F1CF327E7006F0608 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC31AD8E1CF327E7006F0608 /* Foundation.framework */; };
+		AC31AD911CF327EF006F0608 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC31AD901CF327EF006F0608 /* CFNetwork.framework */; };
+		AC31AD931CF327F8006F0608 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC31AD921CF327F8006F0608 /* CoreMotion.framework */; };
+		AC31AD961CF32F00006F0608 /* HomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC31AD951CF32F00006F0608 /* HomeViewModel.m */; };
 		AC4D73D21CF14E8600DF4997 /* MallCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D73D11CF14E8600DF4997 /* MallCategoryModel.m */; };
 		AC4D73D61CF14F4D00DF4997 /* MallBrandModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D73D51CF14F4D00DF4997 /* MallBrandModel.m */; };
 		AC4D73D91CF1530A00DF4997 /* MallKindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D73D81CF1530A00DF4997 /* MallKindModel.m */; };
@@ -160,15 +168,9 @@
 		AC4D74041CF1EC9E00DF4997 /* KindViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D74031CF1EC9E00DF4997 /* KindViewModel.m */; };
 		AC4D74081CF295BC00DF4997 /* MerchandiseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D74071CF295BC00DF4997 /* MerchandiseModel.m */; };
 		AC4D740C1CF29B3800DF4997 /* MerchandiseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D740B1CF29B3800DF4997 /* MerchandiseCollectionViewCell.m */; };
-		AC545F801CED827C00133F25 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AC545F6B1CED827C00133F25 /* .gitignore */; };
-		AC545F811CED827C00133F25 /* NSObject+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F6F1CED827C00133F25 /* NSObject+MemoryLeak.m */; };
-		AC545F821CED827C00133F25 /* UINavigationController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F711CED827C00133F25 /* UINavigationController+MemoryLeak.m */; };
-		AC545F831CED827C00133F25 /* UIPageViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F731CED827C00133F25 /* UIPageViewController+MemoryLeak.m */; };
-		AC545F841CED827C00133F25 /* UISplitViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F751CED827C00133F25 /* UISplitViewController+MemoryLeak.m */; };
-		AC545F851CED827C00133F25 /* UITabBarController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F771CED827C00133F25 /* UITabBarController+MemoryLeak.m */; };
-		AC545F861CED827C00133F25 /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F791CED827C00133F25 /* UIView+MemoryLeak.m */; };
-		AC545F871CED827C00133F25 /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F7B1CED827C00133F25 /* UIViewController+MemoryLeak.m */; };
-		AC545F881CED827C00133F25 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AC545F7F1CED827C00133F25 /* README.md */; };
+		AC4D74151CF2DE8100DF4997 /* KindDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D74141CF2DE8100DF4997 /* KindDetailViewController.m */; };
+		AC4D741A1CF2F97800DF4997 /* PersonalCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D74191CF2F97800DF4997 /* PersonalCouponViewController.m */; };
+		AC4D741C1CF2FBB900DF4997 /* couponOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4D741B1CF2FBB900DF4997 /* couponOrder.storyboard */; };
 		AC545F921CED90E000133F25 /* CommitOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F911CED90E000133F25 /* CommitOrderViewController.m */; };
 		AC545F991CED9AFC00133F25 /* CommitCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F981CED9AFC00133F25 /* CommitCountCell.m */; };
 		AC545F9C1CED9C6B00133F25 /* CommitPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F9B1CED9C6B00133F25 /* CommitPayCell.m */; };
@@ -238,16 +240,6 @@
 		E89BD3341CEB1228007CCF49 /* FoodAddAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89BD3321CEB1228007CCF49 /* FoodAddAddressCell.xib */; };
 		E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047B01CDF84070032EE91 /* GMNavigationController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		AC545F8A1CED827C00133F25 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AC545F7C1CED827C00133F25 /* MLeaksFinder.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B3ADE16C1C1BD1D600AA4F63;
-			remoteInfo = MLeaksFinder;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		10B01B89E20396A14693D41C /* libPods-Venus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Venus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -474,6 +466,16 @@
 		AC2E04411CEB554900476087 /* CouponCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentCell.m; sourceTree = "<group>"; };
 		AC2E04431CEB5DAE00476087 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
 		AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
+		AC31AD831CF327A2006F0608 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlipaySDK.framework; path = Venus/OtherSDK/Alipay/AlipaySDK.framework; sourceTree = "<group>"; };
+		AC31AD841CF327A2006F0608 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AlipaySDK.bundle; path = Venus/OtherSDK/Alipay/AlipaySDK.bundle; sourceTree = "<group>"; };
+		AC31AD881CF327BE006F0608 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AC31AD8A1CF327C9006F0608 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		AC31AD8C1CF327DD006F0608 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AC31AD8E1CF327E7006F0608 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AC31AD901CF327EF006F0608 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		AC31AD921CF327F8006F0608 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		AC31AD941CF32F00006F0608 /* HomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewModel.h; sourceTree = "<group>"; };
+		AC31AD951CF32F00006F0608 /* HomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewModel.m; sourceTree = "<group>"; };
 		AC4D73D01CF14E8600DF4997 /* MallCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallCategoryModel.h; sourceTree = "<group>"; };
 		AC4D73D11CF14E8600DF4997 /* MallCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MallCategoryModel.m; sourceTree = "<group>"; };
 		AC4D73D41CF14F4D00DF4997 /* MallBrandModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallBrandModel.h; sourceTree = "<group>"; };
@@ -504,24 +506,11 @@
 		AC4D74071CF295BC00DF4997 /* MerchandiseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseModel.m; sourceTree = "<group>"; };
 		AC4D740A1CF29B3800DF4997 /* MerchandiseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchandiseCollectionViewCell.h; sourceTree = "<group>"; };
 		AC4D740B1CF29B3800DF4997 /* MerchandiseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseCollectionViewCell.m; sourceTree = "<group>"; };
-		AC545F6B1CED827C00133F25 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		AC545F6D1CED827C00133F25 /* MLeaksFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaksFinder.h; sourceTree = "<group>"; };
-		AC545F6E1CED827C00133F25 /* NSObject+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MemoryLeak.h"; sourceTree = "<group>"; };
-		AC545F6F1CED827C00133F25 /* NSObject+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MemoryLeak.m"; sourceTree = "<group>"; };
-		AC545F701CED827C00133F25 /* UINavigationController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MemoryLeak.h"; sourceTree = "<group>"; };
-		AC545F711CED827C00133F25 /* UINavigationController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MemoryLeak.m"; sourceTree = "<group>"; };
-		AC545F721CED827C00133F25 /* UIPageViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageViewController+MemoryLeak.h"; sourceTree = "<group>"; };
-		AC545F731CED827C00133F25 /* UIPageViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageViewController+MemoryLeak.m"; sourceTree = "<group>"; };
-		AC545F741CED827C00133F25 /* UISplitViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+MemoryLeak.h"; sourceTree = "<group>"; };
-		AC545F751CED827C00133F25 /* UISplitViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+MemoryLeak.m"; sourceTree = "<group>"; };
-		AC545F761CED827C00133F25 /* UITabBarController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+MemoryLeak.h"; sourceTree = "<group>"; };
-		AC545F771CED827C00133F25 /* UITabBarController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+MemoryLeak.m"; sourceTree = "<group>"; };
-		AC545F781CED827C00133F25 /* UIView+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MemoryLeak.h"; sourceTree = "<group>"; };
-		AC545F791CED827C00133F25 /* UIView+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MemoryLeak.m"; sourceTree = "<group>"; };
-		AC545F7A1CED827C00133F25 /* UIViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MemoryLeak.h"; sourceTree = "<group>"; };
-		AC545F7B1CED827C00133F25 /* UIViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MemoryLeak.m"; sourceTree = "<group>"; };
-		AC545F7C1CED827C00133F25 /* MLeaksFinder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MLeaksFinder.xcodeproj; sourceTree = "<group>"; };
-		AC545F7F1CED827C00133F25 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AC4D74131CF2DE8100DF4997 /* KindDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KindDetailViewController.h; sourceTree = "<group>"; };
+		AC4D74141CF2DE8100DF4997 /* KindDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindDetailViewController.m; sourceTree = "<group>"; };
+		AC4D74181CF2F97800DF4997 /* PersonalCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCouponViewController.h; sourceTree = "<group>"; };
+		AC4D74191CF2F97800DF4997 /* PersonalCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCouponViewController.m; sourceTree = "<group>"; };
+		AC4D741B1CF2FBB900DF4997 /* couponOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = couponOrder.storyboard; sourceTree = "<group>"; };
 		AC545F901CED90E000133F25 /* CommitOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommitOrderViewController.h; path = ../CommitOrderViewController.h; sourceTree = "<group>"; };
 		AC545F911CED90E000133F25 /* CommitOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitOrderViewController.m; path = ../CommitOrderViewController.m; sourceTree = "<group>"; };
 		AC545F971CED9AFC00133F25 /* CommitCountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitCountCell.h; sourceTree = "<group>"; };
@@ -649,6 +638,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC31AD931CF327F8006F0608 /* CoreMotion.framework in Frameworks */,
+				AC31AD911CF327EF006F0608 /* CFNetwork.framework in Frameworks */,
+				AC31AD8F1CF327E7006F0608 /* Foundation.framework in Frameworks */,
+				AC31AD8D1CF327DD006F0608 /* UIKit.framework in Frameworks */,
+				AC970C871CC4D26100FA171B /* CoreGraphics.framework in Frameworks */,
+				AC31AD8B1CF327C9006F0608 /* CoreText.framework in Frameworks */,
+				AC31AD891CF327BE006F0608 /* QuartzCore.framework in Frameworks */,
+				AC31AD851CF327A2006F0608 /* AlipaySDK.framework in Frameworks */,
 				AC5B48D11CCA496E00724914 /* TencentOpenAPI.framework in Frameworks */,
 				AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */,
 				AC7AD4831CC72BF2004D9B61 /* libc++.tbd in Frameworks */,
@@ -658,7 +655,6 @@
 				AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */,
 				30FD1F491CE1A437003C91A5 /* BaiduMapAPI_Map.framework in Frameworks */,
 				AC970C8D1CC4D27400FA171B /* CoreTelephony.framework in Frameworks */,
-				AC970C871CC4D26100FA171B /* CoreGraphics.framework in Frameworks */,
 				AC970C851CC4D25600FA171B /* SystemConfiguration.framework in Frameworks */,
 				30FD1F471CE1A40C003C91A5 /* BaiduMapAPI_Base.framework in Frameworks */,
 				AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */,
@@ -1210,49 +1206,20 @@
 				AC4D74001CF1E99F00DF4997 /* KindViewController.m */,
 				AC4D740A1CF29B3800DF4997 /* MerchandiseCollectionViewCell.h */,
 				AC4D740B1CF29B3800DF4997 /* MerchandiseCollectionViewCell.m */,
+				AC4D74131CF2DE8100DF4997 /* KindDetailViewController.h */,
+				AC4D74141CF2DE8100DF4997 /* KindDetailViewController.m */,
 			);
 			name = kindDetail;
 			sourceTree = "<group>";
 		};
-		AC545F6A1CED827C00133F25 /* MLeaksFinder */ = {
+		AC4D74171CF2F95500DF4997 /* personalCoupon */ = {
 			isa = PBXGroup;
 			children = (
-				AC545F6B1CED827C00133F25 /* .gitignore */,
-				AC545F6C1CED827C00133F25 /* MLeaksFinder */,
-				AC545F7C1CED827C00133F25 /* MLeaksFinder.xcodeproj */,
-				AC545F7F1CED827C00133F25 /* README.md */,
+				AC4D74181CF2F97800DF4997 /* PersonalCouponViewController.h */,
+				AC4D74191CF2F97800DF4997 /* PersonalCouponViewController.m */,
+				AC4D741B1CF2FBB900DF4997 /* couponOrder.storyboard */,
 			);
-			path = MLeaksFinder;
-			sourceTree = "<group>";
-		};
-		AC545F6C1CED827C00133F25 /* MLeaksFinder */ = {
-			isa = PBXGroup;
-			children = (
-				AC545F6D1CED827C00133F25 /* MLeaksFinder.h */,
-				AC545F6E1CED827C00133F25 /* NSObject+MemoryLeak.h */,
-				AC545F6F1CED827C00133F25 /* NSObject+MemoryLeak.m */,
-				AC545F701CED827C00133F25 /* UINavigationController+MemoryLeak.h */,
-				AC545F711CED827C00133F25 /* UINavigationController+MemoryLeak.m */,
-				AC545F721CED827C00133F25 /* UIPageViewController+MemoryLeak.h */,
-				AC545F731CED827C00133F25 /* UIPageViewController+MemoryLeak.m */,
-				AC545F741CED827C00133F25 /* UISplitViewController+MemoryLeak.h */,
-				AC545F751CED827C00133F25 /* UISplitViewController+MemoryLeak.m */,
-				AC545F761CED827C00133F25 /* UITabBarController+MemoryLeak.h */,
-				AC545F771CED827C00133F25 /* UITabBarController+MemoryLeak.m */,
-				AC545F781CED827C00133F25 /* UIView+MemoryLeak.h */,
-				AC545F791CED827C00133F25 /* UIView+MemoryLeak.m */,
-				AC545F7A1CED827C00133F25 /* UIViewController+MemoryLeak.h */,
-				AC545F7B1CED827C00133F25 /* UIViewController+MemoryLeak.m */,
-			);
-			path = MLeaksFinder;
-			sourceTree = "<group>";
-		};
-		AC545F7D1CED827C00133F25 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AC545F8B1CED827C00133F25 /* libMLeaksFinder.a */,
-			);
-			name = Products;
+			name = personalCoupon;
 			sourceTree = "<group>";
 		};
 		AC545F931CED9A7900133F25 /* commitOrder */ = {
@@ -1360,6 +1327,8 @@
 				AC7B3ADA1CDF2D7F0039C2A5 /* LoginViewModel.m */,
 				AC7B3AD71CDF2C7E0039C2A5 /* SignUpViewModel.h */,
 				AC7B3AD81CDF2C7E0039C2A5 /* SignUpViewModel.m */,
+				AC31AD941CF32F00006F0608 /* HomeViewModel.h */,
+				AC31AD951CF32F00006F0608 /* HomeViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1448,6 +1417,7 @@
 		AC987D2F1CE89B3D00E11CC5 /* group */ = {
 			isa = PBXGroup;
 			children = (
+				AC4D74171CF2F95500DF4997 /* personalCoupon */,
 				AC96F2F31CE99088001B2DDE /* groupDetail */,
 				AC987D331CE89B8A00E11CC5 /* GroupViewController.h */,
 				AC987D341CE89B8A00E11CC5 /* GroupViewController.m */,
@@ -1485,7 +1455,6 @@
 		ACF83EA21CBF97F800A962BD = {
 			isa = PBXGroup;
 			children = (
-				AC545F6A1CED827C00133F25 /* MLeaksFinder */,
 				ACF83EAD1CBF97F800A962BD /* Venus */,
 				ACF83EAC1CBF97F800A962BD /* Products */,
 				E1998CF8726CD7D47CA05772 /* Frameworks */,
@@ -1587,6 +1556,14 @@
 		E1998CF8726CD7D47CA05772 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC31AD921CF327F8006F0608 /* CoreMotion.framework */,
+				AC31AD901CF327EF006F0608 /* CFNetwork.framework */,
+				AC31AD8E1CF327E7006F0608 /* Foundation.framework */,
+				AC31AD8C1CF327DD006F0608 /* UIKit.framework */,
+				AC31AD8A1CF327C9006F0608 /* CoreText.framework */,
+				AC31AD881CF327BE006F0608 /* QuartzCore.framework */,
+				AC31AD831CF327A2006F0608 /* AlipaySDK.framework */,
+				AC31AD841CF327A2006F0608 /* AlipaySDK.bundle */,
 				AC7AD4821CC72BF2004D9B61 /* libc++.tbd */,
 				AC0359071CC4D78600EC7BBC /* libz.tbd */,
 				AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */,
@@ -1665,28 +1642,12 @@
 			mainGroup = ACF83EA21CBF97F800A962BD;
 			productRefGroup = ACF83EAC1CBF97F800A962BD /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = AC545F7D1CED827C00133F25 /* Products */;
-					ProjectRef = AC545F7C1CED827C00133F25 /* MLeaksFinder.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				ACF83EAA1CBF97F800A962BD /* Venus */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		AC545F8B1CED827C00133F25 /* libMLeaksFinder.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMLeaksFinder.a;
-			remoteRef = AC545F8A1CED827C00133F25 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ACF83EA91CBF97F800A962BD /* Resources */ = {
@@ -1714,6 +1675,7 @@
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
 				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
 				30FD1FAC1CE2D023003C91A5 /* MapHeadView.xib in Resources */,
+				AC4D741C1CF2FBB900DF4997 /* couponOrder.storyboard in Resources */,
 				7F7025581CEC6458009653A6 /* FoodTrolleyTableViewCell.xib in Resources */,
 				30B601FD1CD1FA94003ED671 /* BeautifulFoodCell.xib in Resources */,
 				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
@@ -1731,7 +1693,6 @@
 				3057B1F91CD99B66008172DD /* GMMeOrderCell.xib in Resources */,
 				30D6D29F1CC8A85B00FB0CFC /* FoodCategoryCell.xib in Resources */,
 				30B601C61CD07BDC003ED671 /* ShopHomeViewController.xib in Resources */,
-				AC545F801CED827C00133F25 /* .gitignore in Resources */,
 				30D6D2941CC89E6E00FB0CFC /* FoodCommitCell.xib in Resources */,
 				3057B2071CD9BDC4008172DD /* Home.storyboard in Resources */,
 				AC72CF2B1CEEA6F70077537E /* mall.storyboard in Resources */,
@@ -1826,8 +1787,6 @@
 				30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */,
 				30B601C51CD07BDC003ED671 /* ShopHomeViewController.m in Sources */,
 				AC4D73D91CF1530A00DF4997 /* MallKindModel.m in Sources */,
-				AC545F851CED827C00133F25 /* UITabBarController+MemoryLeak.m in Sources */,
-				AC545F841CED827C00133F25 /* UISplitViewController+MemoryLeak.m in Sources */,
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
 				AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */,
 				303519511CCF1B3F00EE0750 /* TicketDetailViewController.m in Sources */,
@@ -1855,7 +1814,6 @@
 				AC2E04451CEB5DAE00476087 /* ImageCollectionViewCell.m in Sources */,
 				AC987D471CE8BDD100E11CC5 /* CouponModel.m in Sources */,
 				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
-				AC545F861CED827C00133F25 /* UIView+MemoryLeak.m in Sources */,
 				3057B1ED1CD99221008172DD /* GMMeViewController.m in Sources */,
 				30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */,
 				AC2E04421CEB554900476087 /* CouponCommentCell.m in Sources */,
@@ -1866,20 +1824,16 @@
 				AC7AD4971CC7A6D2004D9B61 /* Account.m in Sources */,
 				3086D3D41CC72ABC007494D7 /* HomeIntroduceCell.m in Sources */,
 				30D018091CE613E000E50B23 /* NSArray+Log.m in Sources */,
-				AC545F821CED827C00133F25 /* UINavigationController+MemoryLeak.m in Sources */,
 				AC90F5A11CD1DDD2004C4C55 /* NetworkFetcher+Food.m in Sources */,
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
 				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
-				AC545F881CED827C00133F25 /* README.md in Sources */,
-				AC545F811CED827C00133F25 /* NSObject+MemoryLeak.m in Sources */,
 				30FD1F441CE1A329003C91A5 /* IndoorSwitchDemo.mm in Sources */,
 				AC987D3B1CE8A95E00E11CC5 /* GroupViewModel.m in Sources */,
 				AC2E043F1CEB493E00476087 /* CouponInformationCell.m in Sources */,
 				AC7B3AD91CDF2C7E0039C2A5 /* SignUpViewModel.m in Sources */,
 				30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */,
 				30D017FF1CE360DE00E50B23 /* ReusableView.m in Sources */,
-				AC545F831CED827C00133F25 /* UIPageViewController+MemoryLeak.m in Sources */,
 				3035196B1CCF393700EE0750 /* TicketCommitCell.m in Sources */,
 				30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */,
 				AC4D73F41CF1DCA800DF4997 /* BrandViewCell.m in Sources */,
@@ -1888,6 +1842,7 @@
 				3086D3B41CC72A09007494D7 /* GMButton.m in Sources */,
 				30B601CA1CD07C54003ED671 /* ShopCycleCell.m in Sources */,
 				AC987D401CE8AF9900E11CC5 /* NetworkFetcher+Group.m in Sources */,
+				AC31AD961CF32F00006F0608 /* HomeViewModel.m in Sources */,
 				303519441CCF0B0500EE0750 /* MoneyCell.m in Sources */,
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
 				AC2E04361CEB2D3800476087 /* CouponPictureCell.m in Sources */,
@@ -1895,6 +1850,7 @@
 				AC987D351CE89B8A00E11CC5 /* GroupViewController.m in Sources */,
 				AC4D73FA1CF1E42B00DF4997 /* MoreViewCell.m in Sources */,
 				303519571CCF1F9500EE0750 /* TicketHeaderCell.m in Sources */,
+				AC4D74151CF2DE8100DF4997 /* KindDetailViewController.m in Sources */,
 				AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */,
 				AC4D74081CF295BC00DF4997 /* MerchandiseModel.m in Sources */,
 				30FD1FBA1CE2E7C5003C91A5 /* WXCategoryViewController.m in Sources */,
@@ -1927,6 +1883,7 @@
 				E8226C211CEB52B000980E30 /* FoodPaymentCell.m in Sources */,
 				30D018131CE6E84400E50B23 /* Activity.m in Sources */,
 				AC2E043C1CEB462F00476087 /* CouponCaseCell.m in Sources */,
+				AC4D741A1CF2F97800DF4997 /* PersonalCouponViewController.m in Sources */,
 				30D0180D1CE6158400E50B23 /* BeautifulFood.m in Sources */,
 				3086D3B61CC72A09007494D7 /* GMXTextField.m in Sources */,
 				AC90F5A81CD1EB12004C4C55 /* FoodManager.m in Sources */,
@@ -1961,7 +1918,6 @@
 				AC4D73E01CF161CF00DF4997 /* CategoryViewCell.m in Sources */,
 				303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
-				AC545F871CED827C00133F25 /* UIViewController+MemoryLeak.m in Sources */,
 				AC2E04391CEB374E00476087 /* CouponStoreCell.m in Sources */,
 				303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */,
 				AC545F9C1CED9C6B00133F25 /* CommitPayCell.m in Sources */,
@@ -2076,6 +2032,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Venus/OtherSDK/Tencent",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Venus/OtherSDK/Alipay",
 				);
 				GCC_PREFIX_HEADER = Venus/PrefixHeader.pch;
 				INFOPLIST_FILE = Venus/Info.plist;
@@ -2117,6 +2074,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Venus/OtherSDK/Tencent",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Venus/OtherSDK/Alipay",
 				);
 				GCC_PREFIX_HEADER = Venus/PrefixHeader.pch;
 				INFOPLIST_FILE = Venus/Info.plist;

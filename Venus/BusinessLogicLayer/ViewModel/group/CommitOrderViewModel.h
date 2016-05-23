@@ -25,4 +25,8 @@
 
 - (id)commitButtonIsValid;
 
+- (void)createOrderWithCouponID:(NSString *)couponID
+                        storeID:(NSString *)storeID
+                            num:(NSNumber *)num;
+
 @end

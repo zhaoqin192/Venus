@@ -8,6 +8,13 @@
 
 #import "GMMeOrderCell.h"
 
+@interface GMMeOrderCell ()
+
+@property (weak, nonatomic) IBOutlet UIButton *couponButton;
+
+
+@end
+
 @implementation GMMeOrderCell
 
 - (void)awakeFromNib {
@@ -16,6 +23,19 @@
     UIView *lineView = [self.contentView viewWithTag:10];
     lineView.backgroundColor = GMBgColor;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    [self onClickEvent];
+}
+
+- (void)onClickEvent {
+    
+    [[self.couponButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    subscribeNext:^(id x) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showCoupon" object:nil];
+        
+    }];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

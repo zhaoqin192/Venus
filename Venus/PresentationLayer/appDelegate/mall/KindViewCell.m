@@ -23,6 +23,8 @@
     self.collection.delegate = self;
     self.collection.dataSource = self;
     
+    self.kindObject = [RACSubject subject];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -50,7 +52,10 @@
     return cell;
 }
 
-
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showKindView" object:self userInfo:@{@"kindModel": [self.kindArray objectAtIndex:indexPath.item]}];
+    
+}
 
 @end

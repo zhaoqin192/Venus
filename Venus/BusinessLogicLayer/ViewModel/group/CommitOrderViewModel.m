@@ -7,6 +7,7 @@
 //
 
 #import "CommitOrderViewModel.h"
+#import "NetworkFetcher+Group.h"
 
 @interface CommitOrderViewModel ()
 
@@ -57,6 +58,22 @@
     self.countNumber--;
     self.totalPrice = self.countNumber * self.price;
     [self.countObject sendNext:nil];
+    
+}
+
+- (void)createOrderWithCouponID:(NSString *)couponID
+                        storeID:(NSString *)storeID
+                            num:(NSNumber *)num {
+    
+    [NetworkFetcher groupCreateOrderWithCouponID:couponID storeID:storeID num:num success:^(NSDictionary *response) {
+        
+        
+        
+    } failure:^(NSString *error) {
+        
+        
+        
+    }];
     
 }
 
