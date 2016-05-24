@@ -10,6 +10,15 @@
 
 @implementation FoodCommitCell
 
++ (instancetype)cellWithTableView:(UITableView *)tableView {
+    static NSString *identifier = @"FoodCommitCell";
+    FoodCommitCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"FoodCommitCell" owner:nil options:nil] firstObject];
+    }
+    return cell;
+}
+
 - (void)awakeFromNib {
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }

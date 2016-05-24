@@ -64,6 +64,9 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 
 
 - (void)configureTableView{
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    self.view.frame = CGRectMake(0, 0, width, height);
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([FoodCell class]) bundle:nil]  forCellReuseIdentifier:NSStringFromClass([FoodCell class])];
     //设置多余的seperator
     [self.myTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
@@ -138,6 +141,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     cell.basePrice.text = [@"￥" stringByAppendingString:restaurant.basePrice];
     cell.packFee.text = [@"￥" stringByAppendingString:restaurant.packFee];
     cell.costTime.text = restaurant.costTime;
+    NSLog(@"cell宽度是%f",cell.contentView.frame.size.width);
     
     return cell;
 }

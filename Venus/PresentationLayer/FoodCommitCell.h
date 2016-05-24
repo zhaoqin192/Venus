@@ -14,5 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *costTime;
 @property (weak, nonatomic) IBOutlet UILabel *createTime;
 @property (weak, nonatomic) IBOutlet UILabel *content;
-
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 @end
