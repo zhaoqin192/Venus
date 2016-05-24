@@ -141,6 +141,7 @@
     [_passwordView.textField setSecureTextEntry:YES];
     [_passwordView.textField setReturnKeyType:UIReturnKeyDone];
     _passwordView.textField.delegate = self;
+    _passwordView.autoresizingMask = UIViewAutoresizingNone;
     [self.view addSubview:_passwordView];
     
     _phoneView = [WXTextField fetchTextView];
@@ -151,6 +152,7 @@
     [_phoneView.textField setKeyboardType:UIKeyboardTypeNumberPad];
     [_phoneView.textField setReturnKeyType:UIReturnKeyDone];
     _phoneView.textField.delegate = self;
+    _phoneView.autoresizingMask = UIViewAutoresizingNone;
     [self.view addSubview:_phoneView];
 }
 
