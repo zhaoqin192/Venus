@@ -10,8 +10,12 @@
 #import "GMMeCell.h"
 #import "GMMeOrderCell.h"
 #import "GMMeInformationViewController.h"
+#import "AccountDao.h"
+#import "DatabaseManager.h"
+#import "Account.h"
 
 @interface GMMeViewController () <UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
@@ -22,10 +26,9 @@
     [super viewDidLoad];
     self.iconView.layer.cornerRadius = self.iconView.width/2;
     self.iconView.layer.masksToBounds = YES;
+    [self configureHeadView];
     [self configureTableView];
-    
     [self onClickEvent];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -40,6 +43,13 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+- (void)configureHeadView {
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    Account *account = [accountDao fetchAccount];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
+    self.nameLabel.text = account.nickName;
 }
 
 - (void)configureTableView {
