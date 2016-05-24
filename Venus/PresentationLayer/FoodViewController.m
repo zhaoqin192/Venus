@@ -48,17 +48,18 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     [self configureMenu];
     [self configureTableView];
     
-//    self.navigationController.navigationBarHidden = YES;
-    self.navigationItem.title = @"外卖";
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: GMBrownColor}];
-    
     [self initObjects];
     [self networkRequest];
-    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-//    self.navigationController.navigationBarHidden = YES;
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
 
