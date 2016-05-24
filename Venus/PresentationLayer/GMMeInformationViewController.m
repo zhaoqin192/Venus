@@ -13,7 +13,6 @@
 #import "ActionSheetDatePicker.h"
 #import "NSDate+Helper.h"
 #import "NSDate+Common.h"
-#import "MeModel.h"
 #import "AccountDao.h"
 #import "DatabaseManager.h"
 #import "Account.h"
@@ -58,6 +57,43 @@
         [self.myTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
+    }];
+}
+
+- (void)uploadData {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/terra/customer/change/info"]];
+    NSString *gender = [self.account.sex  isEqual: @(1)] ? @"male" : @"female";
+    NSDictionary *parameters = @{@"nickname":self.account.nickName,
+                                 @"realname":self.account.realName,
+                                 @"gender":gender,
+                                 @"birthday":self.account.birthday,
+                                 @"img":self.account.avatar};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+- (void)uploadAvatar:(UIImage *)image {
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.001);
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSDictionary *parameters = @{@"uid": self.account.token};
+    
+    [manager POST:[URL_PREFIX stringByAppendingString:@"/terra/customer/upload/headimg"] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
+        
+        [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/png"];
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Error: %@", error);
     }];
 }
 
@@ -218,9 +254,13 @@
                     vc.originContent = @"";
                 }
                 vc.returnString = ^(NSString *text) {
+                    if ([text isEqualToString:@""]) {
+                        return;
+                    }
                     self.account.nickName = text;
                     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
                     [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+                    [self uploadData];
                 };
                 [self.navigationController pushViewController:vc animated:YES];
                 break;
@@ -234,9 +274,13 @@
                     vc.originContent = @"";
                 }
                 vc.returnString = ^(NSString *text) {
+                    if ([text isEqualToString:@""]) {
+                        return;
+                    }
                     self.account.realName = text;
                     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
                     [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+                    [self uploadData];
                 };
                 [self.navigationController pushViewController:vc animated:YES];
                 break;
@@ -246,6 +290,7 @@
                     self.account.sex = [[selectedValue firstObject] isEqualToString:@"男"] ? @(1):@(0);
                     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
                      [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+                    [self uploadData];
                 } cancelBlock:nil origin:self.view];
                 break;
             }
@@ -255,6 +300,7 @@
                     self.account.birthday = date;
                     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:4 inSection:0];
                     [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+                    [self uploadData];
                 } cancelBlock:^(ActionSheetDatePicker *picker) {
                     
                 } origin:self.view];
@@ -283,9 +329,8 @@
         }
         // Do something with imageToUse
     }
-    @weakify(self)
     [picker dismissViewControllerAnimated:YES completion:^{
-        @strongify(self)
+        [self uploadAvatar:imageToUse];
 //        self.viewModel.avatarImage = imageToUse;
 //        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 //        [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];

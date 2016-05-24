@@ -132,9 +132,15 @@
 - (void)sendCommit:(NSString *)text {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/comment/insertComment"]];
-    NSDictionary *parameters = @{@"storeId":@(self.foodModel.shopId),@"ser_grade":@(5),@"des_grade":@(5),@"content":@"haha",@"itemId":@(0)};
+   // NSLog(@"%@ %d",text,self.foodModel.shopId);
+    NSDictionary *parameters = @{@"storeId":@(self.foodModel.shopId),
+                                 @"ser_grade":@(5),
+                                 @"des_grade":@(5),
+                                 @"content":text,
+                                 @"itemId":@(0)};
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
+        [self.myTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];

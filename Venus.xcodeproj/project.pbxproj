@@ -146,7 +146,6 @@
 		30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FB91CE2E7C5003C91A5 /* WXCategoryViewController.xib */; };
 		30FD1FC01CE2EFB6003C91A5 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */; };
 		30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */; };
-		30FEE6BA1CF3FCDF007E7A8B /* MeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FEE6B91CF3FCDF007E7A8B /* MeModel.m */; };
 		7F7025481CE96651009653A6 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025471CE96651009653A6 /* UIButton+Badge.m */; };
 		7F70254E1CEC0682009653A6 /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70254D1CEC0682009653A6 /* CALayer+XibConfiguration.m */; };
 		7F7025521CEC63A2009653A6 /* FoodTrolleyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */; };
@@ -494,8 +493,6 @@
 		30FD1FBD1CE2EFB6003C91A5 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
 		30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
-		30FEE6B81CF3FCDF007E7A8B /* MeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeModel.h; sourceTree = "<group>"; };
-		30FEE6B91CF3FCDF007E7A8B /* MeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeModel.m; sourceTree = "<group>"; };
 		5CB31E767E11D77284035771 /* libPods-Venus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Venus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F140CDA1CDFE6439DCF62F6 /* Pods-Venus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.debug.xcconfig"; sourceTree = "<group>"; };
 		7F7025461CE96651009653A6 /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
@@ -830,7 +827,6 @@
 		3057B1E81CD991F5008172DD /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				30FEE6B71CF3FC24007E7A8B /* model */,
 				3057B1F41CD998CA008172DD /* cell */,
 				3057B1EA1CD99221008172DD /* GMMeViewController.h */,
 				3057B1EB1CD99221008172DD /* GMMeViewController.m */,
@@ -1264,15 +1260,6 @@
 				30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */,
 			);
 			name = cell;
-			sourceTree = "<group>";
-		};
-		30FEE6B71CF3FC24007E7A8B /* model */ = {
-			isa = PBXGroup;
-			children = (
-				30FEE6B81CF3FCDF007E7A8B /* MeModel.h */,
-				30FEE6B91CF3FCDF007E7A8B /* MeModel.m */,
-			);
-			name = model;
 			sourceTree = "<group>";
 		};
 		7F7025451CE96619009653A6 /* Category */ = {
@@ -1969,7 +1956,6 @@
 				30B509F21CF2D27C00A2C30A /* DistancePickerView.m in Sources */,
 				AC2E04331CEAEEC400476087 /* CouponCommentModel.m in Sources */,
 				30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */,
-				30FEE6BA1CF3FCDF007E7A8B /* MeModel.m in Sources */,
 				ACAC17471CD8DCEB00E04499 /* ResFoodClass.m in Sources */,
 				AC72CF2E1CEEA86C0077537E /* NetworkFetcher+Mall.m in Sources */,
 				AC545F921CED90E000133F25 /* CommitOrderViewController.m in Sources */,
