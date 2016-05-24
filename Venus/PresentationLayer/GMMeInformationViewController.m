@@ -13,16 +13,22 @@
 #import "ActionSheetDatePicker.h"
 #import "NSDate+Helper.h"
 #import "NSDate+Common.h"
+#import "MeModel.h"
+#import "AccountDao.h"
+#import "DatabaseManager.h"
+#import "Account.h"
 
 @interface GMMeInformationViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
-
+@property (nonatomic, strong) Account *account;
 @end
 
 @implementation GMMeInformationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    self.account = [accountDao fetchAccount];
     self.navigationItem.title = @"我的首页";
     [self configureTableView];
     [self loadData];
@@ -41,6 +47,15 @@
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        Account *account = [accountDao fetchAccount];
+        account.avatar = responseObject[@"headimg"];
+        account.sex = [responseObject[@"gender"] isEqualToString:@"male"] ? @(1) : @(0);
+        account.nickName = responseObject[@"nickname"];
+        account.birthday = responseObject[@"birthday"];
+        account.realName = responseObject[@"realname"];
+        [accountDao save];
+        [self.myTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -75,6 +90,7 @@
         switch (indexPath.row) {
             case 0:{
                 userIconCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"userIconCell"];
+                cell.iconUrl = self.account.avatar;
                 return cell;
                 break;
             }
@@ -85,7 +101,7 @@
                 cell.textLabel.text = @"用户名";
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                cell.detailTextLabel.text = @"未填写";
+                cell.detailTextLabel.text = self.account.nickName;
                 return cell;
                 break;
             }
@@ -96,7 +112,7 @@
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.textLabel.text = @"真实姓名";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                cell.detailTextLabel.text = @"未填写";
+                cell.detailTextLabel.text = self.account.realName;
                 return cell;
                 break;
             }
@@ -107,7 +123,7 @@
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.textLabel.text = @"性别";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                cell.detailTextLabel.text = @"未填写";
+                cell.detailTextLabel.text = [self.account.sex  isEqual: @(1)] ? @"男":@"女";
                 return cell;
                 break;
             }
@@ -118,7 +134,7 @@
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.textLabel.text = @"生日";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                cell.detailTextLabel.text = @"未填写";
+                cell.detailTextLabel.text = self.account.birthday;
                 return cell;
                 break;
             }
@@ -196,39 +212,49 @@
             case 1:{
                 WXInformationDetailViewController *vc = [[WXInformationDetailViewController alloc] init];
                 vc.myTitle = @"修改用户名";
-//                if (self.viewModel.nickname != nil) {
-//                    vc.originContent = self.viewModel.nickname;
-//                } else {
-//                    vc.originContent = @"";
-//                }
-//                vc.delegateSignal = [RACSubject subject];
-//                @weakify(self)
-//                [vc.delegateSignal subscribeNext:^(NSString *message) {
-//                    @strongify(self)
-//                    self.viewModel.nickname = message;
-//                    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-//                    [self.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
-//                }];
+                if (self.account.nickName != nil) {
+                    vc.originContent = self.account.nickName;
+                } else {
+                    vc.originContent = @"";
+                }
+                vc.returnString = ^(NSString *text) {
+                    self.account.nickName = text;
+                    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+                    [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+                };
                 [self.navigationController pushViewController:vc animated:YES];
-               // self.state = @2;
                 break;
             }
             case 2:{
                 WXInformationDetailViewController *vc = [[WXInformationDetailViewController alloc] init];
                 vc.myTitle = @"修改真实姓名";
+                if (self.account.realName != nil) {
+                    vc.originContent = self.account.realName;
+                } else {
+                    vc.originContent = @"";
+                }
+                vc.returnString = ^(NSString *text) {
+                    self.account.realName = text;
+                    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+                    [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+                };
                 [self.navigationController pushViewController:vc animated:YES];
                 break;
             }
             case 3:{
-                [ActionSheetStringPicker showPickerWithTitle:@"请选择性别" rows:@[@[@"男", @"女", @"未知"]] initialSelection:@[@(0)] doneBlock:^(ActionSheetStringPicker *picker, NSArray * selectedIndex, NSArray *selectedValue) {
-                    NSLog(@"%@",[selectedValue firstObject]);
+                [ActionSheetStringPicker showPickerWithTitle:@"请选择性别" rows:@[@[@"男", @"女"]] initialSelection:@[@(0)] doneBlock:^(ActionSheetStringPicker *picker, NSArray * selectedIndex, NSArray *selectedValue) {
+                    self.account.sex = [[selectedValue firstObject] isEqualToString:@"男"] ? @(1):@(0);
+                    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
+                     [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
                 } cancelBlock:nil origin:self.view];
                 break;
             }
             case 4:{
                 NSDate *curDate = [NSDate dateFromString:@"1990-01-01" withFormat:@"yyyy-MM-dd"];            ActionSheetDatePicker *picker = [[ActionSheetDatePicker alloc] initWithTitle:nil datePickerMode:UIDatePickerModeDate selectedDate:curDate doneBlock:^(ActionSheetDatePicker *picker, NSDate *selectedDate, id origin) {
                     NSString *date = [selectedDate string_yyyy_MM_dd];
-                    NSLog(@"%@",date);
+                    self.account.birthday = date;
+                    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:4 inSection:0];
+                    [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
                 } cancelBlock:^(ActionSheetDatePicker *picker) {
                     
                 } origin:self.view];

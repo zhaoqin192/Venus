@@ -10,5 +10,5 @@
 
 @interface userIconCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *myImageView;
-
+@property (nonatomic, copy) NSString *iconUrl;
 @end

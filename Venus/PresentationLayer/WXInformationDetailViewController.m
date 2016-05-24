@@ -29,6 +29,9 @@
     [[button rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
         @strongify(self)
+        if (self.returnString) {
+            self.returnString(self.textField.text);
+        }
         [self.delegateSignal sendNext:self.textField.text];
         [self.navigationController popViewControllerAnimated:YES];
     }];

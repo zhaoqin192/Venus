@@ -110,35 +110,39 @@
         }
         case 2:{
             GMMeCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([GMMeCell class])];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             switch (indexPath.row) {
                 case 0:{
                     cell.myImageView.image = [UIImage imageNamed:@"我的评价"];
                     cell.myLabel.text = @"我的评价";
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     return cell;
                     break;
                 }
                 case 1:{
                     cell.myImageView.image = [UIImage imageNamed:@"我的收藏"];
                     cell.myLabel.text = @"我的收藏";
+                    cell.contentView.backgroundColor = GMBgColor;
                     return cell;
                     break;
                 }
                 case 2:{
                     cell.myImageView.image = [UIImage imageNamed:@"客户服务"];
                     cell.myLabel.text = @"客户服务";
+                    cell.contentView.backgroundColor = GMBgColor;
                     return cell;
                     break;
                 }
                 case 3:{
                     cell.myImageView.image = [UIImage imageNamed:@"账户中心"];
                     cell.myLabel.text = @"账户中心";
+                    cell.contentView.backgroundColor = GMBgColor;
                     return cell;
                     break;
                 }
                 case 4:{
                     cell.myImageView.image = [UIImage imageNamed:@"我的邀请"];
                     cell.myLabel.text = @"我的邀请";
+                    cell.contentView.backgroundColor = GMBgColor;
                     return cell;
                     break;
                 }
