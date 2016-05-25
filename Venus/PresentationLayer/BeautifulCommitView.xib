@@ -35,7 +35,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
                 <outlet property="sendButton" destination="7nu-dP-QNs" id="rqr-JL-VFC"/>
-                <outlet property="textField" destination="uuJ-mm-wVM" id="F2x-Aa-gf6"/>
+                <outlet property="textField" destination="uuJ-mm-wVM" id="Ko9-59-DF8"/>
             </connections>
             <point key="canvasLocation" x="297.5" y="406.5"/>
         </view>

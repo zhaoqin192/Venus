@@ -10,5 +10,6 @@
 
 @interface BeautifulCommitView : UIView
 + (instancetype) commitView;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic, copy) void(^sendButtonTapped)(NSString *text);
 @end

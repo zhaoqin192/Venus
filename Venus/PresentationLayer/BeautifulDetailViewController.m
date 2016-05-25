@@ -124,6 +124,7 @@
     __weak typeof(self)weakSelf = self;
     self.commitView.sendButtonTapped = ^(NSString *text){
         NSLog(@"hhaha");
+        [SVProgressHUD show];
         [weakSelf sendCommit:text];
     };
     [self.view addSubview:self.commitView];
@@ -131,6 +132,7 @@
 
 - (void)sendCommit:(NSString *)text {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/comment/insertComment"]];
    // NSLog(@"%@ %d",text,self.foodModel.shopId);
     NSDictionary *parameters = @{@"storeId":@(self.foodModel.shopId),
@@ -140,7 +142,10 @@
                                  @"itemId":@(0)};
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
-        [self.myTableView reloadData];
+        self.commitView.textField.text = @"";
+        [self.commitView.textField resignFirstResponder];
+        [SVProgressHUD showWithStatus:@"评论成功！"];
+        [self loadCommit];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];

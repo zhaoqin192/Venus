@@ -62,6 +62,7 @@
 
 - (void)uploadData {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/terra/customer/change/info"]];
     NSString *gender = [self.account.sex  isEqual: @(1)] ? @"male" : @"female";
     NSDictionary *parameters = @{@"nickname":self.account.nickName,

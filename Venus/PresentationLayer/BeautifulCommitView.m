@@ -9,7 +9,6 @@
 #import "BeautifulCommitView.h"
 @interface BeautifulCommitView ()
 @property (weak, nonatomic) IBOutlet UIImageView *sendButton;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
