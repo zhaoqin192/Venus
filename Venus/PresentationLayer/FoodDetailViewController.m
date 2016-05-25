@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIView *priceView;
 @property (weak, nonatomic) IBOutlet UIButton *trollyButton;
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
+@property (weak, nonatomic) IBOutlet UILabel *totalPriceText;
 
 @property (strong, nonatomic) FoodCommitViewController *commitVC;
 
@@ -77,10 +78,12 @@
     UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
     storeButton.imageInsets = UIEdgeInsetsMake(0, 0, 0, -40);
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:groupBuyButton, storeButton,nil];
+    [self.rdv_tabBarController setTabBarHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     self.navigationController.navigationBar.translucent = NO;
+    [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
 #pragma mark - event response
@@ -189,6 +192,7 @@
     self.noteText.text = [@"通知:" stringByAppendingString:_restaurant.describer];
     self.priceText.text = [NSString stringWithFormat:@"起送价￥%@ 配送费￥%@ 配送时间%@分钟", _restaurant.basePrice, _restaurant.packFee, _restaurant.costTime];
     [self.restaurantPic sd_setImageWithURL:[NSURL URLWithString:_restaurant.pictureUrl]];
+    self.totalPrice = 0;
 }
 
 - (void)configureChildController {
@@ -220,9 +224,17 @@
                             }];
 }
 
+#pragma mark - public methods
 - (void)deleteTrolly {
     self.shadowView.hidden = YES;
     self.foodTrolleyTableViewController.view.hidden = YES;
+}
+
+- (void)resizeTrolly {
+    CGFloat y = _foodTrolleyTableViewController.view.frame.origin.y + 40.0;
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = _foodTrolleyTableViewController.view.frame.size.height - 40.0;
+    _foodTrolleyTableViewController.view.frame = CGRectMake(0, y, width, height);
 }
 
 #pragma mark - getters and setters
@@ -255,6 +267,15 @@
         _currentVCIndex = 0;
         return _segementView;
     }
+}
+
+- (void)setTotalPrice:(CGFloat)totalPrice {
+    _totalPrice = totalPrice;
+    NSString *price = [NSString stringWithFormat:@"共%.2f元",totalPrice];
+    NSMutableAttributedString *attributedPrice = [[NSMutableAttributedString alloc] initWithString:price];
+    [attributedPrice addAttribute:NSForegroundColorAttributeName value:GMBrownColor range:NSMakeRange(0, 1)];
+    [attributedPrice addAttribute:NSForegroundColorAttributeName value:GMBrownColor range:NSMakeRange(price.length - 1, 1)];
+    self.totalPriceText.attributedText = attributedPrice;
 }
 
 @end

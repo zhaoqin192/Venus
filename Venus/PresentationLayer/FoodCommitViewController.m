@@ -42,7 +42,11 @@
 }
 
 - (void)configureTableView{
-    [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([FoodCommitCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([FoodCommitCell class])];
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    self.view.frame = CGRectMake(0, 0, width, height);
+    self.myTableView.dataSource = self;
+    self.myTableView.delegate = self;
 }
 
 #pragma mark <UITableView>
@@ -53,7 +57,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     Comment *comment = _commentArray[indexPath.row];
-    FoodCommitCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FoodCommitCell class])];
+    FoodCommitCell *cell = [FoodCommitCell cellWithTableView:tableView];
+    NSLog(@"cell的宽度是：%f",cell.contentView.frame.size.width);
     [cell.avatar sd_setImageWithURL:[NSURL URLWithString:comment.avatar]];
     cell.nickName.text = comment.nickName;
     cell.content.text = comment.content;

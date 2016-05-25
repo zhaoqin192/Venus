@@ -11,8 +11,8 @@
 
 @interface FoodTrolleyTableViewCell()
 @property (weak, nonatomic) IBOutlet UILabel *foodName;
-@property (weak, nonatomic) IBOutlet UILabel *foodTotalPrice;
-@property (weak, nonatomic) IBOutlet UILabel *foodCount;
+
+
 
 
 @end

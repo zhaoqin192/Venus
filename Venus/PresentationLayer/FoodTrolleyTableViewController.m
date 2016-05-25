@@ -15,8 +15,6 @@
 
 @interface FoodTrolleyTableViewController () <UITableViewDelegate, UITableViewDataSource>
 
-
-
 @end
 
 @implementation FoodTrolleyTableViewController
@@ -60,10 +58,12 @@
     for (FoodOrderViewBaseItem *baseItem in _foodArray) {
         baseItem.orderCount = 0;
     }
+    [_foodArray removeAllObjects];
     [self.tableView reloadData];
-    FoodDetailViewController *vc = (FoodDetailViewController *)self.parentViewController;
+    __weak FoodDetailViewController *vc = (FoodDetailViewController *)self.parentViewController;
     if (vc) {
         vc.trollyButtonBadgeCount = 0;
+        vc.totalPrice = 0.0;
         [[(FoodOrderViewController *)vc.orderVC dataTableView] reloadData];
         [vc deleteTrolly];
     }
@@ -71,17 +71,61 @@
 
 - (void)cellAddButtonClicked:(id)sender {
     UIButton *button = (UIButton *)sender;
-    FoodTrolleyTableViewCell *cell = (FoodTrolleyTableViewCell *)[[button superview] superview];
+    __weak FoodTrolleyTableViewCell *cell = (FoodTrolleyTableViewCell *)[[button superview] superview];
     if (cell) {
-        
+        cell.food.orderCount += 1;
+        cell.foodCount.text = [NSString stringWithFormat:@"%li",([cell.foodCount.text integerValue] + 1)];
+        CGFloat unitPrice = cell.food.unitPrice;
+        CGFloat totalPrice = cell.food.orderCount * unitPrice;
+        cell.foodTotalPrice.text = [NSString stringWithFormat:@"￥%.2f",totalPrice];
+        __weak FoodDetailViewController *vc = (FoodDetailViewController *)self.parentViewController;
+        vc.totalPrice += unitPrice;
+        vc.trollyButtonBadgeCount += 1;
+        [vc.orderVC.dataTableView reloadData];
     }
 }
 
 - (void)cellMinusButtonClicked:(id)sender {
     UIButton *button = (UIButton *)sender;
+    __weak FoodTrolleyTableViewCell *cell = (FoodTrolleyTableViewCell *)[[button superview] superview];
+    if (cell) {
+        if  (cell.food.orderCount > 0) {
+            cell.food.orderCount -= 1;
+            cell.foodCount.text = [NSString stringWithFormat:@"%li",([cell.foodCount.text integerValue] - 1)];
+            CGFloat unitPrice = cell.food.unitPrice;
+            CGFloat totalPrice = cell.food.orderCount * unitPrice;
+            cell.foodTotalPrice.text = [NSString stringWithFormat:@"￥%.2f",totalPrice];
+            
+            __weak FoodDetailViewController *vc = (FoodDetailViewController *)self.parentViewController;
+            vc.totalPrice -= unitPrice;
+            vc.trollyButtonBadgeCount -= 1;
+            [vc.orderVC.dataTableView reloadData];
+        }
+        if (cell.food.orderCount == 0) {
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+            [self deleteCellAtIndexPath:indexPath];
+        }
+    }
+    
 }
 
 #pragma mark - private methods
+
+- (void)deleteCellAtIndexPath:(NSIndexPath *)indexPath {
+    [self.foodArray removeObjectAtIndex:indexPath.row];
+    __weak FoodDetailViewController *vc = (FoodDetailViewController *)self.parentViewController;
+    if (self.foodArray.count != 0) {
+        [self.tableView reloadData];
+        [vc resizeTrolly];
+    } else {
+        if (vc) {
+            vc.trollyButtonBadgeCount = 0;
+            vc.totalPrice = 0.0;
+            [[(FoodOrderViewController *)vc.orderVC dataTableView] reloadData];
+            [vc deleteTrolly];
+        }
+    }
+}
 
 #pragma mark - getters and setters
 

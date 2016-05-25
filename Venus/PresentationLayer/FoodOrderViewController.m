@@ -213,6 +213,7 @@
             // 改变parentController
             __weak FoodDetailViewController *foodDetailViewController = (FoodDetailViewController *)self.parentViewController;
             if (foodDetailViewController) {
+                foodDetailViewController.totalPrice = foodDetailViewController.totalPrice - baseItem.unitPrice;
                 if (foodDetailViewController.trollyButtonBadgeCount != 0) {
                     foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount - 1;
                 }
@@ -238,6 +239,7 @@
         __weak FoodDetailViewController *foodDetailViewController = (FoodDetailViewController *)self.parentViewController;
         if (foodDetailViewController) {
             foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount + 1;
+            foodDetailViewController.totalPrice = foodDetailViewController.totalPrice + baseItem.unitPrice;
         }
     }
 }
