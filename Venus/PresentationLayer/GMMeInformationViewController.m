@@ -16,6 +16,7 @@
 #import "AccountDao.h"
 #import "DatabaseManager.h"
 #import "Account.h"
+#import "MeModifyPasswordViewController.h"
 
 @interface GMMeInformationViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -37,6 +38,20 @@
     [self.myTableView registerNib:[UINib nibWithNibName:@"userIconCell" bundle:nil] forCellReuseIdentifier:@"userIconCell"];
     [self.myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"informationCell"];
     self.myTableView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
+    
+    self.myTableView.tableFooterView = ({
+        UIView *foot = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+        foot.backgroundColor = [UIColor clearColor];
+        UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
+        contentView.backgroundColor = [UIColor whiteColor];
+        [foot addSubview:contentView];
+        UILabel *label = [[UILabel alloc] initWithFrame:contentView.bounds];
+        label.text = @"退出登录";
+        label.textAlignment = NSTextAlignmentCenter;
+        [label setTextColor:GMRedColor];
+        [contentView addSubview:label];
+        foot;
+    });
 }
 
 - (void)loadData {
@@ -96,6 +111,7 @@
         self.account.avatar = responseObject[@"url"];
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self uploadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"Error: %@", error);
     }];
@@ -104,7 +120,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -113,12 +129,9 @@
             return 5;
             break;
         case 1:
-            return 3;
+            return 2;
             break;
         case 2:
-            return 3;
-            break;
-        case 3:
             return 1;
             break;
     }
@@ -180,21 +193,74 @@
             }
         }
     }
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
-    cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
-    [cell.detailTextLabel setTextColor:GMFontColor];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = @"生日";
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.detailTextLabel.text = @"未填写";
-    return cell;
+    else if (indexPath.section == 2) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
+        [cell.detailTextLabel setTextColor:GMFontColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.text = @"地址管理";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+    }
+    else {
+        if (indexPath.row == 0) {
+            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"informationCell"];
+            cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
+            [cell.detailTextLabel setTextColor:GMFontColor];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.text = @"手机号";
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"已绑定%@",self.account.phone];
+            cell.accessoryView = ({
+                UIButton *modify = [UIButton buttonWithType:UIButtonTypeCustom];
+                modify.frame = CGRectMake(0, 0, 88, 32);
+                [modify setTitleColor:GMRedColor forState:UIControlStateNormal];
+                modify.layer.cornerRadius = 5;
+                modify.layer.masksToBounds = YES;
+                modify.layer.borderWidth = 1;
+                modify.layer.borderColor = GMRedColor.CGColor;
+                [modify setTitle:@"修改" forState:UIControlStateNormal];
+                modify;
+            });
+            return cell;
+        }
+        else {
+            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
+            cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
+            [cell.detailTextLabel setTextColor:GMFontColor];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.text = @"登录密码";
+            cell.accessoryView = ({
+                UIButton *modify = [UIButton buttonWithType:UIButtonTypeCustom];
+                modify.frame = CGRectMake(0, 0, 88, 32);
+                [modify setTitleColor:GMRedColor forState:UIControlStateNormal];
+                modify.layer.cornerRadius = 5;
+                modify.layer.masksToBounds = YES;
+                modify.layer.borderWidth = 1;
+                modify.layer.borderColor = GMRedColor.CGColor;
+                [modify setTitle:@"修改" forState:UIControlStateNormal];
+                modify;
+            });
+            [cell.accessoryView bk_whenTapped:^{
+                MeModifyPasswordViewController *vc = [[MeModifyPasswordViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
+            return cell;
+        }
+    }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section == 1 && indexPath.row == 0) {
+        return 60;
+    }
     return 44;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 2) {
+        return 0.5;
+    }
     return 28;
 }
 
@@ -210,12 +276,11 @@
     label.textColor = GMFontColor;
     label.frame = CGRectMake(15, 7, kScreenWidth, 12);
     [view addSubview:label];
-    label.text = @"个人资料";
     if(section == 1) {
         label.text = @"安全设置";
     }
-    if(section == 2) {
-        label.text = @"社交账号绑定";
+    if(section == 0) {
+        label.text = @"个人资料";
     }
     return view;
 }

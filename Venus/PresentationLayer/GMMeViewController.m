@@ -50,10 +50,25 @@
 //}
 
 - (void)configureHeadView {
-    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-    Account *account = [accountDao fetchAccount];
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
-    self.nameLabel.text = account.nickName;
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/terra/customer/info"]];
+    NSDictionary *parameters = nil;
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        Account *account = [accountDao fetchAccount];
+        account.avatar = responseObject[@"headimg"];
+        account.sex = [responseObject[@"gender"] isEqualToString:@"male"] ? @(1) : @(0);
+        account.nickName = responseObject[@"nickname"];
+        account.birthday = responseObject[@"birthday"];
+        account.realName = responseObject[@"realname"];
+        [accountDao save];
+        [self.iconView sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
+        self.nameLabel.text = account.nickName;
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 - (void)configureTableView {

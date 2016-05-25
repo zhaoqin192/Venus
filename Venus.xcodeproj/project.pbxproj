@@ -146,6 +146,8 @@
 		30FD1FBB1CE2E7C5003C91A5 /* WXCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FB91CE2E7C5003C91A5 /* WXCategoryViewController.xib */; };
 		30FD1FC01CE2EFB6003C91A5 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */; };
 		30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */; };
+		30FEE6CD1CF58EDA007E7A8B /* MeModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FEE6CB1CF58EDA007E7A8B /* MeModifyPasswordViewController.m */; };
+		30FEE6CE1CF58EDA007E7A8B /* MeModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FEE6CC1CF58EDA007E7A8B /* MeModifyPasswordViewController.xib */; };
 		7F7025481CE96651009653A6 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025471CE96651009653A6 /* UIButton+Badge.m */; };
 		7F70254E1CEC0682009653A6 /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70254D1CEC0682009653A6 /* CALayer+XibConfiguration.m */; };
 		7F7025521CEC63A2009653A6 /* FoodTrolleyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */; };
@@ -499,6 +501,9 @@
 		30FD1FBD1CE2EFB6003C91A5 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
 		30FD1FBE1CE2EFB6003C91A5 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		30FEE6CA1CF58EDA007E7A8B /* MeModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeModifyPasswordViewController.h; sourceTree = "<group>"; };
+		30FEE6CB1CF58EDA007E7A8B /* MeModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeModifyPasswordViewController.m; sourceTree = "<group>"; };
+		30FEE6CC1CF58EDA007E7A8B /* MeModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeModifyPasswordViewController.xib; sourceTree = "<group>"; };
 		5CB31E767E11D77284035771 /* libPods-Venus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Venus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F140CDA1CDFE6439DCF62F6 /* Pods-Venus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.debug.xcconfig"; sourceTree = "<group>"; };
 		7F7025461CE96651009653A6 /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
@@ -852,6 +857,9 @@
 				30B509D41CF2AD5500A2C30A /* WXInformationDetailViewController.h */,
 				30B509D51CF2AD5500A2C30A /* WXInformationDetailViewController.m */,
 				30B509D61CF2AD5500A2C30A /* WXInformationDetailViewController.xib */,
+				30FEE6CA1CF58EDA007E7A8B /* MeModifyPasswordViewController.h */,
+				30FEE6CB1CF58EDA007E7A8B /* MeModifyPasswordViewController.m */,
+				30FEE6CC1CF58EDA007E7A8B /* MeModifyPasswordViewController.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -1860,6 +1868,7 @@
 				303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */,
 				3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */,
 				E89BD32E1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib in Resources */,
+				30FEE6CE1CF58EDA007E7A8B /* MeModifyPasswordViewController.xib in Resources */,
 				3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */,
 				30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */,
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
@@ -2031,6 +2040,7 @@
 				AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */,
 				AC7AD49C1CC7AFD9004D9B61 /* DatabaseManager.m in Sources */,
 				AC72CF321CEEA9C50077537E /* MallViewModel.m in Sources */,
+				30FEE6CD1CF58EDA007E7A8B /* MeModifyPasswordViewController.m in Sources */,
 				3086D3C01CC72A8C007494D7 /* GMLoginViewController.m in Sources */,
 				AC7AD4971CC7A6D2004D9B61 /* Account.m in Sources */,
 				3086D3D41CC72ABC007494D7 /* HomeIntroduceCell.m in Sources */,
