@@ -16,6 +16,7 @@
 #import "AccountDao.h"
 #import "DatabaseManager.h"
 #import "Account.h"
+#import "MeModifyPasswordViewController.h"
 
 @interface GMMeInformationViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -239,6 +240,10 @@
                 [modify setTitle:@"修改" forState:UIControlStateNormal];
                 modify;
             });
+            [cell.accessoryView bk_whenTapped:^{
+                MeModifyPasswordViewController *vc = [[MeModifyPasswordViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
             return cell;
         }
     }
