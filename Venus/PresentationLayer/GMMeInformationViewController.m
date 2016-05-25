@@ -96,6 +96,7 @@
         self.account.avatar = responseObject[@"url"];
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self uploadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"Error: %@", error);
     }];
@@ -104,7 +105,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -113,12 +114,9 @@
             return 5;
             break;
         case 1:
-            return 3;
+            return 2;
             break;
         case 2:
-            return 3;
-            break;
-        case 3:
             return 1;
             break;
     }
@@ -195,6 +193,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 2) {
+        return 0.5;
+    }
     return 28;
 }
 
@@ -210,12 +211,11 @@
     label.textColor = GMFontColor;
     label.frame = CGRectMake(15, 7, kScreenWidth, 12);
     [view addSubview:label];
-    label.text = @"个人资料";
     if(section == 1) {
         label.text = @"安全设置";
     }
-    if(section == 2) {
-        label.text = @"社交账号绑定";
+    if(section == 0) {
+        label.text = @"个人资料";
     }
     return view;
 }
