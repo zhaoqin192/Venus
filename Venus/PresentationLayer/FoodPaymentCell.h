@@ -10,6 +10,9 @@
 
 @interface FoodPaymentCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *paymentWay;
 @property (assign, nonatomic) BOOL isSelected;
+
++ (instancetype)cellForTableView:(UITableView *)tableView;
 
 @end

@@ -46,7 +46,7 @@
     _baseItem = baseItem;
     [self.pictureUrl sd_setImageWithURL:[NSURL URLWithString:baseItem.pictureURL]];
     self.name.text = baseItem.name;
-    self.price.text = [NSString stringWithFormat:@"%li元/份",(long)baseItem.unitPrice];
+    self.price.text = [NSString stringWithFormat:@"%.2f元/份",baseItem.unitPrice];
     self.sales.text = [NSString stringWithFormat:@"月销量%li",(long)baseItem.soldCount];
     self.count.text = [NSString stringWithFormat:@"%li",(long)baseItem.orderCount];
 }

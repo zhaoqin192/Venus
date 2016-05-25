@@ -17,6 +17,8 @@
 #import "UIButton+Badge.h"
 #import "FoodOrderViewSectionObject.h"
 #import "FoodOrderViewBaseItem.h"
+#import "FoodSubmitOrderViewController.h"
+#import "AccountDao.h"
 //#import "FoodManager.h"
 //#import "ResFoodClass.h"
 //#import "ResFood.h"
@@ -70,9 +72,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = YES;
     self.navigationItem.title = _restaurant.name;
+    self.view.frame = CGRectMake(0, -66, kScreenWidth, kScreenHeight);
     
     UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
     UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
@@ -82,6 +86,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     self.navigationController.navigationBar.translucent = NO;
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
@@ -131,8 +136,8 @@
         // 背景变暗
         if (self.shadowView.hidden == YES) {
             self.shadowView.hidden = NO;
-            [self.view insertSubview:_segementView belowSubview:_shadowView];
-            [self.view insertSubview:self.navigationController.navigationBar belowSubview:_shadowView];
+            [self.view insertSubview:self.segementView belowSubview:self.shadowView];
+            [self.view insertSubview:self.navigationController.navigationBar belowSubview:self.shadowView];
         } else {
             self.shadowView.hidden = YES;
         }
@@ -179,6 +184,28 @@
 
 - (IBAction)shadowViewTouched:(id)sender {
     [self trollyButtonClicked:sender];
+}
+
+- (IBAction)confirmOrderButtonClicked:(id)sender {
+    if (self.totalPrice == 0) {
+        return;
+    }
+    AccountDao *account = [[AccountDao alloc] init];
+    if (account.isLogin) {
+        // 创建订单，传入下一个
+        FoodSubmitOrderViewController *vc = [[FoodSubmitOrderViewController alloc] init];
+        vc.restaurantName = _restaurant.name;
+        for (FoodOrderViewSectionObject *sectionObject in _orderVC.sections) {
+            for (FoodOrderViewBaseItem *baseItem in sectionObject.items) {
+                if (baseItem.orderCount > 0) {
+                    [vc.foodArray addObject:baseItem];
+                }
+            }
+        }
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        // 弹出登录界面
+    }
 }
 
 #pragma mark - private methods

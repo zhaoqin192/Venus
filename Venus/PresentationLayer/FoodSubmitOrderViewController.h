@@ -10,4 +10,8 @@
 
 @interface FoodSubmitOrderViewController : UIViewController
 
+@property (copy, nonatomic) NSString *restaurantName;
+@property (copy, nonatomic) NSMutableArray *foodArray;
+@property (assign, nonatomic) CGFloat shippingFee;
+
 @end

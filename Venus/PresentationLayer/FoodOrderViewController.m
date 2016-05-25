@@ -227,7 +227,7 @@
     FoodContentCell *cell = (FoodContentCell *)[[[button superview] superview] superview];
     NSIndexPath *indexPath = [self.dataTableView indexPathForCell:cell];
     if (cell) {
-        if (cell.foodCount == 0) {
+        if (cell.foodCount >= 0) {
             cell.minus.enabled = YES;
         }
         

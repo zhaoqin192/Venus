@@ -45,9 +45,9 @@
     [self.navigationController setNavigationBarHidden:NO];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
+//- (UIStatusBarStyle)preferredStatusBarStyle {
+//    return UIStatusBarStyleLightContent;
+//}
 
 - (void)configureHeadView {
     AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];

@@ -25,6 +25,10 @@
     [self configureTableView];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    self.navigationController.navigationBar.translucent = NO;
+}
+
 - (void)configureTableView {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
