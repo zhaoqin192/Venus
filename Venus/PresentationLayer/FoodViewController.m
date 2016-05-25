@@ -141,7 +141,6 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     cell.basePrice.text = [@"￥" stringByAppendingString:restaurant.basePrice];
     cell.packFee.text = [@"￥" stringByAppendingString:restaurant.packFee];
     cell.costTime.text = restaurant.costTime;
-    NSLog(@"cell宽度是%f",cell.contentView.frame.size.width);
     
     return cell;
 }
@@ -172,6 +171,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     FoodDetailViewController *foodDetailVC = [[FoodDetailViewController alloc] init];
     foodDetailVC.restaurant = restaurant;
     [self.navigationController pushViewController:foodDetailVC animated:YES];
+//    [self presentViewController:foodDetailVC animated:YES completion:nil];
 }
 
 

@@ -22,9 +22,9 @@
     [super didReceiveMemoryWarning];
 }
 
-- (UIViewController *)childViewControllerForStatusBarStyle {
-    return self.topViewController;
-}
+//- (UIViewController *)childViewControllerForStatusBarStyle {
+//    return self.topViewController;
+//}
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     viewController.navigationItem.backBarButtonItem = ({

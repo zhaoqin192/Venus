@@ -17,7 +17,7 @@
             _pictureURL = resFood.pictureUrl;
             _name = resFood.name;
             _soldCount = [resFood.sales integerValue];
-            _unitPrice = [resFood.price floatValue];
+            _unitPrice = [resFood.price floatValue] / 100.0;
             _orderCount = 0;
             
         }

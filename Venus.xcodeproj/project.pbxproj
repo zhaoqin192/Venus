@@ -160,6 +160,12 @@
 		7F70255E1CEDAF31009653A6 /* ResFood+count.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70255D1CEDAF31009653A6 /* ResFood+count.m */; };
 		7F7025611CF2C7A6009653A6 /* FoodOrderViewSectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025601CF2C7A6009653A6 /* FoodOrderViewSectionObject.m */; };
 		7F7025641CF2C814009653A6 /* FoodOrderViewBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025631CF2C814009653A6 /* FoodOrderViewBaseItem.m */; };
+		7F7025681CF57FE0009653A6 /* FoodBillCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025661CF57FE0009653A6 /* FoodBillCell.m */; };
+		7F7025691CF57FE0009653A6 /* FoodBillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7025671CF57FE0009653A6 /* FoodBillCell.xib */; };
+		7F70256D1CF58EA4009653A6 /* FoodShippingFeeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70256B1CF58EA4009653A6 /* FoodShippingFeeCell.m */; };
+		7F70256E1CF58EA4009653A6 /* FoodShippingFeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F70256C1CF58EA4009653A6 /* FoodShippingFeeCell.xib */; };
+		7F7025751CF59A9A009653A6 /* FoodOtherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025731CF59A9A009653A6 /* FoodOtherCell.m */; };
+		7F7025761CF59A9A009653A6 /* FoodOtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7025741CF59A9A009653A6 /* FoodOtherCell.xib */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -523,6 +529,15 @@
 		7F7025601CF2C7A6009653A6 /* FoodOrderViewSectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodOrderViewSectionObject.m; sourceTree = "<group>"; };
 		7F7025621CF2C814009653A6 /* FoodOrderViewBaseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodOrderViewBaseItem.h; sourceTree = "<group>"; };
 		7F7025631CF2C814009653A6 /* FoodOrderViewBaseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodOrderViewBaseItem.m; sourceTree = "<group>"; };
+		7F7025651CF57FE0009653A6 /* FoodBillCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodBillCell.h; sourceTree = "<group>"; };
+		7F7025661CF57FE0009653A6 /* FoodBillCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodBillCell.m; sourceTree = "<group>"; };
+		7F7025671CF57FE0009653A6 /* FoodBillCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodBillCell.xib; sourceTree = "<group>"; };
+		7F70256A1CF58EA4009653A6 /* FoodShippingFeeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodShippingFeeCell.h; sourceTree = "<group>"; };
+		7F70256B1CF58EA4009653A6 /* FoodShippingFeeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodShippingFeeCell.m; sourceTree = "<group>"; };
+		7F70256C1CF58EA4009653A6 /* FoodShippingFeeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodShippingFeeCell.xib; sourceTree = "<group>"; };
+		7F7025721CF59A9A009653A6 /* FoodOtherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodOtherCell.h; sourceTree = "<group>"; };
+		7F7025731CF59A9A009653A6 /* FoodOtherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodOtherCell.m; sourceTree = "<group>"; };
+		7F7025741CF59A9A009653A6 /* FoodOtherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodOtherCell.xib; sourceTree = "<group>"; };
 		9713C37508499AECCEDF39F3 /* Pods-Venus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.release.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -1729,6 +1744,15 @@
 				E8226C1E1CEB52B000980E30 /* FoodPaymentCell.h */,
 				E8226C1F1CEB52B000980E30 /* FoodPaymentCell.m */,
 				E8226C201CEB52B000980E30 /* FoodPaymentCell.xib */,
+				7F7025651CF57FE0009653A6 /* FoodBillCell.h */,
+				7F7025661CF57FE0009653A6 /* FoodBillCell.m */,
+				7F7025671CF57FE0009653A6 /* FoodBillCell.xib */,
+				7F70256A1CF58EA4009653A6 /* FoodShippingFeeCell.h */,
+				7F70256B1CF58EA4009653A6 /* FoodShippingFeeCell.m */,
+				7F70256C1CF58EA4009653A6 /* FoodShippingFeeCell.xib */,
+				7F7025721CF59A9A009653A6 /* FoodOtherCell.h */,
+				7F7025731CF59A9A009653A6 /* FoodOtherCell.m */,
+				7F7025741CF59A9A009653A6 /* FoodOtherCell.xib */,
 			);
 			name = submitOrderCell;
 			sourceTree = "<group>";
@@ -1797,6 +1821,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				7F7025691CF57FE0009653A6 /* FoodBillCell.xib in Resources */,
+				7F70256E1CF58EA4009653A6 /* FoodShippingFeeCell.xib in Resources */,
 				AC90F5641CCFA292004C4C55 /* WXTextField.xib in Resources */,
 				308E0D881CF2A4EF0048F38A /* GMMeInformationViewController.xib in Resources */,
 				AC90F5661CCFA292004C4C55 /* HomeIntroduceCell.xib in Resources */,
@@ -1845,6 +1871,7 @@
 				303519621CCF348F00EE0750 /* TicketCountCell.xib in Resources */,
 				3086D3C11CC72A8C007494D7 /* GMLoginViewController.xib in Resources */,
 				308E0D831CF1CABF0048F38A /* BeautifulCommitView.xib in Resources */,
+				7F7025761CF59A9A009653A6 /* FoodOtherCell.xib in Resources */,
 				30D6D28A1CC891B500FB0CFC /* FoodDetailViewController.xib in Resources */,
 				308E0D691CF002070048F38A /* BeautifulDetailViewController.xib in Resources */,
 				303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */,
@@ -1996,6 +2023,7 @@
 				E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */,
 				AC545F9F1CEDA94700133F25 /* CommitPriceCell.m in Sources */,
 				3086D3D01CC72ABC007494D7 /* HomePageViewController.m in Sources */,
+				7F7025751CF59A9A009653A6 /* FoodOtherCell.m in Sources */,
 				AC4D74041CF1EC9E00DF4997 /* KindViewModel.m in Sources */,
 				3057B1FF1CD9B9E8008172DD /* RootTabViewController.m in Sources */,
 				AC4D73D21CF14E8600DF4997 /* MallCategoryModel.m in Sources */,
@@ -2090,6 +2118,7 @@
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */,
 				30B509D21CF2A79700A2C30A /* userIconCell.m in Sources */,
+				7F70256D1CF58EA4009653A6 /* FoodShippingFeeCell.m in Sources */,
 				308E0D771CF003290048F38A /* MoneyCell.m in Sources */,
 				30FD1FAA1CE2D012003C91A5 /* MapHeadView.m in Sources */,
 				308E0D681CF002070048F38A /* BeautifulDetailViewController.m in Sources */,
@@ -2109,6 +2138,7 @@
 				AC90F5AB1CD20523004C4C55 /* Restaurant.m in Sources */,
 				AC90F5791CD0604F004C4C55 /* WebViewController.m in Sources */,
 				AC96F3031CE9C72A001B2DDE /* LoadingCell.m in Sources */,
+				7F7025681CF57FE0009653A6 /* FoodBillCell.m in Sources */,
 				3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */,
 				3057B1F21CD998C3008172DD /* GMMeCell.m in Sources */,
 				AC4D73F71CF1DD1D00DF4997 /* BrandCollectionViewCell.m in Sources */,
@@ -2241,6 +2271,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2283,6 +2314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

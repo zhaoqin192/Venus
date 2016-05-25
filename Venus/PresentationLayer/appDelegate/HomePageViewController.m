@@ -144,9 +144,9 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     [self.navigationController setNavigationBarHidden:NO];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
+//- (UIStatusBarStyle)preferredStatusBarStyle {
+//    return UIStatusBarStyleLightContent;
+//}
 
 - (void)netWorkRequest {
     

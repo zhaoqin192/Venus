@@ -22,7 +22,7 @@
 + (instancetype)cellForTableView:(UITableView *)tableView {
     static NSString *identifier = @"FoodAddAddressCell";
     FoodAddAddressCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell) {
+    if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"FoodAddAddressCell" owner:nil options:nil] firstObject];
     }
     return cell;
