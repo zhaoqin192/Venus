@@ -17,7 +17,7 @@
 #import "DatabaseManager.h"
 #import "Account.h"
 #import "MeModifyPasswordViewController.h"
-
+#import "MeModifyPhoneNumberViewController.h"
 @interface GMMeInformationViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) Account *account;
@@ -221,6 +221,10 @@
                 [modify setTitle:@"修改" forState:UIControlStateNormal];
                 modify;
             });
+            [cell.accessoryView bk_whenTapped:^{
+                MeModifyPhoneNumberViewController *vc = [[MeModifyPhoneNumberViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }];
             return cell;
         }
         else {

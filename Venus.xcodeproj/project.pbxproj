@@ -148,6 +148,8 @@
 		30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FD1FBF1CE2EFB6003C91A5 /* CategoryCell.xib */; };
 		30FEE6CD1CF58EDA007E7A8B /* MeModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FEE6CB1CF58EDA007E7A8B /* MeModifyPasswordViewController.m */; };
 		30FEE6CE1CF58EDA007E7A8B /* MeModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FEE6CC1CF58EDA007E7A8B /* MeModifyPasswordViewController.xib */; };
+		30FEE6D61CF5E3DC007E7A8B /* MeModifyPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FEE6D41CF5E3DC007E7A8B /* MeModifyPhoneNumberViewController.m */; };
+		30FEE6D91CF5E40F007E7A8B /* MeModifyPhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FEE6D81CF5E40F007E7A8B /* MeModifyPhoneNumberViewController.xib */; };
 		7F7025481CE96651009653A6 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025471CE96651009653A6 /* UIButton+Badge.m */; };
 		7F70254E1CEC0682009653A6 /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70254D1CEC0682009653A6 /* CALayer+XibConfiguration.m */; };
 		7F7025521CEC63A2009653A6 /* FoodTrolleyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */; };
@@ -511,6 +513,9 @@
 		30FEE6CA1CF58EDA007E7A8B /* MeModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeModifyPasswordViewController.h; sourceTree = "<group>"; };
 		30FEE6CB1CF58EDA007E7A8B /* MeModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeModifyPasswordViewController.m; sourceTree = "<group>"; };
 		30FEE6CC1CF58EDA007E7A8B /* MeModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeModifyPasswordViewController.xib; sourceTree = "<group>"; };
+		30FEE6D31CF5E3DC007E7A8B /* MeModifyPhoneNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeModifyPhoneNumberViewController.h; sourceTree = "<group>"; };
+		30FEE6D41CF5E3DC007E7A8B /* MeModifyPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeModifyPhoneNumberViewController.m; sourceTree = "<group>"; };
+		30FEE6D81CF5E40F007E7A8B /* MeModifyPhoneNumberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeModifyPhoneNumberViewController.xib; sourceTree = "<group>"; };
 		5CB31E767E11D77284035771 /* libPods-Venus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Venus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F140CDA1CDFE6439DCF62F6 /* Pods-Venus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.debug.xcconfig"; sourceTree = "<group>"; };
 		7F7025461CE96651009653A6 /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
@@ -878,6 +883,9 @@
 				30FEE6CA1CF58EDA007E7A8B /* MeModifyPasswordViewController.h */,
 				30FEE6CB1CF58EDA007E7A8B /* MeModifyPasswordViewController.m */,
 				30FEE6CC1CF58EDA007E7A8B /* MeModifyPasswordViewController.xib */,
+				30FEE6D31CF5E3DC007E7A8B /* MeModifyPhoneNumberViewController.h */,
+				30FEE6D41CF5E3DC007E7A8B /* MeModifyPhoneNumberViewController.m */,
+				30FEE6D81CF5E40F007E7A8B /* MeModifyPhoneNumberViewController.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -1858,6 +1866,7 @@
 				30B601F71CD1F92D003ED671 /* BeautifulFoodViewController.xib in Resources */,
 				30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */,
 				303519721CCF47CE00EE0750 /* ShopViewController.xib in Resources */,
+				30FEE6D91CF5E40F007E7A8B /* MeModifyPhoneNumberViewController.xib in Resources */,
 				3057B1F31CD998C3008172DD /* GMMeCell.xib in Resources */,
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
 				30D018331CEAF05500E50B23 /* WXMapShopView.xib in Resources */,
@@ -2076,6 +2085,7 @@
 				AC72CF321CEEA9C50077537E /* MallViewModel.m in Sources */,
 				30FEE6CD1CF58EDA007E7A8B /* MeModifyPasswordViewController.m in Sources */,
 				3086D3C01CC72A8C007494D7 /* GMLoginViewController.m in Sources */,
+				30FEE6D61CF5E3DC007E7A8B /* MeModifyPhoneNumberViewController.m in Sources */,
 				AC7AD4971CC7A6D2004D9B61 /* Account.m in Sources */,
 				3086D3D41CC72ABC007494D7 /* HomeIntroduceCell.m in Sources */,
 				308E0D6D1CF002200048F38A /* BeautyDetailHeaderView.m in Sources */,
