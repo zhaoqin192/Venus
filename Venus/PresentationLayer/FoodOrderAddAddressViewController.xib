@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodOrderAddAddressViewController">
+            <connections>
+                <outlet property="tableView" destination="CwV-nm-QFX" id="wEZ-lF-vBC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="CwV-nm-QFX">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNr-gR-KgM">
+                    <rect key="frame" x="0.0" y="142" width="375" height="475"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Ws6-Pb-xKN" appends="YES" id="H0C-FG-AlL"/>
+                    </connections>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbf-0Z-zWg">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <color key="backgroundColor" red="0.69019607843137254" green="0.10980392156862745" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="zR3-5B-FUI"/>
+                    </constraints>
+                    <state key="normal" title="删除该地址">
+                        <color key="titleColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bbf-0Z-zWg" secondAttribute="trailing" id="040-XF-1md"/>
+                <constraint firstItem="CwV-nm-QFX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EXB-hQ-UvP"/>
+                <constraint firstAttribute="bottom" secondItem="CwV-nm-QFX" secondAttribute="bottom" constant="50" id="FgO-7W-IVq"/>
+                <constraint firstAttribute="trailing" secondItem="mNr-gR-KgM" secondAttribute="trailing" id="IOe-nx-dIf"/>
+                <constraint firstAttribute="bottom" secondItem="bbf-0Z-zWg" secondAttribute="bottom" id="LhJ-xD-waV"/>
+                <constraint firstItem="mNr-gR-KgM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OCc-zV-Vk6"/>
+                <constraint firstItem="mNr-gR-KgM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="142" id="P9U-NF-atN"/>
+                <constraint firstItem="bbf-0Z-zWg" firstAttribute="top" secondItem="mNr-gR-KgM" secondAttribute="bottom" id="Wzg-lS-ppP"/>
+                <constraint firstItem="bbf-0Z-zWg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Xpj-Iy-BWW"/>
+                <constraint firstAttribute="trailing" secondItem="CwV-nm-QFX" secondAttribute="trailing" id="iqM-UE-ToZ"/>
+                <constraint firstItem="CwV-nm-QFX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xK9-2m-FqZ"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+        <tapGestureRecognizer id="Ws6-Pb-xKN">
+            <connections>
+                <action selector="blankTouched:" destination="-1" id="5UB-AG-89A"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>
