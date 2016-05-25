@@ -82,17 +82,20 @@
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSDictionary *parameters = @{@"uid": self.account.token};
-    
-    [manager POST:[URL_PREFIX stringByAppendingString:@"/terra/customer/upload/headimg"] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    [manager POST:[[URL_PREFIX stringByAppendingString:@"/terra/customer/upload/headimg"] stringByAppendingString:[NSString stringWithFormat:@"?uid=%@",self.account.token]] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyyMMddHHmmss";
         NSString *str = [formatter stringFromDate:[NSDate date]];
         NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
         
-        [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType:@"image/png"];
+        [formData appendPartWithFileData:imageData name:@"img" fileName:fileName mimeType:@"image/png"];
         
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        self.account.avatar = responseObject[@"url"];
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"Error: %@", error);
     }];

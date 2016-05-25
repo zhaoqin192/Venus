@@ -26,9 +26,13 @@
     [super viewDidLoad];
     self.iconView.layer.cornerRadius = self.iconView.width/2;
     self.iconView.layer.masksToBounds = YES;
-    [self configureHeadView];
     [self configureTableView];
     [self onClickEvent];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self configureHeadView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
