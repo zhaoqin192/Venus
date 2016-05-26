@@ -7,6 +7,7 @@
 //
 
 #import "MeModifyPasswordViewController.h"
+#import "GMLoginViewController.h"
 
 @interface MeModifyPasswordViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
@@ -69,9 +70,11 @@
             [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
             return ;
         }
-        [SVProgressHUD showSuccessWithStatus:@"修改密码成功"];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
-        [self.navigationController popViewControllerAnimated:YES];
+        [SVProgressHUD showSuccessWithStatus:@"修改密码成功,请重新登录"];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+        [self.navigationController popViewControllerAnimated:NO];
+        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error %@",error);
     }];

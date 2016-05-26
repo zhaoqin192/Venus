@@ -13,6 +13,7 @@
 #import "AccountDao.h"
 #import "DatabaseManager.h"
 #import "Account.h"
+#import "GMLoginViewController.h"
 
 @interface GMMeViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -32,6 +33,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    if (![accountDao isLogin]) {
+        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
     [self configureHeadView];
 }
 
