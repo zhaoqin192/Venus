@@ -18,6 +18,8 @@
 #import "Account.h"
 #import "MeModifyPasswordViewController.h"
 #import "MeModifyPhoneNumberViewController.h"
+#import "GMLoginViewController.h"
+
 @interface GMMeInformationViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) Account *account;
@@ -38,6 +40,10 @@
     [self loadData];
 }
 
+- (void)dismiss {
+    [SVProgressHUD dismiss];
+}
+
 - (void)configureTableView {
     [self.myTableView registerNib:[UINib nibWithNibName:@"userIconCell" bundle:nil] forCellReuseIdentifier:@"userIconCell"];
     [self.myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"informationCell"];
@@ -54,6 +60,15 @@
         label.textAlignment = NSTextAlignmentCenter;
         [label setTextColor:GMRedColor];
         [contentView addSubview:label];
+        label.userInteractionEnabled = YES;
+        [label bk_whenTapped:^{
+            AccountDao *accoutDao = [[DatabaseManager sharedInstance] accountDao];
+            [accoutDao deleteAccount];
+            GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+            [self presentViewController:vc animated:YES completion:nil];
+            [SVProgressHUD showSuccessWithStatus:@"退出登录成功"];
+            [self performSelector:@selector(dismiss) withObject:nil afterDelay:2.0];
+        }];
         foot;
     });
 }
@@ -67,6 +82,7 @@
         NSLog(@"%@",responseObject);
         AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
         Account *account = [accountDao fetchAccount];
+        self.account = account;
         account.avatar = responseObject[@"headimg"];
         account.sex = [responseObject[@"gender"] isEqualToString:@"male"] ? @(1) : @(0);
         account.nickName = responseObject[@"nickname"];
@@ -294,6 +310,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 2) {
+        NSLog(@"address");
+    }
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0:{
