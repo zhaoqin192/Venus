@@ -8,6 +8,7 @@
 
 #import "MeModifyPhoneNumberViewController.h"
 #import "NetworkFetcher+User.h"
+#import "GMLoginViewController.h"
 
 @interface MeModifyPhoneNumberViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
@@ -36,10 +37,7 @@ static NSInteger count = 30;
     [self.codeButton setTitleColor:GMTipFontColor forState:UIControlStateDisabled];
     [self.codeButton bk_whenTapped:^{
         [self.codeTF becomeFirstResponder];
-        [self sendCode];
-        self.codeButton.enabled = NO;
-        self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(startTimer) userInfo:nil repeats:YES];
-        [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+        [self confirmPhone];
     }];
     self.codeButton.layer.borderWidth = 1;
     self.codeButton.layer.cornerRadius = 5;
@@ -98,7 +96,38 @@ static NSInteger count = 30;
     }
 }
 
+- (void)confirmPhone {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/terra/check/mobile"]];
+    NSDictionary *parameters = @{@"mobile": self.phoneTF.text};
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+        for (NSString *key in cookieHeaders) {
+            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+        }
+        if (![responseObject[@"errCode"] isEqual: @(0)]) {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            return ;
+        }
+        if ([responseObject[@"is_exists"] isEqual: @(1)]) {
+            [SVProgressHUD showErrorWithStatus:@"该手机已注册"];
+            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            return ;
+        }
+        [self sendCode];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
 - (void)sendCode {
+    self.codeButton.enabled = NO;
+    self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(startTimer) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/terra/sms/sendcode"]];
     NSDictionary *parameters = @{@"mobile": self.phoneTF.text};
@@ -138,9 +167,11 @@ static NSInteger count = 30;
             [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
             return ;
         }
-        [SVProgressHUD showSuccessWithStatus:@"修改手机号成功"];
+        [SVProgressHUD showSuccessWithStatus:@"修改手机号成功,请重新登录"];
         [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:NO];
+        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
