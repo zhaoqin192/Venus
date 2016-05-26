@@ -31,6 +31,10 @@
     self.account = [accountDao fetchAccount];
     self.navigationItem.title = @"我的首页";
     [self configureTableView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self loadData];
 }
 

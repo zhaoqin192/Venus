@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UIButton *codeButton;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, copy) NSString *token;
 @end
 
 static NSInteger count = 30;
@@ -28,7 +29,7 @@ static NSInteger count = 30;
     [self.saveButton setTitleColor:GMBrownColor forState:UIControlStateNormal];
     self.saveButton.backgroundColor = GMRedColor;
     [self.saveButton bk_whenTapped:^{
-        [self modifyPhone];
+        [self confirmCode];
     }];
     
     [self.codeButton setTitleColor:GMRedColor forState:UIControlStateNormal];
@@ -104,6 +105,11 @@ static NSInteger count = 30;
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
+        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+        for (NSString *key in cookieHeaders) {
+            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+        }
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
             [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
             [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
@@ -122,6 +128,11 @@ static NSInteger count = 30;
     NSDictionary *parameters = @{@"mobile": self.phoneTF.text,@"code":self.codeTF.text};
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
+        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+        for (NSString *key in cookieHeaders) {
+            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+        }
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
             [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
             [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
@@ -132,6 +143,23 @@ static NSInteger count = 30;
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
+    }];
+}
+
+- (void)confirmCode{
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/terra/sms/validate"]];
+    NSDictionary *parameters = @{@"mobile": self.phoneTF.text, @"code": self.codeTF.text};
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (![responseObject[@"errCode"] isEqual: @(0)]) {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            return ;
+        }
+        self.token = responseObject[@"token"];
+        [self modifyPhone];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"confirm code %@", error);
     }];
 }
 
