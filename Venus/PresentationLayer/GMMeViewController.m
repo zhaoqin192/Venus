@@ -13,11 +13,14 @@
 #import "AccountDao.h"
 #import "DatabaseManager.h"
 #import "Account.h"
+#import "GMLoginViewController.h"
+#import "GMMeShowIconViewController.h"
 
 @interface GMMeViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, copy) NSString *imgUrl;
 @end
 
 @implementation GMMeViewController
@@ -26,12 +29,23 @@
     [super viewDidLoad];
     self.iconView.layer.cornerRadius = self.iconView.width/2;
     self.iconView.layer.masksToBounds = YES;
+    self.iconView.userInteractionEnabled = YES;
+    [self.iconView bk_whenTapped:^{
+        GMMeShowIconViewController *vc = [[GMMeShowIconViewController alloc] init];
+        vc.imgUrl = self.imgUrl;
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
     [self configureTableView];
     [self onClickEvent];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    if (![accountDao isLogin]) {
+        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
     [self configureHeadView];
 }
 
@@ -59,6 +73,7 @@
         AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
         Account *account = [accountDao fetchAccount];
         account.avatar = responseObject[@"headimg"];
+        self.imgUrl = responseObject[@"headimg"];
         account.sex = [responseObject[@"gender"] isEqualToString:@"male"] ? @(1) : @(0);
         account.nickName = responseObject[@"nickname"];
         account.birthday = responseObject[@"birthday"];
