@@ -270,6 +270,13 @@
 		E89BD32E1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89BD32C1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib */; };
 		E89BD3331CEB1228007CCF49 /* FoodAddAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E89BD3311CEB1228007CCF49 /* FoodAddAddressCell.m */; };
 		E89BD3341CEB1228007CCF49 /* FoodAddAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89BD3321CEB1228007CCF49 /* FoodAddAddressCell.xib */; };
+		E8DDDED21CF5DD7F000F147B /* FoodOrderMarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDDED01CF5DD7F000F147B /* FoodOrderMarkViewController.m */; };
+		E8DDDED31CF5DD7F000F147B /* FoodOrderMarkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8DDDED11CF5DD7F000F147B /* FoodOrderMarkViewController.xib */; };
+		E8DDDED71CF5DF0D000F147B /* FoodOrderAddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDDED51CF5DF0D000F147B /* FoodOrderAddAddressViewController.m */; };
+		E8DDDED81CF5DF0D000F147B /* FoodOrderAddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8DDDED61CF5DF0D000F147B /* FoodOrderAddAddressViewController.xib */; };
+		E8DDDEDC1CF5E60B000F147B /* FoodAddressEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDDEDA1CF5E60B000F147B /* FoodAddressEditCell.m */; };
+		E8DDDEDD1CF5E60B000F147B /* FoodAddressEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8DDDEDB1CF5E60B000F147B /* FoodAddressEditCell.xib */; };
+		E8DDDEE01CF5F334000F147B /* FoodAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDDEDF1CF5F334000F147B /* FoodAddress.m */; };
 		E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047B01CDF84070032EE91 /* GMNavigationController.m */; };
 		FCA1BB3CF4D5E0A9C7C66E75 /* libPods-Venus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB31E767E11D77284035771 /* libPods-Venus.a */; };
 /* End PBXBuildFile section */
@@ -719,6 +726,17 @@
 		E89BD3301CEB1228007CCF49 /* FoodAddAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodAddAddressCell.h; sourceTree = "<group>"; };
 		E89BD3311CEB1228007CCF49 /* FoodAddAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddAddressCell.m; sourceTree = "<group>"; };
 		E89BD3321CEB1228007CCF49 /* FoodAddAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodAddAddressCell.xib; sourceTree = "<group>"; };
+		E8DDDECF1CF5DD7F000F147B /* FoodOrderMarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodOrderMarkViewController.h; sourceTree = "<group>"; };
+		E8DDDED01CF5DD7F000F147B /* FoodOrderMarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodOrderMarkViewController.m; sourceTree = "<group>"; };
+		E8DDDED11CF5DD7F000F147B /* FoodOrderMarkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodOrderMarkViewController.xib; sourceTree = "<group>"; };
+		E8DDDED41CF5DF0D000F147B /* FoodOrderAddAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodOrderAddAddressViewController.h; sourceTree = "<group>"; };
+		E8DDDED51CF5DF0D000F147B /* FoodOrderAddAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodOrderAddAddressViewController.m; sourceTree = "<group>"; };
+		E8DDDED61CF5DF0D000F147B /* FoodOrderAddAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodOrderAddAddressViewController.xib; sourceTree = "<group>"; };
+		E8DDDED91CF5E60B000F147B /* FoodAddressEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodAddressEditCell.h; sourceTree = "<group>"; };
+		E8DDDEDA1CF5E60B000F147B /* FoodAddressEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddressEditCell.m; sourceTree = "<group>"; };
+		E8DDDEDB1CF5E60B000F147B /* FoodAddressEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodAddressEditCell.xib; sourceTree = "<group>"; };
+		E8DDDEDE1CF5F334000F147B /* FoodAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodAddress.h; sourceTree = "<group>"; };
+		E8DDDEDF1CF5F334000F147B /* FoodAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddress.m; sourceTree = "<group>"; };
 		E8F047AF1CDF84070032EE91 /* GMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMNavigationController.h; sourceTree = "<group>"; };
 		E8F047B01CDF84070032EE91 /* GMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -957,6 +975,8 @@
 				3086D3AB1CC729EA007494D7 /* menuData.plist */,
 				7F7025591CED573C009653A6 /* FoodForOrdering.h */,
 				7F70255A1CED573C009653A6 /* FoodForOrdering.m */,
+				E8DDDEDE1CF5F334000F147B /* FoodAddress.h */,
+				E8DDDEDF1CF5F334000F147B /* FoodAddress.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1160,6 +1180,12 @@
 				E89BD32A1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.h */,
 				E89BD32B1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m */,
 				E89BD32C1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib */,
+				E8DDDECF1CF5DD7F000F147B /* FoodOrderMarkViewController.h */,
+				E8DDDED01CF5DD7F000F147B /* FoodOrderMarkViewController.m */,
+				E8DDDED11CF5DD7F000F147B /* FoodOrderMarkViewController.xib */,
+				E8DDDED41CF5DF0D000F147B /* FoodOrderAddAddressViewController.h */,
+				E8DDDED51CF5DF0D000F147B /* FoodOrderAddAddressViewController.m */,
+				E8DDDED61CF5DF0D000F147B /* FoodOrderAddAddressViewController.xib */,
 			);
 			name = food;
 			sourceTree = "<group>";
@@ -1753,6 +1779,9 @@
 				7F7025721CF59A9A009653A6 /* FoodOtherCell.h */,
 				7F7025731CF59A9A009653A6 /* FoodOtherCell.m */,
 				7F7025741CF59A9A009653A6 /* FoodOtherCell.xib */,
+				E8DDDED91CF5E60B000F147B /* FoodAddressEditCell.h */,
+				E8DDDEDA1CF5E60B000F147B /* FoodAddressEditCell.m */,
+				E8DDDEDB1CF5E60B000F147B /* FoodAddressEditCell.xib */,
 			);
 			name = submitOrderCell;
 			sourceTree = "<group>";
@@ -1820,6 +1849,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8DDDED31CF5DD7F000F147B /* FoodOrderMarkViewController.xib in Resources */,
 				AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				7F7025691CF57FE0009653A6 /* FoodBillCell.xib in Resources */,
 				7F70256E1CF58EA4009653A6 /* FoodShippingFeeCell.xib in Resources */,
@@ -1848,6 +1878,7 @@
 				30B601FD1CD1FA94003ED671 /* BeautifulFoodCell.xib in Resources */,
 				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
 				3086D3BB1CC72A1E007494D7 /* GMRegisterViewController.xib in Resources */,
+				E8DDDEDD1CF5E60B000F147B /* FoodAddressEditCell.xib in Resources */,
 				303519671CCF377A00EE0750 /* TicketDateCell.xib in Resources */,
 				3035196C1CCF393700EE0750 /* TicketCommitCell.xib in Resources */,
 				303519771CCF4B8A00EE0750 /* ShopCommitViewController.xib in Resources */,
@@ -1884,6 +1915,7 @@
 				308E0D731CF0023C0048F38A /* FoodContentCell.xib in Resources */,
 				AC987D371CE89B9C00E11CC5 /* group.storyboard in Resources */,
 				30B601CB1CD07C54003ED671 /* ShopCycleCell.xib in Resources */,
+				E8DDDED81CF5DF0D000F147B /* FoodOrderAddAddressViewController.xib in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
 				E8226C221CEB52B000980E30 /* FoodPaymentCell.xib in Resources */,
 				3086D3D71CC72ABC007494D7 /* HomeCategoryCell.xib in Resources */,
@@ -1994,8 +2026,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8DDDEDC1CF5E60B000F147B /* FoodAddressEditCell.m in Sources */,
 				AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */,
 				30FD1FC01CE2EFB6003C91A5 /* CategoryCell.m in Sources */,
+				E8DDDED21CF5DD7F000F147B /* FoodOrderMarkViewController.m in Sources */,
 				AC545FA21CEDAE7400133F25 /* CommitOrderViewModel.m in Sources */,
 				30D018101CE6DA6700E50B23 /* FoodDetail.m in Sources */,
 				30B509F21CF2D27C00A2C30A /* DistancePickerView.m in Sources */,
@@ -2067,6 +2101,7 @@
 				30FD1F441CE1A329003C91A5 /* IndoorSwitchDemo.mm in Sources */,
 				AC987D3B1CE8A95E00E11CC5 /* GroupViewModel.m in Sources */,
 				AC2E043F1CEB493E00476087 /* CouponInformationCell.m in Sources */,
+				E8DDDED71CF5DF0D000F147B /* FoodOrderAddAddressViewController.m in Sources */,
 				AC7B3AD91CDF2C7E0039C2A5 /* SignUpViewModel.m in Sources */,
 				30B509FE1CF2D2F400A2C30A /* NSDate+Helper.m in Sources */,
 				30B509D71CF2AD5500A2C30A /* WXInformationDetailViewController.m in Sources */,
@@ -2109,6 +2144,7 @@
 				30B601F61CD1F92D003ED671 /* BeautifulFoodViewController.m in Sources */,
 				30B602141CD308F3003ED671 /* ShopActivityCell.m in Sources */,
 				30D6D2991CC8A3F700FB0CFC /* FoodOrderViewController.m in Sources */,
+				E8DDDEE01CF5F334000F147B /* FoodAddress.m in Sources */,
 				3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */,
 				AC4D73FD1CF1E48E00DF4997 /* MoreCollectionViewCell.m in Sources */,
 				AC7B3ADC1CDF2D7F0039C2A5 /* LoginViewModel.m in Sources */,
@@ -2214,6 +2250,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -2280,6 +2317,7 @@
 					"$(PROJECT_DIR)/Venus/OtherSDK/Alipay",
 				);
 				GCC_PREFIX_HEADER = Venus/PrefixHeader.pch;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Venus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -13,6 +13,7 @@
 #import "FoodShippingFeeCell.h"
 #import "FoodOrderViewBaseItem.h"
 #import "FoodOtherCell.h"
+#import "FoodOrderAddAddressViewController.h"
 
 @interface FoodSubmitOrderViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,11 +30,6 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    if (_foodArray) {
-        NSLog(@"长度是%lu",(unsigned long)_foodArray.count);
-    } else {
-        NSLog(@"!!!!!!!!!!!!");
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -226,7 +222,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            FoodOrderAddAddressViewController *vc = [[FoodOrderAddAddressViewController alloc] init];
+            vc.navigationTitle = @"新增地址";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 }
 
