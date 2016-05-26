@@ -14,11 +14,23 @@
 #import "FoodOrderViewBaseItem.h"
 #import "FoodOtherCell.h"
 #import "FoodOrderAddAddressViewController.h"
+#import "NetworkFetcher+FoodAddress.h"
+#import "MBProgressHUD.h"
+#import "PresentationUtility.h"
+#import "FoodAddressManager.h"
+#import "FoodShowAddressCell.h"
+#import "FoodAddressSelectionViewController.h"
 
 @interface FoodSubmitOrderViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UILabel *bargain;
 @property (weak, nonatomic) IBOutlet UILabel *haveToPay;
+@property (assign, nonatomic) CGFloat finalPrice;
+@property (strong, nonatomic) FoodAddressManager *foodAddressManager;
+@property (strong, nonatomic) MBProgressHUD *hud;
+@property (assign, nonatomic) NSInteger *addressSelectionIndex;
+
 
 @end
 
@@ -28,21 +40,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"店铺ID：%@",self.restaurantID);
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.finalPrice = self.totalPrice - self.bargainFee + self.shippingFee;
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self hideSelf];
+    [NetworkFetcher foodFetcherUserFoodAddresWithRestaurantID:self.restaurantID success:^{
+        [self.hud hide:YES];
+        [self showSelf];
+    } failure:^(NSString *error) {
+        NSLog(@"错误是：%@",error);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.title = @"提交订单";
+    _bargain.text = [NSString stringWithFormat:@"￥%.1f",_bargainFee];
     [self.rdv_tabBarController setTabBarHidden:YES];
+    [NetworkFetcher foodFetcherUserFoodAddresWithRestaurantID:self.restaurantID success:^{
+        [self.tableView reloadData];
+    } failure:^(NSString *error) {
+        NSLog(@"错误是：%@",error);
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     self.navigationController.navigationBar.translucent = YES;
 }
 
-#pragma mark -- UITableViewDataSource
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
@@ -70,8 +98,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        FoodAddAddressCell *cell = [FoodAddAddressCell cellForTableView:tableView];
-        return cell;
+        if (self.foodAddressManager.foodAddressArray.count == 0) {
+            FoodAddAddressCell *cell = [FoodAddAddressCell cellForTableView:tableView];
+            return cell;
+        } else {
+            FoodShowAddressCell *cell = [FoodShowAddressCell cellForTableView:tableView];
+            cell.foodAddress = (FoodAddress *)self.foodAddressManager.foodAddressArray[0];
+            cell.selectionImage.hidden = YES;
+            return cell;
+        }
     } else if (indexPath.section == 1) {
         FoodPaymentCell *cell = [FoodPaymentCell  cellForTableView:tableView];
         if (indexPath.row == 0) {
@@ -83,7 +118,6 @@
         if (self.foodArray.count != 0) {
             if (indexPath.row == self.foodArray.count) {
                 FoodShippingFeeCell *cell = [FoodShippingFeeCell cellForTableView:tableView];
-                self.shippingFee = 20.0;
                 cell.price.text = [NSString stringWithFormat:@"￥%.1f",_shippingFee];
                 return cell;
             } else {
@@ -115,7 +149,6 @@
             cell.content2.textColor = GMFontColor;
             cell.content3.text = @"可输入特殊要求";
             cell.content3.textColor = GMFontColor;
-            
         }
         return cell;
     } else {
@@ -171,7 +204,7 @@
     }
 }
 
-#pragma mark -- UITableViewDelegate
+#pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     switch (section) {
@@ -204,6 +237,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
+        case 0:
+            if (self.foodAddressManager.foodAddressArray.count == 0) {
+                return 44;
+            } else {
+                return 68;
+            }
+            break;
         case 2:
             if (_foodArray.count > 0) {
                 if (indexPath.row < _foodArray.count) {
@@ -224,11 +264,28 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            FoodOrderAddAddressViewController *vc = [[FoodOrderAddAddressViewController alloc] init];
-            vc.navigationTitle = @"新增地址";
-            [self.navigationController pushViewController:vc animated:YES];
+            if (self.foodAddressManager.foodAddressArray.count == 0) {
+                FoodOrderAddAddressViewController *vc = [[FoodOrderAddAddressViewController alloc] init];
+                vc.navigationTitle = @"新增地址";
+                [self.navigationController pushViewController:vc animated:YES];
+            } else {
+                FoodAddressSelectionViewController *vc = [[FoodAddressSelectionViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            
         }
     }
+}
+
+#pragma mark - private methods
+- (void)hideSelf {
+    self.bottomView.hidden = YES;
+    self.tableView.hidden = YES;
+}
+
+- (void)showSelf {
+    self.bottomView.hidden = NO;
+    self.tableView.hidden = NO;
 }
 
 #pragma mark - event response
@@ -247,6 +304,18 @@
         _restaurantName = @"";
     }
     return _restaurantName;
+}
+
+- (FoodAddressManager *)foodAddressManager {
+    if (!_foodAddressManager) {
+        _foodAddressManager = [FoodAddressManager sharedInstance];
+    }
+    return _foodAddressManager;
+}
+
+- (void)setFinalPrice:(CGFloat)finalPrice {
+    _finalPrice = finalPrice;
+    _haveToPay.text = [NSString stringWithFormat:@"￥%.2f",finalPrice];
 }
 
 @end

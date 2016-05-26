@@ -32,4 +32,15 @@
     return _phoneNumber;
 }
 
+//- (NSString *)description {
+//    return [NSString stringWithFormat:@"<%@: @p, %@>",
+//            [self class],
+//            self,
+//            @{
+//              @"联系地址ID":@(_addressID),
+//              @"联系人姓名":_linkmanName,
+//              @"收货地址":_address,
+//              @"电话号码":_phoneNumber}
+//            ];
+//}
 @end

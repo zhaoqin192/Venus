@@ -9,7 +9,8 @@
 #import "FoodOrderAddAddressViewController.h"
 #import "FoodAddressEditCell.h"
 #import "FoodAddress.h"
-#import "MBProgressHUD.h"
+#import "PresentationUtility.h"
+#import "NetworkFetcher+FoodAddress.h"
 
 @interface FoodOrderAddAddressViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -37,11 +38,9 @@
     } else {
         self.navigationItem.title = @"编辑地址";
     }
-//    self.saveButton.title = @"保存";
-//    self.saveButton.tintColor = GMBrownColor;
 }
 
-#pragma mark -- UITableViewDataSource
+#pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FoodAddressEditCell *cell = [FoodAddressEditCell cellForTableView:tableView];
@@ -63,7 +62,7 @@
     return 3;
 }
 
-#pragma mark -- UITableViewDelegate
+#pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 10.0;
@@ -76,6 +75,20 @@
     return cell.content.text;
 }
 
+- (void)clearContentOfCellAtIndex:(NSInteger)index {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    FoodAddressEditCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    cell.content.text = @"";
+}
+
+- (BOOL) isStringNonnull:(NSString *)string {
+    if ([string isEqualToString:@""] || string == nil) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
 #pragma mark - event response
 - (IBAction)blankTouched:(id)sender {
     [self.view endEditing:YES];
@@ -83,22 +96,39 @@
 
 - (void)saveAddress:(id)sender {
     NSLog(@"保存");
-    if ([[self getContentOfCellAtIndex:0] isEqualToString:@""]|| [self getContentOfCellAtIndex:0] == nil) {
-        // 弹出提示
-    } else {
+    NSString *name = [self getContentOfCellAtIndex:0];
+    NSString *address = [self getContentOfCellAtIndex:1];
+    NSString *phoneNumber = [self getContentOfCellAtIndex:2];
+    
+    if ([self isStringNonnull:name] && [self isStringNonnull:address] && [self isStringNonnull:phoneNumber]) {
         self.foodAddress.linkmanName = [self getContentOfCellAtIndex:0];
-    }
-    
-    if ([[self getContentOfCellAtIndex:1] isEqualToString:@""]|| [self getContentOfCellAtIndex:1] == nil) {
-        // 弹出提示
-    } else {
         self.foodAddress.address = [self getContentOfCellAtIndex:1];
-    }
-    
-    if ([[self getContentOfCellAtIndex:2] isEqualToString:@""]|| [self getContentOfCellAtIndex:2] == nil) {
-        // 弹出提示
-    } else {
         self.foodAddress.phoneNumber = [self getContentOfCellAtIndex:2];
+        
+        [NetworkFetcher addUserFoodAddress:self.foodAddress success:^{
+            [self clearContentOfCellAtIndex:0];
+            [self clearContentOfCellAtIndex:1];
+            [self clearContentOfCellAtIndex:2];
+            [PresentationUtility showTextDialog:self.view text:@"保存联系人成功" success:^{
+                // 返回上级页面
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+        } failure:^(NSString *error){
+            [PresentationUtility showTextDialog:self.view text:@"保存联系人失败" success:nil];
+            NSLog(@"错误是：%@",error);
+        }];
+    } else {
+        if (![self isStringNonnull:name]) {
+            [PresentationUtility showTextDialog:self.view text:@"请输入联系人" success:nil];
+        } else {
+            if (![self isStringNonnull:address]) {
+                [PresentationUtility showTextDialog:self.view text:@"请输入收货地址" success:nil];
+            } else {
+                if (![self isStringNonnull:phoneNumber]) {
+                    [PresentationUtility showTextDialog:self.view text:@"请输入手机号码" success:nil];
+                }
+            }
+        }
     }
 }
 
