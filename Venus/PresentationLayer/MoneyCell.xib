@@ -21,7 +21,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金福轩韩式自助烤肉火锅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDk-om-gQi">
-                        <rect key="frame" x="164" y="5" width="187" height="15"/>
+                        <rect key="frame" x="164" y="17" width="187" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="84k-Dm-rg9"/>
                             <constraint firstAttribute="width" constant="187" id="HaP-rc-as4"/>
@@ -30,18 +30,8 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="面值100元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQq-aG-gXK">
-                        <rect key="frame" x="164" y="28" width="80" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="Ksb-ty-KSo"/>
-                            <constraint firstAttribute="width" constant="80" id="saR-mX-y6G"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已售1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEa-Mw-xab">
-                        <rect key="frame" x="164" y="51" width="73" height="15"/>
+                        <rect key="frame" x="164" y="42" width="73" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="MPn-xF-kVm"/>
                             <constraint firstAttribute="width" constant="73" id="Sv0-Sk-vin"/>
@@ -51,7 +41,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6000元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNZ-LR-LvS">
-                        <rect key="frame" x="164" y="74" width="56" height="20"/>
+                        <rect key="frame" x="164" y="67" width="56" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -59,21 +49,26 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="fNZ-LR-LvS" firstAttribute="top" secondItem="pEa-Mw-xab" secondAttribute="bottom" constant="8" id="6jq-qU-oYJ"/>
+                    <constraint firstItem="fNZ-LR-LvS" firstAttribute="leading" secondItem="pEa-Mw-xab" secondAttribute="leading" id="75A-Nw-RNu"/>
+                    <constraint firstItem="pEa-Mw-xab" firstAttribute="top" secondItem="XDk-om-gQi" secondAttribute="bottom" constant="10" id="7QY-ND-lks"/>
                     <constraint firstItem="fNZ-LR-LvS" firstAttribute="leading" secondItem="pEa-Mw-xab" secondAttribute="leading" id="BOa-Na-9X1"/>
-                    <constraint firstItem="QQq-aG-gXK" firstAttribute="leading" secondItem="XDk-om-gQi" secondAttribute="leading" id="D3v-UI-UcH"/>
                     <constraint firstAttribute="bottom" secondItem="zd3-lA-04z" secondAttribute="bottom" constant="5" id="DEG-KS-FYe"/>
                     <constraint firstItem="XDk-om-gQi" firstAttribute="leading" secondItem="zd3-lA-04z" secondAttribute="trailing" constant="8" id="FPy-Xf-U7d"/>
-                    <constraint firstItem="QQq-aG-gXK" firstAttribute="top" secondItem="XDk-om-gQi" secondAttribute="bottom" constant="8" id="U4v-3Z-CI5"/>
+                    <constraint firstItem="XDk-om-gQi" firstAttribute="leading" secondItem="pEa-Mw-xab" secondAttribute="leading" id="VDy-0U-Q3y"/>
                     <constraint firstItem="XDk-om-gQi" firstAttribute="top" secondItem="zd3-lA-04z" secondAttribute="top" id="Wi3-zj-YXo"/>
                     <constraint firstItem="zd3-lA-04z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="dFG-jc-eV3"/>
-                    <constraint firstItem="pEa-Mw-xab" firstAttribute="leading" secondItem="QQq-aG-gXK" secondAttribute="leading" id="gWl-If-wff"/>
-                    <constraint firstItem="pEa-Mw-xab" firstAttribute="top" secondItem="QQq-aG-gXK" secondAttribute="bottom" constant="8" id="k3e-NW-Msk"/>
+                    <constraint firstItem="pEa-Mw-xab" firstAttribute="leading" secondItem="zd3-lA-04z" secondAttribute="trailing" constant="8" id="pP9-bW-iWA"/>
                     <constraint firstItem="zd3-lA-04z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="pWq-oT-jBx"/>
                     <constraint firstItem="XDk-om-gQi" firstAttribute="top" secondItem="zd3-lA-04z" secondAttribute="top" id="vnY-g8-UB9"/>
+                    <constraint firstItem="fNZ-LR-LvS" firstAttribute="top" secondItem="pEa-Mw-xab" secondAttribute="bottom" constant="10" id="yN2-Lq-muv"/>
+                    <constraint firstItem="pEa-Mw-xab" firstAttribute="centerY" secondItem="zd3-lA-04z" secondAttribute="centerY" id="zoW-E8-lsc"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="Wi3-zj-YXo"/>
                         <exclude reference="vnY-g8-UB9"/>
+                        <exclude reference="6jq-qU-oYJ"/>
+                        <exclude reference="BOa-Na-9X1"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
@@ -81,7 +76,6 @@
                 <outlet property="iconView" destination="zd3-lA-04z" id="Fnw-TM-azp"/>
                 <outlet property="nameLabel" destination="XDk-om-gQi" id="Byf-Kh-e9z"/>
                 <outlet property="numLabel" destination="pEa-Mw-xab" id="skw-u1-PJg"/>
-                <outlet property="priceLabel" destination="QQq-aG-gXK" id="rbE-Qe-1GY"/>
                 <outlet property="realPriceLabel" destination="fNZ-LR-LvS" id="ps5-7c-vrV"/>
             </connections>
             <point key="canvasLocation" x="256.5" y="404"/>

@@ -12,7 +12,6 @@
 @interface MoneyCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numLabel;
 @property (weak, nonatomic) IBOutlet UILabel *realPriceLabel;
 
@@ -34,11 +33,11 @@
 
 - (void)setFoodModel:(CouponModel *)foodModel {
     _foodModel = foodModel;
+    CGFloat price = [foodModel.price floatValue];
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:foodModel.pictureUrl]];
     self.nameLabel.text = foodModel.abstract;
-    self.priceLabel.text = [NSString stringWithFormat:@"面值:￥%@",foodModel.asPrice];
     self.numLabel.text = [NSString stringWithFormat:@"已售:%@",foodModel.purchaseNum];
-    self.realPriceLabel.text = [NSString stringWithFormat:@"%@元",foodModel.price];
+    self.realPriceLabel.text = [NSString stringWithFormat:@"%.2f元",price/100];
 }
 
 @end
