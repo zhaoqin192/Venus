@@ -11,6 +11,7 @@
 #import "BeautifulFoodCell.h"
 #import "BeautifulDetailViewController.h"
 #import "BeautifulFood.h"
+#import "BeautyCategory.h"
 
 @interface BeautifulFoodViewController()
 <JSDropDownMenuDataSource,JSDropDownMenuDelegate,UITableViewDelegate,UITableViewDataSource>{
@@ -24,6 +25,8 @@
 }
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, copy) NSArray *foodArray;
+@property (nonatomic, copy) NSArray *categoryArray;
+@property (nonatomic, strong) NSNumber *order;
 @end
 
 @implementation BeautifulFoodViewController
@@ -36,10 +39,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"搜索"] style:UIBarButtonItemStyleDone handler:^(id sender) {
         NSLog(@"搜索");
     }];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [self loadData:@(0)];
+    self.order = @(0);
+    [self loadData];
     [self loadCategory];
 }
 
@@ -53,11 +54,11 @@
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
-- (void)loadData:(NSNumber *)order {
+- (void)loadData {
     [SVProgressHUD show];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/listShops"]];
-    NSDictionary *parameters = @{@"id":@(10000),@"order":order};
+    NSDictionary *parameters = @{@"id":@(10000),@"order":self.order};
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
@@ -77,12 +78,41 @@
 - (void)loadCategory {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/getCategory"]];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/getSecondCat?id=10000"]];
     NSDictionary *parameters = nil;
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"category %@",responseObject);
+        [BeautyCategory mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"identify": @"id"
+                     };
+        }];
+        self.categoryArray = [BeautyCategory mj_objectArrayWithKeyValuesArray:responseObject[@"cat"]];
+        [_data1 removeAllObjects];
+        [_data1 addObject:@"分类"];
+        for (BeautyCategory *cate in self.categoryArray) {
+            NSString *name = cate.name;
+            [_data1 addObject:name];
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"category %@",error);
+    }];
+}
+
+- (void)loadCategoryShop:(NSInteger )identify {
+    [SVProgressHUD show];
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/listShops"]];
+    NSDictionary *parameters = @{@"id":@(identify),
+                                 @"order":self.order};
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        self.foodArray = [BeautifulFood mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.myTableView reloadData];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
     }];
 }
 
@@ -212,17 +242,19 @@
     
     if (indexPath.column == 1) {
         _currentData2Index = indexPath.row;
-        [self loadData:@(indexPath.row)];
+        self.order = @(indexPath.row);
+        [self loadData];
     }
     else {
-        _currentData2Index = indexPath.row;
+        _currentData1Index = indexPath.row;
+        if (indexPath.row == 0) {
+            [self loadData];
+            return;
+        }
+        BeautyCategory *category = self.categoryArray[indexPath.row-1];
+        [self loadCategoryShop:category.identify];
         NSLog(@"%zd",indexPath.row);
     }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)dismiss {
