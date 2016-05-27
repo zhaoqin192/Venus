@@ -16,6 +16,7 @@
 #import "GMLoginViewController.h"
 #import "GMMeShowIconViewController.h"
 #import "GMMeCommitViewController.h"
+#import "PersonalCouponViewController.h"
 
 @interface GMMeViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -102,10 +103,10 @@
     subscribeNext:^(id x) {
        
         @strongify(self)
+        UIStoryboard *couponOrder = [UIStoryboard storyboardWithName:@"group" bundle:nil];
+        PersonalCouponViewController *vc = (PersonalCouponViewController *)[couponOrder instantiateViewControllerWithIdentifier:@"personal"];
         
-        
-        
-//        self.navigationController pushViewController:<#(nonnull UIViewController *)#> animated:<#(BOOL)#>
+        [self.navigationController pushViewController:vc animated:YES];
         
     }];
     

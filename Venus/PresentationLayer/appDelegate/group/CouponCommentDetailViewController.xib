@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CouponCommentDetailViewController">
+            <connections>
+                <outlet property="commitButton" destination="gIE-Cz-7UP" id="JMI-EH-kDf"/>
+                <outlet property="tableView" destination="Dsx-P6-NkC" id="EBo-m9-WP7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pvi-QX-dXe">
+                    <rect key="frame" x="0.0" y="622" width="375" height="45"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIE-Cz-7UP">
+                            <rect key="frame" x="157" y="7" width="60" height="30"/>
+                            <state key="normal" title="提交评论">
+                                <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="gIE-Cz-7UP" firstAttribute="centerX" secondItem="Pvi-QX-dXe" secondAttribute="centerX" id="3di-PF-NGZ"/>
+                        <constraint firstItem="gIE-Cz-7UP" firstAttribute="centerY" secondItem="Pvi-QX-dXe" secondAttribute="centerY" id="Hje-9L-kHj"/>
+                        <constraint firstAttribute="height" constant="45" id="s8s-Qh-1go"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dsx-P6-NkC">
+                    <rect key="frame" x="0.0" y="64" width="375" height="558"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="5zw-Ne-YaZ"/>
+                        <outlet property="delegate" destination="-1" id="Oae-dH-e7G"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Pvi-QX-dXe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1ZR-iT-aT3"/>
+                <constraint firstAttribute="bottom" secondItem="Pvi-QX-dXe" secondAttribute="bottom" id="9o5-MV-voP"/>
+                <constraint firstAttribute="trailing" secondItem="Dsx-P6-NkC" secondAttribute="trailing" id="9sx-uL-tah"/>
+                <constraint firstItem="Dsx-P6-NkC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="HGI-N3-S0s"/>
+                <constraint firstItem="Dsx-P6-NkC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="T0f-QG-uGO"/>
+                <constraint firstItem="Pvi-QX-dXe" firstAttribute="top" secondItem="Dsx-P6-NkC" secondAttribute="bottom" id="ySv-te-lR9"/>
+                <constraint firstAttribute="trailing" secondItem="Pvi-QX-dXe" secondAttribute="trailing" id="zFi-CK-c4i"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="244.5" y="391.5"/>
+        </view>
+    </objects>
+</document>

@@ -80,9 +80,4 @@
     
 }
 
-- (NSString *)convertTime:(NSNumber *)time {
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[time integerValue] / 1000];
-    return [date stringWithFormat:@"yyyy-MM-dd"];
-}
-
 @end

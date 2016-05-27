@@ -12,6 +12,7 @@
 #import "CommitPayCell.h"
 #import "CommitPriceCell.h"
 #import "CommitOrderViewModel.h"
+#import "MBProgressHUD.h"
 
 @interface CommitOrderViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -70,6 +71,28 @@
         
     }];
     
+    [self.viewModel.orderSuccessObject subscribeNext:^(id x) {
+        
+        
+        
+    }];
+    
+    [self.viewModel.orderFailureObject subscribeNext:^(NSString *message) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = message;
+        [hud hide:YES afterDelay:1.5f];
+    }];
+    
+    [self.viewModel.errorObject subscribeNext:^(NSString *message) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = message;
+        [hud hide:YES afterDelay:1.5f];
+    }];
+    
     [self.viewModel initPrice:self.couponModel.price];
     
 }
@@ -84,6 +107,27 @@
         [self.viewModel createOrderWithCouponID:self.couponModel.identifier storeID:self.couponModel.storeID num:[NSNumber numberWithInteger:self.viewModel.countNumber]];
         
     }];
+    
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"PaySuccess" object:nil]
+    takeUntil:[self rac_willDeallocSignal]]
+    subscribeNext:^(id x) {
+       
+        
+        
+    }];
+    
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"PayFailure" object:nil]
+    takeUntil:[self rac_willDeallocSignal]]
+    subscribeNext:^(id x) {
+       
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"支付失败";
+        [hud hide:YES afterDelay:1.5f];
+        
+    }];
+    
     
 }
 
@@ -157,7 +201,7 @@
                 @strongify(cell)
                 [self.viewModel subtractCount];
                 cell.count.text = [NSString stringWithFormat:@"%ld", self.viewModel.countNumber];
-                self.totalPrice.text = [NSString stringWithFormat:@"还需支付￥%ld", self.viewModel.totalPrice];
+                self.totalPrice.text = [NSString stringWithFormat:@"还需支付￥%.2f", self.viewModel.totalPrice / 100.0];
             }];
             
             [[cell.addButton rac_signalForControlEvents:UIControlEventTouchUpInside]
@@ -166,14 +210,14 @@
                 @strongify(cell)
                 [self.viewModel addCount];
                 cell.count.text = [NSString stringWithFormat:@"%ld", self.viewModel.countNumber];
-                self.totalPrice.text = [NSString stringWithFormat:@"还需支付￥%ld", self.viewModel.totalPrice];
+                self.totalPrice.text = [NSString stringWithFormat:@"还需支付￥%.2f", self.viewModel.totalPrice / 100.0];
             }];
             cell.count.text = [NSString stringWithFormat:@"%ld", self.viewModel.countNumber];
             return cell;
         }
         else {
             CommitPriceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommitPriceCell"];
-            cell.priceLabel.text = [NSString stringWithFormat:@"%ld", self.viewModel.totalPrice];
+            cell.priceLabel.text = [NSString stringWithFormat:@"%.2f", self.viewModel.totalPrice / 100.0];
             return cell;
         }
     }

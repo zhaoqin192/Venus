@@ -19,6 +19,8 @@
 #import "MBProgressHUD.h"
 #import "CouponCommentModel.h"
 #import "CommitOrderViewController.h"
+#import "NSString+Expand.h"
+
 
 @interface CouponViewController ()
 
@@ -98,8 +100,8 @@
         cell.button.layer.cornerRadius = 5;
         cell.abstract.text = self.couponModel.abstract;
         [cell.image sd_setImageWithURL:[NSURL URLWithString:self.couponModel.pictureUrl]];
-        cell.price.text = [NSString stringWithFormat:@"原价￥%@", self.couponModel.price];
-        cell.asPrice.text = [NSString stringWithFormat:@"￥%@", self.couponModel.asPrice];
+        cell.price.text = [NSString stringWithFormat:@"原价￥%.2f", [self.couponModel.asPrice floatValue] / 100];
+        cell.asPrice.text = [NSString stringWithFormat:@"￥%.2f", [self.couponModel.price floatValue] / 100];
         cell.sales.text = [NSString stringWithFormat:@"已售%@", self.couponModel.purchaseNum];
         [[cell.button rac_signalForControlEvents:UIControlEventTouchUpInside]
         subscribeNext:^(id x) {
@@ -139,10 +141,8 @@
     }
     else if (indexPath.section == 3) {
         CouponInformationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponInformationCell"];
-        
-        NSString *startTime = [self.viewModel convertTime:self.couponModel.startTime];
-        NSString *endTime = [self.viewModel convertTime:self.couponModel.endTime];
-        cell.validity.text = [NSString stringWithFormat:@"%@至%@", startTime, endTime];
+    
+        cell.validity.text = [NSString stringWithFormat:@"%@至%@", [NSString convertTime:self.couponModel.startTime] , [NSString convertTime:self.couponModel.endTime]];
         
         return cell;
     }
@@ -159,8 +159,7 @@
     CouponCommentModel *model = [self.viewModel.commentArray objectAtIndex:indexPath.row];
     
     cell.name.text = model.userName;
-    NSString *time = [self.viewModel convertTime:model.time];
-    cell.time.text = time;
+    cell.time.text = [NSString convertTime:model.time];
     cell.content.text = model.content;
 
 }

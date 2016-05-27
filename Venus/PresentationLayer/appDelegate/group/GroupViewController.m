@@ -115,6 +115,11 @@
     
     [self.viewModel.errorObject subscribeNext:^(NSString *message) {
         @strongify(self)
+        
+        if (self.refreshControl.refreshing) {
+            [self.refreshControl endRefreshing];
+        }
+        
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
         hud.labelText = message;
@@ -150,9 +155,9 @@
     
     [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureUrl]];
     cell.title.text = model.name;
-    cell.price.text = [NSString stringWithFormat:@"面值:￥%@", model.price];
+    cell.price.text = [NSString stringWithFormat:@"%@", model.abstract];
     cell.sale.text = [NSString stringWithFormat:@"已售:%@", model.purchaseNum];
-    cell.asPrice.text = [NSString stringWithFormat:@"%@元", model.asPrice];
+    cell.asPrice.text = [NSString stringWithFormat:@"%.2f元", [model.price floatValue] / 100];
     
     return cell;
 }
