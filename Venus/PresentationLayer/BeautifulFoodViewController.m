@@ -39,7 +39,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self loadData];
+    [self loadData:@(0)];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -52,10 +52,11 @@
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
-- (void)loadData {
+- (void)loadData:(NSNumber *)order {
+    [SVProgressHUD show];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/listShops"]];
-    NSDictionary *parameters = @{@"id":@(10000),@"order":@(0)};
+    NSDictionary *parameters = @{@"id":@(10000),@"order":order};
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
@@ -66,6 +67,7 @@
         }];
         self.foodArray = [BeautifulFood mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.myTableView reloadData];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -79,7 +81,7 @@
 - (void)configureMenu{
     
     _data1 = [NSMutableArray arrayWithObjects:@"分类", @"离我最近", @"评价最高", @"最新发布", @"人气最高", @"价格最低", @"价格最高", nil];
-    _data2 = [NSMutableArray arrayWithObjects:@"排序", @"单人餐", @"双人餐", @"3~4人餐", nil];
+    _data2 = [NSMutableArray arrayWithObjects:@"筛选", @"团购", @"外卖", @"活动", nil];
     
     JSDropDownMenu *menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:45];
     menu.indicatorColor = [UIColor colorWithRed:175.0f/255.0f green:175.0f/255.0f blue:175.0f/255.0f alpha:1.0];
@@ -195,20 +197,23 @@
 
 - (void)menu:(JSDropDownMenu *)menu didSelectRowAtIndexPath:(JSIndexPath *)indexPath {
     
-    if (indexPath.column == 0) {
+    if (indexPath.column == 1) {
         _currentData2Index = indexPath.row;
-        NSLog(@"%@",_data1[indexPath.row]);
-    } else if(indexPath.column == 1){
+        [self loadData:@(indexPath.row)];
+    }
+    else {
         _currentData2Index = indexPath.row;
-        NSLog(@"%@",_data2[indexPath.row]);
-    } else{
-        _currentData3Index = indexPath.row;
+        NSLog(@"%zd",indexPath.row);
     }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dismiss {
+    [SVProgressHUD dismiss];
 }
 
 @end
