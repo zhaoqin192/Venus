@@ -40,6 +40,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [self loadData:@(0)];
+    [self loadCategory];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -70,6 +71,18 @@
         [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
+    }];
+}
+
+- (void)loadCategory {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/getCategory"]];
+    NSDictionary *parameters = nil;
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"category %@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"category %@",error);
     }];
 }
 
