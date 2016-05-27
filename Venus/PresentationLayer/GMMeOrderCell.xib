@@ -91,6 +91,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="couponButton" destination="NUj-cN-m8d" id="ZmA-E0-Z8J"/>
+                <outlet property="takeawayButton" destination="AMi-0C-d2e" id="VF4-UF-bs4"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -11,8 +11,7 @@
 @interface GMMeOrderCell ()
 
 @property (weak, nonatomic) IBOutlet UIButton *couponButton;
-
-
+@property (weak, nonatomic) IBOutlet UIButton *takeawayButton;
 @end
 
 @implementation GMMeOrderCell
@@ -28,14 +27,14 @@
 }
 
 - (void)onClickEvent {
-    
     [[self.couponButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"showCoupon" object:nil];
-        
     }];
-    
+    [[self.takeawayButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+     subscribeNext:^(id x) {
+         [[NSNotificationCenter defaultCenter] postNotificationName:@"showTake" object:nil];
+     }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
