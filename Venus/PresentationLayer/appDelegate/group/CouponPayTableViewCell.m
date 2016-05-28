@@ -18,7 +18,13 @@
     subscribeNext:^(id x) {
         
         @strongify(self)
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"payment" object:nil userInfo:@{@"orderModel": self.orderModel}];
+        if ([self.state isEqualToNumber:@0]){
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"payment" object:nil userInfo:@{@"orderModel": self.orderModel}];
+        }
+        else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"comment" object:nil
+                userInfo:@{@"orderModel": self.orderModel}];
+        }
         
     }];
     

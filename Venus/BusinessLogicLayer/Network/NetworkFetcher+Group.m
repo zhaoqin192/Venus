@@ -193,7 +193,9 @@ static const BOOL LOGDEBUG = YES;
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/couponz/order/showOrderDetail"]];
     
-    NSDictionary *parameters = @{@"orderId": orderID};
+    NSNumber *order = [NSNumber numberWithString:orderID];
+    
+    NSDictionary *parameters = @{@"orderId": order};
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
@@ -219,13 +221,11 @@ static const BOOL LOGDEBUG = YES;
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/couponz/customer/trade/applyRefund"]];
     
-    reason = [self urlEncodedString:reason];
     
     NSNumber *order = [NSNumber numberWithString:orderID];
-    NSNumber *coupon = [NSNumber numberWithString:couponID];
     
     
-    NSDictionary *parameters = @{@"orderId": order, @"couponId": coupon, @"customerCouponIds": codeArray, @"backReason": reason, @"backDesc": reason};
+    NSDictionary *parameters = @{@"orderId": order, @"couponId": couponID, @"customerCouponIds": codeArray, @"backReason": reason, @"backDesc": reason};
     
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
@@ -248,6 +248,48 @@ static const BOOL LOGDEBUG = YES;
     NSString * encodedString = (__bridge_transfer  NSString*) CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)string, NULL, (__bridge CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 );
     
     return encodedString;
+}
+
++ (void)groupSendCommentWithOrderID:(NSString *)orderID
+                            storeID:(NSString *)storeID
+                           couponID:(NSString *)couponID
+                              score:(NSNumber *)score
+                            content:(NSString *)content
+                            success:(NetworkFetcherSuccessHandler)success
+                            failure:(NetworkFetcherErrorHandler)failure {
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/couponz/customer/createComment"]];
+    
+    NSNumber *order = [NSNumber numberWithString:orderID];
+    NSNumber *coupon = [NSNumber numberWithString:couponID];
+    NSNumber *store = [NSNumber numberWithString:storeID];
+    
+    NSDictionary *parameters = nil;
+    if (content == nil) {
+        parameters = @{@"orderId": order, @"couponId": coupon, @"storeId": store, @"score": score};
+    }
+    else {
+        parameters = @{@"orderId": order, @"couponId": coupon, @"storeId": store, @"score": score, @"content": content};
+    }
+    
+    
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        failure(nil);
+    }];
+
+    
+    
 }
 
 

@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *codeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *selectButton;
 
+@property (nonatomic, strong) NSString *codeIdentifier;
 @end

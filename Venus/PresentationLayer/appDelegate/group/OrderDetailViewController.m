@@ -17,6 +17,7 @@
 #import "StockModel.h"
 #import "MBProgressHUD.h"
 #import "RefundViewController.h"
+#import "CouponCommentDetailViewController.h"
 
 @interface OrderDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -38,6 +39,7 @@
     [self configureTable];
     
     [self bindViewModel];
+    
     
     [self.viewModel fetchDetailDataWithOrderID:self.orderModel.orderID];
     
@@ -68,6 +70,9 @@
 - (void)bindViewModel {
     
     self.viewModel = [[OrderDetailViewModel alloc] init];
+    
+    self.viewModel.couponModel = self.orderModel;
+    
     @weakify(self)
     [self.viewModel.detailSuccessObject subscribeNext:^(id x) {
         @strongify(self)
@@ -111,11 +116,15 @@
         }
         else if ([self.state isEqualToNumber:@1]) {
             
-            [self.viewModel createOrderWithCouponID:self.orderModel.couponID storeID:self.orderModel.storeID num:self.orderModel.count];
+            [self.viewModel paymentWithOrderID:self.orderModel.orderID];
             
         }
         else if ([self.state isEqualToNumber:@2]) {
-            NSLog(@"coment");
+            
+            CouponCommentDetailViewController *commentVC = [[CouponCommentDetailViewController alloc] initWithNibName:@"CouponCommentDetailViewController" bundle:nil];
+            commentVC.orderModel = self.orderModel;
+            [self.navigationController pushViewController:commentVC animated:YES];
+            
         }
         
     }];
@@ -201,8 +210,9 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             OrderDetailInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:[OrderDetailInfoCell className]];
-            cell.titleLabel.text = self.orderModel.resume;
-            cell.asPriceLabel.text = [NSString stringWithFormat:@"面值%.2f元", [self.viewModel.asPrice floatValue] / 100];
+            cell.titleLabel.text = self.orderModel.storeName;
+            
+            cell.asPriceLabel.text = self.orderModel.resume;
             cell.priceLabel.text = [NSString stringWithFormat:@"￥%.2f", [self.viewModel.price floatValue] / 100];
             [cell.image sd_setImageWithURL:[NSURL URLWithString:self.orderModel.pictureURL] placeholderImage:[UIImage imageNamed:@"loginLogo"]];
             return cell;
@@ -217,7 +227,7 @@
                 cell.statusLabel.text = @"待评价";
             }
             else if ([self.state isEqualToNumber:@3]) {
-                cell.statusLabel.text = @"退款中";
+                cell.statusLabel.text = @"退款成功";
             }
             
             return cell;

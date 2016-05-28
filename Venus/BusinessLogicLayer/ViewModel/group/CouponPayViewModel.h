@@ -23,8 +23,6 @@
 
 - (void)refreshData;
 
-- (void)createOrderWithCouponID:(NSString *)couponID
-                        storeID:(NSString *)storeID
-                            num:(NSNumber *)num;
+- (void)paymentWithOrderID:(NSString *)orderID;
 
 @end

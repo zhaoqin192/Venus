@@ -13,6 +13,7 @@
 #import "MBProgressHUD.h"
 #import "NSString+Expand.h"
 #import "OrderDetailViewController.h"
+#import "CouponCommentDetailViewController.h"
 
 
 @interface CouponCommentViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -33,6 +34,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"CouponPayTableViewCell" bundle:nil] forCellReuseIdentifier:@"couponOrder"];
     
     [self configureTableView];
+    
+    [self onClickEvent];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -79,6 +82,25 @@
     
 }
 
+- (void)onClickEvent {
+    
+    @weakify(self)
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"comment" object:nil]
+      takeUntil:[self rac_willDeallocSignal]]
+     subscribeNext:^(NSNotification *notification) {
+         
+         NSDictionary *userInfo = notification.userInfo;
+         
+         CouponOrderModel *model = userInfo[@"orderModel"];
+         @strongify(self)
+         CouponCommentDetailViewController *commentVC = [[CouponCommentDetailViewController alloc] initWithNibName:@"CouponCommentDetailViewController" bundle:nil];
+         commentVC.orderModel = model;
+         [self.navigationController pushViewController:commentVC animated:YES];
+         
+     }];
+    
+}
+
 - (void)configureTableView {
     //设置多余的seperator
     [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
@@ -120,6 +142,9 @@
     cell.statusLabel.text = @"待评价";
     
     [cell.payButton setTitle:@"评价" forState:UIControlStateNormal];
+    
+    cell.orderModel = model;
+    cell.state = @1;
     
     return cell;
 }

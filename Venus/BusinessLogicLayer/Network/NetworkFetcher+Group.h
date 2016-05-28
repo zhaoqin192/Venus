@@ -129,4 +129,23 @@
                        success:(NetworkFetcherSuccessHandler)success
                        failure:(NetworkFetcherErrorHandler)failure;
 
+/**
+ *  添加评论
+ *
+ *  @param orderID
+ *  @param storeID
+ *  @param couponID
+ *  @param score
+ *  @param content
+ *  @param success
+ *  @param failure
+ */
++ (void)groupSendCommentWithOrderID:(NSString *)orderID
+                            storeID:(NSString *)storeID
+                           couponID:(NSString *)couponID
+                              score:(NSNumber *)score
+                            content:(NSString *)content
+                            success:(NetworkFetcherSuccessHandler)success
+                            failure:(NetworkFetcherErrorHandler)failure;
+
 @end

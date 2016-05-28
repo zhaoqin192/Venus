@@ -115,7 +115,7 @@
     cell.countLabel.text = [NSString stringWithFormat:@"%@", model.count];
     cell.totalPriceLabel.text = [NSString stringWithFormat:@"￥%.2f", [model.totalPrice floatValue] / 100];
     
-    cell.statusLabel.text = @"已退款";
+    cell.statusLabel.text = @"退款成功";
     
     return cell;
 }

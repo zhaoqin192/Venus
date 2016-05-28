@@ -13,6 +13,8 @@
 #import "CommitPriceCell.h"
 #import "CommitOrderViewModel.h"
 #import "MBProgressHUD.h"
+#import "PaymentSuccessViewController.h"
+
 
 @interface CommitOrderViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -27,11 +29,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     [self configureTableView];
     
     [self bindViewModel];
     
     [self onCliceEvent];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -112,7 +116,10 @@
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
        
-        
+        @strongify(self)
+        PaymentSuccessViewController *paymentSuccessVC = [[PaymentSuccessViewController alloc] initWithNibName:@"PaymentSuccessViewController" bundle:nil];
+        paymentSuccessVC.orderID = self.viewModel.orderID;
+        [self.navigationController pushViewController:paymentSuccessVC animated:YES];
         
     }];
     

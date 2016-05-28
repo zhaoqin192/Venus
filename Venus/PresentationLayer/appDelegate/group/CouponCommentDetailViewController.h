@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class CouponOrderModel;
+
 @interface CouponCommentDetailViewController : UIViewController
+
+@property (nonatomic, strong) CouponOrderModel *orderModel;
 
 @end

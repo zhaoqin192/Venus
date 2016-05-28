@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class CouponOrderModel;
+
 @interface OrderDetailViewModel : NSObject
 
 @property (nonatomic, strong) RACSubject *detailSuccessObject;
@@ -20,11 +22,12 @@
 @property (nonatomic, strong) NSNumber *asPrice;
 @property (nonatomic, strong) NSString *describe;
 @property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) CouponOrderModel *couponModel;
 
 - (void)fetchDetailDataWithOrderID:(NSString *)orderID;
 
-- (void)createOrderWithCouponID:(NSString *)couponID
-                        storeID:(NSString *)storeID
-                            num:(NSNumber *)num;
+
+- (void)paymentWithOrderID:(NSString *)orderID;
+
 
 @end

@@ -19,6 +19,7 @@
 @property (nonatomic, strong) RACSubject *errorObject;
 @property (nonatomic, assign) NSInteger selectPay;
 @property (nonatomic, assign) BOOL isSelected;
+@property (nonatomic, strong) NSString *orderID;
 
 - (void)initPrice:(NSNumber *)price;
 

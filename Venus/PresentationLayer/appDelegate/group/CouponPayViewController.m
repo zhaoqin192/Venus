@@ -107,7 +107,7 @@
         
         CouponOrderModel *model = userInfo[@"orderModel"];
         @strongify(self)
-        [self.viewModel createOrderWithCouponID:model.couponID storeID:model.storeID num:model.count];
+        [self.viewModel paymentWithOrderID:model.orderID];
         
     }];
     
@@ -164,6 +164,8 @@
     cell.totalPriceLabel.text = [NSString stringWithFormat:@"￥%.2f", [model.totalPrice floatValue] / 100];
     
     cell.orderModel = model;
+    
+    cell.state = @0;
     
     return cell;
 }

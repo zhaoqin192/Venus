@@ -73,11 +73,15 @@
                         storeID:(NSString *)storeID
                             num:(NSNumber *)num {
     
+    @weakify(self)
     [NetworkFetcher groupCreateOrderWithCouponID:couponID storeID:storeID num:num success:^(NSDictionary *response) {
         
         if ([response[@"errCode"] isEqualToNumber:@0]) {
+            @strongify(self)
             
-            [NetworkFetcher grougPrePayWithOrderID:response[@"orderId"] method:@"AliPay" success:^(NSDictionary *response) {
+            self.orderID = [NSString stringWithFormat:@"%@", response[@"orderId"]];
+            
+            [NetworkFetcher grougPrePayWithOrderID:self.orderID method:@"AliPay" success:^(NSDictionary *response) {
                
                 if ([response[@"errCode"] isEqualToNumber:@0]) {
                     
@@ -116,22 +120,24 @@
                     
                 }
                 else {
+                    @strongify(self)
                     [self.orderFailureObject sendNext:@"下单失败"];
                 }
                 
             } failure:^(NSString *error) {
-                
+                @strongify(self)
                 [self.errorObject sendNext:@"网络请求异常"];
                 
             }];
             
         }
         else {
+            @strongify(self)
             [self.orderFailureObject sendNext:@"下单失败"];
         }
         
     } failure:^(NSString *error) {
-        
+        @strongify(self)
         [self.errorObject sendNext:@"网络请求异常"];
         
     }];

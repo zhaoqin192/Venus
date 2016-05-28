@@ -227,6 +227,7 @@
         RefundCodeCell *cell = [tableView dequeueReusableCellWithIdentifier:[RefundCodeCell className]];
         StockModel *model = [self.codeArray objectAtIndex:indexPath.row];
         cell.codeLabel.text = model.code;
+        cell.codeIdentifier = model.identifier;
         
         return cell;
     }

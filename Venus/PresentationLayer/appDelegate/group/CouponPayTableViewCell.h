@@ -20,4 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (nonatomic, strong) CouponOrderModel *orderModel;
 
+//@0为付款，@1为评价
+@property (nonatomic, strong) NSNumber *state;
+
 @end
