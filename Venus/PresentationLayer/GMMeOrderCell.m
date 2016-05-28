@@ -31,10 +31,6 @@
     subscribeNext:^(id x) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"showCoupon" object:nil];
     }];
-    [[self.takeawayButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-     subscribeNext:^(id x) {
-         [[NSNotificationCenter defaultCenter] postNotificationName:@"showTake" object:nil];
-     }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
