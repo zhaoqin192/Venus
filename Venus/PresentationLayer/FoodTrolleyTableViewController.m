@@ -78,7 +78,7 @@
     __weak FoodTrolleyTableViewCell *cell = (FoodTrolleyTableViewCell *)[[button superview] superview];
     if (cell) {
         cell.food.orderCount += 1;
-        cell.foodCount.text = [NSString stringWithFormat:@"%li",([cell.foodCount.text integerValue] + 1)];
+        cell.foodCount.text = [NSString stringWithFormat:@"%li",(long)([cell.foodCount.text integerValue] + 1)];
         CGFloat unitPrice = cell.food.unitPrice;
         CGFloat totalPrice = cell.food.orderCount * unitPrice;
         cell.foodTotalPrice.text = [NSString stringWithFormat:@"￥%.2f",totalPrice];
@@ -95,7 +95,7 @@
     if (cell) {
         if  (cell.food.orderCount > 0) {
             cell.food.orderCount -= 1;
-            cell.foodCount.text = [NSString stringWithFormat:@"%li",([cell.foodCount.text integerValue] - 1)];
+            cell.foodCount.text = [NSString stringWithFormat:@"%li",(long)([cell.foodCount.text integerValue] - 1)];
             CGFloat unitPrice = cell.food.unitPrice;
             CGFloat totalPrice = cell.food.orderCount * unitPrice;
             cell.foodTotalPrice.text = [NSString stringWithFormat:@"￥%.2f",totalPrice];

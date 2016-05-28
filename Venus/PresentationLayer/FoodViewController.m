@@ -171,7 +171,6 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     FoodDetailViewController *foodDetailVC = [[FoodDetailViewController alloc] init];
     foodDetailVC.restaurant = restaurant;
     [self.navigationController pushViewController:foodDetailVC animated:YES];
-//    [self presentViewController:foodDetailVC animated:YES completion:nil];
 }
 
 

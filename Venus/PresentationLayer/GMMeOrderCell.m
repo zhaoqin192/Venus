@@ -11,7 +11,7 @@
 @interface GMMeOrderCell ()
 
 @property (weak, nonatomic) IBOutlet UIButton *couponButton;
-@property (weak, nonatomic) IBOutlet UIButton *takeawayButton;
+
 @end
 
 @implementation GMMeOrderCell

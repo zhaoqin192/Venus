@@ -13,7 +13,7 @@
 @implementation NetworkFetcher (FoodAddress)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
-static const BOOL LOGDEBUG = YES;
+static const BOOL LOGDEBUG = NO;
 
 + (void)foodFetcherUserFoodAddresWithRestaurantID:(NSString *)restaurantID
                                           success:(NetworkFetcherCompletionHandler)success
@@ -115,7 +115,6 @@ static const BOOL LOGDEBUG = YES;
                       failure:(NetworkFetcherErrorHandler)failure {
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/order/deleteAddress"]];
     NSDictionary *parameters = @{@"addressId":@(foodAddress.addressID)};
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
