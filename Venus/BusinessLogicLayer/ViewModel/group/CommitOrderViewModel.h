@@ -14,8 +14,12 @@
 @property (nonatomic, assign) NSInteger totalPrice;
 @property (nonatomic, assign) NSInteger price;
 @property (nonatomic, strong) RACSubject *countObject;
+@property (nonatomic, strong) RACSubject *orderSuccessObject;
+@property (nonatomic, strong) RACSubject *orderFailureObject;
+@property (nonatomic, strong) RACSubject *errorObject;
 @property (nonatomic, assign) NSInteger selectPay;
 @property (nonatomic, assign) BOOL isSelected;
+@property (nonatomic, strong) NSString *orderID;
 
 - (void)initPrice:(NSNumber *)price;
 
@@ -28,5 +32,6 @@
 - (void)createOrderWithCouponID:(NSString *)couponID
                         storeID:(NSString *)storeID
                             num:(NSNumber *)num;
+
 
 @end

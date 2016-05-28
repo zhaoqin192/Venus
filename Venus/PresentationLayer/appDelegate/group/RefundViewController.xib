@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RefundViewController">
+            <connections>
+                <outlet property="commitButton" destination="lMc-gD-q9U" id="VzR-TC-iAT"/>
+                <outlet property="tableView" destination="Axh-ny-OsY" id="7aH-eu-eKc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scf-y5-Sq2">
+                    <rect key="frame" x="0.0" y="622" width="375" height="45"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMc-gD-q9U">
+                            <rect key="frame" x="157" y="7" width="60" height="30"/>
+                            <state key="normal" title="提交申请">
+                                <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="OYP-x5-Kxa"/>
+                        <constraint firstAttribute="height" constant="45" id="b42-XT-7fO"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Axh-ny-OsY">
+                    <rect key="frame" x="0.0" y="64" width="375" height="558"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="cCJ-eC-xwF"/>
+                        <outlet property="delegate" destination="-1" id="0rF-mU-HaU"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Axh-ny-OsY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="63t-27-dwL"/>
+                <constraint firstItem="scf-y5-Sq2" firstAttribute="top" secondItem="Axh-ny-OsY" secondAttribute="bottom" id="FCS-kG-ItL"/>
+                <constraint firstItem="Axh-ny-OsY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rtr-Gg-lbB"/>
+                <constraint firstAttribute="trailing" secondItem="scf-y5-Sq2" secondAttribute="trailing" id="U1C-VJ-ce9"/>
+                <constraint firstAttribute="bottom" secondItem="scf-y5-Sq2" secondAttribute="bottom" id="WWw-0b-WLb"/>
+                <constraint firstItem="scf-y5-Sq2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="a5h-6i-dO8"/>
+                <constraint firstAttribute="trailing" secondItem="Axh-ny-OsY" secondAttribute="trailing" id="jNx-pU-1fw"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="251.5" y="391.5"/>
+        </view>
+    </objects>
+</document>
