@@ -10,6 +10,7 @@
 
 @interface FoodAddress : NSObject
 
+@property (assign, nonatomic) NSInteger addressID;
 @property (copy, nonatomic) NSString *linkmanName;
 @property (copy, nonatomic) NSString *address;
 @property (copy, nonatomic) NSString *phoneNumber;

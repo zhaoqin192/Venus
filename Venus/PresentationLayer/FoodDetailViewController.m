@@ -195,9 +195,13 @@
         // 创建订单，传入下一个
         FoodSubmitOrderViewController *vc = [[FoodSubmitOrderViewController alloc] init];
         vc.restaurantName = _restaurant.name;
+        vc.restaurantID = _restaurant.identifier;
+        vc.bargainFee = 10.0;
+        vc.shippingFee = 20.0;
         for (FoodOrderViewSectionObject *sectionObject in _orderVC.sections) {
             for (FoodOrderViewBaseItem *baseItem in sectionObject.items) {
                 if (baseItem.orderCount > 0) {
+                    vc.totalPrice += baseItem.orderCount * baseItem.unitPrice;
                     [vc.foodArray addObject:baseItem];
                 }
             }

@@ -109,14 +109,6 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }];
-    
-    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showTake" object:nil]
-      takeUntil:[self rac_willDeallocSignal]]
-     subscribeNext:^(id x) {
-         @strongify(self)
-         GMMeCommitViewController *vc = [[GMMeCommitViewController alloc] init];
-         [self.navigationController pushViewController:vc animated:YES];
-     }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -219,6 +211,12 @@
             GMMeInformationViewController *vc = [[GMMeInformationViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
+        }
+        case 2:{
+            if (indexPath.row == 0) {
+                GMMeCommitViewController *vc = [[GMMeCommitViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
         }
     }
 }
