@@ -177,6 +177,8 @@
 		7F9370A61CF6E4F10063F544 /* FoodShowAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370A41CF6E4F10063F544 /* FoodShowAddressCell.xib */; };
 		7F9370AA1CF6EB2A0063F544 /* FoodAddressSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370A81CF6EB2A0063F544 /* FoodAddressSelectionViewController.m */; };
 		7F9370AB1CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370A91CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib */; };
+		7F9370B41CF932E00063F544 /* FoodAddressEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370B21CF932E00063F544 /* FoodAddressEditViewController.m */; };
+		7F9370B51CF932E00063F544 /* FoodAddressEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370B31CF932E00063F544 /* FoodAddressEditViewController.xib */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -574,6 +576,9 @@
 		7F9370A71CF6EB2A0063F544 /* FoodAddressSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodAddressSelectionViewController.h; sourceTree = "<group>"; };
 		7F9370A81CF6EB2A0063F544 /* FoodAddressSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddressSelectionViewController.m; sourceTree = "<group>"; };
 		7F9370A91CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodAddressSelectionViewController.xib; sourceTree = "<group>"; };
+		7F9370B11CF932E00063F544 /* FoodAddressEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodAddressEditViewController.h; sourceTree = "<group>"; };
+		7F9370B21CF932E00063F544 /* FoodAddressEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddressEditViewController.m; sourceTree = "<group>"; };
+		7F9370B31CF932E00063F544 /* FoodAddressEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodAddressEditViewController.xib; sourceTree = "<group>"; };
 		9713C37508499AECCEDF39F3 /* Pods-Venus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.release.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -1226,6 +1231,9 @@
 				7F9370A71CF6EB2A0063F544 /* FoodAddressSelectionViewController.h */,
 				7F9370A81CF6EB2A0063F544 /* FoodAddressSelectionViewController.m */,
 				7F9370A91CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib */,
+				7F9370B11CF932E00063F544 /* FoodAddressEditViewController.h */,
+				7F9370B21CF932E00063F544 /* FoodAddressEditViewController.m */,
+				7F9370B31CF932E00063F544 /* FoodAddressEditViewController.xib */,
 			);
 			name = food;
 			sourceTree = "<group>";
@@ -1935,6 +1943,7 @@
 				30D6D27E1CC87AF500FB0CFC /* FoodViewController.xib in Resources */,
 				ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */,
 				30B602151CD308F3003ED671 /* ShopActivityCell.xib in Resources */,
+				7F9370B51CF932E00063F544 /* FoodAddressEditViewController.xib in Resources */,
 				3057B1EE1CD99221008172DD /* GMMeViewController.xib in Resources */,
 				3025A9951CCE3FD700C5EAAB /* PackageViewController.xib in Resources */,
 				3057B1F91CD99B66008172DD /* GMMeOrderCell.xib in Resources */,
@@ -2234,6 +2243,7 @@
 				AC96F3031CE9C72A001B2DDE /* LoadingCell.m in Sources */,
 				7F7025681CF57FE0009653A6 /* FoodBillCell.m in Sources */,
 				3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */,
+				7F9370B41CF932E00063F544 /* FoodAddressEditViewController.m in Sources */,
 				3057B1F21CD998C3008172DD /* GMMeCell.m in Sources */,
 				AC4D73F71CF1DD1D00DF4997 /* BrandCollectionViewCell.m in Sources */,
 				3086D3BA1CC72A1E007494D7 /* GMRegisterViewController.m in Sources */,

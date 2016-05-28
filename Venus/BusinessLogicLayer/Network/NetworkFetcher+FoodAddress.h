@@ -41,7 +41,7 @@
  *  @param success
  *  @param failure
  */
-+ (void)EditUserFoodAddress:(FoodAddress *)foodAddress
++ (void)editUserFoodAddress:(FoodAddress *)foodAddress
                     success:(NetworkFetcherCompletionHandler)success
                     failure:(NetworkFetcherErrorHandler)failure;
 
@@ -52,7 +52,7 @@
  *  @param success
  *  @param failure
  */
-+ (void)DeleteUserFoodAddress:(FoodAddress *)foodAddress
++ (void)deleteUserFoodAddress:(FoodAddress *)foodAddress
                       success:(NetworkFetcherCompletionHandler)success
                       failure:(NetworkFetcherErrorHandler)failure;
 @end
