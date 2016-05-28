@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MeModifyPhoneNumberViewController : UIViewController
-
+@property (nonatomic, assign) BOOL isForget;
 @end

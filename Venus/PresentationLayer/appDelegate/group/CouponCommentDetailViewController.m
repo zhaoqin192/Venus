@@ -14,7 +14,7 @@
 #import "CouponCommentMessageCell.h"
 #import "CouponCommentMessageSectionCell.h"
 
-@interface CouponCommentDetailViewController ()<UITabBarDelegate, UITableViewDataSource>
+@interface CouponCommentDetailViewController ()<UITabBarDelegate, UITableViewDataSource,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *commitButton;
 @property (nonatomic, strong) CouponCommentDetailViewModel *viewModel;
@@ -199,6 +199,10 @@
     
     return nil;
     
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
 }
 
 /*
