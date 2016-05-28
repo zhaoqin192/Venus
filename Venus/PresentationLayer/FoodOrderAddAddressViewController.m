@@ -33,11 +33,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.translucent = NO;
-    if (_navigationTitle) {
-        self.navigationItem.title = _navigationTitle;
-    } else {
-        self.navigationItem.title = @"编辑地址";
-    }
+    self.navigationItem.title = @"新增地址";
 }
 
 #pragma mark - UITableViewDataSource
@@ -93,6 +89,7 @@
 - (IBAction)blankTouched:(id)sender {
     [self.view endEditing:YES];
 }
+
 
 - (void)saveAddress:(id)sender {
     NSLog(@"保存");

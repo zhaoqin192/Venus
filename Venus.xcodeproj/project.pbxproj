@@ -180,6 +180,8 @@
 		7F9370A61CF6E4F10063F544 /* FoodShowAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370A41CF6E4F10063F544 /* FoodShowAddressCell.xib */; };
 		7F9370AA1CF6EB2A0063F544 /* FoodAddressSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370A81CF6EB2A0063F544 /* FoodAddressSelectionViewController.m */; };
 		7F9370AB1CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370A91CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib */; };
+		7F9370B41CF932E00063F544 /* FoodAddressEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370B21CF932E00063F544 /* FoodAddressEditViewController.m */; };
+		7F9370B51CF932E00063F544 /* FoodAddressEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370B31CF932E00063F544 /* FoodAddressEditViewController.xib */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -191,7 +193,6 @@
 		AC2E043F1CEB493E00476087 /* CouponInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E043E1CEB493E00476087 /* CouponInformationCell.m */; };
 		AC2E04421CEB554900476087 /* CouponCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04411CEB554900476087 /* CouponCommentCell.m */; };
 		AC2E04451CEB5DAE00476087 /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */; };
-		AC31AD851CF327A2006F0608 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC31AD831CF327A2006F0608 /* AlipaySDK.framework */; };
 		AC31AD891CF327BE006F0608 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC31AD881CF327BE006F0608 /* QuartzCore.framework */; };
 		AC31AD8B1CF327C9006F0608 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC31AD8A1CF327C9006F0608 /* CoreText.framework */; };
 		AC31AD8D1CF327DD006F0608 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC31AD8C1CF327DD006F0608 /* UIKit.framework */; };
@@ -216,11 +217,6 @@
 		AC4D740C1CF29B3800DF4997 /* MerchandiseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D740B1CF29B3800DF4997 /* MerchandiseCollectionViewCell.m */; };
 		AC4D74151CF2DE8100DF4997 /* KindDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D74141CF2DE8100DF4997 /* KindDetailViewController.m */; };
 		AC4D741A1CF2F97800DF4997 /* PersonalCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D74191CF2F97800DF4997 /* PersonalCouponViewController.m */; };
-		AC4D741C1CF2FBB900DF4997 /* couponOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4D741B1CF2FBB900DF4997 /* couponOrder.storyboard */; };
-		AC545F921CED90E000133F25 /* CommitOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F911CED90E000133F25 /* CommitOrderViewController.m */; };
-		AC545F991CED9AFC00133F25 /* CommitCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F981CED9AFC00133F25 /* CommitCountCell.m */; };
-		AC545F9C1CED9C6B00133F25 /* CommitPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F9B1CED9C6B00133F25 /* CommitPayCell.m */; };
-		AC545F9F1CEDA94700133F25 /* CommitPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545F9E1CEDA94700133F25 /* CommitPriceCell.m */; };
 		AC545FA21CEDAE7400133F25 /* CommitOrderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545FA11CEDAE7400133F25 /* CommitOrderViewModel.m */; };
 		AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */; };
 		AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48C81CCA48CA00724914 /* read_me.txt */; };
@@ -278,6 +274,80 @@
 		ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB21CBF97F800A962BD /* AppDelegate.m */; };
 		ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBD1CBF97F800A962BD /* Assets.xcassets */; };
 		ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBF1CBF97F800A962BD /* LaunchScreen.storyboard */; };
+		ACFF31B51CF86ECF008BD0D8 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ACFF31511CF86ECF008BD0D8 /* AlipaySDK.bundle */; };
+		ACFF31B91CF86ECF008BD0D8 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF31A21CF86ECF008BD0D8 /* Order.m */; };
+		ACFF31C41CF86EE0008BD0D8 /* NSString+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF31C21CF86EE0008BD0D8 /* NSString+Expand.m */; };
+		ACFF32831CF86F8B008BD0D8 /* base64.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32271CF86F8B008BD0D8 /* base64.m */; };
+		ACFF32841CF86F8B008BD0D8 /* DataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF322A1CF86F8B008BD0D8 /* DataSigner.m */; };
+		ACFF32851CF86F8B008BD0D8 /* DataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF322C1CF86F8B008BD0D8 /* DataVerifier.m */; };
+		ACFF32861CF86F8B008BD0D8 /* MD5DataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF322E1CF86F8B008BD0D8 /* MD5DataSigner.m */; };
+		ACFF32871CF86F8B008BD0D8 /* NSDataEx.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32301CF86F8B008BD0D8 /* NSDataEx.m */; };
+		ACFF32881CF86F8B008BD0D8 /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32321CF86F8B008BD0D8 /* openssl_wrapper.m */; };
+		ACFF32891CF86F8B008BD0D8 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32341CF86F8B008BD0D8 /* RSADataSigner.m */; };
+		ACFF328A1CF86F8B008BD0D8 /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32361CF86F8B008BD0D8 /* RSADataVerifier.m */; };
+		ACFF328B1CF86F9C008BD0D8 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFF31541CF86ECF008BD0D8 /* libssl.a */; };
+		ACFF328C1CF86F9C008BD0D8 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFF31531CF86ECF008BD0D8 /* libcrypto.a */; };
+		ACFF32991CF870A7008BD0D8 /* RefundViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF328D1CF870A7008BD0D8 /* RefundViewModel.m */; };
+		ACFF329A1CF870A7008BD0D8 /* OrderDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF328F1CF870A7008BD0D8 /* OrderDetailViewModel.m */; };
+		ACFF329B1CF870A7008BD0D8 /* CouponUseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32911CF870A7008BD0D8 /* CouponUseViewModel.m */; };
+		ACFF329C1CF870A7008BD0D8 /* CouponRefundViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32931CF870A7008BD0D8 /* CouponRefundViewModel.m */; };
+		ACFF329D1CF870A7008BD0D8 /* CouponPayViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32951CF870A7008BD0D8 /* CouponPayViewModel.m */; };
+		ACFF329E1CF870A7008BD0D8 /* CouponCommentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32971CF870A7008BD0D8 /* CouponCommentViewModel.m */; };
+		ACFF32A31CF870D7008BD0D8 /* StockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF329F1CF870D7008BD0D8 /* StockModel.m */; };
+		ACFF32A41CF870D7008BD0D8 /* CouponOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32A11CF870D7008BD0D8 /* CouponOrderModel.m */; };
+		ACFF32B41CF87106008BD0D8 /* RefundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32A51CF87106008BD0D8 /* RefundViewController.xib */; };
+		ACFF32B51CF87106008BD0D8 /* RefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32A61CF87106008BD0D8 /* RefundViewController.m */; };
+		ACFF32B61CF87106008BD0D8 /* RefundReasonHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32A81CF87106008BD0D8 /* RefundReasonHeadCell.xib */; };
+		ACFF32B71CF87106008BD0D8 /* RefundReasonHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32A91CF87106008BD0D8 /* RefundReasonHeadCell.m */; };
+		ACFF32B81CF87106008BD0D8 /* RefundReasonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32AB1CF87106008BD0D8 /* RefundReasonCell.xib */; };
+		ACFF32B91CF87106008BD0D8 /* RefundReasonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32AC1CF87106008BD0D8 /* RefundReasonCell.m */; };
+		ACFF32BA1CF87106008BD0D8 /* RefundPriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32AE1CF87106008BD0D8 /* RefundPriceCell.xib */; };
+		ACFF32BB1CF87106008BD0D8 /* RefundPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32AF1CF87106008BD0D8 /* RefundPriceCell.m */; };
+		ACFF32BC1CF87106008BD0D8 /* RefundCodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32B11CF87106008BD0D8 /* RefundCodeCell.xib */; };
+		ACFF32BD1CF87106008BD0D8 /* RefundCodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32B21CF87106008BD0D8 /* RefundCodeCell.m */; };
+		ACFF32CD1CF87114008BD0D8 /* OrderMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32BE1CF87114008BD0D8 /* OrderMessageCell.xib */; };
+		ACFF32CE1CF87114008BD0D8 /* OrderMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32BF1CF87114008BD0D8 /* OrderMessageCell.m */; };
+		ACFF32CF1CF87114008BD0D8 /* OrderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32C11CF87114008BD0D8 /* OrderDetailViewController.xib */; };
+		ACFF32D01CF87114008BD0D8 /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32C21CF87114008BD0D8 /* OrderDetailViewController.m */; };
+		ACFF32D11CF87114008BD0D8 /* OrderDetailInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32C41CF87114008BD0D8 /* OrderDetailInfoCell.xib */; };
+		ACFF32D21CF87114008BD0D8 /* OrderDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32C51CF87114008BD0D8 /* OrderDetailInfoCell.m */; };
+		ACFF32D31CF87114008BD0D8 /* OrderDescribeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32C71CF87114008BD0D8 /* OrderDescribeCell.xib */; };
+		ACFF32D41CF87114008BD0D8 /* OrderDescribeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32C81CF87114008BD0D8 /* OrderDescribeCell.m */; };
+		ACFF32D51CF87114008BD0D8 /* OrderCouponIDCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32CA1CF87114008BD0D8 /* OrderCouponIDCell.xib */; };
+		ACFF32D61CF87114008BD0D8 /* OrderCouponIDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32CB1CF87114008BD0D8 /* OrderCouponIDCell.m */; };
+		ACFF32E61CF8711E008BD0D8 /* CouponUseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32D71CF8711E008BD0D8 /* CouponUseViewController.xib */; };
+		ACFF32E71CF8711E008BD0D8 /* CouponUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32D81CF8711E008BD0D8 /* CouponUseViewController.m */; };
+		ACFF32E81CF8711E008BD0D8 /* CouponRefundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32DA1CF8711E008BD0D8 /* CouponRefundViewController.xib */; };
+		ACFF32E91CF8711E008BD0D8 /* CouponRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32DB1CF8711E008BD0D8 /* CouponRefundViewController.m */; };
+		ACFF32EA1CF8711E008BD0D8 /* CouponPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32DD1CF8711E008BD0D8 /* CouponPayViewController.xib */; };
+		ACFF32EB1CF8711E008BD0D8 /* CouponPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32DE1CF8711E008BD0D8 /* CouponPayViewController.m */; };
+		ACFF32EC1CF8711E008BD0D8 /* CouponPayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32E01CF8711E008BD0D8 /* CouponPayTableViewCell.xib */; };
+		ACFF32ED1CF8711E008BD0D8 /* CouponPayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32E11CF8711E008BD0D8 /* CouponPayTableViewCell.m */; };
+		ACFF32EE1CF8711E008BD0D8 /* CouponOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32E31CF8711E008BD0D8 /* CouponOrderTableViewCell.xib */; };
+		ACFF32EF1CF8711E008BD0D8 /* CouponOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32E41CF8711E008BD0D8 /* CouponOrderTableViewCell.m */; };
+		ACFF32FC1CF87125008BD0D8 /* CouponCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32F01CF87125008BD0D8 /* CouponCommentViewController.xib */; };
+		ACFF32FD1CF87125008BD0D8 /* CouponCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32F11CF87125008BD0D8 /* CouponCommentViewController.m */; };
+		ACFF32FE1CF87125008BD0D8 /* CouponCommentMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32F31CF87125008BD0D8 /* CouponCommentMessageCell.xib */; };
+		ACFF32FF1CF87125008BD0D8 /* CouponCommentMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32F41CF87125008BD0D8 /* CouponCommentMessageCell.m */; };
+		ACFF33001CF87125008BD0D8 /* CouponCommentDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32F61CF87125008BD0D8 /* CouponCommentDetailViewController.xib */; };
+		ACFF33011CF87125008BD0D8 /* CouponCommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32F71CF87125008BD0D8 /* CouponCommentDetailViewController.m */; };
+		ACFF33021CF87125008BD0D8 /* CouponCommentDetailHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32F91CF87125008BD0D8 /* CouponCommentDetailHeadCell.xib */; };
+		ACFF33031CF87125008BD0D8 /* CouponCommentDetailHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32FA1CF87125008BD0D8 /* CouponCommentDetailHeadCell.m */; };
+		ACFF330B1CF87135008BD0D8 /* CommitCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33061CF87135008BD0D8 /* CommitCountCell.m */; };
+		ACFF330C1CF87135008BD0D8 /* CommitPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33081CF87135008BD0D8 /* CommitPayCell.m */; };
+		ACFF330D1CF87135008BD0D8 /* CommitPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF330A1CF87135008BD0D8 /* CommitPriceCell.m */; };
+		ACFF330E1CF87171008BD0D8 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFF31521CF86ECF008BD0D8 /* AlipaySDK.framework */; };
+		ACFF33111CF87259008BD0D8 /* CommitOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF330F1CF87259008BD0D8 /* CommitOrderViewController.m */; };
+		ACFF332F1CF88214008BD0D8 /* CouponCommentDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF332E1CF88214008BD0D8 /* CouponCommentDetailViewModel.m */; };
+		ACFF33331CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33311CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m */; };
+		ACFF33341CF885BF008BD0D8 /* CouponCommentMessageSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF33321CF885BF008BD0D8 /* CouponCommentMessageSectionCell.xib */; };
+		ACFF333D1CF92E8E008BD0D8 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF333C1CF92E8E008BD0D8 /* UIPlaceHolderTextView.m */; };
+		ACFF33421CF9468C008BD0D8 /* PaymentSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33401CF9468C008BD0D8 /* PaymentSuccessViewController.m */; };
+		ACFF33431CF9468C008BD0D8 /* PaymentSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF33411CF9468C008BD0D8 /* PaymentSuccessViewController.xib */; };
+		ACFF33851CF9871B008BD0D8 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACFF337C1CF9871B008BD0D8 /* demo.gif */; };
+		ACFF33861CF9871B008BD0D8 /* interface-builder.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFF337D1CF9871B008BD0D8 /* interface-builder.png */; };
+		ACFF33871CF9871B008BD0D8 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33801CF9871B008BD0D8 /* HCSStarRatingView.m */; };
+		ACFF33881CF9871B008BD0D8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFF33811CF9871B008BD0D8 /* Info.plist */; };
 		E8226C211CEB52B000980E30 /* FoodPaymentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8226C1F1CEB52B000980E30 /* FoodPaymentCell.m */; };
 		E8226C221CEB52B000980E30 /* FoodPaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8226C201CEB52B000980E30 /* FoodPaymentCell.xib */; };
 		E89BD32D1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89BD32B1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m */; };
@@ -294,6 +364,16 @@
 		E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047B01CDF84070032EE91 /* GMNavigationController.m */; };
 		FCA1BB3CF4D5E0A9C7C66E75 /* libPods-Venus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB31E767E11D77284035771 /* libPods-Venus.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ACFF338A1CF9871B008BD0D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACFF33821CF9871B008BD0D8 /* HCSStarRatingView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B6AF40891B4FE3260060F1B8;
+			remoteInfo = HCSStarRatingView;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3025A98C1CCE3F2E00C5EAAB /* GroupPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupPurchaseViewController.h; sourceTree = "<group>"; };
@@ -582,6 +662,9 @@
 		7F9370A71CF6EB2A0063F544 /* FoodAddressSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodAddressSelectionViewController.h; sourceTree = "<group>"; };
 		7F9370A81CF6EB2A0063F544 /* FoodAddressSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddressSelectionViewController.m; sourceTree = "<group>"; };
 		7F9370A91CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodAddressSelectionViewController.xib; sourceTree = "<group>"; };
+		7F9370B11CF932E00063F544 /* FoodAddressEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodAddressEditViewController.h; sourceTree = "<group>"; };
+		7F9370B21CF932E00063F544 /* FoodAddressEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddressEditViewController.m; sourceTree = "<group>"; };
+		7F9370B31CF932E00063F544 /* FoodAddressEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodAddressEditViewController.xib; sourceTree = "<group>"; };
 		9713C37508499AECCEDF39F3 /* Pods-Venus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.release.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -589,18 +672,18 @@
 		AC0359071CC4D78600EC7BBC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		AC2E04311CEAEEC400476087 /* CouponCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentModel.h; sourceTree = "<group>"; };
 		AC2E04321CEAEEC400476087 /* CouponCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentModel.m; sourceTree = "<group>"; };
-		AC2E04341CEB2D3800476087 /* CouponPictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponPictureCell.h; sourceTree = "<group>"; };
-		AC2E04351CEB2D3800476087 /* CouponPictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponPictureCell.m; sourceTree = "<group>"; };
-		AC2E04371CEB374E00476087 /* CouponStoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponStoreCell.h; sourceTree = "<group>"; };
-		AC2E04381CEB374E00476087 /* CouponStoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponStoreCell.m; sourceTree = "<group>"; };
-		AC2E043A1CEB462F00476087 /* CouponCaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCaseCell.h; sourceTree = "<group>"; };
-		AC2E043B1CEB462F00476087 /* CouponCaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCaseCell.m; sourceTree = "<group>"; };
-		AC2E043D1CEB493E00476087 /* CouponInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponInformationCell.h; sourceTree = "<group>"; };
-		AC2E043E1CEB493E00476087 /* CouponInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponInformationCell.m; sourceTree = "<group>"; };
-		AC2E04401CEB554900476087 /* CouponCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentCell.h; sourceTree = "<group>"; };
-		AC2E04411CEB554900476087 /* CouponCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentCell.m; sourceTree = "<group>"; };
-		AC2E04431CEB5DAE00476087 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
-		AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
+		AC2E04341CEB2D3800476087 /* CouponPictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponPictureCell.h; path = groupDetail/CouponPictureCell.h; sourceTree = "<group>"; };
+		AC2E04351CEB2D3800476087 /* CouponPictureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponPictureCell.m; path = groupDetail/CouponPictureCell.m; sourceTree = "<group>"; };
+		AC2E04371CEB374E00476087 /* CouponStoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponStoreCell.h; path = groupDetail/CouponStoreCell.h; sourceTree = "<group>"; };
+		AC2E04381CEB374E00476087 /* CouponStoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponStoreCell.m; path = groupDetail/CouponStoreCell.m; sourceTree = "<group>"; };
+		AC2E043A1CEB462F00476087 /* CouponCaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponCaseCell.h; path = groupDetail/CouponCaseCell.h; sourceTree = "<group>"; };
+		AC2E043B1CEB462F00476087 /* CouponCaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponCaseCell.m; path = groupDetail/CouponCaseCell.m; sourceTree = "<group>"; };
+		AC2E043D1CEB493E00476087 /* CouponInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponInformationCell.h; path = groupDetail/CouponInformationCell.h; sourceTree = "<group>"; };
+		AC2E043E1CEB493E00476087 /* CouponInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponInformationCell.m; path = groupDetail/CouponInformationCell.m; sourceTree = "<group>"; };
+		AC2E04401CEB554900476087 /* CouponCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponCommentCell.h; path = groupDetail/CouponCommentCell.h; sourceTree = "<group>"; };
+		AC2E04411CEB554900476087 /* CouponCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponCommentCell.m; path = groupDetail/CouponCommentCell.m; sourceTree = "<group>"; };
+		AC2E04431CEB5DAE00476087 /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCollectionViewCell.h; path = groupDetail/ImageCollectionViewCell.h; sourceTree = "<group>"; };
+		AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCollectionViewCell.m; path = groupDetail/ImageCollectionViewCell.m; sourceTree = "<group>"; };
 		AC31AD831CF327A2006F0608 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlipaySDK.framework; path = Venus/OtherSDK/Alipay/AlipaySDK.framework; sourceTree = "<group>"; };
 		AC31AD841CF327A2006F0608 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AlipaySDK.bundle; path = Venus/OtherSDK/Alipay/AlipaySDK.bundle; sourceTree = "<group>"; };
 		AC31AD881CF327BE006F0608 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -645,15 +728,6 @@
 		AC4D74141CF2DE8100DF4997 /* KindDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindDetailViewController.m; sourceTree = "<group>"; };
 		AC4D74181CF2F97800DF4997 /* PersonalCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCouponViewController.h; sourceTree = "<group>"; };
 		AC4D74191CF2F97800DF4997 /* PersonalCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCouponViewController.m; sourceTree = "<group>"; };
-		AC4D741B1CF2FBB900DF4997 /* couponOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = couponOrder.storyboard; sourceTree = "<group>"; };
-		AC545F901CED90E000133F25 /* CommitOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommitOrderViewController.h; path = ../CommitOrderViewController.h; sourceTree = "<group>"; };
-		AC545F911CED90E000133F25 /* CommitOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitOrderViewController.m; path = ../CommitOrderViewController.m; sourceTree = "<group>"; };
-		AC545F971CED9AFC00133F25 /* CommitCountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitCountCell.h; sourceTree = "<group>"; };
-		AC545F981CED9AFC00133F25 /* CommitCountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitCountCell.m; sourceTree = "<group>"; };
-		AC545F9A1CED9C6B00133F25 /* CommitPayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitPayCell.h; sourceTree = "<group>"; };
-		AC545F9B1CED9C6B00133F25 /* CommitPayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitPayCell.m; sourceTree = "<group>"; };
-		AC545F9D1CEDA94700133F25 /* CommitPriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitPriceCell.h; sourceTree = "<group>"; };
-		AC545F9E1CEDA94700133F25 /* CommitPriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitPriceCell.m; sourceTree = "<group>"; };
 		AC545FA01CEDAE7400133F25 /* CommitOrderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitOrderViewModel.h; sourceTree = "<group>"; };
 		AC545FA11CEDAE7400133F25 /* CommitOrderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitOrderViewModel.m; sourceTree = "<group>"; };
 		AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
@@ -718,8 +792,8 @@
 		AC90F5AA1CD20523004C4C55 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 		AC96F2EF1CE9747E001B2DDE /* CouponCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCell.h; sourceTree = "<group>"; };
 		AC96F2F01CE9747E001B2DDE /* CouponCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCell.m; sourceTree = "<group>"; };
-		AC96F2F71CE9963F001B2DDE /* CouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponViewController.h; sourceTree = "<group>"; };
-		AC96F2F81CE9963F001B2DDE /* CouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponViewController.m; sourceTree = "<group>"; };
+		AC96F2F71CE9963F001B2DDE /* CouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponViewController.h; path = groupDetail/CouponViewController.h; sourceTree = "<group>"; };
+		AC96F2F81CE9963F001B2DDE /* CouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CouponViewController.m; path = groupDetail/CouponViewController.m; sourceTree = "<group>"; };
 		AC96F3011CE9C72A001B2DDE /* LoadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingCell.h; sourceTree = "<group>"; };
 		AC96F3021CE9C72A001B2DDE /* LoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingCell.m; sourceTree = "<group>"; };
 		AC970C7C1CC4D23C00FA171B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -754,6 +828,295 @@
 		ACF83EBD1CBF97F800A962BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF83EC01CBF97F800A962BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF83EC21CBF97F800A962BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACFF31511CF86ECF008BD0D8 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		ACFF31521CF86ECF008BD0D8 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		ACFF31531CF86ECF008BD0D8 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		ACFF31541CF86ECF008BD0D8 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		ACFF31A11CF86ECF008BD0D8 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		ACFF31A21CF86ECF008BD0D8 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		ACFF31C21CF86EE0008BD0D8 /* NSString+Expand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Expand.m"; sourceTree = "<group>"; };
+		ACFF31C31CF86EE0008BD0D8 /* NSString+Expand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Expand.h"; sourceTree = "<group>"; };
+		ACFF31C81CF86F2A008BD0D8 /* base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		ACFF31C91CF86F2A008BD0D8 /* base64.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = base64.m; sourceTree = "<group>"; };
+		ACFF31CA1CF86F2A008BD0D8 /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		ACFF31CB1CF86F2A008BD0D8 /* DataSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSigner.h; sourceTree = "<group>"; };
+		ACFF31CC1CF86F2A008BD0D8 /* DataSigner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataSigner.m; sourceTree = "<group>"; };
+		ACFF31CD1CF86F2A008BD0D8 /* DataVerifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataVerifier.h; sourceTree = "<group>"; };
+		ACFF31CE1CF86F2A008BD0D8 /* DataVerifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataVerifier.m; sourceTree = "<group>"; };
+		ACFF31CF1CF86F2A008BD0D8 /* MD5DataSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MD5DataSigner.h; sourceTree = "<group>"; };
+		ACFF31D01CF86F2A008BD0D8 /* MD5DataSigner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MD5DataSigner.m; sourceTree = "<group>"; };
+		ACFF31D11CF86F2A008BD0D8 /* NSDataEx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSDataEx.h; sourceTree = "<group>"; };
+		ACFF31D21CF86F2A008BD0D8 /* NSDataEx.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSDataEx.m; sourceTree = "<group>"; };
+		ACFF31D31CF86F2A008BD0D8 /* openssl_wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = openssl_wrapper.h; sourceTree = "<group>"; };
+		ACFF31D41CF86F2A008BD0D8 /* openssl_wrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = openssl_wrapper.m; sourceTree = "<group>"; };
+		ACFF31D51CF86F2A008BD0D8 /* RSADataSigner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSADataSigner.h; sourceTree = "<group>"; };
+		ACFF31D61CF86F2A008BD0D8 /* RSADataSigner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSADataSigner.m; sourceTree = "<group>"; };
+		ACFF31D71CF86F2A008BD0D8 /* RSADataVerifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
+		ACFF31D81CF86F2A008BD0D8 /* RSADataVerifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
+		ACFF31DA1CF86F2A008BD0D8 /* aes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		ACFF31DB1CF86F2A008BD0D8 /* asn1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
+		ACFF31DC1CF86F2A008BD0D8 /* asn1_mac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = asn1_mac.h; sourceTree = "<group>"; };
+		ACFF31DD1CF86F2A008BD0D8 /* asn1t.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = asn1t.h; sourceTree = "<group>"; };
+		ACFF31DE1CF86F2A008BD0D8 /* bio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bio.h; sourceTree = "<group>"; };
+		ACFF31DF1CF86F2A008BD0D8 /* blowfish.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blowfish.h; sourceTree = "<group>"; };
+		ACFF31E01CF86F2A008BD0D8 /* bn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bn.h; sourceTree = "<group>"; };
+		ACFF31E11CF86F2A008BD0D8 /* buffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		ACFF31E21CF86F2A008BD0D8 /* camellia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = camellia.h; sourceTree = "<group>"; };
+		ACFF31E31CF86F2A008BD0D8 /* cast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cast.h; sourceTree = "<group>"; };
+		ACFF31E41CF86F2A008BD0D8 /* cmac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cmac.h; sourceTree = "<group>"; };
+		ACFF31E51CF86F2A008BD0D8 /* cms.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cms.h; sourceTree = "<group>"; };
+		ACFF31E61CF86F2A008BD0D8 /* comp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = comp.h; sourceTree = "<group>"; };
+		ACFF31E71CF86F2A008BD0D8 /* conf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = conf.h; sourceTree = "<group>"; };
+		ACFF31E81CF86F2A008BD0D8 /* conf_api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = conf_api.h; sourceTree = "<group>"; };
+		ACFF31E91CF86F2A008BD0D8 /* crypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = crypto.h; sourceTree = "<group>"; };
+		ACFF31EA1CF86F2A008BD0D8 /* des.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
+		ACFF31EB1CF86F2A008BD0D8 /* des_old.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = des_old.h; sourceTree = "<group>"; };
+		ACFF31EC1CF86F2A008BD0D8 /* dh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dh.h; sourceTree = "<group>"; };
+		ACFF31ED1CF86F2A008BD0D8 /* dsa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dsa.h; sourceTree = "<group>"; };
+		ACFF31EE1CF86F2A008BD0D8 /* dso.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dso.h; sourceTree = "<group>"; };
+		ACFF31EF1CF86F2A008BD0D8 /* dtls1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dtls1.h; sourceTree = "<group>"; };
+		ACFF31F01CF86F2A008BD0D8 /* e_os2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = e_os2.h; sourceTree = "<group>"; };
+		ACFF31F11CF86F2A008BD0D8 /* ebcdic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ebcdic.h; sourceTree = "<group>"; };
+		ACFF31F21CF86F2A008BD0D8 /* ec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ec.h; sourceTree = "<group>"; };
+		ACFF31F31CF86F2A008BD0D8 /* ecdh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ecdh.h; sourceTree = "<group>"; };
+		ACFF31F41CF86F2A008BD0D8 /* ecdsa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ecdsa.h; sourceTree = "<group>"; };
+		ACFF31F51CF86F2A008BD0D8 /* engine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
+		ACFF31F61CF86F2A008BD0D8 /* err.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = err.h; sourceTree = "<group>"; };
+		ACFF31F71CF86F2A008BD0D8 /* evp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = evp.h; sourceTree = "<group>"; };
+		ACFF31F81CF86F2A008BD0D8 /* hmac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		ACFF31F91CF86F2A008BD0D8 /* idea.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
+		ACFF31FA1CF86F2A008BD0D8 /* krb5_asn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = krb5_asn.h; sourceTree = "<group>"; };
+		ACFF31FB1CF86F2A008BD0D8 /* kssl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kssl.h; sourceTree = "<group>"; };
+		ACFF31FC1CF86F2A008BD0D8 /* lhash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
+		ACFF31FD1CF86F2A008BD0D8 /* md4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = md4.h; sourceTree = "<group>"; };
+		ACFF31FE1CF86F2A008BD0D8 /* md5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		ACFF31FF1CF86F2A008BD0D8 /* mdc2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mdc2.h; sourceTree = "<group>"; };
+		ACFF32001CF86F2A008BD0D8 /* modes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = modes.h; sourceTree = "<group>"; };
+		ACFF32011CF86F2A008BD0D8 /* obj_mac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = obj_mac.h; sourceTree = "<group>"; };
+		ACFF32021CF86F2A008BD0D8 /* objects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = objects.h; sourceTree = "<group>"; };
+		ACFF32031CF86F2A008BD0D8 /* ocsp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ocsp.h; sourceTree = "<group>"; };
+		ACFF32041CF86F2A008BD0D8 /* opensslconf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = opensslconf.h; sourceTree = "<group>"; };
+		ACFF32051CF86F2A008BD0D8 /* opensslv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = opensslv.h; sourceTree = "<group>"; };
+		ACFF32061CF86F2A008BD0D8 /* ossl_typ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ossl_typ.h; sourceTree = "<group>"; };
+		ACFF32071CF86F2A008BD0D8 /* pem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pem.h; sourceTree = "<group>"; };
+		ACFF32081CF86F2A008BD0D8 /* pem2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
+		ACFF32091CF86F2A008BD0D8 /* pkcs12.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pkcs12.h; sourceTree = "<group>"; };
+		ACFF320A1CF86F2A008BD0D8 /* pkcs7.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pkcs7.h; sourceTree = "<group>"; };
+		ACFF320B1CF86F2A008BD0D8 /* pqueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pqueue.h; sourceTree = "<group>"; };
+		ACFF320C1CF86F2A008BD0D8 /* rand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rand.h; sourceTree = "<group>"; };
+		ACFF320D1CF86F2A008BD0D8 /* rc2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rc2.h; sourceTree = "<group>"; };
+		ACFF320E1CF86F2A008BD0D8 /* rc4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rc4.h; sourceTree = "<group>"; };
+		ACFF320F1CF86F2A008BD0D8 /* ripemd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ripemd.h; sourceTree = "<group>"; };
+		ACFF32101CF86F2A008BD0D8 /* rsa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rsa.h; sourceTree = "<group>"; };
+		ACFF32111CF86F2A008BD0D8 /* safestack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = safestack.h; sourceTree = "<group>"; };
+		ACFF32121CF86F2A008BD0D8 /* seed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = seed.h; sourceTree = "<group>"; };
+		ACFF32131CF86F2A008BD0D8 /* sha.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sha.h; sourceTree = "<group>"; };
+		ACFF32141CF86F2A008BD0D8 /* srp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = srp.h; sourceTree = "<group>"; };
+		ACFF32151CF86F2A008BD0D8 /* srtp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = srtp.h; sourceTree = "<group>"; };
+		ACFF32161CF86F2A008BD0D8 /* ssl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ssl.h; sourceTree = "<group>"; };
+		ACFF32171CF86F2A008BD0D8 /* ssl2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ssl2.h; sourceTree = "<group>"; };
+		ACFF32181CF86F2A008BD0D8 /* ssl23.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ssl23.h; sourceTree = "<group>"; };
+		ACFF32191CF86F2A008BD0D8 /* ssl3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ssl3.h; sourceTree = "<group>"; };
+		ACFF321A1CF86F2A008BD0D8 /* stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		ACFF321B1CF86F2A008BD0D8 /* symhacks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = symhacks.h; sourceTree = "<group>"; };
+		ACFF321C1CF86F2A008BD0D8 /* tls1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tls1.h; sourceTree = "<group>"; };
+		ACFF321D1CF86F2A008BD0D8 /* ts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ts.h; sourceTree = "<group>"; };
+		ACFF321E1CF86F2A008BD0D8 /* txt_db.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = txt_db.h; sourceTree = "<group>"; };
+		ACFF321F1CF86F2A008BD0D8 /* ui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ui.h; sourceTree = "<group>"; };
+		ACFF32201CF86F2A008BD0D8 /* ui_compat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ui_compat.h; sourceTree = "<group>"; };
+		ACFF32211CF86F2A008BD0D8 /* whrlpool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = whrlpool.h; sourceTree = "<group>"; };
+		ACFF32221CF86F2A008BD0D8 /* x509.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
+		ACFF32231CF86F2A008BD0D8 /* x509_vfy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
+		ACFF32241CF86F2A008BD0D8 /* x509v3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
+		ACFF32261CF86F8B008BD0D8 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		ACFF32271CF86F8B008BD0D8 /* base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = base64.m; sourceTree = "<group>"; };
+		ACFF32281CF86F8B008BD0D8 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		ACFF32291CF86F8B008BD0D8 /* DataSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSigner.h; sourceTree = "<group>"; };
+		ACFF322A1CF86F8B008BD0D8 /* DataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSigner.m; sourceTree = "<group>"; };
+		ACFF322B1CF86F8B008BD0D8 /* DataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataVerifier.h; sourceTree = "<group>"; };
+		ACFF322C1CF86F8B008BD0D8 /* DataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataVerifier.m; sourceTree = "<group>"; };
+		ACFF322D1CF86F8B008BD0D8 /* MD5DataSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5DataSigner.h; sourceTree = "<group>"; };
+		ACFF322E1CF86F8B008BD0D8 /* MD5DataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5DataSigner.m; sourceTree = "<group>"; };
+		ACFF322F1CF86F8B008BD0D8 /* NSDataEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataEx.h; sourceTree = "<group>"; };
+		ACFF32301CF86F8B008BD0D8 /* NSDataEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataEx.m; sourceTree = "<group>"; };
+		ACFF32311CF86F8B008BD0D8 /* openssl_wrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_wrapper.h; sourceTree = "<group>"; };
+		ACFF32321CF86F8B008BD0D8 /* openssl_wrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = openssl_wrapper.m; sourceTree = "<group>"; };
+		ACFF32331CF86F8B008BD0D8 /* RSADataSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataSigner.h; sourceTree = "<group>"; };
+		ACFF32341CF86F8B008BD0D8 /* RSADataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataSigner.m; sourceTree = "<group>"; };
+		ACFF32351CF86F8B008BD0D8 /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
+		ACFF32361CF86F8B008BD0D8 /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
+		ACFF32381CF86F8B008BD0D8 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		ACFF32391CF86F8B008BD0D8 /* asn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
+		ACFF323A1CF86F8B008BD0D8 /* asn1_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1_mac.h; sourceTree = "<group>"; };
+		ACFF323B1CF86F8B008BD0D8 /* asn1t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1t.h; sourceTree = "<group>"; };
+		ACFF323C1CF86F8B008BD0D8 /* bio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bio.h; sourceTree = "<group>"; };
+		ACFF323D1CF86F8B008BD0D8 /* blowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blowfish.h; sourceTree = "<group>"; };
+		ACFF323E1CF86F8B008BD0D8 /* bn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bn.h; sourceTree = "<group>"; };
+		ACFF323F1CF86F8B008BD0D8 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		ACFF32401CF86F8B008BD0D8 /* camellia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camellia.h; sourceTree = "<group>"; };
+		ACFF32411CF86F8B008BD0D8 /* cast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cast.h; sourceTree = "<group>"; };
+		ACFF32421CF86F8B008BD0D8 /* cmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmac.h; sourceTree = "<group>"; };
+		ACFF32431CF86F8B008BD0D8 /* cms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cms.h; sourceTree = "<group>"; };
+		ACFF32441CF86F8B008BD0D8 /* comp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comp.h; sourceTree = "<group>"; };
+		ACFF32451CF86F8B008BD0D8 /* conf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conf.h; sourceTree = "<group>"; };
+		ACFF32461CF86F8B008BD0D8 /* conf_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conf_api.h; sourceTree = "<group>"; };
+		ACFF32471CF86F8B008BD0D8 /* crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypto.h; sourceTree = "<group>"; };
+		ACFF32481CF86F8B008BD0D8 /* des.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
+		ACFF32491CF86F8B008BD0D8 /* des_old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des_old.h; sourceTree = "<group>"; };
+		ACFF324A1CF86F8B008BD0D8 /* dh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dh.h; sourceTree = "<group>"; };
+		ACFF324B1CF86F8B008BD0D8 /* dsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dsa.h; sourceTree = "<group>"; };
+		ACFF324C1CF86F8B008BD0D8 /* dso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dso.h; sourceTree = "<group>"; };
+		ACFF324D1CF86F8B008BD0D8 /* dtls1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dtls1.h; sourceTree = "<group>"; };
+		ACFF324E1CF86F8B008BD0D8 /* e_os2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = e_os2.h; sourceTree = "<group>"; };
+		ACFF324F1CF86F8B008BD0D8 /* ebcdic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ebcdic.h; sourceTree = "<group>"; };
+		ACFF32501CF86F8B008BD0D8 /* ec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ec.h; sourceTree = "<group>"; };
+		ACFF32511CF86F8B008BD0D8 /* ecdh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdh.h; sourceTree = "<group>"; };
+		ACFF32521CF86F8B008BD0D8 /* ecdsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdsa.h; sourceTree = "<group>"; };
+		ACFF32531CF86F8B008BD0D8 /* engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
+		ACFF32541CF86F8B008BD0D8 /* err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = err.h; sourceTree = "<group>"; };
+		ACFF32551CF86F8B008BD0D8 /* evp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evp.h; sourceTree = "<group>"; };
+		ACFF32561CF86F8B008BD0D8 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		ACFF32571CF86F8B008BD0D8 /* idea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
+		ACFF32581CF86F8B008BD0D8 /* krb5_asn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = krb5_asn.h; sourceTree = "<group>"; };
+		ACFF32591CF86F8B008BD0D8 /* kssl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kssl.h; sourceTree = "<group>"; };
+		ACFF325A1CF86F8B008BD0D8 /* lhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
+		ACFF325B1CF86F8B008BD0D8 /* md4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md4.h; sourceTree = "<group>"; };
+		ACFF325C1CF86F8B008BD0D8 /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		ACFF325D1CF86F8B008BD0D8 /* mdc2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mdc2.h; sourceTree = "<group>"; };
+		ACFF325E1CF86F8B008BD0D8 /* modes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modes.h; sourceTree = "<group>"; };
+		ACFF325F1CF86F8B008BD0D8 /* obj_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = obj_mac.h; sourceTree = "<group>"; };
+		ACFF32601CF86F8B008BD0D8 /* objects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objects.h; sourceTree = "<group>"; };
+		ACFF32611CF86F8B008BD0D8 /* ocsp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ocsp.h; sourceTree = "<group>"; };
+		ACFF32621CF86F8B008BD0D8 /* opensslconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslconf.h; sourceTree = "<group>"; };
+		ACFF32631CF86F8B008BD0D8 /* opensslv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslv.h; sourceTree = "<group>"; };
+		ACFF32641CF86F8B008BD0D8 /* ossl_typ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ossl_typ.h; sourceTree = "<group>"; };
+		ACFF32651CF86F8B008BD0D8 /* pem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem.h; sourceTree = "<group>"; };
+		ACFF32661CF86F8B008BD0D8 /* pem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
+		ACFF32671CF86F8B008BD0D8 /* pkcs12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs12.h; sourceTree = "<group>"; };
+		ACFF32681CF86F8B008BD0D8 /* pkcs7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs7.h; sourceTree = "<group>"; };
+		ACFF32691CF86F8B008BD0D8 /* pqueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pqueue.h; sourceTree = "<group>"; };
+		ACFF326A1CF86F8B008BD0D8 /* rand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rand.h; sourceTree = "<group>"; };
+		ACFF326B1CF86F8B008BD0D8 /* rc2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc2.h; sourceTree = "<group>"; };
+		ACFF326C1CF86F8B008BD0D8 /* rc4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc4.h; sourceTree = "<group>"; };
+		ACFF326D1CF86F8B008BD0D8 /* ripemd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ripemd.h; sourceTree = "<group>"; };
+		ACFF326E1CF86F8B008BD0D8 /* rsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rsa.h; sourceTree = "<group>"; };
+		ACFF326F1CF86F8B008BD0D8 /* safestack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = safestack.h; sourceTree = "<group>"; };
+		ACFF32701CF86F8B008BD0D8 /* seed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = seed.h; sourceTree = "<group>"; };
+		ACFF32711CF86F8B008BD0D8 /* sha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha.h; sourceTree = "<group>"; };
+		ACFF32721CF86F8B008BD0D8 /* srp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srp.h; sourceTree = "<group>"; };
+		ACFF32731CF86F8B008BD0D8 /* srtp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srtp.h; sourceTree = "<group>"; };
+		ACFF32741CF86F8B008BD0D8 /* ssl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl.h; sourceTree = "<group>"; };
+		ACFF32751CF86F8B008BD0D8 /* ssl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl2.h; sourceTree = "<group>"; };
+		ACFF32761CF86F8B008BD0D8 /* ssl23.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl23.h; sourceTree = "<group>"; };
+		ACFF32771CF86F8B008BD0D8 /* ssl3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl3.h; sourceTree = "<group>"; };
+		ACFF32781CF86F8B008BD0D8 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		ACFF32791CF86F8B008BD0D8 /* symhacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symhacks.h; sourceTree = "<group>"; };
+		ACFF327A1CF86F8B008BD0D8 /* tls1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tls1.h; sourceTree = "<group>"; };
+		ACFF327B1CF86F8B008BD0D8 /* ts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ts.h; sourceTree = "<group>"; };
+		ACFF327C1CF86F8B008BD0D8 /* txt_db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = txt_db.h; sourceTree = "<group>"; };
+		ACFF327D1CF86F8B008BD0D8 /* ui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ui.h; sourceTree = "<group>"; };
+		ACFF327E1CF86F8B008BD0D8 /* ui_compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ui_compat.h; sourceTree = "<group>"; };
+		ACFF327F1CF86F8B008BD0D8 /* whrlpool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whrlpool.h; sourceTree = "<group>"; };
+		ACFF32801CF86F8B008BD0D8 /* x509.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
+		ACFF32811CF86F8B008BD0D8 /* x509_vfy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
+		ACFF32821CF86F8B008BD0D8 /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
+		ACFF328D1CF870A7008BD0D8 /* RefundViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundViewModel.m; sourceTree = "<group>"; };
+		ACFF328E1CF870A7008BD0D8 /* RefundViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundViewModel.h; sourceTree = "<group>"; };
+		ACFF328F1CF870A7008BD0D8 /* OrderDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailViewModel.m; sourceTree = "<group>"; };
+		ACFF32901CF870A7008BD0D8 /* OrderDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailViewModel.h; sourceTree = "<group>"; };
+		ACFF32911CF870A7008BD0D8 /* CouponUseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponUseViewModel.m; sourceTree = "<group>"; };
+		ACFF32921CF870A7008BD0D8 /* CouponUseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponUseViewModel.h; sourceTree = "<group>"; };
+		ACFF32931CF870A7008BD0D8 /* CouponRefundViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponRefundViewModel.m; sourceTree = "<group>"; };
+		ACFF32941CF870A7008BD0D8 /* CouponRefundViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponRefundViewModel.h; sourceTree = "<group>"; };
+		ACFF32951CF870A7008BD0D8 /* CouponPayViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponPayViewModel.m; sourceTree = "<group>"; };
+		ACFF32961CF870A7008BD0D8 /* CouponPayViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponPayViewModel.h; sourceTree = "<group>"; };
+		ACFF32971CF870A7008BD0D8 /* CouponCommentViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentViewModel.m; sourceTree = "<group>"; };
+		ACFF32981CF870A7008BD0D8 /* CouponCommentViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentViewModel.h; sourceTree = "<group>"; };
+		ACFF329F1CF870D7008BD0D8 /* StockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockModel.m; sourceTree = "<group>"; };
+		ACFF32A01CF870D7008BD0D8 /* StockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockModel.h; sourceTree = "<group>"; };
+		ACFF32A11CF870D7008BD0D8 /* CouponOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponOrderModel.m; sourceTree = "<group>"; };
+		ACFF32A21CF870D7008BD0D8 /* CouponOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponOrderModel.h; sourceTree = "<group>"; };
+		ACFF32A51CF87106008BD0D8 /* RefundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundViewController.xib; sourceTree = "<group>"; };
+		ACFF32A61CF87106008BD0D8 /* RefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundViewController.m; sourceTree = "<group>"; };
+		ACFF32A71CF87106008BD0D8 /* RefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundViewController.h; sourceTree = "<group>"; };
+		ACFF32A81CF87106008BD0D8 /* RefundReasonHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundReasonHeadCell.xib; sourceTree = "<group>"; };
+		ACFF32A91CF87106008BD0D8 /* RefundReasonHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundReasonHeadCell.m; sourceTree = "<group>"; };
+		ACFF32AA1CF87106008BD0D8 /* RefundReasonHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundReasonHeadCell.h; sourceTree = "<group>"; };
+		ACFF32AB1CF87106008BD0D8 /* RefundReasonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundReasonCell.xib; sourceTree = "<group>"; };
+		ACFF32AC1CF87106008BD0D8 /* RefundReasonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundReasonCell.m; sourceTree = "<group>"; };
+		ACFF32AD1CF87106008BD0D8 /* RefundReasonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundReasonCell.h; sourceTree = "<group>"; };
+		ACFF32AE1CF87106008BD0D8 /* RefundPriceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundPriceCell.xib; sourceTree = "<group>"; };
+		ACFF32AF1CF87106008BD0D8 /* RefundPriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundPriceCell.m; sourceTree = "<group>"; };
+		ACFF32B01CF87106008BD0D8 /* RefundPriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundPriceCell.h; sourceTree = "<group>"; };
+		ACFF32B11CF87106008BD0D8 /* RefundCodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundCodeCell.xib; sourceTree = "<group>"; };
+		ACFF32B21CF87106008BD0D8 /* RefundCodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundCodeCell.m; sourceTree = "<group>"; };
+		ACFF32B31CF87106008BD0D8 /* RefundCodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundCodeCell.h; sourceTree = "<group>"; };
+		ACFF32BE1CF87114008BD0D8 /* OrderMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderMessageCell.xib; sourceTree = "<group>"; };
+		ACFF32BF1CF87114008BD0D8 /* OrderMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderMessageCell.m; sourceTree = "<group>"; };
+		ACFF32C01CF87114008BD0D8 /* OrderMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderMessageCell.h; sourceTree = "<group>"; };
+		ACFF32C11CF87114008BD0D8 /* OrderDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDetailViewController.xib; sourceTree = "<group>"; };
+		ACFF32C21CF87114008BD0D8 /* OrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailViewController.m; sourceTree = "<group>"; };
+		ACFF32C31CF87114008BD0D8 /* OrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailViewController.h; sourceTree = "<group>"; };
+		ACFF32C41CF87114008BD0D8 /* OrderDetailInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDetailInfoCell.xib; sourceTree = "<group>"; };
+		ACFF32C51CF87114008BD0D8 /* OrderDetailInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailInfoCell.m; sourceTree = "<group>"; };
+		ACFF32C61CF87114008BD0D8 /* OrderDetailInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailInfoCell.h; sourceTree = "<group>"; };
+		ACFF32C71CF87114008BD0D8 /* OrderDescribeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDescribeCell.xib; sourceTree = "<group>"; };
+		ACFF32C81CF87114008BD0D8 /* OrderDescribeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDescribeCell.m; sourceTree = "<group>"; };
+		ACFF32C91CF87114008BD0D8 /* OrderDescribeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDescribeCell.h; sourceTree = "<group>"; };
+		ACFF32CA1CF87114008BD0D8 /* OrderCouponIDCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCouponIDCell.xib; sourceTree = "<group>"; };
+		ACFF32CB1CF87114008BD0D8 /* OrderCouponIDCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCouponIDCell.m; sourceTree = "<group>"; };
+		ACFF32CC1CF87114008BD0D8 /* OrderCouponIDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCouponIDCell.h; sourceTree = "<group>"; };
+		ACFF32D71CF8711E008BD0D8 /* CouponUseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponUseViewController.xib; sourceTree = "<group>"; };
+		ACFF32D81CF8711E008BD0D8 /* CouponUseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponUseViewController.m; sourceTree = "<group>"; };
+		ACFF32D91CF8711E008BD0D8 /* CouponUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponUseViewController.h; sourceTree = "<group>"; };
+		ACFF32DA1CF8711E008BD0D8 /* CouponRefundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponRefundViewController.xib; sourceTree = "<group>"; };
+		ACFF32DB1CF8711E008BD0D8 /* CouponRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponRefundViewController.m; sourceTree = "<group>"; };
+		ACFF32DC1CF8711E008BD0D8 /* CouponRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponRefundViewController.h; sourceTree = "<group>"; };
+		ACFF32DD1CF8711E008BD0D8 /* CouponPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponPayViewController.xib; sourceTree = "<group>"; };
+		ACFF32DE1CF8711E008BD0D8 /* CouponPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponPayViewController.m; sourceTree = "<group>"; };
+		ACFF32DF1CF8711E008BD0D8 /* CouponPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponPayViewController.h; sourceTree = "<group>"; };
+		ACFF32E01CF8711E008BD0D8 /* CouponPayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponPayTableViewCell.xib; sourceTree = "<group>"; };
+		ACFF32E11CF8711E008BD0D8 /* CouponPayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponPayTableViewCell.m; sourceTree = "<group>"; };
+		ACFF32E21CF8711E008BD0D8 /* CouponPayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponPayTableViewCell.h; sourceTree = "<group>"; };
+		ACFF32E31CF8711E008BD0D8 /* CouponOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponOrderTableViewCell.xib; sourceTree = "<group>"; };
+		ACFF32E41CF8711E008BD0D8 /* CouponOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponOrderTableViewCell.m; sourceTree = "<group>"; };
+		ACFF32E51CF8711E008BD0D8 /* CouponOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponOrderTableViewCell.h; sourceTree = "<group>"; };
+		ACFF32F01CF87125008BD0D8 /* CouponCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCommentViewController.xib; sourceTree = "<group>"; };
+		ACFF32F11CF87125008BD0D8 /* CouponCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentViewController.m; sourceTree = "<group>"; };
+		ACFF32F21CF87125008BD0D8 /* CouponCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentViewController.h; sourceTree = "<group>"; };
+		ACFF32F31CF87125008BD0D8 /* CouponCommentMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCommentMessageCell.xib; sourceTree = "<group>"; };
+		ACFF32F41CF87125008BD0D8 /* CouponCommentMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentMessageCell.m; sourceTree = "<group>"; };
+		ACFF32F51CF87125008BD0D8 /* CouponCommentMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentMessageCell.h; sourceTree = "<group>"; };
+		ACFF32F61CF87125008BD0D8 /* CouponCommentDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCommentDetailViewController.xib; sourceTree = "<group>"; };
+		ACFF32F71CF87125008BD0D8 /* CouponCommentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentDetailViewController.m; sourceTree = "<group>"; };
+		ACFF32F81CF87125008BD0D8 /* CouponCommentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentDetailViewController.h; sourceTree = "<group>"; };
+		ACFF32F91CF87125008BD0D8 /* CouponCommentDetailHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCommentDetailHeadCell.xib; sourceTree = "<group>"; };
+		ACFF32FA1CF87125008BD0D8 /* CouponCommentDetailHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentDetailHeadCell.m; sourceTree = "<group>"; };
+		ACFF32FB1CF87125008BD0D8 /* CouponCommentDetailHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentDetailHeadCell.h; sourceTree = "<group>"; };
+		ACFF33051CF87135008BD0D8 /* CommitCountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommitCountCell.h; path = groupDetail/commitOrder/CommitCountCell.h; sourceTree = "<group>"; };
+		ACFF33061CF87135008BD0D8 /* CommitCountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitCountCell.m; path = groupDetail/commitOrder/CommitCountCell.m; sourceTree = "<group>"; };
+		ACFF33071CF87135008BD0D8 /* CommitPayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommitPayCell.h; path = groupDetail/commitOrder/CommitPayCell.h; sourceTree = "<group>"; };
+		ACFF33081CF87135008BD0D8 /* CommitPayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitPayCell.m; path = groupDetail/commitOrder/CommitPayCell.m; sourceTree = "<group>"; };
+		ACFF33091CF87135008BD0D8 /* CommitPriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommitPriceCell.h; path = groupDetail/commitOrder/CommitPriceCell.h; sourceTree = "<group>"; };
+		ACFF330A1CF87135008BD0D8 /* CommitPriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitPriceCell.m; path = groupDetail/commitOrder/CommitPriceCell.m; sourceTree = "<group>"; };
+		ACFF330F1CF87259008BD0D8 /* CommitOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitOrderViewController.m; path = groupDetail/CommitOrderViewController.m; sourceTree = "<group>"; };
+		ACFF33101CF87259008BD0D8 /* CommitOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommitOrderViewController.h; path = groupDetail/CommitOrderViewController.h; sourceTree = "<group>"; };
+		ACFF332D1CF88214008BD0D8 /* CouponCommentDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentDetailViewModel.h; sourceTree = "<group>"; };
+		ACFF332E1CF88214008BD0D8 /* CouponCommentDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentDetailViewModel.m; sourceTree = "<group>"; };
+		ACFF33301CF885BF008BD0D8 /* CouponCommentMessageSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentMessageSectionCell.h; sourceTree = "<group>"; };
+		ACFF33311CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentMessageSectionCell.m; sourceTree = "<group>"; };
+		ACFF33321CF885BF008BD0D8 /* CouponCommentMessageSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCommentMessageSectionCell.xib; sourceTree = "<group>"; };
+		ACFF333B1CF92E8E008BD0D8 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		ACFF333C1CF92E8E008BD0D8 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
+		ACFF333F1CF9468C008BD0D8 /* PaymentSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentSuccessViewController.h; path = groupDetail/PaymentSuccessViewController.h; sourceTree = "<group>"; };
+		ACFF33401CF9468C008BD0D8 /* PaymentSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentSuccessViewController.m; path = groupDetail/PaymentSuccessViewController.m; sourceTree = "<group>"; };
+		ACFF33411CF9468C008BD0D8 /* PaymentSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PaymentSuccessViewController.xib; path = groupDetail/PaymentSuccessViewController.xib; sourceTree = "<group>"; };
+		ACFF337C1CF9871B008BD0D8 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
+		ACFF337D1CF9871B008BD0D8 /* interface-builder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interface-builder.png"; sourceTree = "<group>"; };
+		ACFF337F1CF9871B008BD0D8 /* HCSStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSStarRatingView.h; sourceTree = "<group>"; };
+		ACFF33801CF9871B008BD0D8 /* HCSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSStarRatingView.m; sourceTree = "<group>"; };
+		ACFF33811CF9871B008BD0D8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACFF33821CF9871B008BD0D8 /* HCSStarRatingView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = HCSStarRatingView.xcodeproj; sourceTree = "<group>"; };
 		E8226C1E1CEB52B000980E30 /* FoodPaymentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodPaymentCell.h; sourceTree = "<group>"; };
 		E8226C1F1CEB52B000980E30 /* FoodPaymentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodPaymentCell.m; sourceTree = "<group>"; };
 		E8226C201CEB52B000980E30 /* FoodPaymentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodPaymentCell.xib; sourceTree = "<group>"; };
@@ -783,6 +1146,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACFF330E1CF87171008BD0D8 /* AlipaySDK.framework in Frameworks */,
+				ACFF328B1CF86F9C008BD0D8 /* libssl.a in Frameworks */,
+				ACFF328C1CF86F9C008BD0D8 /* libcrypto.a in Frameworks */,
 				AC31AD931CF327F8006F0608 /* CoreMotion.framework in Frameworks */,
 				AC31AD911CF327EF006F0608 /* CFNetwork.framework in Frameworks */,
 				AC31AD8F1CF327E7006F0608 /* Foundation.framework in Frameworks */,
@@ -790,7 +1156,6 @@
 				AC970C871CC4D26100FA171B /* CoreGraphics.framework in Frameworks */,
 				AC31AD8B1CF327C9006F0608 /* CoreText.framework in Frameworks */,
 				AC31AD891CF327BE006F0608 /* QuartzCore.framework in Frameworks */,
-				AC31AD851CF327A2006F0608 /* AlipaySDK.framework in Frameworks */,
 				AC5B48D11CCA496E00724914 /* TencentOpenAPI.framework in Frameworks */,
 				AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */,
 				AC7AD4831CC72BF2004D9B61 /* libc++.tbd in Frameworks */,
@@ -993,6 +1358,8 @@
 		3086D3A81CC729BD007494D7 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				ACFF33351CF92AFF008BD0D8 /* UIPlaceHolderTextView */,
+				ACFF33161CF87674008BD0D8 /* HCSStarRatingView */,
 				30B509F41CF2D2F400A2C30A /* NSDate+Helper */,
 				30B509DA1CF2D27C00A2C30A /* ActionSheetPicker */,
 				30D018061CE613C600E50B23 /* Log */,
@@ -1238,6 +1605,9 @@
 				7F9370A71CF6EB2A0063F544 /* FoodAddressSelectionViewController.h */,
 				7F9370A81CF6EB2A0063F544 /* FoodAddressSelectionViewController.m */,
 				7F9370A91CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib */,
+				7F9370B11CF932E00063F544 /* FoodAddressEditViewController.h */,
+				7F9370B21CF932E00063F544 /* FoodAddressEditViewController.m */,
+				7F9370B31CF932E00063F544 /* FoodAddressEditViewController.xib */,
 			);
 			name = food;
 			sourceTree = "<group>";
@@ -1394,6 +1764,7 @@
 		AC03590C1CC4DA7D00EC7BBC /* OtherSDK */ = {
 			isa = PBXGroup;
 			children = (
+				ACFF31501CF86ECF008BD0D8 /* Alipay */,
 				30FD1F4E1CE1A80B003C91A5 /* mapapi.bundle */,
 				AC7AD4791CC72AF3004D9B61 /* WeChat */,
 				AC03590D1CC4DB2500EC7BBC /* Tencent */,
@@ -1413,6 +1784,8 @@
 		AC0359121CC4F6C200EC7BBC /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				ACFF31C21CF86EE0008BD0D8 /* NSString+Expand.m */,
+				ACFF31C31CF86EE0008BD0D8 /* NSString+Expand.h */,
 				AC5B48D21CCA49D200724914 /* SDKManager.h */,
 				AC5B48D31CCA49D200724914 /* SDKManager.m */,
 				AC72CF331CEEAB8A0077537E /* AppCacheManager.h */,
@@ -1458,31 +1831,6 @@
 				AC4D74141CF2DE8100DF4997 /* KindDetailViewController.m */,
 			);
 			name = kindDetail;
-			sourceTree = "<group>";
-		};
-		AC4D74171CF2F95500DF4997 /* personalCoupon */ = {
-			isa = PBXGroup;
-			children = (
-				AC4D74181CF2F97800DF4997 /* PersonalCouponViewController.h */,
-				AC4D74191CF2F97800DF4997 /* PersonalCouponViewController.m */,
-				AC4D741B1CF2FBB900DF4997 /* couponOrder.storyboard */,
-			);
-			name = personalCoupon;
-			sourceTree = "<group>";
-		};
-		AC545F931CED9A7900133F25 /* commitOrder */ = {
-			isa = PBXGroup;
-			children = (
-				AC545F901CED90E000133F25 /* CommitOrderViewController.h */,
-				AC545F911CED90E000133F25 /* CommitOrderViewController.m */,
-				AC545F971CED9AFC00133F25 /* CommitCountCell.h */,
-				AC545F981CED9AFC00133F25 /* CommitCountCell.m */,
-				AC545F9A1CED9C6B00133F25 /* CommitPayCell.h */,
-				AC545F9B1CED9C6B00133F25 /* CommitPayCell.m */,
-				AC545F9D1CEDA94700133F25 /* CommitPriceCell.h */,
-				AC545F9E1CEDA94700133F25 /* CommitPriceCell.m */,
-			);
-			path = commitOrder;
 			sourceTree = "<group>";
 		};
 		AC6093D81CC3678C004B5767 /* Database */ = {
@@ -1586,6 +1934,10 @@
 		AC90F56D1CCFAABE004C4C55 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ACFF329F1CF870D7008BD0D8 /* StockModel.m */,
+				ACFF32A01CF870D7008BD0D8 /* StockModel.h */,
+				ACFF32A11CF870D7008BD0D8 /* CouponOrderModel.m */,
+				ACFF32A21CF870D7008BD0D8 /* CouponOrderModel.h */,
 				AC90F56F1CCFAADF004C4C55 /* Picture.h */,
 				AC90F5701CCFAADF004C4C55 /* Picture.m */,
 				AC90F5811CD08EEE004C4C55 /* Adversitement.h */,
@@ -1646,40 +1998,11 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
-		AC96F2F31CE99088001B2DDE /* groupDetail */ = {
-			isa = PBXGroup;
-			children = (
-				AC545F931CED9A7900133F25 /* commitOrder */,
-				AC96F2F71CE9963F001B2DDE /* CouponViewController.h */,
-				AC96F2F81CE9963F001B2DDE /* CouponViewController.m */,
-				AC2E04341CEB2D3800476087 /* CouponPictureCell.h */,
-				AC2E04351CEB2D3800476087 /* CouponPictureCell.m */,
-				AC2E04371CEB374E00476087 /* CouponStoreCell.h */,
-				AC2E04381CEB374E00476087 /* CouponStoreCell.m */,
-				AC2E043A1CEB462F00476087 /* CouponCaseCell.h */,
-				AC2E043B1CEB462F00476087 /* CouponCaseCell.m */,
-				AC2E043D1CEB493E00476087 /* CouponInformationCell.h */,
-				AC2E043E1CEB493E00476087 /* CouponInformationCell.m */,
-				AC2E04401CEB554900476087 /* CouponCommentCell.h */,
-				AC2E04411CEB554900476087 /* CouponCommentCell.m */,
-				AC2E04431CEB5DAE00476087 /* ImageCollectionViewCell.h */,
-				AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */,
-			);
-			path = groupDetail;
-			sourceTree = "<group>";
-		};
 		AC987D2F1CE89B3D00E11CC5 /* group */ = {
 			isa = PBXGroup;
 			children = (
-				AC4D74171CF2F95500DF4997 /* personalCoupon */,
-				AC96F2F31CE99088001B2DDE /* groupDetail */,
-				AC987D331CE89B8A00E11CC5 /* GroupViewController.h */,
-				AC987D341CE89B8A00E11CC5 /* GroupViewController.m */,
-				AC987D361CE89B9C00E11CC5 /* group.storyboard */,
-				AC96F2EF1CE9747E001B2DDE /* CouponCell.h */,
-				AC96F2F01CE9747E001B2DDE /* CouponCell.m */,
-				AC96F3011CE9C72A001B2DDE /* LoadingCell.h */,
-				AC96F3021CE9C72A001B2DDE /* LoadingCell.m */,
+				ACFF33451CF97916008BD0D8 /* buyCoupon */,
+				ACFF33441CF9790C008BD0D8 /* myCoupon */,
 			);
 			path = group;
 			sourceTree = "<group>";
@@ -1687,12 +2010,26 @@
 		AC987D381CE8A94300E11CC5 /* group */ = {
 			isa = PBXGroup;
 			children = (
+				ACFF328D1CF870A7008BD0D8 /* RefundViewModel.m */,
+				ACFF328E1CF870A7008BD0D8 /* RefundViewModel.h */,
+				ACFF328F1CF870A7008BD0D8 /* OrderDetailViewModel.m */,
+				ACFF32901CF870A7008BD0D8 /* OrderDetailViewModel.h */,
+				ACFF32911CF870A7008BD0D8 /* CouponUseViewModel.m */,
+				ACFF32921CF870A7008BD0D8 /* CouponUseViewModel.h */,
+				ACFF32931CF870A7008BD0D8 /* CouponRefundViewModel.m */,
+				ACFF32941CF870A7008BD0D8 /* CouponRefundViewModel.h */,
+				ACFF32951CF870A7008BD0D8 /* CouponPayViewModel.m */,
+				ACFF32961CF870A7008BD0D8 /* CouponPayViewModel.h */,
+				ACFF32971CF870A7008BD0D8 /* CouponCommentViewModel.m */,
+				ACFF32981CF870A7008BD0D8 /* CouponCommentViewModel.h */,
 				AC987D391CE8A95E00E11CC5 /* GroupViewModel.h */,
 				AC987D3A1CE8A95E00E11CC5 /* GroupViewModel.m */,
 				AC6A4EDE1CEA06D5000DD815 /* CouponDetailViewModel.h */,
 				AC6A4EDF1CEA06D5000DD815 /* CouponDetailViewModel.m */,
 				AC545FA01CEDAE7400133F25 /* CommitOrderViewModel.h */,
 				AC545FA11CEDAE7400133F25 /* CommitOrderViewModel.m */,
+				ACFF332D1CF88214008BD0D8 /* CouponCommentDetailViewModel.h */,
+				ACFF332E1CF88214008BD0D8 /* CouponCommentDetailViewModel.m */,
 			);
 			path = group;
 			sourceTree = "<group>";
@@ -1709,6 +2046,7 @@
 		ACF83EA21CBF97F800A962BD = {
 			isa = PBXGroup;
 			children = (
+				ACFF337A1CF9871B008BD0D8 /* HCSStarRatingView */,
 				ACF83EAD1CBF97F800A962BD /* Venus */,
 				ACF83EAC1CBF97F800A962BD /* Products */,
 				E1998CF8726CD7D47CA05772 /* Frameworks */,
@@ -1798,9 +2136,497 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		ACFF31501CF86ECF008BD0D8 /* Alipay */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF32251CF86F8B008BD0D8 /* Util */,
+				ACFF32371CF86F8B008BD0D8 /* openssl */,
+				ACFF31511CF86ECF008BD0D8 /* AlipaySDK.bundle */,
+				ACFF31521CF86ECF008BD0D8 /* AlipaySDK.framework */,
+				ACFF31531CF86ECF008BD0D8 /* libcrypto.a */,
+				ACFF31541CF86ECF008BD0D8 /* libssl.a */,
+				ACFF31A11CF86ECF008BD0D8 /* Order.h */,
+				ACFF31A21CF86ECF008BD0D8 /* Order.m */,
+			);
+			path = Alipay;
+			sourceTree = "<group>";
+		};
+		ACFF31C71CF86F2A008BD0D8 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF31C81CF86F2A008BD0D8 /* base64.h */,
+				ACFF31C91CF86F2A008BD0D8 /* base64.m */,
+				ACFF31CA1CF86F2A008BD0D8 /* config.h */,
+				ACFF31CB1CF86F2A008BD0D8 /* DataSigner.h */,
+				ACFF31CC1CF86F2A008BD0D8 /* DataSigner.m */,
+				ACFF31CD1CF86F2A008BD0D8 /* DataVerifier.h */,
+				ACFF31CE1CF86F2A008BD0D8 /* DataVerifier.m */,
+				ACFF31CF1CF86F2A008BD0D8 /* MD5DataSigner.h */,
+				ACFF31D01CF86F2A008BD0D8 /* MD5DataSigner.m */,
+				ACFF31D11CF86F2A008BD0D8 /* NSDataEx.h */,
+				ACFF31D21CF86F2A008BD0D8 /* NSDataEx.m */,
+				ACFF31D31CF86F2A008BD0D8 /* openssl_wrapper.h */,
+				ACFF31D41CF86F2A008BD0D8 /* openssl_wrapper.m */,
+				ACFF31D51CF86F2A008BD0D8 /* RSADataSigner.h */,
+				ACFF31D61CF86F2A008BD0D8 /* RSADataSigner.m */,
+				ACFF31D71CF86F2A008BD0D8 /* RSADataVerifier.h */,
+				ACFF31D81CF86F2A008BD0D8 /* RSADataVerifier.m */,
+			);
+			name = Util;
+			path = Venus/OtherSDK/Alipay/Util;
+			sourceTree = "<group>";
+		};
+		ACFF31D91CF86F2A008BD0D8 /* openssl */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF31DA1CF86F2A008BD0D8 /* aes.h */,
+				ACFF31DB1CF86F2A008BD0D8 /* asn1.h */,
+				ACFF31DC1CF86F2A008BD0D8 /* asn1_mac.h */,
+				ACFF31DD1CF86F2A008BD0D8 /* asn1t.h */,
+				ACFF31DE1CF86F2A008BD0D8 /* bio.h */,
+				ACFF31DF1CF86F2A008BD0D8 /* blowfish.h */,
+				ACFF31E01CF86F2A008BD0D8 /* bn.h */,
+				ACFF31E11CF86F2A008BD0D8 /* buffer.h */,
+				ACFF31E21CF86F2A008BD0D8 /* camellia.h */,
+				ACFF31E31CF86F2A008BD0D8 /* cast.h */,
+				ACFF31E41CF86F2A008BD0D8 /* cmac.h */,
+				ACFF31E51CF86F2A008BD0D8 /* cms.h */,
+				ACFF31E61CF86F2A008BD0D8 /* comp.h */,
+				ACFF31E71CF86F2A008BD0D8 /* conf.h */,
+				ACFF31E81CF86F2A008BD0D8 /* conf_api.h */,
+				ACFF31E91CF86F2A008BD0D8 /* crypto.h */,
+				ACFF31EA1CF86F2A008BD0D8 /* des.h */,
+				ACFF31EB1CF86F2A008BD0D8 /* des_old.h */,
+				ACFF31EC1CF86F2A008BD0D8 /* dh.h */,
+				ACFF31ED1CF86F2A008BD0D8 /* dsa.h */,
+				ACFF31EE1CF86F2A008BD0D8 /* dso.h */,
+				ACFF31EF1CF86F2A008BD0D8 /* dtls1.h */,
+				ACFF31F01CF86F2A008BD0D8 /* e_os2.h */,
+				ACFF31F11CF86F2A008BD0D8 /* ebcdic.h */,
+				ACFF31F21CF86F2A008BD0D8 /* ec.h */,
+				ACFF31F31CF86F2A008BD0D8 /* ecdh.h */,
+				ACFF31F41CF86F2A008BD0D8 /* ecdsa.h */,
+				ACFF31F51CF86F2A008BD0D8 /* engine.h */,
+				ACFF31F61CF86F2A008BD0D8 /* err.h */,
+				ACFF31F71CF86F2A008BD0D8 /* evp.h */,
+				ACFF31F81CF86F2A008BD0D8 /* hmac.h */,
+				ACFF31F91CF86F2A008BD0D8 /* idea.h */,
+				ACFF31FA1CF86F2A008BD0D8 /* krb5_asn.h */,
+				ACFF31FB1CF86F2A008BD0D8 /* kssl.h */,
+				ACFF31FC1CF86F2A008BD0D8 /* lhash.h */,
+				ACFF31FD1CF86F2A008BD0D8 /* md4.h */,
+				ACFF31FE1CF86F2A008BD0D8 /* md5.h */,
+				ACFF31FF1CF86F2A008BD0D8 /* mdc2.h */,
+				ACFF32001CF86F2A008BD0D8 /* modes.h */,
+				ACFF32011CF86F2A008BD0D8 /* obj_mac.h */,
+				ACFF32021CF86F2A008BD0D8 /* objects.h */,
+				ACFF32031CF86F2A008BD0D8 /* ocsp.h */,
+				ACFF32041CF86F2A008BD0D8 /* opensslconf.h */,
+				ACFF32051CF86F2A008BD0D8 /* opensslv.h */,
+				ACFF32061CF86F2A008BD0D8 /* ossl_typ.h */,
+				ACFF32071CF86F2A008BD0D8 /* pem.h */,
+				ACFF32081CF86F2A008BD0D8 /* pem2.h */,
+				ACFF32091CF86F2A008BD0D8 /* pkcs12.h */,
+				ACFF320A1CF86F2A008BD0D8 /* pkcs7.h */,
+				ACFF320B1CF86F2A008BD0D8 /* pqueue.h */,
+				ACFF320C1CF86F2A008BD0D8 /* rand.h */,
+				ACFF320D1CF86F2A008BD0D8 /* rc2.h */,
+				ACFF320E1CF86F2A008BD0D8 /* rc4.h */,
+				ACFF320F1CF86F2A008BD0D8 /* ripemd.h */,
+				ACFF32101CF86F2A008BD0D8 /* rsa.h */,
+				ACFF32111CF86F2A008BD0D8 /* safestack.h */,
+				ACFF32121CF86F2A008BD0D8 /* seed.h */,
+				ACFF32131CF86F2A008BD0D8 /* sha.h */,
+				ACFF32141CF86F2A008BD0D8 /* srp.h */,
+				ACFF32151CF86F2A008BD0D8 /* srtp.h */,
+				ACFF32161CF86F2A008BD0D8 /* ssl.h */,
+				ACFF32171CF86F2A008BD0D8 /* ssl2.h */,
+				ACFF32181CF86F2A008BD0D8 /* ssl23.h */,
+				ACFF32191CF86F2A008BD0D8 /* ssl3.h */,
+				ACFF321A1CF86F2A008BD0D8 /* stack.h */,
+				ACFF321B1CF86F2A008BD0D8 /* symhacks.h */,
+				ACFF321C1CF86F2A008BD0D8 /* tls1.h */,
+				ACFF321D1CF86F2A008BD0D8 /* ts.h */,
+				ACFF321E1CF86F2A008BD0D8 /* txt_db.h */,
+				ACFF321F1CF86F2A008BD0D8 /* ui.h */,
+				ACFF32201CF86F2A008BD0D8 /* ui_compat.h */,
+				ACFF32211CF86F2A008BD0D8 /* whrlpool.h */,
+				ACFF32221CF86F2A008BD0D8 /* x509.h */,
+				ACFF32231CF86F2A008BD0D8 /* x509_vfy.h */,
+				ACFF32241CF86F2A008BD0D8 /* x509v3.h */,
+			);
+			name = openssl;
+			path = Venus/OtherSDK/Alipay/openssl;
+			sourceTree = "<group>";
+		};
+		ACFF32251CF86F8B008BD0D8 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF32261CF86F8B008BD0D8 /* base64.h */,
+				ACFF32271CF86F8B008BD0D8 /* base64.m */,
+				ACFF32281CF86F8B008BD0D8 /* config.h */,
+				ACFF32291CF86F8B008BD0D8 /* DataSigner.h */,
+				ACFF322A1CF86F8B008BD0D8 /* DataSigner.m */,
+				ACFF322B1CF86F8B008BD0D8 /* DataVerifier.h */,
+				ACFF322C1CF86F8B008BD0D8 /* DataVerifier.m */,
+				ACFF322D1CF86F8B008BD0D8 /* MD5DataSigner.h */,
+				ACFF322E1CF86F8B008BD0D8 /* MD5DataSigner.m */,
+				ACFF322F1CF86F8B008BD0D8 /* NSDataEx.h */,
+				ACFF32301CF86F8B008BD0D8 /* NSDataEx.m */,
+				ACFF32311CF86F8B008BD0D8 /* openssl_wrapper.h */,
+				ACFF32321CF86F8B008BD0D8 /* openssl_wrapper.m */,
+				ACFF32331CF86F8B008BD0D8 /* RSADataSigner.h */,
+				ACFF32341CF86F8B008BD0D8 /* RSADataSigner.m */,
+				ACFF32351CF86F8B008BD0D8 /* RSADataVerifier.h */,
+				ACFF32361CF86F8B008BD0D8 /* RSADataVerifier.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		ACFF32371CF86F8B008BD0D8 /* openssl */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF32381CF86F8B008BD0D8 /* aes.h */,
+				ACFF32391CF86F8B008BD0D8 /* asn1.h */,
+				ACFF323A1CF86F8B008BD0D8 /* asn1_mac.h */,
+				ACFF323B1CF86F8B008BD0D8 /* asn1t.h */,
+				ACFF323C1CF86F8B008BD0D8 /* bio.h */,
+				ACFF323D1CF86F8B008BD0D8 /* blowfish.h */,
+				ACFF323E1CF86F8B008BD0D8 /* bn.h */,
+				ACFF323F1CF86F8B008BD0D8 /* buffer.h */,
+				ACFF32401CF86F8B008BD0D8 /* camellia.h */,
+				ACFF32411CF86F8B008BD0D8 /* cast.h */,
+				ACFF32421CF86F8B008BD0D8 /* cmac.h */,
+				ACFF32431CF86F8B008BD0D8 /* cms.h */,
+				ACFF32441CF86F8B008BD0D8 /* comp.h */,
+				ACFF32451CF86F8B008BD0D8 /* conf.h */,
+				ACFF32461CF86F8B008BD0D8 /* conf_api.h */,
+				ACFF32471CF86F8B008BD0D8 /* crypto.h */,
+				ACFF32481CF86F8B008BD0D8 /* des.h */,
+				ACFF32491CF86F8B008BD0D8 /* des_old.h */,
+				ACFF324A1CF86F8B008BD0D8 /* dh.h */,
+				ACFF324B1CF86F8B008BD0D8 /* dsa.h */,
+				ACFF324C1CF86F8B008BD0D8 /* dso.h */,
+				ACFF324D1CF86F8B008BD0D8 /* dtls1.h */,
+				ACFF324E1CF86F8B008BD0D8 /* e_os2.h */,
+				ACFF324F1CF86F8B008BD0D8 /* ebcdic.h */,
+				ACFF32501CF86F8B008BD0D8 /* ec.h */,
+				ACFF32511CF86F8B008BD0D8 /* ecdh.h */,
+				ACFF32521CF86F8B008BD0D8 /* ecdsa.h */,
+				ACFF32531CF86F8B008BD0D8 /* engine.h */,
+				ACFF32541CF86F8B008BD0D8 /* err.h */,
+				ACFF32551CF86F8B008BD0D8 /* evp.h */,
+				ACFF32561CF86F8B008BD0D8 /* hmac.h */,
+				ACFF32571CF86F8B008BD0D8 /* idea.h */,
+				ACFF32581CF86F8B008BD0D8 /* krb5_asn.h */,
+				ACFF32591CF86F8B008BD0D8 /* kssl.h */,
+				ACFF325A1CF86F8B008BD0D8 /* lhash.h */,
+				ACFF325B1CF86F8B008BD0D8 /* md4.h */,
+				ACFF325C1CF86F8B008BD0D8 /* md5.h */,
+				ACFF325D1CF86F8B008BD0D8 /* mdc2.h */,
+				ACFF325E1CF86F8B008BD0D8 /* modes.h */,
+				ACFF325F1CF86F8B008BD0D8 /* obj_mac.h */,
+				ACFF32601CF86F8B008BD0D8 /* objects.h */,
+				ACFF32611CF86F8B008BD0D8 /* ocsp.h */,
+				ACFF32621CF86F8B008BD0D8 /* opensslconf.h */,
+				ACFF32631CF86F8B008BD0D8 /* opensslv.h */,
+				ACFF32641CF86F8B008BD0D8 /* ossl_typ.h */,
+				ACFF32651CF86F8B008BD0D8 /* pem.h */,
+				ACFF32661CF86F8B008BD0D8 /* pem2.h */,
+				ACFF32671CF86F8B008BD0D8 /* pkcs12.h */,
+				ACFF32681CF86F8B008BD0D8 /* pkcs7.h */,
+				ACFF32691CF86F8B008BD0D8 /* pqueue.h */,
+				ACFF326A1CF86F8B008BD0D8 /* rand.h */,
+				ACFF326B1CF86F8B008BD0D8 /* rc2.h */,
+				ACFF326C1CF86F8B008BD0D8 /* rc4.h */,
+				ACFF326D1CF86F8B008BD0D8 /* ripemd.h */,
+				ACFF326E1CF86F8B008BD0D8 /* rsa.h */,
+				ACFF326F1CF86F8B008BD0D8 /* safestack.h */,
+				ACFF32701CF86F8B008BD0D8 /* seed.h */,
+				ACFF32711CF86F8B008BD0D8 /* sha.h */,
+				ACFF32721CF86F8B008BD0D8 /* srp.h */,
+				ACFF32731CF86F8B008BD0D8 /* srtp.h */,
+				ACFF32741CF86F8B008BD0D8 /* ssl.h */,
+				ACFF32751CF86F8B008BD0D8 /* ssl2.h */,
+				ACFF32761CF86F8B008BD0D8 /* ssl23.h */,
+				ACFF32771CF86F8B008BD0D8 /* ssl3.h */,
+				ACFF32781CF86F8B008BD0D8 /* stack.h */,
+				ACFF32791CF86F8B008BD0D8 /* symhacks.h */,
+				ACFF327A1CF86F8B008BD0D8 /* tls1.h */,
+				ACFF327B1CF86F8B008BD0D8 /* ts.h */,
+				ACFF327C1CF86F8B008BD0D8 /* txt_db.h */,
+				ACFF327D1CF86F8B008BD0D8 /* ui.h */,
+				ACFF327E1CF86F8B008BD0D8 /* ui_compat.h */,
+				ACFF327F1CF86F8B008BD0D8 /* whrlpool.h */,
+				ACFF32801CF86F8B008BD0D8 /* x509.h */,
+				ACFF32811CF86F8B008BD0D8 /* x509_vfy.h */,
+				ACFF32821CF86F8B008BD0D8 /* x509v3.h */,
+			);
+			path = openssl;
+			sourceTree = "<group>";
+		};
+		ACFF33161CF87674008BD0D8 /* HCSStarRatingView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HCSStarRatingView;
+			sourceTree = "<group>";
+		};
+		ACFF33351CF92AFF008BD0D8 /* UIPlaceHolderTextView */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF333B1CF92E8E008BD0D8 /* UIPlaceHolderTextView.h */,
+				ACFF333C1CF92E8E008BD0D8 /* UIPlaceHolderTextView.m */,
+			);
+			name = UIPlaceHolderTextView;
+			sourceTree = "<group>";
+		};
+		ACFF33441CF9790C008BD0D8 /* myCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF334D1CF97ABF008BD0D8 /* detailCoupon */,
+				ACFF334C1CF97A6A008BD0D8 /* detailComment */,
+				ACFF334B1CF979F3008BD0D8 /* payCoupon */,
+				ACFF334A1CF979B8008BD0D8 /* detailCoupon */,
+				ACFF33491CF979AE008BD0D8 /* commentCoupon */,
+				ACFF33481CF979A5008BD0D8 /* refundCoupon */,
+				ACFF33471CF9799B008BD0D8 /* useCoupon */,
+				ACFF33461CF97989008BD0D8 /* myCouponHome */,
+			);
+			name = myCoupon;
+			sourceTree = "<group>";
+		};
+		ACFF33451CF97916008BD0D8 /* buyCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF33511CF97B6F008BD0D8 /* paymentSuccess */,
+				ACFF33501CF97B4C008BD0D8 /* commitCoupon */,
+				ACFF334F1CF97B2A008BD0D8 /* detailCoupon */,
+				ACFF334E1CF97B1F008BD0D8 /* buyCouponHome */,
+			);
+			name = buyCoupon;
+			sourceTree = "<group>";
+		};
+		ACFF33461CF97989008BD0D8 /* myCouponHome */ = {
+			isa = PBXGroup;
+			children = (
+				AC4D74181CF2F97800DF4997 /* PersonalCouponViewController.h */,
+				AC4D74191CF2F97800DF4997 /* PersonalCouponViewController.m */,
+			);
+			name = myCouponHome;
+			sourceTree = "<group>";
+		};
+		ACFF33471CF9799B008BD0D8 /* useCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF32D71CF8711E008BD0D8 /* CouponUseViewController.xib */,
+				ACFF32D81CF8711E008BD0D8 /* CouponUseViewController.m */,
+				ACFF32D91CF8711E008BD0D8 /* CouponUseViewController.h */,
+				ACFF32E31CF8711E008BD0D8 /* CouponOrderTableViewCell.xib */,
+				ACFF32E41CF8711E008BD0D8 /* CouponOrderTableViewCell.m */,
+				ACFF32E51CF8711E008BD0D8 /* CouponOrderTableViewCell.h */,
+				ACFF32BE1CF87114008BD0D8 /* OrderMessageCell.xib */,
+				ACFF32BF1CF87114008BD0D8 /* OrderMessageCell.m */,
+				ACFF32C01CF87114008BD0D8 /* OrderMessageCell.h */,
+			);
+			name = useCoupon;
+			sourceTree = "<group>";
+		};
+		ACFF33481CF979A5008BD0D8 /* refundCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF32DA1CF8711E008BD0D8 /* CouponRefundViewController.xib */,
+				ACFF32DB1CF8711E008BD0D8 /* CouponRefundViewController.m */,
+				ACFF32DC1CF8711E008BD0D8 /* CouponRefundViewController.h */,
+			);
+			name = refundCoupon;
+			sourceTree = "<group>";
+		};
+		ACFF33491CF979AE008BD0D8 /* commentCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF32F21CF87125008BD0D8 /* CouponCommentViewController.h */,
+				ACFF32F11CF87125008BD0D8 /* CouponCommentViewController.m */,
+				ACFF32F01CF87125008BD0D8 /* CouponCommentViewController.xib */,
+			);
+			name = commentCoupon;
+			sourceTree = "<group>";
+		};
+		ACFF334A1CF979B8008BD0D8 /* detailCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF32C11CF87114008BD0D8 /* OrderDetailViewController.xib */,
+				ACFF32C21CF87114008BD0D8 /* OrderDetailViewController.m */,
+				ACFF32C31CF87114008BD0D8 /* OrderDetailViewController.h */,
+				ACFF32C41CF87114008BD0D8 /* OrderDetailInfoCell.xib */,
+				ACFF32C51CF87114008BD0D8 /* OrderDetailInfoCell.m */,
+				ACFF32C61CF87114008BD0D8 /* OrderDetailInfoCell.h */,
+				ACFF32C71CF87114008BD0D8 /* OrderDescribeCell.xib */,
+				ACFF32C81CF87114008BD0D8 /* OrderDescribeCell.m */,
+				ACFF32C91CF87114008BD0D8 /* OrderDescribeCell.h */,
+				ACFF32CA1CF87114008BD0D8 /* OrderCouponIDCell.xib */,
+				ACFF32CB1CF87114008BD0D8 /* OrderCouponIDCell.m */,
+				ACFF32CC1CF87114008BD0D8 /* OrderCouponIDCell.h */,
+			);
+			name = detailCoupon;
+			sourceTree = "<group>";
+		};
+		ACFF334B1CF979F3008BD0D8 /* payCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF32DD1CF8711E008BD0D8 /* CouponPayViewController.xib */,
+				ACFF32DE1CF8711E008BD0D8 /* CouponPayViewController.m */,
+				ACFF32DF1CF8711E008BD0D8 /* CouponPayViewController.h */,
+				ACFF32E01CF8711E008BD0D8 /* CouponPayTableViewCell.xib */,
+				ACFF32E11CF8711E008BD0D8 /* CouponPayTableViewCell.m */,
+				ACFF32E21CF8711E008BD0D8 /* CouponPayTableViewCell.h */,
+			);
+			name = payCoupon;
+			sourceTree = "<group>";
+		};
+		ACFF334C1CF97A6A008BD0D8 /* detailComment */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF32F81CF87125008BD0D8 /* CouponCommentDetailViewController.h */,
+				ACFF32F71CF87125008BD0D8 /* CouponCommentDetailViewController.m */,
+				ACFF32F61CF87125008BD0D8 /* CouponCommentDetailViewController.xib */,
+				ACFF32FB1CF87125008BD0D8 /* CouponCommentDetailHeadCell.h */,
+				ACFF32FA1CF87125008BD0D8 /* CouponCommentDetailHeadCell.m */,
+				ACFF32F91CF87125008BD0D8 /* CouponCommentDetailHeadCell.xib */,
+				ACFF32F51CF87125008BD0D8 /* CouponCommentMessageCell.h */,
+				ACFF32F41CF87125008BD0D8 /* CouponCommentMessageCell.m */,
+				ACFF32F31CF87125008BD0D8 /* CouponCommentMessageCell.xib */,
+				ACFF33301CF885BF008BD0D8 /* CouponCommentMessageSectionCell.h */,
+				ACFF33311CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m */,
+				ACFF33321CF885BF008BD0D8 /* CouponCommentMessageSectionCell.xib */,
+			);
+			name = detailComment;
+			sourceTree = "<group>";
+		};
+		ACFF334D1CF97ABF008BD0D8 /* detailCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF32A51CF87106008BD0D8 /* RefundViewController.xib */,
+				ACFF32A61CF87106008BD0D8 /* RefundViewController.m */,
+				ACFF32A71CF87106008BD0D8 /* RefundViewController.h */,
+				ACFF32A81CF87106008BD0D8 /* RefundReasonHeadCell.xib */,
+				ACFF32A91CF87106008BD0D8 /* RefundReasonHeadCell.m */,
+				ACFF32AA1CF87106008BD0D8 /* RefundReasonHeadCell.h */,
+				ACFF32AB1CF87106008BD0D8 /* RefundReasonCell.xib */,
+				ACFF32AC1CF87106008BD0D8 /* RefundReasonCell.m */,
+				ACFF32AD1CF87106008BD0D8 /* RefundReasonCell.h */,
+				ACFF32AE1CF87106008BD0D8 /* RefundPriceCell.xib */,
+				ACFF32AF1CF87106008BD0D8 /* RefundPriceCell.m */,
+				ACFF32B01CF87106008BD0D8 /* RefundPriceCell.h */,
+				ACFF32B11CF87106008BD0D8 /* RefundCodeCell.xib */,
+				ACFF32B21CF87106008BD0D8 /* RefundCodeCell.m */,
+				ACFF32B31CF87106008BD0D8 /* RefundCodeCell.h */,
+			);
+			name = detailCoupon;
+			sourceTree = "<group>";
+		};
+		ACFF334E1CF97B1F008BD0D8 /* buyCouponHome */ = {
+			isa = PBXGroup;
+			children = (
+				AC96F2EF1CE9747E001B2DDE /* CouponCell.h */,
+				AC96F2F01CE9747E001B2DDE /* CouponCell.m */,
+				AC96F3011CE9C72A001B2DDE /* LoadingCell.h */,
+				AC96F3021CE9C72A001B2DDE /* LoadingCell.m */,
+				AC987D331CE89B8A00E11CC5 /* GroupViewController.h */,
+				AC987D341CE89B8A00E11CC5 /* GroupViewController.m */,
+				AC987D361CE89B9C00E11CC5 /* group.storyboard */,
+			);
+			name = buyCouponHome;
+			sourceTree = "<group>";
+		};
+		ACFF334F1CF97B2A008BD0D8 /* detailCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				AC96F2F71CE9963F001B2DDE /* CouponViewController.h */,
+				AC96F2F81CE9963F001B2DDE /* CouponViewController.m */,
+				ACFF33101CF87259008BD0D8 /* CommitOrderViewController.h */,
+				ACFF330F1CF87259008BD0D8 /* CommitOrderViewController.m */,
+				ACFF33051CF87135008BD0D8 /* CommitCountCell.h */,
+				ACFF33061CF87135008BD0D8 /* CommitCountCell.m */,
+				ACFF33071CF87135008BD0D8 /* CommitPayCell.h */,
+				ACFF33081CF87135008BD0D8 /* CommitPayCell.m */,
+				ACFF33091CF87135008BD0D8 /* CommitPriceCell.h */,
+				ACFF330A1CF87135008BD0D8 /* CommitPriceCell.m */,
+				AC2E04341CEB2D3800476087 /* CouponPictureCell.h */,
+				AC2E04351CEB2D3800476087 /* CouponPictureCell.m */,
+				AC2E04371CEB374E00476087 /* CouponStoreCell.h */,
+				AC2E04381CEB374E00476087 /* CouponStoreCell.m */,
+				AC2E043A1CEB462F00476087 /* CouponCaseCell.h */,
+				AC2E043B1CEB462F00476087 /* CouponCaseCell.m */,
+				AC2E043D1CEB493E00476087 /* CouponInformationCell.h */,
+				AC2E043E1CEB493E00476087 /* CouponInformationCell.m */,
+				AC2E04401CEB554900476087 /* CouponCommentCell.h */,
+				AC2E04411CEB554900476087 /* CouponCommentCell.m */,
+				AC2E04431CEB5DAE00476087 /* ImageCollectionViewCell.h */,
+				AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */,
+			);
+			name = detailCoupon;
+			sourceTree = "<group>";
+		};
+		ACFF33501CF97B4C008BD0D8 /* commitCoupon */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = commitCoupon;
+			sourceTree = "<group>";
+		};
+		ACFF33511CF97B6F008BD0D8 /* paymentSuccess */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF333F1CF9468C008BD0D8 /* PaymentSuccessViewController.h */,
+				ACFF33401CF9468C008BD0D8 /* PaymentSuccessViewController.m */,
+				ACFF33411CF9468C008BD0D8 /* PaymentSuccessViewController.xib */,
+			);
+			name = paymentSuccess;
+			sourceTree = "<group>";
+		};
+		ACFF337A1CF9871B008BD0D8 /* HCSStarRatingView */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF337B1CF9871B008BD0D8 /* Assets */,
+				ACFF337E1CF9871B008BD0D8 /* HCSStarRatingView */,
+				ACFF33821CF9871B008BD0D8 /* HCSStarRatingView.xcodeproj */,
+			);
+			path = HCSStarRatingView;
+			sourceTree = "<group>";
+		};
+		ACFF337B1CF9871B008BD0D8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF337C1CF9871B008BD0D8 /* demo.gif */,
+				ACFF337D1CF9871B008BD0D8 /* interface-builder.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		ACFF337E1CF9871B008BD0D8 /* HCSStarRatingView */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF337F1CF9871B008BD0D8 /* HCSStarRatingView.h */,
+				ACFF33801CF9871B008BD0D8 /* HCSStarRatingView.m */,
+				ACFF33811CF9871B008BD0D8 /* Info.plist */,
+			);
+			path = HCSStarRatingView;
+			sourceTree = "<group>";
+		};
+		ACFF33831CF9871B008BD0D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF338B1CF9871B008BD0D8 /* HCSStarRatingView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E1998CF8726CD7D47CA05772 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACFF31C71CF86F2A008BD0D8 /* Util */,
+				ACFF31D91CF86F2A008BD0D8 /* openssl */,
 				AC31AD921CF327F8006F0608 /* CoreMotion.framework */,
 				AC31AD901CF327EF006F0608 /* CFNetwork.framework */,
 				AC31AD8E1CF327E7006F0608 /* Foundation.framework */,
@@ -1905,6 +2731,12 @@
 			mainGroup = ACF83EA21CBF97F800A962BD;
 			productRefGroup = ACF83EAC1CBF97F800A962BD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = ACFF33831CF9871B008BD0D8 /* Products */;
+					ProjectRef = ACFF33821CF9871B008BD0D8 /* HCSStarRatingView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ACF83EAA1CBF97F800A962BD /* Venus */,
@@ -1912,21 +2744,37 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		ACFF338B1CF9871B008BD0D8 /* HCSStarRatingView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = HCSStarRatingView.framework;
+			remoteRef = ACFF338A1CF9871B008BD0D8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		ACF83EA91CBF97F800A962BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E8DDDED31CF5DD7F000F147B /* FoodOrderMarkViewController.xib in Resources */,
+				ACFF32E81CF8711E008BD0D8 /* CouponRefundViewController.xib in Resources */,
+				ACFF33881CF9871B008BD0D8 /* Info.plist in Resources */,
 				AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				ACFF32FC1CF87125008BD0D8 /* CouponCommentViewController.xib in Resources */,
 				7F7025691CF57FE0009653A6 /* FoodBillCell.xib in Resources */,
 				7F70256E1CF58EA4009653A6 /* FoodShippingFeeCell.xib in Resources */,
 				30FEE6F31CF96698007E7A8B /* MeCommitCell.xib in Resources */,
+				ACFF32EA1CF8711E008BD0D8 /* CouponPayViewController.xib in Resources */,
 				AC90F5641CCFA292004C4C55 /* WXTextField.xib in Resources */,
 				308E0D881CF2A4EF0048F38A /* GMMeInformationViewController.xib in Resources */,
 				AC90F5661CCFA292004C4C55 /* HomeIntroduceCell.xib in Resources */,
 				AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */,
+				ACFF32CF1CF87114008BD0D8 /* OrderDetailViewController.xib in Resources */,
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
+				ACFF32EE1CF8711E008BD0D8 /* CouponOrderTableViewCell.xib in Resources */,
 				30FEE6DF1CF68AF5007E7A8B /* GMMeShowIconViewController.xib in Resources */,
 				E89BD3341CEB1228007CCF49 /* FoodAddAddressCell.xib in Resources */,
 				30FD1FB41CE2D432003C91A5 /* WXLifeViewController.xib in Resources */,
@@ -1934,6 +2782,7 @@
 				7F7025531CEC63A2009653A6 /* FoodTrolleyTableViewController.xib in Resources */,
 				30D6D29A1CC8A3F700FB0CFC /* FoodOrderViewController.xib in Resources */,
 				30B601F71CD1F92D003ED671 /* BeautifulFoodViewController.xib in Resources */,
+				ACFF32CD1CF87114008BD0D8 /* OrderMessageCell.xib in Resources */,
 				30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */,
 				303519721CCF47CE00EE0750 /* ShopViewController.xib in Resources */,
 				30FEE6D91CF5E40F007E7A8B /* MeModifyPhoneNumberViewController.xib in Resources */,
@@ -1941,24 +2790,30 @@
 				3057B1F31CD998C3008172DD /* GMMeCell.xib in Resources */,
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
 				30D018331CEAF05500E50B23 /* WXMapShopView.xib in Resources */,
+				ACFF33851CF9871B008BD0D8 /* demo.gif in Resources */,
+				ACFF33021CF87125008BD0D8 /* CouponCommentDetailHeadCell.xib in Resources */,
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
+				ACFF31B51CF86ECF008BD0D8 /* AlipaySDK.bundle in Resources */,
 				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
 				30FD1FAC1CE2D023003C91A5 /* MapHeadView.xib in Resources */,
-				AC4D741C1CF2FBB900DF4997 /* couponOrder.storyboard in Resources */,
 				7F9370A61CF6E4F10063F544 /* FoodShowAddressCell.xib in Resources */,
 				7F7025581CEC6458009653A6 /* FoodTrolleyTableViewCell.xib in Resources */,
 				30B601FD1CD1FA94003ED671 /* BeautifulFoodCell.xib in Resources */,
 				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
 				3086D3BB1CC72A1E007494D7 /* GMRegisterViewController.xib in Resources */,
 				E8DDDEDD1CF5E60B000F147B /* FoodAddressEditCell.xib in Resources */,
+				ACFF33861CF9871B008BD0D8 /* interface-builder.png in Resources */,
 				303519671CCF377A00EE0750 /* TicketDateCell.xib in Resources */,
 				3035196C1CCF393700EE0750 /* TicketCommitCell.xib in Resources */,
 				303519771CCF4B8A00EE0750 /* ShopCommitViewController.xib in Resources */,
 				30D6D27E1CC87AF500FB0CFC /* FoodViewController.xib in Resources */,
 				ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */,
+				ACFF33341CF885BF008BD0D8 /* CouponCommentMessageSectionCell.xib in Resources */,
 				30B602151CD308F3003ED671 /* ShopActivityCell.xib in Resources */,
+				7F9370B51CF932E00063F544 /* FoodAddressEditViewController.xib in Resources */,
 				3057B1EE1CD99221008172DD /* GMMeViewController.xib in Resources */,
 				3025A9951CCE3FD700C5EAAB /* PackageViewController.xib in Resources */,
+				ACFF33431CF9468C008BD0D8 /* PaymentSuccessViewController.xib in Resources */,
 				3057B1F91CD99B66008172DD /* GMMeOrderCell.xib in Resources */,
 				30D6D29F1CC8A85B00FB0CFC /* FoodCategoryCell.xib in Resources */,
 				30B509D81CF2AD5500A2C30A /* WXInformationDetailViewController.xib in Resources */,
@@ -1978,24 +2833,36 @@
 				30D6D28A1CC891B500FB0CFC /* FoodDetailViewController.xib in Resources */,
 				308E0D691CF002070048F38A /* BeautifulDetailViewController.xib in Resources */,
 				303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */,
+				ACFF32D51CF87114008BD0D8 /* OrderCouponIDCell.xib in Resources */,
+				ACFF32B61CF87106008BD0D8 /* RefundReasonHeadCell.xib in Resources */,
 				3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */,
+				ACFF32D31CF87114008BD0D8 /* OrderDescribeCell.xib in Resources */,
 				E89BD32E1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib in Resources */,
 				30FEE6CE1CF58EDA007E7A8B /* MeModifyPasswordViewController.xib in Resources */,
 				3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */,
+				ACFF32EC1CF8711E008BD0D8 /* CouponPayTableViewCell.xib in Resources */,
 				30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */,
+				ACFF32B81CF87106008BD0D8 /* RefundReasonCell.xib in Resources */,
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
 				308E0D731CF0023C0048F38A /* FoodContentCell.xib in Resources */,
+				ACFF32D11CF87114008BD0D8 /* OrderDetailInfoCell.xib in Resources */,
+				ACFF32BC1CF87106008BD0D8 /* RefundCodeCell.xib in Resources */,
 				AC987D371CE89B9C00E11CC5 /* group.storyboard in Resources */,
 				30B601CB1CD07C54003ED671 /* ShopCycleCell.xib in Resources */,
 				30FEE6E41CF80AE3007E7A8B /* GMMeCommitViewController.xib in Resources */,
 				E8DDDED81CF5DF0D000F147B /* FoodOrderAddAddressViewController.xib in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
 				E8226C221CEB52B000980E30 /* FoodPaymentCell.xib in Resources */,
+				ACFF32BA1CF87106008BD0D8 /* RefundPriceCell.xib in Resources */,
 				3086D3D71CC72ABC007494D7 /* HomeCategoryCell.xib in Resources */,
 				30D6D2801CC87AF500FB0CFC /* FoodCell.xib in Resources */,
+				ACFF32B41CF87106008BD0D8 /* RefundViewController.xib in Resources */,
+				ACFF32E61CF8711E008BD0D8 /* CouponUseViewController.xib in Resources */,
 				30FD1F4F1CE1A80B003C91A5 /* mapapi.bundle in Resources */,
+				ACFF32FE1CF87125008BD0D8 /* CouponCommentMessageCell.xib in Resources */,
 				3086D3D31CC72ABC007494D7 /* HomeNewsCell.xib in Resources */,
 				30B601C11CD05E88003ED671 /* ShopAllCell.xib in Resources */,
+				ACFF33001CF87125008BD0D8 /* CouponCommentDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2100,6 +2967,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8DDDEDC1CF5E60B000F147B /* FoodAddressEditCell.m in Sources */,
+				ACFF32BB1CF87106008BD0D8 /* RefundPriceCell.m in Sources */,
 				AC71EAAB1CC08FCD00B101C2 /* NetworkFetcher.m in Sources */,
 				30FD1FC01CE2EFB6003C91A5 /* CategoryCell.m in Sources */,
 				E8DDDED21CF5DD7F000F147B /* FoodOrderMarkViewController.m in Sources */,
@@ -2111,32 +2979,39 @@
 				30FEE6F21CF96698007E7A8B /* MeCommitCell.m in Sources */,
 				ACAC17471CD8DCEB00E04499 /* ResFoodClass.m in Sources */,
 				AC72CF2E1CEEA86C0077537E /* NetworkFetcher+Mall.m in Sources */,
-				AC545F921CED90E000133F25 /* CommitOrderViewController.m in Sources */,
+				ACFF32D01CF87114008BD0D8 /* OrderDetailViewController.m in Sources */,
 				3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */,
 				30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */,
 				7F70255E1CEDAF31009653A6 /* ResFood+count.m in Sources */,
 				30B601C51CD07BDC003ED671 /* ShopHomeViewController.m in Sources */,
+				ACFF330D1CF87135008BD0D8 /* CommitPriceCell.m in Sources */,
 				AC4D73D91CF1530A00DF4997 /* MallKindModel.m in Sources */,
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
 				30B509FD1CF2D2F400A2C30A /* NSDate+convenience.m in Sources */,
 				AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */,
 				303519511CCF1B3F00EE0750 /* TicketDetailViewController.m in Sources */,
 				30FD1FA51CE2CAE9003C91A5 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
+				ACFF32881CF86F8B008BD0D8 /* openssl_wrapper.m in Sources */,
 				AC4D740C1CF29B3800DF4997 /* MerchandiseCollectionViewCell.m in Sources */,
 				AC4D74011CF1E99F00DF4997 /* KindViewController.m in Sources */,
+				ACFF32EB1CF8711E008BD0D8 /* CouponPayViewController.m in Sources */,
 				30D018171CE9859000E50B23 /* Commit.m in Sources */,
+				ACFF32861CF86F8B008BD0D8 /* MD5DataSigner.m in Sources */,
 				3086D39D1CC7298B007494D7 /* JZMTBtnView.m in Sources */,
 				ACB78A451CC867BC00354B11 /* PresentationUtility.m in Sources */,
 				30D018361CEAF55800E50B23 /* WXMapShopModel.m in Sources */,
 				E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */,
-				AC545F9F1CEDA94700133F25 /* CommitPriceCell.m in Sources */,
 				3086D3D01CC72ABC007494D7 /* HomePageViewController.m in Sources */,
+				ACFF33031CF87125008BD0D8 /* CouponCommentDetailHeadCell.m in Sources */,
 				7F7025751CF59A9A009653A6 /* FoodOtherCell.m in Sources */,
 				AC4D74041CF1EC9E00DF4997 /* KindViewModel.m in Sources */,
 				3057B1FF1CD9B9E8008172DD /* RootTabViewController.m in Sources */,
+				ACFF32D21CF87114008BD0D8 /* OrderDetailInfoCell.m in Sources */,
+				ACFF329C1CF870A7008BD0D8 /* CouponRefundViewModel.m in Sources */,
 				AC4D73D21CF14E8600DF4997 /* MallCategoryModel.m in Sources */,
 				30B509EE1CF2D27C00A2C30A /* ActionSheetDatePicker.m in Sources */,
 				7F70254E1CEC0682009653A6 /* CALayer+XibConfiguration.m in Sources */,
+				ACFF32EF1CF8711E008BD0D8 /* CouponOrderTableViewCell.m in Sources */,
 				3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */,
 				3035197C1CCF4CB900EE0750 /* ShopCommitCell.m in Sources */,
 				AC96F2F11CE9747E001B2DDE /* CouponCell.m in Sources */,
@@ -2149,13 +3024,16 @@
 				30FEE6EE1CF94E38007E7A8B /* MeShopCommit.m in Sources */,
 				7F7025611CF2C7A6009653A6 /* FoodOrderViewSectionObject.m in Sources */,
 				30B509F11CF2D27C00A2C30A /* ActionSheetStringPicker.m in Sources */,
+				ACFF32891CF86F8B008BD0D8 /* RSADataSigner.m in Sources */,
 				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
 				30B509EC1CF2D27C00A2C30A /* AbstractActionSheetPicker.m in Sources */,
 				3057B1ED1CD99221008172DD /* GMMeViewController.m in Sources */,
 				30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */,
+				ACFF330B1CF87135008BD0D8 /* CommitCountCell.m in Sources */,
 				308E0D871CF2A4EF0048F38A /* GMMeInformationViewController.m in Sources */,
 				AC2E04421CEB554900476087 /* CouponCommentCell.m in Sources */,
 				AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */,
+				ACFF31C41CF86EE0008BD0D8 /* NSString+Expand.m in Sources */,
 				AC7AD49C1CC7AFD9004D9B61 /* DatabaseManager.m in Sources */,
 				AC72CF321CEEA9C50077537E /* MallViewModel.m in Sources */,
 				30FEE6CD1CF58EDA007E7A8B /* MeModifyPasswordViewController.m in Sources */,
@@ -2171,9 +3049,12 @@
 				30B509F31CF2D27C00A2C30A /* SWActionSheet.m in Sources */,
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
 				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
+				ACFF32BD1CF87106008BD0D8 /* RefundCodeCell.m in Sources */,
+				ACFF32ED1CF8711E008BD0D8 /* CouponPayTableViewCell.m in Sources */,
 				308E0D811CF1CAB30048F38A /* BeautifulCommitView.m in Sources */,
 				7F70257F1CF69114009653A6 /* NetworkFetcher+FoodAddress.m in Sources */,
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
+				ACFF32CE1CF87114008BD0D8 /* OrderMessageCell.m in Sources */,
 				30FD1F441CE1A329003C91A5 /* IndoorSwitchDemo.mm in Sources */,
 				AC987D3B1CE8A95E00E11CC5 /* GroupViewModel.m in Sources */,
 				AC2E043F1CEB493E00476087 /* CouponInformationCell.m in Sources */,
@@ -2185,15 +3066,24 @@
 				30B509FC1CF2D2F400A2C30A /* NSDate+Common.m in Sources */,
 				30D017FF1CE360DE00E50B23 /* ReusableView.m in Sources */,
 				3035196B1CCF393700EE0750 /* TicketCommitCell.m in Sources */,
+				ACFF32A31CF870D7008BD0D8 /* StockModel.m in Sources */,
+				ACFF32841CF86F8B008BD0D8 /* DataSigner.m in Sources */,
+				ACFF332F1CF88214008BD0D8 /* CouponCommentDetailViewModel.m in Sources */,
 				30D6D2741CC87ACE00FB0CFC /* JSDropDownMenu.m in Sources */,
+				ACFF32FF1CF87125008BD0D8 /* CouponCommentMessageCell.m in Sources */,
+				ACFF33331CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m in Sources */,
 				AC4D73F41CF1DCA800DF4997 /* BrandViewCell.m in Sources */,
+				ACFF32851CF86F8B008BD0D8 /* DataVerifier.m in Sources */,
 				3086D3A51CC729A9007494D7 /* WXTextField.m in Sources */,
 				E89BD32D1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m in Sources */,
+				ACFF333D1CF92E8E008BD0D8 /* UIPlaceHolderTextView.m in Sources */,
 				3086D3B41CC72A09007494D7 /* GMButton.m in Sources */,
+				ACFF328A1CF86F8B008BD0D8 /* RSADataVerifier.m in Sources */,
 				30B601CA1CD07C54003ED671 /* ShopCycleCell.m in Sources */,
 				AC987D401CE8AF9900E11CC5 /* NetworkFetcher+Group.m in Sources */,
 				7F9370A51CF6E4F10063F544 /* FoodShowAddressCell.m in Sources */,
 				AC31AD961CF32F00006F0608 /* HomeViewModel.m in Sources */,
+				ACFF32A41CF870D7008BD0D8 /* CouponOrderModel.m in Sources */,
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
 				AC2E04361CEB2D3800476087 /* CouponPictureCell.m in Sources */,
 				ACAC174B1CD8DDCD00E04499 /* ResFood.m in Sources */,
@@ -2212,11 +3102,14 @@
 				7F70255B1CED573C009653A6 /* FoodForOrdering.m in Sources */,
 				30FD1FA61CE2CAE9003C91A5 /* UIView+SDAutoLayout.m in Sources */,
 				30FEE6DE1CF68AF5007E7A8B /* GMMeShowIconViewController.m in Sources */,
+				ACFF32B51CF87106008BD0D8 /* RefundViewController.m in Sources */,
 				AC4D73E81CF1929E00DF4997 /* KindCollectionViewCell.m in Sources */,
+				ACFF32871CF86F8B008BD0D8 /* NSDataEx.m in Sources */,
 				30FD1FB31CE2D432003C91A5 /* WXLifeViewController.m in Sources */,
 				30FEE6E31CF80AE3007E7A8B /* GMMeCommitViewController.m in Sources */,
 				AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */,
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
+				ACFF32FD1CF87125008BD0D8 /* CouponCommentViewController.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,
 				7F7025521CEC63A2009653A6 /* FoodTrolleyTableViewController.m in Sources */,
 				AC90F5861CD08F11004C4C55 /* AdvertisementManager.m in Sources */,
@@ -2225,11 +3118,14 @@
 				30B601F61CD1F92D003ED671 /* BeautifulFoodViewController.m in Sources */,
 				30B602141CD308F3003ED671 /* ShopActivityCell.m in Sources */,
 				30D6D2991CC8A3F700FB0CFC /* FoodOrderViewController.m in Sources */,
+				ACFF329E1CF870A7008BD0D8 /* CouponCommentViewModel.m in Sources */,
 				E8DDDEE01CF5F334000F147B /* FoodAddress.m in Sources */,
+				ACFF33111CF87259008BD0D8 /* CommitOrderViewController.m in Sources */,
 				3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */,
 				AC4D73FD1CF1E48E00DF4997 /* MoreCollectionViewCell.m in Sources */,
 				AC7B3ADC1CDF2D7F0039C2A5 /* LoginViewModel.m in Sources */,
 				AC6A4EE01CEA06D5000DD815 /* CouponDetailViewModel.m in Sources */,
+				ACFF31B91CF86ECF008BD0D8 /* Order.m in Sources */,
 				ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */,
 				30FD1F9E1CE2C0B8003C91A5 /* MapFloorCell.m in Sources */,
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
@@ -2239,8 +3135,10 @@
 				7F70256D1CF58EA4009653A6 /* FoodShippingFeeCell.m in Sources */,
 				308E0D771CF003290048F38A /* MoneyCell.m in Sources */,
 				30FD1FAA1CE2D012003C91A5 /* MapHeadView.m in Sources */,
+				ACFF32831CF86F8B008BD0D8 /* base64.m in Sources */,
 				308E0D681CF002070048F38A /* BeautifulDetailViewController.m in Sources */,
 				E8226C211CEB52B000980E30 /* FoodPaymentCell.m in Sources */,
+				ACFF330C1CF87135008BD0D8 /* CommitPayCell.m in Sources */,
 				30D018131CE6E84400E50B23 /* Activity.m in Sources */,
 				AC2E043C1CEB462F00476087 /* CouponCaseCell.m in Sources */,
 				AC4D741A1CF2F97800DF4997 /* PersonalCouponViewController.m in Sources */,
@@ -2249,26 +3147,36 @@
 				3086D3B61CC72A09007494D7 /* GMXTextField.m in Sources */,
 				AC90F5A81CD1EB12004C4C55 /* FoodManager.m in Sources */,
 				303519611CCF348F00EE0750 /* TicketCountCell.m in Sources */,
+				ACFF32E71CF8711E008BD0D8 /* CouponUseViewController.m in Sources */,
 				AC90F5751CCFABE1004C4C55 /* PictureManager.m in Sources */,
 				ACE0668F1CDB741C0000D335 /* Comment.m in Sources */,
+				ACFF329B1CF870A7008BD0D8 /* CouponUseViewModel.m in Sources */,
 				30D6D27F1CC87AF500FB0CFC /* FoodCell.m in Sources */,
 				AC90F5831CD08EEE004C4C55 /* Adversitement.m in Sources */,
 				AC90F5AB1CD20523004C4C55 /* Restaurant.m in Sources */,
 				AC90F5791CD0604F004C4C55 /* WebViewController.m in Sources */,
+				ACFF33421CF9468C008BD0D8 /* PaymentSuccessViewController.m in Sources */,
 				AC96F3031CE9C72A001B2DDE /* LoadingCell.m in Sources */,
+				ACFF329D1CF870A7008BD0D8 /* CouponPayViewModel.m in Sources */,
 				7F7025681CF57FE0009653A6 /* FoodBillCell.m in Sources */,
 				3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */,
+				7F9370B41CF932E00063F544 /* FoodAddressEditViewController.m in Sources */,
 				3057B1F21CD998C3008172DD /* GMMeCell.m in Sources */,
+				ACFF32991CF870A7008BD0D8 /* RefundViewModel.m in Sources */,
 				AC4D73F71CF1DD1D00DF4997 /* BrandCollectionViewCell.m in Sources */,
 				3086D3BA1CC72A1E007494D7 /* GMRegisterViewController.m in Sources */,
-				AC545F991CED9AFC00133F25 /* CommitCountCell.m in Sources */,
 				30D018311CEAF04600E50B23 /* WXMapShopView.m in Sources */,
 				7F7025571CEC6458009653A6 /* FoodTrolleyTableViewCell.m in Sources */,
+				ACFF32B91CF87106008BD0D8 /* RefundReasonCell.m in Sources */,
+				ACFF33011CF87125008BD0D8 /* CouponCommentDetailViewController.m in Sources */,
+				ACFF32D41CF87114008BD0D8 /* OrderDescribeCell.m in Sources */,
+				ACFF32E91CF8711E008BD0D8 /* CouponRefundViewController.m in Sources */,
 				30B601FC1CD1FA94003ED671 /* BeautifulFoodCell.m in Sources */,
 				30B509EF1CF2D27C00A2C30A /* ActionSheetDistancePicker.m in Sources */,
 				3086D3D21CC72ABC007494D7 /* HomeNewsCell.m in Sources */,
 				AC90F56A1CCFA4E7004C4C55 /* NetworkFetcher+Home.m in Sources */,
 				30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */,
+				ACFF32B71CF87106008BD0D8 /* RefundReasonHeadCell.m in Sources */,
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
 				AC72CF291CEEA6ED0077537E /* MallViewController.m in Sources */,
 				AC4D73EB1CF1994000DF4997 /* SectionHeadViewCell.m in Sources */,
@@ -2279,10 +3187,12 @@
 				ACE066931CDB75BF0000D335 /* CommentManager.m in Sources */,
 				AC4D73E01CF161CF00DF4997 /* CategoryViewCell.m in Sources */,
 				303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */,
+				ACFF33871CF9871B008BD0D8 /* HCSStarRatingView.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
 				AC2E04391CEB374E00476087 /* CouponStoreCell.m in Sources */,
 				303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */,
-				AC545F9C1CED9C6B00133F25 /* CommitPayCell.m in Sources */,
+				ACFF329A1CF870A7008BD0D8 /* OrderDetailViewModel.m in Sources */,
+				ACFF32D61CF87114008BD0D8 /* OrderCouponIDCell.m in Sources */,
 				30D6D2891CC891B500FB0CFC /* FoodDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2400,12 +3310,34 @@
 				);
 				GCC_PREFIX_HEADER = Venus/PrefixHeader.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/BlocksKit\"",
+					"\"${PODS_ROOT}/Headers/Public/EAIntroView\"",
+					"\"${PODS_ROOT}/Headers/Public/EARestrictedScrollView\"",
+					"\"${PODS_ROOT}/Headers/Public/FDStackView\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/QRCodeReaderViewController\"",
+					"\"${PODS_ROOT}/Headers/Public/RDVTabBarController\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactiveCocoa\"",
+					"\"${PODS_ROOT}/Headers/Public/SDCycleScrollView\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/SVProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/UITableView+FDTemplateLayoutCell\"",
+					"\"${PODS_ROOT}/Headers/Public/YFStartView\"",
+					"\"${PODS_ROOT}/Headers/Public/YYCategories\"",
+					"$(SRCROOT)/Venus/OtherSDK/Alipay",
+				);
 				INFOPLIST_FILE = Venus/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Venus/OtherSDK/WeChat",
+					"$(PROJECT_DIR)/Venus/OtherSDK/Alipay",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2443,12 +3375,34 @@
 					"$(PROJECT_DIR)/Venus/OtherSDK/Alipay",
 				);
 				GCC_PREFIX_HEADER = Venus/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/BlocksKit\"",
+					"\"${PODS_ROOT}/Headers/Public/EAIntroView\"",
+					"\"${PODS_ROOT}/Headers/Public/EARestrictedScrollView\"",
+					"\"${PODS_ROOT}/Headers/Public/FDStackView\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/QRCodeReaderViewController\"",
+					"\"${PODS_ROOT}/Headers/Public/RDVTabBarController\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactiveCocoa\"",
+					"\"${PODS_ROOT}/Headers/Public/SDCycleScrollView\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/SVProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/UITableView+FDTemplateLayoutCell\"",
+					"\"${PODS_ROOT}/Headers/Public/YFStartView\"",
+					"\"${PODS_ROOT}/Headers/Public/YYCategories\"",
+					"$(SRCROOT)/Venus/OtherSDK/Alipay",
+				);
 				INFOPLIST_FILE = Venus/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Venus/OtherSDK/WeChat",
+					"$(PROJECT_DIR)/Venus/OtherSDK/Alipay",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

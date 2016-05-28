@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumber;
 @property (weak, nonatomic) IBOutlet UILabel *address;
 @property (weak, nonatomic) IBOutlet UIImageView *selectionImage;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 + (instancetype)cellForTableView:(UITableView *)tableView;
 

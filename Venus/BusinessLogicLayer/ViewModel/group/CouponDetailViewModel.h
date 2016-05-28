@@ -27,6 +27,5 @@
 - (void)loadMoreCommentWithCouponID:(NSString *)couponID
                                page:(NSNumber *)page;
 
-- (NSString *)convertTime:(NSNumber *)time;
 
 @end

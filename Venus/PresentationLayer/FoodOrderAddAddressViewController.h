@@ -10,6 +10,4 @@
 
 @interface FoodOrderAddAddressViewController : UIViewController
 
-@property (copy, nonatomic) NSString *navigationTitle;
-
 @end

@@ -77,4 +77,75 @@
                              success:(NetworkFetcherSuccessHandler)success
                              failure:(NetworkFetcherErrorHandler)failure;
 
+/**
+ *  客户支付预下单
+ *
+ *  @param orderID
+ *  @param method
+ *  @param success
+ *  @param failure
+ */
++ (void)grougPrePayWithOrderID:(NSString *)orderID
+                        method:(NSString *)method
+                       success:(NetworkFetcherSuccessHandler)success
+                       failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  客户获取个人订单
+ *
+ *  @param status
+ *  @param success
+ *  @param failure
+ */
++ (void)groupFetchAccountOrderArrayWithStatus:(NSNumber *)status
+                                      success:(NetworkFetcherSuccessHandler)success
+                                      failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  团购劵订单详情
+ *
+ *  @param orderID
+ *  @param success
+ *  @param failure
+ */
++ (void)groupFetchOrderDetailWithOrderID:(NSString *)orderID
+                                 success:(NetworkFetcherSuccessHandler)success
+                                 failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  申请退款
+ *
+ *  @param orderID
+ *  @param couponID
+ *  @param codeArray
+ *  @param reason
+ *  @param success
+ *  @param failure
+ */
++ (void)groupRefundWithOrderID:(NSString *)orderID
+                      couponID:(NSString *)couponID
+                     codeArray:(NSArray *)codeArray
+                        reason:(NSString *)reason
+                       success:(NetworkFetcherSuccessHandler)success
+                       failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  添加评论
+ *
+ *  @param orderID
+ *  @param storeID
+ *  @param couponID
+ *  @param score
+ *  @param content
+ *  @param success
+ *  @param failure
+ */
++ (void)groupSendCommentWithOrderID:(NSString *)orderID
+                            storeID:(NSString *)storeID
+                           couponID:(NSString *)couponID
+                              score:(NSNumber *)score
+                            content:(NSString *)content
+                            success:(NetworkFetcherSuccessHandler)success
+                            failure:(NetworkFetcherErrorHandler)failure;
+
 @end

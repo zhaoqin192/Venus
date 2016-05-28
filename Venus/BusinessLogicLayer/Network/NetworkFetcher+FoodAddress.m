@@ -36,7 +36,6 @@ static const BOOL LOGDEBUG = YES;
                 return @{
                          @"addressID": @"addressid",
                          @"linkmanName": @"name",
-//                         @"address": @"address",
                          @"phoneNumber": @"phone",
                          };
             }];
@@ -83,16 +82,60 @@ static const BOOL LOGDEBUG = YES;
     }];
 }
 
-+ (void)EditUserFoodAddress:(FoodAddress *)foodAddress
++ (void)editUserFoodAddress:(FoodAddress *)foodAddress
                     success:(NetworkFetcherCompletionHandler)success
                     failure:(NetworkFetcherErrorHandler)failure {
-    return;
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/order/modifyAddress"]];
+    NSDictionary *parameters = @{@"addressid":@(foodAddress.addressID), @"name":foodAddress.linkmanName, @"address":foodAddress.address, @"phone":foodAddress.phoneNumber};
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        NSDictionary *dic = responseObject;
+        if ([dic[@"errCode"] isEqualToNumber:@0]) {
+            success();
+        } else {
+            failure(dic[@"msg"]);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        
+        failure(@"网络异常");
+    }];
 }
 
-+ (void)DeleteUserFoodAddress:(FoodAddress *)foodAddress
++ (void)deleteUserFoodAddress:(FoodAddress *)foodAddress
                       success:(NetworkFetcherCompletionHandler)success
                       failure:(NetworkFetcherErrorHandler)failure {
-    return;
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/order/deleteAddress"]];
+    NSDictionary *parameters = @{@"addressId":@(foodAddress.addressID)};
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        NSDictionary *dic = responseObject;
+        if ([dic[@"errCode"] isEqualToNumber:@0]) {
+            success();
+        } else {
+            failure(dic[@"msg"]);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        
+        failure(@"网络异常");
+    }];
 }
 
 @end

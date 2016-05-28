@@ -21,7 +21,7 @@
 #import "FoodShowAddressCell.h"
 #import "FoodAddressSelectionViewController.h"
 
-@interface FoodSubmitOrderViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface FoodSubmitOrderViewController () <UITableViewDelegate, UITableViewDataSource, FoodAddressSelectionViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UILabel *bargain;
@@ -29,7 +29,7 @@
 @property (assign, nonatomic) CGFloat finalPrice;
 @property (strong, nonatomic) FoodAddressManager *foodAddressManager;
 @property (strong, nonatomic) MBProgressHUD *hud;
-@property (assign, nonatomic) NSInteger *addressSelectionIndex;
+@property (assign, nonatomic) NSInteger addressSelectionIndex;
 
 
 @end
@@ -103,7 +103,11 @@
             return cell;
         } else {
             FoodShowAddressCell *cell = [FoodShowAddressCell cellForTableView:tableView];
-            cell.foodAddress = (FoodAddress *)self.foodAddressManager.foodAddressArray[0];
+            if (self.addressSelectionIndex < self.foodAddressManager.foodAddressArray.count) {
+                cell.foodAddress = (FoodAddress *)self.foodAddressManager.foodAddressArray[_addressSelectionIndex];
+            } else {
+                cell.foodAddress = (FoodAddress *)self.foodAddressManager.foodAddressArray[0];
+            }
             cell.selectionImage.hidden = YES;
             return cell;
         }
@@ -266,15 +270,22 @@
         if (indexPath.row == 0) {
             if (self.foodAddressManager.foodAddressArray.count == 0) {
                 FoodOrderAddAddressViewController *vc = [[FoodOrderAddAddressViewController alloc] init];
-                vc.navigationTitle = @"新增地址";
                 [self.navigationController pushViewController:vc animated:YES];
             } else {
                 FoodAddressSelectionViewController *vc = [[FoodAddressSelectionViewController alloc] init];
+                vc.selectedIndex = self.addressSelectionIndex;
+                vc.restaurantID = self.restaurantID;
+                vc.delegate = self;
                 [self.navigationController pushViewController:vc animated:YES];
             }
             
         }
     }
+}
+
+#pragma mark - FoodAddressSelectionViewControllerDelegate
+- (void)foodAddressSelectionViewController:(FoodAddressSelectionViewController *)vc didSelectIndex:(NSInteger)index {
+    self.addressSelectionIndex = index;
 }
 
 #pragma mark - private methods

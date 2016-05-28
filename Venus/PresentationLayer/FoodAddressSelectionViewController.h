@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class FoodAddressSelectionViewController;
+
+@protocol FoodAddressSelectionViewControllerDelegate <NSObject>
+
+- (void)foodAddressSelectionViewController:(FoodAddressSelectionViewController *)vc didSelectIndex:(NSInteger)index;
+
+@end
+
 @interface FoodAddressSelectionViewController : UIViewController
 
 @property (assign, nonatomic) NSInteger selectedIndex;
+@property (copy, nonatomic) NSString *restaurantID;
+@property (weak, nonatomic) id<FoodAddressSelectionViewControllerDelegate> delegate;
 
 @end

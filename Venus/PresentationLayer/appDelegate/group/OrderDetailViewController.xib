@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderDetailViewController">
+            <connections>
+                <outlet property="bottomView" destination="Rv3-49-NAl" id="m5Y-hY-Zdc"/>
+                <outlet property="refundButton" destination="8XN-vo-deT" id="nOu-FG-EWO"/>
+                <outlet property="tableView" destination="fuL-Or-fNz" id="8sa-9C-xiC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fuL-Or-fNz">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="HES-jp-IuQ"/>
+                        <outlet property="delegate" destination="-1" id="ADt-7v-wlR"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rv3-49-NAl">
+                    <rect key="frame" x="0.0" y="559" width="375" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8XN-vo-deT">
+                            <rect key="frame" x="157" y="7" width="60" height="30"/>
+                            <state key="normal" title="申请退款">
+                                <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="741-w8-rI9"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="fuL-Or-fNz" secondAttribute="bottom" priority="250" id="4U1-bC-uiu"/>
+                <constraint firstAttribute="bottom" secondItem="Rv3-49-NAl" secondAttribute="bottom" id="58a-OS-vwi"/>
+                <constraint firstAttribute="trailing" secondItem="Rv3-49-NAl" secondAttribute="trailing" id="9rF-0N-uOj"/>
+                <constraint firstItem="Rv3-49-NAl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="F3U-NR-dem"/>
+                <constraint firstItem="fuL-Or-fNz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fbp-pn-eGk"/>
+                <constraint firstItem="Rv3-49-NAl" firstAttribute="top" secondItem="fuL-Or-fNz" secondAttribute="bottom" id="FtP-av-pfS"/>
+                <constraint firstAttribute="trailing" secondItem="fuL-Or-fNz" secondAttribute="trailing" id="R4V-du-TEr"/>
+                <constraint firstItem="fuL-Or-fNz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dFx-Cq-0l7"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+</document>

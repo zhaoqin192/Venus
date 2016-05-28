@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodAddressEditViewController">
+            <connections>
+                <outlet property="tableView" destination="jtm-VN-Qtg" id="68T-Hq-mVy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hi-nW-DSK">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <color key="backgroundColor" red="0.69019607843137254" green="0.10980392156862745" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="rQZ-5a-ZKd"/>
+                    </constraints>
+                    <state key="normal" title="删除该地址">
+                        <color key="titleColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="deleteButtonClicked:" destination="-1" eventType="touchUpInside" id="wNs-Re-ZaS"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="jtm-VN-Qtg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esk-wp-uWm">
+                    <rect key="frame" x="0.0" y="142" width="375" height="475"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="8EV-st-Cp6" appends="YES" id="aNf-48-Ydo"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="6hi-nW-DSK" secondAttribute="bottom" id="1AR-Ga-Nfw"/>
+                <constraint firstAttribute="trailing" secondItem="6hi-nW-DSK" secondAttribute="trailing" id="39q-CV-Khi"/>
+                <constraint firstItem="jtm-VN-Qtg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7Cp-Sq-uYC"/>
+                <constraint firstItem="6hi-nW-DSK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Tu7-mQ-l9o"/>
+                <constraint firstAttribute="trailing" secondItem="esk-wp-uWm" secondAttribute="trailing" id="d21-RT-GBH"/>
+                <constraint firstItem="esk-wp-uWm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fGi-qf-zS8"/>
+                <constraint firstItem="6hi-nW-DSK" firstAttribute="top" secondItem="esk-wp-uWm" secondAttribute="bottom" id="hx6-Vb-Omz"/>
+                <constraint firstAttribute="trailing" secondItem="jtm-VN-Qtg" secondAttribute="trailing" id="l1z-TM-nvP"/>
+                <constraint firstItem="jtm-VN-Qtg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pOu-d0-DPg"/>
+                <constraint firstItem="esk-wp-uWm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="142" id="vU0-f0-ya0"/>
+                <constraint firstItem="6hi-nW-DSK" firstAttribute="top" secondItem="jtm-VN-Qtg" secondAttribute="bottom" id="vgH-B5-sz8"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+        <viewController id="Use-rz-IFT">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="jtv-fq-Ac3"/>
+                <viewControllerLayoutGuide type="bottom" id="oum-cs-3DT"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="hRQ-Sr-ncv">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            </view>
+        </viewController>
+        <tapGestureRecognizer id="8EV-st-Cp6">
+            <connections>
+                <action selector="blankTouched:" destination="-1" id="DDK-YZ-4hY"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>
