@@ -21,6 +21,7 @@
 @interface GroupViewController ()<UITableViewDelegate, UITableViewDataSource, JSDropDownMenuDataSource, JSDropDownMenuDelegate>
 
 @property (nonatomic, strong) JSDropDownMenu *menu;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) GroupViewModel *viewModel;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -67,7 +68,8 @@
     self.menu.delegate = self;
     self.menu.dataSource = self;
     
-    [self.view addSubview:self.menu];
+//    [self.view addSubview:self.menu];
+    [self.topView addSubview:self.menu];
     
 }
 

@@ -335,16 +335,16 @@
 		ACFF330D1CF87135008BD0D8 /* CommitPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF330A1CF87135008BD0D8 /* CommitPriceCell.m */; };
 		ACFF330E1CF87171008BD0D8 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFF31521CF86ECF008BD0D8 /* AlipaySDK.framework */; };
 		ACFF33111CF87259008BD0D8 /* CommitOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF330F1CF87259008BD0D8 /* CommitOrderViewController.m */; };
-		ACFF33261CF87A5B008BD0D8 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACFF331D1CF87A5B008BD0D8 /* demo.gif */; };
-		ACFF33271CF87A5B008BD0D8 /* interface-builder.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFF331E1CF87A5B008BD0D8 /* interface-builder.png */; };
-		ACFF33281CF87A5B008BD0D8 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33211CF87A5B008BD0D8 /* HCSStarRatingView.m */; };
-		ACFF33291CF87A5B008BD0D8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFF33221CF87A5B008BD0D8 /* Info.plist */; };
 		ACFF332F1CF88214008BD0D8 /* CouponCommentDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF332E1CF88214008BD0D8 /* CouponCommentDetailViewModel.m */; };
 		ACFF33331CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33311CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m */; };
 		ACFF33341CF885BF008BD0D8 /* CouponCommentMessageSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF33321CF885BF008BD0D8 /* CouponCommentMessageSectionCell.xib */; };
 		ACFF333D1CF92E8E008BD0D8 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF333C1CF92E8E008BD0D8 /* UIPlaceHolderTextView.m */; };
 		ACFF33421CF9468C008BD0D8 /* PaymentSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33401CF9468C008BD0D8 /* PaymentSuccessViewController.m */; };
 		ACFF33431CF9468C008BD0D8 /* PaymentSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF33411CF9468C008BD0D8 /* PaymentSuccessViewController.xib */; };
+		ACFF33851CF9871B008BD0D8 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = ACFF337C1CF9871B008BD0D8 /* demo.gif */; };
+		ACFF33861CF9871B008BD0D8 /* interface-builder.png in Resources */ = {isa = PBXBuildFile; fileRef = ACFF337D1CF9871B008BD0D8 /* interface-builder.png */; };
+		ACFF33871CF9871B008BD0D8 /* HCSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33801CF9871B008BD0D8 /* HCSStarRatingView.m */; };
+		ACFF33881CF9871B008BD0D8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFF33811CF9871B008BD0D8 /* Info.plist */; };
 		E8226C211CEB52B000980E30 /* FoodPaymentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8226C1F1CEB52B000980E30 /* FoodPaymentCell.m */; };
 		E8226C221CEB52B000980E30 /* FoodPaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8226C201CEB52B000980E30 /* FoodPaymentCell.xib */; };
 		E89BD32D1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89BD32B1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m */; };
@@ -363,9 +363,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		ACFF332B1CF87A5B008BD0D8 /* PBXContainerItemProxy */ = {
+		ACFF338A1CF9871B008BD0D8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = ACFF33231CF87A5B008BD0D8 /* HCSStarRatingView.xcodeproj */;
+			containerPortal = ACFF33821CF9871B008BD0D8 /* HCSStarRatingView.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B6AF40891B4FE3260060F1B8;
 			remoteInfo = HCSStarRatingView;
@@ -1093,12 +1093,6 @@
 		ACFF330A1CF87135008BD0D8 /* CommitPriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitPriceCell.m; path = groupDetail/commitOrder/CommitPriceCell.m; sourceTree = "<group>"; };
 		ACFF330F1CF87259008BD0D8 /* CommitOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitOrderViewController.m; path = groupDetail/CommitOrderViewController.m; sourceTree = "<group>"; };
 		ACFF33101CF87259008BD0D8 /* CommitOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommitOrderViewController.h; path = groupDetail/CommitOrderViewController.h; sourceTree = "<group>"; };
-		ACFF331D1CF87A5B008BD0D8 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
-		ACFF331E1CF87A5B008BD0D8 /* interface-builder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interface-builder.png"; sourceTree = "<group>"; };
-		ACFF33201CF87A5B008BD0D8 /* HCSStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSStarRatingView.h; sourceTree = "<group>"; };
-		ACFF33211CF87A5B008BD0D8 /* HCSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSStarRatingView.m; sourceTree = "<group>"; };
-		ACFF33221CF87A5B008BD0D8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACFF33231CF87A5B008BD0D8 /* HCSStarRatingView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = HCSStarRatingView.xcodeproj; sourceTree = "<group>"; };
 		ACFF332D1CF88214008BD0D8 /* CouponCommentDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentDetailViewModel.h; sourceTree = "<group>"; };
 		ACFF332E1CF88214008BD0D8 /* CouponCommentDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentDetailViewModel.m; sourceTree = "<group>"; };
 		ACFF33301CF885BF008BD0D8 /* CouponCommentMessageSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentMessageSectionCell.h; sourceTree = "<group>"; };
@@ -1109,6 +1103,12 @@
 		ACFF333F1CF9468C008BD0D8 /* PaymentSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentSuccessViewController.h; path = groupDetail/PaymentSuccessViewController.h; sourceTree = "<group>"; };
 		ACFF33401CF9468C008BD0D8 /* PaymentSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentSuccessViewController.m; path = groupDetail/PaymentSuccessViewController.m; sourceTree = "<group>"; };
 		ACFF33411CF9468C008BD0D8 /* PaymentSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PaymentSuccessViewController.xib; path = groupDetail/PaymentSuccessViewController.xib; sourceTree = "<group>"; };
+		ACFF337C1CF9871B008BD0D8 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
+		ACFF337D1CF9871B008BD0D8 /* interface-builder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interface-builder.png"; sourceTree = "<group>"; };
+		ACFF337F1CF9871B008BD0D8 /* HCSStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSStarRatingView.h; sourceTree = "<group>"; };
+		ACFF33801CF9871B008BD0D8 /* HCSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSStarRatingView.m; sourceTree = "<group>"; };
+		ACFF33811CF9871B008BD0D8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACFF33821CF9871B008BD0D8 /* HCSStarRatingView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = HCSStarRatingView.xcodeproj; sourceTree = "<group>"; };
 		E8226C1E1CEB52B000980E30 /* FoodPaymentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodPaymentCell.h; sourceTree = "<group>"; };
 		E8226C1F1CEB52B000980E30 /* FoodPaymentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodPaymentCell.m; sourceTree = "<group>"; };
 		E8226C201CEB52B000980E30 /* FoodPaymentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodPaymentCell.xib; sourceTree = "<group>"; };
@@ -2025,7 +2025,7 @@
 		ACF83EA21CBF97F800A962BD = {
 			isa = PBXGroup;
 			children = (
-				ACFF331B1CF87A5B008BD0D8 /* HCSStarRatingView */,
+				ACFF337A1CF9871B008BD0D8 /* HCSStarRatingView */,
 				ACF83EAD1CBF97F800A962BD /* Venus */,
 				ACF83EAC1CBF97F800A962BD /* Products */,
 				E1998CF8726CD7D47CA05772 /* Frameworks */,
@@ -2351,44 +2351,6 @@
 			path = HCSStarRatingView;
 			sourceTree = "<group>";
 		};
-		ACFF331B1CF87A5B008BD0D8 /* HCSStarRatingView */ = {
-			isa = PBXGroup;
-			children = (
-				ACFF331C1CF87A5B008BD0D8 /* Assets */,
-				ACFF331F1CF87A5B008BD0D8 /* HCSStarRatingView */,
-				ACFF33231CF87A5B008BD0D8 /* HCSStarRatingView.xcodeproj */,
-			);
-			name = HCSStarRatingView;
-			path = ../../../Downloads/HCSStarRatingView;
-			sourceTree = "<group>";
-		};
-		ACFF331C1CF87A5B008BD0D8 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				ACFF331D1CF87A5B008BD0D8 /* demo.gif */,
-				ACFF331E1CF87A5B008BD0D8 /* interface-builder.png */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		ACFF331F1CF87A5B008BD0D8 /* HCSStarRatingView */ = {
-			isa = PBXGroup;
-			children = (
-				ACFF33201CF87A5B008BD0D8 /* HCSStarRatingView.h */,
-				ACFF33211CF87A5B008BD0D8 /* HCSStarRatingView.m */,
-				ACFF33221CF87A5B008BD0D8 /* Info.plist */,
-			);
-			path = HCSStarRatingView;
-			sourceTree = "<group>";
-		};
-		ACFF33241CF87A5B008BD0D8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				ACFF332C1CF87A5B008BD0D8 /* HCSStarRatingView.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		ACFF33351CF92AFF008BD0D8 /* UIPlaceHolderTextView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2602,6 +2564,43 @@
 			name = paymentSuccess;
 			sourceTree = "<group>";
 		};
+		ACFF337A1CF9871B008BD0D8 /* HCSStarRatingView */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF337B1CF9871B008BD0D8 /* Assets */,
+				ACFF337E1CF9871B008BD0D8 /* HCSStarRatingView */,
+				ACFF33821CF9871B008BD0D8 /* HCSStarRatingView.xcodeproj */,
+			);
+			path = HCSStarRatingView;
+			sourceTree = "<group>";
+		};
+		ACFF337B1CF9871B008BD0D8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF337C1CF9871B008BD0D8 /* demo.gif */,
+				ACFF337D1CF9871B008BD0D8 /* interface-builder.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		ACFF337E1CF9871B008BD0D8 /* HCSStarRatingView */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF337F1CF9871B008BD0D8 /* HCSStarRatingView.h */,
+				ACFF33801CF9871B008BD0D8 /* HCSStarRatingView.m */,
+				ACFF33811CF9871B008BD0D8 /* Info.plist */,
+			);
+			path = HCSStarRatingView;
+			sourceTree = "<group>";
+		};
+		ACFF33831CF9871B008BD0D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACFF338B1CF9871B008BD0D8 /* HCSStarRatingView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E1998CF8726CD7D47CA05772 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2713,8 +2712,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = ACFF33241CF87A5B008BD0D8 /* Products */;
-					ProjectRef = ACFF33231CF87A5B008BD0D8 /* HCSStarRatingView.xcodeproj */;
+					ProductGroup = ACFF33831CF9871B008BD0D8 /* Products */;
+					ProjectRef = ACFF33821CF9871B008BD0D8 /* HCSStarRatingView.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -2725,11 +2724,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		ACFF332C1CF87A5B008BD0D8 /* HCSStarRatingView.framework */ = {
+		ACFF338B1CF9871B008BD0D8 /* HCSStarRatingView.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = HCSStarRatingView.framework;
-			remoteRef = ACFF332B1CF87A5B008BD0D8 /* PBXContainerItemProxy */;
+			remoteRef = ACFF338A1CF9871B008BD0D8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -2741,6 +2740,7 @@
 			files = (
 				E8DDDED31CF5DD7F000F147B /* FoodOrderMarkViewController.xib in Resources */,
 				ACFF32E81CF8711E008BD0D8 /* CouponRefundViewController.xib in Resources */,
+				ACFF33881CF9871B008BD0D8 /* Info.plist in Resources */,
 				AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				ACFF32FC1CF87125008BD0D8 /* CouponCommentViewController.xib in Resources */,
 				7F7025691CF57FE0009653A6 /* FoodBillCell.xib in Resources */,
@@ -2762,25 +2762,25 @@
 				30B601F71CD1F92D003ED671 /* BeautifulFoodViewController.xib in Resources */,
 				ACFF32CD1CF87114008BD0D8 /* OrderMessageCell.xib in Resources */,
 				30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */,
-				ACFF33271CF87A5B008BD0D8 /* interface-builder.png in Resources */,
 				303519721CCF47CE00EE0750 /* ShopViewController.xib in Resources */,
 				30FEE6D91CF5E40F007E7A8B /* MeModifyPhoneNumberViewController.xib in Resources */,
 				7F9370AB1CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib in Resources */,
 				3057B1F31CD998C3008172DD /* GMMeCell.xib in Resources */,
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
 				30D018331CEAF05500E50B23 /* WXMapShopView.xib in Resources */,
+				ACFF33851CF9871B008BD0D8 /* demo.gif in Resources */,
 				ACFF33021CF87125008BD0D8 /* CouponCommentDetailHeadCell.xib in Resources */,
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
 				ACFF31B51CF86ECF008BD0D8 /* AlipaySDK.bundle in Resources */,
 				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
 				30FD1FAC1CE2D023003C91A5 /* MapHeadView.xib in Resources */,
-				AC4D741C1CF2FBB900DF4997 /* couponOrder.storyboard in Resources */,
 				7F9370A61CF6E4F10063F544 /* FoodShowAddressCell.xib in Resources */,
 				7F7025581CEC6458009653A6 /* FoodTrolleyTableViewCell.xib in Resources */,
 				30B601FD1CD1FA94003ED671 /* BeautifulFoodCell.xib in Resources */,
 				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
 				3086D3BB1CC72A1E007494D7 /* GMRegisterViewController.xib in Resources */,
 				E8DDDEDD1CF5E60B000F147B /* FoodAddressEditCell.xib in Resources */,
+				ACFF33861CF9871B008BD0D8 /* interface-builder.png in Resources */,
 				303519671CCF377A00EE0750 /* TicketDateCell.xib in Resources */,
 				3035196C1CCF393700EE0750 /* TicketCommitCell.xib in Resources */,
 				303519771CCF4B8A00EE0750 /* ShopCommitViewController.xib in Resources */,
@@ -2818,7 +2818,6 @@
 				E89BD32E1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib in Resources */,
 				30FEE6CE1CF58EDA007E7A8B /* MeModifyPasswordViewController.xib in Resources */,
 				3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */,
-				ACFF33291CF87A5B008BD0D8 /* Info.plist in Resources */,
 				ACFF32EC1CF8711E008BD0D8 /* CouponPayTableViewCell.xib in Resources */,
 				30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */,
 				ACFF32B81CF87106008BD0D8 /* RefundReasonCell.xib in Resources */,
@@ -2834,7 +2833,6 @@
 				E8226C221CEB52B000980E30 /* FoodPaymentCell.xib in Resources */,
 				ACFF32BA1CF87106008BD0D8 /* RefundPriceCell.xib in Resources */,
 				3086D3D71CC72ABC007494D7 /* HomeCategoryCell.xib in Resources */,
-				ACFF33261CF87A5B008BD0D8 /* demo.gif in Resources */,
 				30D6D2801CC87AF500FB0CFC /* FoodCell.xib in Resources */,
 				ACFF32B41CF87106008BD0D8 /* RefundViewController.xib in Resources */,
 				ACFF32E61CF8711E008BD0D8 /* CouponUseViewController.xib in Resources */,
@@ -3134,7 +3132,6 @@
 				AC90F5AB1CD20523004C4C55 /* Restaurant.m in Sources */,
 				AC90F5791CD0604F004C4C55 /* WebViewController.m in Sources */,
 				ACFF33421CF9468C008BD0D8 /* PaymentSuccessViewController.m in Sources */,
-				ACFF33281CF87A5B008BD0D8 /* HCSStarRatingView.m in Sources */,
 				AC96F3031CE9C72A001B2DDE /* LoadingCell.m in Sources */,
 				ACFF329D1CF870A7008BD0D8 /* CouponPayViewModel.m in Sources */,
 				7F7025681CF57FE0009653A6 /* FoodBillCell.m in Sources */,
@@ -3166,6 +3163,7 @@
 				ACE066931CDB75BF0000D335 /* CommentManager.m in Sources */,
 				AC4D73E01CF161CF00DF4997 /* CategoryViewCell.m in Sources */,
 				303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */,
+				ACFF33871CF9871B008BD0D8 /* HCSStarRatingView.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
 				AC2E04391CEB374E00476087 /* CouponStoreCell.m in Sources */,
 				303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */,
