@@ -355,7 +355,7 @@
         UILabel *label = [[UILabel alloc] initWithFrame: CGRectMake(20, 9, kScreenWidth, 14)];
         label.font = [UIFont systemFontOfSize:14];
         [header addSubview:label];
-        label.text = @"当前购物券";
+        label.text = @"当前团购券";
         if (section == 1) {
             label.text = @"店铺活动";
         }

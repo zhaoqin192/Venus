@@ -152,6 +152,9 @@
 		30FEE6D91CF5E40F007E7A8B /* MeModifyPhoneNumberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FEE6D81CF5E40F007E7A8B /* MeModifyPhoneNumberViewController.xib */; };
 		30FEE6DE1CF68AF5007E7A8B /* GMMeShowIconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FEE6DC1CF68AF5007E7A8B /* GMMeShowIconViewController.m */; };
 		30FEE6DF1CF68AF5007E7A8B /* GMMeShowIconViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FEE6DD1CF68AF5007E7A8B /* GMMeShowIconViewController.xib */; };
+		30FEE6E31CF80AE3007E7A8B /* GMMeCommitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FEE6E11CF80AE3007E7A8B /* GMMeCommitViewController.m */; };
+		30FEE6E41CF80AE3007E7A8B /* GMMeCommitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FEE6E21CF80AE3007E7A8B /* GMMeCommitViewController.xib */; };
+		30FEE6EA1CF82176007E7A8B /* BeautyCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FEE6E91CF82176007E7A8B /* BeautyCategory.m */; };
 		7F7025481CE96651009653A6 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025471CE96651009653A6 /* UIButton+Badge.m */; };
 		7F70254E1CEC0682009653A6 /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70254D1CEC0682009653A6 /* CALayer+XibConfiguration.m */; };
 		7F7025521CEC63A2009653A6 /* FoodTrolleyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */; };
@@ -527,6 +530,11 @@
 		30FEE6DB1CF68AF5007E7A8B /* GMMeShowIconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeShowIconViewController.h; sourceTree = "<group>"; };
 		30FEE6DC1CF68AF5007E7A8B /* GMMeShowIconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeShowIconViewController.m; sourceTree = "<group>"; };
 		30FEE6DD1CF68AF5007E7A8B /* GMMeShowIconViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeShowIconViewController.xib; sourceTree = "<group>"; };
+		30FEE6E01CF80AE3007E7A8B /* GMMeCommitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeCommitViewController.h; sourceTree = "<group>"; };
+		30FEE6E11CF80AE3007E7A8B /* GMMeCommitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeCommitViewController.m; sourceTree = "<group>"; };
+		30FEE6E21CF80AE3007E7A8B /* GMMeCommitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeCommitViewController.xib; sourceTree = "<group>"; };
+		30FEE6E81CF82176007E7A8B /* BeautyCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautyCategory.h; sourceTree = "<group>"; };
+		30FEE6E91CF82176007E7A8B /* BeautyCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautyCategory.m; sourceTree = "<group>"; };
 		5CB31E767E11D77284035771 /* libPods-Venus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Venus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F140CDA1CDFE6439DCF62F6 /* Pods-Venus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.debug.xcconfig"; sourceTree = "<group>"; };
 		7F7025461CE96651009653A6 /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
@@ -910,6 +918,9 @@
 				30FEE6DB1CF68AF5007E7A8B /* GMMeShowIconViewController.h */,
 				30FEE6DC1CF68AF5007E7A8B /* GMMeShowIconViewController.m */,
 				30FEE6DD1CF68AF5007E7A8B /* GMMeShowIconViewController.xib */,
+				30FEE6E01CF80AE3007E7A8B /* GMMeCommitViewController.h */,
+				30FEE6E11CF80AE3007E7A8B /* GMMeCommitViewController.m */,
+				30FEE6E21CF80AE3007E7A8B /* GMMeCommitViewController.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -1153,6 +1164,8 @@
 				30D018121CE6E84400E50B23 /* Activity.m */,
 				30D018151CE9859000E50B23 /* Commit.h */,
 				30D018161CE9859000E50B23 /* Commit.m */,
+				30FEE6E81CF82176007E7A8B /* BeautyCategory.h */,
+				30FEE6E91CF82176007E7A8B /* BeautyCategory.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1952,6 +1965,7 @@
 				308E0D731CF0023C0048F38A /* FoodContentCell.xib in Resources */,
 				AC987D371CE89B9C00E11CC5 /* group.storyboard in Resources */,
 				30B601CB1CD07C54003ED671 /* ShopCycleCell.xib in Resources */,
+				30FEE6E41CF80AE3007E7A8B /* GMMeCommitViewController.xib in Resources */,
 				E8DDDED81CF5DF0D000F147B /* FoodOrderAddAddressViewController.xib in Resources */,
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
 				E8226C221CEB52B000980E30 /* FoodPaymentCell.xib in Resources */,
@@ -2168,6 +2182,7 @@
 				30FD1FBA1CE2E7C5003C91A5 /* WXCategoryViewController.m in Sources */,
 				AC4D73D61CF14F4D00DF4997 /* MallBrandModel.m in Sources */,
 				303519761CCF4B8A00EE0750 /* ShopCommitViewController.m in Sources */,
+				30FEE6EA1CF82176007E7A8B /* BeautyCategory.m in Sources */,
 				E89BD3331CEB1228007CCF49 /* FoodAddAddressCell.m in Sources */,
 				7F9370AA1CF6EB2A0063F544 /* FoodAddressSelectionViewController.m in Sources */,
 				7F70255B1CED573C009653A6 /* FoodForOrdering.m in Sources */,
@@ -2175,6 +2190,7 @@
 				30FEE6DE1CF68AF5007E7A8B /* GMMeShowIconViewController.m in Sources */,
 				AC4D73E81CF1929E00DF4997 /* KindCollectionViewCell.m in Sources */,
 				30FD1FB31CE2D432003C91A5 /* WXLifeViewController.m in Sources */,
+				30FEE6E31CF80AE3007E7A8B /* GMMeCommitViewController.m in Sources */,
 				AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */,
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,

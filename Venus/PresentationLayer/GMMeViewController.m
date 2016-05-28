@@ -15,6 +15,7 @@
 #import "Account.h"
 #import "GMLoginViewController.h"
 #import "GMMeShowIconViewController.h"
+#import "GMMeCommitViewController.h"
 
 @interface GMMeViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -108,6 +109,13 @@
         
     }];
     
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showTake" object:nil]
+      takeUntil:[self rac_willDeallocSignal]]
+     subscribeNext:^(id x) {
+         @strongify(self)
+         GMMeCommitViewController *vc = [[GMMeCommitViewController alloc] init];
+         [self.navigationController pushViewController:vc animated:YES];
+     }];
 }
 
 #pragma mark - UITableViewDataSource

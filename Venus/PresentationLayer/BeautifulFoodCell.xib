@@ -68,7 +68,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="满30减5 满50减10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orh-B3-dPn">
-                        <rect key="frame" x="165" y="56" width="150" height="21"/>
+                        <rect key="frame" x="165" y="56" width="200" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="150" id="ePs-Dg-SUz"/>
                             <constraint firstAttribute="height" constant="21" id="mco-oG-UWV"/>
@@ -76,6 +76,11 @@
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ePs-Dg-SUz"/>
+                            </mask>
+                        </variation>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8b-IK-mV4" userLabel="line">
                         <rect key="frame" x="0.0" y="86" width="375" height="1"/>
@@ -86,6 +91,7 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Orh-B3-dPn" secondAttribute="trailing" constant="10" id="0Wr-21-apg"/>
                     <constraint firstItem="gEW-Lb-XNx" firstAttribute="leading" secondItem="ssq-fG-mzg" secondAttribute="trailing" constant="33" id="8RN-Vk-CSa"/>
                     <constraint firstItem="JSL-Ch-txt" firstAttribute="leading" secondItem="1A6-Qz-2bT" secondAttribute="leading" id="A7F-u8-41P"/>
                     <constraint firstAttribute="bottom" secondItem="h8b-IK-mV4" secondAttribute="bottom" id="Cam-Lw-faz"/>
