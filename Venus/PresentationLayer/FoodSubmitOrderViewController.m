@@ -20,6 +20,7 @@
 #import "FoodAddressManager.h"
 #import "FoodShowAddressCell.h"
 #import "FoodAddressSelectionViewController.h"
+#import "Restaurant.h"
 
 @interface FoodSubmitOrderViewController () <UITableViewDelegate, UITableViewDataSource, FoodAddressSelectionViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -40,12 +41,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"店铺ID：%@",self.restaurantID);
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.finalPrice = self.totalPrice - self.bargainFee + self.shippingFee;
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self hideSelf];
+    [self getDeliveryTime];
     [NetworkFetcher foodFetcherUserFoodAddresWithRestaurantID:self.restaurantID success:^{
         [self.hud hide:YES];
         [self showSelf];
@@ -143,7 +144,7 @@
             cell.arrow.hidden = YES;
             cell.content.text = @"送达时间";
             cell.content2.text = @"立即配送";
-            NSString *content3 = @"(预计11:24送达)";
+            NSString *content3 = [self getDeliveryTime];
             NSMutableAttributedString *estimatedTime = [[NSMutableAttributedString alloc] initWithString:content3];
             [estimatedTime addAttribute:NSForegroundColorAttributeName value:GMRedColor range:NSMakeRange(0, content3.length)];
             cell.content3.attributedText = estimatedTime;
@@ -297,6 +298,16 @@
 - (void)showSelf {
     self.bottomView.hidden = NO;
     self.tableView.hidden = NO;
+}
+
+- (NSString *)getDeliveryTime {
+    NSDate *date = [NSDate date];
+    NSInteger interval = _costTime * 60;
+    NSDate *localDate = [date  dateByAddingTimeInterval:interval];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"HH:mm";
+    NSString *deliveryTime = [formatter stringFromDate:localDate];
+    return [NSString stringWithFormat:@"(预计%@送达)",deliveryTime];
 }
 
 #pragma mark - event response

@@ -179,6 +179,8 @@
 		7F9370AB1CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370A91CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib */; };
 		7F9370B41CF932E00063F544 /* FoodAddressEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370B21CF932E00063F544 /* FoodAddressEditViewController.m */; };
 		7F9370B51CF932E00063F544 /* FoodAddressEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370B31CF932E00063F544 /* FoodAddressEditViewController.xib */; };
+		7F9370B91CF983EA0063F544 /* GMMeTakeAwayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370B71CF983EA0063F544 /* GMMeTakeAwayViewController.m */; };
+		7F9370BA1CF983EA0063F544 /* GMMeTakeAwayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370B81CF983EA0063F544 /* GMMeTakeAwayViewController.xib */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -579,6 +581,9 @@
 		7F9370B11CF932E00063F544 /* FoodAddressEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodAddressEditViewController.h; sourceTree = "<group>"; };
 		7F9370B21CF932E00063F544 /* FoodAddressEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddressEditViewController.m; sourceTree = "<group>"; };
 		7F9370B31CF932E00063F544 /* FoodAddressEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodAddressEditViewController.xib; sourceTree = "<group>"; };
+		7F9370B61CF983EA0063F544 /* GMMeTakeAwayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeTakeAwayViewController.h; sourceTree = "<group>"; };
+		7F9370B71CF983EA0063F544 /* GMMeTakeAwayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeTakeAwayViewController.m; sourceTree = "<group>"; };
+		7F9370B81CF983EA0063F544 /* GMMeTakeAwayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeTakeAwayViewController.xib; sourceTree = "<group>"; };
 		9713C37508499AECCEDF39F3 /* Pods-Venus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.release.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -926,6 +931,9 @@
 				30FEE6E01CF80AE3007E7A8B /* GMMeCommitViewController.h */,
 				30FEE6E11CF80AE3007E7A8B /* GMMeCommitViewController.m */,
 				30FEE6E21CF80AE3007E7A8B /* GMMeCommitViewController.xib */,
+				7F9370B61CF983EA0063F544 /* GMMeTakeAwayViewController.h */,
+				7F9370B71CF983EA0063F544 /* GMMeTakeAwayViewController.m */,
+				7F9370B81CF983EA0063F544 /* GMMeTakeAwayViewController.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -1979,6 +1987,7 @@
 				ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */,
 				E8226C221CEB52B000980E30 /* FoodPaymentCell.xib in Resources */,
 				3086D3D71CC72ABC007494D7 /* HomeCategoryCell.xib in Resources */,
+				7F9370BA1CF983EA0063F544 /* GMMeTakeAwayViewController.xib in Resources */,
 				30D6D2801CC87AF500FB0CFC /* FoodCell.xib in Resources */,
 				30FD1F4F1CE1A80B003C91A5 /* mapapi.bundle in Resources */,
 				3086D3D31CC72ABC007494D7 /* HomeNewsCell.xib in Resources */,
@@ -2228,6 +2237,7 @@
 				E8226C211CEB52B000980E30 /* FoodPaymentCell.m in Sources */,
 				30D018131CE6E84400E50B23 /* Activity.m in Sources */,
 				AC2E043C1CEB462F00476087 /* CouponCaseCell.m in Sources */,
+				7F9370B91CF983EA0063F544 /* GMMeTakeAwayViewController.m in Sources */,
 				AC4D741A1CF2F97800DF4997 /* PersonalCouponViewController.m in Sources */,
 				7F7025641CF2C814009653A6 /* FoodOrderViewBaseItem.m in Sources */,
 				30D0180D1CE6158400E50B23 /* BeautifulFood.m in Sources */,
