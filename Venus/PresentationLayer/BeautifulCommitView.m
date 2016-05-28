@@ -18,6 +18,10 @@
     self.textField.backgroundColor = GMBgColor;
     self.sendButton.userInteractionEnabled = YES;
     [self.sendButton bk_whenTapped:^{
+        if (self.textField.text.length == 0) {
+            [self.textField resignFirstResponder];
+            return ;
+        }
         if (self.sendButtonTapped) {
             self.sendButtonTapped(self.textField.text);
         }
