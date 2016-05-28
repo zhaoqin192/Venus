@@ -22,6 +22,6 @@ typedef NS_ENUM(NSUInteger, PaymentStatus) {
 @property (copy, nonatomic) NSString *remark;
 @property (assign, nonatomic) PaymentStatus payStatus;
 @property (assign, nonatomic) long arriveTime;
-@property (strong, nonatomic) 
+//@property (strong, nonatomic) 
 
 @end

@@ -22,10 +22,10 @@
                                 failure:(NetworkFetcherErrorHandler)failure;
 
 
-+ (void)foodCreateOrderWithStoreID:(NSString *)storeID
-                           address:(FoodAddress *)foodAddress
-                            remark:(NSString *)remark
-                                paymentStatus
-                             success:(NetworkFetcherSuccessHandler)success
-                             failure:(NetworkFetcherErrorHandler)failure;
+//+ (void)foodCreateOrderWithStoreID:(NSString *)storeID
+//                           address:(FoodAddress *)foodAddress
+//                            remark:(NSString *)remark
+//                                paymentStatus
+//                             success:(NetworkFetcherSuccessHandler)success
+//                             failure:(NetworkFetcherErrorHandler)failure;
 @end

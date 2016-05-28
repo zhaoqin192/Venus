@@ -64,6 +64,7 @@
         [label bk_whenTapped:^{
             AccountDao *accoutDao = [[DatabaseManager sharedInstance] accountDao];
             [accoutDao deleteAccount];
+            [accoutDao save];
             GMLoginViewController *vc = [[GMLoginViewController alloc] init];
             [self presentViewController:vc animated:YES completion:nil];
             [SVProgressHUD showSuccessWithStatus:@"退出登录成功"];

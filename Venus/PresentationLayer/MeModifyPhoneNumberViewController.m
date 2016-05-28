@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, copy) NSString *token;
 @property (weak, nonatomic) IBOutlet UIView *passwordView;
+@property (nonatomic, strong) UIButton *clearButton;
 @end
 
 static NSInteger count = 30;
@@ -30,15 +31,34 @@ static NSInteger count = 30;
     [super viewDidLoad];
     self.navigationItem.title = @"修改手机号";
     self.passwordView.hidden = YES;
+    self.clearButton.hidden = YES;
     if (self.isForget) {
         self.navigationItem.title = @"修改密码";
         self.headLabel.text = @"通过手机号验证修改密码";
         self.passwordView.hidden = NO;
+        self.clearButton = ({
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.frame = CGRectMake(8, 16, 36, 36);
+            [button setBackgroundImage:[UIImage imageNamed:@"clear"] forState:UIControlStateNormal];
+            [button bk_whenTapped:^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+            button;
+        });
+        [self.view addSubview:self.clearButton];
     }
     self.view.backgroundColor = GMBgColor;
     [self.saveButton setTitleColor:GMBrownColor forState:UIControlStateNormal];
     self.saveButton.backgroundColor = GMRedColor;
     [self.saveButton bk_whenTapped:^{
+        if (self.isForget) {
+            if (![self.passTF.text isEqualToString: self.confirmTF.text]) {
+                [SVProgressHUD showErrorWithStatus:@"两次输入的密码不一致，请重新输入"];
+                [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5
+                 ];
+                return ;
+            }
+        }
         [self confirmCode];
     }];
     
@@ -235,7 +255,8 @@ static NSInteger count = 30;
         }
         [SVProgressHUD showSuccessWithStatus:@"修改密码成功"];
         [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
-        [self.navigationController popViewControllerAnimated:NO];
+        [self dismissViewControllerAnimated:YES completion:nil];
+       // [self.navigationController popViewControllerAnimated:NO];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error %@",error);
     }];

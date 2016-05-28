@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BeautifulFoodViewController : UIViewController
-
+@property (nonatomic, assign) BOOL isLifeCycle;
 @end
