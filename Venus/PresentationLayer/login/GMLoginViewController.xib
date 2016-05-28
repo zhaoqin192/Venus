@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GMLoginViewController">
             <connections>
                 <outlet property="createAccountButton" destination="Y0N-VW-GY5" id="njv-rF-A0y"/>
+                <outlet property="forgetPasswordButton" destination="q5p-UA-Q4n" id="2mR-8t-XzC"/>
                 <outlet property="loginButton" destination="I6y-zM-Sf7" id="gdD-QP-6Is"/>
                 <outlet property="qqButton" destination="rg7-TZ-IZV" id="LNR-3O-KWs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
