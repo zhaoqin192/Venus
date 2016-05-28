@@ -62,6 +62,7 @@
             <connections>
                 <outlet property="iconView" destination="WVw-4x-Nc0" id="BUK-9N-iaR"/>
                 <outlet property="nameLabel" destination="xdv-D6-qe0" id="yUS-LO-j89"/>
+                <outlet property="timeLabel" destination="2qC-6a-4O5" id="KYa-zD-HM3"/>
             </connections>
             <point key="canvasLocation" x="405.5" y="407"/>
         </tableViewCell>
