@@ -367,6 +367,7 @@
 		E8DDDEDD1CF5E60B000F147B /* FoodAddressEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8DDDEDB1CF5E60B000F147B /* FoodAddressEditCell.xib */; };
 		E8DDDEE01CF5F334000F147B /* FoodAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDDEDF1CF5F334000F147B /* FoodAddress.m */; };
 		E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047B01CDF84070032EE91 /* GMNavigationController.m */; };
+		E8F047BB1CF9F03300E08A40 /* FoodOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047BA1CF9F03300E08A40 /* FoodOrder.m */; };
 		FCA1BB3CF4D5E0A9C7C66E75 /* libPods-Venus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB31E767E11D77284035771 /* libPods-Venus.a */; };
 /* End PBXBuildFile section */
 
@@ -1152,6 +1153,8 @@
 		E8DDDEDF1CF5F334000F147B /* FoodAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddress.m; sourceTree = "<group>"; };
 		E8F047AF1CDF84070032EE91 /* GMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMNavigationController.h; sourceTree = "<group>"; };
 		E8F047B01CDF84070032EE91 /* GMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMNavigationController.m; sourceTree = "<group>"; };
+		E8F047B91CF9F03300E08A40 /* FoodOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodOrder.h; sourceTree = "<group>"; };
+		E8F047BA1CF9F03300E08A40 /* FoodOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodOrder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1410,6 +1413,8 @@
 				7F70255A1CED573C009653A6 /* FoodForOrdering.m */,
 				E8DDDEDE1CF5F334000F147B /* FoodAddress.h */,
 				E8DDDEDF1CF5F334000F147B /* FoodAddress.m */,
+				E8F047B91CF9F03300E08A40 /* FoodOrder.h */,
+				E8F047BA1CF9F03300E08A40 /* FoodOrder.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -3215,6 +3220,7 @@
 				303519661CCF377A00EE0750 /* TicketDateCell.m in Sources */,
 				ACFF33871CF9871B008BD0D8 /* HCSStarRatingView.m in Sources */,
 				3086D3D11CC72ABC007494D7 /* HomeMenuCell.m in Sources */,
+				E8F047BB1CF9F03300E08A40 /* FoodOrder.m in Sources */,
 				AC2E04391CEB374E00476087 /* CouponStoreCell.m in Sources */,
 				303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */,
 				ACFF329A1CF870A7008BD0D8 /* OrderDetailViewModel.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "NetworkFetcher.h"
 
+@class FoodAddress;
 @interface NetworkFetcher (FoodOrder)
 /**
  *  获得外卖订单
@@ -20,4 +21,11 @@
                                 success:(NetworkFetcherCompletionHandler)success
                                 failure:(NetworkFetcherErrorHandler)failure;
 
+
++ (void)foodCreateOrderWithStoreID:(NSString *)storeID
+                           address:(FoodAddress *)foodAddress
+                            remark:(NSString *)remark
+                                paymentStatus
+                             success:(NetworkFetcherSuccessHandler)success
+                             failure:(NetworkFetcherErrorHandler)failure;
 @end
