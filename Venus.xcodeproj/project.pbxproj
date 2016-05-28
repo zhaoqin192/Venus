@@ -186,6 +186,7 @@
 		7F9370BA1CF983EA0063F544 /* GMMeTakeAwayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370B81CF983EA0063F544 /* GMMeTakeAwayViewController.xib */; };
 		7F9370BF1CF98EA50063F544 /* GMMeTakeAwayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370BD1CF98EA50063F544 /* GMMeTakeAwayCell.m */; };
 		7F9370C01CF98EA50063F544 /* GMMeTakeAwayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370BE1CF98EA50063F544 /* GMMeTakeAwayCell.xib */; };
+		7F9370C41CF99EF10063F544 /* NetworkFetcher+FoodOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370C31CF99EF10063F544 /* NetworkFetcher+FoodOrder.m */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -675,6 +676,8 @@
 		7F9370BC1CF98EA50063F544 /* GMMeTakeAwayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeTakeAwayCell.h; sourceTree = "<group>"; };
 		7F9370BD1CF98EA50063F544 /* GMMeTakeAwayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeTakeAwayCell.m; sourceTree = "<group>"; };
 		7F9370BE1CF98EA50063F544 /* GMMeTakeAwayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeTakeAwayCell.xib; sourceTree = "<group>"; };
+		7F9370C21CF99EF10063F544 /* NetworkFetcher+FoodOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+FoodOrder.h"; sourceTree = "<group>"; };
+		7F9370C31CF99EF10063F544 /* NetworkFetcher+FoodOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+FoodOrder.m"; sourceTree = "<group>"; };
 		9713C37508499AECCEDF39F3 /* Pods-Venus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.release.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -1873,6 +1876,8 @@
 				AC90F5A01CD1DDD2004C4C55 /* NetworkFetcher+Food.m */,
 				7F70257D1CF69114009653A6 /* NetworkFetcher+FoodAddress.h */,
 				7F70257E1CF69114009653A6 /* NetworkFetcher+FoodAddress.m */,
+				7F9370C21CF99EF10063F544 /* NetworkFetcher+FoodOrder.h */,
+				7F9370C31CF99EF10063F544 /* NetworkFetcher+FoodOrder.m */,
 				AC987D3E1CE8AF9900E11CC5 /* NetworkFetcher+Group.h */,
 				AC987D3F1CE8AF9900E11CC5 /* NetworkFetcher+Group.m */,
 				AC72CF2C1CEEA86C0077537E /* NetworkFetcher+Mall.h */,
@@ -3026,6 +3031,7 @@
 				3057B1FF1CD9B9E8008172DD /* RootTabViewController.m in Sources */,
 				ACFF32D21CF87114008BD0D8 /* OrderDetailInfoCell.m in Sources */,
 				ACFF329C1CF870A7008BD0D8 /* CouponRefundViewModel.m in Sources */,
+				7F9370C41CF99EF10063F544 /* NetworkFetcher+FoodOrder.m in Sources */,
 				AC4D73D21CF14E8600DF4997 /* MallCategoryModel.m in Sources */,
 				30B509EE1CF2D27C00A2C30A /* ActionSheetDatePicker.m in Sources */,
 				7F70254E1CEC0682009653A6 /* CALayer+XibConfiguration.m in Sources */,
