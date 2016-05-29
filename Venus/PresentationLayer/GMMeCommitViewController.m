@@ -10,6 +10,7 @@
 #import "XFSegementView.h"
 #import "MeShopCommit.h"
 #import "MeCommitCell.h"
+#import "MeCouponCommit.h"
 
 @interface GMMeCommitViewController ()<TouchLabelDelegate>{
     XFSegementView *_segementView;
@@ -29,9 +30,8 @@
     self.navigationItem.title = @"我的评价";
     [self configureSegmentView];
     self.currentTitle = @"团购券";
-    [self loadCouponCommit];
-    
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([MeCommitCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([MeCommitCell class])];
+    [self loadCouponCommit];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -73,6 +73,7 @@
 }
 
 - (void)loadCouponCommit {
+    [SVProgressHUD show];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/couponz/customer/userComment"]];
     NSDictionary *parameters = nil;
@@ -83,6 +84,21 @@
             [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
             return ;
         }
+        NSDictionary *dic = responseObject[@"result"];
+        NSMutableArray *array = [NSMutableArray array];
+        for (id value in dic) {
+            MeCouponCommit *commit = [[MeCouponCommit alloc] init];
+            commit.time = [value[@"comment"][@"time"] integerValue];
+            commit.score = [value[@"comment"][@"score"] integerValue];
+            commit.content = value[@"comment"][@"content"];
+            commit.picUrl = value[@"coupon"][@"picUrl"];
+            commit.des = value[@"coupon"][@"dsc"];
+            commit.abstract = value[@"coupon"][@"abstract"];
+            [array addObject:commit];
+        }
+        self.couponCommitArray = [array copy];
+        [self.myTableView reloadData];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"coupon %@", error);
     }];
@@ -136,6 +152,9 @@
     if ([self.currentTitle isEqualToString:@"商城"]) {
         return self.shopCommitArray.count;
     }
+    else if ([self.currentTitle isEqualToString:@"团购券"]) {
+        return self.couponCommitArray.count;
+    }
     return 3;
 }
 
@@ -144,14 +163,13 @@
     if ([self.currentTitle isEqualToString:@"商城"]) {
         cell.shopModel = self.shopCommitArray[indexPath.row];
     }
+    else if ([self.currentTitle isEqualToString:@"团购券"]) {
+        cell.couponModel = self.couponCommitArray[indexPath.row];
+    }
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([self.currentTitle isEqualToString:@"商城"]) {
-        return 100;
-    }
-    
     return 100;
 }
 

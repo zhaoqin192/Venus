@@ -158,6 +158,7 @@
 		30FEE6EE1CF94E38007E7A8B /* MeShopCommit.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FEE6ED1CF94E38007E7A8B /* MeShopCommit.m */; };
 		30FEE6F21CF96698007E7A8B /* MeCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FEE6F01CF96698007E7A8B /* MeCommitCell.m */; };
 		30FEE6F31CF96698007E7A8B /* MeCommitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FEE6F11CF96698007E7A8B /* MeCommitCell.xib */; };
+		30FEE6FA1CFA70C8007E7A8B /* MeCouponCommit.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FEE6F91CFA70C8007E7A8B /* MeCouponCommit.m */; };
 		7F7025481CE96651009653A6 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025471CE96651009653A6 /* UIButton+Badge.m */; };
 		7F70254E1CEC0682009653A6 /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70254D1CEC0682009653A6 /* CALayer+XibConfiguration.m */; };
 		7F7025521CEC63A2009653A6 /* FoodTrolleyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */; };
@@ -628,6 +629,8 @@
 		30FEE6EF1CF96698007E7A8B /* MeCommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeCommitCell.h; sourceTree = "<group>"; };
 		30FEE6F01CF96698007E7A8B /* MeCommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeCommitCell.m; sourceTree = "<group>"; };
 		30FEE6F11CF96698007E7A8B /* MeCommitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeCommitCell.xib; sourceTree = "<group>"; };
+		30FEE6F81CFA70C8007E7A8B /* MeCouponCommit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeCouponCommit.h; sourceTree = "<group>"; };
+		30FEE6F91CFA70C8007E7A8B /* MeCouponCommit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeCouponCommit.m; sourceTree = "<group>"; };
 		5CB31E767E11D77284035771 /* libPods-Venus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Venus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F140CDA1CDFE6439DCF62F6 /* Pods-Venus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.debug.xcconfig"; sourceTree = "<group>"; };
 		7F7025461CE96651009653A6 /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
@@ -1765,6 +1768,8 @@
 			children = (
 				30FEE6EC1CF94E38007E7A8B /* MeShopCommit.h */,
 				30FEE6ED1CF94E38007E7A8B /* MeShopCommit.m */,
+				30FEE6F81CFA70C8007E7A8B /* MeCouponCommit.h */,
+				30FEE6F91CFA70C8007E7A8B /* MeCouponCommit.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -3151,6 +3156,7 @@
 				AC7B3ADC1CDF2D7F0039C2A5 /* LoginViewModel.m in Sources */,
 				AC6A4EE01CEA06D5000DD815 /* CouponDetailViewModel.m in Sources */,
 				ACFF31B91CF86ECF008BD0D8 /* Order.m in Sources */,
+				30FEE6FA1CFA70C8007E7A8B /* MeCouponCommit.m in Sources */,
 				ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */,
 				30FD1F9E1CE2C0B8003C91A5 /* MapFloorCell.m in Sources */,
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,

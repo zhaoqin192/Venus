@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 @class MeShopCommit;
+@class MeCouponCommit;
 @interface MeCommitCell : UITableViewCell
 @property (nonatomic, strong) MeShopCommit *shopModel;
+@property (nonatomic, strong) MeCouponCommit *couponModel;
 @end

@@ -8,6 +8,7 @@
 
 #import "MeCommitCell.h"
 #import "MeShopCommit.h"
+#import "MeCouponCommit.h"
 
 @interface MeCommitCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -24,6 +25,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.myDetailLabel.hidden = NO;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -40,6 +42,17 @@
     self.contentLabel.text = shopModel.content;
     self.timeLabel.text = [self convertTime:@(shopModel.time)];
     [self configureScoreView:shopModel.score];
+}
+
+- (void)setCouponModel:(MeCouponCommit *)couponModel {
+    _couponModel = couponModel;
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:couponModel.picUrl]];
+    self.nameLabel.text = couponModel.abstract;
+    self.myDetailLabel.hidden = NO;
+    self.myDetailLabel.text = couponModel.des;
+    self.contentLabel.text = couponModel.content;
+    self.timeLabel.text = [self convertTime:@(couponModel.time)];
+    [self configureScoreView:couponModel.score];
 }
 
 - (NSString *)convertTime:(NSNumber *)time {
