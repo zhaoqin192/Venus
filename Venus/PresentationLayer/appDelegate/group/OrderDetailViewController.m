@@ -107,7 +107,15 @@
         @strongify(self)
         if ([self.state isEqualToNumber:@0]) {
             
-            RefundViewController *refundVC = [[RefundViewController alloc] initWithNibName:@"RefundViewController" bundle:nil];
+            
+//            UIStoryboard *group = [UIStoryboard storyboardWithName:@"group" bundle:nil];
+//            GroupViewController *vc = (GroupViewController *)[group instantiateViewControllerWithIdentifier:@"group"];
+//            [self.navigationController pushViewController:vc animated:YES];
+            
+            UIStoryboard *refund = [UIStoryboard storyboardWithName:@"refund" bundle:nil];
+            RefundViewController *refundVC = (RefundViewController *)[refund instantiateViewControllerWithIdentifier:@"refund"];
+            
+//            RefundViewController *refundVC = [[RefundViewController alloc] initWithNibName:@"RefundViewController" bundle:nil];
             refundVC.unitPrice = self.viewModel.price;
             refundVC.codeArray = self.viewModel.codeArray;
             refundVC.orderModel = self.orderModel;

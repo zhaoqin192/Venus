@@ -68,7 +68,7 @@
     self.menu.delegate = self;
     self.menu.dataSource = self;
     
-    self.tableView.tableHeaderView = self.menu;
+//    self.tableView.tableHeaderView = self.menu;
     
 }
 
@@ -163,6 +163,12 @@
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+   
+    return self.menu;
+}
+
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (self.viewModel.currentPage != self.viewModel.totalPage && indexPath.row == self.viewModel.couponArray.count) {
@@ -181,6 +187,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    if (section == 0) {
+        return 45;
+    }
+    
     return CGFLOAT_MIN;
 }
 

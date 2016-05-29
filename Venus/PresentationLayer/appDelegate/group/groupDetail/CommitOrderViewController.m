@@ -30,6 +30,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationItem.title = @"下单";
+    
     [self configureTableView];
     
     [self bindViewModel];
@@ -99,6 +101,7 @@
     
     [self.viewModel initPrice:self.couponModel.price];
     
+    self.totalPrice.text = [NSString stringWithFormat:@"还需支付￥%.2f", self.viewModel.totalPrice / 100.0];    
 }
 
 - (void)onCliceEvent {
@@ -233,22 +236,22 @@
         CommitPayCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommitPayCell"];
         if (indexPath.row == 0) {
             cell.name.text = @"支付宝";
-            @weakify(self)
-            @weakify(cell)
-            [[cell.selectButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-            subscribeNext:^(id x) {
-                @strongify(self)
-                @strongify(cell)
-                if (self.viewModel.isSelected && self.viewModel.selectPay == indexPath.row) {
-                    [cell.selectButton setImage:[UIImage imageNamed:@"icon_pay_radio_unselected"] forState:UIControlStateNormal];
-                    self.viewModel.isSelected = NO;
-                }
-                else {
-                    [cell.selectButton setImage:[UIImage imageNamed:@"icon_cycle_select"] forState:UIControlStateNormal];
-                    self.viewModel.isSelected = YES;
-                    self.viewModel.selectPay = indexPath.row;
-                }
-            }];
+//            @weakify(self)
+//            @weakify(cell)
+//            [[cell.selectButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+//            subscribeNext:^(id x) {
+//                @strongify(self)
+//                @strongify(cell)
+//                if (self.viewModel.isSelected && self.viewModel.selectPay == indexPath.row) {
+//                    [cell.selectButton setImage:[UIImage imageNamed:@"icon_pay_radio_unselected"] forState:UIControlStateNormal];
+//                    self.viewModel.isSelected = NO;
+//                }
+//                else {
+//                    [cell.selectButton setImage:[UIImage imageNamed:@"icon_cycle_select"] forState:UIControlStateNormal];
+//                    self.viewModel.isSelected = YES;
+//                    self.viewModel.selectPay = indexPath.row;
+//                }
+//            }];
         }
         return cell;
         

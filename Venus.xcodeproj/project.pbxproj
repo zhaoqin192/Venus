@@ -249,6 +249,15 @@
 		AC7AD4A01CC7B01A004D9B61 /* AccountDao.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD49F1CC7B01A004D9B61 /* AccountDao.m */; };
 		AC7B3AD91CDF2C7E0039C2A5 /* SignUpViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7B3AD81CDF2C7E0039C2A5 /* SignUpViewModel.m */; };
 		AC7B3ADC1CDF2D7F0039C2A5 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7B3ADA1CDF2D7F0039C2A5 /* LoginViewModel.m */; };
+		AC8D75271CFB2B690023B619 /* refund.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8D75261CFB2B690023B619 /* refund.storyboard */; };
+		AC8D753E1CFB2FA00023B619 /* NSObject+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8D752D1CFB2FA00023B619 /* NSObject+MemoryLeak.m */; };
+		AC8D753F1CFB2FA00023B619 /* UINavigationController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8D752F1CFB2FA00023B619 /* UINavigationController+MemoryLeak.m */; };
+		AC8D75401CFB2FA00023B619 /* UIPageViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8D75311CFB2FA00023B619 /* UIPageViewController+MemoryLeak.m */; };
+		AC8D75411CFB2FA00023B619 /* UISplitViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8D75331CFB2FA00023B619 /* UISplitViewController+MemoryLeak.m */; };
+		AC8D75421CFB2FA00023B619 /* UITabBarController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8D75351CFB2FA00023B619 /* UITabBarController+MemoryLeak.m */; };
+		AC8D75431CFB2FA00023B619 /* UIView+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8D75371CFB2FA00023B619 /* UIView+MemoryLeak.m */; };
+		AC8D75441CFB2FA00023B619 /* UIViewController+MemoryLeak.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8D75391CFB2FA00023B619 /* UIViewController+MemoryLeak.m */; };
+		AC8D75451CFB2FA00023B619 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AC8D753D1CFB2FA00023B619 /* README.md */; };
 		AC90F5641CCFA292004C4C55 /* WXTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3A31CC729A9007494D7 /* WXTextField.xib */; };
 		AC90F5661CCFA292004C4C55 /* HomeIntroduceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3086D3CC1CC72ABC007494D7 /* HomeIntroduceCell.xib */; };
 		AC90F56A1CCFA4E7004C4C55 /* NetworkFetcher+Home.m in Sources */ = {isa = PBXBuildFile; fileRef = AC90F5691CCFA4E7004C4C55 /* NetworkFetcher+Home.m */; };
@@ -384,6 +393,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AC8D75471CFB2FA00023B619 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC8D753A1CFB2FA00023B619 /* MLeaksFinder.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B3ADE16C1C1BD1D600AA4F63;
+			remoteInfo = MLeaksFinder;
+		};
 		ACFF338A1CF9871B008BD0D8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ACFF33821CF9871B008BD0D8 /* HCSStarRatingView.xcodeproj */;
@@ -803,6 +819,24 @@
 		AC7B3AD81CDF2C7E0039C2A5 /* SignUpViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewModel.m; sourceTree = "<group>"; };
 		AC7B3ADA1CDF2D7F0039C2A5 /* LoginViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
 		AC7B3ADB1CDF2D7F0039C2A5 /* LoginViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
+		AC8D75261CFB2B690023B619 /* refund.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = refund.storyboard; sourceTree = "<group>"; };
+		AC8D752B1CFB2FA00023B619 /* MLeaksFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLeaksFinder.h; sourceTree = "<group>"; };
+		AC8D752C1CFB2FA00023B619 /* NSObject+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC8D752D1CFB2FA00023B619 /* NSObject+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC8D752E1CFB2FA00023B619 /* UINavigationController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC8D752F1CFB2FA00023B619 /* UINavigationController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC8D75301CFB2FA00023B619 /* UIPageViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPageViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC8D75311CFB2FA00023B619 /* UIPageViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPageViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC8D75321CFB2FA00023B619 /* UISplitViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC8D75331CFB2FA00023B619 /* UISplitViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC8D75341CFB2FA00023B619 /* UITabBarController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC8D75351CFB2FA00023B619 /* UITabBarController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC8D75361CFB2FA00023B619 /* UIView+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC8D75371CFB2FA00023B619 /* UIView+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC8D75381CFB2FA00023B619 /* UIViewController+MemoryLeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MemoryLeak.h"; sourceTree = "<group>"; };
+		AC8D75391CFB2FA00023B619 /* UIViewController+MemoryLeak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MemoryLeak.m"; sourceTree = "<group>"; };
+		AC8D753A1CFB2FA00023B619 /* MLeaksFinder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = MLeaksFinder.xcodeproj; sourceTree = "<group>"; };
+		AC8D753D1CFB2FA00023B619 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		AC90F5681CCFA4E7004C4C55 /* NetworkFetcher+Home.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+Home.h"; sourceTree = "<group>"; };
 		AC90F5691CCFA4E7004C4C55 /* NetworkFetcher+Home.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+Home.m"; sourceTree = "<group>"; };
 		AC90F56F1CCFAADF004C4C55 /* Picture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picture.h; sourceTree = "<group>"; };
@@ -2000,6 +2034,46 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		AC8D75291CFB2FA00023B619 /* MLeaksFinder */ = {
+			isa = PBXGroup;
+			children = (
+				AC8D752A1CFB2FA00023B619 /* MLeaksFinder */,
+				AC8D753A1CFB2FA00023B619 /* MLeaksFinder.xcodeproj */,
+				AC8D753D1CFB2FA00023B619 /* README.md */,
+			);
+			path = MLeaksFinder;
+			sourceTree = "<group>";
+		};
+		AC8D752A1CFB2FA00023B619 /* MLeaksFinder */ = {
+			isa = PBXGroup;
+			children = (
+				AC8D752B1CFB2FA00023B619 /* MLeaksFinder.h */,
+				AC8D752C1CFB2FA00023B619 /* NSObject+MemoryLeak.h */,
+				AC8D752D1CFB2FA00023B619 /* NSObject+MemoryLeak.m */,
+				AC8D752E1CFB2FA00023B619 /* UINavigationController+MemoryLeak.h */,
+				AC8D752F1CFB2FA00023B619 /* UINavigationController+MemoryLeak.m */,
+				AC8D75301CFB2FA00023B619 /* UIPageViewController+MemoryLeak.h */,
+				AC8D75311CFB2FA00023B619 /* UIPageViewController+MemoryLeak.m */,
+				AC8D75321CFB2FA00023B619 /* UISplitViewController+MemoryLeak.h */,
+				AC8D75331CFB2FA00023B619 /* UISplitViewController+MemoryLeak.m */,
+				AC8D75341CFB2FA00023B619 /* UITabBarController+MemoryLeak.h */,
+				AC8D75351CFB2FA00023B619 /* UITabBarController+MemoryLeak.m */,
+				AC8D75361CFB2FA00023B619 /* UIView+MemoryLeak.h */,
+				AC8D75371CFB2FA00023B619 /* UIView+MemoryLeak.m */,
+				AC8D75381CFB2FA00023B619 /* UIViewController+MemoryLeak.h */,
+				AC8D75391CFB2FA00023B619 /* UIViewController+MemoryLeak.m */,
+			);
+			path = MLeaksFinder;
+			sourceTree = "<group>";
+		};
+		AC8D753B1CFB2FA00023B619 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC8D75481CFB2FA00023B619 /* libMLeaksFinder.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		AC90F56D1CCFAABE004C4C55 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -2154,6 +2228,7 @@
 		ACF83EA21CBF97F800A962BD = {
 			isa = PBXGroup;
 			children = (
+				AC8D75291CFB2FA00023B619 /* MLeaksFinder */,
 				ACFF337A1CF9871B008BD0D8 /* HCSStarRatingView */,
 				ACF83EAD1CBF97F800A962BD /* Venus */,
 				ACF83EAC1CBF97F800A962BD /* Products */,
@@ -2629,6 +2704,7 @@
 				ACFF32B11CF87106008BD0D8 /* RefundCodeCell.xib */,
 				ACFF32B21CF87106008BD0D8 /* RefundCodeCell.m */,
 				ACFF32B31CF87106008BD0D8 /* RefundCodeCell.h */,
+				AC8D75261CFB2B690023B619 /* refund.storyboard */,
 			);
 			name = detailCoupon;
 			sourceTree = "<group>";
@@ -2825,6 +2901,7 @@
 				TargetAttributes = {
 					ACF83EAA1CBF97F800A962BD = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = BSR7J239R5;
 					};
 				};
 			};
@@ -2844,6 +2921,10 @@
 					ProductGroup = ACFF33831CF9871B008BD0D8 /* Products */;
 					ProjectRef = ACFF33821CF9871B008BD0D8 /* HCSStarRatingView.xcodeproj */;
 				},
+				{
+					ProductGroup = AC8D753B1CFB2FA00023B619 /* Products */;
+					ProjectRef = AC8D753A1CFB2FA00023B619 /* MLeaksFinder.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -2853,6 +2934,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		AC8D75481CFB2FA00023B619 /* libMLeaksFinder.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMLeaksFinder.a;
+			remoteRef = AC8D75471CFB2FA00023B619 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		ACFF338B1CF9871B008BD0D8 /* HCSStarRatingView.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -2871,6 +2959,7 @@
 				ACFF32E81CF8711E008BD0D8 /* CouponRefundViewController.xib in Resources */,
 				ACFF33881CF9871B008BD0D8 /* Info.plist in Resources */,
 				AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				AC8D75271CFB2B690023B619 /* refund.storyboard in Resources */,
 				ACFF32FC1CF87125008BD0D8 /* CouponCommentViewController.xib in Resources */,
 				7F7025691CF57FE0009653A6 /* FoodBillCell.xib in Resources */,
 				7F70256E1CF58EA4009653A6 /* FoodShippingFeeCell.xib in Resources */,
@@ -3085,6 +3174,7 @@
 				E8DDDED21CF5DD7F000F147B /* FoodOrderMarkViewController.m in Sources */,
 				AC545FA21CEDAE7400133F25 /* CommitOrderViewModel.m in Sources */,
 				30D018101CE6DA6700E50B23 /* FoodDetail.m in Sources */,
+				AC8D753F1CFB2FA00023B619 /* UINavigationController+MemoryLeak.m in Sources */,
 				30B509F21CF2D27C00A2C30A /* DistancePickerView.m in Sources */,
 				AC2E04331CEAEEC400476087 /* CouponCommentModel.m in Sources */,
 				30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */,
@@ -3166,6 +3256,7 @@
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
 				ACCDCB8C1CF9D4B300FAD161 /* BrandViewController.m in Sources */,
 				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
+				AC8D75431CFB2FA00023B619 /* UIView+MemoryLeak.m in Sources */,
 				ACFF32BD1CF87106008BD0D8 /* RefundCodeCell.m in Sources */,
 				ACFF32ED1CF8711E008BD0D8 /* CouponPayTableViewCell.m in Sources */,
 				ACCDCB8F1CF9DBB900FAD161 /* SearchResultTableViewCell.m in Sources */,
@@ -3197,6 +3288,7 @@
 				3086D3A51CC729A9007494D7 /* WXTextField.m in Sources */,
 				E89BD32D1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m in Sources */,
 				ACFF333D1CF92E8E008BD0D8 /* UIPlaceHolderTextView.m in Sources */,
+				AC8D75421CFB2FA00023B619 /* UITabBarController+MemoryLeak.m in Sources */,
 				3086D3B41CC72A09007494D7 /* GMButton.m in Sources */,
 				ACFF328A1CF86F8B008BD0D8 /* RSADataVerifier.m in Sources */,
 				30B601CA1CD07C54003ED671 /* ShopCycleCell.m in Sources */,
@@ -3246,11 +3338,13 @@
 				ACFF33111CF87259008BD0D8 /* CommitOrderViewController.m in Sources */,
 				3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */,
 				AC4D73FD1CF1E48E00DF4997 /* MoreCollectionViewCell.m in Sources */,
+				AC8D753E1CFB2FA00023B619 /* NSObject+MemoryLeak.m in Sources */,
 				AC7B3ADC1CDF2D7F0039C2A5 /* LoginViewModel.m in Sources */,
 				AC6A4EE01CEA06D5000DD815 /* CouponDetailViewModel.m in Sources */,
 				ACFF31B91CF86ECF008BD0D8 /* Order.m in Sources */,
 				30FEE6FA1CFA70C8007E7A8B /* MeCouponCommit.m in Sources */,
 				ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */,
+				AC8D75451CFB2FA00023B619 /* README.md in Sources */,
 				30FD1F9E1CE2C0B8003C91A5 /* MapFloorCell.m in Sources */,
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				7F7025791CF68D41009653A6 /* FoodAddressManager.m in Sources */,
@@ -3267,13 +3361,16 @@
 				AC2E043C1CEB462F00476087 /* CouponCaseCell.m in Sources */,
 				7F9370B91CF983EA0063F544 /* GMMeTakeAwayViewController.m in Sources */,
 				AC4D741A1CF2F97800DF4997 /* PersonalCouponViewController.m in Sources */,
+				AC8D75441CFB2FA00023B619 /* UIViewController+MemoryLeak.m in Sources */,
 				7F7025641CF2C814009653A6 /* FoodOrderViewBaseItem.m in Sources */,
 				30D0180D1CE6158400E50B23 /* BeautifulFood.m in Sources */,
+				AC8D75411CFB2FA00023B619 /* UISplitViewController+MemoryLeak.m in Sources */,
 				3086D3B61CC72A09007494D7 /* GMXTextField.m in Sources */,
 				AC90F5A81CD1EB12004C4C55 /* FoodManager.m in Sources */,
 				303519611CCF348F00EE0750 /* TicketCountCell.m in Sources */,
 				ACFF32E71CF8711E008BD0D8 /* CouponUseViewController.m in Sources */,
 				AC90F5751CCFABE1004C4C55 /* PictureManager.m in Sources */,
+				AC8D75401CFB2FA00023B619 /* UIPageViewController+MemoryLeak.m in Sources */,
 				ACE0668F1CDB741C0000D335 /* Comment.m in Sources */,
 				ACFF329B1CF870A7008BD0D8 /* CouponUseViewModel.m in Sources */,
 				30D6D27F1CC87AF500FB0CFC /* FoodCell.m in Sources */,
@@ -3427,6 +3524,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3481,8 +3579,9 @@
 					"\"SystemConfiguration\"",
 					"-fobjc-arc",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3493,6 +3592,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3546,8 +3646,9 @@
 					"\"SystemConfiguration\"",
 					"-fobjc-arc",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

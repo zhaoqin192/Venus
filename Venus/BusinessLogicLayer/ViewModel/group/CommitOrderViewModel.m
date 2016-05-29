@@ -24,7 +24,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.countNumber = 0;
+        self.countNumber = 1;
         self.countObject = [RACSubject subject];
         self.countSignal = RACObserve(self, self.countNumber);
         self.orderSuccessObject = [RACSubject subject];
@@ -47,6 +47,7 @@
 
 - (void)initPrice:(NSNumber *)price {
     self.price = [price integerValue];
+    self.totalPrice = self.countNumber * self.price;
 }
 
 - (void)addCount {

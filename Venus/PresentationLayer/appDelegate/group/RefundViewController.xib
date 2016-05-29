@@ -7,8 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RefundViewController">
             <connections>
-                <outlet property="commitButton" destination="lMc-gD-q9U" id="VzR-TC-iAT"/>
-                <outlet property="tableView" destination="Axh-ny-OsY" id="7aH-eu-eKc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,10 +34,6 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Axh-ny-OsY">
                     <rect key="frame" x="0.0" y="64" width="375" height="558"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="cCJ-eC-xwF"/>
-                        <outlet property="delegate" destination="-1" id="0rF-mU-HaU"/>
-                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
