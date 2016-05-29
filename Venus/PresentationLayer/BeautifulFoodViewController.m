@@ -35,17 +35,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor redColor];
-    [self configureMenu];
     [self configureTableView];
+    [self configureMenu];
     self.navigationItem.title = @"美食";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"搜索"] style:UIBarButtonItemStyleDone handler:^(id sender) {
         NSLog(@"搜索");
     }];
-    if (self.isLifeCycle) {
-        self.topConstraint.constant = 64;
-    }
     self.order = @(0);
     [self loadData];
     [self loadCategory];
@@ -132,15 +128,21 @@
     
     _data1 = [NSMutableArray arrayWithObjects:@"分类", @"离我最近", @"评价最高", @"最新发布", @"人气最高", @"价格最低", @"价格最高", nil];
     _data2 = [NSMutableArray arrayWithObjects:@"筛选", @"团购", @"外卖", @"活动", nil];
+    JSDropDownMenu *menu = nil;
+    if (self.isLifeCycle) {
+        menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 64) andHeight:45];
+    }
+    else {
+        menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:45];
+    }
     
-    JSDropDownMenu *menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:45];
     menu.indicatorColor = [UIColor colorWithRed:175.0f/255.0f green:175.0f/255.0f blue:175.0f/255.0f alpha:1.0];
     menu.separatorColor = [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0];
     menu.textColor = [UIColor colorWithRed:83.f/255.0f green:83.f/255.0f blue:83.f/255.0f alpha:1.0f];
     menu.dataSource = self;
     menu.delegate = self;
     
-    [self.contentView addSubview:menu];
+    [self.view addSubview:menu];
 }
 
 #pragma mark <TableDelegate>
