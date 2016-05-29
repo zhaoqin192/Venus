@@ -244,12 +244,6 @@ static const BOOL LOGDEBUG = YES;
     
 }
 
-+ (NSString*)urlEncodedString:(NSString *)string {
-    NSString * encodedString = (__bridge_transfer  NSString*) CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)string, NULL, (__bridge CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 );
-    
-    return encodedString;
-}
-
 + (void)groupSendCommentWithOrderID:(NSString *)orderID
                             storeID:(NSString *)storeID
                            couponID:(NSString *)couponID

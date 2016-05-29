@@ -50,7 +50,8 @@
             [MallBrandModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
                             @"identifier": @"id",
-                            @"pictureURL": @"pic"
+                            @"pictureURL": @"pic",
+                            @"detailURL": @"murl"
                          };
             }];
             

@@ -1,26 +1,26 @@
 //
-//  KindDetailViewController.m
+//  BrandViewController.m
 //  Venus
 //
-//  Created by zhaoqin on 5/23/16.
+//  Created by zhaoqin on 5/28/16.
 //  Copyright © 2016 Neotel. All rights reserved.
 //
 
-#import "KindDetailViewController.h"
-#import "MerchandiseModel.h"
+#import "BrandViewController.h"
+#import "MallBrandModel.h"
 
-@interface KindDetailViewController ()
+@interface BrandViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
-@implementation KindDetailViewController
+@implementation BrandViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.merchandiseModel.detailURL]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.brandModel.detailURL]]];
     
     [self.webView loadRequest:request];
     
@@ -35,6 +35,7 @@
     [super viewWillDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

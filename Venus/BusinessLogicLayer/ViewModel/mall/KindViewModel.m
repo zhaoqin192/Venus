@@ -44,7 +44,8 @@
             [MerchandiseModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
                          @"identifier": @"brandID",
-                         @"pictureURL": @"picUrl"
+                         @"pictureURL": @"picUrl",
+                         @"detailURL": @"url"
                         };
             }];
             
@@ -77,7 +78,8 @@
             [MerchandiseModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
                          @"identifier": @"brandID",
-                         @"pictureURL": @"picUrl"
+                         @"pictureURL": @"picUrl",
+                         @"detailURL": @"url"
                          };
             }];
             

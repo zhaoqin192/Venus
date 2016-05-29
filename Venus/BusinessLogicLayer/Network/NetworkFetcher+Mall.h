@@ -36,4 +36,15 @@
                                success:(NetworkFetcherSuccessHandler)success
                                failure:(NetworkFetcherErrorHandler)failure;
 
+/**
+ *  商城首页搜索框搜索匹配接口
+ *
+ *  @param keywords
+ *  @param success
+ *  @param failure
+ */
++ (void)mallSearchWithKeywords:(NSString *)keywords
+                       success:(NetworkFetcherSuccessHandler)success
+                       failure:(NetworkFetcherErrorHandler)failure;
+
 @end

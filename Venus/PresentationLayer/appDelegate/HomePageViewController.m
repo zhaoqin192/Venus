@@ -35,8 +35,10 @@
 #import "RDVTabBarController.h"
 #import "MallViewController.h"
 #import "HomeViewModel.h"
+#import "SearchHomeViewController.h"
+#import "SearchHomeViewModel.h"
 
-@interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate>
+@interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -51,6 +53,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *QCodeButton;
 @property (strong, nonatomic) QRCodeReaderViewController *reader;
 @property (nonatomic, strong) HomeViewModel *viewModel;
+@property (nonatomic, strong) UISearchController *searchController;
 
 @end
 
@@ -64,16 +67,11 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    Account *account = [[[DatabaseManager sharedInstance] accountDao] fetchAccount];
-//    if(account.token == nil){
-//        self.view.hidden = YES;
-//    }
-    
     self.titleView.backgroundColor = GMRedColor;
     [self configureTableView];
     
     [self netWorkRequest];
-//    self.hidesBottomBarWhenPushed = YES;
+
     self.navigationController.navigationBar.barTintColor = GMRedColor;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = GMBrownColor;
@@ -102,6 +100,30 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     
     [self bindViewModel];
     
+    // There's no transition in our storyboard to our search results tableview or navigation controller
+    // so we'll have to grab it using the instantiateViewControllerWithIdentifier: method
+    UINavigationController *searchResultsController = [[self storyboard] instantiateViewControllerWithIdentifier:@"TableSearchResultsNavController"];
+    
+    // Our instance of UISearchController will use searchResults
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsController];
+    
+    // The searchcontroller's searchResultsUpdater property will contain our tableView.
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.delegate = self;
+    
+    // The searchBar contained in XCode's storyboard is a leftover from UISearchDisplayController.
+    // Don't use this. Instead, we'll create the searchBar programatically.
+    self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x,
+                                                       self.searchController.searchBar.frame.origin.y,
+                                                       self.searchController.searchBar.frame.size.width, 44.0);
+ 
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    
+}
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar*)searchBar {
+    NSLog(@"search");
+    return YES;
 }
 
 - (void)bindViewModel {
@@ -143,10 +165,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
 }
-
-//- (UIStatusBarStyle)preferredStatusBarStyle {
-//    return UIStatusBarStyleLightContent;
-//}
 
 - (void)netWorkRequest {
     
@@ -387,17 +405,50 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 }
 
 #pragma mark - QRCodeReader Delegate Methods
-
-- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
-{
+- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result {
     [self dismissViewControllerAnimated:YES completion:^{
         NSLog(@"%@",result);
     }];
 }
 
-- (void)readerDidCancel:(QRCodeReaderViewController *)reader
-{
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
+#pragma mark - UISearchControllerDelegate & UISearchResultsDelegate
+
+// Called when the search bar becomes first responder
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
+{
+    
+    // Set searchString equal to what's typed into the searchbar
+    NSString *searchString = self.searchController.searchBar.text;
+    
+    // If searchResultsController
+    if (self.searchController.searchResultsController) {
+        
+        UINavigationController *navController = (UINavigationController *)self.searchController.searchResultsController;
+        
+        // Present SearchResultsTableViewController as the topViewController
+        SearchHomeViewController *searchHomeVC = (SearchHomeViewController *)navController.topViewController;
+        
+        if (searchString.length > 0) {
+            [searchHomeVC.viewModel searchWithKeywords:searchString];
+        }
+        
+    }
+}
+
+- (void)willPresentSearchController:(UISearchController *)searchController {
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    
+    
+}
+
+- (void)willDismissSearchController:(UISearchController *)searchController {
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+}
+
+
 
 @end

@@ -18,6 +18,8 @@
 #import "KindViewController.h"
 #import "MallKindModel.h"
 #import "MBProgressHUD.h"
+#import "BrandViewController.h"
+
 
 @interface MallViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
@@ -65,6 +67,7 @@
     [self.viewModel.categorySuccessObject subscribeNext:^(id x) {
         @strongify(self)
         [self.categoryTableView reloadData];
+        [self.contentTableView reloadData];
         NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
         [self.categoryTableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionBottom];
         self.viewModel.categoryModel = [self.viewModel.categoryArray objectAtIndex:0];
@@ -89,6 +92,19 @@
         kindVC.kindModel = userInfo[@"kindModel"];
         @strongify(self)
         [self.navigationController pushViewController:kindVC animated:YES];
+        
+    }];
+    
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showBrandView" object:nil]
+    takeUntil:[self rac_willDeallocSignal]]
+    subscribeNext:^(NSNotification *notification) {
+        
+        UIStoryboard *kind = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
+        BrandViewController *brandVC = (BrandViewController *)[kind instantiateViewControllerWithIdentifier:@"brand"];
+        NSDictionary *userInfo = notification.userInfo;
+        brandVC.brandModel = userInfo[@"brandModel"];
+        @strongify(self)
+        [self.navigationController pushViewController:brandVC animated:YES];
         
     }];
 }
