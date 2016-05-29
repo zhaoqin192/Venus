@@ -16,6 +16,6 @@
 @property (assign, nonatomic) CGFloat shippingFee;
 @property (assign, nonatomic) CGFloat bargainFee;
 @property (assign, nonatomic) CGFloat totalPrice;
-
+@property (assign, nonatomic) NSInteger costTime;
 
 @end

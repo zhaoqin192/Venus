@@ -123,7 +123,6 @@
     self.commitView.frame = CGRectMake(0, kScreenHeight-48, kScreenWidth, 48);
     __weak typeof(self)weakSelf = self;
     self.commitView.sendButtonTapped = ^(NSString *text){
-        NSLog(@"hhaha");
         [SVProgressHUD show];
         [weakSelf sendCommit:text];
     };

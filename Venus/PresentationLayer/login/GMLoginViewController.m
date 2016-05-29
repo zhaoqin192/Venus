@@ -11,7 +11,7 @@
 #import "GMTextField.h"
 #import "MBProgressHUD.H"
 #import "LoginViewModel.h"
-
+#import "MeModifyPhoneNumberViewController.h"
 
 @interface GMLoginViewController ()<UITextFieldDelegate>
 
@@ -22,6 +22,7 @@
 @property (nonatomic, strong) WXTextField *passwordView;
 @property (nonatomic, strong) WXTextField *phoneView;
 @property (nonatomic, strong) LoginViewModel *viewModel;
+@property (weak, nonatomic) IBOutlet GMButton *forgetPasswordButton;
 
 @end
 
@@ -129,6 +130,13 @@
          GMRegisterViewController *vc = [[GMRegisterViewController alloc] init];
          [self presentViewController:vc animated:YES completion:nil];
      }];
+    
+    [self.forgetPasswordButton bk_whenTapped:^{
+        MeModifyPhoneNumberViewController *vc = [[MeModifyPhoneNumberViewController alloc] init];
+        vc.isForget = YES;
+        [self presentViewController:vc animated:YES completion:nil];
+       // [self.navigationController pushViewController:vc animated:YES];
+    }];
     
 }
 

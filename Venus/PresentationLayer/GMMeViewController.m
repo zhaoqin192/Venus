@@ -16,6 +16,7 @@
 #import "GMLoginViewController.h"
 #import "GMMeShowIconViewController.h"
 #import "GMMeCommitViewController.h"
+#import "GMMeTakeAwayViewController.h"
 #import "PersonalCouponViewController.h"
 
 @interface GMMeViewController () <UITableViewDelegate,UITableViewDataSource>
@@ -150,6 +151,7 @@
         }
         case 1:{
             GMMeOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([GMMeOrderCell class])];
+            [cell.takeawayButton addTarget:self action:@selector(takeawayButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
             return cell;
             break;
         }
@@ -241,6 +243,10 @@
     return view;
 }
 
-
+- (void)takeawayButtonClicked:(id)sender {
+    NSLog(@"跳转外卖");
+    GMMeTakeAwayViewController *vc = [[GMMeTakeAwayViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

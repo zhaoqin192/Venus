@@ -10,4 +10,6 @@
 
 @interface GMMeOrderCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIButton *takeawayButton;
+
 @end

@@ -23,9 +23,11 @@
     NSInteger _currentData2Index;
     NSInteger _currentData3Index;
 }
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, copy) NSArray *foodArray;
 @property (nonatomic, copy) NSArray *categoryArray;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (nonatomic, strong) NSNumber *order;
 @end
 
@@ -33,12 +35,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.view.backgroundColor = [UIColor redColor];
     [self configureMenu];
     [self configureTableView];
     self.navigationItem.title = @"美食";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"搜索"] style:UIBarButtonItemStyleDone handler:^(id sender) {
         NSLog(@"搜索");
     }];
+    if (self.isLifeCycle) {
+        self.topConstraint.constant = 64;
+    }
     self.order = @(0);
     [self loadData];
     [self loadCategory];
@@ -133,7 +140,7 @@
     menu.dataSource = self;
     menu.delegate = self;
     
-    [self.view addSubview:menu];
+    [self.contentView addSubview:menu];
 }
 
 #pragma mark <TableDelegate>

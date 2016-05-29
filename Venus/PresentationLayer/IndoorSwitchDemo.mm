@@ -53,10 +53,10 @@ BMKUserLocation* userLoc;
     [_mapView setCompassPosition:pt];
     
     CLLocationCoordinate2D coor;
-    coor.longitude = 116.648965;
-    coor.latitude = 39.912109;
+    coor.longitude = 116.465249;
+    coor.latitude = 39.918066;
     [_mapView setCenterCoordinate:coor];
-    [_mapView setZoomLevel:18];
+    [_mapView setZoomLevel:22];
     
     _baseIndoorMapInfo= [[BMKBaseIndoorMapInfo alloc]init];
     _floorTableView = [[UITableView alloc] initWithFrame:CGRectMake(30, [UIScreen mainScreen].bounds.size.height - 180 - 90 , 60, 180)];
