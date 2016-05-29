@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CategoryCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 
 @end
