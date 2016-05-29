@@ -60,6 +60,7 @@ static const BOOL LOGDEBUG = NO;
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/order/setAddress"]];
     NSDictionary *parameters = @{@"name":foodAddress.linkmanName, @"address":foodAddress.address, @"phone":foodAddress.phoneNumber};
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

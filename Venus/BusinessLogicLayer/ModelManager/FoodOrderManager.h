@@ -1,0 +1,23 @@
+//
+//  FoodOrderManager.h
+//  Venus
+//
+//  Created by EdwinZhou on 16/5/29.
+//  Copyright © 2016年 Neotel. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+typedef void(^FoodOrderManagerUpdateSucceedHandler)();
+typedef void(^FoodOrderManagerUpdateFailedHandler)(NSString *error);
+
+@interface FoodOrderManager : NSObject
+
+@property (copy, nonatomic) NSMutableArray *orderArray;
+
++ (FoodOrderManager *)sharedInstance;
+
+- (void)updateOrderSucceed:(FoodOrderManagerUpdateSucceedHandler)succeedHandler
+                    failed:(FoodOrderManagerUpdateFailedHandler)failedHander;
+
+@end
