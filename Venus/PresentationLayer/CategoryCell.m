@@ -8,7 +8,7 @@
 
 #import "CategoryCell.h"
 @interface CategoryCell ()
-@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+
 @end
 
 @implementation CategoryCell
@@ -16,7 +16,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.contentLabel.layer.borderWidth = 1;
-    self.contentLabel.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.contentLabel.layer.borderColor = [UIColor colorWithHexString:@"f0f0f0"].CGColor;
     self.contentLabel.font = [UIFont systemFontOfSize:12];
 }
 

@@ -9,10 +9,13 @@
 #import "WXCategoryViewController.h"
 #import "CategoryCell.h"
 #import "ReusableView.h"
+#import "BeautyCategory.h"
 
 @interface WXCategoryViewController ()
 <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (strong, nonatomic) UICollectionView *myCollectionView;
+@property (nonatomic, copy) NSArray *shopArray;
+@property (nonatomic, copy) NSArray *foodArray;
 @end
 
 @implementation WXCategoryViewController
@@ -24,8 +27,12 @@ static NSString *footerID = @"footerID";
     [super viewDidLoad];
     self.navigationItem.title = @"全部分类";
     self.view.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
-    [self configureNavigationBar];
     [self configureCollectionView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self loadShopData];
 }
 
 - (void)configureCollectionView {
@@ -42,11 +49,39 @@ static NSString *footerID = @"footerID";
     [self.view addSubview:self.myCollectionView];
 }
 
-- (void)configureNavigationBar {
-    self.navigationController.navigationBar.barTintColor = GMRedColor;
-    self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.tintColor = GMBrownColor;
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:GMBrownColor};
+- (void)loadShopData {
+    [SVProgressHUD show];
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/mallcategory/getFirstClass"]];
+    NSDictionary *parameters = nil;
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.shopArray = [BeautyCategory mj_objectArrayWithKeyValuesArray:responseObject[@"cat"]];
+        [self loadFoodData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"confirm code %@", error);
+    }];
+}
+
+- (void)loadFoodData {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/getSecondCat?id=10000"]];
+    NSDictionary *parameters = nil;
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (![responseObject[@"errCode"] isEqual: @(0)]) {
+            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
+            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            return ;
+        }
+        self.foodArray = [BeautyCategory mj_objectArrayWithKeyValuesArray:responseObject[@"cat"]];
+        [self.myCollectionView reloadData];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"confirm code %@", error);
+    }];
+}
+
+- (void)dismiss {
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -59,10 +94,10 @@ static NSString *footerID = @"footerID";
      numberOfItemsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 8;
+        return self.shopArray.count;
     }
     else {
-        return 4;
+        return self.foodArray.count;
     }
 }
 
@@ -71,6 +106,14 @@ static NSString *footerID = @"footerID";
 {
     CategoryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([CategoryCell class]) forIndexPath:indexPath];
     cell.contentView.backgroundColor = [UIColor whiteColor];
+    if (indexPath.section == 0) {
+        BeautyCategory *cat =self.shopArray[indexPath.row];
+        cell.contentLabel.text = cat.name;
+    }
+    else {
+        BeautyCategory *cat =self.foodArray[indexPath.row];
+        cell.contentLabel.text = cat.name;
+    }
     return cell;
 }
 
@@ -92,7 +135,7 @@ static NSString *footerID = @"footerID";
     
     ReusableView *header = [collectionView  dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerID forIndexPath:indexPath];
     header.backgroundColor = [UIColor whiteColor];
-    header.text = indexPath.section == 0 ? @"美食" : @"购物";
+    header.text = indexPath.section == 0 ? @"购物" : @"美食";
     return header;
 }
 
