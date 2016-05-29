@@ -21,6 +21,16 @@
 #import "FoodShowAddressCell.h"
 #import "FoodAddressSelectionViewController.h"
 #import "Restaurant.h"
+#import "FoodOrder.h"
+#import "FoodAddress.h"
+#import "DatabaseManager.h"
+#import "AccountDao.h"
+#import "NetworkFetcher+FoodOrder.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "Order.h"
+#import "NSString+Expand.h"
+#import "PaymentSuccessViewController.h"
+#import "GMMeTakeAwayViewController.h"
 
 @interface FoodSubmitOrderViewController () <UITableViewDelegate, UITableViewDataSource, FoodAddressSelectionViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -47,12 +57,22 @@
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self hideSelf];
     [self getDeliveryTime];
-    [NetworkFetcher foodFetcherUserFoodAddresWithRestaurantID:self.restaurantID success:^{
-        [self.hud hide:YES];
-        [self showSelf];
-    } failure:^(NSString *error) {
-        NSLog(@"错误是：%@",error);
-    }];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(paySucceed:) name:@"PaySuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payFailed:) name:@"PayFailure" object:nil];
+    // 做登录检测
+    DatabaseManager *manager = [DatabaseManager sharedInstance];
+    if ([manager.accountDao isLogin]) {
+        [NetworkFetcher foodFetcherUserFoodAddresWithRestaurantID:self.restaurantID success:^{
+            [self.hud hide:YES];
+            [self showSelf];
+        } failure:^(NSString *error) {
+            NSLog(@"错误是：%@",error);
+        }];
+    } else {
+        [PresentationUtility showTextDialog:self.view text:@"请先登录" success:^{
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,6 +89,10 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     self.navigationController.navigationBar.translucent = YES;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UITableViewDataSource
@@ -310,7 +334,105 @@
     return [NSString stringWithFormat:@"(预计%@送达)",deliveryTime];
 }
 
+- (NSTimeInterval)getDeliveryTimeSince1970 {
+    NSDate *date = [NSDate date];
+    NSInteger interval = _costTime * 60;
+    NSDate *localDate = [date  dateByAddingTimeInterval:interval];
+    return [localDate timeIntervalSince1970] * 1000;
+}
+
+- (void)prepayWithOrderID:(long)orderID {
+    [NetworkFetcher foodAlipayWithOrderID:orderID success:^(NSDictionary *response){
+        // 调起支付宝
+        if ([response[@"errCode"] isEqualToNumber:@0]) {
+            
+            NSDictionary *data = response[@"data"];
+            NSString *privateKey = data[@"sign"];
+            
+            //生成订单信息及签名
+            Order *order = [[Order alloc] init];
+            order.partner = data[@"partner"];
+            order.sellerID = data[@"seller_id"];
+            order.outTradeNO = data[@"out_trade_no"];
+            order.service = data[@"service"];
+            order.inputCharset = data[@"_input_charset"];
+            order.notifyURL = data[@"notify_url"];
+            order.subject = data[@"subject"];
+            order.paymentType = data[@"payment_type"];
+            order.body = data[@"body"];
+            order.totalFee = data[@"total_fee"];
+            
+            NSString *appScheme = @"alipay2088411898385492";
+            //将商品信息拼接成字符串
+            NSString *orderSpec = [order description];
+            
+            //将签名成功字符串格式化为订单字符串,请严格按照该格式
+            NSString *orderString = nil;
+            
+            
+            NSString *urlencoding = [NSString urlEncodedString:privateKey];
+            
+            orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",
+                           orderSpec, urlencoding, @"RSA"];
+            
+            
+            [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+                NSLog(@"reslut = %@",resultDic);
+            }];
+        } else {
+            NSLog(@"下单失败");
+        }
+    } failure:^(NSString *error){
+        NSLog(@"网络请求异常");
+    }];
+}
+
+- (void)paySucceed:(id)sender {
+    GMMeTakeAwayViewController *vc = [[GMMeTakeAwayViewController alloc] init];
+    [PresentationUtility showTextDialog:self.view text:@"支付成功" success:^{
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+}
+
+- (void)payFailed:(id)sender {
+    GMMeTakeAwayViewController *vc = [[GMMeTakeAwayViewController alloc] init];
+    [PresentationUtility showTextDialog:self.view text:@"支付失败" success:^{
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+}
+
 #pragma mark - event response
+- (IBAction)confirmOrderButtonClicked:(id)sender {
+
+    if (self.foodAddressManager.foodAddressArray.count == 0) {
+        [PresentationUtility showTextDialog:self.view text:@"请先填写地址" success:nil];
+    } else {
+        FoodOrder *order = [[FoodOrder alloc] init];
+        order.storeID = self.restaurantID;
+        FoodAddress *selectedAddress = (FoodAddress *)self.foodAddressManager.foodAddressArray[self.addressSelectionIndex];
+        order.recipient = selectedAddress.linkmanName;
+        order.phoneNumber = selectedAddress.phoneNumber;
+        order.address = selectedAddress.address;
+        order.remark = @"";
+        order.payStatus = AliPay;
+        order.arriveTime = (long)[self getDeliveryTimeSince1970];
+        order.foodDetail = [[NSMutableDictionary alloc] init];
+        NSLog(@"点单数%lu",(unsigned long)self.foodArray.count);
+        for (FoodOrderViewBaseItem *item in self.foodArray) {
+            [order.foodDetail setObject:@(item.orderCount) forKey:item.identifier];
+        }
+        NSLog(@"时间是%li",order.arriveTime);
+        NSLog(@"点单情况是%@",order.foodDetail);
+        [NetworkFetcher foodCreateOrder:order success:^(NSDictionary *response) {
+            NSLog(@"返回orderID是%@",response[@"orderId"]);
+            [self prepayWithOrderID:[(NSString *)response[@"orderId"] longValue]];
+        } failure:^(NSString *error) {
+            NSLog(@"error");
+        }];
+    }
+    
+    
+}
 
 #pragma mark - getters and setters
 

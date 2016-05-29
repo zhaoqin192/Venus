@@ -188,6 +188,9 @@
 		7F9370BF1CF98EA50063F544 /* GMMeTakeAwayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370BD1CF98EA50063F544 /* GMMeTakeAwayCell.m */; };
 		7F9370C01CF98EA50063F544 /* GMMeTakeAwayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370BE1CF98EA50063F544 /* GMMeTakeAwayCell.xib */; };
 		7F9370C41CF99EF10063F544 /* NetworkFetcher+FoodOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370C31CF99EF10063F544 /* NetworkFetcher+FoodOrder.m */; };
+		7F9370C91CFADB750063F544 /* FoodPaymentDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370C71CFADB750063F544 /* FoodPaymentDoneViewController.m */; };
+		7F9370CA1CFADB750063F544 /* FoodPaymentDoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370C81CFADB750063F544 /* FoodPaymentDoneViewController.xib */; };
+		7F9370CE1CFAE8680063F544 /* FoodOrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370CD1CFAE8680063F544 /* FoodOrderManager.m */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -687,6 +690,11 @@
 		7F9370BE1CF98EA50063F544 /* GMMeTakeAwayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeTakeAwayCell.xib; sourceTree = "<group>"; };
 		7F9370C21CF99EF10063F544 /* NetworkFetcher+FoodOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+FoodOrder.h"; sourceTree = "<group>"; };
 		7F9370C31CF99EF10063F544 /* NetworkFetcher+FoodOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+FoodOrder.m"; sourceTree = "<group>"; };
+		7F9370C61CFADB750063F544 /* FoodPaymentDoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodPaymentDoneViewController.h; sourceTree = "<group>"; };
+		7F9370C71CFADB750063F544 /* FoodPaymentDoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodPaymentDoneViewController.m; sourceTree = "<group>"; };
+		7F9370C81CFADB750063F544 /* FoodPaymentDoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodPaymentDoneViewController.xib; sourceTree = "<group>"; };
+		7F9370CC1CFAE8680063F544 /* FoodOrderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodOrderManager.h; sourceTree = "<group>"; };
+		7F9370CD1CFAE8680063F544 /* FoodOrderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodOrderManager.m; sourceTree = "<group>"; };
 		9713C37508499AECCEDF39F3 /* Pods-Venus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.release.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -1651,6 +1659,9 @@
 				7F9370B11CF932E00063F544 /* FoodAddressEditViewController.h */,
 				7F9370B21CF932E00063F544 /* FoodAddressEditViewController.m */,
 				7F9370B31CF932E00063F544 /* FoodAddressEditViewController.xib */,
+				7F9370C61CFADB750063F544 /* FoodPaymentDoneViewController.h */,
+				7F9370C71CFADB750063F544 /* FoodPaymentDoneViewController.m */,
+				7F9370C81CFADB750063F544 /* FoodPaymentDoneViewController.xib */,
 			);
 			name = food;
 			sourceTree = "<group>";
@@ -2036,6 +2047,8 @@
 				ACE066921CDB75BF0000D335 /* CommentManager.m */,
 				7F7025771CF68D41009653A6 /* FoodAddressManager.h */,
 				7F7025781CF68D41009653A6 /* FoodAddressManager.m */,
+				7F9370CC1CFAE8680063F544 /* FoodOrderManager.h */,
+				7F9370CD1CFAE8680063F544 /* FoodOrderManager.m */,
 			);
 			path = ModelManager;
 			sourceTree = "<group>";
@@ -2869,6 +2882,7 @@
 				7F9370AB1CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib in Resources */,
 				3057B1F31CD998C3008172DD /* GMMeCell.xib in Resources */,
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
+				7F9370CA1CFADB750063F544 /* FoodPaymentDoneViewController.xib in Resources */,
 				30D018331CEAF05500E50B23 /* WXMapShopView.xib in Resources */,
 				ACFF33851CF9871B008BD0D8 /* demo.gif in Resources */,
 				ACFF33021CF87125008BD0D8 /* CouponCommentDetailHeadCell.xib in Resources */,
@@ -3060,6 +3074,7 @@
 				30D6D28E1CC89C7100FB0CFC /* FoodCommitViewController.m in Sources */,
 				30FEE6F21CF96698007E7A8B /* MeCommitCell.m in Sources */,
 				ACAC17471CD8DCEB00E04499 /* ResFoodClass.m in Sources */,
+				7F9370CE1CFAE8680063F544 /* FoodOrderManager.m in Sources */,
 				AC72CF2E1CEEA86C0077537E /* NetworkFetcher+Mall.m in Sources */,
 				ACFF32D01CF87114008BD0D8 /* OrderDetailViewController.m in Sources */,
 				3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */,
@@ -3170,6 +3185,7 @@
 				30B601CA1CD07C54003ED671 /* ShopCycleCell.m in Sources */,
 				AC987D401CE8AF9900E11CC5 /* NetworkFetcher+Group.m in Sources */,
 				7F9370A51CF6E4F10063F544 /* FoodShowAddressCell.m in Sources */,
+				7F9370C91CFADB750063F544 /* FoodPaymentDoneViewController.m in Sources */,
 				AC31AD961CF32F00006F0608 /* HomeViewModel.m in Sources */,
 				ACFF32A41CF870D7008BD0D8 /* CouponOrderModel.m in Sources */,
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,

@@ -9,6 +9,7 @@
 #import "GMMeTakeAwayViewController.h"
 #import "XFSegementView.h"
 #import "GMMeTakeAwayCell.h"
+#import "NetworkFetcher+FoodOrder.h"
 
 @interface GMMeTakeAwayViewController () <UITableViewDelegate, UITableViewDataSource, TouchLabelDelegate>
 
@@ -30,6 +31,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [NetworkFetcher foodFetcherUserFoodOrderOnPage:0 success:^(NSDictionary *response){
+        NSLog(@"获取成功");
+    } failure:^(NSString *error) {
+        NSLog(@"产生错误%@",error);
+    }];
     self.navigationItem.title = @"订单";
     [self.rdv_tabBarController setTabBarHidden:YES];
 }
