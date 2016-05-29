@@ -46,7 +46,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.automaticallyAdjustsScrollViewInsets = YES;
     self.navigationItem.title = @"外卖";
     if (self.isLifeCycle) {
         self.topConstraint.constant = 64;
@@ -60,6 +60,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+
     [self.rdv_tabBarController setTabBarHidden:YES];
 }
 

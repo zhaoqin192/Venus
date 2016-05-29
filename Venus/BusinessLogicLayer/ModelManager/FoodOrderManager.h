@@ -13,7 +13,7 @@ typedef void(^FoodOrderManagerUpdateFailedHandler)(NSString *error);
 
 @interface FoodOrderManager : NSObject
 
-@property (copy, nonatomic) NSMutableArray *orderArray;
+@property (strong, nonatomic) NSMutableArray *orderArray;
 
 + (FoodOrderManager *)sharedInstance;
 

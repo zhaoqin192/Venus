@@ -380,6 +380,9 @@
 		E8DDDEE01CF5F334000F147B /* FoodAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDDEDF1CF5F334000F147B /* FoodAddress.m */; };
 		E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047B01CDF84070032EE91 /* GMNavigationController.m */; };
 		E8F047BB1CF9F03300E08A40 /* FoodOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047BA1CF9F03300E08A40 /* FoodOrder.m */; };
+		E8F047C01CFB2C6B00E08A40 /* TakeAwayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047BF1CFB2C6B00E08A40 /* TakeAwayOrder.m */; };
+		E8F047C41CFB448000E08A40 /* TakeAwayOrderGood.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047C31CFB448000E08A40 /* TakeAwayOrderGood.m */; };
+		E8F047C71CFB44B100E08A40 /* TakeAwayOrderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047C61CFB44B100E08A40 /* TakeAwayOrderStore.m */; };
 		FCA1BB3CF4D5E0A9C7C66E75 /* libPods-Venus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB31E767E11D77284035771 /* libPods-Venus.a */; };
 /* End PBXBuildFile section */
 
@@ -1190,6 +1193,12 @@
 		E8F047B01CDF84070032EE91 /* GMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMNavigationController.m; sourceTree = "<group>"; };
 		E8F047B91CF9F03300E08A40 /* FoodOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodOrder.h; sourceTree = "<group>"; };
 		E8F047BA1CF9F03300E08A40 /* FoodOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodOrder.m; sourceTree = "<group>"; };
+		E8F047BE1CFB2C6B00E08A40 /* TakeAwayOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeAwayOrder.h; sourceTree = "<group>"; };
+		E8F047BF1CFB2C6B00E08A40 /* TakeAwayOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeAwayOrder.m; sourceTree = "<group>"; };
+		E8F047C21CFB448000E08A40 /* TakeAwayOrderGood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeAwayOrderGood.h; sourceTree = "<group>"; };
+		E8F047C31CFB448000E08A40 /* TakeAwayOrderGood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeAwayOrderGood.m; sourceTree = "<group>"; };
+		E8F047C51CFB44B100E08A40 /* TakeAwayOrderStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeAwayOrderStore.h; sourceTree = "<group>"; };
+		E8F047C61CFB44B100E08A40 /* TakeAwayOrderStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeAwayOrderStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1450,6 +1459,12 @@
 				E8DDDEDF1CF5F334000F147B /* FoodAddress.m */,
 				E8F047B91CF9F03300E08A40 /* FoodOrder.h */,
 				E8F047BA1CF9F03300E08A40 /* FoodOrder.m */,
+				E8F047BE1CFB2C6B00E08A40 /* TakeAwayOrder.h */,
+				E8F047BF1CFB2C6B00E08A40 /* TakeAwayOrder.m */,
+				E8F047C51CFB44B100E08A40 /* TakeAwayOrderStore.h */,
+				E8F047C61CFB44B100E08A40 /* TakeAwayOrderStore.m */,
+				E8F047C21CFB448000E08A40 /* TakeAwayOrderGood.h */,
+				E8F047C31CFB448000E08A40 /* TakeAwayOrderGood.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -3177,6 +3192,7 @@
 				AC987D3B1CE8A95E00E11CC5 /* GroupViewModel.m in Sources */,
 				ACCDCB7E1CF9925C00FAD161 /* SearchHomeViewController.m in Sources */,
 				AC2E043F1CEB493E00476087 /* CouponInformationCell.m in Sources */,
+				E8F047C41CFB448000E08A40 /* TakeAwayOrderGood.m in Sources */,
 				E8DDDED71CF5DF0D000F147B /* FoodOrderAddAddressViewController.m in Sources */,
 				ACB911F91CFAC78D00F9183E /* SearchResultViewModel.m in Sources */,
 				AC7B3AD91CDF2C7E0039C2A5 /* SignUpViewModel.m in Sources */,
@@ -3199,6 +3215,7 @@
 				ACFF333D1CF92E8E008BD0D8 /* UIPlaceHolderTextView.m in Sources */,
 				3086D3B41CC72A09007494D7 /* GMButton.m in Sources */,
 				ACFF328A1CF86F8B008BD0D8 /* RSADataVerifier.m in Sources */,
+				E8F047C71CFB44B100E08A40 /* TakeAwayOrderStore.m in Sources */,
 				30B601CA1CD07C54003ED671 /* ShopCycleCell.m in Sources */,
 				AC987D401CE8AF9900E11CC5 /* NetworkFetcher+Group.m in Sources */,
 				7F9370A51CF6E4F10063F544 /* FoodShowAddressCell.m in Sources */,
@@ -3254,6 +3271,7 @@
 				30FD1F9E1CE2C0B8003C91A5 /* MapFloorCell.m in Sources */,
 				3025A9991CCE40D800C5EAAB /* PackageCell.m in Sources */,
 				7F7025791CF68D41009653A6 /* FoodAddressManager.m in Sources */,
+				E8F047C01CFB2C6B00E08A40 /* TakeAwayOrder.m in Sources */,
 				3086D3D61CC72ABC007494D7 /* HomeCategoryCell.m in Sources */,
 				30B509D21CF2A79700A2C30A /* userIconCell.m in Sources */,
 				7F70256D1CF58EA4009653A6 /* FoodShippingFeeCell.m in Sources */,

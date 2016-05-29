@@ -8,6 +8,7 @@
 
 #import "FoodOrderManager.h"
 #import "NetworkFetcher+FoodOrder.h"
+#import "TakeAwayOrder.h"
 
 @implementation FoodOrderManager
 
@@ -26,7 +27,13 @@
         // 装填数据
         NSDictionary *dic = response;
         if ([dic[@"errCode"] isEqualToNumber:@0]) {
-            
+            [TakeAwayOrder mj_setupObjectClassInArray:^NSDictionary *{
+                return @{
+                         @"goodsDetail":@"TakeAwayOrderGood"
+                         };
+            }];
+            [TakeAwayOrder mj_objectWithKeyValues:dic];
+            NSLog(@"订单状态是");
             succeedHandler();
         } else {
             
