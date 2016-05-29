@@ -7,7 +7,6 @@
 //
 
 #import "BrandViewController.h"
-#import "MallBrandModel.h"
 
 @interface BrandViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -20,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.brandModel.detailURL]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.detailURL]]];
     
     [self.webView loadRequest:request];
     

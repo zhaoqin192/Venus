@@ -36,9 +36,8 @@
 #import "MallViewController.h"
 #import "HomeViewModel.h"
 #import "SearchHomeViewController.h"
-#import "SearchHomeViewModel.h"
 
-@interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
+@interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -54,6 +53,7 @@
 @property (strong, nonatomic) QRCodeReaderViewController *reader;
 @property (nonatomic, strong) HomeViewModel *viewModel;
 @property (nonatomic, strong) UISearchController *searchController;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -100,30 +100,18 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     
     [self bindViewModel];
     
-    // There's no transition in our storyboard to our search results tableview or navigation controller
-    // so we'll have to grab it using the instantiateViewControllerWithIdentifier: method
-    UINavigationController *searchResultsController = [[self storyboard] instantiateViewControllerWithIdentifier:@"TableSearchResultsNavController"];
-    
-    // Our instance of UISearchController will use searchResults
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsController];
-    
-    // The searchcontroller's searchResultsUpdater property will contain our tableView.
-    self.searchController.searchResultsUpdater = self;
-    self.searchController.delegate = self;
-    
-    // The searchBar contained in XCode's storyboard is a leftover from UISearchDisplayController.
-    // Don't use this. Instead, we'll create the searchBar programatically.
-    self.searchController.searchBar.frame = CGRectMake(self.searchController.searchBar.frame.origin.x,
-                                                       self.searchController.searchBar.frame.origin.y,
-                                                       self.searchController.searchBar.frame.size.width, 44.0);
- 
-    self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.searchBar.delegate = self;
     
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar*)searchBar {
-    NSLog(@"search");
-    return YES;
+    
+    UIStoryboard *group = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+    GroupViewController *vc = (GroupViewController *)[group instantiateViewControllerWithIdentifier:@"SearchHomeViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+    return NO;
 }
 
 - (void)bindViewModel {
@@ -144,6 +132,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     [self.viewModel login];
     
 }
+
 
 - (void)viewDidAppear:(BOOL)animated{
     if (self.view.isHidden) {
@@ -414,41 +403,5 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 - (void)readerDidCancel:(QRCodeReaderViewController *)reader {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
-
-#pragma mark - UISearchControllerDelegate & UISearchResultsDelegate
-
-// Called when the search bar becomes first responder
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
-{
-    
-    // Set searchString equal to what's typed into the searchbar
-    NSString *searchString = self.searchController.searchBar.text;
-    
-    // If searchResultsController
-    if (self.searchController.searchResultsController) {
-        
-        UINavigationController *navController = (UINavigationController *)self.searchController.searchResultsController;
-        
-        // Present SearchResultsTableViewController as the topViewController
-        SearchHomeViewController *searchHomeVC = (SearchHomeViewController *)navController.topViewController;
-        
-        if (searchString.length > 0) {
-            [searchHomeVC.viewModel searchWithKeywords:searchString];
-        }
-        
-    }
-}
-
-- (void)willPresentSearchController:(UISearchController *)searchController {
-    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-    
-    
-}
-
-- (void)willDismissSearchController:(UISearchController *)searchController {
-    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
-}
-
-
 
 @end

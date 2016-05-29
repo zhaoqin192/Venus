@@ -7,14 +7,15 @@
 //
 
 #import "SearchHomeViewController.h"
-#import "SearchHomeViewModel.h"
 #import "MBProgressHUD.h"
 #import "SearchResultTableViewCell.h"
-#import "SearchHomeModel.h"
-
+#import "SearchResultViewController.h"
+#import "SearchHotCollectionViewCell.h"
+#import "SearchHotTableViewCell.h"
+#import "BrandViewController.h"
 
 @interface SearchHomeViewController ()
-
+@property (nonatomic, strong) UISearchController *searchController;
 
 @end
 
@@ -23,113 +24,127 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"搜索";
+    // Create the search results view controller and use it for the UISearchController.
+    SearchResultViewController *searchResultsController = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultViewControllerStoryboardIdentifier"];
     
-    [self bindViewModel];
+    // Create the search controller and make it perform the results updating.
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsController];
+    self.searchController.searchResultsUpdater = searchResultsController;
+    self.searchController.hidesNavigationBarDuringPresentation = NO;
+    
+    /*
+     Configure the search controller's search bar. For more information on how to configure
+     search bars, see the "Search Bar" group under "Search".
+     */
+    self.searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    self.searchController.searchBar.placeholder = NSLocalizedString(@"搜索", nil);
+//    [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:GMBrownColor];
+    
+//    self.searchController.searchBar.tintColor = GMBrownColor;
+//    self.searchController.searchBar.barTintColor = GMBrownColor;
+    
+    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setDefaultTextAttributes:@{NSForegroundColorAttributeName:GMBrownColor, NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:14]}];
+
+    
+    // Include the search bar within the navigation bar.
+    self.navigationItem.titleView = self.searchController.searchBar;
+    
+    self.definesPresentationContext = YES;
+    
+    [self onClickEvent];
+    
 }
 
-- (void)bindViewModel {
-    
-    self.viewModel = [[SearchHomeViewModel alloc] init];
+- (void)onClickEvent {
     
     @weakify(self)
-    [self.viewModel.searchSuccessObject subscribeNext:^(id x) {
-        @strongify(self)
-        [self.tableView reloadData];
-    }];
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"selectHotSearch" object:nil]
+      takeUntil:[self rac_willDeallocSignal]]
+     subscribeNext:^(NSNotification *notification) {
+         
+         NSDictionary *userInfo = notification.userInfo;
+         @strongify(self)
+         self.searchController.searchBar.text = userInfo[@"hotSearch"];
+         self.searchController.active = YES;
+         
+     }];
     
-    [self.viewModel.searchFailureObject subscribeNext:^(NSString *message) {
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"brand" object:nil]
+    takeUntil:[self rac_willDeallocSignal]]
+    subscribeNext:^(NSNotification *notification) {
         
+        NSDictionary *userInfo = notification.userInfo;
         @strongify(self)
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = message;
-        [hud hide:YES afterDelay:1.5f];
+        UIStoryboard *kind = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
+        BrandViewController *brandVC = (BrandViewController *)[kind instantiateViewControllerWithIdentifier:@"brand"];
+        brandVC.detailURL = userInfo[@"url"];
         
-    }];
-    
-    [self.viewModel.errorObject subscribeNext:^(NSString *message) {
-        
-        @strongify(self)
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = message;
-        [hud hide:YES afterDelay:1.5f];
+        [self.navigationController pushViewController:brandVC animated:YES];
         
     }];
     
 }
 
+
+- (void)configureTable {
+    
+    //设置多余的seperator
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    self.tableView.separatorColor = [UIColor colorWithRed:236.0f/255.0f green:236.0f/255.0f blue:236.0f/255.0f alpha:1];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.viewModel.searchArray.count;
+    return 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    SearchHomeModel *model = [self.viewModel.searchArray objectAtIndex:indexPath.row];
-    
-    SearchResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell"];
-    
-    cell.nameLabel.text = model.name;
-    
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"loginLogo"]];
-    
-    // Configure the cell...
+    SearchHotTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchHotTableViewCell"];
     
     return cell;
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+    return 132;
+    
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    return 10;
+    
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    
+    return CGFLOAT_MIN;
+    
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

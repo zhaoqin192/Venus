@@ -51,7 +51,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandView" object:self userInfo:@{@"brandModel": [self.brandArray objectAtIndex:indexPath.item]}];
+    MallBrandModel *model = [self.brandArray objectAtIndex:indexPath.item];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandView" object:nil userInfo:@{@"detailURL": model.detailURL}];
     
 }
 

@@ -64,7 +64,7 @@ static const BOOL LOGDEBUG = YES;
                        failure:(NetworkFetcherErrorHandler)failure {
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/bazaar/mallIndex/searchByPartName"]];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/bazaar/index/indexSearch4App"]];
     
     NSDictionary *parameters = @{@"name": keywords};
     
