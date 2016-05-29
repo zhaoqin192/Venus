@@ -15,6 +15,7 @@
     [coder encodeObject:self.identifier forKey:@"identifier"];
     [coder encodeObject:self.name forKey:@"name"];
     [coder encodeObject:self.pictureURL forKey:@"pictureURL"];
+    [coder encodeObject:self.detailURL forKey:@"detailURL"];
     
 }
 
@@ -25,6 +26,7 @@
         self.identifier = [coder decodeObjectForKey:@"identifier"];
         self.name = [coder decodeObjectForKey:@"name"];
         self.pictureURL = [coder decodeObjectForKey:@"pictureURL"];
+        self.detailURL = [coder decodeObjectForKey:@"detailURL"];
     }
     return self;
     

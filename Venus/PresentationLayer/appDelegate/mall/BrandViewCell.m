@@ -49,4 +49,10 @@
     
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandView" object:self userInfo:@{@"brandModel": [self.brandArray objectAtIndex:indexPath.item]}];
+    
+}
+
 @end

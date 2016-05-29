@@ -155,7 +155,7 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBg-eG-Spf">
                                 <rect key="frame" x="0.0" y="64" width="375" height="45"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="a0g-fH-buX"/>
                                 </constraints>
@@ -275,7 +275,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="254"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E5D05768-A0CF-4AB6-9ED8-046ABAEBA39D" translatesAutoresizingMaskIntoConstraints="NO" id="7uK-9z-o2f">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D95F06DA-E05B-47A9-8CB3-9A89F0686554" translatesAutoresizingMaskIntoConstraints="NO" id="7uK-9z-o2f">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥6240" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4T9-sV-Rmr">
@@ -814,7 +814,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="E5D05768-A0CF-4AB6-9ED8-046ABAEBA39D" width="130" height="130">
+        <image name="D95F06DA-E05B-47A9-8CB3-9A89F0686554" width="130" height="130">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

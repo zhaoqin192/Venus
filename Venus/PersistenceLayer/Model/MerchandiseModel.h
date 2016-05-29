@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) NSString *pictureURL;
+@property (nonatomic, strong) NSString *detailURL;
 
 @end
