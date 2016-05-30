@@ -40,6 +40,16 @@
     [self loadData];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.rdv_tabBarController setTabBarHidden:NO];
+}
+
 - (void)dismiss {
     [SVProgressHUD dismiss];
 }
@@ -141,7 +151,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -151,9 +161,6 @@
             break;
         case 1:
             return 2;
-            break;
-        case 2:
-            return 1;
             break;
     }
     return 0;
@@ -213,15 +220,6 @@
                 break;
             }
         }
-    }
-    else if (indexPath.section == 2) {
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"informationCell"];
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:14.0];
-        [cell.detailTextLabel setTextColor:GMFontColor];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = @"地址管理";
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        return cell;
     }
     else {
         if (indexPath.row == 0) {
