@@ -11,7 +11,7 @@
 @class FoodOrder;
 @interface NetworkFetcher (FoodOrder)
 /**
- *  获得外卖订单
+ *  获得所有外面订单
  *
  *  @param page
  *  @param success
@@ -20,6 +20,16 @@
 + (void)foodFetcherUserFoodOrderOnPage:(NSInteger)page
                                 success:(NetworkFetcherSuccessHandler)success
                                 failure:(NetworkFetcherErrorHandler)failure;
+/**
+ *  获得外卖订单详情
+ *
+ *  @param orderID
+ *  @param success
+ *  @param failure
+ */
++ (void)foodFetcherUserFoodOrderDetailWithID:(NSInteger)orderID
+                                     success:(NetworkFetcherSuccessHandler)success
+                                     failure:(NetworkFetcherErrorHandler)failure;
 
 /**
  *  创建订单获得orderID

@@ -18,4 +18,5 @@ target "Venus" do
     pod 'QRCodeReaderViewController', :git => 'https://github.com/zhengjinghua/MQRCodeReaderViewController.git'
     pod 'UITableView+FDTemplateLayoutCell'
     pod 'FDStackView', '1.0'
+    pod 'PureLayout'
 end
