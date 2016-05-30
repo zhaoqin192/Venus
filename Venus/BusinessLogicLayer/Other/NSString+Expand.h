@@ -11,6 +11,7 @@
 @interface NSString (Expand)
 
 + (NSString *)convertTime:(NSNumber *)time;
++ (NSString *)convertTimeUntilSecond:(NSNumber *)time;
 
 + (NSString*)urlEncodedString:(NSString *)string;
 

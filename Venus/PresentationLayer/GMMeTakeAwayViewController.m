@@ -10,12 +10,19 @@
 #import "XFSegementView.h"
 #import "GMMeTakeAwayCell.h"
 #import "NetworkFetcher+FoodOrder.h"
+#import "FoodOrderManager.h"
+#import "TakeAwayOrder.h"
+#import "GMMeTakeAwayDetailViewController.h"
 
 @interface GMMeTakeAwayViewController () <UITableViewDelegate, UITableViewDataSource, TouchLabelDelegate>
 
 @property (strong, nonatomic) XFSegementView *segementView;
+@property (assign, nonatomic) NSInteger currentSemementIndex;
+
 @property (strong, nonatomic) UIBarButtonItem *searchButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) FoodOrderManager *orderManager;
 
 @end
 
@@ -31,11 +38,13 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [NetworkFetcher foodFetcherUserFoodOrderOnPage:0 success:^(NSDictionary *response){
-        NSLog(@"获取成功");
-    } failure:^(NSString *error) {
-        NSLog(@"产生错误%@",error);
+
+    [self.orderManager updateOrderSucceed:^{
+        [self.tableView reloadData];
+    } failed:^(NSString *error) {
+        NSLog(@"网络错误，错误是%@",error);
     }];
+    
     self.navigationItem.title = @"订单";
     [self.rdv_tabBarController setTabBarHidden:YES];
 }
@@ -46,11 +55,43 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    if (self.orderManager.orderArray.count != 0) {
+        if (self.currentSemementIndex == 0) {
+            return self.orderManager.orderArray.count;
+        } else if (self.currentSemementIndex == 1) {
+            if (self.orderManager.waitingEvalutationOrderArray) {
+                return self.orderManager.waitingEvalutationOrderArray.count;
+            } else {
+                return 0;
+            }
+        } else {
+            if (self.orderManager.refundOrderArray) {
+                return self.orderManager.refundOrderArray.count;
+            } else {
+                return 0;
+            }
+        }
+    } else {
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GMMeTakeAwayCell *cell = [GMMeTakeAwayCell cellForTableView:tableView];
+    if  (self.currentSemementIndex == 0) {
+        if (self.orderManager.orderArray.count != 0) {
+            cell.order = (TakeAwayOrder *)self.orderManager.orderArray[indexPath.row];
+        }
+    } else if (self.currentSemementIndex == 1){
+        if (self.orderManager.waitingEvalutationOrderArray.count != 0) {
+            cell.order = (TakeAwayOrder *)self.orderManager.waitingEvalutationOrderArray[indexPath.row];
+        }
+    } else {
+        if (self.orderManager.refundOrderArray.count != 0) {
+            cell.order = (TakeAwayOrder *)self.orderManager.refundOrderArray[indexPath.row];
+        }
+    }
+    
     return cell;
 }
 
@@ -59,9 +100,16 @@
     return 200.0;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    GMMeTakeAwayDetailViewController *vc = [[GMMeTakeAwayDetailViewController alloc] init];
+    vc.orderID = [(TakeAwayOrder *)self.orderManager.orderArray[indexPath.row] orderId];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark - TouchLabelDelegate
 - (void)touchLabelWithIndex:(NSInteger)index {
-    NSLog(@"现在的index是%li",(long)index);
+    self.currentSemementIndex = index;
+    [self.tableView reloadData];
 }
 
 #pragma mark - private methods
@@ -69,6 +117,7 @@
 #pragma mark - event response
 - (void)searchButtonClicked:(id)sender {
     NSLog(@"搜索按钮点击");
+    
 }
 
 #pragma mark - getters and setters
@@ -93,6 +142,13 @@
         _searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"搜索"] style:UIBarButtonItemStylePlain target:self action:@selector(searchButtonClicked:)];
     }
     return _searchButton;
+}
+
+- (FoodOrderManager *)orderManager {
+    if (!_orderManager) {
+        _orderManager = [FoodOrderManager sharedInstance];
+    }
+    return _orderManager;
 }
 
 @end

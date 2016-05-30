@@ -15,6 +15,11 @@
     return [date stringWithFormat:@"yyyy-MM-dd"];
 }
 
++ (NSString *)convertTimeUntilSecond:(NSNumber *)time {
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[time integerValue] / 1000];
+    return [date stringWithFormat:@"yyyy-MM-dd HH:mm"];
+}
+
 + (NSString*)urlEncodedString:(NSString *)string {
     NSString * encodedString = (__bridge_transfer  NSString*) CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)string, NULL, (__bridge CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8 );
     
