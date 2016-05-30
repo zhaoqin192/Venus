@@ -68,8 +68,7 @@
     self.menu.delegate = self;
     self.menu.dataSource = self;
     
-//    [self.view addSubview:self.menu];
-    [self.topView addSubview:self.menu];
+    self.tableView.tableHeaderView = self.menu;
     
 }
 

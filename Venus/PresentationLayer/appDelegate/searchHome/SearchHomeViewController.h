@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class SearchHomeViewModel;
-
 @interface SearchHomeViewController : UITableViewController
-
-@property (nonatomic, strong) SearchHomeViewModel *viewModel;
-
 
 @end

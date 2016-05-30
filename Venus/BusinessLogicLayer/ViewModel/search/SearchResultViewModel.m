@@ -1,18 +1,17 @@
 //
-//  SearchHomeViewModel.m
+//  SearchResultViewModel.m
 //  Venus
 //
-//  Created by zhaoqin on 5/28/16.
+//  Created by zhaoqin on 5/29/16.
 //  Copyright © 2016 Neotel. All rights reserved.
 //
 
-#import "SearchHomeViewModel.h"
+#import "SearchResultViewModel.h"
 #import "NetworkFetcher+Mall.h"
 #import "NSString+Expand.h"
-#import "SearchHomeModel.h"
+#import "SearchResultModel.h"
 
-
-@implementation SearchHomeViewModel
+@implementation SearchResultViewModel
 
 - (instancetype)init {
     self = [super init];
@@ -24,20 +23,21 @@
     return self;
 }
 
-- (void)searchWithKeywords:(NSString *)keywords {
+- (void)searchWithKeyword:(NSString *)keyword {
     
-    [NetworkFetcher mallSearchWithKeywords:keywords success:^(NSDictionary *response) {
+    [NetworkFetcher mallSearchWithKeywords:keyword success:^(NSDictionary *response) {
         
         if ([response[@"errCode"] isEqualToNumber:@0]) {
             
-            [SearchHomeModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            [SearchResultModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
-                            @"identifier": @"id",
-                            @"pirtureURL": @"logo"
+                         @"identifier": @"shopId",
+                         @"pictureURL": @"logo",
+                         @"name": @"shopName"
                          };
             }];
             
-            self.searchArray = [SearchHomeModel mj_objectArrayWithKeyValuesArray:response[@"brands"]];
+            self.searchArray = [SearchResultModel mj_objectArrayWithKeyValuesArray:response[@"data"]];
             
             [self.searchSuccessObject sendNext:nil];
             

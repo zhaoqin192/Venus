@@ -12,6 +12,6 @@
 
 @interface BrandViewController : UIViewController
 
-@property (nonatomic, strong) MallBrandModel *brandModel;
+@property (nonatomic, strong) NSString *detailURL;
 
 @end

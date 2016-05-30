@@ -1,20 +1,21 @@
 //
-//  SearchHomeViewModel.h
+//  SearchResultViewModel.h
 //  Venus
 //
-//  Created by zhaoqin on 5/28/16.
+//  Created by zhaoqin on 5/29/16.
 //  Copyright © 2016 Neotel. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface SearchHomeViewModel : NSObject
+@interface SearchResultViewModel : NSObject
 
 @property (nonatomic, strong) RACSubject *searchSuccessObject;
 @property (nonatomic, strong) RACSubject *searchFailureObject;
 @property (nonatomic, strong) RACSubject *errorObject;
 @property (nonatomic, strong) NSMutableArray *searchArray;
 
-- (void)searchWithKeywords:(NSString *)keywords;
+
+- (void)searchWithKeyword:(NSString *)keyword;
 
 @end

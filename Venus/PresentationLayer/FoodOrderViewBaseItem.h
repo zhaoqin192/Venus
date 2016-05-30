@@ -12,6 +12,7 @@
 
 @interface FoodOrderViewBaseItem : NSObject
 
+@property (copy, nonatomic) NSString *identifier;
 @property (copy, nonatomic) NSString *pictureURL;
 @property (copy, nonatomic) NSString *name;
 @property (assign, nonatomic) NSInteger soldCount;

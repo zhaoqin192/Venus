@@ -8,7 +8,7 @@
 
 #import "NetworkFetcher.h"
 
-@class FoodAddress;
+@class FoodOrder;
 @interface NetworkFetcher (FoodOrder)
 /**
  *  获得外卖订单
@@ -18,14 +18,29 @@
  *  @param failure
  */
 + (void)foodFetcherUserFoodOrderOnPage:(NSInteger)page
-                                success:(NetworkFetcherCompletionHandler)success
+                                success:(NetworkFetcherSuccessHandler)success
                                 failure:(NetworkFetcherErrorHandler)failure;
 
+/**
+ *  创建订单获得orderID
+ *
+ *  @param order
+ *  @param success
+ *  @param failure
+ */
++ (void)foodCreateOrder:(FoodOrder *)order
+                success:(NetworkFetcherSuccessHandler)success
+                failure:(NetworkFetcherErrorHandler)failure;
 
-//+ (void)foodCreateOrderWithStoreID:(NSString *)storeID
-//                           address:(FoodAddress *)foodAddress
-//                            remark:(NSString *)remark
-//                                paymentStatus
-//                             success:(NetworkFetcherSuccessHandler)success
-//                             failure:(NetworkFetcherErrorHandler)failure;
+/**
+ *  支付宝预支付
+ *
+ *  @param orderID
+ *  @param success
+ *  @param failure 
+ */
++ (void)foodAlipayWithOrderID:(long)orderID
+                      success:(NetworkFetcherSuccessHandler)success
+                      failure:(NetworkFetcherErrorHandler)failure;
+
 @end

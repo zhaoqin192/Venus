@@ -19,7 +19,7 @@
             _soldCount = [resFood.sales integerValue];
             _unitPrice = [resFood.price floatValue] / 100.0;
             _orderCount = 0;
-            
+            _identifier = resFood.identifier;
         }
     }
     return self;

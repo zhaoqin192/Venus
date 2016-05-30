@@ -102,7 +102,7 @@
         UIStoryboard *kind = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
         BrandViewController *brandVC = (BrandViewController *)[kind instantiateViewControllerWithIdentifier:@"brand"];
         NSDictionary *userInfo = notification.userInfo;
-        brandVC.brandModel = userInfo[@"brandModel"];
+        brandVC.detailURL = userInfo[@"detailURL"];
         @strongify(self)
         [self.navigationController pushViewController:brandVC animated:YES];
         
@@ -297,6 +297,11 @@
     return cell;    
 }
 
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
