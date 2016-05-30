@@ -51,8 +51,8 @@
         self.activityView.hidden = YES;
         self.despLabel.hidden = YES;
     }
-    self.tuanView.hidden = model.miami == 1 ? NO : YES;
-    self.waiView.hidden = model.couponz == 1 ? NO : YES;
+    self.tuanView.hidden = model.couponz == 1 ? NO : YES;
+    self.waiView.hidden = model.miami == 1 ? NO : YES;
     if (model.miami == 0 && model.couponz == 1) {
         self.waiConstraint.constant = 10;
     }

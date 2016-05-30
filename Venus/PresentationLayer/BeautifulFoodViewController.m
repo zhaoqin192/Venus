@@ -28,6 +28,7 @@
 @property (nonatomic, copy) NSArray *categoryArray;
 @property (nonatomic, strong) NSNumber *order;
 @property (nonatomic, strong) JSDropDownMenu *menu;
+@property (nonatomic, assign) NSInteger categoryIndex;
 @end
 
 @implementation BeautifulFoodViewController
@@ -42,6 +43,7 @@
         NSLog(@"搜索");
     }];
     self.order = @(0);
+    self.categoryIndex = -1;
     [self loadData];
     [self loadCategory];
 }
@@ -252,15 +254,22 @@
     if (indexPath.column == 1) {
         _currentData2Index = indexPath.row;
         self.order = @(indexPath.row);
-        [self loadData];
+        if (self.categoryIndex == -1) {
+            [self loadData];
+            return;
+        }
+        BeautyCategory *category = self.categoryArray[self.categoryIndex];
+        [self loadCategoryShop:category.identify];
     }
     else {
         _currentData1Index = indexPath.row;
         if (indexPath.row == 0) {
+            self.categoryIndex = -1;
             [self loadData];
             return;
         }
-        BeautyCategory *category = self.categoryArray[indexPath.row-1];
+        self.categoryIndex = indexPath.row - 1;
+        BeautyCategory *category = self.categoryArray[self.categoryIndex];
         [self loadCategoryShop:category.identify];
         NSLog(@"%zd",indexPath.row);
     }
