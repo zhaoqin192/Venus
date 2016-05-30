@@ -25,7 +25,6 @@
     NSInteger _currentData2Index;
     
 }
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) FoodManager *foodManager;
@@ -35,7 +34,6 @@
 @property (nonatomic, strong) FoodClass *foodClass;
 @property (nonatomic, copy) NSMutableArray *restaurantArray;
 @property (nonatomic, copy) NSString *sort;
-@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -48,9 +46,6 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = YES;
     self.navigationItem.title = @"外卖";
-    if (self.isLifeCycle) {
-        self.topConstraint.constant = 64;
-    }
     [self configureMenu];
     [self configureTableView];
     
@@ -127,8 +122,6 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     _menu.textColor = [UIColor colorWithRed:83.f/255.0f green:83.f/255.0f blue:83.f/255.0f alpha:1.0f];
     _menu.dataSource = self;
     _menu.delegate = self;
-    
-    [self.contentView addSubview:_menu];
 }
 
 #pragma mark <TableDelegate>
@@ -178,6 +171,14 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     FoodDetailViewController *foodDetailVC = [[FoodDetailViewController alloc] init];
     foodDetailVC.restaurant = restaurant;
     [self.navigationController pushViewController:foodDetailVC animated:YES];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return self.menu;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 45;
 }
 
 

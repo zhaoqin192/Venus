@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface FoodViewController : UIViewController
-@property (nonatomic, assign) BOOL isLifeCycle;
 @end
