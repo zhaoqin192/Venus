@@ -17,9 +17,6 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="永和大王单人餐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8SI-4M-p9g">
                         <rect key="frame" x="8" y="23" width="269" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Uaq-Ey-TWO"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -28,7 +25,6 @@
                         <rect key="frame" x="290" y="23" width="77" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="77" id="2e5-gI-wRD"/>
-                            <constraint firstAttribute="height" constant="21" id="U9Q-HJ-pUA"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -51,7 +47,6 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有效期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2G-LT-mVq">
                         <rect key="frame" x="146" y="61" width="68" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="18" id="YvI-T2-qcO"/>
                             <constraint firstAttribute="width" constant="68" id="xvC-Ue-xzy"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -67,7 +62,6 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数    量：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hv4-X4-H56">
                         <rect key="frame" x="147" y="95" width="69" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="18" id="2HU-JB-0iJ"/>
                             <constraint firstAttribute="width" constant="69" id="ESL-5x-ZNZ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -84,7 +78,6 @@
                         <rect key="frame" x="146" y="131" width="69" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="69" id="Ulx-UT-Omt"/>
-                            <constraint firstAttribute="height" constant="18" id="c1q-KZ-8qd"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
