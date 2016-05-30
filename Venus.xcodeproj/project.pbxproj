@@ -2608,9 +2608,6 @@
 				ACFF32E31CF8711E008BD0D8 /* CouponOrderTableViewCell.xib */,
 				ACFF32E41CF8711E008BD0D8 /* CouponOrderTableViewCell.m */,
 				ACFF32E51CF8711E008BD0D8 /* CouponOrderTableViewCell.h */,
-				ACFF32BE1CF87114008BD0D8 /* OrderMessageCell.xib */,
-				ACFF32BF1CF87114008BD0D8 /* OrderMessageCell.m */,
-				ACFF32C01CF87114008BD0D8 /* OrderMessageCell.h */,
 			);
 			name = useCoupon;
 			sourceTree = "<group>";
@@ -2638,18 +2635,21 @@
 		ACFF334A1CF979B8008BD0D8 /* detailCoupon */ = {
 			isa = PBXGroup;
 			children = (
-				ACFF32C11CF87114008BD0D8 /* OrderDetailViewController.xib */,
-				ACFF32C21CF87114008BD0D8 /* OrderDetailViewController.m */,
 				ACFF32C31CF87114008BD0D8 /* OrderDetailViewController.h */,
-				ACFF32C41CF87114008BD0D8 /* OrderDetailInfoCell.xib */,
-				ACFF32C51CF87114008BD0D8 /* OrderDetailInfoCell.m */,
+				ACFF32C21CF87114008BD0D8 /* OrderDetailViewController.m */,
+				ACFF32C11CF87114008BD0D8 /* OrderDetailViewController.xib */,
 				ACFF32C61CF87114008BD0D8 /* OrderDetailInfoCell.h */,
-				ACFF32C71CF87114008BD0D8 /* OrderDescribeCell.xib */,
-				ACFF32C81CF87114008BD0D8 /* OrderDescribeCell.m */,
+				ACFF32C51CF87114008BD0D8 /* OrderDetailInfoCell.m */,
+				ACFF32C41CF87114008BD0D8 /* OrderDetailInfoCell.xib */,
 				ACFF32C91CF87114008BD0D8 /* OrderDescribeCell.h */,
-				ACFF32CA1CF87114008BD0D8 /* OrderCouponIDCell.xib */,
-				ACFF32CB1CF87114008BD0D8 /* OrderCouponIDCell.m */,
+				ACFF32C81CF87114008BD0D8 /* OrderDescribeCell.m */,
+				ACFF32C71CF87114008BD0D8 /* OrderDescribeCell.xib */,
 				ACFF32CC1CF87114008BD0D8 /* OrderCouponIDCell.h */,
+				ACFF32CB1CF87114008BD0D8 /* OrderCouponIDCell.m */,
+				ACFF32CA1CF87114008BD0D8 /* OrderCouponIDCell.xib */,
+				ACFF32C01CF87114008BD0D8 /* OrderMessageCell.h */,
+				ACFF32BF1CF87114008BD0D8 /* OrderMessageCell.m */,
+				ACFF32BE1CF87114008BD0D8 /* OrderMessageCell.xib */,
 			);
 			name = detailCoupon;
 			sourceTree = "<group>";
@@ -2901,7 +2901,7 @@
 				TargetAttributes = {
 					ACF83EAA1CBF97F800A962BD = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = BSR7J239R5;
+						DevelopmentTeam = 9SQ6G2A6XG;
 					};
 				};
 			};
@@ -3579,7 +3579,7 @@
 					"\"SystemConfiguration\"",
 					"-fobjc-arc",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3646,7 +3646,7 @@
 					"\"SystemConfiguration\"",
 					"-fobjc-arc",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

@@ -11,7 +11,7 @@
 @implementation NetworkFetcher (Mall)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
-static const BOOL LOGDEBUG = YES;
+static const BOOL LOGDEBUG = NO;
 
 + (void)mallGetCategoryWithSuccess:(NetworkFetcherSuccessHandler)success
                            failure:(NetworkFetcherErrorHandler)failure {

@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单明细" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxV-b6-5yl">
-                        <rect key="frame" x="8" y="13" width="68" height="18"/>
+                        <rect key="frame" x="8" y="13" width="359" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="cbP-iD-DcZ"/>
                         </constraints>
@@ -149,7 +149,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="Gye-W7-TLG" secondAttribute="trailing" constant="6" id="jWr-yD-XgC"/>
                     <constraint firstItem="aVd-Mb-mvO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="lki-Pb-JHU"/>
                     <constraint firstItem="Caj-lt-cDT" firstAttribute="leading" secondItem="Rap-c8-PCR" secondAttribute="trailing" constant="7" id="nGe-aD-Viz"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="zxV-b6-5yl" secondAttribute="trailing" constant="291" id="nMD-M0-Ef0"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zxV-b6-5yl" secondAttribute="trailing" id="nMD-M0-Ef0"/>
                     <constraint firstItem="Caj-lt-cDT" firstAttribute="top" secondItem="Gye-W7-TLG" secondAttribute="bottom" constant="26" id="oL1-dP-XSO"/>
                     <constraint firstItem="qSw-nt-3jc" firstAttribute="top" secondItem="Caj-lt-cDT" secondAttribute="bottom" constant="26" id="qNE-pa-ycB"/>
                     <constraint firstItem="tfi-Wk-Ioh" firstAttribute="top" secondItem="Rap-c8-PCR" secondAttribute="bottom" constant="26" id="uIF-OP-6iU"/>

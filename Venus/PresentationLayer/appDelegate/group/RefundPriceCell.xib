@@ -38,7 +38,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="退款至支付宝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsr-Nq-xk9">
-                        <rect key="frame" x="8" y="57" width="102" height="18"/>
+                        <rect key="frame" x="8" y="57" width="359" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.59607843140000005" green="0.59607843140000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="Fsr-Nq-xk9" secondAttribute="bottom" constant="4.5" id="mgd-e7-MYk"/>
                     <constraint firstAttribute="trailing" secondItem="KAu-1d-FBi" secondAttribute="trailing" id="t9j-7X-GHF"/>
                     <constraint firstItem="Fsr-Nq-xk9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="wOf-hQ-oZY"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Fsr-Nq-xk9" secondAttribute="trailing" constant="257" id="ywE-12-BnF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Fsr-Nq-xk9" secondAttribute="trailing" id="ywE-12-BnF"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

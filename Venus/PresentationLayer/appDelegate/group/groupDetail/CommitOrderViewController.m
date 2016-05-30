@@ -72,9 +72,7 @@
     
     [self.viewModel.countObject subscribeNext:^(id x) {
         @strongify(self)
-
         [self.tableView reloadRow:2 inSection:0 withRowAnimation:UITableViewRowAnimationNone];
-        
     }];
     
     [self.viewModel.orderSuccessObject subscribeNext:^(id x) {
@@ -97,6 +95,10 @@
         hud.mode = MBProgressHUDModeText;
         hud.labelText = message;
         [hud hide:YES afterDelay:1.5f];
+        if (!self.commitButton.isEnabled) {
+            self.commitButton.enabled = YES;
+        }
+        
     }];
     
     [self.viewModel initPrice:self.couponModel.price];
@@ -112,14 +114,22 @@
        
         @strongify(self)
         [self.viewModel createOrderWithCouponID:self.couponModel.identifier storeID:self.couponModel.storeID num:[NSNumber numberWithInteger:self.viewModel.countNumber]];
+        self.commitButton.enabled = NO;
         
     }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"PaySuccess" object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
-       
         @strongify(self)
+        
+        if (!self.commitButton.isEnabled) {
+         
+            self.commitButton.enabled = YES;
+            
+        }
+        
+       
         PaymentSuccessViewController *paymentSuccessVC = [[PaymentSuccessViewController alloc] initWithNibName:@"PaymentSuccessViewController" bundle:nil];
         paymentSuccessVC.orderID = self.viewModel.orderID;
         [self.navigationController pushViewController:paymentSuccessVC animated:YES];
@@ -129,8 +139,14 @@
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"PayFailure" object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
-       
         @strongify(self)
+
+        if (!self.commitButton.isEnabled) {
+            
+            self.commitButton.enabled = YES;
+            
+        }
+        
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
         hud.labelText = @"支付失败";
@@ -147,6 +163,12 @@
     self.tableView.rowHeight = 44;
 }
 
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

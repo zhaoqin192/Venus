@@ -23,12 +23,15 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="代金券详情" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jd-IT-uag">
-                        <rect key="frame" x="8" y="13" width="119" height="18"/>
+                        <rect key="frame" x="8" y="13" width="359" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="4bR-Ea-kog"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="满100元使用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIF-eh-Qtx">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="满100元使用" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIF-eh-Qtx">
                         <rect key="frame" x="8" y="58" width="359" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.59607843140000005" green="0.59607843140000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,17 +39,16 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="kKM-Zo-ZRd" firstAttribute="top" secondItem="0jd-IT-uag" secondAttribute="bottom" constant="13" id="0DT-Nd-b5b"/>
-                    <constraint firstItem="0jd-IT-uag" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="140-19-eRy"/>
-                    <constraint firstItem="kKM-Zo-ZRd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CO3-Cv-ruN"/>
-                    <constraint firstItem="0jd-IT-uag" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Fl8-Ll-jPH"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="pIF-eh-Qtx" secondAttribute="bottom" constant="4.5" id="P3r-2y-io9"/>
-                    <constraint firstAttribute="trailing" secondItem="kKM-Zo-ZRd" secondAttribute="trailing" id="QSF-qr-GPg"/>
-                    <constraint firstItem="pIF-eh-Qtx" firstAttribute="top" secondItem="kKM-Zo-ZRd" secondAttribute="bottom" constant="13" id="dUB-8L-rI2"/>
-                    <constraint firstItem="kKM-Zo-ZRd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="g97-fl-L75"/>
-                    <constraint firstItem="pIF-eh-Qtx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="jS9-pe-kuj"/>
-                    <constraint firstItem="pIF-eh-Qtx" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="trk-gV-ede"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="0jd-IT-uag" secondAttribute="trailing" constant="240" id="wCF-ww-x7g"/>
+                    <constraint firstItem="kKM-Zo-ZRd" firstAttribute="top" secondItem="0jd-IT-uag" secondAttribute="bottom" constant="13" id="2mB-rR-3z3"/>
+                    <constraint firstItem="pIF-eh-Qtx" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="6Pw-ph-Ff8"/>
+                    <constraint firstItem="pIF-eh-Qtx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="7NC-Nw-AGM"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="pIF-eh-Qtx" secondAttribute="bottom" constant="4.5" id="F8S-82-o91"/>
+                    <constraint firstItem="pIF-eh-Qtx" firstAttribute="top" secondItem="kKM-Zo-ZRd" secondAttribute="bottom" constant="13" id="N1e-GP-yKp"/>
+                    <constraint firstAttribute="trailing" secondItem="kKM-Zo-ZRd" secondAttribute="trailing" id="WpE-L1-LPE"/>
+                    <constraint firstItem="0jd-IT-uag" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="bb3-LT-U2W"/>
+                    <constraint firstItem="kKM-Zo-ZRd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eAY-bn-QqF"/>
+                    <constraint firstItem="0jd-IT-uag" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="i0J-1A-zWh"/>
+                    <constraint firstItem="0jd-IT-uag" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="unM-vI-Ucz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

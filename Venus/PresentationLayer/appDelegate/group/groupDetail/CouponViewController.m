@@ -112,24 +112,9 @@
     }
     else if (indexPath.section == 1) {
         CouponStoreCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponStoreCell"];
-        cell.storeName.text = self.couponModel.name;
-        cell.storeAddress.text = [NSString stringWithFormat:@"地址:%@", self.couponModel.address];
-        @weakify(self)
-        [[cell.contactButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-        subscribeNext:^(id x) {
-            
-            @strongify(self)
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"拨打商家电话" message:self.couponModel.phone  preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-            UIAlertAction *callAction = [UIAlertAction actionWithTitle:@"拨打" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                NSString *phoneNumber = [@"tel://" stringByAppendingString:self.couponModel.phone];
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
-            }];
-            [alertController addAction:cancelAction];
-            [alertController addAction:callAction];
-            [self presentViewController:alertController animated:YES completion:nil];
-            
-        }];
+        
+        [self configureStoreCell:cell atIndexPath:indexPath];
+        
         return cell;
     }
     else if (indexPath.section == 2) {
@@ -149,13 +134,13 @@
     
     CouponCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponCommentCell"];
     
-    [self configureCell:cell atindexPath:indexPath];
+    [self configureCommentCell:cell atIndexPath:indexPath];
     
     return cell;
 
 }
 
-- (void)configureCell:(CouponCommentCell *)cell atindexPath:(NSIndexPath *)indexPath {
+- (void)configureCommentCell:(CouponCommentCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     CouponCommentModel *model = [self.viewModel.commentArray objectAtIndex:indexPath.row];
     
     cell.name.text = model.userName;
@@ -164,12 +149,42 @@
 
 }
 
+- (void)configureStoreCell:(CouponStoreCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    cell.storeName.text = self.couponModel.name;
+    cell.storeAddress.text = [NSString stringWithFormat:@"地址:%@", self.couponModel.address];
+    @weakify(self)
+    [[cell.contactButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+     subscribeNext:^(id x) {
+         
+         @strongify(self)
+         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"拨打商家电话" message:self.couponModel.phone  preferredStyle:UIAlertControllerStyleAlert];
+         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+         UIAlertAction *callAction = [UIAlertAction actionWithTitle:@"拨打" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+             NSString *phoneNumber = [@"tel://" stringByAppendingString:self.couponModel.phone];
+             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+         }];
+         [alertController addAction:cancelAction];
+         [alertController addAction:callAction];
+         [self presentViewController:alertController animated:YES completion:nil];
+         
+     }];
+    
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    @weakify(self)
     if (indexPath.section == 0) {
         return 255;
     }
     else if (indexPath.section == 1) {
-        return 110;
+        
+        return [tableView fd_heightForCellWithIdentifier:@"CouponStoreCell" configuration:^(CouponStoreCell *cell) {
+            @strongify(self)
+            [self configureStoreCell:cell atIndexPath:indexPath];
+            
+        }];
+        
     }
     else if (indexPath.section == 2) {
         return 90;
@@ -177,10 +192,9 @@
     else if (indexPath.section == 3) {
         return 110;
     }
-    @weakify(self)
     return [tableView fd_heightForCellWithIdentifier:@"CouponCommentCell" configuration:^(id cell) {
         @strongify(self)
-        [self configureCell:cell atindexPath:indexPath];
+        [self configureCommentCell:cell atIndexPath:indexPath];
         
     }];
     
