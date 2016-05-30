@@ -144,7 +144,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             self.view.hidden = NO;
         }];
     }
-    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

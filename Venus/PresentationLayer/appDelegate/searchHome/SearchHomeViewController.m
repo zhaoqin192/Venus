@@ -43,7 +43,8 @@
     
     self.searchController.searchBar.delegate = self;
     
-    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setDefaultTextAttributes:@{NSForegroundColorAttributeName:GMBrownColor, NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:14]}];
+    UITextField *searchField = [self.searchController.searchBar valueForKey:@"searchField"];
+    searchField.textColor = GMBrownColor;
 
     
     // Include the search bar within the navigation bar.
@@ -62,17 +63,6 @@
     
     [self.searchResultsController.viewModel.searchArray removeAllObjects];
     [self.searchResultsController.tableView reloadData];
-    
-    [self.tableView reloadData];
-    
-}
-
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
- 
-    if (self.searchResultsController.promptView != nil) {
-        [self.searchResultsController.promptView removeFromSuperview];
-    }
-    return YES;
     
 }
 
@@ -116,7 +106,7 @@
          [self.navigationController pushViewController:vc animated:YES];
          
      }];
-
+    
 }
 
 
@@ -131,13 +121,11 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -172,7 +160,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     
-    return 10;
+    return CGFLOAT_MIN;
     
 }
 

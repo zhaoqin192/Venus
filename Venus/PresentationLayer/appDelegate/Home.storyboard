@@ -197,12 +197,12 @@
             <objects>
                 <tableViewController storyboardIdentifier="SearchHomeViewController" id="Eje-T4-bkF" customClass="SearchHomeViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MIO-h2-bSG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SearchHotTableViewCell" rowHeight="132" id="eJP-rY-gBf" customClass="SearchHotTableViewCell">
-                                <rect key="frame" x="0.0" y="92" width="375" height="132"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="132"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eJP-rY-gBf" id="n2q-Z7-KZs">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
@@ -287,12 +287,13 @@
                             <outlet property="delegate" destination="Eje-T4-bkF" id="6XA-r4-6Pk"/>
                         </connections>
                     </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9i-f4-3m7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3404.5" y="1627.5"/>
+            <point key="canvasLocation" x="2143.5" y="1710.5"/>
         </scene>
     </scenes>
     <resources>
