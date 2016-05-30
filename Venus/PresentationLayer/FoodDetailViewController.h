@@ -15,7 +15,6 @@
 
 @property (nonatomic, strong) Restaurant *restaurant;
 @property (strong, nonatomic) FoodOrderViewController *orderVC;
-
 @property (assign, nonatomic) NSInteger trollyButtonBadgeCount;
 @property (assign, nonatomic) CGFloat totalPrice;
 

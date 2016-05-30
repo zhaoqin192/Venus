@@ -50,6 +50,10 @@
     [self.commitView bk_whenTapped:^{
         [self configureViewTapped:self.commitView];
     }];
+    
+    [self.waiView bk_whenTapped:^{
+        NSLog(@"waimai");
+    }];
 }
 
 - (void)configureViewTapped:(UIView *)view {
