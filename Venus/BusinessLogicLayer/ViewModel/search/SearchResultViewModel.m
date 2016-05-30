@@ -11,6 +11,13 @@
 #import "NSString+Expand.h"
 #import "SearchResultModel.h"
 
+
+@interface SearchResultViewModel ()
+
+@property (nonatomic, strong) NSNumber *capacity;
+
+@end
+
 @implementation SearchResultViewModel
 
 - (instancetype)init {
@@ -19,14 +26,18 @@
         self.searchSuccessObject = [RACSubject subject];
         self.searchFailureObject = [RACSubject subject];
         self.errorObject = [RACSubject subject];
+        self.currentPage = @1;
+        self.totalPage = @1;
+        self.capacity = @10;
     }
     return self;
 }
-
-- (void)searchWithKeyword:(NSString *)keyword {
+- (void)searchWithKeyword:(NSString *)keyword
+                     page:(NSNumber *)page {
     
-    [NetworkFetcher mallSearchWithKeywords:keyword success:^(NSDictionary *response) {
-        
+    @weakify(self)
+    [NetworkFetcher mallSearchWithKeywords:keyword page:page capacity:self.capacity success:^(NSDictionary *response) {
+        @strongify(self)
         if ([response[@"errCode"] isEqualToNumber:@0]) {
             
             [SearchResultModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
@@ -43,15 +54,14 @@
             
         }
         else {
-            
+        
             [self.searchFailureObject sendNext:@"搜索失败"];
             
         }
         
     } failure:^(NSString *error) {
-        
+        @strongify(self)
         [self.errorObject sendNext:@"网络异常"];
-        
     }];
     
 }

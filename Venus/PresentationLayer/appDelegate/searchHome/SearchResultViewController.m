@@ -15,8 +15,6 @@
 
 @interface SearchResultViewController ()
 
-@property (nonatomic, strong) SearchResultViewModel *viewModel;
-@property (nonatomic, strong) UIImageView *promptView;
 
 @end
 
@@ -83,6 +81,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     if (self.promptView != nil) {
+        NSLog(@"not nil");
         [self.promptView removeFromSuperview];
     }
 }
@@ -111,7 +110,15 @@
     }
     
     if (searchController.searchBar.text.length > 0) {
-        [self.viewModel searchWithKeyword:searchController.searchBar.text];
+        
+        [self.viewModel searchWithKeyword:searchController.searchBar.text page:self.viewModel.currentPage];
+        
+    }
+    else {
+        
+        [self.viewModel.searchArray removeAllObjects];
+        [self.tableView reloadData];
+        
     }
     
 }
@@ -170,6 +177,7 @@
     }
     else {
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"beauty" object:nil userInfo:@{@"shopID": model.identifier}];
         
         
     }

@@ -13,10 +13,12 @@
 #import "SearchHotCollectionViewCell.h"
 #import "SearchHotTableViewCell.h"
 #import "BrandViewController.h"
+#import "BeautifulDetailViewController.h"
+#import "SearchResultViewModel.h"
 
-@interface SearchHomeViewController ()
+@interface SearchHomeViewController ()<UISearchBarDelegate>
 @property (nonatomic, strong) UISearchController *searchController;
-
+@property (nonatomic, strong) SearchResultViewController *searchResultsController;
 @end
 
 @implementation SearchHomeViewController
@@ -25,11 +27,11 @@
     [super viewDidLoad];
     
     // Create the search results view controller and use it for the UISearchController.
-    SearchResultViewController *searchResultsController = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultViewControllerStoryboardIdentifier"];
+    self.searchResultsController = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchResultViewControllerStoryboardIdentifier"];
     
     // Create the search controller and make it perform the results updating.
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultsController];
-    self.searchController.searchResultsUpdater = searchResultsController;
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:self.searchResultsController];
+    self.searchController.searchResultsUpdater = self.searchResultsController;
     self.searchController.hidesNavigationBarDuringPresentation = NO;
     
     /*
@@ -38,10 +40,8 @@
      */
     self.searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     self.searchController.searchBar.placeholder = NSLocalizedString(@"搜索", nil);
-//    [[UILabel appearanceWhenContainedIn:[UISearchBar class], nil] setTextColor:GMBrownColor];
     
-//    self.searchController.searchBar.tintColor = GMBrownColor;
-//    self.searchController.searchBar.barTintColor = GMBrownColor;
+    self.searchController.searchBar.delegate = self;
     
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setDefaultTextAttributes:@{NSForegroundColorAttributeName:GMBrownColor, NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:14]}];
 
@@ -52,8 +52,30 @@
     self.definesPresentationContext = YES;
     
     [self onClickEvent];
+ 
+    
+    [self configureTable];
     
 }
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    
+    [self.searchResultsController.viewModel.searchArray removeAllObjects];
+    [self.searchResultsController.tableView reloadData];
+    
+    [self.tableView reloadData];
+    
+}
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+ 
+    if (self.searchResultsController.promptView != nil) {
+        [self.searchResultsController.promptView removeFromSuperview];
+    }
+    return YES;
+    
+}
+
 
 - (void)onClickEvent {
     
@@ -83,6 +105,18 @@
         
     }];
     
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"beauty" object:nil]
+      takeUntil:[self rac_willDeallocSignal]]
+     subscribeNext:^(NSNotification *notification) {
+         
+         NSDictionary *userInfo = notification.userInfo;
+         @strongify(self)
+         BeautifulDetailViewController *vc = [[BeautifulDetailViewController alloc] init];
+         vc.shopId = [[NSNumber numberWithString:userInfo[@"shopID"]] integerValue];
+         [self.navigationController pushViewController:vc animated:YES];
+         
+     }];
+
 }
 
 
@@ -113,7 +147,6 @@
 
 - (void)dealloc {
     
-//    self.searchController = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

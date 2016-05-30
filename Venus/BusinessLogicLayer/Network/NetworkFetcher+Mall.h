@@ -40,10 +40,14 @@
  *  商城首页搜索框搜索匹配接口
  *
  *  @param keywords
+ *  @param page
+ *  @param capacity
  *  @param success
  *  @param failure
  */
 + (void)mallSearchWithKeywords:(NSString *)keywords
+                          page:(NSNumber *)page
+                      capacity:(NSNumber *)capacity
                        success:(NetworkFetcherSuccessHandler)success
                        failure:(NetworkFetcherErrorHandler)failure;
 

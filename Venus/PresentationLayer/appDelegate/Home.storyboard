@@ -9,7 +9,7 @@
         <!--Navigation Controller-->
         <scene sceneID="f3C-dy-AfB">
             <objects>
-                <navigationController navigationBarHidden="YES" id="Uq4-hE-M1y" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Uq4-hE-M1y" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eSY-zi-KQw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -37,7 +37,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchResultTableViewCell" rowHeight="120" id="B7x-ag-CYW" customClass="SearchResultTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B7x-ag-CYW" id="HtH-Se-VFL">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="119.5"/>
@@ -77,6 +77,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="GLh-bJ-aYU"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="bMy-E1-nmb" id="EqJ-xG-k6G"/>
@@ -89,7 +90,7 @@
         <!--首页-->
         <scene sceneID="glC-fr-QJr">
             <objects>
-                <viewController id="Th4-Eu-yuW" customClass="HomePageViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Th4-Eu-yuW" customClass="HomePageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="958-iV-uif"/>
                         <viewControllerLayoutGuide type="bottom" id="WKh-ke-DN3"/>
@@ -198,10 +199,10 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MIO-h2-bSG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SearchHotTableViewCell" rowHeight="132" id="eJP-rY-gBf" customClass="SearchHotTableViewCell">
-                                <rect key="frame" x="0.0" y="28" width="375" height="132"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="132"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eJP-rY-gBf" id="n2q-Z7-KZs">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
@@ -286,6 +287,7 @@
                             <outlet property="delegate" destination="Eje-T4-bkF" id="6XA-r4-6Pk"/>
                         </connections>
                     </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9i-f4-3m7" userLabel="First Responder" sceneMemberID="firstResponder"/>

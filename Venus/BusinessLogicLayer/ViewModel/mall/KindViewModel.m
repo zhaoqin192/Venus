@@ -27,7 +27,7 @@
         self.capacity = 10;
         self.currentPage = 1;
         self.totalPage = 1;
-        self.sort = @3;
+        self.sort = @1;
     }
     return self;
 }
@@ -45,7 +45,8 @@
                 return @{
                          @"identifier": @"brandID",
                          @"pictureURL": @"picUrl",
-                         @"detailURL": @"url"
+                         @"detailURL": @"url",
+                         @"price": @"discount"
                         };
             }];
             
@@ -79,7 +80,8 @@
                 return @{
                          @"identifier": @"brandID",
                          @"pictureURL": @"picUrl",
-                         @"detailURL": @"url"
+                         @"detailURL": @"url",
+                         @"price": @"discount"
                          };
             }];
             

@@ -2544,12 +2544,12 @@
 		ACFF33471CF9799B008BD0D8 /* useCoupon */ = {
 			isa = PBXGroup;
 			children = (
-				ACFF32D71CF8711E008BD0D8 /* CouponUseViewController.xib */,
-				ACFF32D81CF8711E008BD0D8 /* CouponUseViewController.m */,
 				ACFF32D91CF8711E008BD0D8 /* CouponUseViewController.h */,
-				ACFF32E31CF8711E008BD0D8 /* CouponOrderTableViewCell.xib */,
-				ACFF32E41CF8711E008BD0D8 /* CouponOrderTableViewCell.m */,
+				ACFF32D81CF8711E008BD0D8 /* CouponUseViewController.m */,
+				ACFF32D71CF8711E008BD0D8 /* CouponUseViewController.xib */,
 				ACFF32E51CF8711E008BD0D8 /* CouponOrderTableViewCell.h */,
+				ACFF32E41CF8711E008BD0D8 /* CouponOrderTableViewCell.m */,
+				ACFF32E31CF8711E008BD0D8 /* CouponOrderTableViewCell.xib */,
 			);
 			name = useCoupon;
 			sourceTree = "<group>";
@@ -3505,7 +3505,7 @@
 					"\"SystemConfiguration\"",
 					"-fobjc-arc",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3572,7 +3572,7 @@
 					"\"SystemConfiguration\"",
 					"-fobjc-arc",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neotel.venus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

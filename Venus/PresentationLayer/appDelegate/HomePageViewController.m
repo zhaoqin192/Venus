@@ -108,7 +108,9 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar*)searchBar {
     
     UIStoryboard *group = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
-    GroupViewController *vc = (GroupViewController *)[group instantiateViewControllerWithIdentifier:@"SearchHomeViewController"];
+    
+    SearchHomeViewController *vc = (SearchHomeViewController *)[group instantiateViewControllerWithIdentifier:@"SearchHomeViewController"];
+    
     [self.navigationController pushViewController:vc animated:YES];
     
     

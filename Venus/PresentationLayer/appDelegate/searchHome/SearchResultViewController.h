@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class SearchResultViewModel;
+
 @interface SearchResultViewController : UITableViewController <UISearchResultsUpdating, UISearchControllerDelegate>
+
+@property (nonatomic, strong) SearchResultViewModel *viewModel;
+@property (nonatomic, strong) UIImageView *promptView;
+
 
 @end
