@@ -28,24 +28,29 @@
 @property (nonatomic, copy) NSArray *categoryArray;
 @property (nonatomic, strong) NSNumber *order;
 @property (nonatomic, strong) JSDropDownMenu *menu;
-@property (nonatomic, assign) NSInteger categoryIndex;
+
 @end
 
 @implementation BeautifulFoodViewController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _categoryIndex = -1;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadCategory];
     self.view.backgroundColor = [UIColor redColor];
     [self configureTableView];
-    [self configureMenu];
     self.navigationItem.title = @"美食";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"搜索"] style:UIBarButtonItemStyleDone handler:^(id sender) {
         NSLog(@"搜索");
     }];
     self.order = @(0);
-    self.categoryIndex = -1;
-    [self loadData];
-    [self loadCategory];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -92,11 +97,20 @@
                      };
         }];
         self.categoryArray = [BeautyCategory mj_objectArrayWithKeyValuesArray:responseObject[@"cat"]];
+        _data1 = [NSMutableArray array];
         [_data1 removeAllObjects];
         [_data1 addObject:@"分类"];
         for (BeautyCategory *cate in self.categoryArray) {
             NSString *name = cate.name;
             [_data1 addObject:name];
+        }
+        [self configureMenu];
+        if (self.categoryIndex == -1) {
+            [self loadData];
+        }
+        else {
+            BeautyCategory *category = self.categoryArray[self.categoryIndex];
+            [self loadCategoryShop:category.identify];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"category %@",error);
@@ -127,7 +141,7 @@
 
 - (void)configureMenu{
     
-    _data1 = [NSMutableArray arrayWithObjects:@"分类", @"离我最近", @"评价最高", @"最新发布", @"人气最高", @"价格最低", @"价格最高", nil];
+//    _data1 = [NSMutableArray arrayWithObjects:@"分类", @"离我最近", @"评价最高", @"最新发布", @"人气最高", @"价格最低", @"价格最高", nil];
     _data2 = [NSMutableArray arrayWithObjects:@"筛选", @"团购", @"外卖", @"活动", nil];
     
     _menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:45];
@@ -192,15 +206,16 @@
 -(NSInteger)currentLeftSelectedRow:(NSInteger)column{
     
     if (column==0) {
-        
-        return _currentData1Index;
-        
+        if (self.categoryIndex == -1) {
+            return _currentData1Index;
+        }
+        else {
+            return self.categoryIndex + 1;
+        }
     }
     if (column==1) {
-        
         return _currentData2Index;
     }
-    
     return 0;
 }
 
@@ -223,8 +238,17 @@
 - (NSString *)menu:(JSDropDownMenu *)menu titleForColumn:(NSInteger)column{
     
     switch (column) {
-        case 0: return _data1[0];
+        case 0:{
+            if (self.categoryIndex == -1) {
+                return _data1[0];
+            }
+            else {
+                BeautyCategory *category = self.categoryArray[self.categoryIndex];
+                NSLog(@"hahahahahhha  %@",category.name);
+                return category.name;
+            }
             break;
+        }
         case 1: return _data2[0];
             break;
         case 2: return _data3[0];
@@ -239,13 +263,8 @@
     
     if (indexPath.column==0) {
         return _data1[indexPath.row];
-    } else if (indexPath.column==1) {
-        
+    } else  {
         return _data2[indexPath.row];
-        
-    } else {
-        
-        return _data3[indexPath.row];
     }
 }
 
