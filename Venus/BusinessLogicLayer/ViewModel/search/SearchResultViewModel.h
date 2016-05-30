@@ -14,8 +14,12 @@
 @property (nonatomic, strong) RACSubject *searchFailureObject;
 @property (nonatomic, strong) RACSubject *errorObject;
 @property (nonatomic, strong) NSMutableArray *searchArray;
+@property (nonatomic, strong) NSNumber *currentPage;
+@property (nonatomic, strong) NSNumber *totalPage;
 
 
-- (void)searchWithKeyword:(NSString *)keyword;
+
+- (void)searchWithKeyword:(NSString *)keyword
+                     page:(NSNumber *)page;
 
 @end

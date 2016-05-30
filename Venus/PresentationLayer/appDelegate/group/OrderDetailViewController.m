@@ -109,17 +109,22 @@
         @strongify(self)
         if ([self.state isEqualToNumber:@0]) {
             
-            
-//            UIStoryboard *group = [UIStoryboard storyboardWithName:@"group" bundle:nil];
-//            GroupViewController *vc = (GroupViewController *)[group instantiateViewControllerWithIdentifier:@"group"];
-//            [self.navigationController pushViewController:vc animated:YES];
-            
             UIStoryboard *refund = [UIStoryboard storyboardWithName:@"refund" bundle:nil];
             RefundViewController *refundVC = (RefundViewController *)[refund instantiateViewControllerWithIdentifier:@"refund"];
             
-//            RefundViewController *refundVC = [[RefundViewController alloc] initWithNibName:@"RefundViewController" bundle:nil];
+            
+            NSMutableArray *codeArray = [[NSMutableArray alloc] init];
+            
+            for (StockModel *model in self.viewModel.codeArray) {
+                
+                if ([model.status isEqualToNumber:@0]) {
+                    [codeArray addObject:model];
+                }
+                
+            }
+            
             refundVC.unitPrice = self.viewModel.price;
-            refundVC.codeArray = self.viewModel.codeArray;
+            refundVC.codeArray = codeArray;
             refundVC.orderModel = self.orderModel;
             [self.navigationController pushViewController:refundVC animated:YES];
             
@@ -245,12 +250,28 @@
             StockModel *model = [self.viewModel.codeArray objectAtIndex:indexPath.row - 1];
             cell.codeLabel.text = model.code;
             
-            if ([self.state isEqualToNumber:@2]) {
-                cell.statusLabel.text = @"待评价";
+            switch ([model.status integerValue]) {
+                case 0:
+                    cell.statusLabel.text = @"待使用";
+                    break;
+                case 1:
+                    cell.statusLabel.text = @"过期";
+                    break;
+                case 2:
+                    cell.statusLabel.text = @"已使用";
+                    break;
+                case 3:
+                    cell.statusLabel.text = @"退款中";
+                    break;
+                case 4:
+                    cell.statusLabel.text = @"退款成功";
+                    break;
+                case 5:
+                    cell.statusLabel.text = @"退款失败";
+                default:
+                    break;
             }
-            else if ([self.state isEqualToNumber:@3]) {
-                cell.statusLabel.text = @"退款成功";
-            }
+            
             
             return cell;
         }

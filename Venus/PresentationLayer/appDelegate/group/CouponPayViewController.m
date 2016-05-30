@@ -163,6 +163,8 @@
     cell.countLabel.text = [NSString stringWithFormat:@"%@", model.count];
     cell.totalPriceLabel.text = [NSString stringWithFormat:@"￥%.2f", [model.totalPrice floatValue] / 100];
     
+    cell.statusLabel.text = @"待付款";
+    
     cell.orderModel = model;
     
     cell.state = @0;

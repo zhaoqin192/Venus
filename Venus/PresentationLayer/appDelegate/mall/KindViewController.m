@@ -114,11 +114,13 @@
         
         @strongify(self)
         if (![self.viewModel.sort isEqualToNumber:@1]) {
+            //价格降序
             self.viewModel.sort = @1;
             [self.priceButton setImage:[UIImage imageNamed:@"arrowDown"] forState:UIControlStateNormal];
         }
         else {
             self.viewModel.sort = @2;
+            //价格升序
             [self.priceButton setImage:[UIImage imageNamed:@"arrowUP"] forState:UIControlStateNormal];
         }
         
@@ -134,10 +136,12 @@
         
         @strongify(self)
         if (![self.viewModel.sort isEqualToNumber:@4]) {
+            //时间降序
             self.viewModel.sort = @4;
             [self.timeButton setImage:[UIImage imageNamed:@"arrowDown"] forState:UIControlStateNormal];
         }
         else {
+            //时间升序
             self.viewModel.sort = @3;
             [self.timeButton setImage:[UIImage imageNamed:@"arrowUP"] forState:UIControlStateNormal];
         }

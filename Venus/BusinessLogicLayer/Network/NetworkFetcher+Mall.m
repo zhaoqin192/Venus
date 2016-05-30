@@ -60,13 +60,15 @@ static const BOOL LOGDEBUG = NO;
 }
 
 + (void)mallSearchWithKeywords:(NSString *)keywords
+                          page:(NSNumber *)page
+                      capacity:(NSNumber *)capacity
                        success:(NetworkFetcherSuccessHandler)success
                        failure:(NetworkFetcherErrorHandler)failure {
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/bazaar/index/indexSearch4App"]];
     
-    NSDictionary *parameters = @{@"name": keywords};
+    NSDictionary *parameters = @{@"name": keywords, @"page": page, @"pageSize": capacity};
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
