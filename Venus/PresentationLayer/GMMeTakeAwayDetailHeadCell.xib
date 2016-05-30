@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="356" id="KGk-i7-Jjw" customClass="GMMeTakeAwayDetailHeadCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="356"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="355"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYH-Fr-vyn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="10"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="g1W-Tz-dEV"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q7K-Dm-no3">
+                        <rect key="frame" x="0.0" y="42" width="320" height="0.0"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" id="xx6-vC-yUn"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店铺名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kH8-Jb-K6H">
+                        <rect key="frame" x="15" y="13" width="64" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单状态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cX-KV-S8C">
+                        <rect key="frame" x="256" y="14" width="56" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="KYH-Fr-vyn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4Wh-St-yDv"/>
+                    <constraint firstAttribute="trailing" secondItem="q7K-Dm-no3" secondAttribute="trailing" id="73k-pt-Rlh"/>
+                    <constraint firstAttribute="trailing" secondItem="9cX-KV-S8C" secondAttribute="trailing" constant="8" id="TMo-qc-stH"/>
+                    <constraint firstItem="kH8-Jb-K6H" firstAttribute="top" secondItem="KYH-Fr-vyn" secondAttribute="bottom" constant="3" id="XWs-I5-PIp"/>
+                    <constraint firstItem="KYH-Fr-vyn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XeB-hi-RVP"/>
+                    <constraint firstItem="kH8-Jb-K6H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ZgK-8b-0Oy"/>
+                    <constraint firstItem="q7K-Dm-no3" firstAttribute="top" secondItem="KYH-Fr-vyn" secondAttribute="bottom" constant="32" id="fRa-oM-vR6"/>
+                    <constraint firstItem="9cX-KV-S8C" firstAttribute="top" secondItem="KYH-Fr-vyn" secondAttribute="bottom" constant="4" id="fow-Fc-1ZY"/>
+                    <constraint firstItem="q7K-Dm-no3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jnc-kZ-a3x"/>
+                    <constraint firstAttribute="trailing" secondItem="KYH-Fr-vyn" secondAttribute="trailing" id="ou6-EO-zaK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="236" y="313"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -14,6 +14,8 @@ typedef void(^FoodOrderManagerUpdateFailedHandler)(NSString *error);
 @interface FoodOrderManager : NSObject
 
 @property (strong, nonatomic) NSMutableArray *orderArray;
+@property (strong, nonatomic) NSMutableArray *waitingEvalutationOrderArray;
+@property (strong, nonatomic) NSMutableArray *refundOrderArray;
 
 + (FoodOrderManager *)sharedInstance;
 

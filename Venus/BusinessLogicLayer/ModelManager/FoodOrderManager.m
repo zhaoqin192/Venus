@@ -23,21 +23,34 @@
 
 - (void)updateOrderSucceed:(FoodOrderManagerUpdateSucceedHandler)succeedHandler
                     failed:(FoodOrderManagerUpdateFailedHandler)failedHander {
-    [NetworkFetcher foodFetcherUserFoodOrderOnPage:1 success:^(NSDictionary *response) {
+    [NetworkFetcher foodFetcherUserFoodOrderOnPage:0 success:^(NSDictionary *response) {
         // 装填数据
-        NSDictionary *dic = response;
-        if ([dic[@"errCode"] isEqualToNumber:@0]) {
+        if ([response[@"errCode"] isEqualToNumber:@0]) {
+            NSArray *array = (NSArray *)response[@"data"];
             [TakeAwayOrder mj_setupObjectClassInArray:^NSDictionary *{
                 return @{
                          @"goodsDetail":@"TakeAwayOrderGood"
                          };
             }];
-            [TakeAwayOrder mj_objectWithKeyValues:dic];
-            NSLog(@"订单状态是");
+            for (int i = 0; i < array.count; i++) {
+                TakeAwayOrder *order = [TakeAwayOrder mj_objectWithKeyValues:(NSDictionary *)array[i]];
+                [self.orderArray addObject:order];
+                if (order.refundState != -1) {
+                    [self.refundOrderArray addObject:order];
+                }
+                if (order.state == 4) {
+                    [self.waitingEvalutationOrderArray addObject:order];
+                }
+            }
+            
+            
+            NSLog(@"订单数量是%li",(long)self.orderArray.count);
+            NSLog(@"待评价订单数量是%li",(long)self.waitingEvalutationOrderArray.count);
+            NSLog(@"退款订单数量是%li",(long)self.refundOrderArray.count);
             succeedHandler();
         } else {
             
-            failedHander(dic[@"msg"]);
+            failedHander(response[@"msg"]);
         }
         
     } failure:^(NSString *error) {

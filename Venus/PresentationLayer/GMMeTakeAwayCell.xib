@@ -97,7 +97,7 @@
                         <color key="textColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQe-U4-wdq">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQe-U4-wdq" userLabel="Left One More Order Button">
                         <rect key="frame" x="127" y="154" width="85" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="Vgi-xD-aiG"/>
@@ -117,7 +117,27 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNA-97-gv3">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FxI-mN-PYt" userLabel="Right One More Order Button">
+                        <rect key="frame" x="225" y="154" width="85" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="KrV-nq-KgF"/>
+                        </constraints>
+                        <state key="normal" title="再下一单">
+                            <color key="titleColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                <color key="value" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNA-97-gv3">
                         <rect key="frame" x="225" y="154" width="85" height="30"/>
                         <color key="backgroundColor" red="0.69019607843137254" green="0.10980392156862745" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -132,24 +152,115 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmt-A3-9tz">
+                        <rect key="frame" x="225" y="154" width="85" height="30"/>
+                        <color key="backgroundColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="tTn-ku-o1g"/>
+                        </constraints>
+                        <state key="normal" title="重新下单">
+                            <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nt-at-tvZ">
+                        <rect key="frame" x="225" y="154" width="85" height="30"/>
+                        <color key="backgroundColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="eh2-KF-ss4"/>
+                        </constraints>
+                        <state key="normal" title="支付">
+                            <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWi-Pp-Woa">
+                        <rect key="frame" x="225" y="154" width="85" height="30"/>
+                        <color key="backgroundColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="BAE-uq-aXg"/>
+                        </constraints>
+                        <state key="normal" title="退款">
+                            <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfc-Ar-The">
+                        <rect key="frame" x="127" y="154" width="85" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Dod-tb-95G"/>
+                        </constraints>
+                        <state key="normal" title="取消订单">
+                            <color key="titleColor" red="0.69019607843137254" green="0.10980392156862745" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmw-tf-NF1">
+                        <rect key="frame" x="129" y="154" width="85" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="iGu-5k-yGW"/>
+                        </constraints>
+                        <state key="normal" title="确认送达">
+                            <color key="titleColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNt-fv-2bf">
+                        <rect key="frame" x="225" y="154" width="85" height="30"/>
+                        <color key="backgroundColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="HBm-uf-hWS"/>
+                        </constraints>
+                        <state key="normal" title="换一家">
+                            <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="hmt-A3-9tz" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:375" id="0w4-8j-rio"/>
                     <constraint firstItem="9Tc-0L-H76" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="188-lg-T1g"/>
                     <constraint firstItem="CcY-A9-hUY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="2Kk-eh-IOd"/>
                     <constraint firstItem="aNO-j6-0kM" firstAttribute="top" secondItem="VYu-0Y-MyS" secondAttribute="bottom" constant="5" id="2Mf-RG-wIE"/>
+                    <constraint firstItem="CNt-fv-2bf" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:375" id="4l7-fF-tR2"/>
+                    <constraint firstAttribute="bottom" secondItem="RWi-Pp-Woa" secondAttribute="bottom" constant="15" id="64s-OG-KgF"/>
+                    <constraint firstItem="RWi-Pp-Woa" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:375" id="8Ev-EP-N8P"/>
                     <constraint firstItem="kb7-3C-lUL" firstAttribute="top" secondItem="CcY-A9-hUY" secondAttribute="top" id="8Rt-vw-PbI"/>
                     <constraint firstItem="kb7-3C-lUL" firstAttribute="leading" secondItem="aNO-j6-0kM" secondAttribute="leading" id="8ZE-mO-uoq"/>
+                    <constraint firstItem="FxI-mN-PYt" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:375" id="DWl-vM-AGL"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="CNt-fv-2bf" secondAttribute="bottom" constant="7" id="DYh-wt-4MX"/>
                     <constraint firstItem="9Tc-0L-H76" firstAttribute="top" secondItem="mmd-tc-LpB" secondAttribute="bottom" constant="5" id="E8d-ad-4Sa"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="FxI-mN-PYt" secondAttribute="bottom" constant="7" id="EJS-vA-xhw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="0Nt-at-tvZ" secondAttribute="bottom" constant="7" id="FzY-lw-Ilc"/>
                     <constraint firstAttribute="trailing" secondItem="9Tc-0L-H76" secondAttribute="trailing" id="Ivy-Sx-Pwa"/>
                     <constraint firstAttribute="bottom" secondItem="31f-CD-9oF" secondAttribute="bottom" constant="20" id="IwH-lP-XV4"/>
+                    <constraint firstAttribute="bottom" secondItem="mfc-Ar-The" secondAttribute="bottom" constant="15" id="Jvb-qr-wtx"/>
                     <constraint firstItem="NNA-97-gv3" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:375" id="OK3-6p-e5b"/>
                     <constraint firstItem="VYu-0Y-MyS" firstAttribute="top" secondItem="kb7-3C-lUL" secondAttribute="bottom" constant="5" id="Quh-hJ-Xba"/>
                     <constraint firstAttribute="bottom" secondItem="NNA-97-gv3" secondAttribute="bottom" constant="15" id="RtV-SO-JwM"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="mfc-Ar-The" secondAttribute="trailing" constant="100" id="SHL-Pb-OIY"/>
                     <constraint firstAttribute="bottom" secondItem="WQe-U4-wdq" secondAttribute="bottom" constant="15" id="Ska-NA-feY"/>
                     <constraint firstItem="9Tc-0L-H76" firstAttribute="top" secondItem="TyL-hq-RII" secondAttribute="bottom" constant="5" id="XQ4-bz-Gwk"/>
                     <constraint firstItem="31f-CD-9oF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ZVI-2e-4ld"/>
                     <constraint firstAttribute="trailing" secondItem="TyL-hq-RII" secondAttribute="trailing" constant="15" id="aDB-JQ-6yC"/>
+                    <constraint firstItem="0Nt-at-tvZ" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:375" id="amn-zT-WFS"/>
                     <constraint firstItem="5Xh-CR-vYE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bpD-oE-fWJ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vmw-tf-NF1" secondAttribute="trailing" constant="98" id="c56-hU-Rpj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hmt-A3-9tz" secondAttribute="trailing" constant="2" id="cQM-LS-2VI"/>
                     <constraint firstItem="kb7-3C-lUL" firstAttribute="leading" secondItem="CcY-A9-hUY" secondAttribute="trailing" constant="8" id="dPB-4b-7Id"/>
                     <constraint firstItem="f5I-uA-Jge" firstAttribute="centerY" secondItem="aNO-j6-0kM" secondAttribute="centerY" id="fQW-JL-VDZ"/>
                     <constraint firstItem="9Tc-0L-H76" firstAttribute="top" secondItem="5Xh-CR-vYE" secondAttribute="bottom" constant="32" id="gGK-ch-xnR"/>
@@ -157,8 +268,16 @@
                     <constraint firstItem="CcY-A9-hUY" firstAttribute="top" secondItem="9Tc-0L-H76" secondAttribute="bottom" constant="8" id="hNh-Af-W6a"/>
                     <constraint firstAttribute="trailing" secondItem="5Xh-CR-vYE" secondAttribute="trailing" id="hYJ-mY-NNi"/>
                     <constraint firstItem="kb7-3C-lUL" firstAttribute="leading" secondItem="CcY-A9-hUY" secondAttribute="leading" id="iDM-NI-dG7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="CNt-fv-2bf" secondAttribute="trailing" constant="2" id="iOR-Id-4eS"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="0Nt-at-tvZ" secondAttribute="trailing" constant="2" id="iYf-6z-Raw"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="FxI-mN-PYt" secondAttribute="trailing" constant="2" id="ijR-la-wW7"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="hmt-A3-9tz" secondAttribute="bottom" constant="7" id="jQO-nm-LBA"/>
                     <constraint firstItem="mmd-tc-LpB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="lcJ-5n-bsD"/>
+                    <constraint firstItem="vmw-tf-NF1" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:375" id="lhu-CG-UoF"/>
                     <constraint firstItem="kb7-3C-lUL" firstAttribute="leading" secondItem="VYu-0Y-MyS" secondAttribute="leading" id="nZV-c9-qni"/>
+                    <constraint firstItem="mfc-Ar-The" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:375" id="oPb-jv-LGF"/>
+                    <constraint firstAttribute="trailing" secondItem="RWi-Pp-Woa" secondAttribute="trailing" constant="10" id="pLx-w5-awS"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="vmw-tf-NF1" secondAttribute="bottom" constant="7" id="qbU-YV-igO"/>
                     <constraint firstItem="ieg-iA-sDg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="reD-W0-6Ss"/>
                     <constraint firstAttribute="trailing" secondItem="NNA-97-gv3" secondAttribute="trailing" constant="10" id="sHP-e5-iwE"/>
                     <constraint firstAttribute="trailing" secondItem="ieg-iA-sDg" secondAttribute="trailing" id="tQs-CO-Nv1"/>
@@ -174,10 +293,19 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="cancelOrderButton" destination="mfc-Ar-The" id="q4b-lU-9rB"/>
+                <outlet property="changeStoreButton" destination="CNt-fv-2bf" id="j2Z-FZ-EEj"/>
+                <outlet property="confirmButton" destination="vmw-tf-NF1" id="83p-cp-vlN"/>
                 <outlet property="deleteButton" destination="TyL-hq-RII" id="rhI-ca-Ls2"/>
-                <outlet property="evaluateButton" destination="NNA-97-gv3" id="p3E-kA-zbI"/>
+                <outlet property="evaluateButton" destination="NNA-97-gv3" id="X9D-wC-C5A"/>
                 <outlet property="foodName" destination="kb7-3C-lUL" id="Hvq-1j-Z1J"/>
-                <outlet property="oneMoreOrderButton" destination="WQe-U4-wdq" id="Lmo-50-bAK"/>
+                <outlet property="leftOneMoreOrderButton" destination="WQe-U4-wdq" id="yJz-MK-CNX"/>
+                <outlet property="orderStateLabel" destination="31f-CD-9oF" id="Jjh-gn-Dbl"/>
+                <outlet property="payButton" destination="0Nt-at-tvZ" id="iri-vy-9Ty"/>
+                <outlet property="refundButton" destination="RWi-Pp-Woa" id="o9Z-cl-FUU"/>
+                <outlet property="reorderButton" destination="hmt-A3-9tz" id="hIW-M8-Sgp"/>
+                <outlet property="rightOneMoreOrderButton" destination="FxI-mN-PYt" id="v9b-do-h8b"/>
+                <outlet property="storeIcon" destination="CcY-A9-hUY" id="a6N-Nq-qNh"/>
                 <outlet property="storeName" destination="mmd-tc-LpB" id="pcV-Fo-pkT"/>
                 <outlet property="time" destination="VYu-0Y-MyS" id="Bvx-Vh-I3n"/>
                 <outlet property="totalPrice" destination="f5I-uA-Jge" id="A2I-yD-7Xy"/>

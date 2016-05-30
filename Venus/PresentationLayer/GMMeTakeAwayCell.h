@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TakeAwayOrder;
 
 typedef NS_ENUM(NSUInteger, OrderState) {
     waitingPay = 0,
@@ -18,11 +19,18 @@ typedef NS_ENUM(NSUInteger, OrderState) {
     payingFailed,
     orderRevoked,
     takingOrderFailed,
-    refundSucceed,
+    refundSeries
+};
+
+typedef NS_ENUM(NSUInteger, refundState) {
+    noRefund = -1,
+    refundSucceed = 0,
     refunding
-} ;
+};
 
 @interface GMMeTakeAwayCell : UITableViewCell
+
++ (instancetype)cellForTableView:(UITableView *)tableView;
 
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UILabel *storeName;
@@ -31,8 +39,24 @@ typedef NS_ENUM(NSUInteger, OrderState) {
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UILabel *totalPrice;
 @property (assign, nonatomic) OrderState orderState;
-@property (weak, nonatomic) IBOutlet UIButton *oneMoreOrderButton;
-@property (weak, nonatomic) IBOutlet UIButton *evaluateButton;
+@property (assign, nonatomic) refundState refundState;
 
-+ (instancetype)cellForTableView:(UITableView *)tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *storeIcon;
+@property (weak, nonatomic) IBOutlet UILabel *orderStateLabel;
+
+@property (strong, nonatomic) TakeAwayOrder *order;
+
+#pragma mark - buttons
+@property (weak, nonatomic) IBOutlet UIButton *leftOneMoreOrderButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightOneMoreOrderButton;
+@property (weak, nonatomic) IBOutlet UIButton *evaluateButton;
+@property (weak, nonatomic) IBOutlet UIButton *reorderButton;
+@property (weak, nonatomic) IBOutlet UIButton *changeStoreButton;
+@property (weak, nonatomic) IBOutlet UIButton *payButton;
+@property (weak, nonatomic) IBOutlet UIButton *refundButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelOrderButton;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
+
+
+
 @end
