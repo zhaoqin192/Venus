@@ -312,6 +312,7 @@
 		ACF83EB31CBF97F800A962BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EB21CBF97F800A962BD /* AppDelegate.m */; };
 		ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBD1CBF97F800A962BD /* Assets.xcassets */; };
 		ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBF1CBF97F800A962BD /* LaunchScreen.storyboard */; };
+		ACFB4D061CFC806500731606 /* HomeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFB4D051CFC806500731606 /* HomeSearchViewController.m */; };
 		ACFF31B51CF86ECF008BD0D8 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ACFF31511CF86ECF008BD0D8 /* AlipaySDK.bundle */; };
 		ACFF31B91CF86ECF008BD0D8 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF31A21CF86ECF008BD0D8 /* Order.m */; };
 		ACFF31C41CF86EE0008BD0D8 /* NSString+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF31C21CF86EE0008BD0D8 /* NSString+Expand.m */; };
@@ -936,6 +937,8 @@
 		ACF83EBD1CBF97F800A962BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF83EC01CBF97F800A962BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF83EC21CBF97F800A962BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACFB4D041CFC806500731606 /* HomeSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSearchViewController.h; sourceTree = "<group>"; };
+		ACFB4D051CFC806500731606 /* HomeSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSearchViewController.m; sourceTree = "<group>"; };
 		ACFF31511CF86ECF008BD0D8 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		ACFF31521CF86ECF008BD0D8 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		ACFF31531CF86ECF008BD0D8 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
@@ -2242,6 +2245,8 @@
 				ACB911EC1CFABC7900F9183E /* SearchResultViewController.m */,
 				ACCDCB8D1CF9DBB900FAD161 /* SearchResultTableViewCell.h */,
 				ACCDCB8E1CF9DBB900FAD161 /* SearchResultTableViewCell.m */,
+				ACFB4D041CFC806500731606 /* HomeSearchViewController.h */,
+				ACFB4D051CFC806500731606 /* HomeSearchViewController.m */,
 			);
 			path = searchHome;
 			sourceTree = "<group>";
@@ -3258,6 +3263,7 @@
 				3086D3B51CC72A09007494D7 /* GMLabel.m in Sources */,
 				30B509ED1CF2D27C00A2C30A /* ActionSheetCustomPicker.m in Sources */,
 				AC90F5711CCFAADF004C4C55 /* Picture.m in Sources */,
+				ACFB4D061CFC806500731606 /* HomeSearchViewController.m in Sources */,
 				AC96F2F91CE9963F001B2DDE /* CouponViewController.m in Sources */,
 				AC2E04451CEB5DAE00476087 /* ImageCollectionViewCell.m in Sources */,
 				AC987D471CE8BDD100E11CC5 /* CouponModel.m in Sources */,
