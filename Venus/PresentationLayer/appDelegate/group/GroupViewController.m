@@ -16,6 +16,7 @@
 #import "MBProgressHUD.h"
 #import "CouponViewController.h"
 #import "LoadingCell.h"
+#import <UITableView+FDTemplateLayoutCell.h>
 
 
 @interface GroupViewController ()<UITableViewDelegate, UITableViewDataSource, JSDropDownMenuDataSource, JSDropDownMenuDelegate>
@@ -67,8 +68,6 @@
     self.menu.textColor = [UIColor colorWithHexString:@"535353"];
     self.menu.delegate = self;
     self.menu.dataSource = self;
-    
-    self.tableView.tableHeaderView = self.menu;
     
 }
 
@@ -152,6 +151,13 @@
     
     CouponCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponCell"];
     
+    [self configureCouponCell:cell atIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (void)configureCouponCell:(CouponCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
     CouponModel *model= [self.viewModel.couponArray objectAtIndex:indexPath.row];
     
     [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureUrl]];
@@ -160,8 +166,13 @@
     cell.sale.text = [NSString stringWithFormat:@"已售:%@", model.purchaseNum];
     cell.asPrice.text = [NSString stringWithFormat:@"%.2f元", [model.price floatValue] / 100];
     
-    return cell;
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+   
+    return self.menu;
+}
+
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -177,10 +188,22 @@
         return 40;
     }
     
-    return 128;
+    @weakify(self)
+    return [tableView fd_heightForCellWithIdentifier:@"CouponCell" configuration:^(CouponCell *cell) {
+        @strongify(self)
+        [self configureCouponCell:cell atIndexPath:indexPath];
+        
+    }];
+    
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    
+    if (section == 0) {
+        return 45;
+    }
+    
     return CGFLOAT_MIN;
 }
 

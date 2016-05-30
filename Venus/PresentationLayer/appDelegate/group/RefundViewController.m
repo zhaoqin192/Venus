@@ -16,6 +16,7 @@
 #import "MBProgressHUD.h"
 #import "CouponOrderModel.h"
 #import "PersonalCouponViewController.h"
+#import "GroupViewController.h"
 
 @interface RefundViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -81,6 +82,15 @@
                 }
                 
             }
+            
+            for (UIViewController *viewController in allViewControllers) {
+                
+                if ([viewController isKindOfClass:[GroupViewController class]]) {
+                    [self.navigationController popToViewController:viewController animated:YES];
+                }
+                
+            }
+            
             
         }];
         

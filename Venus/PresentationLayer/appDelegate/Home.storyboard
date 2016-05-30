@@ -207,17 +207,24 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="热搜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4g-BF-bke">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="热搜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4g-BF-bke">
                                             <rect key="frame" x="8" y="13" width="34" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="34" id="v1r-0l-qRQ"/>
+                                                <constraint firstAttribute="height" constant="18" id="xko-w1-sGe"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zxl-wT-T8E">
+                                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxl-wT-T8E">
                                             <rect key="frame" x="0.0" y="44" width="375" height="1"/>
                                             <color key="backgroundColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="uqC-lE-s7v"/>
+                                            </constraints>
                                         </view>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c3w-qy-FLf">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c3w-qy-FLf">
                                             <rect key="frame" x="8" y="53" width="359" height="70.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a8c-60-yCb">
@@ -234,7 +241,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKl-5Q-tEs">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKl-5Q-tEs">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
                                                                 <state key="normal" title="套餐">
                                                                     <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
@@ -244,6 +251,12 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <color key="backgroundColor" red="0.69019607843137254" green="0.10980392156862745" blue="0.1803921568627451" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="JKl-5Q-tEs" secondAttribute="bottom" id="Clz-jQ-hxX"/>
+                                                        <constraint firstItem="JKl-5Q-tEs" firstAttribute="top" secondItem="jQB-C7-pCa" secondAttribute="top" id="WO4-qB-b7w"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JKl-5Q-tEs" secondAttribute="trailing" id="bdY-bC-9J4"/>
+                                                        <constraint firstItem="JKl-5Q-tEs" firstAttribute="leading" secondItem="jQB-C7-pCa" secondAttribute="leading" id="l5J-JT-X5I"/>
+                                                    </constraints>
                                                     <connections>
                                                         <outlet property="titleLabel" destination="JKl-5Q-tEs" id="gDO-d2-aMT"/>
                                                     </connections>
@@ -251,6 +264,17 @@
                                             </cells>
                                         </collectionView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zxl-wT-T8E" firstAttribute="top" secondItem="K4g-BF-bke" secondAttribute="bottom" constant="13" id="6vw-DK-h4W"/>
+                                        <constraint firstAttribute="trailing" secondItem="zxl-wT-T8E" secondAttribute="trailing" id="8DB-U3-Ngc"/>
+                                        <constraint firstItem="zxl-wT-T8E" firstAttribute="leading" secondItem="n2q-Z7-KZs" secondAttribute="leading" id="BKa-MJ-SFt"/>
+                                        <constraint firstItem="c3w-qy-FLf" firstAttribute="trailing" secondItem="n2q-Z7-KZs" secondAttribute="trailingMargin" id="XuY-SA-lW5"/>
+                                        <constraint firstItem="K4g-BF-bke" firstAttribute="leading" secondItem="n2q-Z7-KZs" secondAttribute="leadingMargin" id="ZkH-a0-Yci"/>
+                                        <constraint firstItem="c3w-qy-FLf" firstAttribute="top" secondItem="zxl-wT-T8E" secondAttribute="bottom" constant="8" id="akr-Mr-xkp"/>
+                                        <constraint firstItem="c3w-qy-FLf" firstAttribute="leading" secondItem="n2q-Z7-KZs" secondAttribute="leadingMargin" id="lc1-lu-9hQ"/>
+                                        <constraint firstItem="K4g-BF-bke" firstAttribute="top" secondItem="n2q-Z7-KZs" secondAttribute="topMargin" constant="5" id="muI-3a-c5G"/>
+                                        <constraint firstItem="c3w-qy-FLf" firstAttribute="bottom" secondItem="n2q-Z7-KZs" secondAttribute="bottomMargin" id="nTL-Pt-2wW"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="collectionView" destination="c3w-qy-FLf" id="lDl-66-eBG"/>

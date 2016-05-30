@@ -10,6 +10,7 @@
 #import "CategoryCell.h"
 #import "ReusableView.h"
 #import "BeautyCategory.h"
+#import "BeautifulFoodViewController.h"
 
 @interface WXCategoryViewController ()
 <UICollectionViewDelegate,UICollectionViewDataSource>
@@ -123,6 +124,11 @@ static NSString *footerID = @"footerID";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%zd",indexPath.row);
+    if (indexPath.section == 1) {
+        BeautifulFoodViewController *vc = [[BeautifulFoodViewController alloc] init];
+        vc.categoryIndex = indexPath.row;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {

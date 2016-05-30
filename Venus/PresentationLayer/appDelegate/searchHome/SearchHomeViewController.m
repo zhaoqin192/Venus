@@ -112,6 +112,8 @@
 }
 
 - (void)dealloc {
+    
+//    self.searchController = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

@@ -10,4 +10,5 @@
 @class BeautifulFood;
 @interface BeautifulDetailViewController : UIViewController
 @property (nonatomic, strong) BeautifulFood *foodModel;
+@property (nonatomic, assign) NSInteger shopId;
 @end

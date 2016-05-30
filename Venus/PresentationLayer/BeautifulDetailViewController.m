@@ -19,6 +19,7 @@
 #import "CouponModel.h"
 #import "CouponViewController.h"
 #import "BeautifulCommitView.h"
+#import "SDRefresh.h"
 
 @interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -29,6 +30,7 @@
 @property (nonatomic, copy) NSArray *allCouponsArray;
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) BeautifulCommitView *commitView;
+@property (nonatomic, assign) NSInteger commitPage;
 @end
 
 @implementation BeautifulDetailViewController
@@ -37,10 +39,16 @@
     [super viewDidLoad];
     self.currentSegmentName = @"店铺首页";
     self.allCommitArray = [NSMutableArray array];
+    [self configureNotification];
+    [self configureRefresh];
+    self.commitPage = 1;
+    if (!self.foodModel) {
+        [self fetchFoodModel];
+        return;
+    }
     [self configureTableView];
     [SVProgressHUD show];
     [self loadHomeData];
-    [self configureNotification];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -54,6 +62,46 @@
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     [self.rdv_tabBarController setTabBarHidden:NO];
+}
+
+- (void)configureRefresh {
+    SDRefreshHeaderView *refreshHeader = [SDRefreshHeaderView refreshView];
+    [refreshHeader addToScrollView:self.myTableView];
+    __weak SDRefreshHeaderView *weakRefreshHeader = refreshHeader;
+    __weak typeof(self) weakSelf = self;
+    refreshHeader.beginRefreshingOperation = ^{
+        if ([self.currentSegmentName isEqualToString:@"评价"]) {
+            self.commitPage = 1;
+            [weakSelf loadCommit];
+        }
+        [weakRefreshHeader endRefreshing];
+    };
+    
+    SDRefreshFooterView *refreshFooter = [SDRefreshFooterView refreshView];
+    [refreshFooter addToScrollView:self.myTableView];
+    __weak SDRefreshFooterView *weakRefreshFooter = refreshFooter;
+    refreshFooter.beginRefreshingOperation = ^{
+        if ([self.currentSegmentName isEqualToString:@"评价"]) {
+            self.commitPage = self.commitPage + 1;
+            [weakSelf loadMoreCommit];
+        }
+        [weakRefreshFooter endRefreshing];
+    };
+}
+
+- (void)fetchFoodModel {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/info"]];
+    NSDictionary *parameters = @{@"id":@(self.shopId)};
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        self.foodModel = [BeautifulFood mj_objectWithKeyValues:responseObject[@"shopInfo"]];
+        [self configureTableView];
+        [SVProgressHUD show];
+        [self loadHomeData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 - (void)configureFootView {
@@ -211,6 +259,7 @@
 //        }];
         self.allFoodArray = [FoodDetail mj_objectArrayWithKeyValuesArray:responseObject[@"items"]];
         self.myTableView.tableFooterView = [[UIView alloc] init];
+        [self configureFootView];
         [self.myTableView reloadData];
         [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -235,6 +284,33 @@
         //                     };
         //        }];
         self.allCommitArray = [Commit mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [self configureFootView];
+        self.myTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 48)];
+        [self.myTableView reloadData];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+- (void)loadMoreCommit {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/comment/getStoreComment"]];
+    NSDictionary* parameters = @{
+                                 @"storeId":@(self.foodModel.shopId),
+                                 @"page":@(self.commitPage),
+                                 @"pageSize":@"20",
+                                 };
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+        //        [BeautifulFood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        //            return @{
+        //                     @"desp": @"description"
+        //                     };
+        //        }];
+        NSArray *temp = [Commit mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [self.allCommitArray addObjectsFromArray:temp];
         [self configureFootView];
         self.myTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 48)];
         [self.myTableView reloadData];

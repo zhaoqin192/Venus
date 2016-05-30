@@ -29,7 +29,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rv3-49-NAl">
                     <rect key="frame" x="0.0" y="559" width="375" height="44"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8XN-vo-deT">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8XN-vo-deT">
                             <rect key="frame" x="157" y="7" width="60" height="30"/>
                             <state key="normal" title="申请退款">
                                 <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,6 +39,8 @@
                     <color key="backgroundColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="741-w8-rI9"/>
+                        <constraint firstItem="8XN-vo-deT" firstAttribute="centerX" secondItem="Rv3-49-NAl" secondAttribute="centerX" id="xeZ-yD-VTT"/>
+                        <constraint firstItem="8XN-vo-deT" firstAttribute="centerY" secondItem="Rv3-49-NAl" secondAttribute="centerY" id="ymJ-Bs-kzN"/>
                     </constraints>
                 </view>
             </subviews>

@@ -49,7 +49,7 @@
         [self.tableView reloadData];
         
         if (self.viewModel.searchArray.count == 0) {
-            UIImage *image = [UIImage imageNamed:@"loginLogo"];
+            UIImage *image = [UIImage imageNamed:@"search_noResult"];
             
             self.promptView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - image.size.width / 2, self.view.frame.size.height / 2 - image.size.height / 2, image.size.width, image.size.height)];
             

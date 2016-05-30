@@ -131,9 +131,11 @@
          [self presentViewController:vc animated:YES completion:nil];
      }];
     
+    
     [self.forgetPasswordButton bk_whenTapped:^{
         MeModifyPhoneNumberViewController *vc = [[MeModifyPhoneNumberViewController alloc] init];
         vc.isForget = YES;
+        @strongify(self)
         [self presentViewController:vc animated:YES completion:nil];
        // [self.navigationController pushViewController:vc animated:YES];
     }];

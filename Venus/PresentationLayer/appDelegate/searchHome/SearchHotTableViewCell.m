@@ -24,7 +24,7 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    self.hotArray = [NSArray arrayWithObjects:@"特惠单人套餐", @"双人餐", @"女装", @"男装", @"火锅", nil];
+    self.hotArray = [NSArray arrayWithObjects:@"特惠套餐", @"双人餐", @"女装", @"男装", @"火锅", nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -45,6 +45,14 @@
     [cell.titleLabel setTitle:[self.hotArray objectAtIndex:indexPath.item]  forState:UIControlStateNormal];
     
     return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CGFloat width = 100.0f / 375 * kScreenWidth;
+    CGFloat height = 30.0f / 667 * kScreenHeight;
+    return CGSizeMake(width, height);
+    
 }
 
 @end

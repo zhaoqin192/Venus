@@ -18,6 +18,8 @@
 #import "MBProgressHUD.h"
 #import "RefundViewController.h"
 #import "CouponCommentDetailViewController.h"
+#import <UITableView+FDTemplateLayoutCell.h>
+
 
 @interface OrderDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -107,7 +109,15 @@
         @strongify(self)
         if ([self.state isEqualToNumber:@0]) {
             
-            RefundViewController *refundVC = [[RefundViewController alloc] initWithNibName:@"RefundViewController" bundle:nil];
+            
+//            UIStoryboard *group = [UIStoryboard storyboardWithName:@"group" bundle:nil];
+//            GroupViewController *vc = (GroupViewController *)[group instantiateViewControllerWithIdentifier:@"group"];
+//            [self.navigationController pushViewController:vc animated:YES];
+            
+            UIStoryboard *refund = [UIStoryboard storyboardWithName:@"refund" bundle:nil];
+            RefundViewController *refundVC = (RefundViewController *)[refund instantiateViewControllerWithIdentifier:@"refund"];
+            
+//            RefundViewController *refundVC = [[RefundViewController alloc] initWithNibName:@"RefundViewController" bundle:nil];
             refundVC.unitPrice = self.viewModel.price;
             refundVC.codeArray = self.viewModel.codeArray;
             refundVC.orderModel = self.orderModel;
@@ -146,29 +156,43 @@
 
 - (void)configureTable {
     
-    //设置多余的seperator
-    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    self.tableView.separatorColor = [UIColor colorWithRed:236.0f/255.0f green:236.0f/255.0f blue:236.0f/255.0f alpha:1];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"OrderDetailInfoCell" bundle:nil] forCellReuseIdentifier:[OrderDetailInfoCell className]];
     [self.tableView registerNib:[UINib nibWithNibName:@"OrderCouponIDCell" bundle:nil] forCellReuseIdentifier:[OrderCouponIDCell className]];
     [self.tableView registerNib:[UINib nibWithNibName:[OrderDescribeCell className] bundle:nil] forCellReuseIdentifier:[OrderDescribeCell className]];
     [self.tableView registerNib:[UINib nibWithNibName:[OrderMessageCell className] bundle:nil] forCellReuseIdentifier:[OrderMessageCell className]];
     
+    //设置多余的seperator
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    self.tableView.separatorColor = [UIColor colorWithRed:236.0f/255.0f green:236.0f/255.0f blue:236.0f/255.0f alpha:1];
+
+    
 }
 
 
 #pragma mark -UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
+    @weakify(self)
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
+            @strongify(self)
+            return [tableView fd_heightForCellWithIdentifier:[OrderDetailInfoCell className] configuration:^(OrderDetailInfoCell *cell) {
+                [self configureDetailCell:cell atIndexPath:indexPath];
+            }];
             return 120;
         }
         return 44;
     }
     else if (indexPath.section == 1) {
-        return 89;
+        
+        @strongify(self)
+        return [tableView fd_heightForCellWithIdentifier:[OrderDescribeCell className] configuration:^(OrderDescribeCell *cell) {
+            
+            [self configureDescribeCell:cell atIndexPath:indexPath];
+
+        }];
+        
     }
     else {
         return 264;
@@ -210,11 +234,9 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             OrderDetailInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:[OrderDetailInfoCell className]];
-            cell.titleLabel.text = self.orderModel.storeName;
             
-            cell.asPriceLabel.text = self.orderModel.resume;
-            cell.priceLabel.text = [NSString stringWithFormat:@"￥%.2f", [self.viewModel.price floatValue] / 100];
-            [cell.image sd_setImageWithURL:[NSURL URLWithString:self.orderModel.pictureURL] placeholderImage:[UIImage imageNamed:@"loginLogo"]];
+            [self configureDetailCell:cell atIndexPath:indexPath];
+            
             return cell;
         }
         else {
@@ -236,7 +258,9 @@
     else if (indexPath.section == 1) {
         
         OrderDescribeCell *cell = [tableView dequeueReusableCellWithIdentifier:[OrderDescribeCell className]];
-        cell.describeLabel.text = self.viewModel.describe;
+        
+        [self configureDescribeCell:cell atIndexPath:indexPath];
+        
         return cell;
         
     }
@@ -255,6 +279,22 @@
         return cell;
         
     }
+    
+}
+
+- (void)configureDetailCell:(OrderDetailInfoCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    cell.titleLabel.text = self.orderModel.storeName;
+    
+    cell.asPriceLabel.text = self.orderModel.resume;
+    cell.priceLabel.text = [NSString stringWithFormat:@"￥%.2f", [self.viewModel.price floatValue] / 100];
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:self.orderModel.pictureURL] placeholderImage:[UIImage imageNamed:@"loginLogo"]];
+    
+}
+
+- (void)configureDescribeCell:(OrderDescribeCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+    cell.describeLabel.text = self.viewModel.describe;
     
 }
 
