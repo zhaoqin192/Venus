@@ -36,6 +36,7 @@
 #import "MallViewController.h"
 #import "HomeViewModel.h"
 #import "SearchHomeViewController.h"
+#import "GMNavigationController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate, UISearchBarDelegate>
 
@@ -281,6 +282,8 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
                     case 17:{
                         NSLog(@"外卖");
                         FoodViewController *vc = [[FoodViewController alloc] init];
+//                        GMNavigationController *nvc = [[GMNavigationController alloc] initWithRootViewController:vc];
+//                        [self presentViewController:nvc animated:YES completion:nil];
                         [self.navigationController pushViewController:vc animated:YES];
                         break;
                     }

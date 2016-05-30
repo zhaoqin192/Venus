@@ -39,13 +39,11 @@
     
     [self.foodView bk_whenTapped:^{
         BeautifulFoodViewController *vc = [[BeautifulFoodViewController alloc] init];
-        vc.isLifeCycle = YES;
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
     
     [self.takeawayView bk_whenTapped:^{
         FoodViewController *vc = [[FoodViewController alloc] init];
-        vc.isLifeCycle = YES;
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
     

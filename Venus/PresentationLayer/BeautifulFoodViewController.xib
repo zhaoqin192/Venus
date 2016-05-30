@@ -3,14 +3,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeautifulFoodViewController">
             <connections>
-                <outlet property="contentView" destination="Vz8-OG-u2a" id="IFv-dc-ftg"/>
                 <outlet property="myTableView" destination="Enk-sR-joY" id="HtI-g5-pAx"/>
-                <outlet property="topConstraint" destination="7ei-Vt-hga" id="Tc1-aP-354"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,48 +17,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Enk-sR-joY">
-                    <rect key="frame" x="0.0" y="45" width="375" height="622"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="xgE-M6-r2m"/>
                         <outlet property="delegate" destination="-1" id="Qkl-Np-KWb"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vz8-OG-u2a">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="HuX-js-QJQ"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Enk-sR-joY" firstAttribute="top" secondItem="Vz8-OG-u2a" secondAttribute="bottom" id="5r3-eo-RJf"/>
-                <constraint firstItem="Vz8-OG-u2a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7ei-Vt-hga"/>
                 <constraint firstAttribute="bottom" secondItem="Enk-sR-joY" secondAttribute="bottom" id="DL4-ak-8hl"/>
-                <constraint firstItem="Vz8-OG-u2a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LLJ-G0-VVL"/>
                 <constraint firstAttribute="trailing" secondItem="Enk-sR-joY" secondAttribute="trailing" id="OJf-69-oPc"/>
-                <constraint firstItem="Vz8-OG-u2a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="PWj-zm-HAn"/>
-                <constraint firstItem="Vz8-OG-u2a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Prr-Eq-vbN"/>
-                <constraint firstAttribute="trailing" secondItem="Vz8-OG-u2a" secondAttribute="trailing" id="YO3-Qx-UzX"/>
-                <constraint firstItem="Vz8-OG-u2a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="lWV-4G-jQP"/>
-                <constraint firstItem="Vz8-OG-u2a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="56" id="oDW-ZI-g6W"/>
-                <constraint firstItem="Vz8-OG-u2a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pyZ-pC-WBD"/>
+                <constraint firstItem="Enk-sR-joY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XdW-Ja-xbw"/>
                 <constraint firstItem="Enk-sR-joY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="s2e-rB-dBZ"/>
-                <constraint firstItem="Enk-sR-joY" firstAttribute="top" secondItem="Vz8-OG-u2a" secondAttribute="bottom" id="srw-Qk-K3G"/>
                 <constraint firstItem="Enk-sR-joY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vHq-bi-zBN"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="LLJ-G0-VVL"/>
-                    <exclude reference="PWj-zm-HAn"/>
-                    <exclude reference="Prr-Eq-vbN"/>
-                    <exclude reference="lWV-4G-jQP"/>
-                    <exclude reference="oDW-ZI-g6W"/>
                     <exclude reference="s2e-rB-dBZ"/>
-                    <exclude reference="srw-Qk-K3G"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="451.5" y="374.5"/>
