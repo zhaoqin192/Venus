@@ -47,6 +47,7 @@
 		305E8D2D1CFC2E290063389E /* SDRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 305E8D271CFC2E290063389E /* SDRefreshView.m */; };
 		305E8D2E1CFC2E290063389E /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 305E8D291CFC2E290063389E /* UIView+SDExtension.m */; };
 		305E8D3D1CFD76290063389E /* MapFloorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305E8D3C1CFD76290063389E /* MapFloorCell.xib */; };
+		305E8D421CFD890F0063389E /* MeMiamiCommit.m in Sources */ = {isa = PBXBuildFile; fileRef = 305E8D411CFD890F0063389E /* MeMiamiCommit.m */; };
 		3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3931CC72975007494D7 /* UIButton+LCAlignment.m */; };
 		3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3951CC72975007494D7 /* UIColor+LCHexValue.m */; };
 		3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3971CC72975007494D7 /* UILabel+LCConvenience.m */; };
@@ -494,6 +495,8 @@
 		305E8D281CFC2E290063389E /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
 		305E8D291CFC2E290063389E /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		305E8D3C1CFD76290063389E /* MapFloorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapFloorCell.xib; sourceTree = "<group>"; };
+		305E8D401CFD890F0063389E /* MeMiamiCommit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeMiamiCommit.h; sourceTree = "<group>"; };
+		305E8D411CFD890F0063389E /* MeMiamiCommit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeMiamiCommit.m; sourceTree = "<group>"; };
 		3086D38F1CC728F0007494D7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3086D3911CC72975007494D7 /* LCUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUIKit.h; sourceTree = "<group>"; };
 		3086D3921CC72975007494D7 /* UIButton+LCAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LCAlignment.h"; sourceTree = "<group>"; };
@@ -1978,6 +1981,8 @@
 				30FEE6ED1CF94E38007E7A8B /* MeShopCommit.m */,
 				30FEE6F81CFA70C8007E7A8B /* MeCouponCommit.h */,
 				30FEE6F91CFA70C8007E7A8B /* MeCouponCommit.m */,
+				305E8D401CFD890F0063389E /* MeMiamiCommit.h */,
+				305E8D411CFD890F0063389E /* MeMiamiCommit.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -3397,6 +3402,7 @@
 				ACFF32FF1CF87125008BD0D8 /* CouponCommentMessageCell.m in Sources */,
 				ACFF33331CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m in Sources */,
 				AC4D73F41CF1DCA800DF4997 /* BrandViewCell.m in Sources */,
+				305E8D421CFD890F0063389E /* MeMiamiCommit.m in Sources */,
 				ACFF32851CF86F8B008BD0D8 /* DataVerifier.m in Sources */,
 				3086D3A51CC729A9007494D7 /* WXTextField.m in Sources */,
 				E89BD32D1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m in Sources */,

@@ -9,6 +9,7 @@
 #import "MeCommitCell.h"
 #import "MeShopCommit.h"
 #import "MeCouponCommit.h"
+#import "MeMiamiCommit.h"
 
 @interface MeCommitCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -42,6 +43,16 @@
     self.contentLabel.text = shopModel.content;
     self.timeLabel.text = [self convertTime:@(shopModel.time)];
     [self configureScoreView:shopModel.score];
+}
+
+- (void)setMiamiModel:(MeMiamiCommit *)miamiModel {
+    _miamiModel = miamiModel;
+    [_iconView sd_setImageWithURL:[NSURL URLWithString:miamiModel.storePic]];
+    self.nameLabel.text = miamiModel.storeName;
+    self.myDetailLabel.hidden = YES;
+    self.contentLabel.text = miamiModel.content;
+    self.timeLabel.text = [self convertTime:@(miamiModel.orderCreateTime)];
+    [self configureScoreView:miamiModel.grade];
 }
 
 - (void)setCouponModel:(MeCouponCommit *)couponModel {

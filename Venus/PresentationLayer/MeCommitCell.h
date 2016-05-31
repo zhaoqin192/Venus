@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 @class MeShopCommit;
 @class MeCouponCommit;
+@class MeMiamiCommit;
 @interface MeCommitCell : UITableViewCell
 @property (nonatomic, strong) MeShopCommit *shopModel;
 @property (nonatomic, strong) MeCouponCommit *couponModel;
+@property (nonatomic, strong) MeMiamiCommit *miamiModel;
 @end
