@@ -11,6 +11,7 @@
 #import "MeShopCommit.h"
 #import "MeCommitCell.h"
 #import "MeCouponCommit.h"
+#import "MeMiamiCommit.h"
 
 @interface GMMeCommitViewController ()<TouchLabelDelegate>{
     XFSegementView *_segementView;
@@ -126,6 +127,7 @@
 }
 
 - (void)loadMiamiCommit {
+    [SVProgressHUD show];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/miami/customer/comment/getMyComments"]];
     NSDictionary *parameters = nil;
@@ -136,6 +138,9 @@
             [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
             return ;
         }
+        self.takeCommitArray = [MeMiamiCommit mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.myTableView reloadData];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"miami %@", error);
     }];
@@ -155,7 +160,7 @@
     else if ([self.currentTitle isEqualToString:@"团购券"]) {
         return self.couponCommitArray.count;
     }
-    return 3;
+    return self.takeCommitArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -165,6 +170,9 @@
     }
     else if ([self.currentTitle isEqualToString:@"团购券"]) {
         cell.couponModel = self.couponCommitArray[indexPath.row];
+    }
+    else {
+        cell.miamiModel = self.takeCommitArray[indexPath.row];
     }
     return cell;
 }
