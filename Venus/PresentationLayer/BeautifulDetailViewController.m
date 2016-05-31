@@ -20,6 +20,7 @@
 #import "CouponViewController.h"
 #import "BeautifulCommitView.h"
 #import "SDRefresh.h"
+#import "FoodDetailViewController.h"
 
 @interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -140,7 +141,10 @@
             [self.navigationController popViewControllerAnimated:YES];
         };
         headview.waiViewTapped = ^{
-            NSLog(@"%d",self.foodModel.shopId);
+            FoodDetailViewController *vc = [[FoodDetailViewController alloc] init];
+            vc.restaurantID = @(self.foodModel.shopId);
+            [self.navigationController pushViewController:vc animated:YES];
+           // NSLog(@"%d",self.foodModel.shopId);
         };
         headview.segmentButtonClicked = ^(NSInteger index) {
             if (index == 0) {
