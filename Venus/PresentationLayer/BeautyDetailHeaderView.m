@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UIView *locateView;
+@property (weak, nonatomic) IBOutlet UIButton *homeButton;
 @property (nonatomic, strong) UIView *selectView;
 @end
 
@@ -50,6 +51,12 @@
     self.commitView.userInteractionEnabled = YES;
     [self.commitView bk_whenTapped:^{
         [self configureViewTapped:self.commitView];
+    }];
+    
+    [self.homeButton bk_whenTapped:^{
+        if (self.homeButtonClicked) {
+            self.homeButtonClicked();
+        }
     }];
 }
 

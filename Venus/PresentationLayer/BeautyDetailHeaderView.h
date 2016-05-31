@@ -14,6 +14,7 @@
 @property (nonatomic, copy) void(^segmentButtonClicked)(NSInteger index);
 @property (nonatomic, assign) BOOL isNoWaiView;
 @property (nonatomic, copy) void(^waiViewTapped)();
+@property (nonatomic, copy) void(^homeButtonClicked)();
 + (instancetype)headView;
 
 @end

@@ -21,6 +21,7 @@
 #import "BeautifulCommitView.h"
 #import "SDRefresh.h"
 #import "FoodDetailViewController.h"
+#import "AppDelegate.h"
 
 @interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -146,6 +147,9 @@
             [self.navigationController pushViewController:vc animated:YES];
            // NSLog(@"%d",self.foodModel.shopId);
         };
+        headview.homeButtonClicked = ^{
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        };
         headview.segmentButtonClicked = ^(NSInteger index) {
             if (index == 0) {
                 self.currentSegmentName = @"店铺首页";
@@ -188,6 +192,7 @@
     self.commitView.sendButtonTapped = ^(NSString *text){
         [SVProgressHUD show];
         [weakSelf sendCommit:text];
+        weakSelf.commitPage = 1;
     };
     [self.view addSubview:self.commitView];
 }
