@@ -45,6 +45,14 @@
 
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.viewModel cacheData];
+
+}
+
+
 - (void)bindViewModel {
     
     self.viewModel = [[CouponUseViewModel alloc] init];
@@ -102,11 +110,7 @@
     
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
 
-    [self.viewModel cacheData];
-}
 
 #pragma mark -UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

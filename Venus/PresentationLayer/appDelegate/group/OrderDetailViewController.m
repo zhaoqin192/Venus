@@ -56,17 +56,23 @@
     }
     [self onClickEvent];
     
+    NSLog(@"detailDidLoad");
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     
+    NSLog(@"detailAppear");
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+    
+    NSLog(@"deatilDisappear");
 }
 
 - (void)bindViewModel {

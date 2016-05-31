@@ -30,7 +30,7 @@
 + (void)foodFetcherRestaurantWithClass:(FoodClass *)foodClass
                                sort:(NSString *)sort
                                page:(NSString *)page
-                            success:(NetworkFetcherCompletionHandler)success
+                            success:(NetworkFetcherSuccessHandler)success
                             failure:(NetworkFetcherErrorHandler)failure;
 
 /**
@@ -58,5 +58,16 @@
                                level:(NSString *)level
                              success:(NetworkFetcherCompletionHandler)success
                              failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  获取餐厅用户信息
+ *
+ *  @param restaurantID
+ *  @param success
+ *  @param failure
+ */
++ (void)foodFetcherRestaurantInfoWithID:(NSNumber *)restaurantID
+                                success:(NetworkFetcherSuccessHandler)success
+                                failure:(NetworkFetcherErrorHandler)failure;
 
 @end

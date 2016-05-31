@@ -14,4 +14,5 @@
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, assign) NSInteger total;
 @property (nonatomic, assign) NSInteger pages;
+@property (nonatomic, assign) NSInteger time;
 @end

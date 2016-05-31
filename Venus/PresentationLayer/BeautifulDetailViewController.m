@@ -20,6 +20,8 @@
 #import "CouponViewController.h"
 #import "BeautifulCommitView.h"
 #import "SDRefresh.h"
+#import "FoodDetailViewController.h"
+#import "AppDelegate.h"
 
 @interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -125,11 +127,28 @@
 - (void)configureHeadView {
     UIView *headView = ({
         UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(0, 0, kScreenWidth, 362);
         BeautyDetailHeaderView *headview = [BeautyDetailHeaderView headView];
-        headview.frame = CGRectMake(0, 0, kScreenWidth, 362);
+        if (self.foodModel.miami) {
+            view.frame = CGRectMake(0, 0, kScreenWidth, 362);
+            headview.isNoWaiView = NO;
+            headview.frame = CGRectMake(0, 0, kScreenWidth, 362);
+        }
+        else {
+            view.frame = CGRectMake(0, 0, kScreenWidth, 308);
+            headview.isNoWaiView = YES;
+            headview.frame = CGRectMake(0, 0, kScreenWidth, 308);
+        }
         headview.returnButtonClicked = ^{
             [self.navigationController popViewControllerAnimated:YES];
+        };
+        headview.waiViewTapped = ^{
+            FoodDetailViewController *vc = [[FoodDetailViewController alloc] init];
+            vc.restaurantID = @(self.foodModel.shopId);
+            [self.navigationController pushViewController:vc animated:YES];
+           // NSLog(@"%d",self.foodModel.shopId);
+        };
+        headview.homeButtonClicked = ^{
+            [self.navigationController popToRootViewControllerAnimated:YES];
         };
         headview.segmentButtonClicked = ^(NSInteger index) {
             if (index == 0) {
@@ -173,6 +192,7 @@
     self.commitView.sendButtonTapped = ^(NSString *text){
         [SVProgressHUD show];
         [weakSelf sendCommit:text];
+        weakSelf.commitPage = 1;
     };
     [self.view addSubview:self.commitView];
 }

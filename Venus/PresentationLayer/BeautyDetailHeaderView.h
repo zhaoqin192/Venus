@@ -12,6 +12,9 @@
 @property (nonatomic, strong) BeautifulFood *foodModel;
 @property (nonatomic, copy) void(^returnButtonClicked)();
 @property (nonatomic, copy) void(^segmentButtonClicked)(NSInteger index);
+@property (nonatomic, assign) BOOL isNoWaiView;
+@property (nonatomic, copy) void(^waiViewTapped)();
+@property (nonatomic, copy) void(^homeButtonClicked)();
 + (instancetype)headView;
 
 @end

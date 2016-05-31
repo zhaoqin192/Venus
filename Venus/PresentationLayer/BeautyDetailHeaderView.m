@@ -10,6 +10,7 @@
 #import "BeautifulFood.h"
 
 @interface BeautyDetailHeaderView ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UIView *commitView;
 @property (weak, nonatomic) IBOutlet UIView *babyView;
 @property (weak, nonatomic) IBOutlet UIView *shopView;
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UIView *locateView;
+@property (weak, nonatomic) IBOutlet UIButton *homeButton;
 @property (nonatomic, strong) UIView *selectView;
 @end
 
@@ -51,9 +53,27 @@
         [self configureViewTapped:self.commitView];
     }];
     
-    [self.waiView bk_whenTapped:^{
-        NSLog(@"waimai");
+    [self.homeButton bk_whenTapped:^{
+        if (self.homeButtonClicked) {
+            self.homeButtonClicked();
+        }
     }];
+}
+
+- (void)setIsNoWaiView:(BOOL)isNoWaiView {
+    _isNoWaiView = isNoWaiView;
+    if (_isNoWaiView) {
+        self.topConstraint.constant = 0;
+    }
+    else {
+        self.topConstraint.constant = 54;
+        [self.waiView bk_whenTapped:^{
+            if (self.waiViewTapped) {
+                self.waiViewTapped();
+            }
+        }];
+    }
+    [self layoutIfNeeded];
 }
 
 - (void)configureViewTapped:(UIView *)view {

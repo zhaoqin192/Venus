@@ -47,9 +47,9 @@
     self.view.backgroundColor = [UIColor redColor];
     [self configureTableView];
     self.navigationItem.title = @"美食";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"搜索"] style:UIBarButtonItemStyleDone handler:^(id sender) {
-        NSLog(@"搜索");
-    }];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"搜索"] style:UIBarButtonItemStyleDone handler:^(id sender) {
+//        NSLog(@"搜索");
+//    }];
     self.order = @(0);
 }
 

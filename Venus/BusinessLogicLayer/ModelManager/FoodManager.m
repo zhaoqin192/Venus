@@ -12,9 +12,11 @@
 
 - (instancetype)init {
     self = [super init];
-    self.foodClassArray = [[NSMutableArray alloc] init];
-    self.resFoodClassArray = [[NSMutableArray alloc] init];
-    self.foodArray = [[NSMutableArray alloc] init];
+    if (self) {
+        self.foodClassArray = [[NSMutableArray alloc] init];
+        self.resFoodClassArray = [[NSMutableArray alloc] init];
+        self.foodArray = [[NSMutableArray alloc] init];
+    }
     return self;
 }
 

@@ -33,8 +33,8 @@
     
     [self configureTable];
     
-    
 }
+
 
 - (void)bindViewModel {
     
@@ -44,6 +44,11 @@
     [self.viewModel.searchSuccessObject subscribeNext:^(id x) {
         
         @strongify(self)
+
+        if (self.promptView) {
+            [self.promptView removeFromSuperview];
+        }
+        
         [self.tableView reloadData];
         
         if (self.viewModel.searchArray.count == 0) {
@@ -52,7 +57,6 @@
             self.promptView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - image.size.width / 2, self.view.frame.size.height / 2 - image.size.height / 2, image.size.width, image.size.height)];
             
             self.promptView.image = image;
-            
             
             [self.view addSubview:self.promptView];
         }
@@ -78,16 +82,6 @@
     
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    if (self.promptView != nil) {
-        NSLog(@"not nil");
-        [self.promptView removeFromSuperview];
-    }
-}
-
-
-
 - (void)configureTable {
     
     //设置多余的seperator
@@ -110,6 +104,7 @@
     }
     
     if (searchController.searchBar.text.length > 0) {
+        
         
         [self.viewModel searchWithKeyword:searchController.searchBar.text page:self.viewModel.currentPage];
         
@@ -160,7 +155,7 @@
     SearchResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchResultTableViewCell"];
     
     cell.nameLabel.text = model.name;
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"loginLogo"]];
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"large_Placeholder"]];
     
     return cell;
     
@@ -179,10 +174,12 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"beauty" object:nil userInfo:@{@"shopID": model.identifier}];
         
-        
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    
 }
 
 @end

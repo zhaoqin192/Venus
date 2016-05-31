@@ -213,7 +213,6 @@
 
 - (void)changeStoreButtonClicked:(id)sender {
     NSLog(@"换个店铺按钮点击");
-    self.navigationController pu
 }
 
 - (void)payButtonClicked:(id)sender {
