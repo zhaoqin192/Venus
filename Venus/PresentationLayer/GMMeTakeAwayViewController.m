@@ -27,6 +27,7 @@
 
 @interface GMMeTakeAwayViewController () <UITableViewDelegate, UITableViewDataSource, TouchLabelDelegate>
 
+@property (weak, nonatomic) IBOutlet UIView *placeHolderView;
 @property (strong, nonatomic) XFSegementView *segementView;
 @property (assign, nonatomic) NSInteger currentSemementIndex;
 
@@ -49,13 +50,14 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 //    self.navigationItem.rightBarButtonItem = self.searchButton;
-    [self.view addSubview:[self segementView]];
+    [self.placeHolderView addSubview:[self segementView]];
     self.tableView.mj_header = self.head;
     self.tableView.mj_footer = self.foot;
-    self.automaticallyAdjustsScrollViewInsets = NO;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+//    self.automaticallyAdjustsScrollViewInsets = NO;
 //    self.segementView.frame = CGRectMake(0, 64, kScreenWidth, 40);
     [self.orderManager updateOrderSucceed:^{
         [self.tableView reloadData];
@@ -64,6 +66,10 @@
     }];
     
     self.navigationItem.title = @"订单";
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -337,7 +343,7 @@
 #pragma mark - getters and setters
 - (XFSegementView *)segementView {
     if (!_segementView) {
-        _segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 40)];
+        _segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
         _segementView.titleArray = @[@"全部",@"待评价",@"退款"];
         _segementView.backgroundColor = [UIColor whiteColor];
         _segementView.titleColor = [UIColor lightGrayColor];
