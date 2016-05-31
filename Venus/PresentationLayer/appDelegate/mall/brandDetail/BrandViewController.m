@@ -19,6 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationItem.title = @"品牌详情";
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.detailURL]]];
     
     [self.webView loadRequest:request];
@@ -29,6 +31,8 @@
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
 }
+
+
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];

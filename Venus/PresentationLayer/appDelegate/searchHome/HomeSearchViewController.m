@@ -1,12 +1,12 @@
 //
-//  SearchHomeViewController.m
+//  HomeSearchViewController.m
 //  Venus
 //
-//  Created by zhaoqin on 5/28/16.
+//  Created by zhaoqin on 5/30/16.
 //  Copyright © 2016 Neotel. All rights reserved.
 //
 
-#import "SearchHomeViewController.h"
+#import "HomeSearchViewController.h"
 #import "MBProgressHUD.h"
 #import "SearchResultTableViewCell.h"
 #import "SearchResultViewController.h"
@@ -16,12 +16,14 @@
 #import "BeautifulDetailViewController.h"
 #import "SearchResultViewModel.h"
 
-@interface SearchHomeViewController ()<UISearchBarDelegate>
+@interface HomeSearchViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UISearchController *searchController;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topDistance;
 @property (nonatomic, strong) SearchResultViewController *searchResultsController;
 @end
 
-@implementation SearchHomeViewController
+@implementation HomeSearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,7 +47,7 @@
     
     UITextField *searchField = [self.searchController.searchBar valueForKey:@"searchField"];
     searchField.textColor = GMBrownColor;
-
+    
     
     // Include the search bar within the navigation bar.
     self.navigationItem.titleView = self.searchController.searchBar;
@@ -53,10 +55,11 @@
     self.definesPresentationContext = YES;
     
     [self onClickEvent];
- 
+    
     
     [self configureTable];
-    
+
+    // Do any additional setup after loading the view.
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
@@ -65,7 +68,6 @@
     [self.searchResultsController.tableView reloadData];
     
 }
-
 
 - (void)onClickEvent {
     
@@ -82,18 +84,18 @@
      }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"brand" object:nil]
-    takeUntil:[self rac_willDeallocSignal]]
-    subscribeNext:^(NSNotification *notification) {
-        
-        NSDictionary *userInfo = notification.userInfo;
-        @strongify(self)
-        UIStoryboard *kind = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
-        BrandViewController *brandVC = (BrandViewController *)[kind instantiateViewControllerWithIdentifier:@"brand"];
-        brandVC.detailURL = userInfo[@"url"];
-        
-        [self.navigationController pushViewController:brandVC animated:YES];
-        
-    }];
+      takeUntil:[self rac_willDeallocSignal]]
+     subscribeNext:^(NSNotification *notification) {
+         
+         NSDictionary *userInfo = notification.userInfo;
+         @strongify(self)
+         UIStoryboard *kind = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
+         BrandViewController *brandVC = (BrandViewController *)[kind instantiateViewControllerWithIdentifier:@"brand"];
+         brandVC.detailURL = userInfo[@"url"];
+         
+         [self.navigationController pushViewController:brandVC animated:YES];
+         
+     }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"beauty" object:nil]
       takeUntil:[self rac_willDeallocSignal]]
@@ -109,7 +111,6 @@
     
 }
 
-
 - (void)configureTable {
     
     //设置多余的seperator
@@ -121,6 +122,20 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    
+    
+    if (self.view.frame.origin.y == 64) {
+        @weakify(self)
+        [UIView animateWithDuration:0.0 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            @strongify(self)
+            self.topDistance.constant = 64.0;//修改距离底部的约束
+        } completion:^(BOOL finished) {
+        }];
+        [self.view setNeedsLayout]; //更新视图
+        [self.view layoutIfNeeded];
+    }
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -145,7 +160,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     SearchHotTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchHotTableViewCell"];
     
     return cell;
@@ -153,7 +168,7 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  
+    
     return 132;
     
 }
@@ -169,5 +184,17 @@
     return CGFLOAT_MIN;
     
 }
+
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

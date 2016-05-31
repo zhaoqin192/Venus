@@ -37,6 +37,7 @@
 #import "HomeViewModel.h"
 #import "SearchHomeViewController.h"
 #import "GMNavigationController.h"
+#import "HomeSearchViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate, UISearchBarDelegate>
 
@@ -109,7 +110,9 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     
     UIStoryboard *group = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
     
-    SearchHomeViewController *vc = (SearchHomeViewController *)[group instantiateViewControllerWithIdentifier:@"SearchHomeViewController"];
+//    SearchHomeViewController *vc = (SearchHomeViewController *)[group instantiateViewControllerWithIdentifier:@"SearchHomeViewController"];
+    
+    HomeSearchViewController *vc = (HomeSearchViewController *)[group instantiateViewControllerWithIdentifier:@"HomeSearchViewController"];
     
     [self.navigationController pushViewController:vc animated:YES];
     
@@ -144,7 +147,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             self.view.hidden = NO;
         }];
     }
-    [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
