@@ -21,19 +21,28 @@
 
 @interface FoodViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate,UITableViewDelegate,UITableViewDataSource>{
     
-    NSInteger _currentData1Index;
-    NSInteger _currentData2Index;
+    NSInteger _currentcategoryDataIndex;
+    NSInteger _currentsortDataIndex;
     
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
-@property (nonatomic, strong) FoodManager *foodManager;
 @property (nonatomic, strong) JSDropDownMenu *menu;
-@property (nonatomic, copy) NSMutableArray *data1;
-@property (nonatomic, copy) NSMutableArray *data2;
+
+//管理类，后面优化要用MVVM替换掉
+@property (nonatomic, strong) FoodManager *foodManager;
+//餐厅分类
+@property (nonatomic, copy) NSMutableArray *categoryData;
+//排序分类
+@property (nonatomic, copy) NSMutableArray *sortData;
 @property (nonatomic, strong) FoodClass *foodClass;
 @property (nonatomic, copy) NSMutableArray *restaurantArray;
 @property (nonatomic, copy) NSString *sort;
+//当前页码
+@property (nonatomic, assign) NSInteger currentPage;
+//页码总数
+@property (nonatomic, assign) NSInteger totalPage;
+
 
 @end
 
@@ -48,14 +57,12 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     self.navigationItem.title = @"外卖";
     [self configureMenu];
     [self configureTableView];
-    
     [self initObjects];
     [self networkRequest];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-
     [self.rdv_tabBarController setTabBarHidden:YES];
 }
 
@@ -78,30 +85,29 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 - (void)initObjects {
     _foodManager = [FoodManager sharedInstance];
     _sort = @"0";
+    self.currentPage = 1;
+    self.totalPage = 1;
 }
 
 - (void)networkRequest {
-    
     [NetworkFetcher foodFetcherClassWithSuccess:^{
-        [_data1 removeAllObjects];
+        [_categoryData removeAllObjects];
         for (FoodClass *foodClass in _foodManager.foodClassArray) {
-            [_data1 addObject:foodClass.name];
+            [_categoryData addObject:foodClass.name];
         }
         _foodClass = _foodManager.foodClassArray[0];
-        
-        [self selectClassWithFoodClass:_foodClass sort:@"0" page:@"0"];
-        
+        [self selectClassWithFoodClass:_foodClass sort:@"0" page:[NSString stringWithFormat:@"%ld", (long)self.currentPage]];
     } failure:^(NSString *error) {
         
     }];
-    
-    
 }
 
 - (void)selectClassWithFoodClass:(FoodClass *)foodClass sort:(NSString *)sort page:(NSString *)page {
-    
-    [NetworkFetcher foodFetcherRestaurantWithClass:foodClass sort:sort page:page success:^{
-        
+    @weakify(self)
+    [NetworkFetcher foodFetcherRestaurantWithClass:foodClass sort:sort page:page success:^(NSDictionary *response){
+        @strongify(self)
+        self.currentPage = [(NSNumber *)response[@"curPage"] integerValue];
+        self.totalPage = [(NSNumber *)response[@"pageCount"] integerValue];
         _restaurantArray = foodClass.restaurantArray;
         [_myTableView reloadData];
         
@@ -111,12 +117,9 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 }
 
 - (void)configureMenu{
-
-    _data1 = [NSMutableArray arrayWithObjects:@"品牌商家", @"快餐类", @"小吃零食", @"甜品零食", @"果蔬生鲜", @"鲜花蛋糕", nil];
-    _data2 = [NSMutableArray arrayWithObjects:@"销量", @"评分", @"配送速度", @"起送价", @"默认", nil];
-    
+    _categoryData = [NSMutableArray arrayWithObjects:@"全部", nil];
+    _sortData = [NSMutableArray arrayWithObjects:@"默认", @"销量", @"评分", @"配送速度", @"起送价钱", nil];
     _menu = [[JSDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:45];
-    
     _menu.indicatorColor = [UIColor colorWithRed:175.0f/255.0f green:175.0f/255.0f blue:175.0f/255.0f alpha:1.0];
     _menu.separatorColor = [UIColor colorWithRed:210.0f/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1.0];
     _menu.textColor = [UIColor colorWithRed:83.f/255.0f green:83.f/255.0f blue:83.f/255.0f alpha:1.0f];
@@ -132,16 +135,13 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FoodCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FoodCell class])];
-
     Restaurant *restaurant = _foodClass.restaurantArray[indexPath.row];
-
     [cell.picture sd_setImageWithURL:[NSURL URLWithString:restaurant.pictureUrl]];
     cell.name.text = restaurant.name;
     cell.sales.text = restaurant.sales;
     cell.basePrice.text = [@"￥" stringByAppendingString:restaurant.basePrice];
     cell.packFee.text = [@"￥" stringByAppendingString:restaurant.packFee];
     cell.costTime.text = restaurant.costTime;
-    
     return cell;
 }
 
@@ -149,24 +149,15 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     return 88;
 }
 
-// 分割线不靠左补全
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)])
-    {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
-    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)])
-    {
-        [cell setPreservesSuperviewLayoutMargins:NO];
-    }
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)])
-    {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
+    //加载更多数据
+    if (self.currentPage != self.totalPage && indexPath.row == self.restaurantArray.count - 1) {
+        [self selectClassWithFoodClass:_foodClass sort:_sort page:[NSString stringWithFormat:@"%ld", (long)++self.currentPage]];
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     Restaurant *restaurant = _restaurantArray[indexPath.row];
     FoodDetailViewController *foodDetailVC = [[FoodDetailViewController alloc] init];
     foodDetailVC.restaurant = restaurant;
@@ -185,50 +176,37 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 #pragma mark <MenuDelegate>
 
 - (NSInteger)numberOfColumnsInMenu:(JSDropDownMenu *)menu {
-    
     return 2;
 }
 
 - (BOOL)displayByCollectionViewInColumn:(NSInteger)column {
-    
     return YES;
 }
 
 - (BOOL)haveRightTableViewInColumn:(NSInteger)column {
-    
     return NO;
 }
 
 - (CGFloat)widthRatioOfLeftColumn:(NSInteger)column {
-    
     return 1;
 }
 
 - (NSInteger)currentLeftSelectedRow:(NSInteger)column {
-    
     if (column == 0) {
-        
-        return _currentData1Index;
-        
+        return _currentcategoryDataIndex;
     }
     if (column == 1) {
-        
-        return _currentData2Index;
+        return _currentsortDataIndex;
     }
-    
     return 0;
 }
 
 - (NSInteger)menu:(JSDropDownMenu *)menu numberOfRowsInColumn:(NSInteger)column leftOrRight:(NSInteger)leftOrRight leftRow:(NSInteger)leftRow {
-    
     if (column == 0) {
-        return _data1.count;
+        return _categoryData.count;
     } else if (column == 1){
-        
-        return _data2.count;
-        
+        return _sortData.count;
     }
-    
     return 0;
 }
 
@@ -236,10 +214,10 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     
     switch (column) {
         case 0:
-            return _data1[0];
+            return _categoryData[0];
             break;
         case 1:
-            return _data2[0];
+            return _sortData[0];
             break;
         default:
             return nil;
@@ -250,21 +228,19 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 - (NSString *)menu:(JSDropDownMenu *)menu titleForRowAtIndexPath:(JSIndexPath *)indexPath {
     
     if (indexPath.column==0) {
-        return _data1[indexPath.row];
+        return _categoryData[indexPath.row];
     } else {
-        return _data2[indexPath.row];
+        return _sortData[indexPath.row];
     }
 }
 
 - (void)menu:(JSDropDownMenu *)menu didSelectRowAtIndexPath:(JSIndexPath *)indexPath {
     if (indexPath.column == 0) {
         _foodClass = _foodManager.foodClassArray[indexPath.row];
-        _currentData1Index = indexPath.row;
-        [self selectClassWithFoodClass:_foodClass sort:_sort page:@"0"];
+        [self selectClassWithFoodClass:_foodClass sort:_sort page:[NSString stringWithFormat:@"%ld", (long)self.currentPage]];
     } else {
-        _currentData2Index = indexPath.row;
-        _sort = [NSString stringWithFormat:@"%ld", (long)_currentData2Index];
-        [self selectClassWithFoodClass:_foodClass sort:_sort page:@"0"];
+        _sort = [NSString stringWithFormat:@"%ld", indexPath.row];
+        [self selectClassWithFoodClass:_foodClass sort:_sort page:[NSString stringWithFormat:@"%ld", (long)self.currentPage]];
     }
 }
 

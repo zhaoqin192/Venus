@@ -44,6 +44,13 @@ static const BOOL LOGDEBUG = NO;
             }];
             FoodManager *foodManager = [FoodManager sharedInstance];
             foodManager.foodClassArray = [FoodClass mj_objectArrayWithKeyValuesArray:dic[@"data"]];
+            
+            FoodClass *allOption = [[FoodClass alloc] init];
+            allOption.identifier = @"0";
+            allOption.name = @"全部";
+            
+            [foodManager.foodClassArray insertObject:allOption atIndex:0];
+
             success();
         }else{
             failure(@"请求失败");
@@ -61,7 +68,7 @@ static const BOOL LOGDEBUG = NO;
 + (void)foodFetcherRestaurantWithClass:(FoodClass *)foodClass
                                   sort:(NSString *)sort
                                   page:(NSString *)page
-                               success:(NetworkFetcherCompletionHandler)success
+                               success:(NetworkFetcherSuccessHandler)success
                                failure:(NetworkFetcherErrorHandler)failure {
 
     
@@ -88,7 +95,7 @@ static const BOOL LOGDEBUG = NO;
                          };
             }];
             foodClass.restaurantArray = [Restaurant mj_objectArrayWithKeyValuesArray:dic[@"data"]];
-            success();
+            success(responseObject);
         }else{
             failure(@"请求失败");
         }
@@ -197,6 +204,30 @@ static const BOOL LOGDEBUG = NO;
 
 }
 
++ (void)foodFetcherRestaurantInfoWithID:(NSNumber *)restaurantID
+                                success:(NetworkFetcherSuccessHandler)success
+                                failure:(NetworkFetcherErrorHandler)failure {
+    
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/store/getInfo"]];
+    
+    NSDictionary *parameters = @{@"storeId": restaurantID};
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        failure(@"网络异常");
+    }];
+
+    
+}
 
 
 

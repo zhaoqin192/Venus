@@ -479,7 +479,7 @@
         <!--Kind Detail View Controller-->
         <scene sceneID="yai-Xb-mz6">
             <objects>
-                <viewController storyboardIdentifier="KindDetailViewController" id="ohR-kQ-bv1" customClass="KindDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KindDetailViewController" automaticallyAdjustsScrollViewInsets="NO" id="ohR-kQ-bv1" customClass="KindDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RSw-Dl-ofQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Wrq-DS-Hqq"/>

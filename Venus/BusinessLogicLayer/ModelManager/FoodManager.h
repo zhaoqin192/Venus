@@ -10,9 +10,9 @@
 
 @interface FoodManager : NSObject
 
-@property (nonatomic, copy) NSMutableArray *foodClassArray;
-@property (nonatomic, copy) NSMutableArray *resFoodClassArray;
-@property (nonatomic, copy) NSMutableArray *foodArray;
+@property (nonatomic, strong) NSMutableArray *foodClassArray;
+@property (nonatomic, strong) NSMutableArray *resFoodClassArray;
+@property (nonatomic, strong) NSMutableArray *foodArray;
 
 + (FoodManager *)sharedInstance;
 

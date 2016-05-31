@@ -13,15 +13,14 @@
 #import "FoodTrolleyTableViewController.h"
 #import "Restaurant.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-//#import "NetworkFetcher+Food.h"
 #import "UIButton+Badge.h"
 #import "FoodOrderViewSectionObject.h"
 #import "FoodOrderViewBaseItem.h"
 #import "FoodSubmitOrderViewController.h"
 #import "AccountDao.h"
-//#import "FoodManager.h"
-//#import "ResFoodClass.h"
-//#import "ResFood.h"
+#import "DatabaseManager.h"
+#import "NetworkFetcher+Food.h"
+#import "MBProgressHUD.h"
 
 
 @interface FoodDetailViewController ()<TouchLabelDelegate>{
@@ -39,7 +38,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalPriceText;
 
 @property (strong, nonatomic) FoodCommitViewController *commitVC;
-
 @property (strong, nonatomic) FoodTrolleyTableViewController *foodTrolleyTableViewController;
 @property (assign, nonatomic) NSInteger currentVCIndex;
 
@@ -58,9 +56,50 @@
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
-    [self initViews];
     
-    [self configureChildController];
+    //从分类中跳转，只有id参数，需要重新获取数据
+    if (self.restaurantID) {
+        @weakify(self)
+        [NetworkFetcher foodFetcherRestaurantInfoWithID:self.restaurantID success:^(NSDictionary *response) {
+            @strongify(self)
+            if ([response[@"errCode"] isEqualToNumber:@0]) {
+                [Restaurant mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                    return @{
+                                @"identifier": @"id",
+                                @"pictureUrl": @"icon",
+                                @"packFee": @"pack_fee",
+                                @"costTime": @"cost_time",
+                                @"describer": @"description",
+                                @"basePrice": @"base_price"
+                               };
+                }];
+                self.restaurant = [Restaurant mj_objectWithKeyValues:response[@"data"]];
+                [self initViews];
+                [self configureChildController];
+                self.navigationItem.title = _restaurant.name;
+            }
+            else {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                hud.mode = MBProgressHUDModeText;
+                hud.labelText = @"请求错误";
+                [hud hide:YES afterDelay:1.5f];
+            }
+        } failure:^(NSString *error) {
+            @strongify(self)
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"网络异常";
+            [hud hide:YES afterDelay:1.5f];
+        }];
+    }
+    else {
+        [self initViews];
+        [self configureChildController];
+        self.navigationItem.title = _restaurant.name;
+    }
+    
+    
+    
     [self.view addSubview:[self segementView]];
 
     // 移动到commentController
@@ -75,7 +114,6 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = YES;
-    self.navigationItem.title = _restaurant.name;
     self.view.frame = CGRectMake(0, -66, kScreenWidth, kScreenHeight);
     
     UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
@@ -190,8 +228,8 @@
     if (self.totalPrice == 0) {
         return;
     }
-    AccountDao *account = [[AccountDao alloc] init];
-    if (account.isLogin) {
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    if ([accountDao isLogin]) {
         // 创建订单，传入下一个
         FoodSubmitOrderViewController *vc = [[FoodSubmitOrderViewController alloc] init];
         vc.restaurantName = _restaurant.name;

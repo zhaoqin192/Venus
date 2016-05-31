@@ -47,6 +47,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    NSLog(@"%f", self.view.frame.origin.y);
+
     
 }
 
@@ -56,6 +58,9 @@
     
     [self.viewModel cachedMenuData];
     [self.viewModel cachedCouponData];
+    
+    NSLog(@"%f", self.view.frame.origin.y);
+    
 }
 
 

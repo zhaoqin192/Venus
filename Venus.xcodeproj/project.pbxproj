@@ -2103,6 +2103,7 @@
 		AC7B3AD51CDF2C580039C2A5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				ACFB4D071CFD252C00731606 /* food */,
 				ACCDCB841CF9C66900FAD161 /* search */,
 				AC72CF2F1CEEA9B20077537E /* mall */,
 				AC987D381CE8A94300E11CC5 /* group */,
@@ -2360,6 +2361,13 @@
 				AC7AD4951CC7A6D2004D9B61 /* Account.m */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		ACFB4D071CFD252C00731606 /* food */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = food;
 			sourceTree = "<group>";
 		};
 		ACFF31501CF86ECF008BD0D8 /* Alipay */ = {
