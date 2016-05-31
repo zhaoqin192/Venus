@@ -125,11 +125,22 @@
 - (void)configureHeadView {
     UIView *headView = ({
         UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(0, 0, kScreenWidth, 362);
         BeautyDetailHeaderView *headview = [BeautyDetailHeaderView headView];
-        headview.frame = CGRectMake(0, 0, kScreenWidth, 362);
+        if (self.foodModel.miami) {
+            view.frame = CGRectMake(0, 0, kScreenWidth, 362);
+            headview.isNoWaiView = NO;
+            headview.frame = CGRectMake(0, 0, kScreenWidth, 362);
+        }
+        else {
+            view.frame = CGRectMake(0, 0, kScreenWidth, 308);
+            headview.isNoWaiView = YES;
+            headview.frame = CGRectMake(0, 0, kScreenWidth, 308);
+        }
         headview.returnButtonClicked = ^{
             [self.navigationController popViewControllerAnimated:YES];
+        };
+        headview.waiViewTapped = ^{
+            NSLog(@"%d",self.foodModel.shopId);
         };
         headview.segmentButtonClicked = ^(NSInteger index) {
             if (index == 0) {

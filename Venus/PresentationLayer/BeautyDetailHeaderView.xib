@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
@@ -322,12 +323,14 @@
                 <constraint firstItem="jh2-Al-rGu" firstAttribute="width" secondItem="Mrr-go-CeK" secondAttribute="width" id="tSe-Jc-jN4"/>
                 <constraint firstItem="55l-OW-XN2" firstAttribute="centerY" secondItem="Roo-YA-Kob" secondAttribute="centerY" id="vI3-KP-Wk0"/>
                 <constraint firstItem="7SP-iB-otX" firstAttribute="leading" secondItem="7cz-wi-wY9" secondAttribute="leading" id="wre-jK-3WN"/>
+                <constraint firstItem="YbE-Lc-ETp" firstAttribute="top" secondItem="7cz-wi-wY9" secondAttribute="bottom" constant="54" id="zft-sR-Kah"/>
                 <constraint firstItem="dKo-DU-RyO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zka-G9-gBJ"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="wre-jK-3WN"/>
+                    <exclude reference="WSW-SR-jeR"/>
                 </mask>
             </variation>
             <connections>
@@ -339,6 +342,7 @@
                 <outlet property="nameLabel" destination="dKo-DU-RyO" id="WAK-2g-yaH"/>
                 <outlet property="phoneNumLabel" destination="AcR-sF-BPV" id="lyX-Hc-hBK"/>
                 <outlet property="shopView" destination="Y1C-lo-q3s" id="eSn-e1-9t2"/>
+                <outlet property="topConstraint" destination="zft-sR-Kah" id="U6r-Ui-wDi"/>
                 <outlet property="waiView" destination="cQU-eO-Rlk" id="xyp-9N-4LC"/>
             </connections>
             <point key="canvasLocation" x="347.5" y="385.5"/>
