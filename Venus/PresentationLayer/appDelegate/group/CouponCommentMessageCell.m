@@ -7,8 +7,10 @@
 //
 
 #import "CouponCommentMessageCell.h"
+#import "CouponCommentImageCollectionCell.h"
 
-@interface CouponCommentMessageCell ()<UITextViewDelegate>
+@interface CouponCommentMessageCell () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextViewDelegate>
+
 
 @end
 
@@ -19,12 +21,16 @@
     // Initialization code
     
     self.textView.delegate = self;
+    
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
-    
+
     [[NSNotificationCenter defaultCenter] postNotificationName:@"contentChanged" object:nil userInfo:@{@"content": self.textView.text}];
-    
+
 }
 
 
@@ -33,5 +39,39 @@
 
     // Configure the view for the selected state
 }
+
+#pragma mark -UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if (self.imageArray.count < 8) {
+        return self.imageArray.count + 1;
+    }
+    else {
+        return 8;
+    }
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CouponCommentImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[CouponCommentImageCollectionCell className] forIndexPath:indexPath];
+    if (indexPath.item == self.imageArray.count && self.imageArray.count < 8) {
+        [cell.imageButton setImage:[UIImage imageNamed:@"addPicture"] forState:UIControlStateNormal];
+        
+        cell.isAdd = YES;
+    }
+    else {
+        [cell.imageButton setImage:[self.imageArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+        cell.isAdd = NO;
+    }
+    return cell;
+}
+
+//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.item == self.imageArray.count && self.imageArray.count < 8) {
+//        NSLog(@"select Image");
+//    }
+//    else {
+//        NSLog(@"show Image");
+//    }
+//}
+
 
 @end

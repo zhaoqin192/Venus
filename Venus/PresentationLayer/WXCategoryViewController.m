@@ -11,6 +11,7 @@
 #import "ReusableView.h"
 #import "BeautyCategory.h"
 #import "BeautifulFoodViewController.h"
+#import "MallViewController.h"
 
 @interface WXCategoryViewController ()
 <UICollectionViewDelegate,UICollectionViewDataSource>
@@ -123,8 +124,13 @@ static NSString *footerID = @"footerID";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%zd",indexPath.row);
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
+        UIStoryboard *mall = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
+        MallViewController *mallVC = (MallViewController *)[mall instantiateViewControllerWithIdentifier:@"mall"];
+        mallVC.selectCategory = [NSNumber numberWithInteger:indexPath.row];
+        [self.navigationController pushViewController:mallVC animated:YES];
+    }
+    else {
         BeautifulFoodViewController *vc = [[BeautifulFoodViewController alloc] init];
         vc.categoryIndex = indexPath.row;
         [self.navigationController pushViewController:vc animated:YES];

@@ -29,7 +29,6 @@
     // Do any additional setup after loading the view from its nib.
     [self bindViewModel];
     
-    [self.viewModel fetchCommentData];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CouponPayTableViewCell" bundle:nil] forCellReuseIdentifier:@"couponOrder"];
     
@@ -38,9 +37,13 @@
     [self onClickEvent];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.viewModel fetchCommentData];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:YES];
-    
+    [super viewWillDisappear:animated];
     [self.viewModel cacheData];
 }
 
@@ -93,7 +96,13 @@
          
          CouponOrderModel *model = userInfo[@"orderModel"];
          @strongify(self)
-         CouponCommentDetailViewController *commentVC = [[CouponCommentDetailViewController alloc] initWithNibName:@"CouponCommentDetailViewController" bundle:nil];
+//         CouponCommentDetailViewController *commentVC = [[CouponCommentDetailViewController alloc] initWithNibName:@"CouponCommentDetailViewController" bundle:nil];
+//         commentVC.orderModel = model;
+//         [self.navigationController pushViewController:commentVC animated:YES];
+         
+         
+         UIStoryboard *commentStoryBoard = [UIStoryboard storyboardWithName:@"couponComment" bundle:nil];
+         CouponCommentDetailViewController *commentVC = (CouponCommentDetailViewController *)[commentStoryBoard instantiateViewControllerWithIdentifier:@"CouponCommentDetailViewController"];
          commentVC.orderModel = model;
          [self.navigationController pushViewController:commentVC animated:YES];
          

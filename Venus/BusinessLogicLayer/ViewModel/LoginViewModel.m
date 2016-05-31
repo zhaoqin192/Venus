@@ -14,7 +14,6 @@
 #import "AppDelegate.h"
 #import "SDKManager.h"
 #import "GMRegisterViewController.h"
-//#import "ReactiveCocoa.h"
 
 
 @interface LoginViewModel ()

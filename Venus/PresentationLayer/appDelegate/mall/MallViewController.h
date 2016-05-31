@@ -10,4 +10,6 @@
 
 @interface MallViewController : UIViewController
 
+@property (nonatomic, strong) NSNumber *selectCategory;
+
 @end

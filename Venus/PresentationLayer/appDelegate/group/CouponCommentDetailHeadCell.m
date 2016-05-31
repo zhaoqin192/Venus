@@ -24,6 +24,7 @@
 
     // Configure the view for the selected state
 }
+
 - (IBAction)starValueChanged:(HCSStarRatingView *)sender {
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"starValueChanged" object:nil userInfo:@{@"value": [NSNumber numberWithFloat:sender.value]}];

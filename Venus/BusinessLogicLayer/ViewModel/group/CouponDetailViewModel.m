@@ -56,9 +56,18 @@
                             @"pictureArray": @"picUrl"
                          };
             }];
-            @strongify(self)
-            self.commentArray = [CouponCommentModel mj_objectArrayWithKeyValuesArray:response[@"result"]];
             
+            NSDictionary *nums = response[@"nums"];
+            NSInteger totalNums = [nums[@"totalNum"] integerValue];
+            @strongify(self)
+            if (totalNums % self.capacity == 0) {
+                self.totalPage = totalNums / self.capacity;
+            }
+            else {
+                self.totalPage = totalNums / self.capacity + 1;
+            }
+            self.currentPage = [page integerValue];
+            self.commentArray = [CouponCommentModel mj_objectArrayWithKeyValuesArray:response[@"result"]];
             [self.commentSuccessObject sendNext:nil];
         }
         
@@ -72,10 +81,34 @@
                                page:(NSNumber *)page {
     
     
-    [NetworkFetcher groupFetchCommentsWithCouponID:couponID page:page capacity:[NSNumber numberWithInteger:self.capacity] success:^(NSDictionary *response) {
+    @weakify(self)
+    [NetworkFetcher groupFetchCommentsWithCouponID:@"100004" page:page capacity:[NSNumber numberWithInteger:self.capacity] success:^(NSDictionary *response) {
+        
+        if ([response[@"errCode"] isEqualToNumber:@0]) {
+            
+            [CouponCommentModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                         @"identifier": @"commentId",
+                         @"pictureArray": @"picUrl"
+                         };
+            }];
+            
+            NSDictionary *nums = response[@"nums"];
+            NSInteger totalNums = [nums[@"totalNum"] integerValue];
+            @strongify(self)
+            if (totalNums % self.capacity == 0) {
+                self.totalPage = totalNums / self.capacity;
+            }
+            else {
+                self.totalPage = totalNums / self.capacity + 1;
+            }
+            self.currentPage = [page integerValue];
+            [self.commentArray addObjectsFromArray:[CouponCommentModel mj_objectArrayWithKeyValuesArray:response[@"result"]]];
+            [self.commentSuccessObject sendNext:nil];
+        }
         
     } failure:^(NSString *error) {
-        
+        [self.errorObject sendNext:@"网络异常"];
     }];
     
 }

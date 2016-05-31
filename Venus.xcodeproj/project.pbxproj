@@ -313,6 +313,9 @@
 		ACF83EBE1CBF97F800A962BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBD1CBF97F800A962BD /* Assets.xcassets */; };
 		ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF83EBF1CBF97F800A962BD /* LaunchScreen.storyboard */; };
 		ACFB4D061CFC806500731606 /* HomeSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFB4D051CFC806500731606 /* HomeSearchViewController.m */; };
+		ACFB4D0F1CFD5B8000731606 /* couponComment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACFB4D0E1CFD5B8000731606 /* couponComment.storyboard */; };
+		ACFB4D121CFD63A700731606 /* CouponCommentImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFB4D111CFD63A700731606 /* CouponCommentImageCollectionCell.m */; };
+		ACFB4D151CFDBC6C00731606 /* ShowImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFB4D141CFDBC6C00731606 /* ShowImageViewController.m */; };
 		ACFF31B51CF86ECF008BD0D8 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ACFF31511CF86ECF008BD0D8 /* AlipaySDK.bundle */; };
 		ACFF31B91CF86ECF008BD0D8 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF31A21CF86ECF008BD0D8 /* Order.m */; };
 		ACFF31C41CF86EE0008BD0D8 /* NSString+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF31C21CF86EE0008BD0D8 /* NSString+Expand.m */; };
@@ -366,11 +369,8 @@
 		ACFF32EF1CF8711E008BD0D8 /* CouponOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32E41CF8711E008BD0D8 /* CouponOrderTableViewCell.m */; };
 		ACFF32FC1CF87125008BD0D8 /* CouponCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32F01CF87125008BD0D8 /* CouponCommentViewController.xib */; };
 		ACFF32FD1CF87125008BD0D8 /* CouponCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32F11CF87125008BD0D8 /* CouponCommentViewController.m */; };
-		ACFF32FE1CF87125008BD0D8 /* CouponCommentMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32F31CF87125008BD0D8 /* CouponCommentMessageCell.xib */; };
 		ACFF32FF1CF87125008BD0D8 /* CouponCommentMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32F41CF87125008BD0D8 /* CouponCommentMessageCell.m */; };
-		ACFF33001CF87125008BD0D8 /* CouponCommentDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32F61CF87125008BD0D8 /* CouponCommentDetailViewController.xib */; };
 		ACFF33011CF87125008BD0D8 /* CouponCommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32F71CF87125008BD0D8 /* CouponCommentDetailViewController.m */; };
-		ACFF33021CF87125008BD0D8 /* CouponCommentDetailHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF32F91CF87125008BD0D8 /* CouponCommentDetailHeadCell.xib */; };
 		ACFF33031CF87125008BD0D8 /* CouponCommentDetailHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF32FA1CF87125008BD0D8 /* CouponCommentDetailHeadCell.m */; };
 		ACFF330B1CF87135008BD0D8 /* CommitCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33061CF87135008BD0D8 /* CommitCountCell.m */; };
 		ACFF330C1CF87135008BD0D8 /* CommitPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33081CF87135008BD0D8 /* CommitPayCell.m */; };
@@ -379,7 +379,6 @@
 		ACFF33111CF87259008BD0D8 /* CommitOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF330F1CF87259008BD0D8 /* CommitOrderViewController.m */; };
 		ACFF332F1CF88214008BD0D8 /* CouponCommentDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF332E1CF88214008BD0D8 /* CouponCommentDetailViewModel.m */; };
 		ACFF33331CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33311CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m */; };
-		ACFF33341CF885BF008BD0D8 /* CouponCommentMessageSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF33321CF885BF008BD0D8 /* CouponCommentMessageSectionCell.xib */; };
 		ACFF333D1CF92E8E008BD0D8 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF333C1CF92E8E008BD0D8 /* UIPlaceHolderTextView.m */; };
 		ACFF33421CF9468C008BD0D8 /* PaymentSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACFF33401CF9468C008BD0D8 /* PaymentSuccessViewController.m */; };
 		ACFF33431CF9468C008BD0D8 /* PaymentSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACFF33411CF9468C008BD0D8 /* PaymentSuccessViewController.xib */; };
@@ -939,6 +938,11 @@
 		ACF83EC21CBF97F800A962BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACFB4D041CFC806500731606 /* HomeSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSearchViewController.h; sourceTree = "<group>"; };
 		ACFB4D051CFC806500731606 /* HomeSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSearchViewController.m; sourceTree = "<group>"; };
+		ACFB4D0E1CFD5B8000731606 /* couponComment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = couponComment.storyboard; sourceTree = "<group>"; };
+		ACFB4D101CFD63A700731606 /* CouponCommentImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentImageCollectionCell.h; sourceTree = "<group>"; };
+		ACFB4D111CFD63A700731606 /* CouponCommentImageCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentImageCollectionCell.m; sourceTree = "<group>"; };
+		ACFB4D131CFDBC6C00731606 /* ShowImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowImageViewController.h; sourceTree = "<group>"; };
+		ACFB4D141CFDBC6C00731606 /* ShowImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowImageViewController.m; sourceTree = "<group>"; };
 		ACFF31511CF86ECF008BD0D8 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		ACFF31521CF86ECF008BD0D8 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		ACFF31531CF86ECF008BD0D8 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
@@ -1195,13 +1199,10 @@
 		ACFF32F01CF87125008BD0D8 /* CouponCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCommentViewController.xib; sourceTree = "<group>"; };
 		ACFF32F11CF87125008BD0D8 /* CouponCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentViewController.m; sourceTree = "<group>"; };
 		ACFF32F21CF87125008BD0D8 /* CouponCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentViewController.h; sourceTree = "<group>"; };
-		ACFF32F31CF87125008BD0D8 /* CouponCommentMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCommentMessageCell.xib; sourceTree = "<group>"; };
 		ACFF32F41CF87125008BD0D8 /* CouponCommentMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentMessageCell.m; sourceTree = "<group>"; };
 		ACFF32F51CF87125008BD0D8 /* CouponCommentMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentMessageCell.h; sourceTree = "<group>"; };
-		ACFF32F61CF87125008BD0D8 /* CouponCommentDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCommentDetailViewController.xib; sourceTree = "<group>"; };
 		ACFF32F71CF87125008BD0D8 /* CouponCommentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentDetailViewController.m; sourceTree = "<group>"; };
 		ACFF32F81CF87125008BD0D8 /* CouponCommentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentDetailViewController.h; sourceTree = "<group>"; };
-		ACFF32F91CF87125008BD0D8 /* CouponCommentDetailHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCommentDetailHeadCell.xib; sourceTree = "<group>"; };
 		ACFF32FA1CF87125008BD0D8 /* CouponCommentDetailHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentDetailHeadCell.m; sourceTree = "<group>"; };
 		ACFF32FB1CF87125008BD0D8 /* CouponCommentDetailHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentDetailHeadCell.h; sourceTree = "<group>"; };
 		ACFF33051CF87135008BD0D8 /* CommitCountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommitCountCell.h; path = groupDetail/commitOrder/CommitCountCell.h; sourceTree = "<group>"; };
@@ -1216,7 +1217,6 @@
 		ACFF332E1CF88214008BD0D8 /* CouponCommentDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentDetailViewModel.m; sourceTree = "<group>"; };
 		ACFF33301CF885BF008BD0D8 /* CouponCommentMessageSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentMessageSectionCell.h; sourceTree = "<group>"; };
 		ACFF33311CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentMessageSectionCell.m; sourceTree = "<group>"; };
-		ACFF33321CF885BF008BD0D8 /* CouponCommentMessageSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CouponCommentMessageSectionCell.xib; sourceTree = "<group>"; };
 		ACFF333B1CF92E8E008BD0D8 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
 		ACFF333C1CF92E8E008BD0D8 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		ACFF333F1CF9468C008BD0D8 /* PaymentSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentSuccessViewController.h; path = groupDetail/PaymentSuccessViewController.h; sourceTree = "<group>"; };
@@ -2618,7 +2618,6 @@
 		ACFF33441CF9790C008BD0D8 /* myCoupon */ = {
 			isa = PBXGroup;
 			children = (
-				ACFF334D1CF97ABF008BD0D8 /* detailCoupon */,
 				ACFF334C1CF97A6A008BD0D8 /* detailComment */,
 				ACFF334B1CF979F3008BD0D8 /* payCoupon */,
 				ACFF334A1CF979B8008BD0D8 /* detailCoupon */,
@@ -2669,6 +2668,22 @@
 				ACFF32DA1CF8711E008BD0D8 /* CouponRefundViewController.xib */,
 				ACFF32DB1CF8711E008BD0D8 /* CouponRefundViewController.m */,
 				ACFF32DC1CF8711E008BD0D8 /* CouponRefundViewController.h */,
+				ACFF32A51CF87106008BD0D8 /* RefundViewController.xib */,
+				ACFF32A61CF87106008BD0D8 /* RefundViewController.m */,
+				ACFF32A71CF87106008BD0D8 /* RefundViewController.h */,
+				ACFF32A81CF87106008BD0D8 /* RefundReasonHeadCell.xib */,
+				ACFF32A91CF87106008BD0D8 /* RefundReasonHeadCell.m */,
+				ACFF32AA1CF87106008BD0D8 /* RefundReasonHeadCell.h */,
+				ACFF32AB1CF87106008BD0D8 /* RefundReasonCell.xib */,
+				ACFF32AC1CF87106008BD0D8 /* RefundReasonCell.m */,
+				ACFF32AD1CF87106008BD0D8 /* RefundReasonCell.h */,
+				ACFF32AE1CF87106008BD0D8 /* RefundPriceCell.xib */,
+				ACFF32AF1CF87106008BD0D8 /* RefundPriceCell.m */,
+				ACFF32B01CF87106008BD0D8 /* RefundPriceCell.h */,
+				ACFF32B11CF87106008BD0D8 /* RefundCodeCell.xib */,
+				ACFF32B21CF87106008BD0D8 /* RefundCodeCell.m */,
+				ACFF32B31CF87106008BD0D8 /* RefundCodeCell.h */,
+				AC8D75261CFB2B690023B619 /* refund.storyboard */,
 			);
 			name = refundCoupon;
 			sourceTree = "<group>";
@@ -2723,41 +2738,19 @@
 			children = (
 				ACFF32F81CF87125008BD0D8 /* CouponCommentDetailViewController.h */,
 				ACFF32F71CF87125008BD0D8 /* CouponCommentDetailViewController.m */,
-				ACFF32F61CF87125008BD0D8 /* CouponCommentDetailViewController.xib */,
 				ACFF32FB1CF87125008BD0D8 /* CouponCommentDetailHeadCell.h */,
 				ACFF32FA1CF87125008BD0D8 /* CouponCommentDetailHeadCell.m */,
-				ACFF32F91CF87125008BD0D8 /* CouponCommentDetailHeadCell.xib */,
 				ACFF32F51CF87125008BD0D8 /* CouponCommentMessageCell.h */,
 				ACFF32F41CF87125008BD0D8 /* CouponCommentMessageCell.m */,
-				ACFF32F31CF87125008BD0D8 /* CouponCommentMessageCell.xib */,
 				ACFF33301CF885BF008BD0D8 /* CouponCommentMessageSectionCell.h */,
 				ACFF33311CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m */,
-				ACFF33321CF885BF008BD0D8 /* CouponCommentMessageSectionCell.xib */,
+				ACFB4D101CFD63A700731606 /* CouponCommentImageCollectionCell.h */,
+				ACFB4D111CFD63A700731606 /* CouponCommentImageCollectionCell.m */,
+				ACFB4D131CFDBC6C00731606 /* ShowImageViewController.h */,
+				ACFB4D141CFDBC6C00731606 /* ShowImageViewController.m */,
+				ACFB4D0E1CFD5B8000731606 /* couponComment.storyboard */,
 			);
 			name = detailComment;
-			sourceTree = "<group>";
-		};
-		ACFF334D1CF97ABF008BD0D8 /* detailCoupon */ = {
-			isa = PBXGroup;
-			children = (
-				ACFF32A51CF87106008BD0D8 /* RefundViewController.xib */,
-				ACFF32A61CF87106008BD0D8 /* RefundViewController.m */,
-				ACFF32A71CF87106008BD0D8 /* RefundViewController.h */,
-				ACFF32A81CF87106008BD0D8 /* RefundReasonHeadCell.xib */,
-				ACFF32A91CF87106008BD0D8 /* RefundReasonHeadCell.m */,
-				ACFF32AA1CF87106008BD0D8 /* RefundReasonHeadCell.h */,
-				ACFF32AB1CF87106008BD0D8 /* RefundReasonCell.xib */,
-				ACFF32AC1CF87106008BD0D8 /* RefundReasonCell.m */,
-				ACFF32AD1CF87106008BD0D8 /* RefundReasonCell.h */,
-				ACFF32AE1CF87106008BD0D8 /* RefundPriceCell.xib */,
-				ACFF32AF1CF87106008BD0D8 /* RefundPriceCell.m */,
-				ACFF32B01CF87106008BD0D8 /* RefundPriceCell.h */,
-				ACFF32B11CF87106008BD0D8 /* RefundCodeCell.xib */,
-				ACFF32B21CF87106008BD0D8 /* RefundCodeCell.m */,
-				ACFF32B31CF87106008BD0D8 /* RefundCodeCell.h */,
-				AC8D75261CFB2B690023B619 /* refund.storyboard */,
-			);
-			name = detailCoupon;
 			sourceTree = "<group>";
 		};
 		ACFF334E1CF97B1F008BD0D8 /* buyCouponHome */ = {
@@ -3029,7 +3022,6 @@
 				7F9370CA1CFADB750063F544 /* FoodPaymentDoneViewController.xib in Resources */,
 				30D018331CEAF05500E50B23 /* WXMapShopView.xib in Resources */,
 				ACFF33851CF9871B008BD0D8 /* demo.gif in Resources */,
-				ACFF33021CF87125008BD0D8 /* CouponCommentDetailHeadCell.xib in Resources */,
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
 				ACFF31B51CF86ECF008BD0D8 /* AlipaySDK.bundle in Resources */,
 				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
@@ -3048,7 +3040,6 @@
 				303519771CCF4B8A00EE0750 /* ShopCommitViewController.xib in Resources */,
 				30D6D27E1CC87AF500FB0CFC /* FoodViewController.xib in Resources */,
 				ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */,
-				ACFF33341CF885BF008BD0D8 /* CouponCommentMessageSectionCell.xib in Resources */,
 				30B602151CD308F3003ED671 /* ShopActivityCell.xib in Resources */,
 				7F9370DF1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.xib in Resources */,
 				7F9370B51CF932E00063F544 /* FoodAddressEditViewController.xib in Resources */,
@@ -3088,6 +3079,7 @@
 				308E0D731CF0023C0048F38A /* FoodContentCell.xib in Resources */,
 				ACFF32D11CF87114008BD0D8 /* OrderDetailInfoCell.xib in Resources */,
 				ACFF32BC1CF87106008BD0D8 /* RefundCodeCell.xib in Resources */,
+				ACFB4D0F1CFD5B8000731606 /* couponComment.storyboard in Resources */,
 				AC987D371CE89B9C00E11CC5 /* group.storyboard in Resources */,
 				30B601CB1CD07C54003ED671 /* ShopCycleCell.xib in Resources */,
 				7F9370F21CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.xib in Resources */,
@@ -3105,10 +3097,8 @@
 				7F9370C01CF98EA50063F544 /* GMMeTakeAwayCell.xib in Resources */,
 				305E8D2A1CFC2E290063389E /* sdRefeshView_arrow@2x.png in Resources */,
 				30FD1F4F1CE1A80B003C91A5 /* mapapi.bundle in Resources */,
-				ACFF32FE1CF87125008BD0D8 /* CouponCommentMessageCell.xib in Resources */,
 				3086D3D31CC72ABC007494D7 /* HomeNewsCell.xib in Resources */,
 				30B601C11CD05E88003ED671 /* ShopAllCell.xib in Resources */,
-				ACFF33001CF87125008BD0D8 /* CouponCommentDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3315,6 +3305,7 @@
 				30D6D2851CC8917E00FB0CFC /* XFSegementView.m in Sources */,
 				ACFF32CE1CF87114008BD0D8 /* OrderMessageCell.m in Sources */,
 				30FD1F441CE1A329003C91A5 /* IndoorSwitchDemo.mm in Sources */,
+				ACFB4D121CFD63A700731606 /* CouponCommentImageCollectionCell.m in Sources */,
 				AC987D3B1CE8A95E00E11CC5 /* GroupViewModel.m in Sources */,
 				ACCDCB7E1CF9925C00FAD161 /* SearchHomeViewController.m in Sources */,
 				AC2E043F1CEB493E00476087 /* CouponInformationCell.m in Sources */,
@@ -3460,6 +3451,7 @@
 				AC72CF351CEEAB8A0077537E /* AppCacheManager.m in Sources */,
 				303519491CCF0D3000EE0750 /* MoneyCardViewController.m in Sources */,
 				7F9370EA1CFC12A70063F544 /* TakeAwayOrderComment.m in Sources */,
+				ACFB4D151CFDBC6C00731606 /* ShowImageViewController.m in Sources */,
 				7F7025481CE96651009653A6 /* UIButton+Badge.m in Sources */,
 				ACE066931CDB75BF0000D335 /* CommentManager.m in Sources */,
 				AC4D73E01CF161CF00DF4997 /* CategoryViewCell.m in Sources */,

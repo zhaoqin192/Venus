@@ -212,6 +212,14 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.viewModel.currentPage != self.viewModel.totalPage && indexPath.row == self.viewModel.commentArray.count - 1) {
+        [self.viewModel loadMoreCommentWithCouponID:self.couponModel.identifier page:[NSNumber numberWithInteger:self.viewModel.currentPage]];
+    }
+    
+}
+
 #pragma mark -prepareForSegue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

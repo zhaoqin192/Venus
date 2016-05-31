@@ -141,11 +141,10 @@
             
         }
         else if ([self.state isEqualToNumber:@2]) {
-            
-            CouponCommentDetailViewController *commentVC = [[CouponCommentDetailViewController alloc] initWithNibName:@"CouponCommentDetailViewController" bundle:nil];
+            UIStoryboard *commentStoryBoard = [UIStoryboard storyboardWithName:@"couponComment" bundle:nil];
+            CouponCommentDetailViewController *commentVC = (CouponCommentDetailViewController *)[commentStoryBoard instantiateViewControllerWithIdentifier:@"CouponCommentDetailViewController"];
             commentVC.orderModel = self.orderModel;
             [self.navigationController pushViewController:commentVC animated:YES];
-            
         }
         
     }];

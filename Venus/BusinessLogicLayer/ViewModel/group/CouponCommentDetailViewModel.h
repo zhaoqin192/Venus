@@ -15,10 +15,12 @@
 @property (nonatomic, strong) RACSubject *errorObject;
 @property (nonatomic, strong) NSString *commentString;
 @property (nonatomic, strong) NSNumber *score;
+@property (nonatomic, strong) NSMutableArray *imageArray;
 
 - (void)sendCommentWithOrderID:(NSString *)orderID
                       couponID:(NSString *)couponID
                        storeID:(NSString *)storeID;
+
 
 
 @end
