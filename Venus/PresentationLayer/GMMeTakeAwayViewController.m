@@ -57,8 +57,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-//    self.automaticallyAdjustsScrollViewInsets = NO;
-//    self.segementView.frame = CGRectMake(0, 64, kScreenWidth, 40);
+    [self.rdv_tabBarController setTabBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.orderManager updateOrderSucceed:^{
         [self.tableView reloadData];
     } failed:^(NSString *error) {
@@ -66,10 +66,6 @@
     }];
     
     self.navigationItem.title = @"订单";
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    
 }
 
 #pragma mark - UITableViewDataSource

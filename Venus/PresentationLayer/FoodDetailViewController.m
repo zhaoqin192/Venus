@@ -113,7 +113,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = NO;
+    [self.rdv_tabBarController setTabBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationController.navigationBar.translucent = YES;
     self.view.frame = CGRectMake(0, -66, kScreenWidth, kScreenHeight);
     
@@ -121,7 +122,11 @@
     UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
     storeButton.imageInsets = UIEdgeInsetsMake(0, 0, 0, -40);
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:groupBuyButton, storeButton,nil];
-    [self.rdv_tabBarController setTabBarHidden:YES];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+   [self.rdv_tabBarController setTabBarHidden:YES]; 
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

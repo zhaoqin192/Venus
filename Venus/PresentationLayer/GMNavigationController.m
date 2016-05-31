@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationBar.translucent = NO;
 }
 
 - (void)didReceiveMemoryWarning {

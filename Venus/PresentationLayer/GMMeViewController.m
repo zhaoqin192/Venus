@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.translucent = NO;
     self.iconView.layer.cornerRadius = self.iconView.width/2;
     self.iconView.layer.masksToBounds = YES;
     self.iconView.userInteractionEnabled = YES;
@@ -54,6 +55,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:NO animated:YES];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 

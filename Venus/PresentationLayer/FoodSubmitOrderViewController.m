@@ -76,7 +76,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.title = @"提交订单";
     _bargain.text = [NSString stringWithFormat:@"￥%.1f",_bargainFee];
     [self.rdv_tabBarController setTabBarHidden:YES];
@@ -85,10 +84,6 @@
     } failure:^(NSString *error) {
         NSLog(@"错误是：%@",error);
     }];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    self.navigationController.navigationBar.translucent = YES;
 }
 
 - (void)dealloc {
