@@ -48,10 +48,11 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.navigationItem.rightBarButtonItem = self.searchButton;
+//    self.navigationItem.rightBarButtonItem = self.searchButton;
     [self.view addSubview:[self segementView]];
     self.tableView.mj_header = self.head;
     self.tableView.mj_footer = self.foot;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
