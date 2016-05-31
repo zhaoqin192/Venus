@@ -201,7 +201,6 @@ static const BOOL LOGDEBUG = NO;
         }
         failure(@"网络异常");
     }];
-
 }
 
 + (void)foodFetcherRestaurantInfoWithID:(NSNumber *)restaurantID

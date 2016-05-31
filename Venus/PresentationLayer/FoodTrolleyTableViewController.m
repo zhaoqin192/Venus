@@ -25,9 +25,13 @@
     [self configureTableView];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    self.navigationController.navigationBar.translucent = NO;
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    self.navigationController.navigationBar.translucent = NO;
+//}
+//
+//- (void)viewDidDisappear:(BOOL)animated {
+//    self.navigationController.navigationBar.translucent = YES;
+//}
 
 - (void)configureTableView {
     self.tableView.delegate = self;
