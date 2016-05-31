@@ -18,11 +18,11 @@
     [super setSelected:selected animated:animated];
     if (selected) {
         self.backgroundColor = [UIColor whiteColor];
-        [self.textLabel setTextColor:GMBrownColor];
+        [self.contentLabel setTextColor:GMBrownColor];
     }
     else {
         self.contentView.backgroundColor = [UIColor colorWithRed:166./255 green:135./255 blue:59./255 alpha:0.6];
-        [self.textLabel setTextColor:[UIColor blackColor]];
+        [self.contentLabel setTextColor:[UIColor blackColor]];
     }
 }
 

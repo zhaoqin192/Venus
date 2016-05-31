@@ -59,7 +59,7 @@ BMKUserLocation* userLoc;
     [_mapView setZoomLevel:22];
     
     _baseIndoorMapInfo= [[BMKBaseIndoorMapInfo alloc]init];
-    _floorTableView = [[UITableView alloc] initWithFrame:CGRectMake(30, [UIScreen mainScreen].bounds.size.height - 180 - 90 , 60, 180)];
+    _floorTableView = [[UITableView alloc] initWithFrame:CGRectMake(30, [UIScreen mainScreen].bounds.size.height - 180 - 90 , 36, 108)];
     _floorTableView.delegate = self;
     _floorTableView.dataSource = self;
     _floorTableView.layer.cornerRadius = _floorTableView.width/2;
@@ -72,8 +72,7 @@ BMKUserLocation* userLoc;
     [self.view addSubview:_floorTableView];
     _floorTableView.hidden = true;
     [_mapView setBaseIndoorEnabled:YES];
-    
-    [_floorTableView registerClass:[MapFloorCell class] forCellReuseIdentifier:NSStringFromClass([MapFloorCell class])];
+    [_floorTableView registerNib:[UINib nibWithNibName:NSStringFromClass([[MapFloorCell class] class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([MapFloorCell class])];
     
     [self configureTitleView];
     [self loadData];
@@ -207,9 +206,9 @@ BMKUserLocation* userLoc;
     MapFloorCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MapFloorCell class])];
     
     NSString *title = [NSString stringWithFormat:@"%@",[_baseIndoorMapInfo.arrStrFloors objectAtIndex:indexPath.row]];
-    [cell.textLabel setText:title];
-    [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
-    [cell.textLabel setFont:[UIFont systemFontOfSize:21]];
+    [cell.contentLabel setText:title];
+    [cell.contentLabel setTextAlignment:NSTextAlignmentCenter];
+    [cell.contentLabel setFont:[UIFont systemFontOfSize:18]];
     cell.contentView.backgroundColor = [UIColor colorWithRed:166./255 green:135./255 blue:59./255 alpha:0.6];
     return cell;
     
@@ -220,7 +219,7 @@ BMKUserLocation* userLoc;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60.0f;
+    return 36.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
