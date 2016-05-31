@@ -71,12 +71,6 @@
     } failure:^(NSString *error){
         
     }];
-    [self.rdv_tabBarController setTabBarHidden:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    self.navigationController.navigationBar.translucent = YES;
-    [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
 #pragma mark - UITableViewDataSource

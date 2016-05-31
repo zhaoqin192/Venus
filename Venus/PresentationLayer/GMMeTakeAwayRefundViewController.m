@@ -33,13 +33,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = @"申请退款";
-    self.navigationController.navigationBar.translucent = NO;
-    [self.rdv_tabBarController setTabBarHidden:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    self.navigationController.navigationBar.translucent = YES;
-    [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
 #pragma mark - UITableViewDataSource
