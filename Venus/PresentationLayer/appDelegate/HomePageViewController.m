@@ -404,6 +404,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 - (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result {
     [self dismissViewControllerAnimated:YES completion:^{
         NSLog(@"%@",result);
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:result]];
     }];
 }
 
