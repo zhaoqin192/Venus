@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -165,6 +165,12 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="5"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                <color key="value" red="0.69019607843137254" green="0.10980392156862745" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nt-at-tvZ">
@@ -205,15 +211,37 @@
                         <state key="normal" title="取消订单">
                             <color key="titleColor" red="0.69019607843137254" green="0.10980392156862745" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                <color key="value" red="0.69019607843137254" green="0.10980392156862745" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </button>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmw-tf-NF1">
-                        <rect key="frame" x="129" y="154" width="85" height="30"/>
+                        <rect key="frame" x="127" y="154" width="85" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="iGu-5k-yGW"/>
                         </constraints>
                         <state key="normal" title="确认送达">
                             <color key="titleColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                <color key="value" red="0.69019607843137254" green="0.10980392156862745" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </button>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNt-fv-2bf">
                         <rect key="frame" x="225" y="154" width="85" height="30"/>
@@ -227,6 +255,26 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uf6-mO-E6a">
+                        <rect key="frame" x="225" y="154" width="85" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="cKk-wt-ZW9"/>
+                        </constraints>
+                        <state key="normal" title="取消订单">
+                            <color key="titleColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                <color key="value" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
@@ -249,6 +297,9 @@
                     <constraint firstAttribute="trailing" secondItem="9Tc-0L-H76" secondAttribute="trailing" id="Ivy-Sx-Pwa"/>
                     <constraint firstAttribute="bottom" secondItem="31f-CD-9oF" secondAttribute="bottom" constant="20" id="IwH-lP-XV4"/>
                     <constraint firstAttribute="bottom" secondItem="mfc-Ar-The" secondAttribute="bottom" constant="15" id="Jvb-qr-wtx"/>
+                    <constraint firstAttribute="bottom" secondItem="Uf6-mO-E6a" secondAttribute="bottom" constant="15" id="LeV-xH-B3U"/>
+                    <constraint firstAttribute="trailing" secondItem="Uf6-mO-E6a" secondAttribute="trailing" constant="10" id="Np9-V2-vvT"/>
+                    <constraint firstItem="Uf6-mO-E6a" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:375" id="Nwg-Ed-cVS"/>
                     <constraint firstItem="NNA-97-gv3" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:375" id="OK3-6p-e5b"/>
                     <constraint firstItem="VYu-0Y-MyS" firstAttribute="top" secondItem="kb7-3C-lUL" secondAttribute="bottom" constant="5" id="Quh-hJ-Xba"/>
                     <constraint firstAttribute="bottom" secondItem="NNA-97-gv3" secondAttribute="bottom" constant="15" id="RtV-SO-JwM"/>
@@ -259,7 +310,7 @@
                     <constraint firstAttribute="trailing" secondItem="TyL-hq-RII" secondAttribute="trailing" constant="15" id="aDB-JQ-6yC"/>
                     <constraint firstItem="0Nt-at-tvZ" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:375" id="amn-zT-WFS"/>
                     <constraint firstItem="5Xh-CR-vYE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bpD-oE-fWJ"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="vmw-tf-NF1" secondAttribute="trailing" constant="98" id="c56-hU-Rpj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vmw-tf-NF1" secondAttribute="trailing" constant="100" id="c56-hU-Rpj"/>
                     <constraint firstAttribute="trailingMargin" secondItem="hmt-A3-9tz" secondAttribute="trailing" constant="2" id="cQM-LS-2VI"/>
                     <constraint firstItem="kb7-3C-lUL" firstAttribute="leading" secondItem="CcY-A9-hUY" secondAttribute="trailing" constant="8" id="dPB-4b-7Id"/>
                     <constraint firstItem="f5I-uA-Jge" firstAttribute="centerY" secondItem="aNO-j6-0kM" secondAttribute="centerY" id="fQW-JL-VDZ"/>
@@ -304,6 +355,7 @@
                 <outlet property="payButton" destination="0Nt-at-tvZ" id="iri-vy-9Ty"/>
                 <outlet property="refundButton" destination="RWi-Pp-Woa" id="o9Z-cl-FUU"/>
                 <outlet property="reorderButton" destination="hmt-A3-9tz" id="hIW-M8-Sgp"/>
+                <outlet property="rightCancelorderButton" destination="Uf6-mO-E6a" id="h1X-eW-4pp"/>
                 <outlet property="rightOneMoreOrderButton" destination="FxI-mN-PYt" id="v9b-do-h8b"/>
                 <outlet property="storeIcon" destination="CcY-A9-hUY" id="a6N-Nq-qNh"/>
                 <outlet property="storeName" destination="mmd-tc-LpB" id="pcV-Fo-pkT"/>

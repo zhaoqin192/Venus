@@ -44,6 +44,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = @"订单详情";
+    self.navigationController.navigationBar.translucent = NO;
     [NetworkFetcher foodFetcherUserFoodOrderDetailWithID:self.orderID success:^(NSDictionary *response){
         NSLog(@"订单详情是%@",response);
         if ([response[@"errCode"] isEqualToNumber:@0]) {
@@ -65,6 +66,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    self.navigationController.navigationBar.translucent = YES;
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
@@ -110,6 +112,28 @@
                 return cell;
             } else {
                 GMMeTakeAwayDetailButtonCell *cell = [GMMeTakeAwayDetailButtonCell cellForTableView:tableView];
+                [cell.oneMoreOrderButton addTarget:self action:@selector(oneMoreOrderButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+                [cell.cancelOrderButton addTarget:self action:@selector(cancelOrderButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+                [cell.confirmButton addTarget:self action:@selector(confirmButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+                switch (self.orderDetail.state) {
+                    case 0:
+                        cell.cancelOrderButton.hidden = NO;
+                        break;
+                    case 1:
+                        cell.cancelOrderButton.hidden = NO;
+                        break;
+                    case 3:
+                        cell.confirmButton.hidden = NO;
+                        break;
+                    case 4:
+                        cell.oneMoreOrderButton.hidden = NO;
+                        break;
+                    case 5:
+                        cell.oneMoreOrderButton.hidden = NO;
+                        break;
+                    default:
+                        break;
+                }
                 return cell;
             }
         } else {
@@ -254,6 +278,40 @@
 #pragma mark - private methods
 
 #pragma mark - event response
+// white button
+- (void)oneMoreOrderButtonClicked:(id)sender {
+    // 再来一单点击
+}
+
+- (void)cancelOrderButtonClicked:(id)sender {
+    // 取消订单点击
+}
+
+- (void)confirmButtonClicked:(id)sender {
+    // 确认订单点击
+}
+
+// red button
+- (IBAction)refundButtonClicked:(id)sender {
+    // 退款点击
+}
+
+- (IBAction)changeStoreButtonClicked:(id)sender {
+    // 换店铺点击
+}
+
+- (IBAction)reorderButtonClicked:(id)sender {
+    // 重新下单点击
+}
+
+- (IBAction)payButtonClicked:(id)sender {
+    // 支付点击
+}
+
+- (IBAction)evaluateButtonClicked:(id)sender {
+    // 评价点击
+}
+
 
 #pragma mark - getters and setters
 - (void)setOrderState:(NSInteger)orderState {

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="GMMeTakeAwayRefundReasonCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="请尽可能详细的描述退款原因" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CkB-ky-Fod">
+                        <rect key="frame" x="8" y="8" width="304" height="183"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="CkB-ky-Fod" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="4P9-fj-1xo"/>
+                    <constraint firstAttribute="trailing" secondItem="CkB-ky-Fod" secondAttribute="trailing" constant="8" id="kbg-Ks-cHG"/>
+                    <constraint firstItem="CkB-ky-Fod" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="mpA-gL-M6D"/>
+                    <constraint firstAttribute="bottom" secondItem="CkB-ky-Fod" secondAttribute="bottom" constant="8" id="ugT-HU-75n"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textField" destination="CkB-ky-Fod" id="Oow-SM-K9a"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

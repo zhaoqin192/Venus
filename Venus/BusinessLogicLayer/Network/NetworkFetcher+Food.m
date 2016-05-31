@@ -67,8 +67,8 @@ static const BOOL LOGDEBUG = NO;
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/store/getByCat"]];
-    
-    NSDictionary *parameters = @{@"catId": foodClass.identifier, @"sort": sort, @"page": page};
+    NSDictionary *parameters = @{@"catId": @(0), @"sort": sort, @"page": @(1)};
+//    NSDictionary *parameters = @{@"catId": foodClass.identifier, @"sort": sort, @"page": page};
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {

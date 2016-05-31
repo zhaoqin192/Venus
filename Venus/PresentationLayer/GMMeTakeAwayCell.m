@@ -36,6 +36,17 @@
     _order = order;
     _orderState = order.state;
     
+    self.leftOneMoreOrderButton.hidden = YES;
+    self.rightOneMoreOrderButton.hidden = YES;
+    self.evaluateButton.hidden = YES;
+    self.reorderButton.hidden = YES;
+    self.changeStoreButton.hidden = YES;
+    self.payButton.hidden = YES;
+    self.refundButton.hidden = YES;
+    self.cancelOrderButton.hidden = YES;
+    self.rightCancelorderButton.hidden = YES;
+    self.confirmButton.hidden = YES;
+    
     _storeName.text = order.store.name;
     [self.storeIcon sd_setImageWithURL:[NSURL URLWithString:order.store.icon]];
     if (order.goodsDetail.count > 1) {
@@ -48,9 +59,7 @@
     _time.text = [NSString convertTimeUntilSecond:[NSNumber numberWithLong:order.createTime]];
     _totalPrice.text = [NSString stringWithFormat:@"￥%.2f",order.totalFee / 100.0];
     self.orderState = order.state;
-//    NSLog(@"订单状态是：%li",(long)order.state);
     self.refundState = order.refundState;
-//    NSLog(@"订单退款状态是：%li",(long)order.refundState);
 }
 
 - (void)setOrderState:(OrderState)orderState {
@@ -66,7 +75,7 @@
         case payingSucceed:
             self.orderStateLabel.text = @"支付成功";
             //按钮：取消订单w
-            self.cancelOrderButton.hidden = NO;
+            self.rightCancelorderButton.hidden = NO;
             break;
         case waitingDelivery:
             //按钮：退款r

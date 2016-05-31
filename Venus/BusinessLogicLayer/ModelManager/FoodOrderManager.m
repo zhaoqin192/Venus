@@ -32,6 +32,9 @@
                          @"goodsDetail":@"TakeAwayOrderGood"
                          };
             }];
+            [self.orderArray removeAllObjects];
+            [self.waitingEvalutationOrderArray removeAllObjects];
+            [self.refundOrderArray removeAllObjects];
             for (int i = 0; i < array.count; i++) {
                 TakeAwayOrder *order = [TakeAwayOrder mj_objectWithKeyValues:(NSDictionary *)array[i]];
                 [self.orderArray addObject:order];

@@ -56,6 +56,7 @@ typedef NS_ENUM(NSUInteger, refundState) {
 @property (weak, nonatomic) IBOutlet UIButton *refundButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelOrderButton;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightCancelorderButton;
 
 
 
