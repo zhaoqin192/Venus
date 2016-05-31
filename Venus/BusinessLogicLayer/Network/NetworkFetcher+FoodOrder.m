@@ -64,7 +64,8 @@ static const BOOL LOGDEBUG = NO;
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/order/create"]];
-    NSDictionary *parameters = @{@"storeId":@([order.storeID longValue]),
+    NSDictionary *parameters = @{
+                                 @"storeId":@([order.storeID longValue]),
                                  @"recipient":order.recipient,
                                  @"address":order.address,
                                  @"contact":order.phoneNumber,
@@ -74,11 +75,10 @@ static const BOOL LOGDEBUG = NO;
                                  @"goodsDetail":order.foodDetail
                                  };
     
-
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if (LOGDEBUG) {
+//        if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
-        }
+//        }
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (LOGDEBUG) {
@@ -98,6 +98,116 @@ static const BOOL LOGDEBUG = NO;
     NSDictionary *parameters = @{@"orderId": @(orderID)};
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        failure(nil);
+    }];
+    
+}
+
++ (void)foodCancelOrderWithOrderID:(long)orderID
+                           success:(NetworkFetcherSuccessHandler)success
+                           failure:(NetworkFetcherErrorHandler)failure {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/order/cancel"]];
+    
+    NSDictionary *parameters = @{@"orderId": @(orderID)};
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        failure(nil);
+    }];
+    
+}
+
++ (void)foodConfirmOrderWithOrderID:(long)orderID
+                            storeID:(long)storeID
+                            success:(NetworkFetcherSuccessHandler)success
+                            failure:(NetworkFetcherErrorHandler)failure {
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/order/confirmReceipt"]];
+    
+    NSDictionary *parameters = @{@"orderId": @(orderID), @"storeId": @(storeID)};
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        failure(nil);
+    }];
+    
+}
+
++ (void)foodRefundOrderWithOrderId:(long)orderID
+                            reason:(NSString *)reason
+                           success:(NetworkFetcherSuccessHandler)success
+                           failure:(NetworkFetcherErrorHandler)failure {
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/refund/create"]];
+    NSDictionary *parameters = @{
+                                 @"orderId":@(orderID),
+                                 @"customerDesc":reason
+                                 };
+    
+    
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        failure(nil);
+    }];
+    
+}
+
++ (void)foodUserCreateCommentWithOrderId:(long)orderID
+                            deliveryTime:(NSInteger)deliveryTime
+                               foodGrade:(NSInteger)foodGrade
+                                 content:(NSString *)content
+                                 storeId:(long)storeID
+                                pictures:(NSArray *)pictures
+                                 success:(NetworkFetcherSuccessHandler)success
+                                 failure:(NetworkFetcherErrorHandler)failure {
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/comment/create"]];
+    NSDictionary *parameters = @{
+                                 @"orderId":@(orderID),
+                                 @"transTime":@(deliveryTime),
+                                 @"dishGrade":@(foodGrade),
+                                 @"content":content,
+                                 @"storeId":@(storeID),
+                                 @"picUrl":pictures
+                                 };
+    
+    
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }

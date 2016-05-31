@@ -8,6 +8,7 @@
 
 #import "FoodOrderViewBaseItem.h"
 #import "ResFood.h"
+#import "TakeAwayOrderGood.h"
 
 @implementation FoodOrderViewBaseItem
 
@@ -21,6 +22,18 @@
             _orderCount = 0;
             _identifier = resFood.identifier;
         }
+    }
+    return self;
+}
+
+- (instancetype)initWithTakeAwayOrderGood:(TakeAwayOrderGood *)orderGood {
+    if (self = [super init]) {
+        _identifier = [NSString stringWithFormat:@"%li",orderGood.goodsId];
+        _pictureURL = orderGood.icon;
+        _name = orderGood.goodsName;
+        _soldCount = 0;
+        _unitPrice = orderGood.price / 100;
+        _orderCount = orderGood.num;
     }
     return self;
 }

@@ -22,4 +22,8 @@ typedef void(^FoodOrderManagerUpdateFailedHandler)(NSString *error);
 - (void)updateOrderSucceed:(FoodOrderManagerUpdateSucceedHandler)succeedHandler
                     failed:(FoodOrderManagerUpdateFailedHandler)failedHander;
 
+- (void)addDataOnPage:(NSInteger)page
+              succeed:(FoodOrderManagerUpdateSucceedHandler)succeedHandler
+               failed:(FoodOrderManagerUpdateFailedHandler)failedHander;
+
 @end

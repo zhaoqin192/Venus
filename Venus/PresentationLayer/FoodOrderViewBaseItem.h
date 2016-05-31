@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class ResFood;
+@class TakeAwayOrderGood;
 
 @interface FoodOrderViewBaseItem : NSObject
 
@@ -20,5 +21,7 @@
 @property (assign, nonatomic) NSInteger orderCount;
 
 - (instancetype)initWithResFood:(ResFood *)resFood;
+
+- (instancetype)initWithTakeAwayOrderGood:(TakeAwayOrderGood *)orderGood;
 
 @end

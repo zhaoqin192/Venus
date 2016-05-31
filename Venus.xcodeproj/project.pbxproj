@@ -46,6 +46,8 @@
 		305E8D2C1CFC2E290063389E /* SDRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 305E8D251CFC2E290063389E /* SDRefreshHeaderView.m */; };
 		305E8D2D1CFC2E290063389E /* SDRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 305E8D271CFC2E290063389E /* SDRefreshView.m */; };
 		305E8D2E1CFC2E290063389E /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 305E8D291CFC2E290063389E /* UIView+SDExtension.m */; };
+		305E8D3D1CFD76290063389E /* MapFloorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 305E8D3C1CFD76290063389E /* MapFloorCell.xib */; };
+		305E8D421CFD890F0063389E /* MeMiamiCommit.m in Sources */ = {isa = PBXBuildFile; fileRef = 305E8D411CFD890F0063389E /* MeMiamiCommit.m */; };
 		3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3931CC72975007494D7 /* UIButton+LCAlignment.m */; };
 		3086D3991CC72975007494D7 /* UIColor+LCHexValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3951CC72975007494D7 /* UIColor+LCHexValue.m */; };
 		3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 3086D3971CC72975007494D7 /* UILabel+LCConvenience.m */; };
@@ -404,6 +406,21 @@
 		E8F047C01CFB2C6B00E08A40 /* TakeAwayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047BF1CFB2C6B00E08A40 /* TakeAwayOrder.m */; };
 		E8F047C41CFB448000E08A40 /* TakeAwayOrderGood.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047C31CFB448000E08A40 /* TakeAwayOrderGood.m */; };
 		E8F047C71CFB44B100E08A40 /* TakeAwayOrderStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047C61CFB44B100E08A40 /* TakeAwayOrderStore.m */; };
+		E8F047CC1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047CA1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.m */; };
+		E8F047CD1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8F047CB1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.xib */; };
+		E8F047D51CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047D31CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.m */; };
+		E8F047D61CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8F047D41CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.xib */; };
+		E8F047DA1CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047D81CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.m */; };
+		E8F047DB1CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8F047D91CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.xib */; };
+		E8F047DF1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047DD1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.m */; };
+		E8F047E01CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8F047DE1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.xib */; };
+		E8F047E41CFD734500E08A40 /* GMMeTakeAwayRatingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047E21CFD734500E08A40 /* GMMeTakeAwayRatingCell.m */; };
+		E8F047E51CFD734500E08A40 /* GMMeTakeAwayRatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8F047E31CFD734500E08A40 /* GMMeTakeAwayRatingCell.xib */; };
+		E8F047E91CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047E71CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.m */; };
+		E8F047EA1CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8F047E81CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.xib */; };
+		E8F047F81CFDD49F00E08A40 /* NewFoodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047F71CFDD49F00E08A40 /* NewFoodManager.m */; };
+		E8F047FD1CFDD62600E08A40 /* NewFoodDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047FB1CFDD62600E08A40 /* NewFoodDetailViewController.m */; };
+		E8F047FE1CFDD62600E08A40 /* NewFoodDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8F047FC1CFDD62600E08A40 /* NewFoodDetailViewController.xib */; };
 		FCA1BB3CF4D5E0A9C7C66E75 /* libPods-Venus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB31E767E11D77284035771 /* libPods-Venus.a */; };
 /* End PBXBuildFile section */
 
@@ -479,6 +496,9 @@
 		305E8D271CFC2E290063389E /* SDRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDRefreshView.m; sourceTree = "<group>"; };
 		305E8D281CFC2E290063389E /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
 		305E8D291CFC2E290063389E /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		305E8D3C1CFD76290063389E /* MapFloorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapFloorCell.xib; sourceTree = "<group>"; };
+		305E8D401CFD890F0063389E /* MeMiamiCommit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeMiamiCommit.h; sourceTree = "<group>"; };
+		305E8D411CFD890F0063389E /* MeMiamiCommit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeMiamiCommit.m; sourceTree = "<group>"; };
 		3086D38F1CC728F0007494D7 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3086D3911CC72975007494D7 /* LCUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUIKit.h; sourceTree = "<group>"; };
 		3086D3921CC72975007494D7 /* UIButton+LCAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+LCAlignment.h"; sourceTree = "<group>"; };
@@ -1258,6 +1278,29 @@
 		E8F047C31CFB448000E08A40 /* TakeAwayOrderGood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeAwayOrderGood.m; sourceTree = "<group>"; };
 		E8F047C51CFB44B100E08A40 /* TakeAwayOrderStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeAwayOrderStore.h; sourceTree = "<group>"; };
 		E8F047C61CFB44B100E08A40 /* TakeAwayOrderStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeAwayOrderStore.m; sourceTree = "<group>"; };
+		E8F047C91CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeTakeAwayRefundViewController.h; sourceTree = "<group>"; };
+		E8F047CA1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeTakeAwayRefundViewController.m; sourceTree = "<group>"; };
+		E8F047CB1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeTakeAwayRefundViewController.xib; sourceTree = "<group>"; };
+		E8F047D21CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeTakeAwayRefundViewCell.h; sourceTree = "<group>"; };
+		E8F047D31CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeTakeAwayRefundViewCell.m; sourceTree = "<group>"; };
+		E8F047D41CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeTakeAwayRefundViewCell.xib; sourceTree = "<group>"; };
+		E8F047D71CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeTakeAwayRefundReasonCell.h; sourceTree = "<group>"; };
+		E8F047D81CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeTakeAwayRefundReasonCell.m; sourceTree = "<group>"; };
+		E8F047D91CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeTakeAwayRefundReasonCell.xib; sourceTree = "<group>"; };
+		E8F047DC1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeTakeAwayRatingViewController.h; sourceTree = "<group>"; };
+		E8F047DD1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeTakeAwayRatingViewController.m; sourceTree = "<group>"; };
+		E8F047DE1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeTakeAwayRatingViewController.xib; sourceTree = "<group>"; };
+		E8F047E11CFD734500E08A40 /* GMMeTakeAwayRatingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeTakeAwayRatingCell.h; sourceTree = "<group>"; };
+		E8F047E21CFD734500E08A40 /* GMMeTakeAwayRatingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeTakeAwayRatingCell.m; sourceTree = "<group>"; };
+		E8F047E31CFD734500E08A40 /* GMMeTakeAwayRatingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeTakeAwayRatingCell.xib; sourceTree = "<group>"; };
+		E8F047E61CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeTakeAwayRatingStarCell.h; sourceTree = "<group>"; };
+		E8F047E71CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeTakeAwayRatingStarCell.m; sourceTree = "<group>"; };
+		E8F047E81CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeTakeAwayRatingStarCell.xib; sourceTree = "<group>"; };
+		E8F047F61CFDD49F00E08A40 /* NewFoodManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFoodManager.h; sourceTree = "<group>"; };
+		E8F047F71CFDD49F00E08A40 /* NewFoodManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFoodManager.m; sourceTree = "<group>"; };
+		E8F047FA1CFDD62600E08A40 /* NewFoodDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFoodDetailViewController.h; sourceTree = "<group>"; };
+		E8F047FB1CFDD62600E08A40 /* NewFoodDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFoodDetailViewController.m; sourceTree = "<group>"; };
+		E8F047FC1CFDD62600E08A40 /* NewFoodDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewFoodDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1391,6 +1434,7 @@
 		3057B1E81CD991F5008172DD /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				E8F047F21CFDC1B700E08A40 /* TakeAway */,
 				30FEE6EB1CF94E10007E7A8B /* model */,
 				3057B1F41CD998CA008172DD /* cell */,
 				3057B1EA1CD99221008172DD /* GMMeViewController.h */,
@@ -1414,12 +1458,6 @@
 				30FEE6E01CF80AE3007E7A8B /* GMMeCommitViewController.h */,
 				30FEE6E11CF80AE3007E7A8B /* GMMeCommitViewController.m */,
 				30FEE6E21CF80AE3007E7A8B /* GMMeCommitViewController.xib */,
-				7F9370B61CF983EA0063F544 /* GMMeTakeAwayViewController.h */,
-				7F9370B71CF983EA0063F544 /* GMMeTakeAwayViewController.m */,
-				7F9370B81CF983EA0063F544 /* GMMeTakeAwayViewController.xib */,
-				7F9370D01CFC03110063F544 /* GMMeTakeAwayDetailViewController.h */,
-				7F9370D11CFC03110063F544 /* GMMeTakeAwayDetailViewController.m */,
-				7F9370D21CFC03110063F544 /* GMMeTakeAwayDetailViewController.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -1439,24 +1477,6 @@
 				30FEE6EF1CF96698007E7A8B /* MeCommitCell.h */,
 				30FEE6F01CF96698007E7A8B /* MeCommitCell.m */,
 				30FEE6F11CF96698007E7A8B /* MeCommitCell.xib */,
-				7F9370BC1CF98EA50063F544 /* GMMeTakeAwayCell.h */,
-				7F9370BD1CF98EA50063F544 /* GMMeTakeAwayCell.m */,
-				7F9370BE1CF98EA50063F544 /* GMMeTakeAwayCell.xib */,
-				7F9370E01CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.h */,
-				7F9370E11CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.m */,
-				7F9370E21CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.xib */,
-				7F9370DB1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.h */,
-				7F9370DC1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.m */,
-				7F9370DD1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.xib */,
-				7F9370EE1CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.h */,
-				7F9370EF1CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.m */,
-				7F9370F01CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.xib */,
-				7F9370F31CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.h */,
-				7F9370F41CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.m */,
-				7F9370F51CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.xib */,
-				7F9370F81CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.h */,
-				7F9370F91CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.m */,
-				7F9370FA1CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -1756,6 +1776,9 @@
 				30D6D2861CC891B500FB0CFC /* FoodDetailViewController.h */,
 				30D6D2871CC891B500FB0CFC /* FoodDetailViewController.m */,
 				30D6D2881CC891B500FB0CFC /* FoodDetailViewController.xib */,
+				E8F047FA1CFDD62600E08A40 /* NewFoodDetailViewController.h */,
+				E8F047FB1CFDD62600E08A40 /* NewFoodDetailViewController.m */,
+				E8F047FC1CFDD62600E08A40 /* NewFoodDetailViewController.xib */,
 				30D6D2961CC8A3F700FB0CFC /* FoodOrderViewController.h */,
 				30D6D2971CC8A3F700FB0CFC /* FoodOrderViewController.m */,
 				30D6D2981CC8A3F700FB0CFC /* FoodOrderViewController.xib */,
@@ -1848,6 +1871,7 @@
 				30FD1F431CE1A329003C91A5 /* IndoorSwitchDemo.mm */,
 				30FD1F9C1CE2C0B8003C91A5 /* MapFloorCell.h */,
 				30FD1F9D1CE2C0B8003C91A5 /* MapFloorCell.m */,
+				305E8D3C1CFD76290063389E /* MapFloorCell.xib */,
 				30FD1FA81CE2D012003C91A5 /* MapHeadView.h */,
 				30FD1FA91CE2D012003C91A5 /* MapHeadView.m */,
 				30FD1FAB1CE2D023003C91A5 /* MapHeadView.xib */,
@@ -1927,6 +1951,8 @@
 				30FEE6ED1CF94E38007E7A8B /* MeShopCommit.m */,
 				30FEE6F81CFA70C8007E7A8B /* MeCouponCommit.h */,
 				30FEE6F91CFA70C8007E7A8B /* MeCouponCommit.m */,
+				305E8D401CFD890F0063389E /* MeMiamiCommit.h */,
+				305E8D411CFD890F0063389E /* MeMiamiCommit.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -2167,6 +2193,8 @@
 				AC90F5741CCFABE1004C4C55 /* PictureManager.m */,
 				AC90F5841CD08F11004C4C55 /* AdvertisementManager.h */,
 				AC90F5851CD08F11004C4C55 /* AdvertisementManager.m */,
+				E8F047F61CFDD49F00E08A40 /* NewFoodManager.h */,
+				E8F047F71CFDD49F00E08A40 /* NewFoodManager.m */,
 				AC90F5A61CD1EB12004C4C55 /* FoodManager.h */,
 				AC90F5A71CD1EB12004C4C55 /* FoodManager.m */,
 				ACE066911CDB75BF0000D335 /* CommentManager.h */,
@@ -2908,6 +2936,63 @@
 			name = submitOrderCell;
 			sourceTree = "<group>";
 		};
+		E8F047F21CFDC1B700E08A40 /* TakeAway */ = {
+			isa = PBXGroup;
+			children = (
+				E8F047F41CFDC1CF00E08A40 /* Cell */,
+				7F9370B61CF983EA0063F544 /* GMMeTakeAwayViewController.h */,
+				7F9370B71CF983EA0063F544 /* GMMeTakeAwayViewController.m */,
+				7F9370B81CF983EA0063F544 /* GMMeTakeAwayViewController.xib */,
+				7F9370D01CFC03110063F544 /* GMMeTakeAwayDetailViewController.h */,
+				7F9370D11CFC03110063F544 /* GMMeTakeAwayDetailViewController.m */,
+				7F9370D21CFC03110063F544 /* GMMeTakeAwayDetailViewController.xib */,
+				E8F047C91CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.h */,
+				E8F047CA1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.m */,
+				E8F047CB1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.xib */,
+				E8F047DC1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.h */,
+				E8F047DD1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.m */,
+				E8F047DE1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.xib */,
+			);
+			name = TakeAway;
+			sourceTree = "<group>";
+		};
+		E8F047F41CFDC1CF00E08A40 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7F9370BC1CF98EA50063F544 /* GMMeTakeAwayCell.h */,
+				7F9370BD1CF98EA50063F544 /* GMMeTakeAwayCell.m */,
+				7F9370BE1CF98EA50063F544 /* GMMeTakeAwayCell.xib */,
+				7F9370E01CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.h */,
+				7F9370E11CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.m */,
+				7F9370E21CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.xib */,
+				7F9370DB1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.h */,
+				7F9370DC1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.m */,
+				7F9370DD1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.xib */,
+				7F9370EE1CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.h */,
+				7F9370EF1CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.m */,
+				7F9370F01CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.xib */,
+				7F9370F31CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.h */,
+				7F9370F41CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.m */,
+				7F9370F51CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.xib */,
+				7F9370F81CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.h */,
+				7F9370F91CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.m */,
+				7F9370FA1CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.xib */,
+				E8F047D21CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.h */,
+				E8F047D31CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.m */,
+				E8F047D41CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.xib */,
+				E8F047D71CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.h */,
+				E8F047D81CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.m */,
+				E8F047D91CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.xib */,
+				E8F047E11CFD734500E08A40 /* GMMeTakeAwayRatingCell.h */,
+				E8F047E21CFD734500E08A40 /* GMMeTakeAwayRatingCell.m */,
+				E8F047E31CFD734500E08A40 /* GMMeTakeAwayRatingCell.xib */,
+				E8F047E61CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.h */,
+				E8F047E71CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.m */,
+				E8F047E81CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3000,6 +3085,7 @@
 				AC90F5641CCFA292004C4C55 /* WXTextField.xib in Resources */,
 				308E0D881CF2A4EF0048F38A /* GMMeInformationViewController.xib in Resources */,
 				AC90F5661CCFA292004C4C55 /* HomeIntroduceCell.xib in Resources */,
+				E8F047CD1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.xib in Resources */,
 				AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */,
 				ACFF32CF1CF87114008BD0D8 /* OrderDetailViewController.xib in Resources */,
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
@@ -3011,22 +3097,26 @@
 				7F7025531CEC63A2009653A6 /* FoodTrolleyTableViewController.xib in Resources */,
 				30D6D29A1CC8A3F700FB0CFC /* FoodOrderViewController.xib in Resources */,
 				30B601F71CD1F92D003ED671 /* BeautifulFoodViewController.xib in Resources */,
+				E8F047D61CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.xib in Resources */,
 				ACFF32CD1CF87114008BD0D8 /* OrderMessageCell.xib in Resources */,
 				30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */,
 				303519721CCF47CE00EE0750 /* ShopViewController.xib in Resources */,
 				7F9370F71CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.xib in Resources */,
 				30FEE6D91CF5E40F007E7A8B /* MeModifyPhoneNumberViewController.xib in Resources */,
+				305E8D3D1CFD76290063389E /* MapFloorCell.xib in Resources */,
 				7F9370AB1CF6EB2A0063F544 /* FoodAddressSelectionViewController.xib in Resources */,
 				3057B1F31CD998C3008172DD /* GMMeCell.xib in Resources */,
 				3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */,
 				7F9370CA1CFADB750063F544 /* FoodPaymentDoneViewController.xib in Resources */,
 				30D018331CEAF05500E50B23 /* WXMapShopView.xib in Resources */,
+				E8F047EA1CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.xib in Resources */,
 				ACFF33851CF9871B008BD0D8 /* demo.gif in Resources */,
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
 				ACFF31B51CF86ECF008BD0D8 /* AlipaySDK.bundle in Resources */,
 				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
 				7F9370FC1CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.xib in Resources */,
 				30FD1FAC1CE2D023003C91A5 /* MapHeadView.xib in Resources */,
+				E8F047FE1CFDD62600E08A40 /* NewFoodDetailViewController.xib in Resources */,
 				7F9370A61CF6E4F10063F544 /* FoodShowAddressCell.xib in Resources */,
 				7F7025581CEC6458009653A6 /* FoodTrolleyTableViewCell.xib in Resources */,
 				30B601FD1CD1FA94003ED671 /* BeautifulFoodCell.xib in Resources */,
@@ -3044,6 +3134,7 @@
 				7F9370DF1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.xib in Resources */,
 				7F9370B51CF932E00063F544 /* FoodAddressEditViewController.xib in Resources */,
 				3057B1EE1CD99221008172DD /* GMMeViewController.xib in Resources */,
+				E8F047E01CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.xib in Resources */,
 				3025A9951CCE3FD700C5EAAB /* PackageViewController.xib in Resources */,
 				ACFF33431CF9468C008BD0D8 /* PaymentSuccessViewController.xib in Resources */,
 				3057B1F91CD99B66008172DD /* GMMeOrderCell.xib in Resources */,
@@ -3067,6 +3158,7 @@
 				303519521CCF1B3F00EE0750 /* TicketDetailViewController.xib in Resources */,
 				ACFF32D51CF87114008BD0D8 /* OrderCouponIDCell.xib in Resources */,
 				ACFF32B61CF87106008BD0D8 /* RefundReasonHeadCell.xib in Resources */,
+				E8F047E51CFD734500E08A40 /* GMMeTakeAwayRatingCell.xib in Resources */,
 				3025A99A1CCE40D800C5EAAB /* PackageCell.xib in Resources */,
 				ACFF32D31CF87114008BD0D8 /* OrderDescribeCell.xib in Resources */,
 				E89BD32E1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.xib in Resources */,
@@ -3096,6 +3188,7 @@
 				ACFF32E61CF8711E008BD0D8 /* CouponUseViewController.xib in Resources */,
 				7F9370C01CF98EA50063F544 /* GMMeTakeAwayCell.xib in Resources */,
 				305E8D2A1CFC2E290063389E /* sdRefeshView_arrow@2x.png in Resources */,
+				E8F047DB1CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.xib in Resources */,
 				30FD1F4F1CE1A80B003C91A5 /* mapapi.bundle in Resources */,
 				3086D3D31CC72ABC007494D7 /* HomeNewsCell.xib in Resources */,
 				30B601C11CD05E88003ED671 /* ShopAllCell.xib in Resources */,
@@ -3270,16 +3363,19 @@
 				30B509F11CF2D27C00A2C30A /* ActionSheetStringPicker.m in Sources */,
 				ACFF32891CF86F8B008BD0D8 /* RSADataSigner.m in Sources */,
 				3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */,
+				E8F047F81CFDD49F00E08A40 /* NewFoodManager.m in Sources */,
 				7F9370BF1CF98EA50063F544 /* GMMeTakeAwayCell.m in Sources */,
 				30B509EC1CF2D27C00A2C30A /* AbstractActionSheetPicker.m in Sources */,
 				3057B1ED1CD99221008172DD /* GMMeViewController.m in Sources */,
 				30B601C01CD05E88003ED671 /* ShopAllCell.m in Sources */,
+				E8F047DF1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.m in Sources */,
 				ACFF330B1CF87135008BD0D8 /* CommitCountCell.m in Sources */,
 				308E0D871CF2A4EF0048F38A /* GMMeInformationViewController.m in Sources */,
 				AC2E04421CEB554900476087 /* CouponCommentCell.m in Sources */,
 				305E8D2D1CFC2E290063389E /* SDRefreshView.m in Sources */,
 				AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */,
 				ACFF31C41CF86EE0008BD0D8 /* NSString+Expand.m in Sources */,
+				E8F047FD1CFDD62600E08A40 /* NewFoodDetailViewController.m in Sources */,
 				AC7AD49C1CC7AFD9004D9B61 /* DatabaseManager.m in Sources */,
 				AC72CF321CEEA9C50077537E /* MallViewModel.m in Sources */,
 				30FEE6CD1CF58EDA007E7A8B /* MeModifyPasswordViewController.m in Sources */,
@@ -3296,6 +3392,7 @@
 				ACB911F61CFAC28200F9183E /* SearchHotTableViewCell.m in Sources */,
 				3086D3A41CC729A9007494D7 /* GMTextField.m in Sources */,
 				ACCDCB8C1CF9D4B300FAD161 /* BrandViewController.m in Sources */,
+				E8F047CC1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.m in Sources */,
 				3035195C1CCF316800EE0750 /* TicketInformationCell.m in Sources */,
 				ACFF32BD1CF87106008BD0D8 /* RefundCodeCell.m in Sources */,
 				ACFF32ED1CF8711E008BD0D8 /* CouponPayTableViewCell.m in Sources */,
@@ -3328,6 +3425,7 @@
 				ACFF32FF1CF87125008BD0D8 /* CouponCommentMessageCell.m in Sources */,
 				ACFF33331CF885BF008BD0D8 /* CouponCommentMessageSectionCell.m in Sources */,
 				AC4D73F41CF1DCA800DF4997 /* BrandViewCell.m in Sources */,
+				305E8D421CFD890F0063389E /* MeMiamiCommit.m in Sources */,
 				ACFF32851CF86F8B008BD0D8 /* DataVerifier.m in Sources */,
 				3086D3A51CC729A9007494D7 /* WXTextField.m in Sources */,
 				E89BD32D1CEB0EFE007CCF49 /* FoodSubmitOrderViewController.m in Sources */,
@@ -3358,6 +3456,7 @@
 				30FEE6EA1CF82176007E7A8B /* BeautyCategory.m in Sources */,
 				E89BD3331CEB1228007CCF49 /* FoodAddAddressCell.m in Sources */,
 				7F9370AA1CF6EB2A0063F544 /* FoodAddressSelectionViewController.m in Sources */,
+				E8F047D51CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.m in Sources */,
 				7F70255B1CED573C009653A6 /* FoodForOrdering.m in Sources */,
 				30FD1FA61CE2CAE9003C91A5 /* UIView+SDAutoLayout.m in Sources */,
 				30FEE6DE1CF68AF5007E7A8B /* GMMeShowIconViewController.m in Sources */,
@@ -3378,6 +3477,7 @@
 				305E8D2C1CFC2E290063389E /* SDRefreshHeaderView.m in Sources */,
 				30B602141CD308F3003ED671 /* ShopActivityCell.m in Sources */,
 				30D6D2991CC8A3F700FB0CFC /* FoodOrderViewController.m in Sources */,
+				E8F047DA1CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.m in Sources */,
 				ACB911F01CFAC16700F9183E /* SearchHotCollectionViewCell.m in Sources */,
 				ACB911FC1CFAC7F900F9183E /* SearchResultModel.m in Sources */,
 				ACFF329E1CF870A7008BD0D8 /* CouponCommentViewModel.m in Sources */,
@@ -3442,6 +3542,7 @@
 				3086D3D21CC72ABC007494D7 /* HomeNewsCell.m in Sources */,
 				AC90F56A1CCFA4E7004C4C55 /* NetworkFetcher+Home.m in Sources */,
 				30D6D2931CC89E6E00FB0CFC /* FoodCommitCell.m in Sources */,
+				E8F047E91CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.m in Sources */,
 				305E8D2B1CFC2E290063389E /* SDRefreshFooterView.m in Sources */,
 				ACFF32B71CF87106008BD0D8 /* RefundReasonHeadCell.m in Sources */,
 				ACF83EB01CBF97F800A962BD /* main.m in Sources */,
@@ -3462,6 +3563,7 @@
 				AC2E04391CEB374E00476087 /* CouponStoreCell.m in Sources */,
 				303519711CCF47CE00EE0750 /* ShopViewController.m in Sources */,
 				ACFF329A1CF870A7008BD0D8 /* OrderDetailViewModel.m in Sources */,
+				E8F047E41CFD734500E08A40 /* GMMeTakeAwayRatingCell.m in Sources */,
 				ACFF32D61CF87114008BD0D8 /* OrderCouponIDCell.m in Sources */,
 				30D6D2891CC891B500FB0CFC /* FoodDetailViewController.m in Sources */,
 			);

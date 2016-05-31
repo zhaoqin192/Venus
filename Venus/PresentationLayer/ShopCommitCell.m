@@ -41,7 +41,13 @@
     _foodModel = foodModel;
     self.userName.text = foodModel.userName;
     self.contentLabel.text = foodModel.content;
+    self.dateLabel.text = [self convertTime:@(foodModel.time)];
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:foodModel.headImg]];
+}
+
+- (NSString *)convertTime:(NSNumber *)time {
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[time integerValue] / 1000];
+    return [date stringWithFormat:@"yyyy.MM.dd"];
 }
 
 @end

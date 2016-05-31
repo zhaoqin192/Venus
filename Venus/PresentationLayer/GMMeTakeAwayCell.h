@@ -22,11 +22,14 @@ typedef NS_ENUM(NSUInteger, OrderState) {
     refundSeries
 };
 
-typedef NS_ENUM(NSUInteger, refundState) {
-    noRefund = -1,
-    refundSucceed = 0,
-    refunding
-};
+//typedef NS_ENUM(NSUInteger, refundState) {
+//    noRefund = -1,
+//    refundSucceed = 5,
+//    refunding = 0,
+//    refunding = 1,
+//    refunding = 2,
+//    refunding = 3,
+//};
 
 @interface GMMeTakeAwayCell : UITableViewCell
 
@@ -39,7 +42,7 @@ typedef NS_ENUM(NSUInteger, refundState) {
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UILabel *totalPrice;
 @property (assign, nonatomic) OrderState orderState;
-@property (assign, nonatomic) refundState refundState;
+@property (assign, nonatomic) NSInteger refundState;
 
 @property (weak, nonatomic) IBOutlet UIImageView *storeIcon;
 @property (weak, nonatomic) IBOutlet UILabel *orderStateLabel;
@@ -56,7 +59,6 @@ typedef NS_ENUM(NSUInteger, refundState) {
 @property (weak, nonatomic) IBOutlet UIButton *refundButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelOrderButton;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
-
-
+@property (weak, nonatomic) IBOutlet UIButton *rightCancelorderButton;
 
 @end

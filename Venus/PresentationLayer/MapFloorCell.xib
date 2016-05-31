@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MapFloorCell" id="b8d-vz-ZpL" customClass="MapFloorCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b8d-vz-ZpL" id="GC4-7l-TXV">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0W-ZA-LX3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="O0W-ZA-LX3" firstAttribute="top" secondItem="GC4-7l-TXV" secondAttribute="top" id="6rp-YD-sG5"/>
+                    <constraint firstAttribute="trailing" secondItem="O0W-ZA-LX3" secondAttribute="trailing" id="WBZ-5S-KS2"/>
+                    <constraint firstItem="O0W-ZA-LX3" firstAttribute="leading" secondItem="GC4-7l-TXV" secondAttribute="leading" id="sRe-s0-fDC"/>
+                    <constraint firstAttribute="bottom" secondItem="O0W-ZA-LX3" secondAttribute="bottom" id="vRE-gD-KG5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="O0W-ZA-LX3" id="ZsX-v4-99X"/>
+            </connections>
+            <point key="canvasLocation" x="683" y="301"/>
+        </tableViewCell>
+    </objects>
+</document>

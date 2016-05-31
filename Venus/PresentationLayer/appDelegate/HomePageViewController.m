@@ -152,7 +152,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
-
+    [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -404,6 +404,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 - (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result {
     [self dismissViewControllerAnimated:YES completion:^{
         NSLog(@"%@",result);
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:result]];
     }];
 }
 

@@ -10,7 +10,7 @@
 
 @interface TakeAwayOrderStore : NSObject
 
-@property (assign, nonatomic) long id;
+@property (assign, nonatomic) long storeId;
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *icon;
 

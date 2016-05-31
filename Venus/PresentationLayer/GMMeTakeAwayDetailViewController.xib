@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -34,6 +34,9 @@
                     <state key="normal" title="退款">
                         <color key="titleColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="refundButtonClicked:" destination="-1" eventType="touchUpInside" id="iUw-8q-SNp"/>
+                    </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqV-Cw-oVq">
                     <rect key="frame" x="0.0" y="617" width="375" height="50"/>
@@ -44,6 +47,9 @@
                     <state key="normal" title="换一家">
                         <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="changeStoreButtonClicked:" destination="-1" eventType="touchUpInside" id="VVg-hO-We1"/>
+                    </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qB-5f-CVt">
                     <rect key="frame" x="0.0" y="617" width="375" height="50"/>
@@ -54,6 +60,9 @@
                     <state key="normal" title="重新下单">
                         <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="reorderButtonClicked:" destination="-1" eventType="touchUpInside" id="T8x-yz-LvC"/>
+                    </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWH-Of-FdP">
                     <rect key="frame" x="0.0" y="617" width="375" height="50"/>
@@ -64,6 +73,9 @@
                     <state key="normal" title="支付">
                         <color key="titleColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="payButtonClicked:" destination="-1" eventType="touchUpInside" id="zc0-Q3-tng"/>
+                    </connections>
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMq-Gn-siC">
                     <rect key="frame" x="0.0" y="617" width="375" height="50"/>
@@ -75,6 +87,9 @@
                     <state key="normal" title="评价">
                         <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="evaluateButtonClicked:" destination="-1" eventType="touchUpInside" id="b3T-OQ-BdD"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

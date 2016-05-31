@@ -117,8 +117,8 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15元起送" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nt1-t0-1hr">
-                            <rect key="frame" x="273" y="12" width="69" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点一单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nt1-t0-1hr">
+                            <rect key="frame" x="291" y="12" width="51" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -336,6 +336,7 @@
             <connections>
                 <outlet property="babyView" destination="Mrr-go-CeK" id="U4L-90-Dsm"/>
                 <outlet property="commitView" destination="jh2-Al-rGu" id="lFq-zE-mG5"/>
+                <outlet property="homeButton" destination="55l-OW-XN2" id="4u9-U6-j6e"/>
                 <outlet property="iconView" destination="6DU-9W-dIM" id="TFM-YA-zM3"/>
                 <outlet property="locateView" destination="7cz-wi-wY9" id="c0U-XX-AQ8"/>
                 <outlet property="locationLabel" destination="TTE-rb-iNL" id="LKb-AN-C1M"/>

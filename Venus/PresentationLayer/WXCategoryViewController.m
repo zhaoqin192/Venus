@@ -37,6 +37,12 @@ static NSString *footerID = @"footerID";
     [self loadShopData];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:NO];
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
 - (void)configureCollectionView {
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumInteritemSpacing = 0;
