@@ -8,7 +8,6 @@
 
 #import "NewFoodManager.h"
 #import "NetworkFetcher+Food.h"
-#import "<#header#>"
 
 @implementation NewFoodManager
 
