@@ -19,4 +19,5 @@ target "Venus" do
     pod 'UITableView+FDTemplateLayoutCell'
     pod 'FDStackView', '1.0'
     pod 'PureLayout'
+    pod 'MJRefresh'
 end

@@ -244,7 +244,6 @@
 }
 
 - (void)takeawayButtonClicked:(id)sender {
-    NSLog(@"跳转外卖");
     GMMeTakeAwayViewController *vc = [[GMMeTakeAwayViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }

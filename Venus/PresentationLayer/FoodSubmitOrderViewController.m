@@ -408,13 +408,18 @@
         [PresentationUtility showTextDialog:self.view text:@"请先填写地址" success:nil];
     } else {
         FoodOrder *order = [[FoodOrder alloc] init];
+        
         order.storeID = self.restaurantID;
+        
         FoodAddress *selectedAddress = (FoodAddress *)self.foodAddressManager.foodAddressArray[self.addressSelectionIndex];
         order.recipient = selectedAddress.linkmanName;
         order.phoneNumber = selectedAddress.phoneNumber;
         order.address = selectedAddress.address;
+        
         order.remark = @"";
+        
         order.payStatus = AliPay;
+        
         order.arriveTime = (long)[self getDeliveryTimeSince1970];
         order.foodDetail = [[NSMutableDictionary alloc] init];
         NSLog(@"点单数%lu",(unsigned long)self.foodArray.count);

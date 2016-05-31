@@ -1423,6 +1423,7 @@
 		3057B1E81CD991F5008172DD /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				E8F047F21CFDC1B700E08A40 /* TakeAway */,
 				30FEE6EB1CF94E10007E7A8B /* model */,
 				3057B1F41CD998CA008172DD /* cell */,
 				3057B1EA1CD99221008172DD /* GMMeViewController.h */,
@@ -1446,18 +1447,6 @@
 				30FEE6E01CF80AE3007E7A8B /* GMMeCommitViewController.h */,
 				30FEE6E11CF80AE3007E7A8B /* GMMeCommitViewController.m */,
 				30FEE6E21CF80AE3007E7A8B /* GMMeCommitViewController.xib */,
-				7F9370B61CF983EA0063F544 /* GMMeTakeAwayViewController.h */,
-				7F9370B71CF983EA0063F544 /* GMMeTakeAwayViewController.m */,
-				7F9370B81CF983EA0063F544 /* GMMeTakeAwayViewController.xib */,
-				7F9370D01CFC03110063F544 /* GMMeTakeAwayDetailViewController.h */,
-				7F9370D11CFC03110063F544 /* GMMeTakeAwayDetailViewController.m */,
-				7F9370D21CFC03110063F544 /* GMMeTakeAwayDetailViewController.xib */,
-				E8F047C91CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.h */,
-				E8F047CA1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.m */,
-				E8F047CB1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.xib */,
-				E8F047DC1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.h */,
-				E8F047DD1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.m */,
-				E8F047DE1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -1477,36 +1466,6 @@
 				30FEE6EF1CF96698007E7A8B /* MeCommitCell.h */,
 				30FEE6F01CF96698007E7A8B /* MeCommitCell.m */,
 				30FEE6F11CF96698007E7A8B /* MeCommitCell.xib */,
-				7F9370BC1CF98EA50063F544 /* GMMeTakeAwayCell.h */,
-				7F9370BD1CF98EA50063F544 /* GMMeTakeAwayCell.m */,
-				7F9370BE1CF98EA50063F544 /* GMMeTakeAwayCell.xib */,
-				7F9370E01CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.h */,
-				7F9370E11CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.m */,
-				7F9370E21CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.xib */,
-				7F9370DB1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.h */,
-				7F9370DC1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.m */,
-				7F9370DD1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.xib */,
-				7F9370EE1CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.h */,
-				7F9370EF1CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.m */,
-				7F9370F01CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.xib */,
-				7F9370F31CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.h */,
-				7F9370F41CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.m */,
-				7F9370F51CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.xib */,
-				7F9370F81CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.h */,
-				7F9370F91CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.m */,
-				7F9370FA1CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.xib */,
-				E8F047D21CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.h */,
-				E8F047D31CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.m */,
-				E8F047D41CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.xib */,
-				E8F047D71CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.h */,
-				E8F047D81CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.m */,
-				E8F047D91CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.xib */,
-				E8F047E11CFD734500E08A40 /* GMMeTakeAwayRatingCell.h */,
-				E8F047E21CFD734500E08A40 /* GMMeTakeAwayRatingCell.m */,
-				E8F047E31CFD734500E08A40 /* GMMeTakeAwayRatingCell.xib */,
-				E8F047E61CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.h */,
-				E8F047E71CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.m */,
-				E8F047E81CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -2964,6 +2923,63 @@
 				7F9370A41CF6E4F10063F544 /* FoodShowAddressCell.xib */,
 			);
 			name = submitOrderCell;
+			sourceTree = "<group>";
+		};
+		E8F047F21CFDC1B700E08A40 /* TakeAway */ = {
+			isa = PBXGroup;
+			children = (
+				E8F047F41CFDC1CF00E08A40 /* Cell */,
+				7F9370B61CF983EA0063F544 /* GMMeTakeAwayViewController.h */,
+				7F9370B71CF983EA0063F544 /* GMMeTakeAwayViewController.m */,
+				7F9370B81CF983EA0063F544 /* GMMeTakeAwayViewController.xib */,
+				7F9370D01CFC03110063F544 /* GMMeTakeAwayDetailViewController.h */,
+				7F9370D11CFC03110063F544 /* GMMeTakeAwayDetailViewController.m */,
+				7F9370D21CFC03110063F544 /* GMMeTakeAwayDetailViewController.xib */,
+				E8F047C91CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.h */,
+				E8F047CA1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.m */,
+				E8F047CB1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.xib */,
+				E8F047DC1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.h */,
+				E8F047DD1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.m */,
+				E8F047DE1CFD70CA00E08A40 /* GMMeTakeAwayRatingViewController.xib */,
+			);
+			name = TakeAway;
+			sourceTree = "<group>";
+		};
+		E8F047F41CFDC1CF00E08A40 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7F9370BC1CF98EA50063F544 /* GMMeTakeAwayCell.h */,
+				7F9370BD1CF98EA50063F544 /* GMMeTakeAwayCell.m */,
+				7F9370BE1CF98EA50063F544 /* GMMeTakeAwayCell.xib */,
+				7F9370E01CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.h */,
+				7F9370E11CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.m */,
+				7F9370E21CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.xib */,
+				7F9370DB1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.h */,
+				7F9370DC1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.m */,
+				7F9370DD1CFC08410063F544 /* GMMeTakeAwayDetailFootCell.xib */,
+				7F9370EE1CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.h */,
+				7F9370EF1CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.m */,
+				7F9370F01CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.xib */,
+				7F9370F31CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.h */,
+				7F9370F41CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.m */,
+				7F9370F51CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.xib */,
+				7F9370F81CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.h */,
+				7F9370F91CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.m */,
+				7F9370FA1CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.xib */,
+				E8F047D21CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.h */,
+				E8F047D31CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.m */,
+				E8F047D41CFC92E200E08A40 /* GMMeTakeAwayRefundViewCell.xib */,
+				E8F047D71CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.h */,
+				E8F047D81CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.m */,
+				E8F047D91CFC9DC800E08A40 /* GMMeTakeAwayRefundReasonCell.xib */,
+				E8F047E11CFD734500E08A40 /* GMMeTakeAwayRatingCell.h */,
+				E8F047E21CFD734500E08A40 /* GMMeTakeAwayRatingCell.m */,
+				E8F047E31CFD734500E08A40 /* GMMeTakeAwayRatingCell.xib */,
+				E8F047E61CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.h */,
+				E8F047E71CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.m */,
+				E8F047E81CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

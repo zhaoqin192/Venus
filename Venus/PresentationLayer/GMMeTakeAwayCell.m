@@ -121,14 +121,15 @@
     }
 }
 
-- (void)setRefundState:(refundState)refundState {
+- (void)setRefundState:(NSInteger)refundState {
     switch (refundState) {
-        case refundSucceed:
+        case 5:
             self.orderStateLabel.text = @"退款成功";
             break;
-        case refunding:
-            self.orderStateLabel.text = @"退款中";
+        case -1:
+            break;
         default:
+            self.orderStateLabel.text = @"退款中";
             break;
     }
 }

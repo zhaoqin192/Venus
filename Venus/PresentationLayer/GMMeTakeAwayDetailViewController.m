@@ -17,6 +17,13 @@
 #import "GMMeTakeAwayDetailInfoCell.h"
 #import "NSString+Expand.h"
 #import "PureLayout.h"
+#import "GMMeTakeAwayRefundViewController.h"
+#import "FoodViewController.h"
+#import "Order.h"
+#import "GMMeTakeAwayRatingViewController.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "FoodSubmitOrderViewController.h"
+#import "FoodOrderViewBaseItem.h"
 
 @interface GMMeTakeAwayDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -43,6 +50,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self hideRedButton];
     self.navigationItem.title = @"订单详情";
     self.navigationController.navigationBar.translucent = NO;
     [NetworkFetcher foodFetcherUserFoodOrderDetailWithID:self.orderID success:^(NSDictionary *response){
@@ -54,6 +62,7 @@
                        };
             }];
             self.orderDetail = [TakeAwayOrderDetail mj_objectWithKeyValues:(NSDictionary *)response[@"data"]];
+            [self showRedButtonWithOrderState:self.orderState];
             [self.tableView reloadData];
             // 成功
         } else {
@@ -234,7 +243,7 @@
                     title2.text = @"接单失败";
                     break;
                 case 9:
-                    if (self.orderDetail.refundState == 5) {
+                    if (self.refundState == 5) {
                         title2.text = @"退款成功";
                     } else {
                         title2.text = @"退款过程中";
@@ -276,40 +285,183 @@
 }
 
 #pragma mark - private methods
+- (void)showRedButtonWithOrderState:(NSInteger)orderState {
+    switch (orderState) {
+        case 0:
+            self.payButton.hidden = NO;
+            break;
+        case 2:
+            self.refundButton.hidden = NO;
+            break;
+        case 3:
+            self.refundButton.hidden = NO;
+            break;
+        case 4:
+            self.evaluateButton.hidden = NO;
+            break;
+        case 6:
+            self.reorderButton.hidden = NO;
+            break;
+        case 7:
+            self.reorderButton.hidden = NO;
+            break;
+        case 8:
+            self.changeStore.hidden = NO;
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)hideRedButton {
+    self.payButton.hidden = YES;
+    self.refundButton.hidden = YES;
+    self.evaluateButton.hidden = YES;
+    self.reorderButton.hidden = YES;
+    self.changeStore.hidden = YES;
+}
+
+- (void)prepayWithOrderID:(long)orderID {
+    [NetworkFetcher foodAlipayWithOrderID:orderID success:^(NSDictionary *response){
+        // 调起支付宝
+        if ([response[@"errCode"] isEqualToNumber:@0]) {
+            
+            NSDictionary *data = response[@"data"];
+            NSString *privateKey = data[@"sign"];
+            
+            //生成订单信息及签名
+            Order *order = [[Order alloc] init];
+            order.partner = data[@"partner"];
+            order.sellerID = data[@"seller_id"];
+            order.outTradeNO = data[@"out_trade_no"];
+            order.service = data[@"service"];
+            order.inputCharset = data[@"_input_charset"];
+            order.notifyURL = data[@"notify_url"];
+            order.subject = data[@"subject"];
+            order.paymentType = data[@"payment_type"];
+            order.body = data[@"body"];
+            order.totalFee = data[@"total_fee"];
+            
+            NSString *appScheme = @"alipay2088411898385492";
+            //将商品信息拼接成字符串
+            NSString *orderSpec = [order description];
+            
+            //将签名成功字符串格式化为订单字符串,请严格按照该格式
+            NSString *orderString = nil;
+            
+            
+            NSString *urlencoding = [NSString urlEncodedString:privateKey];
+            
+            orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",
+                           orderSpec, urlencoding, @"RSA"];
+            
+            
+            [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+                NSLog(@"reslut = %@",resultDic);
+            }];
+        } else {
+            NSLog(@"下单失败");
+        }
+    } failure:^(NSString *error){
+        NSLog(@"网络请求异常");
+    }];
+}
 
 #pragma mark - event response
 // white button
 - (void)oneMoreOrderButtonClicked:(id)sender {
     // 再来一单点击
+    NSLog(@"再来一单按钮点击");
+    FoodSubmitOrderViewController *vc = [[FoodSubmitOrderViewController alloc] init];
+    vc.restaurantName = self.orderDetail.store.name;
+    vc.restaurantID = [NSString stringWithFormat:@"%li",self.orderDetail.store.storeId];
+    vc.shippingFee = self.orderDetail.packFee / 100.0;
+    vc.bargainFee = 0;
+    vc.totalPrice = self.orderDetail.totalFee / 100.0;
+    vc.costTime = 50;
+    for (int i = 0; i < self.orderDetail.goodsDetail.count; i++) {
+        FoodOrderViewBaseItem *item = [[FoodOrderViewBaseItem alloc] initWithTakeAwayOrderGood:self.orderDetail.goodsDetail[i]];
+        [vc.foodArray addObject:item];
+    }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)cancelOrderButtonClicked:(id)sender {
-    // 取消订单点击
+    NSLog(@"取消订单按钮点击!!!!");
+    [NetworkFetcher foodCancelOrderWithOrderID:(long)self.orderID success:^(NSDictionary *response){
+        [PresentationUtility showTextDialog:self.view text:@"取消订单成功" success:^{
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        
+    } failure:^(NSString *error){
+        [PresentationUtility showTextDialog:self.view text:@"取消订单失败" success:^{
+        }];
+    }];
 }
 
 - (void)confirmButtonClicked:(id)sender {
     // 确认订单点击
+    NSLog(@"确认按钮点击");
+    [NetworkFetcher foodConfirmOrderWithOrderID:(long)self.orderID storeID:self.orderDetail.store.storeId success:^(NSDictionary *response) {
+        if ([response[@"errCode"] isEqualToNumber:@0]) {
+            [PresentationUtility showTextDialog:self.view text:@"确认收货成功" success:^{
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+        }
+    } failure:^(NSString *error) {
+        [PresentationUtility showTextDialog:self.view text:@"确认收货失败" success:^{
+        }];
+    }];
 }
 
 // red button
 - (IBAction)refundButtonClicked:(id)sender {
-    // 退款点击
+    NSLog(@"退款按钮点击");
+    GMMeTakeAwayRefundViewController *vc = [[GMMeTakeAwayRefundViewController alloc] init];
+    vc.orderID = self.orderID;
+    vc.totalPrice = self.orderDetail.totalFee / 100.0;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)changeStoreButtonClicked:(id)sender {
     // 换店铺点击
+    NSLog(@"换个店铺按钮点击");
+    FoodViewController *vc = [[FoodViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)reorderButtonClicked:(id)sender {
     // 重新下单点击
+    FoodSubmitOrderViewController *vc = [[FoodSubmitOrderViewController alloc] init];
+    vc.restaurantName = self.orderDetail.store.name;
+    vc.restaurantID = [NSString stringWithFormat:@"%li",self.orderDetail.store.storeId];
+    vc.shippingFee = self.orderDetail.packFee / 100.0;
+    vc.bargainFee = 0;
+    vc.totalPrice = self.orderDetail.totalFee / 100.0;
+    vc.costTime = 50;
+    for (int i = 0; i < self.orderDetail.goodsDetail.count; i++) {
+        FoodOrderViewBaseItem *item = [[FoodOrderViewBaseItem alloc] initWithTakeAwayOrderGood:self.orderDetail.goodsDetail[i]];
+        [vc.foodArray addObject:item];
+    }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)payButtonClicked:(id)sender {
     // 支付点击
+    NSLog(@"付款按钮点击");
+    [self prepayWithOrderID:(long)self.orderID];
 }
 
 - (IBAction)evaluateButtonClicked:(id)sender {
     // 评价点击
+    NSLog(@"评价按钮点击");
+    GMMeTakeAwayRatingViewController *vc = [[GMMeTakeAwayRatingViewController alloc] init];
+    vc.name = self.orderDetail.store.name;
+    vc.storeIconURL = self.orderDetail.store.icon;
+    vc.storeID = self.orderDetail.store.storeId;
+    vc.orderID = self.orderID;
+    vc.deliveryTime = 123;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

@@ -63,11 +63,13 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = NO;
     [self.rdv_tabBarController setTabBarHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.translucent = YES;
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 

@@ -21,6 +21,9 @@
 #import "GMMeTakeAwayRefundViewController.h"
 #import "GMMeTakeAwayRatingViewController.h"
 #import "FoodViewController.h"
+#import "FoodSubmitOrderViewController.h"
+#import "FoodOrderViewBaseItem.h"
+#import "MJRefresh.h"
 
 @interface GMMeTakeAwayViewController () <UITableViewDelegate, UITableViewDataSource, TouchLabelDelegate>
 
@@ -31,6 +34,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) FoodOrderManager *orderManager;
+
+@property (strong, nonatomic) MJRefreshNormalHeader *head;
+@property (strong, nonatomic) MJRefreshBackNormalFooter *foot;
+@property (assign, nonatomic) NSInteger currentPage;
 
 @end
 
@@ -43,6 +50,8 @@
     self.tableView.dataSource = self;
     self.navigationItem.rightBarButtonItem = self.searchButton;
     [self.view addSubview:[self segementView]];
+    self.tableView.mj_header = self.head;
+    self.tableView.mj_footer = self.foot;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -123,7 +132,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GMMeTakeAwayDetailViewController *vc = [[GMMeTakeAwayDetailViewController alloc] init];
-    vc.orderID = [(TakeAwayOrder *)self.orderManager.orderArray[indexPath.row] orderId];
+    GMMeTakeAwayCell *cell = (GMMeTakeAwayCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    vc.orderID = cell.order.orderId;
+    vc.orderState = cell.order.state;
+    vc.refundState = cell.order.refundState;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -185,6 +197,31 @@
     }];
 }
 
+- (void)headRefresh:(id)sender {
+    NSLog(@"下拉刷新");
+    __weak typeof(self) weakSelf = self;
+    self.currentPage = 0;
+    [self.orderManager updateOrderSucceed:^{
+        [weakSelf.head endRefreshing];
+        [weakSelf.tableView reloadData];
+    } failed:^(NSString *error) {
+        [self.head endRefreshing];
+    }];
+}
+
+- (void)footRefresh:(id)sender {
+    NSLog(@"上拉刷新");
+    __weak typeof(self) weakSelf = self;
+    self.currentPage += 1;
+    [self.orderManager addDataOnPage:self.currentPage succeed:^ {
+        [weakSelf.foot endRefreshing];
+        [weakSelf.tableView reloadData];
+    } failed:^(NSString *error) {
+        NSLog(@"没有更多数据");
+        [weakSelf.foot endRefreshingWithNoMoreData];
+    }];
+}
+
 #pragma mark - event response
 - (void)searchButtonClicked:(id)sender {
     NSLog(@"搜索按钮点击");
@@ -192,6 +229,19 @@
 
 - (void)oneMoreOrderButtonClicked:(id)sender {
     NSLog(@"再来一单按钮点击");
+    GMMeTakeAwayCell *cell = (GMMeTakeAwayCell *)[[(UIButton *)sender superview] superview];
+    FoodSubmitOrderViewController *vc = [[FoodSubmitOrderViewController alloc] init];
+    vc.restaurantName = cell.order.store.name;
+    vc.restaurantID = [NSString stringWithFormat:@"%li",cell.order.store.storeId];
+    vc.shippingFee = cell.order.packFee;
+    vc.bargainFee = 0;
+    vc.totalPrice = cell.order.totalFee / 100.0;
+    vc.costTime = 50;
+    for (int i = 0; i < cell.order.goodsDetail.count; i++) {
+        FoodOrderViewBaseItem *item = [[FoodOrderViewBaseItem alloc] initWithTakeAwayOrderGood:cell.order.goodsDetail[i]];
+        [vc.foodArray addObject:item];
+    }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)evaluateButtonClicked:(id)sender {
@@ -200,7 +250,7 @@
     GMMeTakeAwayRatingViewController *vc = [[GMMeTakeAwayRatingViewController alloc] init];
     vc.name = cell.order.store.name;
     vc.storeIconURL = cell.order.store.icon;
-    vc.storeID = cell.order.store.id;
+    vc.storeID = cell.order.store.storeId;
     vc.orderID = cell.order.orderId;
     vc.deliveryTime = 123;
     [self.navigationController pushViewController:vc animated:YES];
@@ -209,10 +259,27 @@
 
 - (void)reorderButtonClicked:(id)sender {
     NSLog(@"重新下单按钮点击");
+    GMMeTakeAwayCell *cell = (GMMeTakeAwayCell *)[[(UIButton *)sender superview] superview];
+    FoodSubmitOrderViewController *vc = [[FoodSubmitOrderViewController alloc] init];
+    vc.restaurantName = cell.order.store.name;
+    vc.restaurantID = [NSString stringWithFormat:@"%li",cell.order.store.storeId];
+    vc.shippingFee = cell.order.packFee;
+    vc.bargainFee = 0;
+    vc.totalPrice = cell.order.totalFee / 100.0;
+    vc.costTime = 50;
+    [vc.foodArray removeAllObjects];
+    for (int i = 0; i < cell.order.goodsDetail.count; i++) {
+        FoodOrderViewBaseItem *item = [[FoodOrderViewBaseItem alloc] initWithTakeAwayOrderGood:cell.order.goodsDetail[i]];
+        [vc.foodArray addObject:item];
+    }
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 - (void)changeStoreButtonClicked:(id)sender {
     NSLog(@"换个店铺按钮点击");
+    FoodViewController *vc = [[FoodViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)payButtonClicked:(id)sender {
@@ -302,6 +369,20 @@
         _orderManager = [FoodOrderManager sharedInstance];
     }
     return _orderManager;
+}
+
+- (MJRefreshNormalHeader *)head {
+    if (!_head) {
+        _head = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headRefresh:)];
+    }
+    return _head;
+}
+
+- (MJRefreshBackNormalFooter *)foot {
+    if (!_foot) {
+        _foot = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footRefresh:)];
+    }
+    return _foot;
 }
 
 @end

@@ -21,6 +21,7 @@
 #import "DatabaseManager.h"
 #import "NetworkFetcher+Food.h"
 #import "MBProgressHUD.h"
+#import "GMLoginViewController.h"
 
 
 @interface FoodDetailViewController ()<TouchLabelDelegate>{
@@ -197,6 +198,13 @@
             _foodTrolleyTableViewController.view.frame = CGRectMake(0, y, width, height);
             
             [_foodTrolleyTableViewController.tableView reloadData];
+            if (!_foodTrolleyTableViewController.view.hidden) {
+                [_foodTrolleyTableViewController didMoveToParentViewController:self];
+                
+            } else {
+                [_foodTrolleyTableViewController willMoveToParentViewController:nil];
+                [_foodTrolleyTableViewController removeFromParentViewController];
+            }
             _foodTrolleyTableViewController.view.hidden = !_foodTrolleyTableViewController.view.hidden;
         } else {
             _foodTrolleyTableViewController = [[FoodTrolleyTableViewController alloc] init];
@@ -248,6 +256,8 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         // 弹出登录界面
+        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
