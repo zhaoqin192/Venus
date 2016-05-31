@@ -8,9 +8,9 @@
 
 #import "JSDropDownMenu.h"
 
-#define BackColor [UIColor colorWithRed:244.0f/255.0f green:244.0f/255.0f blue:244.0f/255.0f alpha:1.0]
+#define BackColor [UIColor whiteColor]
 // 选中颜色加深
-#define SelectColor [UIColor colorWithRed:238.0f/255.0f green:238.0f/255.0f blue:238.0f/255.0f alpha:1.0]
+#define SelectColor [UIColor whiteColor]
 
 @interface NSString (Size)
 
@@ -302,7 +302,7 @@
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(origin.x, self.frame.origin.y + self.frame.size.height, self.frame.size.width, 0) collectionViewLayout:flowLayout];
         
         [_collectionView registerClass:[JSCollectionViewCell class] forCellWithReuseIdentifier:@"CollectionCell"];
-        _collectionView.backgroundColor = [UIColor colorWithRed:220.f/255.0f green:220.f/255.0f blue:220.f/255.0f alpha:1.0];
+        _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         
@@ -319,7 +319,7 @@
         
         //background init and tapped
         _backGroundView = [[UIView alloc] initWithFrame:CGRectMake(origin.x, origin.y, screenSize.width, screenSize.height)];
-        _backGroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+        _backGroundView.backgroundColor = [UIColor whiteColor];
         _backGroundView.opaque = NO;
         UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
         [_backGroundView addGestureRecognizer:gesture];
@@ -771,7 +771,7 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
-    cell.selectedBackgroundView.backgroundColor = BackColor;
+    cell.selectedBackgroundView.backgroundColor = [UIColor whiteColor];;
     
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.textColor = self.textColor;
@@ -811,7 +811,7 @@
         
         titleLabel.frame = CGRectMake(marginX, 0, textSize.width, cell.frame.size.height);
         //右边tableview
-        cell.backgroundColor = BackColor;
+        cell.backgroundColor = [UIColor whiteColor];;
         
         if ([titleLabel.text isEqualToString:[(CATextLayer *)[_titles objectAtIndex:_currentSelectedMenudIndex] string]]) {
             
