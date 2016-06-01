@@ -164,6 +164,35 @@ static const BOOL LOGDEBUG = NO;
     }];
 }
 
++ (void)newFoodFetcherRestaurantListWithID:(long)restaurantID
+                                      sort:(int)sort
+                                   success:(NetworkFetcherSuccessHandler)success
+                                   failure:(NetworkFetcherErrorHandler)failure {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/good/listWithCate"]];
+    
+    NSDictionary *parameters = @{@"storeId":@(restaurantID), @"sort":@(sort)};
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        NSDictionary *dic = responseObject;
+        
+        if ([dic[@"errCode"] isEqualToNumber:@0]) {
+            success(responseObject);
+        } else {
+            failure(@"请求失败");
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        failure(@"网络异常");
+    }];
+}
+
 + (void)foodFetcherCommentListWithID:(NSString *)restaurantID
                                level:(NSString *)level
                              success:(NetworkFetcherCompletionHandler)success

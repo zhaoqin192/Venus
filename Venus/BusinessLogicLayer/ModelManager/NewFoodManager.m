@@ -23,6 +23,11 @@
 - (void)updateDataWithStoreID:(NSString *)storeID
                       succeed:(NewFoodManagerUpdateSucceedHandler)success
                        failed:(NewFoodManagerUpdateFailedHandler)fail {
+    [NetworkFetcher newFoodFetcherRestaurantListWithID:[storeID longValue] sort:1 success:^(NSDictionary *response) {
+        NSLog(@"返回的结果是%@",response);
+    } failure:^(NSString *error) {
+        
+    }];
 
 }
 
