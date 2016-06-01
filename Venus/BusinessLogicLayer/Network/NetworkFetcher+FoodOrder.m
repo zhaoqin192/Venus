@@ -76,9 +76,9 @@ static const BOOL LOGDEBUG = NO;
                                  };
     
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        if (LOGDEBUG) {
+        if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
-//        }
+        }
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (LOGDEBUG) {

@@ -45,6 +45,18 @@
                                    sort:(NSString *)sort
                                 success:(NetworkFetcherCompletionHandler)success
                                 failure:(NetworkFetcherErrorHandler)failure;
+/**
+ *  新的获取餐厅的菜品
+ *
+ *  @param restaurantID
+ *  @param sort
+ *  @param success
+ *  @param failure
+ */
++ (void)newFoodFetcherRestaurantListWithID:(long)restaurantID
+                                   sort:(int)sort
+                                success:(NetworkFetcherSuccessHandler)success
+                                failure:(NetworkFetcherErrorHandler)failure;
 
 
 /**

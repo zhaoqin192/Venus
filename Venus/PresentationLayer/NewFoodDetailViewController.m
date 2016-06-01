@@ -12,6 +12,20 @@
 
 @interface NewFoodDetailViewController () <UITableViewDelegate, UITableViewDataSource, TouchLabelDelegate>
 
+@property (weak, nonatomic) IBOutlet UIImageView *storeIconImage;
+@property (weak, nonatomic) IBOutlet UILabel *storeNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *monthSoldCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *basePriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *packFeeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *costTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *noteContentLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *totalFeeLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *placeholderView;
+@property (weak, nonatomic) IBOutlet UIView *shadowView;
+
+
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) NewFoodManager *foodManager;
 
@@ -30,6 +44,16 @@
     self.tableView.dataSource = self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
 #pragma mark - UITableViewDataSource
 //- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //    
@@ -44,6 +68,30 @@
 #pragma mark - private methods
 
 #pragma mark - event response
+- (IBAction)backButtonClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)groupBuyButtonClicked:(id)sender {
+    
+}
+
+- (IBAction)storeButtonClicked:(id)sender {
+    
+}
+
+- (IBAction)trollyButtonClicked:(id)sender {
+    
+}
+
+- (IBAction)confirmButtonClicked:(id)sender {
+    
+}
+
+- (IBAction)shadowViewClicked:(id)sender {
+    
+}
+
 
 #pragma mark - getters and setters
 - (XFSegementView *)segementView {
