@@ -25,9 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupViewControllers];
-
-    self.rdv_tabBarController.hidesBottomBarWhenPushed = YES;
-    
 }
 
 

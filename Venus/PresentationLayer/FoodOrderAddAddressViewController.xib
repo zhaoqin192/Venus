@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="CwV-nm-QFX">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNr-gR-KgM">
@@ -43,7 +43,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="bbf-0Z-zWg" secondAttribute="trailing" id="040-XF-1md"/>
                 <constraint firstItem="CwV-nm-QFX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EXB-hQ-UvP"/>
-                <constraint firstAttribute="bottom" secondItem="CwV-nm-QFX" secondAttribute="bottom" constant="50" id="FgO-7W-IVq"/>
+                <constraint firstAttribute="bottom" secondItem="CwV-nm-QFX" secondAttribute="bottom" id="FgO-7W-IVq"/>
                 <constraint firstAttribute="trailing" secondItem="mNr-gR-KgM" secondAttribute="trailing" id="IOe-nx-dIf"/>
                 <constraint firstAttribute="bottom" secondItem="bbf-0Z-zWg" secondAttribute="bottom" id="LhJ-xD-waV"/>
                 <constraint firstItem="mNr-gR-KgM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OCc-zV-Vk6"/>

@@ -42,6 +42,9 @@
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
 
+    
+    [self.viewModel fetchDetailWithCouponID:self.couponModel.identifier];
+    
     [self.viewModel fetchCommentWithCouponID:self.couponModel.identifier page:[NSNumber numberWithInteger:self.viewModel.currentPage]];
     
 }
@@ -66,6 +69,15 @@
     [self.viewModel.commentFailureObject subscribeNext:^(id x) {
         
     }];
+    
+    [self.viewModel.detailSuccessObject subscribeNext:^(id x) {
+        
+    }];
+    
+    [self.viewModel.detailFailureObject subscribeNext:^(id x) {
+        
+    }];
+    
     
     [self.viewModel.errorObject subscribeNext:^(NSString *message) {
         @strongify(self)
@@ -215,7 +227,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (self.viewModel.currentPage != self.viewModel.totalPage && indexPath.row == self.viewModel.commentArray.count - 1) {
-        [self.viewModel loadMoreCommentWithCouponID:self.couponModel.identifier page:[NSNumber numberWithInteger:self.viewModel.currentPage]];
+        [self.viewModel loadMoreCommentWithCouponID:self.couponModel.identifier page:[NSNumber numberWithInteger:++self.viewModel.currentPage]];
     }
     
 }

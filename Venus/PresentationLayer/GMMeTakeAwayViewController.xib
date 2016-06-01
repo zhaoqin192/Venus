@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GMMeTakeAwayViewController">
             <connections>
+                <outlet property="placeHolderView" destination="hE2-jT-Bqk" id="25L-1o-Il2"/>
                 <outlet property="tableView" destination="Yi9-kE-A85" id="5AD-lf-Xoo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,6 +17,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hE2-jT-Bqk">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="0xS-Ty-Xdq"/>
+                    </constraints>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yi9-kE-A85">
                     <rect key="frame" x="0.0" y="40" width="375" height="627"/>
                     <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
@@ -23,6 +31,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="hE2-jT-Bqk" secondAttribute="trailing" id="7l7-Dk-O7A"/>
+                <constraint firstItem="Yi9-kE-A85" firstAttribute="top" secondItem="hE2-jT-Bqk" secondAttribute="bottom" id="G2w-OR-zRK"/>
+                <constraint firstItem="hE2-jT-Bqk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PGf-uk-poI"/>
                 <constraint firstAttribute="bottom" secondItem="Yi9-kE-A85" secondAttribute="bottom" id="Zpk-7b-KBc"/>
                 <constraint firstItem="Yi9-kE-A85" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="mhO-Ep-Z8h"/>
                 <constraint firstItem="Yi9-kE-A85" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="t4u-kR-NcR"/>

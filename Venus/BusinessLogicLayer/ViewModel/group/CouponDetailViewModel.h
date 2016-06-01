@@ -10,8 +10,8 @@
 
 @interface CouponDetailViewModel : UITableViewCell
 
-//@property (nonatomic, strong) RACSubject *detailSuccessObject;
-//@property (nonatomic, strong) RACSubject *detailFailureObject;
+@property (nonatomic, strong) RACSubject *detailSuccessObject;
+@property (nonatomic, strong) RACSubject *detailFailureObject;
 @property (nonatomic, strong) RACSubject *commentSuccessObject;
 @property (nonatomic, strong) RACSubject *commentFailureObject;
 @property (nonatomic, strong) RACSubject *errorObject;
@@ -19,7 +19,7 @@
 @property (nonatomic, assign) NSInteger totalPage;
 @property (nonatomic, strong) NSMutableArray *commentArray;
 
-//- (void)fetchDetailWithCouponID:(NSString *)couponID;
+- (void)fetchDetailWithCouponID:(NSString *)couponID;
 
 - (void)fetchCommentWithCouponID:(NSString *)couponID
                             page:(NSNumber *)page;

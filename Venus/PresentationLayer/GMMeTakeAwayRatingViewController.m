@@ -37,13 +37,6 @@
     self.storeName.text = self.name;
     [self.storeIcon sd_setImageWithURL:[NSURL URLWithString:self.storeIconURL]];
     self.navigationItem.title = @"评价";
-    self.navigationController.navigationBar.translucent = NO;
-    [self.rdv_tabBarController setTabBarHidden:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    self.navigationController.navigationBar.translucent = YES;
-    [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
 #pragma mark - UITableViewDataSource

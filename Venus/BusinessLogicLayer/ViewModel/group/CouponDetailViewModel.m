@@ -13,7 +13,8 @@
 @interface CouponDetailViewModel ()
 
 @property (nonatomic, assign) NSInteger capacity;
-
+@property (nonatomic, strong) NSArray *useRuleArray;
+@property (nonatomic, strong) NSArray *tipsArray;
 @end
 
 @implementation CouponDetailViewModel
@@ -21,8 +22,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-//        self.detailSuccessObject = [RACSubject subject];
-//        self.detailFailureObject = [RACSubject subject];
+        self.detailSuccessObject = [RACSubject subject];
+        self.detailFailureObject = [RACSubject subject];
         self.commentSuccessObject = [RACSubject subject];
         self.commentFailureObject = [RACSubject subject];
         self.errorObject = [RACSubject subject];
@@ -33,20 +34,30 @@
     return self;
 }
 
-//- (void)fetchDetailWithCouponID:(NSString *)couponID {
-//    
-//    [NetworkFetcher groupFetchCouponDetailWithCouponID:couponID success:^(NSDictionary *response) {
-//        
-//    } failure:^(NSString *error) {
-//        
-//    }];
-//}
+- (void)fetchDetailWithCouponID:(NSString *)couponID {
+    
+    [NetworkFetcher groupFetchCouponDetailWithCouponID:couponID success:^(NSDictionary *response) {
+        
+        if ([response[@"errCode"] isEqualToNumber:@0]) {
+            
+            NSDictionary *coupon = response[@"coupon"];
+            self.useRuleArray = coupon[@"useRule"];
+            self.tipsArray = coupon[@"warmTip"];
+            
+            [self.detailSuccessObject sendNext:nil];
+        }
+        
+        
+    } failure:^(NSString *error) {
+        [self.errorObject sendNext:@"网络异常"];
+    }];
+}
 
 - (void)fetchCommentWithCouponID:(NSString *)couponID
                             page:(NSNumber *)page {
     
     @weakify(self)
-    [NetworkFetcher groupFetchCommentsWithCouponID:@"100004" page:page capacity:[NSNumber numberWithInteger:self.capacity] success:^(NSDictionary *response) {
+    [NetworkFetcher groupFetchCommentsWithCouponID:couponID page:page capacity:[NSNumber numberWithInteger:self.capacity] success:^(NSDictionary *response) {
         
         if ([response[@"errCode"] isEqualToNumber:@0]) {
             
@@ -82,7 +93,7 @@
     
     
     @weakify(self)
-    [NetworkFetcher groupFetchCommentsWithCouponID:@"100004" page:page capacity:[NSNumber numberWithInteger:self.capacity] success:^(NSDictionary *response) {
+    [NetworkFetcher groupFetchCommentsWithCouponID:couponID page:page capacity:[NSNumber numberWithInteger:self.capacity] success:^(NSDictionary *response) {
         
         if ([response[@"errCode"] isEqualToNumber:@0]) {
             
