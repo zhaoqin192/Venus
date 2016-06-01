@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *asPrice;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *sales;
+@property (weak, nonatomic) IBOutlet UIView *backableView;
+@property (weak, nonatomic) IBOutlet UIView *mustOrderView;
 
 @end

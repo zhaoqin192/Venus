@@ -18,6 +18,11 @@
 @property (nonatomic, assign) NSInteger currentPage;
 @property (nonatomic, assign) NSInteger totalPage;
 @property (nonatomic, strong) NSMutableArray *commentArray;
+@property (nonatomic, strong) NSString *useRule;
+@property (nonatomic, strong) NSString *tips;
+@property (nonatomic ,strong) NSNumber *totalComment;
+@property (nonatomic, assign) BOOL backable;
+@property (nonatomic, assign) BOOL mustOrder;
 
 - (void)fetchDetailWithCouponID:(NSString *)couponID;
 

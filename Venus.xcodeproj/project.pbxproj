@@ -217,6 +217,7 @@
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
 		AC0359081CC4D78600EC7BBC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359071CC4D78600EC7BBC /* libz.tbd */; };
+		AC21A93F1CFEBD76000ECA37 /* CouponCommentTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC21A93E1CFEBD76000ECA37 /* CouponCommentTitleCell.m */; };
 		AC2E04331CEAEEC400476087 /* CouponCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04321CEAEEC400476087 /* CouponCommentModel.m */; };
 		AC2E04361CEB2D3800476087 /* CouponPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04351CEB2D3800476087 /* CouponPictureCell.m */; };
 		AC2E04391CEB374E00476087 /* CouponStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E04381CEB374E00476087 /* CouponStoreCell.m */; };
@@ -781,6 +782,8 @@
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		AC0359071CC4D78600EC7BBC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		AC21A93D1CFEBD76000ECA37 /* CouponCommentTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentTitleCell.h; sourceTree = "<group>"; };
+		AC21A93E1CFEBD76000ECA37 /* CouponCommentTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentTitleCell.m; sourceTree = "<group>"; };
 		AC2E04311CEAEEC400476087 /* CouponCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CouponCommentModel.h; sourceTree = "<group>"; };
 		AC2E04321CEAEEC400476087 /* CouponCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CouponCommentModel.m; sourceTree = "<group>"; };
 		AC2E04341CEB2D3800476087 /* CouponPictureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CouponPictureCell.h; path = groupDetail/CouponPictureCell.h; sourceTree = "<group>"; };
@@ -2820,6 +2823,8 @@
 				AC2E04411CEB554900476087 /* CouponCommentCell.m */,
 				AC2E04431CEB5DAE00476087 /* ImageCollectionViewCell.h */,
 				AC2E04441CEB5DAE00476087 /* ImageCollectionViewCell.m */,
+				AC21A93D1CFEBD76000ECA37 /* CouponCommentTitleCell.h */,
+				AC21A93E1CFEBD76000ECA37 /* CouponCommentTitleCell.m */,
 			);
 			name = detailCoupon;
 			sourceTree = "<group>";
@@ -3467,6 +3472,7 @@
 				30FEE6E31CF80AE3007E7A8B /* GMMeCommitViewController.m in Sources */,
 				AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */,
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
+				AC21A93F1CFEBD76000ECA37 /* CouponCommentTitleCell.m in Sources */,
 				ACFF32FD1CF87125008BD0D8 /* CouponCommentViewController.m in Sources */,
 				3086D3981CC72975007494D7 /* UIButton+LCAlignment.m in Sources */,
 				7F7025521CEC63A2009653A6 /* FoodTrolleyTableViewController.m in Sources */,

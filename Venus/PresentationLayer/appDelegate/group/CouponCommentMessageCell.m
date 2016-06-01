@@ -64,14 +64,4 @@
     return cell;
 }
 
-//- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.item == self.imageArray.count && self.imageArray.count < 8) {
-//        NSLog(@"select Image");
-//    }
-//    else {
-//        NSLog(@"show Image");
-//    }
-//}
-
-
 @end

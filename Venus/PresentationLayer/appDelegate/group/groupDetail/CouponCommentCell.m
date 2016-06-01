@@ -10,61 +10,44 @@
 #import "ImageCollectionViewCell.h"
 
 @interface CouponCommentCell ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
-
-@property (nonatomic, assign) CGFloat superWidth;
-
+@property (nonatomic, assign) CGFloat cellSize;
 @end
 
 @implementation CouponCommentCell
 
-
 - (void)awakeFromNib {
-    
-//    self.collection.delegate = self;
-//    self.collection.dataSource = self;
-    
-//    self.superWidth = (self.collection.width - 20) / 3;
-    
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.cellSize = 56.0 / 375 * kScreenWidth;
+    self.avatarImage.layer.cornerRadius = self.avatarImage.width / 2;
+    self.avatarImage.layer.masksToBounds = YES;
 }
 
 #pragma mark -UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return self.imageArray.count;
 }
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCollectionViewCell" forIndexPath:indexPath];
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:[self.imageArray objectAtIndex:indexPath.row]]];
+    ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[ImageCollectionViewCell className] forIndexPath:indexPath];
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:[self.imageArray objectAtIndex:indexPath.row]] placeholderImage:[UIImage imageNamed:@"loginLogo"]];
     return cell;
 }
 
 #pragma mark -UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.superWidth, self.superWidth);
+    return CGSizeMake(self.cellSize, self.cellSize);
 }
 
 #pragma mark -UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"collection clicked");
 }
-
-- (void)updateCollection {
-    
-    NSArray *array = [self.imageArray copy];
-    
-    [self.imageArray insertObjects:array atIndex:0];
-    [self.imageArray insertObjects:array atIndex:0];
-    [self.imageArray insertObjects:array atIndex:0];
-    [self.imageArray insertObjects:array atIndex:0];
-    [self.imageArray insertObjects:array atIndex:0];
-    
-}
-
 
 
 @end

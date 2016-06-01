@@ -13,8 +13,6 @@
 @interface CouponDetailViewModel ()
 
 @property (nonatomic, assign) NSInteger capacity;
-@property (nonatomic, strong) NSArray *useRuleArray;
-@property (nonatomic, strong) NSArray *tipsArray;
 @end
 
 @implementation CouponDetailViewModel
@@ -30,6 +28,9 @@
         self.currentPage = 1;
         self.totalPage = 1;
         self.capacity = 10;
+        self.useRule = [[NSString alloc] init];
+        self.tips = [[NSString alloc] init];
+        self.totalComment = @0;
     }
     return self;
 }
@@ -41,9 +42,32 @@
         if ([response[@"errCode"] isEqualToNumber:@0]) {
             
             NSDictionary *coupon = response[@"coupon"];
-            self.useRuleArray = coupon[@"useRule"];
-            self.tipsArray = coupon[@"warmTip"];
-            
+            NSArray *useRuleArray = coupon[@"useRule"];
+            NSArray *tipsArray = coupon[@"warmTip"];
+            self.backable = coupon[@"backable"];
+            self.mustOrder = coupon[@"mustOrder"];
+            for (NSString *string in useRuleArray) {
+                if ([string isEqualToString:@""]) {
+                    continue;
+                }
+                [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+                self.useRule = [self.useRule stringByAppendingString:string];
+                self.useRule = [self.useRule stringByAppendingString:@"\n"];
+            }
+            if (self.useRule.length > 0) {
+                self.useRule = [self.useRule substringToIndex:self.useRule.length - 1];
+            }
+            for (NSString *string in tipsArray) {
+                if ([string isEqualToString:@""]) {
+                    continue;
+                }
+                [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+                self.tips = [self.tips stringByAppendingString:string];
+                self.tips = [self.tips stringByAppendingString:@"\n"];
+            }
+            if (self.tips.length > 0) {
+                self.tips = [self.tips substringToIndex:self.tips.length - 1];
+            }
             [self.detailSuccessObject sendNext:nil];
         }
         
@@ -64,12 +88,14 @@
             [CouponCommentModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
                             @"identifier": @"commentId",
-                            @"pictureArray": @"picUrl"
+                            @"pictureArray": @"picUrl",
+                            @"avatarURL": @"userHeadImg"
                          };
             }];
             
             NSDictionary *nums = response[@"nums"];
             NSInteger totalNums = [nums[@"totalNum"] integerValue];
+            self.totalComment = nums[@"totalNum"];
             @strongify(self)
             if (totalNums % self.capacity == 0) {
                 self.totalPage = totalNums / self.capacity;
