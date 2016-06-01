@@ -46,7 +46,7 @@
 }
 
 - (void)configureSegmentView {
-    _segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 40)];
+    _segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
     _segementView.titleArray = @[@"团购券",@"外卖",@"商城"];
     _segementView.titleColor = [UIColor lightGrayColor];
     _segementView.haveRightLine = YES;
