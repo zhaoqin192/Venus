@@ -10,5 +10,7 @@
 
 @interface CouponInformationCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *validity;
+@property (weak, nonatomic) IBOutlet UILabel *tipsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *useRuleLabel;
 
 @end
