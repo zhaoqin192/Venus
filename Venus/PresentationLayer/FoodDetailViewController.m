@@ -54,10 +54,10 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
-    
+
+//    self.navigationController.navigationBar.translucent = YES;
     //从分类中跳转，只有id参数，需要重新获取数据
     if (self.restaurantID) {
         @weakify(self)
@@ -114,9 +114,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.rdv_tabBarController setTabBarHidden:YES];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationController.navigationBar.translucent = YES;
-    self.view.frame = CGRectMake(0, -66, kScreenWidth, kScreenHeight);
+//    self.view.frame = CGRectMake(0, -66, kScreenWidth, kScreenHeight);
     
     UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
     UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
@@ -132,7 +132,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.translucent = NO;
-    [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
 #pragma mark - event response
@@ -172,7 +171,7 @@
 
 - (IBAction)getBackToLastView:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
-    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBarHidden = NO;
 }
 
 - (IBAction)trollyButtonClicked:(id)sender {
