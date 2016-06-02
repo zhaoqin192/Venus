@@ -35,9 +35,10 @@
 #import "RDVTabBarController.h"
 #import "MallViewController.h"
 #import "HomeViewModel.h"
-#import "SearchHomeViewController.h"
 #import "GMNavigationController.h"
 #import "HomeSearchViewController.h"
+#import "MBProgressHUD.h"
+#import "HomeNewsViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate, UISearchBarDelegate>
 
@@ -56,6 +57,7 @@
 @property (nonatomic, strong) HomeViewModel *viewModel;
 @property (nonatomic, strong) UISearchController *searchController;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIButton *notificationButton;
 
 @end
 
@@ -72,7 +74,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     self.titleView.backgroundColor = GMRedColor;
     [self configureTableView];
     
-    [self netWorkRequest];
 
     self.navigationController.navigationBar.barTintColor = GMRedColor;
     self.navigationController.navigationBar.translucent = NO;
@@ -100,17 +101,23 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         }
     }];
     
+    self.searchBar.delegate = self;
+    
     [self bindViewModel];
     
-    self.searchBar.delegate = self;
+    [self.viewModel login];
+
+    
+    [self.viewModel fetchHeadline];
+    
+    [self netWorkRequest];
+
     
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar*)searchBar {
     
     UIStoryboard *group = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
-    
-//    SearchHomeViewController *vc = (SearchHomeViewController *)[group instantiateViewControllerWithIdentifier:@"SearchHomeViewController"];
     
     HomeSearchViewController *vc = (HomeSearchViewController *)[group instantiateViewControllerWithIdentifier:@"HomeSearchViewController"];
     
@@ -135,7 +142,38 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         [self presentViewController:vc animated:YES completion:nil];
     }];
     
-    [self.viewModel login];
+    [self.viewModel.errorObject subscribeNext:^(NSString *message) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = message;
+        [hud hide:YES afterDelay:1.5f];
+    }];
+    
+    [self.viewModel.headlineSuccessObject subscribeNext:^(id x) {
+        @strongify(self)
+        [self.tableView reloadRow:1 inSection:0 withRowAnimation:UITableViewRowAnimationNone];
+    }];
+ 
+    [[self.notificationButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    subscribeNext:^(id x) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"当前没有新的信息" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelButton];
+        @strongify(self)
+        [self presentViewController:alertController animated:YES completion:nil];
+    }];
+    
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showAdvertisement" object:nil]
+    takeUntil:[self rac_willDeallocSignal]]
+    subscribeNext:^(NSNotification *notification) {
+        NSDictionary *userInfo = notification.userInfo;
+        @strongify(self)
+        WebViewController *webVC = [[WebViewController alloc] init];
+        webVC.url = userInfo[@"advertisementURL"];
+        webVC.titilString = @"广告推荐";
+        [self.navigationController pushViewController:webVC animated:YES];
+    }];
     
 }
 
@@ -215,20 +253,19 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeIntroduceCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([HomeIntroduceCell class])];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCategoryCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([HomeCategoryCell class])];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.tableHeaderView = ({
-        self.scrollAdView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 220) delegate:self placeholderImage:[UIImage imageNamed:@""]];
-        self.scrollAdView;
-    });
+    
+    self.scrollAdView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 220) delegate:self placeholderImage:[UIImage imageNamed:@""]];
+
+    self.scrollAdView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
+    self.tableView.tableHeaderView = self.scrollAdView;
 }
 
-- (void)configureScrollView{
-
-}
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     
     WebViewController *webVC = [[WebViewController alloc] init];
-    Picture *picture = _pictureManager.loopPictureArray[index];
+    Picture *picture = [self.pictureManager.loopPictureArray objectAtIndex:index];
+    webVC.titilString = @"广告推荐";
     webVC.url = picture.url;
     [self.navigationController pushViewController:webVC animated:NO];
     
@@ -286,8 +323,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
                     case 17:{
                         NSLog(@"外卖");
                         FoodViewController *vc = [[FoodViewController alloc] init];
-//                        GMNavigationController *nvc = [[GMNavigationController alloc] initWithRootViewController:vc];
-//                        [self presentViewController:nvc animated:YES completion:nil];
                         [self.navigationController pushViewController:vc animated:YES];
                         break;
                     }
@@ -309,6 +344,10 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             break;
         case 1:{
             HomeNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeNewsCell class])];
+            cell.headlineArray = self.viewModel.headlineArray;
+            if (cell.headlineArray.count > 0) {
+                [cell showHeadline];
+            }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -349,20 +388,8 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         default:{
             HomeCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeCategoryCell class])];
             Adversitement *advertisement = _advertisementArray[indexPath.row - 4];
-            cell.title.text = advertisement.name;
-            [cell.mainPicture sd_setImageWithURL:[NSURL URLWithString:[PICTUREURL stringByAppendingString:advertisement.pictureUrl]] placeholderImage:[UIImage imageNamed:@"1"]];
-            
-            for (int i = 0; i < advertisement.advertisementArray.count; i++) {
-                Picture *picture = advertisement.advertisementArray[i];
-                if ([[cell.contentView viewWithTag:i + 1] isKindOfClass:[UIButton class]]) {
-                    UIButton *button = [cell.contentView viewWithTag:i+1];
-                    [button sd_setBackgroundImageWithURL:[NSURL URLWithString:[PICTUREURL stringByAppendingString:picture.pictureUrl]] forState:UIControlStateNormal];
-                    [button setTitle:picture.name forState:UIControlStateNormal];
-                    _buttonURL = picture.url;
-                    [button addTarget:self action:@selector(categoryButtonClicked:) forControlEvents:UIControlEventTouchDown];
-                }
-            }
-        
+            cell.adversitement = advertisement;
+            [cell reloadData];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -371,10 +398,12 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     return nil;
 }
 
-- (void)categoryButtonClicked:(UIButton *)sender{
-    WebViewController *webVC = [[WebViewController alloc] init];
-    webVC.url = _buttonURL;
-    [self.navigationController pushViewController:webVC animated:NO];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 1) {
+        HomeNewsViewController *homeNewsVC = [self.storyboard instantiateViewControllerWithIdentifier:[HomeNewsViewController className]];
+        homeNewsVC.headlineArray = self.viewModel.headlineArray;
+        [self.navigationController pushViewController:homeNewsVC animated:YES];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -390,7 +419,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             return 150;
             break;
         default:
-            return 450;
+            return 444;
             break;
     }
     return 0;
@@ -411,5 +440,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 - (void)readerDidCancel:(QRCodeReaderViewController *)reader {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
 
 @end

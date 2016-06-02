@@ -38,4 +38,13 @@
                              failure:(NetworkFetcherErrorHandler)failure;
 
 
+/**
+ *  获取今日头条
+ *
+ *  @param success
+ *  @param failure
+ */
++ (void)homeFetcherHeadlineArrayWithSuccess:(NetworkFetcherSuccessHandler)success
+                                    failure:(NetworkFetcherErrorHandler)failure;
+
 @end

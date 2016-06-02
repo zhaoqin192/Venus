@@ -11,6 +11,7 @@
 
 @interface CouponCommentMessageCell () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextViewDelegate>
 
+@property (nonatomic, assign) CGFloat cellSize;
 
 @end
 
@@ -24,6 +25,8 @@
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    
+    self.cellSize = 68.0 / 375 * kScreenWidth;
     
 }
 
@@ -63,5 +66,10 @@
     }
     return cell;
 }
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.cellSize, self.cellSize);
+}
+
 
 @end

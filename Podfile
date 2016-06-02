@@ -1,6 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
+
 target "Venus" do
     pod 'AFNetworking', '~> 3.0'
     pod 'MJExtension'
@@ -20,4 +21,5 @@ target "Venus" do
     pod 'FDStackView', '1.0'
     pod 'PureLayout'
     pod 'MJRefresh'
+    pod 'NJKWebViewProgress'
 end
