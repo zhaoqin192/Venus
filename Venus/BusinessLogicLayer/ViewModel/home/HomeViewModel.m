@@ -11,6 +11,8 @@
 #import "DatabaseManager.h"
 #import "AccountDao.h"
 #import "Account.h"
+#import "NetworkFetcher+Home.h"
+#import "HeadlineModel.h"
 
 @implementation HomeViewModel
 
@@ -20,6 +22,8 @@
     if (self) {
         self.loginSuccessObject = [RACSubject subject];
         self.loginFailureObject = [RACSubject subject];
+        self.headlineSuccessObject = [RACSubject subject];
+        self.headlineFailureObject = [RACSubject subject];
         self.errorObject = [RACSubject subject];
     }
     return self;
@@ -46,5 +50,23 @@
     
 }
 
+- (void)fetchHeadline {
+    
+    [NetworkFetcher homeFetcherHeadlineArrayWithSuccess:^(NSDictionary *response) {
+        if ([response[@"errCode"] isEqualToNumber:@0]) {
+            [HeadlineModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                            @"identifier": @"id",
+                            @"abstract": @"summary"
+                         };
+            }];
+            self.headlineArray = [HeadlineModel mj_objectArrayWithKeyValuesArray:response[@"result"]];
+            [self.headlineSuccessObject sendNext:nil];
+        }
+    } failure:^(NSString *error) {
+        [self.errorObject sendNext:@"网络异常"];
+    }];
+    
+}
 
 @end

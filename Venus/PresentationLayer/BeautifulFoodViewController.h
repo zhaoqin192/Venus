@@ -10,4 +10,6 @@
 
 @interface BeautifulFoodViewController : UIViewController
 @property (nonatomic, assign) NSInteger categoryIndex;
+@property (nonatomic, assign) NSInteger identify;
+@property (nonatomic, copy) NSString *myTitle;
 @end

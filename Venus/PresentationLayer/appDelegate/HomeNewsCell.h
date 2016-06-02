@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class MarqueeLabel;
+
 @interface HomeNewsCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet MarqueeLabel *marqueeLabel;
+
+@property (nonatomic, strong) NSMutableArray *headlineArray;
+
+- (void)showHeadline;
 
 @end
