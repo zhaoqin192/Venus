@@ -37,6 +37,7 @@
     self = [super init];
     if (self) {
         _categoryIndex = -1;
+        _identify = 10000; //美食类别id
     }
     return self;
 }
@@ -46,7 +47,7 @@
     [self loadCategory];
     self.view.backgroundColor = [UIColor redColor];
     [self configureTableView];
-    self.navigationItem.title = @"美食";
+    self.navigationItem.title = self.myTitle;
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"搜索"] style:UIBarButtonItemStyleDone handler:^(id sender) {
 //        NSLog(@"搜索");
 //    }];
@@ -67,7 +68,7 @@
     [SVProgressHUD show];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/listShops"]];
-    NSDictionary *parameters = @{@"id":@(10000),@"order":self.order};
+    NSDictionary *parameters = @{@"id":@(self.identify),@"order":self.order};
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
@@ -87,8 +88,8 @@
 - (void)loadCategory {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/getSecondCat?id=10000"]];
-    NSDictionary *parameters = nil;
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/getSecondCat?"]];
+    NSDictionary *parameters = @{@"id":@(self.identify)};
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"category %@",responseObject);
         [BeautyCategory mj_setupReplacedKeyFromPropertyName:^NSDictionary *{

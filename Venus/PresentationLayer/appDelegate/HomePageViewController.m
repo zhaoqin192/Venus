@@ -294,6 +294,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
                     }
                     case 11:{
                         BeautifulFoodViewController *vc = [[BeautifulFoodViewController alloc] init];
+                        vc.myTitle = @"美食";
                         [weakSelf.navigationController pushViewController:vc animated:YES];
                         break;
                     }
@@ -305,19 +306,27 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
                         break;
                     }
                     case 13:{
-                        NSLog(@"官网");
+                        NSLog(@"丽人");
                         break;
                     }
                     case 14:{
-                        NSLog(@"官网");
+                        NSLog(@"娱乐");
+                        BeautifulFoodViewController *vc = [[BeautifulFoodViewController alloc] init];
+                        vc.identify = 10051;
+                        vc.myTitle = @"娱乐";
+                        [weakSelf.navigationController pushViewController:vc animated:YES];
                         break;
                     }
                     case 15:{
-                        NSLog(@"官网");
+                        BeautifulFoodViewController *vc = [[BeautifulFoodViewController alloc] init];
+                        vc.identify = 10048;
+                        vc.myTitle = @"酒店";
+                        [weakSelf.navigationController pushViewController:vc animated:YES];
+                        NSLog(@"酒店");
                         break;
                     }
                     case 16:{
-                        NSLog(@"官网");
+                        NSLog(@"会议");
                         break;
                     }
                     case 17:{
@@ -333,7 +342,11 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
                         break;
                     }
                     case 19:{
-                        NSLog(@"官网");
+                        NSLog(@"生活服务");
+                        BeautifulFoodViewController *vc = [[BeautifulFoodViewController alloc] init];
+                        vc.identify = 10050;
+                        vc.myTitle = @"生活服务";
+                        [weakSelf.navigationController pushViewController:vc animated:YES];
                         break;
                     }
                 }
