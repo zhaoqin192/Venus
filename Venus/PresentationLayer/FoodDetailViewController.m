@@ -57,7 +57,6 @@
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
 
-//    self.navigationController.navigationBar.translucent = YES;
     //从分类中跳转，只有id参数，需要重新获取数据
     if (self.restaurantID) {
         @weakify(self)

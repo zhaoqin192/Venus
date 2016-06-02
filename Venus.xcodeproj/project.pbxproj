@@ -213,6 +213,8 @@
 		7F9370F71CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370F51CFC26920063F544 /* GMMeTakeAwayDetailButtonCell.xib */; };
 		7F9370FB1CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370F91CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.m */; };
 		7F9370FC1CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370FA1CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.xib */; };
+		7F9371021CFFD6D00063F544 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F9371011CFFD6D00063F544 /* Storyboard.storyboard */; };
+		7F9371051CFFD72C0063F544 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9371041CFFD72C0063F544 /* View.xib */; };
 		AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */; };
 		AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359031CC4D76A00EC7BBC /* libiconv.tbd */; };
 		AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */; };
@@ -777,6 +779,8 @@
 		7F9370F81CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMMeTakeAwayDetailInfoCell.h; sourceTree = "<group>"; };
 		7F9370F91CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMMeTakeAwayDetailInfoCell.m; sourceTree = "<group>"; };
 		7F9370FA1CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeTakeAwayDetailInfoCell.xib; sourceTree = "<group>"; };
+		7F9371011CFFD6D00063F544 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		7F9371041CFFD72C0063F544 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		9713C37508499AECCEDF39F3 /* Pods-Venus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.release.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -2994,6 +2998,8 @@
 				E8F047E61CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.h */,
 				E8F047E71CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.m */,
 				E8F047E81CFD746C00E08A40 /* GMMeTakeAwayRatingStarCell.xib */,
+				7F9371011CFFD6D00063F544 /* Storyboard.storyboard */,
+				7F9371041CFFD72C0063F544 /* View.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -3133,6 +3139,7 @@
 				303519671CCF377A00EE0750 /* TicketDateCell.xib in Resources */,
 				3035196C1CCF393700EE0750 /* TicketCommitCell.xib in Resources */,
 				303519771CCF4B8A00EE0750 /* ShopCommitViewController.xib in Resources */,
+				7F9371051CFFD72C0063F544 /* View.xib in Resources */,
 				30D6D27E1CC87AF500FB0CFC /* FoodViewController.xib in Resources */,
 				ACF83EC11CBF97F800A962BD /* LaunchScreen.storyboard in Resources */,
 				30B602151CD308F3003ED671 /* ShopActivityCell.xib in Resources */,
@@ -3177,6 +3184,7 @@
 				ACFF32D11CF87114008BD0D8 /* OrderDetailInfoCell.xib in Resources */,
 				ACFF32BC1CF87106008BD0D8 /* RefundCodeCell.xib in Resources */,
 				ACFB4D0F1CFD5B8000731606 /* couponComment.storyboard in Resources */,
+				7F9371021CFFD6D00063F544 /* Storyboard.storyboard in Resources */,
 				AC987D371CE89B9C00E11CC5 /* group.storyboard in Resources */,
 				30B601CB1CD07C54003ED671 /* ShopCycleCell.xib in Resources */,
 				7F9370F21CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.xib in Resources */,

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="z3O-eD-pbE">
+            <objects>
+                <viewController id="lzX-aV-PZk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Ds-Ge-2fp"/>
+                        <viewControllerLayoutGuide type="bottom" id="SXj-pe-NIr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Im-TZ-A1m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B1a-SK-VR2" customClass="HCSStarRatingView">
+                                <rect key="frame" x="62" y="100" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.1725304110738255" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyStarImage" value="gray_star"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="filledStarImage" value="gold_star"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NdK-nl-qTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="594" y="128"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ndq-Bb-R8k">
+            <objects>
+                <viewController id="ghM-F2-rfS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yBH-5o-Ra1"/>
+                        <viewControllerLayoutGuide type="bottom" id="BRo-s3-KzU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g87-c2-xbe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2fs-Uq-fLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gold_star" width="17" height="16"/>
+        <image name="gray_star" width="17" height="16"/>
+    </resources>
+</document>

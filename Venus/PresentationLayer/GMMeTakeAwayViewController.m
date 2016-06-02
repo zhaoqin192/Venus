@@ -40,6 +40,8 @@
 @property (strong, nonatomic) MJRefreshBackNormalFooter *foot;
 @property (assign, nonatomic) NSInteger currentPage;
 
+@property (strong, nonatomic) MBProgressHUD *hud;
+
 @end
 
 @implementation GMMeTakeAwayViewController
@@ -59,9 +61,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self.rdv_tabBarController setTabBarHidden:YES animated:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.orderManager updateOrderSucceed:^{
+        [self.hud hide:YES];
         [self.tableView reloadData];
     } failed:^(NSString *error) {
+        [self.hud hide:YES];
         NSLog(@"网络错误，错误是%@",error);
     }];
     
@@ -370,6 +375,9 @@
 - (MJRefreshNormalHeader *)head {
     if (!_head) {
         _head = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headRefresh:)];
+        _head.lastUpdatedTimeLabel.hidden = YES;
+        _head.arrowView.hidden = YES;
+        _head.stateLabel.hidden = YES;
     }
     return _head;
 }
@@ -377,6 +385,7 @@
 - (MJRefreshBackNormalFooter *)foot {
     if (!_foot) {
         _foot = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footRefresh:)];
+        _foot.automaticallyHidden = YES;
     }
     return _foot;
 }
