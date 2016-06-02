@@ -10,5 +10,6 @@
 
 @interface CouponCommentMessageCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) NSMutableArray *imageArray;
 @end

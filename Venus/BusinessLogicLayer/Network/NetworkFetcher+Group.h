@@ -137,6 +137,7 @@
  *  @param couponID
  *  @param score
  *  @param content
+ *  @param pictureURLArray
  *  @param success
  *  @param failure
  */
@@ -145,7 +146,19 @@
                            couponID:(NSString *)couponID
                               score:(NSNumber *)score
                             content:(NSString *)content
+                    pictureURLArray:(NSArray *)pictureURLArray
                             success:(NetworkFetcherSuccessHandler)success
                             failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  上传图片获取URL地址
+ *
+ *  @param imageArray
+ *  @param success
+ *  @param failure
+ */
++ (void)groupUploadImageArray:(NSMutableArray *)imageArray
+                      success:(NetworkFetcherSuccessHandler)success
+                      failure:(NetworkFetcherErrorHandler)failure;
 
 @end

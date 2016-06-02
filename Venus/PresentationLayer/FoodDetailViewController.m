@@ -125,10 +125,6 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-   [self.rdv_tabBarController setTabBarHidden:YES]; 
-}
-
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.translucent = NO;
@@ -171,7 +167,6 @@
 
 - (IBAction)getBackToLastView:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
-//    self.navigationController.navigationBarHidden = NO;
 }
 
 - (IBAction)trollyButtonClicked:(id)sender {

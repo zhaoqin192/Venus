@@ -36,7 +36,6 @@
             [self.waitingEvalutationOrderArray removeAllObjects];
             [self.refundOrderArray removeAllObjects];
             for (int i = 0; i < array.count; i++) {
-                NSLog(@"array%@",array[i]);
                 TakeAwayOrder *order = [TakeAwayOrder mj_objectWithKeyValues:(NSDictionary *)array[i]];
                 [self.orderArray addObject:order];
                 if (order.refundState != -1) {
@@ -47,10 +46,6 @@
                 }
             }
             
-            
-//            NSLog(@"订单数量是%li",(long)self.orderArray.count);
-//            NSLog(@"待评价订单数量是%li",(long)self.waitingEvalutationOrderArray.count);
-//            NSLog(@"退款订单数量是%li",(long)self.refundOrderArray.count);
             succeedHandler();
         } else {
             
@@ -78,7 +73,6 @@
                 failedHander(@"没有更多数据了");
             } else {
                 for (int i = 0; i < array.count; i++) {
-                    NSLog(@"array%@",array[i]);
                     TakeAwayOrder *order = [TakeAwayOrder mj_objectWithKeyValues:(NSDictionary *)array[i]];
                     [self.orderArray addObject:order];
                     if (order.refundState != -1) {

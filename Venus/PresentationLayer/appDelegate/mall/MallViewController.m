@@ -37,6 +37,10 @@
     
     self.navigationItem.title = @"购物";
     
+    if (!self.selectCategory) {
+        self.selectCategory = @0;
+    }
+    
     [self configureTableView];
     
     [self bindViewModel];
@@ -68,9 +72,9 @@
         @strongify(self)
         [self.categoryTableView reloadData];
         [self.contentTableView reloadData];
-        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+        NSIndexPath *indexPath=[NSIndexPath indexPathForRow:[self.selectCategory integerValue] inSection:0];
         [self.categoryTableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionBottom];
-        self.viewModel.categoryModel = [self.viewModel.categoryArray objectAtIndex:0];
+        self.viewModel.categoryModel = [self.viewModel.categoryArray objectAtIndex:[self.selectCategory integerValue]];
     }];
     
     

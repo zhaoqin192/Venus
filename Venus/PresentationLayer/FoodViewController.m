@@ -17,6 +17,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FoodDetailViewController.h"
 #import "RDVTabBarController.h"
+#import "NewFoodDetailViewController.h"
 
 
 @interface FoodViewController ()<JSDropDownMenuDataSource,JSDropDownMenuDelegate,UITableViewDelegate,UITableViewDataSource>{
@@ -158,9 +159,14 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Restaurant *restaurant = _restaurantArray[indexPath.row];
-    FoodDetailViewController *foodDetailVC = [[FoodDetailViewController alloc] init];
-    foodDetailVC.restaurant = restaurant;
-    [self.navigationController pushViewController:foodDetailVC animated:YES];
+//    FoodDetailViewController *foodDetailVC = [[FoodDetailViewController alloc] init];
+//    foodDetailVC.restaurant = restaurant;
+//    [self.navigationController pushViewController:foodDetailVC animated:YES];
+    
+    
+    NewFoodDetailViewController *vc = [[NewFoodDetailViewController alloc] init];
+    vc.restaurant = restaurant;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -238,7 +244,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
         _foodClass = _foodManager.foodClassArray[indexPath.row];
         [self selectClassWithFoodClass:_foodClass sort:_sort page:[NSString stringWithFormat:@"%ld", (long)self.currentPage]];
     } else {
-        _sort = [NSString stringWithFormat:@"%ld", indexPath.row];
+        _sort = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
         [self selectClassWithFoodClass:_foodClass sort:_sort page:[NSString stringWithFormat:@"%ld", (long)self.currentPage]];
     }
 }

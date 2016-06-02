@@ -15,5 +15,7 @@
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSNumber *time;
 @property (nonatomic, strong) NSMutableArray *pictureArray;
+@property (nonatomic, strong) NSString *avatarURL;
+@property (nonatomic, strong) NSNumber *score;
 
 @end

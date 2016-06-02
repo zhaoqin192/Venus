@@ -20,6 +20,10 @@
 #import "CouponCommentModel.h"
 #import "CommitOrderViewController.h"
 #import "NSString+Expand.h"
+#import "CouponCommentTitleCell.h"
+#import "HCSStarRatingView.h"
+#import "ShowImageViewController.h"
+
 
 
 @interface CouponViewController ()
@@ -36,14 +40,16 @@
     self.navigationItem.title = @"团购劵详情";
     
     [self bindViewMode];
+    
+    [self.viewModel fetchDetailWithCouponID:self.couponModel.identifier];
+    
+    [self.viewModel fetchCommentWithCouponID:self.couponModel.identifier page:[NSNumber numberWithInteger:self.viewModel.currentPage]];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-
-    [self.viewModel fetchCommentWithCouponID:self.couponModel.identifier page:[NSNumber numberWithInteger:self.viewModel.currentPage]];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -67,6 +73,17 @@
         
     }];
     
+    [self.viewModel.detailSuccessObject subscribeNext:^(id x) {
+        @strongify(self)
+        [self.tableView reloadSection:3 withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationNone];
+    }];
+    
+    [self.viewModel.detailFailureObject subscribeNext:^(id x) {
+        
+    }];
+    
+    
     [self.viewModel.errorObject subscribeNext:^(NSString *message) {
         @strongify(self)
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -75,12 +92,23 @@
         [hud hide:YES afterDelay:1.5f];
     }];
     
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showCommentImage" object:nil]
+    takeUntil:[self rac_willDeallocSignal]]
+    subscribeNext:^(NSNotification *notification) {
+        @strongify(self)
+        NSDictionary *userInfo = notification.userInfo;
+        UIStoryboard *showImage = [UIStoryboard storyboardWithName:@"couponComment" bundle:nil];
+        ShowImageViewController *showImageVC = [showImage instantiateViewControllerWithIdentifier:@"ShowImageViewController"];
+        showImageVC.image = userInfo[@"image"];
+        [self.navigationController pushViewController:showImageVC animated:NO];
+    }];
+    
 }
 
 #pragma mark -UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 4) {
-        return self.viewModel.commentArray.count;
+        return self.viewModel.commentArray.count + 1;
     }
     else {
         return 1;
@@ -94,59 +122,76 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
-        
         CouponPictureCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponPictureCell"];
-        
         cell.button.layer.cornerRadius = 5;
         cell.abstract.text = self.couponModel.abstract;
         [cell.image sd_setImageWithURL:[NSURL URLWithString:self.couponModel.pictureUrl]];
         cell.price.text = [NSString stringWithFormat:@"原价￥%.2f", [self.couponModel.asPrice floatValue] / 100];
         cell.asPrice.text = [NSString stringWithFormat:@"￥%.2f", [self.couponModel.price floatValue] / 100];
         cell.sales.text = [NSString stringWithFormat:@"已售%@", self.couponModel.purchaseNum];
-        [[cell.button rac_signalForControlEvents:UIControlEventTouchUpInside]
-        subscribeNext:^(id x) {
-            NSLog(@"button clicked");
-        }];
+        if (!self.viewModel.backable) {
+            cell.backableView.hidden = YES;
+        }
+        else {
+            cell.backableView.hidden = NO;
+        }
+        if (!self.viewModel.mustOrder) {
+            cell.mustOrderView.hidden = YES;
+        }
+        else {
+            cell.mustOrderView.hidden = NO;
+        }
         
         return cell;
     }
     else if (indexPath.section == 1) {
         CouponStoreCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponStoreCell"];
-        
         [self configureStoreCell:cell atIndexPath:indexPath];
-        
         return cell;
     }
     else if (indexPath.section == 2) {
         CouponCaseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponCaseCell"];
-
         cell.price.text = [NSString stringWithFormat:@"￥%@", self.couponModel.asPrice];
         cell.number.text = @"1张";
         return cell;
     }
     else if (indexPath.section == 3) {
         CouponInformationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponInformationCell"];
-    
-        cell.validity.text = [NSString stringWithFormat:@"%@至%@", [NSString convertTime:self.couponModel.startTime] , [NSString convertTime:self.couponModel.endTime]];
-        
+        [self configureInformationCell:cell atIndexPath:indexPath];
         return cell;
     }
-    
-    CouponCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponCommentCell"];
-    
-    [self configureCommentCell:cell atIndexPath:indexPath];
-    
-    return cell;
+    else {
+        if (indexPath.row == 0) {
+            CouponCommentTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:[CouponCommentTitleCell className]];
+            cell.commentCountLabel.text = [NSString stringWithFormat:@"%@人评价", self.viewModel.totalComment];
+            return cell;
+        }
+        else {
+            CouponCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponCommentCell"];
+            [self configureCommentCell:cell atIndexPath:indexPath];
+            return cell;
+        }
+    }
 
 }
 
 - (void)configureCommentCell:(CouponCommentCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    CouponCommentModel *model = [self.viewModel.commentArray objectAtIndex:indexPath.row];
-    
+    CouponCommentModel *model = [self.viewModel.commentArray objectAtIndex:indexPath.row - 1];
     cell.name.text = model.userName;
     cell.time.text = [NSString convertTime:model.time];
     cell.content.text = model.content;
+    cell.imageArray = model.pictureArray;
+    [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:model.avatarURL] placeholderImage:[UIImage imageNamed:@"default_avatar_small"]];
+    cell.starView.value = [model.score floatValue];
+    cell.starView.enabled = NO;
+    cell.starView.alpha = 1.0;
+    [cell.collectionView reloadData];
+}
 
+- (void)configureInformationCell:(CouponInformationCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    cell.validity.text = [NSString stringWithFormat:@"%@至%@", [NSString convertTime:self.couponModel.startTime] , [NSString convertTime:self.couponModel.endTime]];
+    cell.useRuleLabel.text = self.viewModel.useRule;
+    cell.tipsLabel.text = self.viewModel.tips;
 }
 
 - (void)configureStoreCell:(CouponStoreCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -178,26 +223,39 @@
         return 255;
     }
     else if (indexPath.section == 1) {
-        
         return [tableView fd_heightForCellWithIdentifier:@"CouponStoreCell" configuration:^(CouponStoreCell *cell) {
             @strongify(self)
             [self configureStoreCell:cell atIndexPath:indexPath];
-            
         }];
-        
     }
     else if (indexPath.section == 2) {
         return 90;
     }
     else if (indexPath.section == 3) {
-        return 110;
+        return [tableView fd_heightForCellWithIdentifier:[CouponInformationCell className] configuration:^(CouponInformationCell *cell) {
+            @strongify(self)
+            [self configureInformationCell:cell atIndexPath:indexPath];
+        }];
     }
-    return [tableView fd_heightForCellWithIdentifier:@"CouponCommentCell" configuration:^(id cell) {
-        @strongify(self)
-        [self configureCommentCell:cell atIndexPath:indexPath];
-        
-    }];
-    
+    else {
+        if (indexPath.row == 0) {
+            return 44;
+        }
+        else {
+            CouponCommentModel *model = [self.viewModel.commentArray objectAtIndex:indexPath.row - 1];
+            NSInteger dynamic = 0;
+            if (model.pictureArray.count > 6) {
+                dynamic = 130;
+            }
+            else if (model.pictureArray.count > 0) {
+                dynamic = 64;
+            }
+            return [tableView fd_heightForCellWithIdentifier:@"CouponCommentCell" configuration:^(CouponCommentCell *cell) {
+                @strongify(self)
+                [self configureCommentCell:cell atIndexPath:indexPath];
+            }] + dynamic;
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -211,6 +269,14 @@
     return CGFLOAT_MIN;
 }
 
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.viewModel.currentPage != self.viewModel.totalPage && indexPath.row == self.viewModel.commentArray.count - 1) {
+        [self.viewModel loadMoreCommentWithCouponID:self.couponModel.identifier page:[NSNumber numberWithInteger:++self.viewModel.currentPage]];
+    }
+    
+}
 
 #pragma mark -prepareForSegue
 

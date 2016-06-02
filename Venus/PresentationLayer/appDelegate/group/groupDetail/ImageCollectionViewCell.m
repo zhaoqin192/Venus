@@ -10,4 +10,18 @@
 
 @implementation ImageCollectionViewCell
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped)];
+    [self.image setUserInteractionEnabled:YES];
+    [self.image addGestureRecognizer:singleTap];
+    
+}
+
+- (void)imageTapped {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showCommentImage" object:nil userInfo:@{@"image": self.image.image}];
+}
+
 @end
