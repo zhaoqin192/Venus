@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-//#import <BaiduMapAPI_Base/BMKBaseComponent.h>
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

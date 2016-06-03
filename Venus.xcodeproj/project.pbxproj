@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		300A191D1D0127B4006A0468 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 300A191C1D0127B4006A0468 /* Info.plist */; };
+		300A19201D014F0F006A0468 /* IndoorSwitchDemo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 300A191E1D014F0F006A0468 /* IndoorSwitchDemo.mm */; };
+		300A19241D014F5E006A0468 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300A19211D014F5E006A0468 /* BaiduMapAPI_Base.framework */; };
+		300A19251D014F5E006A0468 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300A19221D014F5E006A0468 /* BaiduMapAPI_Location.framework */; };
+		300A19261D014F5E006A0468 /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300A19231D014F5E006A0468 /* BaiduMapAPI_Map.framework */; };
 		3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025A98D1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m */; };
 		3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3025A98E1CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib */; };
 		3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025A9921CCE3FD700C5EAAB /* PackageViewController.m */; };
@@ -439,6 +443,11 @@
 
 /* Begin PBXFileReference section */
 		300A191C1D0127B4006A0468 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		300A191E1D014F0F006A0468 /* IndoorSwitchDemo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IndoorSwitchDemo.mm; sourceTree = "<group>"; };
+		300A191F1D014F0F006A0468 /* IndoorSwitchDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorSwitchDemo.h; sourceTree = "<group>"; };
+		300A19211D014F5E006A0468 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
+		300A19221D014F5E006A0468 /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
+		300A19231D014F5E006A0468 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
 		3025A98C1CCE3F2E00C5EAAB /* GroupPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupPurchaseViewController.h; sourceTree = "<group>"; };
 		3025A98D1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupPurchaseViewController.m; sourceTree = "<group>"; };
 		3025A98E1CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupPurchaseViewController.xib; sourceTree = "<group>"; };
@@ -1325,6 +1334,7 @@
 				AC31AD8F1CF327E7006F0608 /* Foundation.framework in Frameworks */,
 				AC31AD8D1CF327DD006F0608 /* UIKit.framework in Frameworks */,
 				AC970C871CC4D26100FA171B /* CoreGraphics.framework in Frameworks */,
+				300A19251D014F5E006A0468 /* BaiduMapAPI_Location.framework in Frameworks */,
 				AC31AD8B1CF327C9006F0608 /* CoreText.framework in Frameworks */,
 				AC31AD891CF327BE006F0608 /* QuartzCore.framework in Frameworks */,
 				AC5B48D11CCA496E00724914 /* TencentOpenAPI.framework in Frameworks */,
@@ -1334,10 +1344,12 @@
 				AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */,
 				AC0359041CC4D76A00EC7BBC /* libiconv.tbd in Frameworks */,
 				AC0359021CC4D70200EC7BBC /* libstdc++.tbd in Frameworks */,
+				300A19241D014F5E006A0468 /* BaiduMapAPI_Base.framework in Frameworks */,
 				AC970C8D1CC4D27400FA171B /* CoreTelephony.framework in Frameworks */,
 				AC970C851CC4D25600FA171B /* SystemConfiguration.framework in Frameworks */,
 				AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */,
 				31D9839B6190882830C041AF /* libPods-Venus.a in Frameworks */,
+				300A19261D014F5E006A0468 /* BaiduMapAPI_Map.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1873,6 +1885,8 @@
 		30FD1F9A1CE2BBFA003C91A5 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				300A191E1D014F0F006A0468 /* IndoorSwitchDemo.mm */,
+				300A191F1D014F0F006A0468 /* IndoorSwitchDemo.h */,
 				30FD1F9C1CE2C0B8003C91A5 /* MapFloorCell.h */,
 				30FD1F9D1CE2C0B8003C91A5 /* MapFloorCell.m */,
 				305E8D3C1CFD76290063389E /* MapFloorCell.xib */,
@@ -2910,6 +2924,9 @@
 			isa = PBXGroup;
 			children = (
 				AC63EAE71D00272300272504 /* MarqueeLabel.framework */,
+				300A19211D014F5E006A0468 /* BaiduMapAPI_Base.framework */,
+				300A19221D014F5E006A0468 /* BaiduMapAPI_Location.framework */,
+				300A19231D014F5E006A0468 /* BaiduMapAPI_Map.framework */,
 				ACFF31C71CF86F2A008BD0D8 /* Util */,
 				ACFF31D91CF86F2A008BD0D8 /* openssl */,
 				AC31AD921CF327F8006F0608 /* CoreMotion.framework */,
@@ -3305,6 +3322,7 @@
 				AC71EAA81CC08ECF00B101C2 /* NetworkManager.m in Sources */,
 				30B509FD1CF2D2F400A2C30A /* NSDate+convenience.m in Sources */,
 				AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */,
+				300A19201D014F0F006A0468 /* IndoorSwitchDemo.mm in Sources */,
 				303519511CCF1B3F00EE0750 /* TicketDetailViewController.m in Sources */,
 				30FD1FA51CE2CAE9003C91A5 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				ACFF32881CF86F8B008BD0D8 /* openssl_wrapper.m in Sources */,
