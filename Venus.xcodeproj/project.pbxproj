@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300A191D1D0127B4006A0468 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 300A191C1D0127B4006A0468 /* Info.plist */; };
 		3025A98F1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025A98D1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m */; };
 		3025A9901CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3025A98E1CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib */; };
 		3025A9941CCE3FD700C5EAAB /* PackageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3025A9921CCE3FD700C5EAAB /* PackageViewController.m */; };
@@ -441,6 +442,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		300A191C1D0127B4006A0468 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3025A98C1CCE3F2E00C5EAAB /* GroupPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupPurchaseViewController.h; sourceTree = "<group>"; };
 		3025A98D1CCE3F2E00C5EAAB /* GroupPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupPurchaseViewController.m; sourceTree = "<group>"; };
 		3025A98E1CCE3F2E00C5EAAB /* GroupPurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupPurchaseViewController.xib; sourceTree = "<group>"; };
@@ -971,7 +973,6 @@
 		ACF83EB21CBF97F800A962BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ACF83EBD1CBF97F800A962BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF83EC01CBF97F800A962BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		ACF83EC21CBF97F800A962BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACFB4D041CFC806500731606 /* HomeSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSearchViewController.h; sourceTree = "<group>"; };
 		ACFB4D051CFC806500731606 /* HomeSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSearchViewController.m; sourceTree = "<group>"; };
 		ACFB4D0E1CFD5B8000731606 /* couponComment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = couponComment.storyboard; sourceTree = "<group>"; };
@@ -2378,9 +2379,9 @@
 		ACF83EAE1CBF97F800A962BD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				300A191C1D0127B4006A0468 /* Info.plist */,
 				ACF83EBD1CBF97F800A962BD /* Assets.xcassets */,
 				ACF83EBF1CBF97F800A962BD /* LaunchScreen.storyboard */,
-				ACF83EC21CBF97F800A962BD /* Info.plist */,
 				ACF83EAF1CBF97F800A962BD /* main.m */,
 				3086D38F1CC728F0007494D7 /* PrefixHeader.pch */,
 			);
@@ -3208,6 +3209,7 @@
 				3035197D1CCF4CB900EE0750 /* ShopCommitCell.xib in Resources */,
 				ACFF32EC1CF8711E008BD0D8 /* CouponPayTableViewCell.xib in Resources */,
 				30FD1FC11CE2EFB6003C91A5 /* CategoryCell.xib in Resources */,
+				300A191D1D0127B4006A0468 /* Info.plist in Resources */,
 				ACFF32B81CF87106008BD0D8 /* RefundReasonCell.xib in Resources */,
 				3086D3AC1CC729EA007494D7 /* menuData.plist in Resources */,
 				308E0D731CF0023C0048F38A /* FoodContentCell.xib in Resources */,
