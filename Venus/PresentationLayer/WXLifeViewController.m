@@ -13,6 +13,14 @@
 #import "GroupViewController.h"
 
 @interface WXLifeViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *takeHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *takeWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *foodWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *foodHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *couponHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *couponWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *shopHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *shopWidth;
 @property (weak, nonatomic) IBOutlet UIImageView *shopView;
 @property (weak, nonatomic) IBOutlet UIImageView *foodView;
 @property (weak, nonatomic) IBOutlet UIImageView *takeawayView;
@@ -23,6 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self configureSize];
+    [self.view layoutIfNeeded];
     
     self.shopView.userInteractionEnabled = YES;
     self.foodView.userInteractionEnabled = YES;
@@ -52,6 +63,19 @@
         GroupViewController *vc = (GroupViewController *)[group instantiateViewControllerWithIdentifier:@"group"];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
+    
+    [self configureSize];
+}
+
+- (void)configureSize {
+    NSInteger width = 150;
+    if (kScreenHeight == 568) {
+        width = 80;
+    }
+    if (kScreenHeight == 667) {
+        width = 130;
+    }
+    self.takeWidth.constant = self.shopWidth.constant = self.couponWidth.constant = self.foodWidth.constant = self.takeHeight.constant = self.shopHeight.constant = self.couponHeight.constant = self.foodHeight.constant = width;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
