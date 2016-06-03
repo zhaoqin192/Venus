@@ -12,7 +12,7 @@
 
 #import "GMMeViewController.h"
 #import "HomePageViewController.h"
-#import "IndoorSwitchDemo.h"
+//#import "IndoorSwitchDemo.h"
 #import "WXLifeViewController.h"
 #import "WXCategoryViewController.h"
 
@@ -35,11 +35,10 @@
     GMNavigationController *meNVC = [[GMNavigationController alloc] initWithRootViewController:meVC];
     
     HomePageViewController *homeVC = [[UIStoryboard storyboardWithName:@"Home" bundle:nil] instantiateInitialViewController];
-
     GMNavigationController *homeNVC = [[GMNavigationController alloc] initWithRootViewController:homeVC];
     
-    IndoorSwitchDemo *mapVC = [[IndoorSwitchDemo alloc] init];
-    GMNavigationController *mapNVC = [[GMNavigationController alloc] initWithRootViewController:mapVC];
+//    IndoorSwitchDemo *mapVC = [[IndoorSwitchDemo alloc] init];
+//    GMNavigationController *mapNVC = [[GMNavigationController alloc] initWithRootViewController:mapVC];
     
     WXLifeViewController *lifeVC = [[WXLifeViewController alloc] init];
     GMNavigationController *lifeNVC = [[GMNavigationController alloc] initWithRootViewController:lifeVC];
@@ -47,7 +46,7 @@
     WXCategoryViewController *cateVC = [[WXCategoryViewController alloc] init];
     GMNavigationController *cateNVC = [[GMNavigationController alloc] initWithRootViewController:cateVC];
    
-    [self setViewControllers:@[homeNVC,mapNVC,cateNVC,lifeNVC,meNVC]];
+    [self setViewControllers:@[homeNVC,homeNVC,cateNVC,lifeNVC,meNVC]];
     [self customizeTabBarForController];
     self.delegate = self;
 }

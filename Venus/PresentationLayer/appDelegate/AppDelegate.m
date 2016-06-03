@@ -11,12 +11,12 @@
 #import "WXApi.h"
 #import "NetworkFetcher+User.h"
 #import "RootTabViewController.h"
-#import <BaiduMapAPI_Map/BMKMapComponent.h>
+//#import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import <AlipaySDK/AlipaySDK.h>
 
 
 @interface AppDelegate ()<WXApiDelegate>{
-    BMKMapManager* _mapManager;
+   // BMKMapManager* _mapManager;
 }
 @end
 
@@ -26,11 +26,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // 要使用百度地图，请先启动BaiduMapManager
-    _mapManager = [[BMKMapManager alloc]init];
-    BOOL ret = [_mapManager start:@"QUy0DG6PAROMlIHm9B9X2L6U" generalDelegate:self];
-    if (!ret) {
-        NSLog(@"manager start failed!");
-    }
+//    _mapManager = [[BMKMapManager alloc]init];
+//    BOOL ret = [_mapManager start:@"QUy0DG6PAROMlIHm9B9X2L6U" generalDelegate:self];
+//    if (!ret) {
+//        NSLog(@"manager start failed!");
+//    }
     
     self.window = [[UIWindow alloc] init];
     self.window.rootViewController = [[RootTabViewController alloc] init];
