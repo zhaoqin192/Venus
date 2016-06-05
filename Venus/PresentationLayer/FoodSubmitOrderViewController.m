@@ -31,8 +31,9 @@
 #import "NSString+Expand.h"
 #import "PaymentSuccessViewController.h"
 #import "GMMeTakeAwayViewController.h"
+#import "FoodOrderMarkViewController.h"
 
-@interface FoodSubmitOrderViewController () <UITableViewDelegate, UITableViewDataSource, FoodAddressSelectionViewControllerDelegate>
+@interface FoodSubmitOrderViewController () <UITableViewDelegate, UITableViewDataSource, FoodAddressSelectionViewControllerDelegate, FoodOrderMarkViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UILabel *bargain;
@@ -41,6 +42,8 @@
 @property (strong, nonatomic) FoodAddressManager *foodAddressManager;
 @property (strong, nonatomic) MBProgressHUD *hud;
 @property (assign, nonatomic) NSInteger addressSelectionIndex;
+
+@property (copy, nonatomic) NSString *remarkContent;
 
 
 @end
@@ -300,12 +303,24 @@
             }
             
         }
+    } else if (indexPath.section == 3) {
+        if (indexPath.row == 1) {
+            FoodOrderMarkViewController *vc = [[FoodOrderMarkViewController alloc] init];
+            vc.delegate = self;
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }
     }
 }
 
 #pragma mark - FoodAddressSelectionViewControllerDelegate
 - (void)foodAddressSelectionViewController:(FoodAddressSelectionViewController *)vc didSelectIndex:(NSInteger)index {
     self.addressSelectionIndex = index;
+}
+
+#pragma mark - FoodOrderMarkViewControllerDelegate
+- (void)didGetRemark:(NSString *)remark {
+    self.remarkContent = remark;
 }
 
 #pragma mark - private methods
@@ -411,7 +426,7 @@
         order.phoneNumber = selectedAddress.phoneNumber;
         order.address = selectedAddress.address;
         
-        order.remark = @"";
+        order.remark = self.remarkContent;
         
         order.payStatus = AliPay;
         
@@ -460,6 +475,13 @@
 - (void)setFinalPrice:(CGFloat)finalPrice {
     _finalPrice = finalPrice;
     _haveToPay.text = [NSString stringWithFormat:@"￥%.2f",finalPrice];
+}
+
+- (NSString *)remarkContent {
+    if (!_remarkContent) {
+        _remarkContent = @"";
+    }
+    return _remarkContent;
 }
 
 @end

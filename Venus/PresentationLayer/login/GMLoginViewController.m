@@ -14,6 +14,7 @@
 #import "MeModifyPhoneNumberViewController.h"
 
 @interface GMLoginViewController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIView *loginDataView;
 
 @property (weak, nonatomic) IBOutlet GMButton *loginButton;
 @property (weak, nonatomic) IBOutlet GMButton *createAccountButton;
@@ -30,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"登录bg"]];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground"]];
     [self configureTextField];
     
     @weakify(self);
@@ -144,7 +145,8 @@
 
 - (void)configureTextField{
     _passwordView = [WXTextField fetchTextView];
-    _passwordView.frame = CGRectMake((kScreenWidth - 250)/2, self.loginButton.frame.origin.y - 130, 250, 40); // 70
+//    _passwordView.frame = CGRectMake((kScreenWidth - 250)/2, self.loginButton.frame.origin.y - 130, 250, 40);
+    _passwordView.frame = CGRectMake(0, 50, 250, 40);
     _passwordView.imageName = @"lock";
     _passwordView.selectImageName = @"lock选中";
     _passwordView.placeHoleder = @"密码";
@@ -152,10 +154,11 @@
     [_passwordView.textField setReturnKeyType:UIReturnKeyDone];
     _passwordView.textField.delegate = self;
     _passwordView.autoresizingMask = UIViewAutoresizingNone;
-    [self.view addSubview:_passwordView];
+    [self.loginDataView addSubview:_passwordView];
     
     _phoneView = [WXTextField fetchTextView];
-    _phoneView.frame = CGRectMake((kScreenWidth - 250)/2, self.loginButton.frame.origin.y - 130 - 50, 250, 40);
+//    _phoneView.frame = CGRectMake((kScreenWidth - 250)/2, self.loginButton.frame.origin.y - 130 - 50, 250, 40);
+    _phoneView.frame = CGRectMake(0, 0, 250, 40);
     _phoneView.imageName = @"phone";
     _phoneView.selectImageName = @"phone选中";
     _phoneView.placeHoleder = @"手机号";
@@ -163,7 +166,7 @@
     [_phoneView.textField setReturnKeyType:UIReturnKeyDone];
     _phoneView.textField.delegate = self;
     _phoneView.autoresizingMask = UIViewAutoresizingNone;
-    [self.view addSubview:_phoneView];
+    [self.loginDataView addSubview:_phoneView];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

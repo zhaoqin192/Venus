@@ -24,6 +24,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "FoodSubmitOrderViewController.h"
 #import "FoodOrderViewBaseItem.h"
+#import "MBProgressHUD.h"
 
 @interface GMMeTakeAwayDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -37,6 +38,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *evaluateButton;
 @property (weak, nonatomic) IBOutlet UIButton *reorderButton;
 @property (weak, nonatomic) IBOutlet UIButton *changeStore;
+
+@property (strong, nonatomic) MBProgressHUD *hud;
 
 @end
 
@@ -52,8 +55,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self hideRedButton];
     self.navigationItem.title = @"订单详情";
-    self.navigationController.navigationBar.translucent = NO;
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [NetworkFetcher foodFetcherUserFoodOrderDetailWithID:self.orderID success:^(NSDictionary *response){
+        [self.hud hide:YES];
         NSLog(@"订单详情是%@",response);
         if ([response[@"errCode"] isEqualToNumber:@0]) {
             [TakeAwayOrderDetail mj_setupObjectClassInArray:^NSDictionary *{
@@ -62,6 +66,7 @@
                        };
             }];
             self.orderDetail = [TakeAwayOrderDetail mj_objectWithKeyValues:(NSDictionary *)response[@"data"]];
+            self.orderState = self.orderDetail.state;
             [self showRedButtonWithOrderState:self.orderState];
             [self.tableView reloadData];
             // 成功
@@ -69,7 +74,8 @@
             // 失败
         }
     } failure:^(NSString *error){
-        
+        [self.hud hide:YES];
+        [PresentationUtility showTextDialog:self.view text:@"网络错误，请重试" success:nil];
     }];
 }
 
@@ -364,8 +370,6 @@
 #pragma mark - event response
 // white button
 - (void)oneMoreOrderButtonClicked:(id)sender {
-    // 再来一单点击
-    NSLog(@"再来一单按钮点击");
     FoodSubmitOrderViewController *vc = [[FoodSubmitOrderViewController alloc] init];
     vc.restaurantName = self.orderDetail.store.name;
     vc.restaurantID = [NSString stringWithFormat:@"%li",self.orderDetail.store.storeId];
@@ -381,10 +385,8 @@
 }
 
 - (void)cancelOrderButtonClicked:(id)sender {
-    NSLog(@"取消订单按钮点击!!!!");
     [NetworkFetcher foodCancelOrderWithOrderID:(long)self.orderID success:^(NSDictionary *response){
         [PresentationUtility showTextDialog:self.view text:@"取消订单成功" success:^{
-            [self.navigationController popViewControllerAnimated:YES];
         }];
         
     } failure:^(NSString *error){
@@ -394,12 +396,9 @@
 }
 
 - (void)confirmButtonClicked:(id)sender {
-    // 确认订单点击
-    NSLog(@"确认按钮点击");
     [NetworkFetcher foodConfirmOrderWithOrderID:(long)self.orderID storeID:self.orderDetail.store.storeId success:^(NSDictionary *response) {
         if ([response[@"errCode"] isEqualToNumber:@0]) {
             [PresentationUtility showTextDialog:self.view text:@"确认收货成功" success:^{
-                [self.navigationController popViewControllerAnimated:YES];
             }];
         }
     } failure:^(NSString *error) {
@@ -410,7 +409,6 @@
 
 // red button
 - (IBAction)refundButtonClicked:(id)sender {
-    NSLog(@"退款按钮点击");
     GMMeTakeAwayRefundViewController *vc = [[GMMeTakeAwayRefundViewController alloc] init];
     vc.orderID = self.orderID;
     vc.totalPrice = self.orderDetail.totalFee / 100.0;
@@ -442,13 +440,11 @@
 
 - (IBAction)payButtonClicked:(id)sender {
     // 支付点击
-    NSLog(@"付款按钮点击");
     [self prepayWithOrderID:(long)self.orderID];
 }
 
 - (IBAction)evaluateButtonClicked:(id)sender {
     // 评价点击
-    NSLog(@"评价按钮点击");
     GMMeTakeAwayRatingViewController *vc = [[GMMeTakeAwayRatingViewController alloc] init];
     vc.name = self.orderDetail.store.name;
     vc.storeIconURL = self.orderDetail.store.icon;

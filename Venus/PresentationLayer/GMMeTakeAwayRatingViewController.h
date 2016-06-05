@@ -10,8 +10,6 @@
 
 @interface GMMeTakeAwayRatingViewController : UIViewController
 
-
-
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *storeIconURL;
 @property (assign, nonatomic) long orderID;

@@ -188,6 +188,7 @@
    // [self configureFootView];
     self.commitView = [BeautifulCommitView commitView];
     self.commitView.frame = CGRectMake(0, kScreenHeight-48, kScreenWidth, 48);
+    self.commitView.autoresizingMask = UIViewAutoresizingNone;
     __weak typeof(self)weakSelf = self;
     self.commitView.sendButtonTapped = ^(NSString *text){
         [SVProgressHUD show];

@@ -22,6 +22,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="手机注册" translatesAutoresizingMaskIntoConstraints="NO" id="iru-mt-s7T">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="国贸Stylelogo" translatesAutoresizingMaskIntoConstraints="NO" id="mUo-jF-T7G">
                     <rect key="frame" x="80" y="45" width="214" height="76"/>
                     <constraints>
@@ -41,7 +44,7 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lL-GC-HgQ">
-                    <rect key="frame" x="205" y="157" width="100" height="28"/>
+                    <rect key="frame" x="215" y="157" width="100" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="aMz-kR-d05"/>
                         <constraint firstAttribute="height" constant="28" id="vwl-NF-eDo"/>
@@ -166,6 +169,7 @@
                 <constraint firstItem="H1y-vy-6p9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4Kn-Ak-j6A"/>
                 <constraint firstItem="7pf-4f-Kly" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="4oG-eG-clg"/>
                 <constraint firstItem="Uy1-Sf-8bN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="5Jl-EC-w50"/>
+                <constraint firstAttribute="trailing" secondItem="iru-mt-s7T" secondAttribute="trailing" id="6d0-VV-5sn"/>
                 <constraint firstItem="ilm-Sc-Bhw" firstAttribute="top" secondItem="zkb-dd-UcP" secondAttribute="bottom" constant="10" id="7WH-I8-Da0"/>
                 <constraint firstAttribute="trailing" secondItem="ocA-jz-cbt" secondAttribute="trailing" constant="60" id="9Oc-Ca-QQd"/>
                 <constraint firstAttribute="trailing" secondItem="Uy1-Sf-8bN" secondAttribute="trailing" constant="60" id="9j9-om-SqC"/>
@@ -189,12 +193,15 @@
                 <constraint firstItem="H1y-vy-6p9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="42" id="bgO-vo-Q98"/>
                 <constraint firstItem="ocA-jz-cbt" firstAttribute="top" secondItem="7pf-4f-Kly" secondAttribute="bottom" constant="10" id="bkg-AN-u9C"/>
                 <constraint firstItem="zkb-dd-UcP" firstAttribute="leading" secondItem="GWs-0K-GwA" secondAttribute="leading" id="c8A-je-vkU"/>
+                <constraint firstItem="iru-mt-s7T" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dVJ-nU-fcu"/>
                 <constraint firstItem="Uy1-Sf-8bN" firstAttribute="trailing" secondItem="7pf-4f-Kly" secondAttribute="trailing" id="eeU-hM-UZn"/>
                 <constraint firstAttribute="trailing" secondItem="eQd-zF-Zjo" secondAttribute="trailing" constant="60" id="gJ8-fj-D7J"/>
+                <constraint firstItem="iru-mt-s7T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gdP-Wd-F5b"/>
                 <constraint firstItem="7pf-4f-Kly" firstAttribute="trailing" secondItem="zkb-dd-UcP" secondAttribute="trailing" id="inf-eb-SUH"/>
                 <constraint firstItem="mUo-jF-T7G" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="jEl-CO-GEx"/>
                 <constraint firstItem="ocA-jz-cbt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="l00-FR-MRx"/>
                 <constraint firstItem="H1y-vy-6p9" firstAttribute="top" secondItem="FMt-x5-8IA" secondAttribute="bottom" constant="20" id="loq-KJ-oDF"/>
+                <constraint firstAttribute="bottom" secondItem="iru-mt-s7T" secondAttribute="bottom" id="m9A-bi-xiG"/>
                 <constraint firstItem="GWs-0K-GwA" firstAttribute="top" secondItem="mUo-jF-T7G" secondAttribute="bottom" constant="40" id="mKC-tR-xvX"/>
                 <constraint firstItem="Uy1-Sf-8bN" firstAttribute="top" secondItem="ocA-jz-cbt" secondAttribute="bottom" constant="18" id="oyX-k8-egK"/>
                 <constraint firstItem="7pf-4f-Kly" firstAttribute="top" secondItem="ilm-Sc-Bhw" secondAttribute="bottom" constant="18" id="rcB-ug-MGc"/>
@@ -203,10 +210,12 @@
                 <constraint firstAttribute="trailing" secondItem="ilm-Sc-Bhw" secondAttribute="trailing" constant="60" id="vO4-qe-TCl"/>
                 <constraint firstItem="Uy1-Sf-8bN" firstAttribute="leading" secondItem="7pf-4f-Kly" secondAttribute="leading" id="vbk-9g-KRQ"/>
                 <constraint firstItem="zkb-dd-UcP" firstAttribute="trailing" secondItem="GWs-0K-GwA" secondAttribute="trailing" id="yok-8e-ARz"/>
+                <constraint firstItem="5lL-GC-HgQ" firstAttribute="trailing" secondItem="eQd-zF-Zjo" secondAttribute="trailing" id="zc6-Wg-NDk"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="AN9-aZ-imP"/>
                     <exclude reference="JGf-kZ-siv"/>
                     <exclude reference="Q0M-Xn-rmM"/>
                     <exclude reference="inf-eb-SUH"/>
@@ -228,5 +237,6 @@
         <image name="clear" width="36" height="36"/>
         <image name="loginButton" width="292" height="76"/>
         <image name="国贸Stylelogo" width="214" height="76"/>
+        <image name="手机注册" width="375" height="667"/>
     </resources>
 </document>

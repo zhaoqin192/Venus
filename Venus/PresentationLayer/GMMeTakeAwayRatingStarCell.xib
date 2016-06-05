@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,7 +17,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgd-NP-p9D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
-                        <color key="backgroundColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="0.19913793103448277" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="kmC-0S-gwI"/>
                         </constraints>
@@ -28,26 +28,46 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="sAj-EM-3Ft" customClass="HCSStarRatingView">
-                        <rect key="frame" x="141" y="8" width="159" height="27"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHH-3c-MVT" customClass="HCSStarRatingView">
+                        <rect key="frame" x="141" y="8" width="146" height="27"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="146" id="U1S-oh-C0c"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="image" keyPath="emptyStarImage" value="gray_star"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="filledStarImage" value="gold_star"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="sAj-EM-3Ft" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="1ZO-PF-JWI"/>
-                    <constraint firstAttribute="trailing" secondItem="sAj-EM-3Ft" secondAttribute="trailing" constant="20" id="FWw-kT-k3x"/>
+                    <constraint firstItem="gHH-3c-MVT" firstAttribute="centerY" secondItem="wU9-VW-y0E" secondAttribute="centerY" id="E4y-H4-wdJ"/>
                     <constraint firstItem="wU9-VW-y0E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="HBA-y9-Z3N"/>
                     <constraint firstItem="wU9-VW-y0E" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="R4P-yz-w5o"/>
                     <constraint firstItem="mgd-NP-p9D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="SxO-BW-j7p"/>
-                    <constraint firstItem="sAj-EM-3Ft" firstAttribute="leading" secondItem="wU9-VW-y0E" secondAttribute="trailing" constant="50" id="UMy-Hg-1iO"/>
-                    <constraint firstAttribute="bottom" secondItem="sAj-EM-3Ft" secondAttribute="bottom" constant="8" id="dSa-M9-42D"/>
+                    <constraint firstItem="gHH-3c-MVT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Szd-hX-nhn"/>
+                    <constraint firstAttribute="bottom" secondItem="gHH-3c-MVT" secondAttribute="bottom" constant="8" id="Zj9-tM-o1v"/>
                     <constraint firstAttribute="trailingMargin" secondItem="mgd-NP-p9D" secondAttribute="trailing" constant="-8" id="nnq-rX-pG1"/>
                     <constraint firstItem="mgd-NP-p9D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="rm2-l9-x8b"/>
+                    <constraint firstItem="gHH-3c-MVT" firstAttribute="leading" secondItem="wU9-VW-y0E" secondAttribute="trailing" constant="50" id="xMI-uo-lcw"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="starRatingView" destination="sAj-EM-3Ft" id="vLG-4a-hWv"/>
+                <outlet property="starRatingView" destination="gHH-3c-MVT" id="DHb-dg-Bg1"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="gold_star" width="26" height="25"/>
+        <image name="gray_star" width="17" height="16"/>
+    </resources>
 </document>

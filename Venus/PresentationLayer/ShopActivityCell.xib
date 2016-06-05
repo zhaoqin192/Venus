@@ -21,7 +21,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动时间：2016.03.23-2016.05.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qC-6a-4O5">
-                        <rect key="frame" x="113" y="33" width="241" height="21"/>
+                        <rect key="frame" x="113" y="33" width="252" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="aMl-gZ-Aw2"/>
                             <constraint firstAttribute="width" constant="241" id="eMD-ek-61p"/>
@@ -29,9 +29,14 @@
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="eMD-ek-61p"/>
+                            </mask>
+                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动规则：2016.03.23-2016.05.23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02U-9l-JQL">
-                        <rect key="frame" x="113" y="56" width="241" height="21"/>
+                        <rect key="frame" x="113" y="56" width="252" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="fNJ-2H-9hc"/>
                             <constraint firstAttribute="width" constant="241" id="pX9-sZ-3jY"/>
@@ -39,6 +44,11 @@
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="pX9-sZ-3jY"/>
+                            </mask>
+                        </variation>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WVw-4x-Nc0">
                         <rect key="frame" x="5" y="10" width="100" height="67"/>
@@ -52,8 +62,10 @@
                 <constraints>
                     <constraint firstItem="xdv-D6-qe0" firstAttribute="top" secondItem="WVw-4x-Nc0" secondAttribute="top" id="2WB-Ct-Dgg"/>
                     <constraint firstItem="WVw-4x-Nc0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3Uq-6r-cRe"/>
+                    <constraint firstAttribute="trailing" secondItem="2qC-6a-4O5" secondAttribute="trailing" constant="10" id="BAz-3l-4tQ"/>
                     <constraint firstItem="2qC-6a-4O5" firstAttribute="top" secondItem="xdv-D6-qe0" secondAttribute="bottom" constant="2" id="BaO-Ny-i6T"/>
                     <constraint firstItem="WVw-4x-Nc0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="PIh-3a-yzJ"/>
+                    <constraint firstItem="02U-9l-JQL" firstAttribute="trailing" secondItem="2qC-6a-4O5" secondAttribute="trailing" id="RTL-dN-zdt"/>
                     <constraint firstItem="xdv-D6-qe0" firstAttribute="leading" secondItem="WVw-4x-Nc0" secondAttribute="trailing" constant="8" id="ia5-eD-nXH"/>
                     <constraint firstItem="2qC-6a-4O5" firstAttribute="leading" secondItem="xdv-D6-qe0" secondAttribute="leading" id="mQk-PU-t66"/>
                     <constraint firstItem="02U-9l-JQL" firstAttribute="top" secondItem="2qC-6a-4O5" secondAttribute="bottom" constant="2" id="sTo-aN-RVv"/>

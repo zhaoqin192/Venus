@@ -64,6 +64,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.rdv_tabBarController setTabBarHidden:YES animated:NO];
 }
 
@@ -159,14 +160,14 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Restaurant *restaurant = _restaurantArray[indexPath.row];
-//    FoodDetailViewController *foodDetailVC = [[FoodDetailViewController alloc] init];
-//    foodDetailVC.restaurant = restaurant;
-//    [self.navigationController pushViewController:foodDetailVC animated:YES];
+    FoodDetailViewController *foodDetailVC = [[FoodDetailViewController alloc] init];
+    foodDetailVC.restaurant = restaurant;
+    [self.navigationController pushViewController:foodDetailVC animated:YES];
     
     
-    NewFoodDetailViewController *vc = [[NewFoodDetailViewController alloc] init];
-    vc.restaurant = restaurant;
-    [self.navigationController pushViewController:vc animated:YES];
+//    NewFoodDetailViewController *vc = [[NewFoodDetailViewController alloc] init];
+//    vc.restaurant = restaurant;
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

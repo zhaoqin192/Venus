@@ -177,7 +177,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     
 }
 
-
 - (void)viewDidAppear:(BOOL)animated{
     if (self.view.isHidden) {
         GMLoginViewController *vc = [[GMLoginViewController alloc] init];
@@ -191,11 +190,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self.rdv_tabBarController setTabBarHidden:NO];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)netWorkRequest {
@@ -330,7 +324,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
                         break;
                     }
                     case 17:{
-                        NSLog(@"外卖");
                         FoodViewController *vc = [[FoodViewController alloc] init];
                         [self.navigationController pushViewController:vc animated:YES];
                         break;

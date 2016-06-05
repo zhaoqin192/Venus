@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8,6 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GMMeTakeAwayRatingViewController">
             <connections>
                 <outlet property="TableView" destination="Y2O-jC-XAk" id="3Dv-1B-VHg"/>
+                <outlet property="pickerContainerView" destination="lUU-Bz-M90" id="9w6-kE-wLV"/>
+                <outlet property="pickerView" destination="pKc-Nh-jUF" id="d0F-M1-tAd"/>
+                <outlet property="shadowView" destination="1ed-wb-pQf" id="Cdn-Lc-n01"/>
                 <outlet property="storeIcon" destination="Rwz-sD-ExW" id="DI4-48-3hs"/>
                 <outlet property="storeName" destination="awC-gG-Juk" id="ItW-Pd-7uQ"/>
                 <outlet property="tableView" destination="Y2O-jC-XAk" id="yv9-kV-lS5"/>
@@ -49,6 +52,14 @@
                         <constraint firstItem="awC-gG-Juk" firstAttribute="centerX" secondItem="OZX-fH-rc6" secondAttribute="centerX" id="ntd-MU-7eg"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ed-wb-pQf">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.30382543103448278" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Yai-vZ-4gQ" appends="YES" id="Ndy-JG-sDU"/>
+                    </connections>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BY8-R5-byI">
                     <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                     <color key="backgroundColor" red="0.69019607843137254" green="0.10980392156862745" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,21 +73,75 @@
                         <action selector="submitButtonClicked:" destination="-1" eventType="touchUpInside" id="3FE-hj-sbj"/>
                     </connections>
                 </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUU-Bz-M90" userLabel="pickerContainerView">
+                    <rect key="frame" x="0.0" y="467" width="375" height="200"/>
+                    <subviews>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pKc-Nh-jUF">
+                            <rect key="frame" x="0.0" y="40" width="375" height="160"/>
+                            <color key="backgroundColor" white="0.88216711730765018" alpha="1" colorSpace="calibratedWhite"/>
+                        </pickerView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgk-Nz-3dx">
+                            <rect key="frame" x="323" y="5" width="34" height="33"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="确认">
+                                <color key="titleColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="confirmButtonClicked:" destination="-1" eventType="touchUpInside" id="Aqz-4T-Ssy"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sU-3F-LF4">
+                            <rect key="frame" x="18" y="5" width="34" height="33"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="取消">
+                                <color key="titleColor" red="0.65098039215686276" green="0.52941176470588236" blue="0.23137254901960785" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelButtonClicked:" destination="-1" eventType="touchUpInside" id="C3C-Tz-Hmz"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="4sU-3F-LF4" firstAttribute="top" secondItem="lUU-Bz-M90" secondAttribute="top" constant="5" id="HBf-VP-6nl"/>
+                        <constraint firstAttribute="bottom" secondItem="pKc-Nh-jUF" secondAttribute="bottom" id="PKn-Tx-jEv"/>
+                        <constraint firstItem="pKc-Nh-jUF" firstAttribute="top" secondItem="lUU-Bz-M90" secondAttribute="top" constant="40" id="VAt-A5-msj"/>
+                        <constraint firstAttribute="height" constant="200" id="aCB-do-H4u"/>
+                        <constraint firstAttribute="trailing" secondItem="xgk-Nz-3dx" secondAttribute="trailing" constant="18" id="ddj-dD-R19"/>
+                        <constraint firstItem="xgk-Nz-3dx" firstAttribute="top" secondItem="lUU-Bz-M90" secondAttribute="top" constant="5" id="s4f-eT-HjK"/>
+                        <constraint firstItem="4sU-3F-LF4" firstAttribute="leading" secondItem="lUU-Bz-M90" secondAttribute="leading" constant="18" id="skD-JK-uzn"/>
+                        <constraint firstItem="pKc-Nh-jUF" firstAttribute="leading" secondItem="lUU-Bz-M90" secondAttribute="leading" id="yCr-a4-0lI"/>
+                        <constraint firstAttribute="trailing" secondItem="pKc-Nh-jUF" secondAttribute="trailing" id="yvP-II-KCa"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="1ed-wb-pQf" secondAttribute="trailing" id="2SU-YS-I6Q"/>
                 <constraint firstAttribute="trailing" secondItem="BY8-R5-byI" secondAttribute="trailing" id="8BL-ho-0Kh"/>
                 <constraint firstAttribute="trailing" secondItem="Y2O-jC-XAk" secondAttribute="trailing" id="A6D-hE-iXx"/>
                 <constraint firstAttribute="bottom" secondItem="BY8-R5-byI" secondAttribute="bottom" id="BSM-Z6-pam"/>
+                <constraint firstItem="1ed-wb-pQf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Btm-2D-IOY"/>
                 <constraint firstItem="Y2O-jC-XAk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CTT-Yj-mvW"/>
+                <constraint firstItem="lUU-Bz-M90" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JD6-Jb-SBs"/>
                 <constraint firstItem="BY8-R5-byI" firstAttribute="top" secondItem="Y2O-jC-XAk" secondAttribute="bottom" id="NCr-S4-UnZ"/>
                 <constraint firstItem="BY8-R5-byI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RFn-0Y-O5E"/>
+                <constraint firstItem="1ed-wb-pQf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WFo-vB-Sj4"/>
                 <constraint firstItem="OZX-fH-rc6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ddG-DB-jeX"/>
+                <constraint firstAttribute="trailing" secondItem="lUU-Bz-M90" secondAttribute="trailing" id="iBU-mE-rhs"/>
+                <constraint firstItem="lUU-Bz-M90" firstAttribute="top" secondItem="1ed-wb-pQf" secondAttribute="bottom" id="kgz-6y-sCU"/>
                 <constraint firstAttribute="trailing" secondItem="OZX-fH-rc6" secondAttribute="trailing" id="mdA-Iy-WEZ"/>
+                <constraint firstAttribute="bottom" secondItem="lUU-Bz-M90" secondAttribute="bottom" id="sUC-Ue-3NL"/>
                 <constraint firstItem="OZX-fH-rc6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tpV-BW-K7K"/>
                 <constraint firstItem="Y2O-jC-XAk" firstAttribute="top" secondItem="OZX-fH-rc6" secondAttribute="bottom" id="y8e-v6-hDu"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="146.5" y="325.5"/>
         </view>
+        <tapGestureRecognizer id="Yai-vZ-4gQ">
+            <connections>
+                <action selector="cancelButtonClicked:" destination="-1" id="27p-37-bh0"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

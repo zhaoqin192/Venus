@@ -20,17 +20,23 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ASq-r8-rey"/>
+                        </mask>
+                    </variation>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="发送" translatesAutoresizingMaskIntoConstraints="NO" id="7nu-dP-QNs">
-                    <rect key="frame" x="321" y="8" width="39" height="32"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="发送" translatesAutoresizingMaskIntoConstraints="NO" id="7nu-dP-QNs">
+                    <rect key="frame" x="331" y="8" width="39" height="32"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="7nu-dP-QNs" secondAttribute="trailing" constant="5" id="22W-go-d6N"/>
+                <constraint firstItem="7nu-dP-QNs" firstAttribute="leading" secondItem="uuJ-mm-wVM" secondAttribute="trailing" constant="25" id="2nb-zz-0xr"/>
                 <constraint firstItem="uuJ-mm-wVM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="6" id="OFh-AZ-e5p"/>
                 <constraint firstItem="uuJ-mm-wVM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="PlL-eD-4aJ"/>
-                <constraint firstAttribute="trailing" secondItem="7nu-dP-QNs" secondAttribute="trailing" constant="15" id="pND-8e-mNr"/>
-                <constraint firstItem="7nu-dP-QNs" firstAttribute="centerY" secondItem="uuJ-mm-wVM" secondAttribute="centerY" id="ycv-Ef-Ss1"/>
+                <constraint firstItem="7nu-dP-QNs" firstAttribute="centerY" secondItem="uuJ-mm-wVM" secondAttribute="centerY" id="X4k-If-Ina"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
