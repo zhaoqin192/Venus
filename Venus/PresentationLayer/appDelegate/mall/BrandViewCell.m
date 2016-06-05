@@ -53,7 +53,7 @@
     
     MallBrandModel *model = [self.brandArray objectAtIndex:indexPath.item];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandView" object:nil userInfo:@{@"detailURL": model.detailURL}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandView" object:nil userInfo:@{@"storeID": model.identifier}];
     
 }
 
