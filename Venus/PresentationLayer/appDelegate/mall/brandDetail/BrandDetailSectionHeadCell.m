@@ -8,6 +8,10 @@
 
 #import "BrandDetailSectionHeadCell.h"
 
+NSString *const BrandDetailSectionHeadCellDetail = @"BrandDetailSectionHeadCellDetail";
+NSString *const BrandDetailSectionHeadCellKind = @"BrandDetailSectionHeadCellKind";
+NSString *const BrandDetailSectionHeadCellComment = @"BrandDetailSectionHeadCellComment";
+
 @interface BrandDetailSectionHeadCell()
 
 @property (nonatomic, strong) UIView *selectView;
@@ -36,7 +40,8 @@
         return;
     }
     [self detailSelected];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandDetail" object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandDetail" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailSectionHeadCellDetail object:nil];
 }
 
 - (void)kindTapAction {
@@ -44,7 +49,8 @@
         return;
     }
     [self kindSelected];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandKind" object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandKind" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailSectionHeadCellKind object:nil];
 }
 
 - (void)commentTapAction {
@@ -52,7 +58,8 @@
         return;
     }
     [self commentSelected];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandComment" object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandComment" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailSectionHeadCellComment object:nil];
 }
 
 - (void)clearAllTap {

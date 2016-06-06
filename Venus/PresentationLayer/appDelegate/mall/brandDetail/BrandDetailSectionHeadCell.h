@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString *const BrandDetailSectionHeadCellDetail;
+extern NSString *const BrandDetailSectionHeadCellKind;
+extern NSString *const BrandDetailSectionHeadCellComment;
+
 @interface BrandDetailSectionHeadCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIView *detailView;

@@ -21,11 +21,8 @@
 
 
 - (void)viewDidLoad {
-//    self.navigationItem.title = self.title;
-//    self.navigationController.navigationBarHidden = NO;
-//    self.navigationController.hidesBarsOnSwipe = YES;
     
-    self.webView = [[UIWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64)];
     [self.view addSubview:self.webView];
     self.progressProxy = [[NJKWebViewProgress alloc] init];
     self.webView.delegate = self.progressProxy;
@@ -45,7 +42,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
-//    [self.progressView setBackgroundColor:GMBrownColor];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
     self.progressView.progressBarView.backgroundColor = GMBrownColor;
     [self.navigationController.navigationBar addSubview:self.progressView];
 }

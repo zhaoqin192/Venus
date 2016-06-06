@@ -99,6 +99,7 @@
             self.describe = info[@"description"];
             self.storeAddress = info[@"location"];
             self.logoURL = info[@"shopLogo"];
+            self.detailURL = info[@"app"];
             [self.detailSuccessObject sendNext:nil];
         }
         

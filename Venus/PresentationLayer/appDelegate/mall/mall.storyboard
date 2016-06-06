@@ -526,8 +526,31 @@
                                             <outlet property="kindView" destination="YO0-Jf-1YE" id="i3V-yC-6Uy"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BrandDetailCell" rowHeight="88" id="irq-SW-aVp" customClass="BrandDetailCell">
+                                        <rect key="frame" x="0.0" y="352" width="375" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="irq-SW-aVp" id="w1z-o5-wB2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uX-DI-B2C">
+                                                    <rect key="frame" x="8" y="8" width="359" height="71.5"/>
+                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                                </webView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6uX-DI-B2C" firstAttribute="leading" secondItem="w1z-o5-wB2" secondAttribute="leadingMargin" id="1dv-6E-mTb"/>
+                                                <constraint firstItem="6uX-DI-B2C" firstAttribute="top" secondItem="w1z-o5-wB2" secondAttribute="topMargin" id="HcK-zg-fjx"/>
+                                                <constraint firstItem="6uX-DI-B2C" firstAttribute="trailing" secondItem="w1z-o5-wB2" secondAttribute="trailingMargin" id="gf4-ps-qm9"/>
+                                                <constraint firstItem="6uX-DI-B2C" firstAttribute="bottom" secondItem="w1z-o5-wB2" secondAttribute="bottomMargin" id="tOp-5c-7Hc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="webView" destination="6uX-DI-B2C" id="lER-I3-WQD"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BrandDetailCommentCell" rowHeight="54" id="mpe-OB-nh7" customClass="BrandDetailCommentCell">
-                                        <rect key="frame" x="0.0" y="352" width="375" height="54"/>
+                                        <rect key="frame" x="0.0" y="440" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mpe-OB-nh7" id="CdB-Bh-KbM">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
@@ -586,7 +609,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BrandKindTableViewCell" rowHeight="270" id="rh4-5B-eHh" customClass="BrandKindTableViewCell">
-                                        <rect key="frame" x="0.0" y="406" width="375" height="270"/>
+                                        <rect key="frame" x="0.0" y="494" width="375" height="270"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rh4-5B-eHh" id="i74-dS-S24">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="269.5"/>

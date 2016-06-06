@@ -150,4 +150,58 @@ static const BOOL LOGDEBUG = NO;
     
 }
 
++ (void)homeFetcherHeadlineDetailWithID:(NSNumber *)identifier
+                                success:(NetworkFetcherSuccessHandler)success
+                                failure:(NetworkFetcherErrorHandler)failure {
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/facew/QuickNews/getById"]];
+    NSDictionary *parameters = @{@"id": identifier};
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        failure(@"网络异常");
+    }];
+    
+}
+
++ (void)homeFetcherBoutiqueWithSuccess:(NetworkFetcherSuccessHandler)success
+                               failure:(NetworkFetcherErrorHandler)failure {
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/facew/carousel/get"]];
+    NSDictionary *parameters = @{@"picType": @5, @"owner": @1};
+    
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+//        NSDictionary *dic = responseObject;
+        
+//        if([dic[@"errCode"] isEqualToNumber:@0]){
+//            PictureManager *pictureManager = [PictureManager sharedInstance];
+//            pictureManager.recommendPictureArray = [Picture mj_objectArrayWithKeyValuesArray:dic[@"result"]];
+//            success();
+//        }else{
+//            failure(@"请求失败");
+//        }
+        
+        success(responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        failure(@"网络异常");
+    }];
+    
+}
+
 @end
