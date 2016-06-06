@@ -262,7 +262,7 @@
             self.shadowView.hidden = NO;
             [self.view insertSubview:self.segementView belowSubview:self.shadowView];
             [self.view insertSubview:self.trolleyTableView belowSubview:self.trollyButton];
-            [self.view insertSubview:self.navigationController.navigationBar belowSubview:self.shadowView];
+//            [self.view insertSubview:self.navigationController.navigationBar belowSubview:self.shadowView];
         }
     }
     
