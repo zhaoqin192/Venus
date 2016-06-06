@@ -32,6 +32,7 @@
 #import "PaymentSuccessViewController.h"
 #import "GMMeTakeAwayViewController.h"
 #import "FoodOrderMarkViewController.h"
+#import "FoodMarkCell.h"
 
 @interface FoodSubmitOrderViewController () <UITableViewDelegate, UITableViewDataSource, FoodAddressSelectionViewControllerDelegate, FoodOrderMarkViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -68,6 +69,7 @@
         [NetworkFetcher foodFetcherUserFoodAddresWithRestaurantID:self.restaurantID success:^{
             [self.hud hide:YES];
             [self showSelf];
+            [self.tableView reloadData];
         } failure:^(NSString *error) {
             NSLog(@"错误是：%@",error);
         }];
@@ -171,6 +173,11 @@
             [estimatedTime addAttribute:NSForegroundColorAttributeName value:GMRedColor range:NSMakeRange(0, content3.length)];
             cell.content3.attributedText = estimatedTime;
         } else {
+            if (![self.remarkContent isEqualToString:@""]) {
+                FoodMarkCell *cell = [FoodMarkCell cellForTableView:tableView];
+                cell.markContent.text = self.remarkContent;
+                return cell;
+            }
             cell.content.text = @"备注";
             cell.content2.text = @"(选填)";
             cell.content2.textColor = GMFontColor;
@@ -306,6 +313,7 @@
     } else if (indexPath.section == 3) {
         if (indexPath.row == 1) {
             FoodOrderMarkViewController *vc = [[FoodOrderMarkViewController alloc] init];
+            vc.markContent = self.remarkContent;
             vc.delegate = self;
             [self.navigationController pushViewController:vc animated:YES];
             
