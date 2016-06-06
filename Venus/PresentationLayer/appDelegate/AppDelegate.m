@@ -45,8 +45,8 @@
 
 - (void)configureHUD {
     [[SVProgressHUD appearance] setDefaultStyle:SVProgressHUDStyleDark];
-    [[SVProgressHUD appearance] setDefaultMaskType:SVProgressHUDMaskTypeClear];
-}
+    [[SVProgressHUD appearance] setDefaultMaskType:SVProgressHUDMaskTypeNone];
+}    
 
 - (void)configureNavigationBar {
     [[UINavigationBar appearance] setBarTintColor:GMRedColor];
