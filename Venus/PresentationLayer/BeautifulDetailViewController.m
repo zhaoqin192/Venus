@@ -22,6 +22,8 @@
 #import "SDRefresh.h"
 #import "FoodDetailViewController.h"
 #import "AppDelegate.h"
+#import "AccountDao.h"
+#import "DatabaseManager.h"
 
 @interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -196,9 +198,15 @@
     self.commitView.autoresizingMask = UIViewAutoresizingNone;
     __weak typeof(self)weakSelf = self;
     self.commitView.sendButtonTapped = ^(NSString *text){
-        [SVProgressHUD show];
-        [weakSelf sendCommit:text];
-        weakSelf.commitPage = 1;
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        if ([accountDao isLogin]) {
+            [SVProgressHUD show];
+            [weakSelf sendCommit:text];
+            weakSelf.commitPage = 1;
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:@"请先登录!"];
+        }
     };
     [self.view addSubview:self.commitView];
 }

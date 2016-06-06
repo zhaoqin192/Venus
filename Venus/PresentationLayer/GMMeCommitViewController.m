@@ -102,6 +102,7 @@
             commit.des = value[@"coupon"][@"dsc"];
             commit.abstract = value[@"coupon"][@"abstract"];
             commit.picUrls = value[@"comment"][@"picUrl"];
+            commit.storeName = value[@"storeName"];
             [array addObject:commit];
         }
         self.couponCommitArray = [array copy];

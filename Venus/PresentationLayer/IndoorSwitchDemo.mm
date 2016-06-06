@@ -90,6 +90,7 @@ BMKUserLocation* userLoc;
     _mapView.delegate = self;
     _locService.delegate = self;
     [self.navigationController setNavigationBarHidden:YES];
+    [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
 -(void)viewWillDisappear:(BOOL)animated

@@ -17,4 +17,5 @@
 @property (nonatomic, copy) NSString *des;
 @property (nonatomic, copy) NSArray *picUrls;
 @property (nonatomic, assign) BOOL haveImages;
+@property (nonatomic, copy) NSString *storeName;
 @end
