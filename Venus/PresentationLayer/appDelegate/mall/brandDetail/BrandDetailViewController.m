@@ -252,7 +252,9 @@ typedef NS_ENUM(NSInteger, BrandState) {
             case BrandDetail:{
                 BrandDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:BrandDetailCellIdentifier];
                 if (self.viewModel.detailURL) {
-                    [cell loadURL:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.viewModel.detailURL]];
+//                    [cell loadURL:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.viewModel.detailURL]];
+                    [cell loadURL:@"http://www.chinaworldstyle.com/bazaar/mobile/imageText?type=brandInfo&id=100016"];
+//                    [cell loadURL:@"http://www.baidu.com"];
                 }
                 return cell;
             }

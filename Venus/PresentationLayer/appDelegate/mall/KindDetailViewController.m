@@ -100,7 +100,8 @@
     else {
         KindDetailMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:[KindDetailMessageCell className]];
         if (self.viewModel.detailURL) {
-            [cell loadURL:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.viewModel.detailURL]];
+//            [cell loadURL:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.viewModel.detailURL]];
+            [cell loadURL:@"http://www.baidu.com"];
         }
         return cell;
     }
