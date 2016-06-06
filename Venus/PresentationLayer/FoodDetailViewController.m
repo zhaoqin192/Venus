@@ -22,9 +22,13 @@
 #import "NetworkFetcher+Food.h"
 #import "MBProgressHUD.h"
 #import "GMLoginViewController.h"
+#import "PureLayout.h"
+#import "FoodOrderViewSectionObject.h"
+#import "FoodOrderViewBaseItem.h"
+#import "FoodTrolleyTableViewCell.h"
 
 
-@interface FoodDetailViewController ()<TouchLabelDelegate>{
+@interface FoodDetailViewController ()<TouchLabelDelegate, UITableViewDelegate, UITableViewDataSource>{
     XFSegementView *_segementView;
 }
 @property (weak, nonatomic) IBOutlet UIView *titleView;
@@ -41,6 +45,10 @@
 @property (strong, nonatomic) FoodCommitViewController *commitVC;
 @property (strong, nonatomic) FoodTrolleyTableViewController *foodTrolleyTableViewController;
 @property (assign, nonatomic) NSInteger currentVCIndex;
+
+@property (strong, nonatomic) UITableView *trolleyTableView;
+@property (assign, nonatomic) NSInteger orderFoodKindCount;
+
 
 @end
 
@@ -101,32 +109,74 @@
     
     
     [self.view addSubview:[self segementView]];
-
-    // 移动到commentController
-//    [NetworkFetcher foodFetcherCommentListWithID:_restaurant.identifier level:@"0" success:^{
-//        
-//    } failure:^(NSString *error) {
-//        
-//    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.rdv_tabBarController setTabBarHidden:YES];
-//    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationController.navigationBar.translucent = YES;
-//    self.view.frame = CGRectMake(0, -66, kScreenWidth, kScreenHeight);
     
-    UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
-    UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
-    storeButton.imageInsets = UIEdgeInsetsMake(0, 0, 0, -40);
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:groupBuyButton, storeButton,nil];
+//    UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
+//    UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
+//    storeButton.imageInsets = UIEdgeInsetsMake(0, 0, 0, -40);
+//    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:groupBuyButton, storeButton,nil];
     
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.translucent = NO;
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return self.trolleyFoodArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    FoodTrolleyTableViewCell *cell = [FoodTrolleyTableViewCell cellWithTableView:tableView];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (indexPath.row < self.trolleyFoodArray.count) {
+        cell.food = (FoodOrderViewBaseItem *)self.trolleyFoodArray[indexPath.row];
+        [cell.minusButton addTarget:self action:@selector(trolleyMinusButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.addButton addTarget:self action:@selector(trolleyAddButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor whiteColor];
+    UIImageView *trollyImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shopingbag"]];
+    trollyImage.frame = CGRectMake(10, 11, 19, 20);
+    [view addSubview:trollyImage];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(38, 11, 42, 21)];
+    [view addSubview:label];
+    label.font = [UIFont systemFontOfSize:14.0];
+    label.text = @"购物车";
+    label.textColor = GMBrownColor;
+    
+    UIButton *deleteTrolley = [[UIButton alloc] init];
+    [deleteTrolley setImage:[UIImage imageNamed:@"dustbin"] forState:UIControlStateNormal];
+    [view addSubview:deleteTrolley];
+    [deleteTrolley addTarget:self action:@selector(deleteTrollyButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [deleteTrolley autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0];
+    [deleteTrolley autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:10.0];
+    return view;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 32.0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 40.0;
 }
 
 #pragma mark - event response
@@ -168,62 +218,113 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)deleteTrollyButtonClicked:(id)sender {
+    for (FoodOrderViewBaseItem *baseItem in self.trolleyFoodArray) {
+        baseItem.orderCount = 0;
+    }
+    [self.trolleyFoodArray removeAllObjects];
+    [self.trolleyTableView reloadData];
+    self.trollyButtonBadgeCount = 0;
+    self.totalPrice = 0.0;
+    [self.orderVC clearOrderFood];
+    [[self.orderVC dataTableView] reloadData];
+    self.trolleyTableView.hidden = YES;
+    self.shadowView.hidden = YES;
+}
+
 - (IBAction)trollyButtonClicked:(id)sender {
-    if (_trollyButtonBadgeCount != 0) {
-        // 背景变暗
-        if (self.shadowView.hidden == YES) {
+    
+    if (_trollyButtonBadgeCount == 0) {
+        return;
+    } else {
+        if (!self.trolleyTableView.hidden) {
+            self.trolleyTableView.hidden = YES;
+            self.shadowView.hidden = YES;
+        } else {
+            // 设置tableview的frame
+            self.orderFoodKindCount = 0;
+            [self.trolleyFoodArray removeAllObjects];
+            for (FoodOrderViewSectionObject *sectionObject in self.orderVC.sections) {
+                for (FoodOrderViewBaseItem *baseItem in sectionObject.items) {
+                    if (baseItem.orderCount > 0) {
+                        self.orderFoodKindCount += 1;
+                        [self.trolleyFoodArray addObject:baseItem];
+                    }
+                }
+            }
+            [self.trolleyTableView reloadData];
+            CGFloat width = [UIScreen mainScreen].bounds.size.width;
+            CGFloat height = 32.0 + 40.0 * self.orderFoodKindCount + 20.0;
+            CGFloat y = [UIScreen mainScreen].bounds.size.height - height - 50.0;
+            self.trolleyTableView.frame = CGRectMake(0, y, width, height);
+            
+            self.trolleyTableView.hidden = NO;
             self.shadowView.hidden = NO;
             [self.view insertSubview:self.segementView belowSubview:self.shadowView];
+            [self.view insertSubview:self.trolleyTableView belowSubview:self.trollyButton];
             [self.view insertSubview:self.navigationController.navigationBar belowSubview:self.shadowView];
-        } else {
-            self.shadowView.hidden = YES;
-        }
-        
-        // 弹出table view
-        if (_foodTrolleyTableViewController) {
-            [_foodTrolleyTableViewController.foodArray removeAllObjects];
-            for (FoodOrderViewSectionObject *sectionObject in _orderVC.sections) {
-                for (FoodOrderViewBaseItem *baseItem in sectionObject.items) {
-                    if (baseItem.orderCount > 0) {
-                        [_foodTrolleyTableViewController.foodArray addObject:baseItem];
-                    }
-                }
-            }
-            
-            CGFloat width = [UIScreen mainScreen].bounds.size.width;
-            CGFloat height = 32.0 + 40.0 * _foodTrolleyTableViewController.foodArray.count + 20.0;
-            CGFloat y = [UIScreen mainScreen].bounds.size.height - height - 50.0;
-            _foodTrolleyTableViewController.view.frame = CGRectMake(0, y, width, height);
-            
-            [_foodTrolleyTableViewController.tableView reloadData];
-            if (!_foodTrolleyTableViewController.view.hidden) {
-                [_foodTrolleyTableViewController didMoveToParentViewController:self];
-                
-            } else {
-                [_foodTrolleyTableViewController willMoveToParentViewController:nil];
-                [_foodTrolleyTableViewController removeFromParentViewController];
-            }
-            _foodTrolleyTableViewController.view.hidden = !_foodTrolleyTableViewController.view.hidden;
-        } else {
-            _foodTrolleyTableViewController = [[FoodTrolleyTableViewController alloc] init];
-            [self addChildViewController:_foodTrolleyTableViewController];
-            [_foodTrolleyTableViewController didMoveToParentViewController:self];
-            
-            for (FoodOrderViewSectionObject *sectionObject in _orderVC.sections) {
-                for (FoodOrderViewBaseItem *baseItem in sectionObject.items) {
-                    if (baseItem.orderCount > 0) {
-                        [_foodTrolleyTableViewController.foodArray addObject:baseItem];
-                    }
-                }
-            }
-            
-            CGFloat width = [UIScreen mainScreen].bounds.size.width;
-            CGFloat height = 32.0 + 40.0 * _foodTrolleyTableViewController.foodArray.count + 25.0;
-            CGFloat y = [UIScreen mainScreen].bounds.size.height - height - 50.0;
-            _foodTrolleyTableViewController.view.frame = CGRectMake(0, y, width, height);
-            [self.view insertSubview:_foodTrolleyTableViewController.view belowSubview:self.trollyButton];
         }
     }
+    
+    
+    
+    
+    
+//    if (_trollyButtonBadgeCount != 0) {
+//        // 背景变暗
+//        if (self.shadowView.hidden == YES) {
+//            self.shadowView.hidden = NO;
+//            [self.view insertSubview:self.segementView belowSubview:self.shadowView];
+//            [self.view insertSubview:self.navigationController.navigationBar belowSubview:self.shadowView];
+//        } else {
+//            self.shadowView.hidden = YES;
+//        }
+//        
+//        // 弹出table view
+//        if (_foodTrolleyTableViewController) {
+//            [_foodTrolleyTableViewController.foodArray removeAllObjects];
+//            for (FoodOrderViewSectionObject *sectionObject in _orderVC.sections) {
+//                for (FoodOrderViewBaseItem *baseItem in sectionObject.items) {
+//                    if (baseItem.orderCount > 0) {
+//                        [_foodTrolleyTableViewController.foodArray addObject:baseItem];
+//                    }
+//                }
+//            }
+//            
+//            CGFloat width = [UIScreen mainScreen].bounds.size.width;
+//            CGFloat height = 32.0 + 40.0 * _foodTrolleyTableViewController.foodArray.count + 20.0;
+//            CGFloat y = [UIScreen mainScreen].bounds.size.height - height - 50.0;
+//            _foodTrolleyTableViewController.view.frame = CGRectMake(0, y, width, height);
+//            
+//            [_foodTrolleyTableViewController.tableView reloadData];
+//            if (!_foodTrolleyTableViewController.view.hidden) {
+//                [_foodTrolleyTableViewController didMoveToParentViewController:self];
+//                
+//            } else {
+//                [_foodTrolleyTableViewController willMoveToParentViewController:nil];
+//                [_foodTrolleyTableViewController removeFromParentViewController];
+//            }
+//            _foodTrolleyTableViewController.view.hidden = !_foodTrolleyTableViewController.view.hidden;
+//        } else {
+//            _foodTrolleyTableViewController = [[FoodTrolleyTableViewController alloc] init];
+//            [self addChildViewController:_foodTrolleyTableViewController];
+//            [_foodTrolleyTableViewController didMoveToParentViewController:self];
+//            
+//            for (FoodOrderViewSectionObject *sectionObject in _orderVC.sections) {
+//                for (FoodOrderViewBaseItem *baseItem in sectionObject.items) {
+//                    if (baseItem.orderCount > 0) {
+//                        [_foodTrolleyTableViewController.foodArray addObject:baseItem];
+//                    }
+//                }
+//            }
+//            
+//            CGFloat width = [UIScreen mainScreen].bounds.size.width;
+//            CGFloat height = 32.0 + 40.0 * _foodTrolleyTableViewController.foodArray.count + 25.0;
+//            CGFloat y = [UIScreen mainScreen].bounds.size.height - height - 50.0;
+//            _foodTrolleyTableViewController.view.frame = CGRectMake(0, y, width, height);
+//            [self.view insertSubview:_foodTrolleyTableViewController.view belowSubview:self.trollyButton];
+//        }
+//    }
 }
 
 - (IBAction)shadowViewTouched:(id)sender {
@@ -259,7 +360,64 @@
     }
 }
 
+- (void)trolleyMinusButtonClicked:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    FoodTrolleyTableViewCell *cell = (FoodTrolleyTableViewCell *)[[button superview] superview];
+    if (cell) {
+        if  (cell.food.orderCount > 0) {
+            cell.food.orderCount -= 1;
+            cell.foodCount.text = [NSString stringWithFormat:@"%li",(long)([cell.foodCount.text integerValue] - 1)];
+            CGFloat unitPrice = cell.food.unitPrice;
+            CGFloat totalPrice = cell.food.orderCount * unitPrice;
+            cell.foodTotalPrice.text = [NSString stringWithFormat:@"￥%.2f",totalPrice];
+            
+            self.totalPrice -= unitPrice;
+            self.trollyButtonBadgeCount -= 1;
+            [self.orderVC.dataTableView reloadData];
+        }
+        if (cell.food.orderCount == 0) {
+            NSIndexPath *indexPath = [self.trolleyTableView indexPathForCell:cell];
+            [self deleteCellAtIndexPath:indexPath];
+        }
+    }
+}
+
+- (void)trolleyAddButtonClicked:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    FoodTrolleyTableViewCell *cell = (FoodTrolleyTableViewCell *)[[button superview] superview];
+    if (cell) {
+        if (cell.foodCount >= 0) {
+            cell.minusButton.enabled = YES;
+        }
+        
+        cell.food.orderCount += 1;
+        cell.foodCount.text = [NSString stringWithFormat:@"%li",(long)([cell.foodCount.text integerValue] + 1)];
+        CGFloat unitPrice = cell.food.unitPrice;
+        CGFloat totalPrice = cell.food.orderCount * unitPrice;
+        cell.foodTotalPrice.text = [NSString stringWithFormat:@"￥%.2f",totalPrice];
+        
+        self.totalPrice += unitPrice;
+        self.trollyButtonBadgeCount += 1;
+        [self.orderVC.dataTableView reloadData];
+        
+        
+    }
+}
+
 #pragma mark - private methods
+
+- (void)deleteCellAtIndexPath:(NSIndexPath *)indexPath {
+    [self.trolleyFoodArray removeObjectAtIndex:indexPath.row];
+    if (self.trolleyFoodArray.count != 0) {
+        [self.trolleyTableView reloadData];
+        [self resizeTrolly];
+    } else {
+        self.trollyButtonBadgeCount = 0;
+        self.totalPrice = 0.0;
+        [[self.orderVC dataTableView] reloadData];
+        [self deleteTrolly];
+    }
+}
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
@@ -305,14 +463,14 @@
 #pragma mark - public methods
 - (void)deleteTrolly {
     self.shadowView.hidden = YES;
-    self.foodTrolleyTableViewController.view.hidden = YES;
+    self.trolleyTableView.hidden = YES;
 }
 
 - (void)resizeTrolly {
-    CGFloat y = _foodTrolleyTableViewController.view.frame.origin.y + 40.0;
+    CGFloat y = self.trolleyTableView.frame.origin.y + 40.0;
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    CGFloat height = _foodTrolleyTableViewController.view.frame.size.height - 40.0;
-    _foodTrolleyTableViewController.view.frame = CGRectMake(0, y, width, height);
+    CGFloat height = self.trolleyTableView.frame.size.height - 40.0;
+    self.trolleyTableView.frame = CGRectMake(0, y, width, height);
 }
 
 #pragma mark - getters and setters
@@ -354,6 +512,39 @@
     [attributedPrice addAttribute:NSForegroundColorAttributeName value:GMBrownColor range:NSMakeRange(0, 1)];
     [attributedPrice addAttribute:NSForegroundColorAttributeName value:GMBrownColor range:NSMakeRange(price.length - 1, 1)];
     self.totalPriceText.attributedText = attributedPrice;
+}
+
+- (UITableView *)trolleyTableView {
+    if (!_trolleyTableView) {
+        _trolleyTableView = [[UITableView alloc] init];
+        [self.view addSubview:_trolleyTableView];
+        _trolleyTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _trolleyTableView.scrollEnabled = NO;
+        _trolleyTableView.delegate = self;
+        _trolleyTableView.dataSource = self;
+    }
+    return _trolleyTableView;
+}
+
+- (FoodTrolleyTableViewController *)foodTrolleyTableViewController {
+    if (!_foodTrolleyTableViewController) {
+        _foodTrolleyTableViewController = [[FoodTrolleyTableViewController alloc] init];
+        for (FoodOrderViewSectionObject *sectionObject in _orderVC.sections) {
+            for (FoodOrderViewBaseItem *baseItem in sectionObject.items) {
+                if (baseItem.orderCount > 0) {
+                    [_foodTrolleyTableViewController.foodArray addObject:baseItem];
+                }
+            }
+        }
+    }
+    return _foodTrolleyTableViewController;
+}
+
+- (NSMutableArray *)trolleyFoodArray {
+    if (!_trolleyFoodArray) {
+        _trolleyFoodArray = [[NSMutableArray alloc] init];
+    }
+    return _trolleyFoodArray;
 }
 
 @end
