@@ -16,4 +16,6 @@
 
 - (instancetype)initWithRestaurantIdentifier:(NSString *)identifier;
 
+- (void)clearOrderFood;
+
 @end

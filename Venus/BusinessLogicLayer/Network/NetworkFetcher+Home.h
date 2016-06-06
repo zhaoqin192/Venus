@@ -47,4 +47,24 @@
 + (void)homeFetcherHeadlineArrayWithSuccess:(NetworkFetcherSuccessHandler)success
                                     failure:(NetworkFetcherErrorHandler)failure;
 
+/**
+ *  获取今日头条详情
+ *
+ *  @param identifier
+ *  @param success
+ *  @param failure
+ */
++ (void)homeFetcherHeadlineDetailWithID:(NSNumber *)identifier
+                                success:(NetworkFetcherSuccessHandler)success
+                                failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  获取精品推荐数据
+ *
+ *  @param success
+ *  @param failure
+ */
++ (void)homeFetcherBoutiqueWithSuccess:(NetworkFetcherSuccessHandler)success
+                               failure:(NetworkFetcherErrorHandler)failure;
+
 @end

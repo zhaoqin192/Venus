@@ -28,6 +28,7 @@
 @property (nonatomic, assign) NSInteger kindCurrentPage;
 @property (nonatomic, assign) NSInteger kindTotalPage;
 @property (nonatomic, strong) NSMutableArray *kindArray;
+@property (nonatomic, copy) NSString *detailURL;
 
 - (void)fetchCommentWithStoreID:(NSNumber *)storeID
                            page:(NSInteger)page;

@@ -11,6 +11,9 @@
 #import "HeadlineModel.h"
 #import <UITableView+FDTemplateLayoutCell.h>
 #import "WebViewController.h"
+#import "HeadlineModel.h"
+#import "NetworkFetcher+Home.h"
+
 
 @interface HomeNewsViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,6 +32,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)configureTableView {
@@ -57,10 +61,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
  
-    WebViewController *webVC = [[WebViewController alloc] init];
-    webVC.url = @"http://www.baidu.com";
-    webVC.title = @"今日头条";
-    [self.navigationController pushViewController:webVC animated:YES];
+    HeadlineModel *model = self.headlineArray[indexPath.row];
+    [self fetchURLWithID:[NSNumber numberWithString:model.identifier]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -69,6 +71,21 @@
     cell.titleLabel.text = model.title;
     [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"loginLogo"]];
     cell.abstractLabel.text = model.abstract;
+}
+
+- (void)fetchURLWithID:(NSNumber *)identifier {
+    
+    [NetworkFetcher homeFetcherHeadlineDetailWithID:identifier success:^(NSDictionary *response) {
+        if ([response[@"errCode"] isEqualToNumber:@0]) {
+            WebViewController *webVC = [[WebViewController alloc] init];
+            webVC.url = response[@"msg"];
+            webVC.title = @"今日头条";
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+    } failure:^(NSString *error) {
+        
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {

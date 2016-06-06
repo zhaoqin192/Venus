@@ -48,7 +48,7 @@
     self.refundVC = [[CouponRefundViewController alloc] init];
     [self addChildViewController:self.refundVC];
     
-    self.useVC.view.frame = CGRectMake(0, 64+45, kScreenWidth, kScreenHeight-64-45);
+    self.useVC.view.frame = CGRectMake(0, 45, kScreenWidth, kScreenHeight-45);
     [self.view addSubview:self.useVC.view];
     
     self.selectButton = self.useButton;
@@ -80,7 +80,7 @@
         [self.selectButton setTitleColor:[UIColor colorWithHexString:@"AAAAAA"] forState:UIControlStateNormal];
         [self.useButton setTitleColor:[UIColor colorWithHexString:@"A6873B"] forState:UIControlStateNormal];
         self.selectButton = self.useButton;
-        self.useVC.view.frame = CGRectMake(0, 64+45, kScreenWidth, kScreenHeight-64-45);
+        self.useVC.view.frame = CGRectMake(0, 45, kScreenWidth, kScreenHeight-45);
         [self.view addSubview:self.useVC.view];
     }];
     
@@ -93,7 +93,7 @@
         [self.selectButton setTitleColor:[UIColor colorWithHexString:@"AAAAAA"] forState:UIControlStateNormal];
         [self.payButton setTitleColor:[UIColor colorWithHexString:@"A6873B"] forState:UIControlStateNormal];
         self.selectButton = self.payButton;
-        self.payVC.view.frame = CGRectMake(0, 64+45, kScreenWidth, kScreenHeight-64-45);
+        self.payVC.view.frame = CGRectMake(0, 45, kScreenWidth, kScreenHeight-45);
         [self.view addSubview:self.payVC.view];
 
     }];
@@ -108,7 +108,7 @@
         [self.selectButton setTitleColor:[UIColor colorWithHexString:@"AAAAAA"] forState:UIControlStateNormal];
         [self.commentButton setTitleColor:[UIColor colorWithHexString:@"A6873B"] forState:UIControlStateNormal];
         self.selectButton = self.commentButton;
-        self.commentVC.view.frame = CGRectMake(0, 64+45, kScreenWidth, kScreenHeight-64-45);
+        self.commentVC.view.frame = CGRectMake(0, 45, kScreenWidth, kScreenHeight-45);
         [self.view addSubview:self.commentVC.view];
         
     }];
@@ -123,7 +123,7 @@
         [self.selectButton setTitleColor:[UIColor colorWithHexString:@"AAAAAA"] forState:UIControlStateNormal];
         [self.refundButton setTitleColor:[UIColor colorWithHexString:@"A6873B"] forState:UIControlStateNormal];
         self.selectButton = self.refundButton;
-        self.refundVC.view.frame = CGRectMake(0, 64+45, kScreenWidth, kScreenHeight-64-45);
+        self.refundVC.view.frame = CGRectMake(0, 45, kScreenWidth, kScreenHeight-45);
         [self.view addSubview:self.refundVC.view];
         
     }];

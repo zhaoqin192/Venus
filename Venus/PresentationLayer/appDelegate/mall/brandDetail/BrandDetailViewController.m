@@ -20,15 +20,25 @@
 #import "KindDetailViewController.h"
 #import "MerchandiseModel.h"
 #import "BrandCommentView.h"
+#import "BrandDetailCell.h"
 
+
+typedef NS_ENUM(NSInteger, BrandState) {
+    //三种tab选择状态
+    BrandDetail,
+    BrandKind,
+    BrandComment,
+};
 
 @interface BrandDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSNumber *selectTab;
+@property (nonatomic, assign) BrandState selectTab;
 @property (nonatomic, strong) BrandDetailViewModel *viewModel;
 @property (nonatomic, assign) BOOL commentActive;
 @property (nonatomic, assign) BOOL kindActive;
 @property (nonatomic, strong) BrandCommentView *commentView;
+@property (nonatomic, strong) NSNumber *webViewHeight;
+@property (nonatomic, assign) BOOL webViewActive;
 @end
 
 @implementation BrandDetailViewController
@@ -42,13 +52,15 @@
     
     [self configureTableView];
     
-    self.selectTab = @0;
+    self.selectTab = BrandDetail;
     
     [self bindViewModel];
     
     [self.viewModel fetchDetailWithStoreID:self.storeID];
     
     [self configureCommentView];
+    
+    self.webViewHeight = @88;
     
 }
 
@@ -84,7 +96,7 @@
     
     [self.viewModel.detailSuccessObject subscribeNext:^(id x) {
         @strongify(self)
-        [self.tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadData];
     }];
     
     [self.viewModel.detailFailureObject subscribeNext:^(id x) {
@@ -108,19 +120,20 @@
         [hud hide:YES afterDelay:1.5f];
     }];
     
-    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showBrandDetail" object:nil]
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadCellDetail object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
         @strongify(self)
-        self.selectTab = @0;
+        self.selectTab = BrandDetail;
+        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
         [self.commentView removeFromSuperview];
     }];
     
-    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showBrandKind" object:nil]
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadCellKind object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
         @strongify(self)
-        self.selectTab = @1;
+        self.selectTab = BrandKind;
         if (!self.kindActive) {
             [self.viewModel fetchAllKindsWithStoreID:self.storeID page:self.viewModel.kindCurrentPage];
             self.kindActive = YES;
@@ -131,11 +144,11 @@
         [self.commentView removeFromSuperview];
     }];
     
-    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showBrandComment" object:nil]
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadCellComment object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
         @strongify(self)
-        self.selectTab = @2;
+        self.selectTab = BrandComment;
         if (!self.commentActive) {
             [self.viewModel fetchCommentWithStoreID:self.storeID page:self.viewModel.commentCurrentPage];
             self.commentActive = YES;
@@ -157,6 +170,18 @@
         kindDetailVC.merchandiseModel = model;
         [self.navigationController pushViewController:kindDetailVC animated:YES];
     }];
+    
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailWebViewHeight object:nil]
+      takeUntil:[self rac_willDeallocSignal]]
+     subscribeNext:^(NSNotification *notification) {
+         @strongify(self)
+         NSDictionary *userInfo = notification.userInfo;
+         self.webViewHeight = userInfo[@"height"];
+         if (!self.webViewActive) {
+             [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
+             self.webViewActive = YES;
+         }
+     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -199,19 +224,18 @@
         return 1;
     }
     else {
-        if ([self.selectTab isEqualToNumber:@2]) {
-            return self.viewModel.commentArray.count;
-        }
-        else if ([self.selectTab isEqualToNumber:@1]){
-            if (self.viewModel.kindArray.count % 2 == 0) {
-                return self.viewModel.kindArray.count / 2;
-            }
-            else {
-                return self.viewModel.kindArray.count / 2 + 1;
-            }
-        }
-        else {
-            return 0;
+        switch (self.selectTab) {
+            case BrandDetail:
+                return 1;
+            case BrandKind:
+                if (self.viewModel.kindArray.count % 2 == 0) {
+                    return self.viewModel.kindArray.count / 2;
+                }
+                else {
+                    return self.viewModel.kindArray.count / 2 + 1;
+                }
+            case BrandComment:
+                return self.viewModel.commentArray.count;
         }
     }
 }
@@ -224,24 +248,29 @@
         return cell;
     }
     else {
-        if ([self.selectTab isEqualToNumber:@2]) {
-            BrandDetailCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:[BrandDetailCommentCell className]];
-            [self configureCommentCell:cell atIndexPath:indexPath];
-            return cell;
-        }
-        else if ([self.selectTab isEqualToNumber:@1]){
-            BrandKindTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[BrandKindTableViewCell className]];
-            
-            if (indexPath.row * 2 + 1 < self.viewModel.kindArray.count) {
-                [cell insertLeftModel:[self.viewModel.kindArray objectAtIndex:indexPath.row * 2] rightModel:[self.viewModel.kindArray objectAtIndex:indexPath.row * 2 + 1]];
+        switch (self.selectTab) {
+            case BrandDetail:{
+                BrandDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:BrandDetailCellIdentifier];
+                if (self.viewModel.detailURL) {
+                    [cell loadURL:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.viewModel.detailURL]];
+                }
+                return cell;
             }
-            else {
-                [cell insertLeftModel:[self.viewModel.kindArray objectAtIndex:indexPath.row * 2]];
+            case BrandKind: {
+                BrandKindTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[BrandKindTableViewCell className]];
+                if (indexPath.row * 2 + 1 < self.viewModel.kindArray.count) {
+                    [cell insertLeftModel:[self.viewModel.kindArray objectAtIndex:indexPath.row * 2] rightModel:[self.viewModel.kindArray objectAtIndex:indexPath.row * 2 + 1]];
+                }
+                else {
+                    [cell insertLeftModel:[self.viewModel.kindArray objectAtIndex:indexPath.row * 2]];
+                }
+                return cell;
             }
-            return cell;
-        }
-        else {
-            return nil;
+            case BrandComment: {
+                BrandDetailCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:[BrandDetailCommentCell className]];
+                [self configureCommentCell:cell atIndexPath:indexPath];
+                return cell;
+            }
         }
     }
 }
@@ -260,17 +289,17 @@
         }];
     }
     else {
-        if ([self.selectTab isEqualToNumber:@2]) {
-            return [tableView fd_heightForCellWithIdentifier:[BrandDetailCommentCell className] configuration:^(BrandDetailCommentCell *cell) {
-                [self configureCommentCell:cell atIndexPath:indexPath];
-            }];
+        switch (self.selectTab) {
+            case BrandDetail:
+                return [self.webViewHeight floatValue];
+            case BrandKind:
+                return 270;
+            case BrandComment:
+                return [tableView fd_heightForCellWithIdentifier:[BrandDetailCommentCell className] configuration:^(BrandDetailCommentCell *cell) {
+                    [self configureCommentCell:cell atIndexPath:indexPath];
+                }];
         }
-        else if ([self.selectTab isEqualToNumber:@1]) {
-            return 270;
-        }
-        else {
-            return 0;
-        }
+        
     }
 }
 
@@ -282,15 +311,16 @@
         BrandDetailSectionHeadCell *cell = [tableView dequeueReusableCellWithIdentifier:[BrandDetailSectionHeadCell className]];
         UIView *sectionHeadView = [[UIView alloc] initWithFrame:[cell frame]];
         [sectionHeadView addSubview:cell];
-        
-        if ([self.selectTab isEqualToNumber:@0]) {
-            [cell detailSelected];
-        }
-        else if ([self.selectTab isEqualToNumber:@1]) {
-            [cell kindSelected];
-        }
-        else {
-            [cell commentSelected];
+        switch (self.selectTab) {
+            case BrandDetail:
+                [cell detailSelected];
+                break;
+            case BrandKind:
+                [cell kindSelected];
+                break;
+            case BrandComment:
+                [cell commentSelected];
+                break;
         }
         return sectionHeadView;
     }

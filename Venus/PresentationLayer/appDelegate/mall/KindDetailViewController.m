@@ -99,7 +99,9 @@
     }
     else {
         KindDetailMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:[KindDetailMessageCell className]];
-        [cell loadURL:@"http://www.baidu.com"];
+        if (self.viewModel.detailURL) {
+            [cell loadURL:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.viewModel.detailURL]];
+        }
         return cell;
     }
 }

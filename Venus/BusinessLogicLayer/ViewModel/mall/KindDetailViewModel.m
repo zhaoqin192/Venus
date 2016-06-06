@@ -32,6 +32,7 @@
             self.marketPrice = item[@"price"];
             self.price = item[@"discount"];
             self.itemName = item[@"item_name"];
+            self.detailURL = item[@"app"];
             [self.detailSuccessObject sendNext:nil];
         }
     } failure:^(NSString *error) {

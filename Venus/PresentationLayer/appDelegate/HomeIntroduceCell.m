@@ -29,7 +29,7 @@
     if (list.count == 0) {
         return;
     }
-    CGFloat width = 120;
+    CGFloat width = 140;
     CGFloat height = 90;
     CGFloat margin = 5;
     for (int i = 0; i<list.count; i++) {

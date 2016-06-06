@@ -33,6 +33,8 @@
     self.currentTitle = @"团购券";
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([MeCommitCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([MeCommitCell class])];
     [self loadCouponCommit];
+    
+    [self configureTable];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -49,6 +51,11 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [SVProgressHUD dismiss];
+}
+
+- (void)configureTable {
+    [self.myTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    self.myTableView.separatorColor = [UIColor colorWithRed:236.0f/255.0f green:236.0f/255.0f blue:236.0f/255.0f alpha:1];
 }
 
 - (void)configureSegmentView {

@@ -20,6 +20,8 @@
 //从分类跳转到详情页面需要的餐厅id
 @property (nonatomic, strong) NSNumber *restaurantID;
 
+@property (strong, nonatomic) NSMutableArray *trolleyFoodArray;
+
 - (void)deleteTrolly;
 - (void)resizeTrolly;
 

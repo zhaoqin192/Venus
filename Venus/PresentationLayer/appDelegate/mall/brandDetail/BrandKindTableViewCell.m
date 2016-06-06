@@ -50,6 +50,9 @@
 }
 
 - (void)insertLeftModel:(MerchandiseModel *)leftModel rightModel:(MerchandiseModel *)rightModel {
+    
+    self.rightView.hidden = NO;
+    
     [self.leftImage sd_setImageWithURL:[NSURL URLWithString:leftModel.pictureURL] placeholderImage:[UIImage imageNamed:@"default"]];
     self.leftTitleLabel.text = leftModel.name;
     self.leftPriceLabel.text = [NSString stringWithFormat:@"￥%@", leftModel.price];

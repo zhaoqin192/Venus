@@ -161,19 +161,25 @@
     [[self.commitButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
         @strongify(self)
-        if (self.viewModel.commentString.length > 10) {
+        
+        if (self.viewModel.commentString.length < 1) {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"至少得评价哦~！";
+            [hud hide:YES afterDelay:1.5f];
+        }
+        else if (self.viewModel.commentString.length > 1 && self.viewModel.commentString.length < 120) {
             [self.viewModel sendCommentWithOrderID:self.orderModel.orderID couponID:self.orderModel.couponID storeID:self.orderModel.storeID];
             
             self.sendingHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             self.sendingHUD.mode = MBProgressHUDModeIndeterminate;
             self.sendingHUD.labelText = @"正在发送";
             [self.sendingHUD show:YES];
-            
         }
         else {
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             hud.mode = MBProgressHUDModeText;
-            hud.labelText = @"至少评价10个字哦~！";
+            hud.labelText = @"评价不能超过120字~！";
             [hud hide:YES afterDelay:1.5f];
         }
     }];

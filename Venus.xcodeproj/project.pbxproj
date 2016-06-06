@@ -256,6 +256,7 @@
 		AC4D740C1CF29B3800DF4997 /* MerchandiseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D740B1CF29B3800DF4997 /* MerchandiseCollectionViewCell.m */; };
 		AC4D74151CF2DE8100DF4997 /* KindDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D74141CF2DE8100DF4997 /* KindDetailViewController.m */; };
 		AC4D741A1CF2F97800DF4997 /* PersonalCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D74191CF2F97800DF4997 /* PersonalCouponViewController.m */; };
+		AC513A2F1D05188400531EB0 /* BrandDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC513A2E1D05188400531EB0 /* BrandDetailCell.m */; };
 		AC545FA21CEDAE7400133F25 /* CommitOrderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545FA11CEDAE7400133F25 /* CommitOrderViewModel.m */; };
 		AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */; };
 		AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48C81CCA48CA00724914 /* read_me.txt */; };
@@ -870,6 +871,8 @@
 		AC4D74141CF2DE8100DF4997 /* KindDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KindDetailViewController.m; sourceTree = "<group>"; };
 		AC4D74181CF2F97800DF4997 /* PersonalCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCouponViewController.h; sourceTree = "<group>"; };
 		AC4D74191CF2F97800DF4997 /* PersonalCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCouponViewController.m; sourceTree = "<group>"; };
+		AC513A2D1D05188400531EB0 /* BrandDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandDetailCell.h; sourceTree = "<group>"; };
+		AC513A2E1D05188400531EB0 /* BrandDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandDetailCell.m; sourceTree = "<group>"; };
 		AC545FA01CEDAE7400133F25 /* CommitOrderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitOrderViewModel.h; sourceTree = "<group>"; };
 		AC545FA11CEDAE7400133F25 /* CommitOrderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitOrderViewModel.m; sourceTree = "<group>"; };
 		AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
@@ -2404,6 +2407,8 @@
 				AC5E17801D03D8E4002E1523 /* BrandCommentView.h */,
 				AC5E17811D03D8E4002E1523 /* BrandCommentView.m */,
 				AC5E17851D03D914002E1523 /* BrandCommentView.xib */,
+				AC513A2D1D05188400531EB0 /* BrandDetailCell.h */,
+				AC513A2E1D05188400531EB0 /* BrandDetailCell.m */,
 			);
 			path = brandDetail;
 			sourceTree = "<group>";
@@ -3540,6 +3545,7 @@
 				ACFF32B51CF87106008BD0D8 /* RefundViewController.m in Sources */,
 				AC4D73E81CF1929E00DF4997 /* KindCollectionViewCell.m in Sources */,
 				ACFF32871CF86F8B008BD0D8 /* NSDataEx.m in Sources */,
+				AC513A2F1D05188400531EB0 /* BrandDetailCell.m in Sources */,
 				30FD1FB31CE2D432003C91A5 /* WXLifeViewController.m in Sources */,
 				AC6FF1A01D01190700B04388 /* BrandDetailSectionHeadCell.m in Sources */,
 				30FEE6E31CF80AE3007E7A8B /* GMMeCommitViewController.m in Sources */,

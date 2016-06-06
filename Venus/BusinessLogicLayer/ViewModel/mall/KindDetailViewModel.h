@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSNumber *marketPrice;
 @property (nonatomic, strong) NSNumber *price;
 @property (nonatomic, strong) NSString *itemName;
+@property (nonatomic, copy) NSString *detailURL;
 
 - (void)fetchDetailWithID:(NSNumber *)identifier;
 
