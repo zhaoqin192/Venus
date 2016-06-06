@@ -14,6 +14,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FoodOrderViewSectionObject.h"
 #import "FoodOrderViewBaseItem.h"
+#import "MBProgressHUD.h"
+#import "PresentationUtility.h"
 
 #import "FoodManager.h"
 #import "ResFoodClass.h"
@@ -42,10 +44,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.removeFromSuperViewOnHide = YES;
     if (_restaurantIdentifier) {
         [NetworkFetcher foodFetcherRestaurantListWithID:_restaurantIdentifier sort:@"2" success:^{
+            hud.hidden = YES;
             [self configureSections];
         } failure:^(NSString *error) {
+            hud.hidden = YES;
+            [PresentationUtility showTextDialog:self.view text:@"加载店铺信息失败" success:nil];
             NSLog(@"获取食物信息失败,错误是：%@",error);
         }];
     }
@@ -170,7 +177,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == _categoryTableView) {
-        [self.dataTableView scrollToRow:0 inSection:indexPath.row atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        [self.dataTableView scrollToRow:0 inSection:indexPath.row atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }
 }
 

@@ -58,7 +58,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     Comment *comment = _commentArray[indexPath.row];
     FoodCommitCell *cell = [FoodCommitCell cellWithTableView:tableView];
-    NSLog(@"cell的宽度是：%f",cell.contentView.frame.size.width);
     [cell.avatar sd_setImageWithURL:[NSURL URLWithString:comment.avatar]];
     cell.nickName.text = comment.nickName;
     cell.content.text = comment.content;
