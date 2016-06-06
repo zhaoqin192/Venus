@@ -213,6 +213,7 @@
             // 改变parentController
             __weak FoodDetailViewController *foodDetailViewController = (FoodDetailViewController *)self.parentViewController;
             if (foodDetailViewController) {
+                
                 foodDetailViewController.totalPrice = foodDetailViewController.totalPrice - baseItem.unitPrice;
                 if (foodDetailViewController.trollyButtonBadgeCount != 0) {
                     foodDetailViewController.trollyButtonBadgeCount = foodDetailViewController.trollyButtonBadgeCount - 1;
@@ -246,6 +247,15 @@
 
 #pragma mark - private methods
 
+#pragma mark - public methods
+
+- (void)clearOrderFood {
+    for (FoodOrderViewSectionObject *sectionObject in self.sections) {
+        for (FoodOrderViewBaseItem *baseItem in sectionObject.items) {
+            baseItem.orderCount = 0;
+        }
+    }
+}
 
 #pragma mark - getters and setters
 
