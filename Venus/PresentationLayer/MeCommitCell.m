@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIView *scoreView;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
+@property (weak, nonatomic) IBOutlet UIView *replyView;
+@property (weak, nonatomic) IBOutlet UILabel *replyLabel;
 
 @end
 
@@ -27,6 +30,7 @@
     [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.myDetailLabel.hidden = NO;
+    self.replyView.hidden = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
