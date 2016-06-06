@@ -10,6 +10,7 @@
 #import "MapHeadView.h"
 #import "WXMapShopView.h"
 #import "WXMapShopModel.h"
+#import "BeautifulDetailViewController.h"
 
 @interface IndoorSwitchDemo ()<BMKMapViewDelegate> {
     BMKMapView * _mapView;
@@ -100,6 +101,14 @@ BMKUserLocation* userLoc;
     self.shopView.frame = CGRectMake(18, 84, [UIScreen mainScreen].bounds.size.width - 36, 180);
     [self.view addSubview:self.shopView];
     self.shopView.hidden = YES;
+    __weak typeof(self)weakSelf = self;
+    self.shopView.goButtonClicked = ^{
+        if (self.shopView.model.type == 2) {
+            BeautifulDetailViewController *vc = [[BeautifulDetailViewController alloc] init];
+            vc.shopId = weakSelf.shopView.model.identify;
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }
+    };
 }
 
 - (void)configureTitleView {

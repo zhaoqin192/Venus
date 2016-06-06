@@ -10,5 +10,6 @@
 @class WXMapShopModel;
 @interface WXMapShopView : UIView
 @property (nonatomic, strong) WXMapShopModel *model;
+@property (nonatomic, copy) void(^goButtonClicked)();
 + (instancetype)shopView;
 @end
