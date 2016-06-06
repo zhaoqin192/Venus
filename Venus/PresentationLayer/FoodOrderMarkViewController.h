@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol FoodOrderMarkViewControllerDelegate <NSObject>
-
+@required
 - (void)didGetRemark:(NSString *)remark;
 
 @end
@@ -17,5 +17,6 @@
 @interface FoodOrderMarkViewController : UIViewController
 
 @property (weak, nonatomic) id<FoodOrderMarkViewControllerDelegate> delegate;
+@property (copy, nonatomic) NSString *markContent;
 
 @end

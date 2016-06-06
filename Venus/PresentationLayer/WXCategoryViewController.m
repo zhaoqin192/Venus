@@ -43,6 +43,11 @@ static NSString *footerID = @"footerID";
     [self.navigationController setNavigationBarHidden:NO];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [SVProgressHUD dismiss];
+}
+
 - (void)configureCollectionView {
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumInteritemSpacing = 0;

@@ -23,6 +23,12 @@
     self.goButton.layer.borderWidth = 1;
     self.goButton.layer.borderColor = GMBrownColor.CGColor;
     self.lineView.backgroundColor = GMBgColor;
+    
+    [self.goButton bk_whenTapped:^{
+        if (self.goButtonClicked) {
+            self.goButtonClicked();
+        }
+    }];
 }
 
 + (instancetype)shopView {

@@ -66,6 +66,11 @@
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [SVProgressHUD dismiss];
+}
+
 - (void)configureRefresh {
     SDRefreshHeaderView *refreshHeader = [SDRefreshHeaderView refreshView];
     [refreshHeader addToScrollView:self.myTableView];

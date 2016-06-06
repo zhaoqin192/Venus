@@ -422,6 +422,8 @@
 		E8DDDEDC1CF5E60B000F147B /* FoodAddressEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDDEDA1CF5E60B000F147B /* FoodAddressEditCell.m */; };
 		E8DDDEDD1CF5E60B000F147B /* FoodAddressEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8DDDEDB1CF5E60B000F147B /* FoodAddressEditCell.xib */; };
 		E8DDDEE01CF5F334000F147B /* FoodAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDDEDF1CF5F334000F147B /* FoodAddress.m */; };
+		E8DDF4C71D0474E6005170C0 /* FoodMarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDF4C51D0474E6005170C0 /* FoodMarkCell.m */; };
+		E8DDF4C81D0474E6005170C0 /* FoodMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8DDF4C61D0474E6005170C0 /* FoodMarkCell.xib */; };
 		E8F047B11CDF84070032EE91 /* GMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047B01CDF84070032EE91 /* GMNavigationController.m */; };
 		E8F047BB1CF9F03300E08A40 /* FoodOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047BA1CF9F03300E08A40 /* FoodOrder.m */; };
 		E8F047C01CFB2C6B00E08A40 /* TakeAwayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F047BF1CFB2C6B00E08A40 /* TakeAwayOrder.m */; };
@@ -1324,6 +1326,9 @@
 		E8DDDEDB1CF5E60B000F147B /* FoodAddressEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodAddressEditCell.xib; sourceTree = "<group>"; };
 		E8DDDEDE1CF5F334000F147B /* FoodAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodAddress.h; sourceTree = "<group>"; };
 		E8DDDEDF1CF5F334000F147B /* FoodAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddress.m; sourceTree = "<group>"; };
+		E8DDF4C41D0474E6005170C0 /* FoodMarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodMarkCell.h; sourceTree = "<group>"; };
+		E8DDF4C51D0474E6005170C0 /* FoodMarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodMarkCell.m; sourceTree = "<group>"; };
+		E8DDF4C61D0474E6005170C0 /* FoodMarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodMarkCell.xib; sourceTree = "<group>"; };
 		E8F047AF1CDF84070032EE91 /* GMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMNavigationController.h; sourceTree = "<group>"; };
 		E8F047B01CDF84070032EE91 /* GMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMNavigationController.m; sourceTree = "<group>"; };
 		E8F047B91CF9F03300E08A40 /* FoodOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodOrder.h; sourceTree = "<group>"; };
@@ -3032,6 +3037,9 @@
 				7F7025721CF59A9A009653A6 /* FoodOtherCell.h */,
 				7F7025731CF59A9A009653A6 /* FoodOtherCell.m */,
 				7F7025741CF59A9A009653A6 /* FoodOtherCell.xib */,
+				E8DDF4C41D0474E6005170C0 /* FoodMarkCell.h */,
+				E8DDF4C51D0474E6005170C0 /* FoodMarkCell.m */,
+				E8DDF4C61D0474E6005170C0 /* FoodMarkCell.xib */,
 				E8DDDED91CF5E60B000F147B /* FoodAddressEditCell.h */,
 				E8DDDEDA1CF5E60B000F147B /* FoodAddressEditCell.m */,
 				E8DDDEDB1CF5E60B000F147B /* FoodAddressEditCell.xib */,
@@ -3135,7 +3143,6 @@
 				TargetAttributes = {
 					ACF83EAA1CBF97F800A962BD = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 9SQ6G2A6XG;
 					};
 				};
 			};
@@ -3229,6 +3236,7 @@
 				30D6D28F1CC89C7100FB0CFC /* FoodCommitViewController.xib in Resources */,
 				3086D3BB1CC72A1E007494D7 /* GMRegisterViewController.xib in Resources */,
 				7F9370E41CFC08610063F544 /* GMMeTakeAwayDetailHeadCell.xib in Resources */,
+				E8DDF4C81D0474E6005170C0 /* FoodMarkCell.xib in Resources */,
 				E8DDDEDD1CF5E60B000F147B /* FoodAddressEditCell.xib in Resources */,
 				ACFF33861CF9871B008BD0D8 /* interface-builder.png in Resources */,
 				303519671CCF377A00EE0750 /* TicketDateCell.xib in Resources */,
@@ -3422,6 +3430,7 @@
 				3086D39A1CC72975007494D7 /* UILabel+LCConvenience.m in Sources */,
 				3035197C1CCF4CB900EE0750 /* ShopCommitCell.m in Sources */,
 				AC96F2F11CE9747E001B2DDE /* CouponCell.m in Sources */,
+				E8DDF4C71D0474E6005170C0 /* FoodMarkCell.m in Sources */,
 				3086D3B51CC72A09007494D7 /* GMLabel.m in Sources */,
 				30B509ED1CF2D27C00A2C30A /* ActionSheetCustomPicker.m in Sources */,
 				AC90F5711CCFAADF004C4C55 /* Picture.m in Sources */,

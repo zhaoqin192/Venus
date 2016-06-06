@@ -47,6 +47,8 @@ typedef NS_ENUM(NSInteger, BrandState) {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"品牌详情";
+    self.navigationController.navigationBar.translucent = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self configureTableView];
     

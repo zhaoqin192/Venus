@@ -46,6 +46,11 @@
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [SVProgressHUD dismiss];
+}
+
 - (void)configureSegmentView {
     _segementView = [[XFSegementView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
     _segementView.titleArray = @[@"团购券",@"外卖",@"商城"];
@@ -96,6 +101,7 @@
             commit.picUrl = value[@"coupon"][@"picUrl"];
             commit.des = value[@"coupon"][@"dsc"];
             commit.abstract = value[@"coupon"][@"abstract"];
+            commit.picUrls = value[@"comment"][@"picUrl"];
             [array addObject:commit];
         }
         self.couponCommitArray = [array copy];
@@ -179,6 +185,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([self.currentTitle isEqualToString:@"团购券"]) {
+        MeCouponCommit *commitModel = self.couponCommitArray[indexPath.row];
+        if (commitModel.picUrls.count > 0) {
+            return 150;
+        }
+    }
     return 100;
 }
 
