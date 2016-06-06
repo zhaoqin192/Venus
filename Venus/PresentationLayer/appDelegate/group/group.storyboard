@@ -265,7 +265,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="269"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="9E615E8B-B825-4FF5-BAD0-4C2A0F06BBA2" translatesAutoresizingMaskIntoConstraints="NO" id="7uK-9z-o2f">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E263E33D-8DAD-4392-A637-B0E0E1D764CB" translatesAutoresizingMaskIntoConstraints="NO" id="7uK-9z-o2f">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥6240" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4T9-sV-Rmr">
@@ -1101,7 +1101,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="9E615E8B-B825-4FF5-BAD0-4C2A0F06BBA2" width="130" height="130">
+        <image name="E263E33D-8DAD-4392-A637-B0E0E1D764CB" width="130" height="130">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

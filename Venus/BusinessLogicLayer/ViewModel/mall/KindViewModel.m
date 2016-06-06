@@ -43,7 +43,7 @@
             
             [MerchandiseModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
-                         @"identifier": @"brandID",
+                         @"identifier": @"id",
                          @"pictureURL": @"picUrl",
                          @"detailURL": @"url",
                          @"price": @"discount"
@@ -78,7 +78,7 @@
             
             [MerchandiseModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
-                         @"identifier": @"brandID",
+                         @"identifier": @"id",
                          @"pictureURL": @"picUrl",
                          @"detailURL": @"url",
                          @"price": @"discount"

@@ -82,8 +82,6 @@
         self.selectButton = self.useButton;
         self.useVC.view.frame = CGRectMake(0, 64+45, kScreenWidth, kScreenHeight-64-45);
         [self.view addSubview:self.useVC.view];
-        
-        
     }];
     
     [[self.payButton rac_signalForControlEvents:UIControlEventTouchUpInside]

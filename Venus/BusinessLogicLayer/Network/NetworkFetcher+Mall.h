@@ -51,4 +51,69 @@
                        success:(NetworkFetcherSuccessHandler)success
                        failure:(NetworkFetcherErrorHandler)failure;
 
+/**
+ *  获取商户评论列表
+ *
+ *  @param storeID
+ *  @param page
+ *  @param capacity
+ *  @param success
+ *  @param failure
+ */
++ (void)mallFetchCommentWithStoreID:(NSNumber *)storeID
+                               page:(NSNumber *)page
+                           capacity:(NSNumber *)capacity
+                            success:(NetworkFetcherSuccessHandler)success
+                            failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  获取品牌详情接口
+ *
+ *  @param storeID
+ *  @param success
+ *  @param failure
+ */
++ (void)mallFetchDetailWithStoreID:(NSNumber *)storeID
+                           success:(NetworkFetcherSuccessHandler)success
+                           failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  获取品牌所有商品的接口
+ *
+ *  @param storeID
+ *  @param page
+ *  @param capacity
+ *  @param success
+ *  @param failure
+ */
++ (void)mallFetchAllKindsWithStoreID:(NSNumber *)storeID
+                                page:(NSNumber *)page
+                            capacity:(NSNumber *)capacity
+                             success:(NetworkFetcherSuccessHandler)success
+                             failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  获取某个商品的详情
+ *
+ *  @param identifier
+ *  @param success
+ *  @param failure
+ */
++ (void)mallFetchKindDetailWithID:(NSNumber *)identifier
+                          success:(NetworkFetcherSuccessHandler)success
+                          failure:(NetworkFetcherErrorHandler)failure;
+
+/**
+ *  品牌评论
+ *
+ *  @param storeID
+ *  @param content
+ *  @param success
+ *  @param failure
+ */
++ (void)mallSendCommentWithStoreID:(NSNumber *)storeID
+                           content:(NSString *)content
+                           success:(NetworkFetcherSuccessHandler)success
+                           failure:(NetworkFetcherErrorHandler)failure;
+
 @end
