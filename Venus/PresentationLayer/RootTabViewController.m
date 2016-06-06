@@ -35,7 +35,6 @@
     GMNavigationController *meNVC = [[GMNavigationController alloc] initWithRootViewController:meVC];
     
     HomePageViewController *homeVC = [[UIStoryboard storyboardWithName:@"Home" bundle:nil] instantiateInitialViewController];
-
     GMNavigationController *homeNVC = [[GMNavigationController alloc] initWithRootViewController:homeVC];
     
     IndoorSwitchDemo *mapVC = [[IndoorSwitchDemo alloc] init];

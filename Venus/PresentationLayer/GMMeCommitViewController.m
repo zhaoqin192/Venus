@@ -33,6 +33,8 @@
     self.currentTitle = @"团购券";
     [self.myTableView registerNib:[UINib nibWithNibName:NSStringFromClass([MeCommitCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([MeCommitCell class])];
     [self loadCouponCommit];
+    
+    [self configureTable];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -44,6 +46,16 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.rdv_tabBarController setTabBarHidden:NO];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [SVProgressHUD dismiss];
+}
+
+- (void)configureTable {
+    [self.myTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
+    self.myTableView.separatorColor = [UIColor colorWithRed:236.0f/255.0f green:236.0f/255.0f blue:236.0f/255.0f alpha:1];
 }
 
 - (void)configureSegmentView {
@@ -96,6 +108,7 @@
             commit.picUrl = value[@"coupon"][@"picUrl"];
             commit.des = value[@"coupon"][@"dsc"];
             commit.abstract = value[@"coupon"][@"abstract"];
+            commit.picUrls = value[@"comment"][@"picUrl"];
             [array addObject:commit];
         }
         self.couponCommitArray = [array copy];
@@ -179,6 +192,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([self.currentTitle isEqualToString:@"团购券"]) {
+        MeCouponCommit *commitModel = self.couponCommitArray[indexPath.row];
+        if (commitModel.picUrls.count > 0) {
+            return 150;
+        }
+    }
     return 100;
 }
 

@@ -35,7 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"手机注册"]];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"手机注册"]];
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [self selectTextForTitle];
     [self configureUI];

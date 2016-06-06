@@ -24,7 +24,7 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    self.hotArray = [NSArray arrayWithObjects:@"特惠套餐", @"双人餐", @"女装", @"男装", @"火锅", nil];
+    self.hotArray = [NSArray arrayWithObjects:@"火锅", @"女装", @"男装", @"ochirly", nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

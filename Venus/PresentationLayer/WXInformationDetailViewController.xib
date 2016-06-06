@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNO-rb-y2v">
-                    <rect key="frame" x="0.0" y="65" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="pdK-Ar-M9a">
                             <rect key="frame" x="15" y="10" width="300" height="30"/>
@@ -49,7 +49,7 @@
             <constraints>
                 <constraint firstItem="CNO-rb-y2v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Y8E-yT-POK"/>
                 <constraint firstAttribute="trailing" secondItem="CNO-rb-y2v" secondAttribute="trailing" id="Zaj-ea-6BS"/>
-                <constraint firstItem="CNO-rb-y2v" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="k4F-5w-nKm"/>
+                <constraint firstItem="CNO-rb-y2v" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="k4F-5w-nKm"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="228.5" y="409.5"/>

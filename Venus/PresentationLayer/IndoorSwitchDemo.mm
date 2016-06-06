@@ -10,6 +10,8 @@
 #import "MapHeadView.h"
 #import "WXMapShopView.h"
 #import "WXMapShopModel.h"
+#import "BeautifulDetailViewController.h"
+#import "BrandDetailViewController.h"
 
 @interface IndoorSwitchDemo ()<BMKMapViewDelegate> {
     BMKMapView * _mapView;
@@ -26,6 +28,7 @@
 @property (nonatomic, copy) NSArray *discountPointArray;
 @property (nonatomic, copy) NSString *selectType;
 @property (nonatomic, strong) WXMapShopView *shopView;
+@property (nonatomic, strong) MapHeadView *headView;
 @end
 
 @implementation IndoorSwitchDemo
@@ -35,6 +38,8 @@ BMKUserLocation* userLoc;
 {
     [super viewDidLoad];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationController.navigationBar.translucent = NO;
     //适配ios7
     if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0))
     {
@@ -85,6 +90,7 @@ BMKUserLocation* userLoc;
     _mapView.delegate = self;
     _locService.delegate = self;
     [self.navigationController setNavigationBarHidden:YES];
+    [self.rdv_tabBarController setTabBarHidden:NO animated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -97,22 +103,36 @@ BMKUserLocation* userLoc;
 
 - (void)configureShopView {
     self.shopView = [WXMapShopView shopView];
-    self.shopView.frame = CGRectMake(18, 84, [UIScreen mainScreen].bounds.size.width - 36, 180);
+    self.shopView.frame = CGRectMake(18, CGRectGetMaxY(self.headView.frame), [UIScreen mainScreen].bounds.size.width - 36, 180);
     [self.view addSubview:self.shopView];
     self.shopView.hidden = YES;
+    __weak typeof(self)weakSelf = self;
+    self.shopView.goButtonClicked = ^{
+        if (self.shopView.model.type == 2) {
+            BeautifulDetailViewController *vc = [[BeautifulDetailViewController alloc] init];
+            vc.shopId = weakSelf.shopView.model.identify;
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }
+        else {
+            UIStoryboard *kind = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
+            BrandDetailViewController *vc = (BrandDetailViewController *)[kind instantiateViewControllerWithIdentifier:[BrandDetailViewController className]];
+            vc.storeID = @(weakSelf.shopView.model.identify);
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }
+    };
 }
 
 - (void)configureTitleView {
-    MapHeadView *headView = [MapHeadView headView];
-    headView.frame = CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 64);
-    [self.view addSubview:headView];
-    
-    headView.newsLabelTapped = ^{
-        if ([self.selectType isEqualToString:@"新品打折"]) {
+    self.headView = [MapHeadView headView];
+    self.headView.frame = CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 64);
+    [self.view addSubview:self.headView];
+    __weak typeof(self)weakSelf = self;
+    self.headView.newsLabelTapped = ^{
+        if ([weakSelf.selectType isEqualToString:@"新品打折"]) {
             return ;
         }
-        self.selectType = @"新品打折";
-        [_mapView removeAnnotations:self.discountPointArray];
+        weakSelf.selectType = @"新品打折";
+        [_mapView removeAnnotations:weakSelf.discountPointArray];
         NSMutableArray *tempArray = [NSMutableArray array];
         for (WXMapShopModel *model in self.newsArray) {
             BMKPointAnnotation* annotation = [[BMKPointAnnotation alloc]init];
@@ -127,11 +147,11 @@ BMKUserLocation* userLoc;
         self.newsPointArray = [tempArray copy];
     };
     
-    headView.discountLabelTapped = ^{
-        if ([self.selectType isEqualToString:@"满减优惠"]) {
+    self.headView.discountLabelTapped = ^{
+        if ([weakSelf.selectType isEqualToString:@"满减优惠"]) {
             return ;
         }
-        self.selectType = @"满减优惠";
+        weakSelf.selectType = @"满减优惠";
         [_mapView removeAnnotations:self.newsPointArray];
         NSMutableArray *tempArray = [NSMutableArray array];
         for (WXMapShopModel *model in self.discountArray) {

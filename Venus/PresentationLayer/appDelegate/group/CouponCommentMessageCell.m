@@ -26,7 +26,7 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    self.cellSize = 68.0 / 375 * kScreenWidth;
+    self.cellSize = 80.0 / 375 * kScreenWidth;
     
 }
 

@@ -14,6 +14,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    self.marqueeLabel.marqueeType = MLContinuous;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -31,11 +33,9 @@
         string = [string stringByAppendingString:@"   "];
     }
 
-    self.marqueeLabel.marqueeType = MLContinuous;
-//    self.marqueeLabel.scrollDuration = 15.0f;
-//    self.marqueeLabel.rate = 10;
     self.marqueeLabel.text = string;
-//    [self.marqueeLabel labelWillBeginScroll];
+    [self.marqueeLabel restartLabel];
+    
 }
 
 @end

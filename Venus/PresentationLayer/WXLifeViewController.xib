@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WXLifeViewController">
             <connections>
+                <outlet property="couponHeight" destination="ea9-oB-cy8" id="sVr-7I-6hs"/>
                 <outlet property="couponView" destination="G8q-Di-tKn" id="3s5-AS-UD3"/>
+                <outlet property="couponWidth" destination="Aeq-lE-10v" id="2tn-ea-Suq"/>
+                <outlet property="foodHeight" destination="2XQ-VM-541" id="han-ZR-Mtd"/>
                 <outlet property="foodView" destination="M5E-tj-PfL" id="oVM-K4-LyS"/>
+                <outlet property="foodWidth" destination="yTY-HV-Lij" id="CR7-dr-P5o"/>
+                <outlet property="shopHeight" destination="fCG-HX-yz2" id="szj-ZW-0uo"/>
                 <outlet property="shopView" destination="73w-Fu-YGi" id="vZ3-2l-90U"/>
+                <outlet property="shopWidth" destination="NhT-9F-tWq" id="1d3-jU-TOz"/>
+                <outlet property="takeHeight" destination="uc5-MY-qu8" id="1Bf-jF-Yol"/>
+                <outlet property="takeWidth" destination="g0K-Yl-UmX" id="8Ja-eo-Efo"/>
                 <outlet property="takeawayView" destination="A6r-Jo-fv2" id="saK-Ef-EGd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,34 +31,34 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="外卖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8z-g1-MTX">
-                    <rect key="frame" x="143" y="518" width="34" height="21"/>
+                    <rect key="frame" x="149" y="518" width="34" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="生活圈逛街" translatesAutoresizingMaskIntoConstraints="NO" id="73w-Fu-YGi">
-                    <rect key="frame" x="47" y="80" width="130" height="130"/>
+                    <rect key="frame" x="53" y="80" width="130" height="130"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="130" id="NhT-9F-tWq"/>
                         <constraint firstAttribute="height" constant="130" id="fCG-HX-yz2"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="团购" translatesAutoresizingMaskIntoConstraints="NO" id="G8q-Di-tKn">
-                    <rect key="frame" x="199" y="210" width="130" height="130"/>
+                    <rect key="frame" x="193" y="210" width="130" height="130"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="130" id="Aeq-lE-10v"/>
                         <constraint firstAttribute="width" constant="130" id="ea9-oB-cy8"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="生活圈美食" translatesAutoresizingMaskIntoConstraints="NO" id="M5E-tj-PfL">
-                    <rect key="frame" x="47" y="340" width="130" height="130"/>
+                    <rect key="frame" x="53" y="340" width="130" height="130"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="130" id="2XQ-VM-541"/>
                         <constraint firstAttribute="width" constant="130" id="yTY-HV-Lij"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="生活圈外卖" translatesAutoresizingMaskIntoConstraints="NO" id="A6r-Jo-fv2">
-                    <rect key="frame" x="199" y="470" width="130" height="130"/>
+                    <rect key="frame" x="193" y="470" width="130" height="130"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="130" id="g0K-Yl-UmX"/>
                         <constraint firstAttribute="height" constant="130" id="uc5-MY-qu8"/>
@@ -62,43 +71,43 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购物" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7z-M0-2V1">
-                    <rect key="frame" x="199" y="118" width="34" height="21"/>
+                    <rect key="frame" x="193" y="118" width="34" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="团购" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cp8-ee-rLB">
-                    <rect key="frame" x="143" y="258" width="34" height="21"/>
+                    <rect key="frame" x="149" y="258" width="34" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美食" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeG-dq-CIW">
-                    <rect key="frame" x="199" y="388" width="34" height="21"/>
+                    <rect key="frame" x="193" y="388" width="34" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20x-Bm-nlJ">
-                    <rect key="frame" x="199" y="149" width="74" height="21"/>
+                    <rect key="frame" x="193" y="149" width="74" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coupon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmX-Nm-U6j">
-                    <rect key="frame" x="116" y="289" width="61" height="21"/>
+                    <rect key="frame" x="122" y="289" width="61" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delicious Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxb-Oa-hcF">
-                    <rect key="frame" x="199" y="419" width="113" height="21"/>
+                    <rect key="frame" x="193" y="419" width="113" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Takeaway" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIx-9S-BGo">
-                    <rect key="frame" x="102" y="549" width="75" height="21"/>
+                    <rect key="frame" x="108" y="549" width="75" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -131,8 +140,10 @@
                 <constraint firstItem="A6r-Jo-fv2" firstAttribute="centerX" secondItem="G8q-Di-tKn" secondAttribute="centerX" id="a4z-z8-HQw"/>
                 <constraint firstItem="73w-Fu-YGi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="bTj-dg-fiS"/>
                 <constraint firstItem="M5E-tj-PfL" firstAttribute="top" secondItem="73w-Fu-YGi" secondAttribute="bottom" constant="130" id="bp4-31-dv0"/>
+                <constraint firstItem="x7z-M0-2V1" firstAttribute="leading" secondItem="73w-Fu-YGi" secondAttribute="trailing" constant="10" id="dFg-0x-BM1"/>
                 <constraint firstItem="SIx-9S-BGo" firstAttribute="top" secondItem="H8z-g1-MTX" secondAttribute="bottom" constant="10" id="eHi-Li-7rv"/>
                 <constraint firstItem="x7z-M0-2V1" firstAttribute="leading" secondItem="20x-Bm-nlJ" secondAttribute="leading" id="eQt-yh-kfP"/>
+                <constraint firstItem="73w-Fu-YGi" firstAttribute="trailing" secondItem="YXh-sH-uEu" secondAttribute="trailing" constant="-30" id="lGa-3E-sr0"/>
                 <constraint firstAttribute="bottom" secondItem="OD5-d0-gWO" secondAttribute="bottom" id="lGx-CI-9es"/>
                 <constraint firstItem="OD5-d0-gWO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lSX-T4-Taz"/>
                 <constraint firstItem="hmX-Nm-U6j" firstAttribute="trailing" secondItem="M5E-tj-PfL" secondAttribute="trailing" id="mU0-rn-o4W"/>
@@ -144,6 +155,8 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="JAf-G2-VCR"/>
+                    <exclude reference="Wsc-FD-bQF"/>
                     <exclude reference="Z5V-e5-tvy"/>
                     <exclude reference="84y-9e-HHl"/>
                     <exclude reference="A1r-qM-uaF"/>

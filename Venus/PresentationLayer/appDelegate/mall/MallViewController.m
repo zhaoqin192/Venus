@@ -18,7 +18,7 @@
 #import "KindViewController.h"
 #import "MallKindModel.h"
 #import "MBProgressHUD.h"
-#import "BrandViewController.h"
+#import "BrandDetailViewController.h"
 
 
 @interface MallViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -52,6 +52,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
 }
 
@@ -89,27 +90,23 @@
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showKindView" object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(NSNotification *notification) {
-       
         UIStoryboard *kind = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
         KindViewController *kindVC = (KindViewController *)[kind instantiateViewControllerWithIdentifier:@"kind"];
         NSDictionary *userInfo = notification.userInfo;
         kindVC.kindModel = userInfo[@"kindModel"];
         @strongify(self)
         [self.navigationController pushViewController:kindVC animated:YES];
-        
     }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showBrandView" object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(NSNotification *notification) {
-        
         UIStoryboard *kind = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
-        BrandViewController *brandVC = (BrandViewController *)[kind instantiateViewControllerWithIdentifier:@"brand"];
         NSDictionary *userInfo = notification.userInfo;
-        brandVC.detailURL = userInfo[@"detailURL"];
+        BrandDetailViewController *brandVC = (BrandDetailViewController *)[kind instantiateViewControllerWithIdentifier:[BrandDetailViewController className]];
+        brandVC.storeID = [NSNumber numberWithString:userInfo[@"storeID"]];
         @strongify(self)
         [self.navigationController pushViewController:brandVC animated:YES];
-        
     }];
 }
 

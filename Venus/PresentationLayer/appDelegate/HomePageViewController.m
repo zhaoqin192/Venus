@@ -58,6 +58,8 @@
 @property (nonatomic, strong) UISearchController *searchController;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *notificationButton;
+@property (nonatomic, assign) BOOL marqueeLabelIsActive;
+@property (nonatomic, strong) NSMutableArray *boutiqueArray;
 
 @end
 
@@ -174,7 +176,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         webVC.titilString = @"广告推荐";
         [self.navigationController pushViewController:webVC animated:YES];
     }];
-    
+
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -231,6 +233,25 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         
     } failure:^(NSString *error) {
         
+    }];
+    
+    @weakify(self)
+    [NetworkFetcher homeFetcherBoutiqueWithSuccess:^(NSDictionary *response) {
+        @strongify(self)
+        if ([response[@"errCode"] isEqualToNumber:@0]) {
+            NSArray *array = [Picture mj_objectArrayWithKeyValuesArray:response[@"result"]];
+            self.boutiqueArray = [[NSMutableArray alloc] init];
+            for (Picture *picture in array) {
+                [self.boutiqueArray addObject:[PICTUREURL stringByAppendingString:picture.pictureUrl]];
+            }
+            [self.tableView reloadRow:3 inSection:0 withRowAnimation:UITableViewRowAnimationNone];
+        }
+    } failure:^(NSString *error) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = error;
+        [hud hide:YES afterDelay:1.5f];
     }];
     
 }
@@ -362,12 +383,10 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             HomeIntroduceCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeIntroduceCell class])];
             cell.list = _recommendArray;
             cell.buttonClicked = ^(UIButton *button){
-                
                 WebViewController *webVC = [[WebViewController alloc] init];
                 Picture *picture = _pictureManager.recommendPictureArray[button.tag];
                 webVC.url = picture.url;
                 [self.navigationController pushViewController:webVC animated:NO];
-                
             };
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
@@ -377,7 +396,8 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         case 3:{
             HomeIntroduceCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeIntroduceCell class])];
             cell.myTitle.text = @"热门单品";
-            cell.list = _recommendArray;
+            cell.list = self.boutiqueArray;
+//            [cell setList:self.boutiqueArray];
             cell.buttonClicked = ^(UIButton *button){
                 
                 WebViewController *webVC = [[WebViewController alloc] init];
