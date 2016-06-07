@@ -11,6 +11,7 @@
 #import "GMLoginViewController.h"
 
 @interface MeModifyPhoneNumberViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UITextField *passTF;
 @property (weak, nonatomic) IBOutlet UITextField *confirmTF;
 @property (weak, nonatomic) IBOutlet UILabel *headLabel;
@@ -30,10 +31,13 @@ static NSInteger count = 30;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"修改手机号";
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.passwordView.hidden = YES;
     self.clearButton.hidden = YES;
     if (self.isForget) {
         self.navigationItem.title = @"修改密码";
+        self.topConstraint.constant = 70;
+        [self.view layoutIfNeeded];
         self.headLabel.text = @"通过手机号验证修改密码";
         self.passwordView.hidden = NO;
         self.clearButton = ({
@@ -242,6 +246,7 @@ static NSInteger count = 30;
 }
 
 - (void)modifyNewPassword {
+    NSLog(@"jjj");
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/terra/customer/change/password"]];

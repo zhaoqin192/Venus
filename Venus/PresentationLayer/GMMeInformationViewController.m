@@ -23,21 +23,27 @@
 @interface GMMeInformationViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, strong) Account *account;
+@property (nonatomic, strong) AccountDao *accountDao;
 @end
 
 @implementation GMMeInformationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-    self.account = [accountDao fetchAccount];
     self.navigationItem.title = @"我的首页";
     [self configureTableView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self loadData];
+    self.accountDao = [[DatabaseManager sharedInstance] accountDao];
+    self.account = [self.accountDao fetchAccount];
+    if ([_accountDao isLogin]) {
+        [self loadData];
+    }
+    else {
+        [self.myTableView reloadData];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{

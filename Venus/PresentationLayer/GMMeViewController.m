@@ -57,7 +57,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self configureHeadView];
+    if ([_accountDao isLogin]) {
+        [self configureHeadView];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -223,6 +225,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (![_accountDao isLogin]) {
+        [SVProgressHUD showErrorWithStatus:@"请登录"];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+        return;
+    }
+    
     switch (indexPath.section) {
         case 0:{
             GMMeInformationViewController *vc = [[GMMeInformationViewController alloc] init];
@@ -236,6 +244,10 @@
             }
         }
     }
+}
+
+- (void)dismiss {
+    [SVProgressHUD dismiss];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
