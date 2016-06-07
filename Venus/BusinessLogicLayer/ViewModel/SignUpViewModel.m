@@ -161,7 +161,7 @@
     
     [NetworkFetcher userFetchUserInfoWithQQToken:token openID:openID success:^(NSDictionary *userInfo) {
         
-        [NetworkFetcher userBindQQWithOpenID:openID name:userInfo[@"nickname"] avatar:userInfo[@"figureurl"] account:_phone password:_password token:_token gender:userInfo[@"gender"] success:^(NSDictionary *response){
+        [NetworkFetcher userBindQQWithOpenID:openID name:userInfo[@"nickname"] avatar:userInfo[@"figureurl_qq_1"] account:_phone password:_password token:_token gender:userInfo[@"gender"] success:^(NSDictionary *response){
             
             if ([response[@"errCode"] isEqualToNumber:@0]) {
                 AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];

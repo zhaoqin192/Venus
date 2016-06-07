@@ -212,6 +212,9 @@
                 cell.textLabel.text = @"性别";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 cell.detailTextLabel.text = [self.account.sex  isEqual: @(1)] ? @"男":@"女";
+                if (![_accountDao isLogin]){
+                    cell.detailTextLabel.text = @"";
+                }
                 return cell;
                 break;
             }

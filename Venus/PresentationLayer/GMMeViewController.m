@@ -35,13 +35,8 @@
     self.iconView.layer.cornerRadius = self.iconView.width/2;
     self.iconView.layer.masksToBounds = YES;
     self.iconView.userInteractionEnabled = YES;
-    
     self.accountDao = [[DatabaseManager sharedInstance] accountDao];
     
-    if (![_accountDao isLogin]) {
-        self.nameLabel.text = @"登录";
-    }
-
     @weakify(self)
     [self.iconView bk_whenTapped:^{
         @strongify(self)
@@ -57,7 +52,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if ([_accountDao isLogin]) {
+    if (![_accountDao isLogin]) {
+        self.nameLabel.text = @"登录";
+        self.iconView.image = nil;
+    }
+    else {
         [self configureHeadView];
     }
 }
