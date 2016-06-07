@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString *const CouponCommentCellImageEvent;
+
 @class HCSStarRatingView;
 
 @interface CouponCommentCell : UITableViewCell

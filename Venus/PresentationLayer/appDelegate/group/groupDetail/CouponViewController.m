@@ -103,6 +103,16 @@
         [self.navigationController pushViewController:showImageVC animated:NO];
     }];
     
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:CouponCommentCellImageEvent object:nil]
+    takeUntil:[self rac_willDeallocSignal]]
+    subscribeNext:^(NSNotification *notification) {
+        @strongify(self)
+        NSDictionary *userInfo = notification.userInfo;
+        
+        
+        
+    }];
+    
 }
 
 #pragma mark -UITableViewDelegate
@@ -151,7 +161,7 @@
     }
     else if (indexPath.section == 2) {
         CouponCaseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponCaseCell"];
-        cell.price.text = [NSString stringWithFormat:@"￥%@", self.couponModel.asPrice];
+        cell.price.text = [NSString stringWithFormat:@"￥%.2f", [self.couponModel.price floatValue] / 100];
         cell.number.text = @"1张";
         return cell;
     }

@@ -158,8 +158,7 @@
 - (void)configureCouponCell:(CouponCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
     CouponModel *model= [self.viewModel.couponArray objectAtIndex:indexPath.row];
-    
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureUrl]];
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureUrl] placeholderImage:[UIImage imageNamed:@"default"]];
     cell.title.text = model.name;
     cell.price.text = [NSString stringWithFormat:@"%@", model.abstract];
     cell.sale.text = [NSString stringWithFormat:@"已售:%@", model.purchaseNum];
