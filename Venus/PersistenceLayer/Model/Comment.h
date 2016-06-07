@@ -16,5 +16,6 @@
 @property (nonatomic, copy) NSString *costTime;
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, copy) NSString *avatar;
+@property (assign, nonatomic) long grade;
 
 @end

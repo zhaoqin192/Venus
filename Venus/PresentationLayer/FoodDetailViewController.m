@@ -26,6 +26,7 @@
 #import "FoodOrderViewSectionObject.h"
 #import "FoodOrderViewBaseItem.h"
 #import "FoodTrolleyTableViewCell.h"
+#import "BeautifulDetailViewController.h"
 
 
 @interface FoodDetailViewController ()<TouchLabelDelegate, UITableViewDelegate, UITableViewDataSource>{
@@ -116,6 +117,10 @@
     [self.rdv_tabBarController setTabBarHidden:YES];
     self.navigationController.navigationBar.translucent = YES;
     
+//    if (self.restaurant.) {
+//        <#statements#>
+//    }
+    
     UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
     UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
     storeButton.imageInsets = UIEdgeInsetsMake(0, 0, 0, -40);
@@ -181,7 +186,9 @@
 
 #pragma mark - event response
 - (void)enterStore {
-    
+    BeautifulDetailViewController *vc = [[BeautifulDetailViewController alloc] init];
+    vc.shopId = [self.restaurantID integerValue];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)enterGroupBuy {
@@ -235,6 +242,7 @@
 - (IBAction)trollyButtonClicked:(id)sender {
     
     if (_trollyButtonBadgeCount == 0) {
+        [PresentationUtility showTextDialog:self.view text:@"请选择商品" success:nil];
         return;
     } else {
         if (!self.trolleyTableView.hidden) {

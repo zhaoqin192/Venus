@@ -206,7 +206,7 @@
         UIView *view = [[UIView alloc] init];
         view.backgroundColor = [UIColor whiteColor];
         UILabel *title = [[UILabel alloc] init];
-        title.text = @"店铺名称";
+        title.text = self.orderDetail.store.name;
         title.font = [UIFont systemFontOfSize:16.0];
         title.textColor = GMFontColor;
         title.frame = CGRectMake(15, 5, 100, 20);
@@ -244,9 +244,18 @@
                     break;
                 case 9:
                     if (self.refundState == 5) {
-                        title2.text = @"退款成功";
-                    } else {
-                        title2.text = @"退款过程中";
+                        title2.text = @"退款开始";
+                    } else if (self.refundState == 4) {
+                        title2.text = @"退款失败";
+//                        title2.text = @"申请已提交／等待商家确认";
+                    } else if (self.refundState == 3) {
+                        title2.text = @"退款完成";
+                    } else if (self.refundState == 2) {
+                        title2.text = @"商家拒绝退款";
+                    } else if (self.refundState == 1) {
+                        title2.text = @"处理中";
+                    } else if (self.refundState == 0) {
+                        title2.text = @"申请已提交";
                     }
                     break;
                 default:
