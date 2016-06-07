@@ -14,9 +14,9 @@
     [super awakeFromNib];
     
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped)];
-    [self.image setUserInteractionEnabled:YES];
-    [self.image addGestureRecognizer:singleTap];
+//    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped)];
+//    [self.image setUserInteractionEnabled:YES];
+//    [self.image addGestureRecognizer:singleTap];
     
 }
 

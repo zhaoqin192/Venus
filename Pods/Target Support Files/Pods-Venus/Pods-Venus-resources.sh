@@ -81,6 +81,7 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle"
   install_resource "QRCodeReaderViewController/QRCodeReaderViewController/Resources/QRCodeBottomLeft@2x.png"
   install_resource "QRCodeReaderViewController/QRCodeReaderViewController/Resources/QRCodeBottomLeft@3x.png"
   install_resource "QRCodeReaderViewController/QRCodeReaderViewController/Resources/QRCodeBottomRight@2x.png"
@@ -95,6 +96,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle"
   install_resource "QRCodeReaderViewController/QRCodeReaderViewController/Resources/QRCodeBottomLeft@2x.png"
   install_resource "QRCodeReaderViewController/QRCodeReaderViewController/Resources/QRCodeBottomLeft@3x.png"
   install_resource "QRCodeReaderViewController/QRCodeReaderViewController/Resources/QRCodeBottomRight@2x.png"

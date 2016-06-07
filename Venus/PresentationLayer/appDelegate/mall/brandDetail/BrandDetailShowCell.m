@@ -23,7 +23,7 @@ NSString *const BrandDetailShowCellIdentifier = @"BrandDetailShowCell";
     [super awakeFromNib];
     // Initialization code
     
-    self.scrollAdView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(8, 0, kScreenWidth - 16, 140) delegate:self placeholderImage:[UIImage imageNamed:@"default"]];
+    self.scrollAdView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(8, 8, kScreenWidth - 16, 140) delegate:self placeholderImage:[UIImage imageNamed:@"default"]];
     self.scrollAdView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     
     [self.contentView addSubview:self.scrollAdView];

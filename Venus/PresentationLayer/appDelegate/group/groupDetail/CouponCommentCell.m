@@ -9,6 +9,8 @@
 #import "CouponCommentCell.h"
 #import "ImageCollectionViewCell.h"
 
+NSString *const CouponCommentCellImageEvent = @"CouponCommentCellImageEvent";
+
 @interface CouponCommentCell ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, assign) CGFloat cellSize;
 @end
@@ -35,7 +37,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[ImageCollectionViewCell className] forIndexPath:indexPath];
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:[self.imageArray objectAtIndex:indexPath.row]] placeholderImage:[UIImage imageNamed:@"loginLogo"]];
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:[self.imageArray objectAtIndex:indexPath.row]] placeholderImage:[UIImage imageNamed:@"default"]];
     return cell;
 }
 
@@ -46,7 +48,7 @@
 
 #pragma mark -UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"collection clicked");
+    [[NSNotificationCenter defaultCenter] postNotificationName:CouponCommentCellImageEvent object:nil userInfo:@{@"imageArray": _imageArray, @"item": [NSNumber numberWithInteger:indexPath.item]}];
 }
 
 

@@ -34,12 +34,9 @@
     
     Account *account = [[[DatabaseManager sharedInstance] accountDao] fetchAccount];
     if (account.phone == nil || account.password == nil) {
-        
         [self.loginFailureObject sendNext:nil];
-        
     }
     else {
-        
         [NetworkFetcher userLoginWithAccount:account.phone password:account.password success:^(NSDictionary *response) {
             
         } failure:^(NSString *error) {

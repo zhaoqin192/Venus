@@ -61,7 +61,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
     
     [self configureCommentView];
     
-    self.webViewHeight = @88;
+    self.webViewHeight = @93.5;
     
 }
 
@@ -300,10 +300,10 @@ typedef NS_ENUM(NSInteger, BrandState) {
         switch (self.selectTab) {
             case BrandDetail:
                 if (indexPath.row == 0) {
-                    return 140;
+                    return 156;
                 }
                 else if (indexPath.row == 1) {
-                    return [self.webViewHeight floatValue];
+                    return [self.webViewHeight floatValue] + 30;
                 }
             case BrandKind:
                 return 270;
