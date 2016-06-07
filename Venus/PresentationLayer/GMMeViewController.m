@@ -35,14 +35,8 @@
     self.iconView.layer.cornerRadius = self.iconView.width/2;
     self.iconView.layer.masksToBounds = YES;
     self.iconView.userInteractionEnabled = YES;
-    
     self.accountDao = [[DatabaseManager sharedInstance] accountDao];
     
-    if (![_accountDao isLogin]) {
-        self.nameLabel.text = @"登录";
-    }
-    
-
     @weakify(self)
     [self.iconView bk_whenTapped:^{
         @strongify(self)
@@ -58,10 +52,13 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self configureHeadView];
-    
-    NSLog(@"phone----%@", [[self.accountDao fetchAccount] nickName]);
-
+    if (![_accountDao isLogin]) {
+        self.nameLabel.text = @"登录";
+        self.iconView.image = nil;
+    }
+    else {
+        [self configureHeadView];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -227,6 +224,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (![_accountDao isLogin]) {
+        [SVProgressHUD showErrorWithStatus:@"请登录"];
+        [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+        return;
+    }
+    
     switch (indexPath.section) {
         case 0:{
             GMMeInformationViewController *vc = [[GMMeInformationViewController alloc] init];
@@ -240,6 +243,10 @@
             }
         }
     }
+}
+
+- (void)dismiss {
+    [SVProgressHUD dismiss];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
