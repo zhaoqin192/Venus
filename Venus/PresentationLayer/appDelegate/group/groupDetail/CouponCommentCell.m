@@ -48,7 +48,7 @@ NSString *const CouponCommentCellImageEvent = @"CouponCommentCellImageEvent";
 
 #pragma mark -UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%ld", (long)indexPath.item);
+    [[NSNotificationCenter defaultCenter] postNotificationName:CouponCommentCellImageEvent object:nil userInfo:@{@"imageArray": _imageArray, @"item": [NSNumber numberWithInteger:indexPath.item]}];
 }
 
 

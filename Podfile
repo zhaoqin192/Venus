@@ -22,4 +22,5 @@ target "Venus" do
     pod 'PureLayout'
     pod 'MJRefresh'
     pod 'NJKWebViewProgress'
+    pod 'MWPhotoBrowser'
 end
