@@ -63,6 +63,7 @@
     cell.content.text = comment.content;
     cell.costTime.text = [NSString stringWithFormat:@"配送时间%@", comment.costTime];
     cell.createTime.text = [self stringToDate:comment.createTime];
+    cell.starsView.value = comment.grade;
     return cell;
 }
 
