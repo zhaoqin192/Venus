@@ -17,6 +17,8 @@
 #import "ResFood.h"
 #import "Comment.h"
 #import "CommentManager.h"
+#import "FoodGood.h"
+#import "FoodCategory.h"
 
 
 @implementation NetworkFetcher (Food)
@@ -113,10 +115,9 @@ static const BOOL LOGDEBUG = NO;
                                 success:(NetworkFetcherCompletionHandler)success
                                 failure:(NetworkFetcherErrorHandler)failure {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/good/list"]];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/good/listWithCate"]];
     
     NSDictionary *parameters = @{@"storeId": restaurantID, @"sort": sort};
-    
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -125,6 +126,10 @@ static const BOOL LOGDEBUG = NO;
         
         if([dic[@"errCode"] isEqualToNumber:@0]){
             FoodManager *foodManager = [FoodManager sharedInstance];
+            [foodManager.resFoodClassArray removeAllObjects];
+            [foodManager.foodArray removeAllObjects];
+            
+            
             [ResFoodClass mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
                          @"identifier": @"id",
@@ -138,9 +143,42 @@ static const BOOL LOGDEBUG = NO;
                          };
             }];
             
-            NSDictionary *data = dic[@"data"];
-            foodManager.resFoodClassArray = [ResFoodClass mj_objectArrayWithKeyValuesArray:data[@"category"]];
-            foodManager.foodArray = [ResFood mj_objectArrayWithKeyValuesArray:data[@"good"]];
+            [FoodGood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+                return @{
+                         @"goodDescription": @"description",
+                         };
+            }];
+            
+//            NSDictionary *data = dic[@"data"];
+            
+            NSArray *dataArray = dic[@"data"];
+            for (NSDictionary *set in dataArray) {
+                NSArray *foodGoodArray = [FoodGood mj_objectArrayWithKeyValuesArray:set[@"goods"]];
+                for (FoodGood *foodGood in foodGoodArray) {
+                    ResFood *resFood = [[ResFood alloc] initWithFoodGood:foodGood];
+                    [foodManager.foodArray addObject:resFood];
+                }
+                
+                FoodCategory *foodCategory = [FoodCategory mj_objectWithKeyValues:set[@"category"]];
+                ResFoodClass *resFoodClass = [[ResFoodClass alloc] init];
+                resFoodClass.identifier = [NSString stringWithFormat:@"%li",(long)foodCategory.id];
+                resFoodClass.name = foodCategory.name;
+                [foodManager.resFoodClassArray addObject:resFoodClass];
+//                for (FoodCategory *foodCategory in foodCategoryArray) {
+//                    ResFoodClass *resFoodClass = [[ResFoodClass alloc] init];
+//                    resFoodClass.identifier = [NSString stringWithFormat:@"%li",(long)foodCategory.id];
+//                    resFoodClass.name = foodCategory.name;
+//                    [foodManager.resFoodClassArray addObject:resFoodClass];
+//                }
+            }
+            
+
+//            foodManager.foodArray = [ResFood mj_objectArrayWithKeyValuesArray:data[@"good"]];
+            
+            
+            
+//            foodManager.resFoodClassArray = [ResFoodClass mj_objectArrayWithKeyValuesArray:data[@"category"]];
+            
             
             for (ResFoodClass *resFoodClass in foodManager.resFoodClassArray) {
                 resFoodClass.foodArray = [[NSMutableArray alloc] init];
