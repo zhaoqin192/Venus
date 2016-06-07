@@ -46,11 +46,8 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.foodAddressManager.foodAddressArray.count == 0) {
-        return 1;
-    } else {
+
         return self.foodAddressManager.foodAddressArray.count;
-    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

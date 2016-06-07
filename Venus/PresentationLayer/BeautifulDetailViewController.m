@@ -22,6 +22,8 @@
 #import "SDRefresh.h"
 #import "FoodDetailViewController.h"
 #import "AppDelegate.h"
+#import "AccountDao.h"
+#import "DatabaseManager.h"
 
 @interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -115,12 +117,14 @@
     self.commitView.hidden = YES;
     self.webView.hidden = YES;
     if ([self.currentSegmentName isEqualToString:@"店铺首页"]) {
-        self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
-        self.myTableView.tableFooterView = self.webView;
         if (self.foodModel.description_url.length == 0) {
+            self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 100)];
+            self.myTableView.tableFooterView = self.webView;
             self.webView.hidden = YES;
             return;
         }
+        self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 400)];
+        self.myTableView.tableFooterView = self.webView;
         self.webView.hidden = NO;
         [self.webView loadHTMLString:self.foodModel.description_url baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]];
     }
@@ -196,9 +200,15 @@
     self.commitView.autoresizingMask = UIViewAutoresizingNone;
     __weak typeof(self)weakSelf = self;
     self.commitView.sendButtonTapped = ^(NSString *text){
-        [SVProgressHUD show];
-        [weakSelf sendCommit:text];
-        weakSelf.commitPage = 1;
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        if ([accountDao isLogin]) {
+            [SVProgressHUD show];
+            [weakSelf sendCommit:text];
+            weakSelf.commitPage = 1;
+        }
+        else {
+            [SVProgressHUD showErrorWithStatus:@"请先登录!"];
+        }
     };
     [self.view addSubview:self.commitView];
 }

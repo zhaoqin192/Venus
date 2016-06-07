@@ -186,6 +186,9 @@
 		7F7025761CF59A9A009653A6 /* FoodOtherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7025741CF59A9A009653A6 /* FoodOtherCell.xib */; };
 		7F7025791CF68D41009653A6 /* FoodAddressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025781CF68D41009653A6 /* FoodAddressManager.m */; };
 		7F70257F1CF69114009653A6 /* NetworkFetcher+FoodAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70257E1CF69114009653A6 /* NetworkFetcher+FoodAddress.m */; };
+		7F81FFCA1D05523100D3AEA0 /* FoodCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FFC91D05523100D3AEA0 /* FoodCategory.m */; };
+		7F81FFCE1D05531300D3AEA0 /* FoodGood.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FFCD1D05531300D3AEA0 /* FoodGood.m */; };
+		7F81FFD11D05543A00D3AEA0 /* FoodNewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FFD01D05543A00D3AEA0 /* FoodNewManager.m */; };
 		7F9370A51CF6E4F10063F544 /* FoodShowAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370A31CF6E4F10063F544 /* FoodShowAddressCell.m */; };
 		7F9370A61CF6E4F10063F544 /* FoodShowAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370A41CF6E4F10063F544 /* FoodShowAddressCell.xib */; };
 		7F9370AA1CF6EB2A0063F544 /* FoodAddressSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370A81CF6EB2A0063F544 /* FoodAddressSelectionViewController.m */; };
@@ -756,6 +759,12 @@
 		7F7025781CF68D41009653A6 /* FoodAddressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodAddressManager.m; sourceTree = "<group>"; };
 		7F70257D1CF69114009653A6 /* NetworkFetcher+FoodAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkFetcher+FoodAddress.h"; sourceTree = "<group>"; };
 		7F70257E1CF69114009653A6 /* NetworkFetcher+FoodAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetworkFetcher+FoodAddress.m"; sourceTree = "<group>"; };
+		7F81FFC81D05523100D3AEA0 /* FoodCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCategory.h; sourceTree = "<group>"; };
+		7F81FFC91D05523100D3AEA0 /* FoodCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCategory.m; sourceTree = "<group>"; };
+		7F81FFCC1D05531300D3AEA0 /* FoodGood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodGood.h; sourceTree = "<group>"; };
+		7F81FFCD1D05531300D3AEA0 /* FoodGood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodGood.m; sourceTree = "<group>"; };
+		7F81FFCF1D05543A00D3AEA0 /* FoodNewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNewManager.h; sourceTree = "<group>"; };
+		7F81FFD01D05543A00D3AEA0 /* FoodNewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNewManager.m; sourceTree = "<group>"; };
 		7F9370A21CF6E4F10063F544 /* FoodShowAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodShowAddressCell.h; sourceTree = "<group>"; };
 		7F9370A31CF6E4F10063F544 /* FoodShowAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodShowAddressCell.m; sourceTree = "<group>"; };
 		7F9370A41CF6E4F10063F544 /* FoodShowAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodShowAddressCell.xib; sourceTree = "<group>"; };
@@ -1656,6 +1665,12 @@
 				7F9370E61CFC10E80063F544 /* TakeAwayOrderDetail.m */,
 				7F9370EB1CFC131C0063F544 /* TakeAwayOrderRefund.h */,
 				7F9370EC1CFC131C0063F544 /* TakeAwayOrderRefund.m */,
+				7F81FFC81D05523100D3AEA0 /* FoodCategory.h */,
+				7F81FFC91D05523100D3AEA0 /* FoodCategory.m */,
+				7F81FFCC1D05531300D3AEA0 /* FoodGood.h */,
+				7F81FFCD1D05531300D3AEA0 /* FoodGood.m */,
+				7F81FFCF1D05543A00D3AEA0 /* FoodNewManager.h */,
+				7F81FFD01D05543A00D3AEA0 /* FoodNewManager.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -3422,6 +3437,7 @@
 				ACFF32EB1CF8711E008BD0D8 /* CouponPayViewController.m in Sources */,
 				30D018171CE9859000E50B23 /* Commit.m in Sources */,
 				AC10A29D1CFFC43400FC2864 /* HomeNewsViewController.m in Sources */,
+				7F81FFCA1D05523100D3AEA0 /* FoodCategory.m in Sources */,
 				ACFF32861CF86F8B008BD0D8 /* MD5DataSigner.m in Sources */,
 				7F9370D31CFC03110063F544 /* GMMeTakeAwayDetailViewController.m in Sources */,
 				3086D39D1CC7298B007494D7 /* JZMTBtnView.m in Sources */,
@@ -3568,6 +3584,7 @@
 				AC6FF1A01D01190700B04388 /* BrandDetailSectionHeadCell.m in Sources */,
 				30FEE6E31CF80AE3007E7A8B /* GMMeCommitViewController.m in Sources */,
 				AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */,
+				7F81FFD11D05543A00D3AEA0 /* FoodNewManager.m in Sources */,
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
 				AC21A93F1CFEBD76000ECA37 /* CouponCommentTitleCell.m in Sources */,
 				ACFF32FD1CF87125008BD0D8 /* CouponCommentViewController.m in Sources */,
@@ -3577,6 +3594,7 @@
 				AC6FF1B01D01329A00B04388 /* BrandDetailHeadViewCell.m in Sources */,
 				AC10A2A01CFFC59100FC2864 /* HeadlineModel.m in Sources */,
 				AC4D73E51CF1905B00DF4997 /* KindViewCell.m in Sources */,
+				7F81FFCE1D05531300D3AEA0 /* FoodGood.m in Sources */,
 				30D6D29E1CC8A85B00FB0CFC /* FoodCategoryCell.m in Sources */,
 				30B601F61CD1F92D003ED671 /* BeautifulFoodViewController.m in Sources */,
 				305E8D2C1CFC2E290063389E /* SDRefreshHeaderView.m in Sources */,

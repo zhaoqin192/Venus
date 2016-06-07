@@ -86,9 +86,9 @@
     else {
         self.myScrollView.hidden = YES;
     }
-    self.nameLabel.text = couponModel.abstract;
+    self.nameLabel.text = couponModel.storeName;
     self.myDetailLabel.hidden = NO;
-    self.myDetailLabel.text = couponModel.des;
+    self.myDetailLabel.text = couponModel.abstract;
     self.contentLabel.text = couponModel.content;
     self.timeLabel.text = [self convertTime:@(couponModel.time)];
     [self configureScoreView:couponModel.score];

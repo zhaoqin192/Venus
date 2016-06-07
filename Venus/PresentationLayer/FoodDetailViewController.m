@@ -116,10 +116,10 @@
     [self.rdv_tabBarController setTabBarHidden:YES];
     self.navigationController.navigationBar.translucent = YES;
     
-//    UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
-//    UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
-//    storeButton.imageInsets = UIEdgeInsetsMake(0, 0, 0, -40);
-//    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:groupBuyButton, storeButton,nil];
+    UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
+    UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
+    storeButton.imageInsets = UIEdgeInsetsMake(0, 0, 0, -40);
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:groupBuyButton, storeButton,nil];
     
 }
 
@@ -355,8 +355,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         // 弹出登录界面
-        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
+        [PresentationUtility showTextDialog:self.view text:@"请先登录" success:nil];
+//        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
