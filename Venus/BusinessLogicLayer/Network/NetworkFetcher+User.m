@@ -169,7 +169,18 @@ static const BOOL LOGDEBUG = YES;
     
     NSDictionary *parameters = @{@"token": token, @"password": password};
     
+    @weakify(manager)
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+        
+        for (NSString *key in cookieHeaders) {
+            
+            @strongify(manager)
+            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+            
+        }
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -405,8 +416,19 @@ static const BOOL LOGDEBUG = YES;
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSDictionary *parameters = @{@"token": token, @"password": password};
-    
+    @weakify(manager)
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+        
+        for (NSString *key in cookieHeaders) {
+            
+            @strongify(manager)
+            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+            
+        }
+        
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
@@ -445,7 +467,18 @@ static const BOOL LOGDEBUG = YES;
     
     NSDictionary *parameters = @{@"account": phone, @"password": password};
     
+    @weakify(manager)
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+        
+        for (NSString *key in cookieHeaders) {
+            
+            @strongify(manager)
+            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+            
+        }
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -492,7 +525,18 @@ static const BOOL LOGDEBUG = YES;
     
     NSDictionary *parameters = @{@"account": phone, @"password": password};
     
+    @weakify(manager)
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+        
+        for (NSString *key in cookieHeaders) {
+            
+            @strongify(manager)
+            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+            
+        }
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);

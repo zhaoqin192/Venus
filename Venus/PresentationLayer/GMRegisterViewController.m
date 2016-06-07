@@ -146,7 +146,10 @@
          @strongify(self);
          if (![_passwordTF.text isEqualToString:_repasswordTF.text]) {
              [PresentationUtility showTextDialog:self.view text:@"两次密码不一致" success:nil];
-         } else {
+         } else if (_passwordTF.text.length < 8 || _passwordTF.text.length > 12){
+             [PresentationUtility showTextDialog:self.view text:@"密码长度为8到12位" success:nil];
+         }
+         else {
              [self.viewModel smsAuth];
          }
      }];
