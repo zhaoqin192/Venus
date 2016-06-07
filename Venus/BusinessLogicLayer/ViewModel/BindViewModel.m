@@ -8,6 +8,9 @@
 
 #import "BindViewModel.h"
 #import "NetworkFetcher+User.h"
+#import "DatabaseManager.h"
+#import "AccountDao.h"
+#import "Account.h"
 
 @interface BindViewModel ()
 
@@ -48,6 +51,19 @@
     [NetworkFetcher userWechatBindWithPhone:self.phone password:self.password openID:self.openID name:self.accountName sex:self.sex avatar:self.avatar unionID:self.unionID success:^(NSDictionary *response) {
         @strongify(self)
         if ([response[@"errCode"] isEqualToNumber:@0]) {
+            
+            AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+            Account *account = [accountDao fetchAccount];
+            account.openID = _openID;
+            account.unionID = _unionID;
+            account.token = response[@"userid"];
+            account.nickName = _accountName;
+            account.sex = _sex;
+            account.avatar = _avatar;
+            account.phone = _phone;
+            account.password = _password;
+            [accountDao save];
+            
             [self.bindSuccessObject sendNext:nil];
         }
         else {
@@ -66,6 +82,19 @@
     [NetworkFetcher userQQBindWithPhone:self.phone password:self.password openID:self.openID name:self.accountName gender:[self.sex stringValue] avatar:self.avatar success:^(NSDictionary *response) {
         @strongify(self)
         if ([response[@"errCode"] isEqualToNumber:@0]) {
+            
+            AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+            Account *account = [accountDao fetchAccount];
+            account.openID = _openID;
+            account.unionID = _unionID;
+            account.token = response[@"uid"];
+            account.nickName = _accountName;
+            account.sex = _sex;
+            account.avatar = _avatar;
+            account.phone = _phone;
+            account.password = _password;
+            [accountDao save];
+            
             [self.bindSuccessObject sendNext:nil];
         }
         else {

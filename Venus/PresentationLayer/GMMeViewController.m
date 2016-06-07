@@ -41,6 +41,7 @@
     if (![_accountDao isLogin]) {
         self.nameLabel.text = @"登录";
     }
+    
 
     @weakify(self)
     [self.iconView bk_whenTapped:^{
@@ -58,6 +59,9 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self configureHeadView];
+    
+    NSLog(@"phone----%@", [[self.accountDao fetchAccount] nickName]);
+
 }
 
 - (void)viewWillAppear:(BOOL)animated{
