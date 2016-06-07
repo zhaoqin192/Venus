@@ -1,25 +1,22 @@
 //
-//  BrandDetailSectionHeadCell.m
+//  BrandDetailSectionHeadView.m
 //  Venus
 //
-//  Created by zhaoqin on 6/3/16.
+//  Created by zhaoqin on 6/7/16.
 //  Copyright © 2016 Neotel. All rights reserved.
 //
 
-#import "BrandDetailSectionHeadCell.h"
+#import "BrandDetailSectionHeadView.h"
 
-NSString *const BrandDetailSectionHeadCellDetail = @"BrandDetailSectionHeadCellDetail";
-NSString *const BrandDetailSectionHeadCellKind = @"BrandDetailSectionHeadCellKind";
-NSString *const BrandDetailSectionHeadCellComment = @"BrandDetailSectionHeadCellComment";
+NSString *const BrandDetailSectionHeadViewDetail = @"BrandDetailSectionHeadCellDetail";
+NSString *const BrandDetailSectionHeadViewKind = @"BrandDetailSectionHeadCellKind";
+NSString *const BrandDetailSectionHeadViewComment = @"BrandDetailSectionHeadCellComment";
 
-@interface BrandDetailSectionHeadCell()
-
+@interface BrandDetailSectionHeadView ()
 @property (nonatomic, strong) UIView *selectView;
-
-
 @end
 
-@implementation BrandDetailSectionHeadCell
+@implementation BrandDetailSectionHeadView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -40,7 +37,7 @@ NSString *const BrandDetailSectionHeadCellComment = @"BrandDetailSectionHeadCell
         return;
     }
     [self detailSelected];
-    [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailSectionHeadCellDetail object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailSectionHeadViewDetail object:nil];
 }
 
 - (void)kindTapAction {
@@ -48,7 +45,7 @@ NSString *const BrandDetailSectionHeadCellComment = @"BrandDetailSectionHeadCell
         return;
     }
     [self kindSelected];
-    [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailSectionHeadCellKind object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailSectionHeadViewKind object:nil];
 }
 
 - (void)commentTapAction {
@@ -56,7 +53,7 @@ NSString *const BrandDetailSectionHeadCellComment = @"BrandDetailSectionHeadCell
         return;
     }
     [self commentSelected];
-    [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailSectionHeadCellComment object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailSectionHeadViewComment object:nil];
 }
 
 - (void)clearAllTap {
@@ -91,10 +88,13 @@ NSString *const BrandDetailSectionHeadCellComment = @"BrandDetailSectionHeadCell
     self.selectView = self.commentView;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
 }
+*/
 
 @end

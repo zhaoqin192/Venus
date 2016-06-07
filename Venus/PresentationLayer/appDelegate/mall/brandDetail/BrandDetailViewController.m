@@ -22,7 +22,7 @@
 #import "BrandCommentView.h"
 #import "BrandDetailCell.h"
 #import "BrandDetailShowCell.h"
-
+#import "BrandDetailSectionHeadView.h"
 
 typedef NS_ENUM(NSInteger, BrandState) {
     //三种tab选择状态
@@ -121,7 +121,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
         [hud hide:YES afterDelay:1.5f];
     }];
     
-    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadCellDetail object:nil]
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadViewDetail object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
         @strongify(self)
@@ -130,7 +130,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
         [self.commentView removeFromSuperview];
     }];
     
-    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadCellKind object:nil]
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadViewKind object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
         @strongify(self)
@@ -145,7 +145,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
         [self.commentView removeFromSuperview];
     }];
     
-    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadCellComment object:nil]
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadViewComment object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
         @strongify(self)
@@ -198,7 +198,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
 - (void)configureCommentView {
     
     self.commentView = [[[NSBundle mainBundle] loadNibNamed:@"BrandCommentView" owner:self options:nil] firstObject];
-    self.commentView.frame = CGRectMake(0, self.tableView.frame.size.height - 45, kScreenWidth, 45);
+    self.commentView.frame = CGRectMake(0, kScreenHeight - 45 - 64, kScreenWidth, 45);
 
     @weakify(self)
     [[self.commentView.commentButton rac_signalForControlEvents:UIControlEventTouchUpInside]
@@ -320,10 +320,9 @@ typedef NS_ENUM(NSInteger, BrandState) {
     if (section == 0) {
         return nil;
     }
-    else {
-        BrandDetailSectionHeadCell *cell = [tableView dequeueReusableCellWithIdentifier:[BrandDetailSectionHeadCell className]];
-        UIView *sectionHeadView = [[UIView alloc] initWithFrame:[cell frame]];
-        [sectionHeadView addSubview:cell];
+    else {        
+        BrandDetailSectionHeadView *cell = [[[NSBundle mainBundle] loadNibNamed:@"BrandDetailSectionHeadView" owner:self options:nil] firstObject];;
+        
         switch (self.selectTab) {
             case BrandDetail:
                 [cell detailSelected];
@@ -335,7 +334,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
                 [cell commentSelected];
                 break;
         }
-        return sectionHeadView;
+        return cell;
     }
 }
 

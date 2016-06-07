@@ -200,7 +200,7 @@
 #pragma mark -UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
  
-    CGFloat width = 180.0f / 375 * kScreenWidth;
+    CGFloat width = 180.0f / 375.0 * kScreenWidth - 1;
     CGFloat height = 260.0f / 667.0 * kScreenHeight;
     
     return CGSizeMake(width, height);
