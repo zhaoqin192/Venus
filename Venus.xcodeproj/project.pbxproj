@@ -267,6 +267,8 @@
 		AC513A461D05BD1F00531EB0 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC513A441D05BD1F00531EB0 /* TencentOpenAPI.framework */; };
 		AC513A4A1D05BDE100531EB0 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC513A491D05BDE100531EB0 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		AC545FA21CEDAE7400133F25 /* CommitOrderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545FA11CEDAE7400133F25 /* CommitOrderViewModel.m */; };
+		AC5851D81D06F80100012308 /* BrandDetailSectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5851D71D06F80100012308 /* BrandDetailSectionHeadView.m */; };
+		AC5851DB1D06F81300012308 /* BrandDetailSectionHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC5851DA1D06F81300012308 /* BrandDetailSectionHeadView.xib */; };
 		AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5B48D31CCA49D200724914 /* SDKManager.m */; };
 		AC5E17821D03D8E4002E1523 /* BrandCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E17811D03D8E4002E1523 /* BrandCommentView.m */; };
 		AC5E17861D03D914002E1523 /* BrandCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC5E17851D03D914002E1523 /* BrandCommentView.xib */; };
@@ -898,6 +900,9 @@
 		AC513A491D05BDE100531EB0 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		AC545FA01CEDAE7400133F25 /* CommitOrderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitOrderViewModel.h; sourceTree = "<group>"; };
 		AC545FA11CEDAE7400133F25 /* CommitOrderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitOrderViewModel.m; sourceTree = "<group>"; };
+		AC5851D61D06F80100012308 /* BrandDetailSectionHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandDetailSectionHeadView.h; sourceTree = "<group>"; };
+		AC5851D71D06F80100012308 /* BrandDetailSectionHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandDetailSectionHeadView.m; sourceTree = "<group>"; };
+		AC5851DA1D06F81300012308 /* BrandDetailSectionHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandDetailSectionHeadView.xib; sourceTree = "<group>"; };
 		AC5B48D21CCA49D200724914 /* SDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKManager.h; sourceTree = "<group>"; };
 		AC5B48D31CCA49D200724914 /* SDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKManager.m; sourceTree = "<group>"; };
 		AC5E17801D03D8E4002E1523 /* BrandCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandCommentView.h; sourceTree = "<group>"; };
@@ -2439,6 +2444,9 @@
 				AC513A2E1D05188400531EB0 /* BrandDetailCell.m */,
 				ACDAAF041D0666BD0026A30A /* BrandDetailShowCell.h */,
 				ACDAAF051D0666BD0026A30A /* BrandDetailShowCell.m */,
+				AC5851D61D06F80100012308 /* BrandDetailSectionHeadView.h */,
+				AC5851D71D06F80100012308 /* BrandDetailSectionHeadView.m */,
+				AC5851DA1D06F81300012308 /* BrandDetailSectionHeadView.xib */,
 			);
 			path = brandDetail;
 			sourceTree = "<group>";
@@ -3173,6 +3181,7 @@
 				TargetAttributes = {
 					ACF83EAA1CBF97F800A962BD = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 9SQ6G2A6XG;
 					};
 				};
 			};
@@ -3256,6 +3265,7 @@
 				3035195D1CCF316800EE0750 /* TicketInformationCell.xib in Resources */,
 				ACFF31B51CF86ECF008BD0D8 /* AlipaySDK.bundle in Resources */,
 				3035194A1CCF0D3000EE0750 /* MoneyCardViewController.xib in Resources */,
+				AC5851DB1D06F81300012308 /* BrandDetailSectionHeadView.xib in Resources */,
 				7F9370FC1CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.xib in Resources */,
 				30FD1FAC1CE2D023003C91A5 /* MapHeadView.xib in Resources */,
 				E8F047FE1CFDD62600E08A40 /* NewFoodDetailViewController.xib in Resources */,
@@ -3485,6 +3495,7 @@
 				AC2E04421CEB554900476087 /* CouponCommentCell.m in Sources */,
 				305E8D2D1CFC2E290063389E /* SDRefreshView.m in Sources */,
 				ACDAAF061D0666BD0026A30A /* BrandDetailShowCell.m in Sources */,
+				AC5851D81D06F80100012308 /* BrandDetailSectionHeadView.m in Sources */,
 				AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */,
 				ACFF31C41CF86EE0008BD0D8 /* NSString+Expand.m in Sources */,
 				E8F047FD1CFDD62600E08A40 /* NewFoodDetailViewController.m in Sources */,

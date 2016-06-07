@@ -40,7 +40,6 @@ NSString *const BrandDetailSectionHeadCellComment = @"BrandDetailSectionHeadCell
         return;
     }
     [self detailSelected];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandDetail" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailSectionHeadCellDetail object:nil];
 }
 
@@ -49,7 +48,6 @@ NSString *const BrandDetailSectionHeadCellComment = @"BrandDetailSectionHeadCell
         return;
     }
     [self kindSelected];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandKind" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailSectionHeadCellKind object:nil];
 }
 
@@ -58,7 +56,6 @@ NSString *const BrandDetailSectionHeadCellComment = @"BrandDetailSectionHeadCell
         return;
     }
     [self commentSelected];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"showBrandComment" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailSectionHeadCellComment object:nil];
 }
 

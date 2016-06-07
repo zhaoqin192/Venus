@@ -60,6 +60,7 @@
     _totalPrice.text = [NSString stringWithFormat:@"￥%.2f",order.totalFee / 100.0];
     self.orderState = order.state;
     self.refundState = order.refundState;
+    NSLog(@"退款状态是：%li",(long)order.refundState);
 }
 
 - (void)setOrderState:(OrderState)orderState {
@@ -122,14 +123,27 @@
 }
 
 - (void)setRefundState:(NSInteger)refundState {
+    _refundState = refundState;
     switch (refundState) {
         case 5:
+            self.orderStateLabel.text = @"退款开始";
+            break;
+        case 4:
+            self.orderStateLabel.text = @"退款失败";
+            break;
+        case 3:
             self.orderStateLabel.text = @"退款成功";
+            break;
+        case 2:
+            self.orderStateLabel.text = @"商家拒绝退款";
+            break;
+        case 1:
+            self.orderStateLabel.text = @"处理中";
             break;
         case -1:
             break;
         default:
-            self.orderStateLabel.text = @"退款中";
+            self.orderStateLabel.text = @"申请已提交";
             break;
     }
 }

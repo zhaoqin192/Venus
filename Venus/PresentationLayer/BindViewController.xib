@@ -122,7 +122,11 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMM-dQ-s78">
-                    <rect key="frame" x="126" y="526" width="130" height="27"/>
+                    <rect key="frame" x="122.5" y="526" width="130" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="DEn-Jf-7XG"/>
+                        <constraint firstAttribute="height" constant="27" id="cuq-HA-3uV"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="还没有账号？进行注册">
                         <color key="titleColor" red="0.65098039220000004" green="0.52941176469999995" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -149,6 +153,7 @@
                 <constraint firstItem="IKh-S4-AZv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Uho-bh-IHa"/>
                 <constraint firstItem="SMM-dQ-s78" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="126" id="VlW-1o-t8V"/>
                 <constraint firstItem="hqt-f9-pwg" firstAttribute="top" secondItem="IKh-S4-AZv" secondAttribute="bottom" constant="15" id="aJw-yG-BBi"/>
+                <constraint firstItem="SMM-dQ-s78" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bYf-gM-bvO"/>
                 <constraint firstItem="FGT-ec-Y5S" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="es3-Mm-NNT"/>
                 <constraint firstAttribute="trailing" secondItem="IKh-S4-AZv" secondAttribute="trailing" id="gvs-dw-2gK"/>
                 <constraint firstItem="hqt-f9-pwg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="hEC-Uq-63P"/>
@@ -161,6 +166,12 @@
                 <constraint firstItem="IKh-S4-AZv" firstAttribute="top" secondItem="r1Q-i2-9uv" secondAttribute="bottom" constant="1" id="snw-r9-hR9"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="N2k-2F-VcP"/>
+                    <exclude reference="VlW-1o-t8V"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="246.5" y="400.5"/>
         </view>
     </objects>

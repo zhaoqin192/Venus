@@ -29,10 +29,10 @@
     if (list.count == 0) {
         return;
     }
-    CGFloat width = 140;
-    CGFloat height = 140;
+    CGFloat width = 140.0f / 375 * kScreenWidth;
+    CGFloat height = width;
     CGFloat margin = 5;
-    for (int i = 0; i<list.count; i++) {
+    for (int i = 0; i < list.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(margin*i + i*width, 0, width, height);
         button.tag = i;

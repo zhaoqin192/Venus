@@ -166,14 +166,10 @@
     SearchResultModel *model = [self.viewModel.searchArray objectAtIndex:indexPath.row];
     
     if ([model.type isEqualToNumber:@1]) {
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"brand" object:nil userInfo:@{@"url": [@"/bazaar/mobile/brandShop/" stringByAppendingString:model.identifier]}];
-    
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"brand" object:nil userInfo:@{@"storeID": model.identifier}];
     }
     else {
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"beauty" object:nil userInfo:@{@"shopID": model.identifier}];
-        
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

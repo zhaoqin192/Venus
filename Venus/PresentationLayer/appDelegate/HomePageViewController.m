@@ -441,7 +441,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             break;
         case 2:
         case 3:
-            return 200;
+            return 140.0f / 375 * kScreenWidth + 60;
             break;
         default:
             return 444;

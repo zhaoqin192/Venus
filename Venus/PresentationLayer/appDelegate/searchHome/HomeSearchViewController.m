@@ -15,6 +15,7 @@
 #import "BrandViewController.h"
 #import "BeautifulDetailViewController.h"
 #import "SearchResultViewModel.h"
+#import "BrandDetailViewController.h"
 
 @interface HomeSearchViewController ()<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UISearchController *searchController;
@@ -87,14 +88,12 @@
       takeUntil:[self rac_willDeallocSignal]]
      subscribeNext:^(NSNotification *notification) {
          
-         NSDictionary *userInfo = notification.userInfo;
          @strongify(self)
          UIStoryboard *kind = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
-         BrandViewController *brandVC = (BrandViewController *)[kind instantiateViewControllerWithIdentifier:@"brand"];
-         brandVC.detailURL = userInfo[@"url"];
-         
+         NSDictionary *userInfo = notification.userInfo;
+         BrandDetailViewController *brandVC = (BrandDetailViewController *)[kind instantiateViewControllerWithIdentifier:[BrandDetailViewController className]];
+         brandVC.storeID = [NSNumber numberWithString:userInfo[@"storeID"]];
          [self.navigationController pushViewController:brandVC animated:YES];
-         
      }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"beauty" object:nil]

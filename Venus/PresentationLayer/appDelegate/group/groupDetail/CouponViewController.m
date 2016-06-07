@@ -23,13 +23,14 @@
 #import "CouponCommentTitleCell.h"
 #import "HCSStarRatingView.h"
 #import "ShowImageViewController.h"
+#import "MWPhotoBrowser.h"
 
 
 
-@interface CouponViewController ()
+@interface CouponViewController ()<MWPhotoBrowserDelegate>
 
 @property (nonatomic, strong) CouponDetailViewModel *viewModel;
-
+@property (nonatomic, strong) NSMutableArray *photos;
 @end
 
 @implementation CouponViewController
@@ -103,6 +104,48 @@
         [self.navigationController pushViewController:showImageVC animated:NO];
     }];
     
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:CouponCommentCellImageEvent object:nil]
+    takeUntil:[self rac_willDeallocSignal]]
+    subscribeNext:^(NSNotification *notification) {
+        @strongify(self)
+        NSDictionary *userInfo = notification.userInfo;
+        
+        
+        // Browser
+        NSMutableArray *photos = [[NSMutableArray alloc] init];
+        BOOL displayActionButton = YES;
+        BOOL displaySelectionButtons = NO;
+        BOOL displayNavArrows = NO;
+        BOOL enableGrid = YES;
+        BOOL startOnGrid = NO;
+        BOOL autoPlayOnAppear = NO;
+        
+        NSArray *imageArray = userInfo[@"imageArray"];
+        for (NSString *imageURL in imageArray) {
+            [photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:imageURL]]];
+        }
+        
+        self.photos = photos;
+        // Create browser
+        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+        browser.displayActionButton = displayActionButton;
+        browser.displayNavArrows = displayNavArrows;
+        browser.displaySelectionButtons = displaySelectionButtons;
+        browser.alwaysShowControls = displaySelectionButtons;
+        browser.zoomPhotosToFill = YES;
+        browser.enableGrid = enableGrid;
+        browser.startOnGrid = startOnGrid;
+        browser.enableSwipeToDismiss = NO;
+        browser.autoPlayOnAppear = autoPlayOnAppear;
+        [browser setCurrentPhotoIndex:[userInfo[@"item"] integerValue]];
+        
+        // Modal
+        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:browser];
+        nc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:nc animated:YES completion:nil];
+        
+    }];
+    
 }
 
 #pragma mark -UITableViewDelegate
@@ -151,7 +194,7 @@
     }
     else if (indexPath.section == 2) {
         CouponCaseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponCaseCell"];
-        cell.price.text = [NSString stringWithFormat:@"￥%@", self.couponModel.asPrice];
+        cell.price.text = [NSString stringWithFormat:@"￥%.2f", [self.couponModel.price floatValue] / 100];
         cell.number.text = @"1张";
         return cell;
     }
@@ -285,6 +328,18 @@
         CommitOrderViewController *commitVC = segue.destinationViewController;
         commitVC.couponModel = self.couponModel;
     }
+}
+
+#pragma mark - MWPhotoBrowserDelegate
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return _photos.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < _photos.count)
+        return [_photos objectAtIndex:index];
+    return nil;
 }
 
 @end

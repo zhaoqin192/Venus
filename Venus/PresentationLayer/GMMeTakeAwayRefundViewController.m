@@ -11,13 +11,14 @@
 #import "GMMeTakeAwayDetailInfoCell.h"
 #import "GMMeTakeAwayRefundReasonCell.h"
 #import "NetworkFetcher+FoodOrder.h"
+#import "PresentationUtility.h"
 
 @interface GMMeTakeAwayRefundViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (copy, nonatomic) NSString *reason;
-
+@property (weak, nonatomic) UITextField *reasonTextField;
 
 @end
 
@@ -74,6 +75,7 @@
         }
     } else {
         GMMeTakeAwayRefundReasonCell *cell = [GMMeTakeAwayRefundReasonCell cellForTableView:tableView];
+        self.reasonTextField = cell.textField;
         return cell;
     }
 }
@@ -108,6 +110,13 @@
 
 #pragma mark - event response
 - (IBAction)submitButtonClicked:(id)sender {
+    self.reason = self.reasonTextField.text;
+    
+    if ([self.reason isEqualToString:@""]) {
+        [PresentationUtility showTextDialog:self.view text:@"请输入退款原因" success:nil];
+        return;
+    }
+    
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
     GMMeTakeAwayRefundReasonCell *cell = (GMMeTakeAwayRefundReasonCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     self.reason = cell.textField.text;

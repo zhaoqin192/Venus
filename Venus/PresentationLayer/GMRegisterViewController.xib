@@ -131,14 +131,14 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1y-vy-6p9" customClass="GMButton">
-                    <rect key="frame" x="42" y="359" width="292" height="76"/>
+                    <rect key="frame" x="42" y="359" width="292" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="292" id="0AV-qU-vuT"/>
                         <constraint firstAttribute="height" constant="76" id="0YS-eM-URj"/>
                         <constraint firstAttribute="width" constant="292" id="GSd-9C-gMH"/>
-                        <constraint firstAttribute="height" constant="76" id="Xi3-jY-V8n"/>
+                        <constraint firstAttribute="height" constant="60" id="Xi3-jY-V8n"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="20"/>
                     <state key="normal" title="同意协议并注册" backgroundImage="loginButton"/>
                     <variation key="default">
