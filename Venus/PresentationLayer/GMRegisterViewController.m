@@ -35,7 +35,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"手机注册"]];
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [self selectTextForTitle];
     [self configureUI];
@@ -82,10 +81,27 @@
     }];
     
     [self.viewModel.signUpSuccessSubject subscribeNext:^(NSString *message) {
-        [PresentationUtility showTextDialog:self.view text:message success:nil];
-        self.appDelegate.state = ORDINARY;
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
+        @strongify(self);
+        if (_appDelegate.state != ORDINARY) {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.labelText = @"绑定成功";
+            hud.mode = MBProgressHUDModeText;
+            [hud showAnimated:YES whileExecutingBlock:^{
+                //对话框显示时需要执行的操作
+                sleep(1.5);
+            } completionBlock:^{
+                [hud removeFromSuperview];
+                UIViewController *vc = self.presentingViewController;
+                while (vc.presentingViewController) {
+                    vc = vc.presentingViewController;
+                }
+                [vc dismissViewControllerAnimated:YES completion:NULL];
+                self.appDelegate.state = ORDINARY;
+            }];
+        }
+        else {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
     }];
     
     [self.viewModel.signUpFailureSubject subscribeNext:^(NSString *failure) {

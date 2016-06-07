@@ -163,19 +163,12 @@
     if ([url.host isEqualToString:@"safepay"]) {
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
-            
             if ([resultDic[@"resultStatus"] isEqualToString:@"9000"]) {
-                
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"PaySuccess" object:nil];
-                
             }
             else {
-                
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"PayFailure" object:nil];
-                
             }
-            
         }];
         return YES;
     }
@@ -215,26 +208,25 @@
 
 // NOTE: 9.0以后使用新API接口
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
+    NSLog(@"%@", url.host);
     if ([url.host isEqualToString:@"safepay"]) {
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
-            
             if ([resultDic[@"resultStatus"] isEqualToString:@"9000"]) {
-                
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"PaySuccess" object:nil];
-                
             }
             else {
-                
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"PayFailure" object:nil];
-                
             }
-            
         }];
+    }
+    else if ([url.host isEqualToString:@"oauth"]) {
+        [WXApi handleOpenURL:url delegate:self];
+    }
+    else if ([url.host isEqualToString:@"qzapp"]) {
+        [TencentOAuth HandleOpenURL:url];
     }
     return YES;
 }
-
 
 @end

@@ -30,7 +30,7 @@
         return;
     }
     CGFloat width = 140;
-    CGFloat height = 90;
+    CGFloat height = 140;
     CGFloat margin = 5;
     for (int i = 0; i<list.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];

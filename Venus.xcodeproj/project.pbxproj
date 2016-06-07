@@ -257,11 +257,13 @@
 		AC4D74151CF2DE8100DF4997 /* KindDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D74141CF2DE8100DF4997 /* KindDetailViewController.m */; };
 		AC4D741A1CF2F97800DF4997 /* PersonalCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4D74191CF2F97800DF4997 /* PersonalCouponViewController.m */; };
 		AC513A2F1D05188400531EB0 /* BrandDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC513A2E1D05188400531EB0 /* BrandDetailCell.m */; };
+		AC513A361D0552F700531EB0 /* BindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC513A341D0552F700531EB0 /* BindViewController.m */; };
+		AC513A371D0552F700531EB0 /* BindViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC513A351D0552F700531EB0 /* BindViewController.xib */; };
+		AC513A3E1D05631E00531EB0 /* BindViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC513A3D1D05631E00531EB0 /* BindViewModel.m */; };
+		AC513A431D0572F700531EB0 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC513A421D0572F700531EB0 /* libWeChatSDK.a */; };
+		AC513A461D05BD1F00531EB0 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC513A441D05BD1F00531EB0 /* TencentOpenAPI.framework */; };
+		AC513A4A1D05BDE100531EB0 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC513A491D05BDE100531EB0 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		AC545FA21CEDAE7400133F25 /* CommitOrderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC545FA11CEDAE7400133F25 /* CommitOrderViewModel.m */; };
-		AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */; };
-		AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48C81CCA48CA00724914 /* read_me.txt */; };
-		AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC5B48CE1CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle */; };
-		AC5B48D11CCA496E00724914 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B48CF1CCA496E00724914 /* TencentOpenAPI.framework */; };
 		AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5B48D31CCA49D200724914 /* SDKManager.m */; };
 		AC5E17821D03D8E4002E1523 /* BrandCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5E17811D03D8E4002E1523 /* BrandCommentView.m */; };
 		AC5E17861D03D914002E1523 /* BrandCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC5E17851D03D914002E1523 /* BrandCommentView.xib */; };
@@ -329,6 +331,7 @@
 		ACB911FC1CFAC7F900F9183E /* SearchResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB911FB1CFAC7F900F9183E /* SearchResultModel.m */; };
 		ACCDCB8C1CF9D4B300FAD161 /* BrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCDCB8B1CF9D4B300FAD161 /* BrandViewController.m */; };
 		ACCDCB8F1CF9DBB900FAD161 /* SearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCDCB8E1CF9DBB900FAD161 /* SearchResultTableViewCell.m */; };
+		ACDAAF061D0666BD0026A30A /* BrandDetailShowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDAAF051D0666BD0026A30A /* BrandDetailShowCell.m */; };
 		ACE0668F1CDB741C0000D335 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE0668E1CDB741C0000D335 /* Comment.m */; };
 		ACE066931CDB75BF0000D335 /* CommentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE066921CDB75BF0000D335 /* CommentManager.m */; };
 		ACF83EB01CBF97F800A962BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF83EAF1CBF97F800A962BD /* main.m */; };
@@ -873,15 +876,19 @@
 		AC4D74191CF2F97800DF4997 /* PersonalCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCouponViewController.m; sourceTree = "<group>"; };
 		AC513A2D1D05188400531EB0 /* BrandDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandDetailCell.h; sourceTree = "<group>"; };
 		AC513A2E1D05188400531EB0 /* BrandDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandDetailCell.m; sourceTree = "<group>"; };
+		AC513A331D0552F700531EB0 /* BindViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindViewController.h; sourceTree = "<group>"; };
+		AC513A341D0552F700531EB0 /* BindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindViewController.m; sourceTree = "<group>"; };
+		AC513A351D0552F700531EB0 /* BindViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BindViewController.xib; sourceTree = "<group>"; };
+		AC513A3C1D05631E00531EB0 /* BindViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindViewModel.h; sourceTree = "<group>"; };
+		AC513A3D1D05631E00531EB0 /* BindViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindViewModel.m; sourceTree = "<group>"; };
+		AC513A3F1D0572F700531EB0 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		AC513A401D0572F700531EB0 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		AC513A411D0572F700531EB0 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		AC513A421D0572F700531EB0 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		AC513A441D05BD1F00531EB0 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		AC513A491D05BDE100531EB0 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		AC545FA01CEDAE7400133F25 /* CommitOrderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitOrderViewModel.h; sourceTree = "<group>"; };
 		AC545FA11CEDAE7400133F25 /* CommitOrderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitOrderViewModel.m; sourceTree = "<group>"; };
-		AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		AC5B48C81CCA48CA00724914 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
-		AC5B48C91CCA48CA00724914 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
-		AC5B48CA1CCA48CA00724914 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		AC5B48CB1CCA48CA00724914 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		AC5B48CE1CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
-		AC5B48CF1CCA496E00724914 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		AC5B48D21CCA49D200724914 /* SDKManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKManager.h; sourceTree = "<group>"; };
 		AC5B48D31CCA49D200724914 /* SDKManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKManager.m; sourceTree = "<group>"; };
 		AC5E17801D03D8E4002E1523 /* BrandCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandCommentView.h; sourceTree = "<group>"; };
@@ -1003,6 +1010,8 @@
 		ACCDCB8B1CF9D4B300FAD161 /* BrandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandViewController.m; sourceTree = "<group>"; };
 		ACCDCB8D1CF9DBB900FAD161 /* SearchResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultTableViewCell.h; sourceTree = "<group>"; };
 		ACCDCB8E1CF9DBB900FAD161 /* SearchResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableViewCell.m; sourceTree = "<group>"; };
+		ACDAAF041D0666BD0026A30A /* BrandDetailShowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrandDetailShowCell.h; sourceTree = "<group>"; };
+		ACDAAF051D0666BD0026A30A /* BrandDetailShowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrandDetailShowCell.m; sourceTree = "<group>"; };
 		ACE0668D1CDB741C0000D335 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		ACE0668E1CDB741C0000D335 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		ACE066911CDB75BF0000D335 /* CommentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentManager.h; sourceTree = "<group>"; };
@@ -1369,6 +1378,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC513A461D05BD1F00531EB0 /* TencentOpenAPI.framework in Frameworks */,
+				AC513A431D0572F700531EB0 /* libWeChatSDK.a in Frameworks */,
 				ACFF330E1CF87171008BD0D8 /* AlipaySDK.framework in Frameworks */,
 				ACFF328B1CF86F9C008BD0D8 /* libssl.a in Frameworks */,
 				ACFF328C1CF86F9C008BD0D8 /* libcrypto.a in Frameworks */,
@@ -1380,8 +1391,6 @@
 				300A19251D014F5E006A0468 /* BaiduMapAPI_Location.framework in Frameworks */,
 				AC31AD8B1CF327C9006F0608 /* CoreText.framework in Frameworks */,
 				AC31AD891CF327BE006F0608 /* QuartzCore.framework in Frameworks */,
-				AC5B48D11CCA496E00724914 /* TencentOpenAPI.framework in Frameworks */,
-				AC5B48CC1CCA48CA00724914 /* libWeChatSDK.a in Frameworks */,
 				AC7AD4831CC72BF2004D9B61 /* libc++.tbd in Frameworks */,
 				AC0359081CC4D78600EC7BBC /* libz.tbd in Frameworks */,
 				AC0359061CC4D77900EC7BBC /* libsqlite3.tbd in Frameworks */,
@@ -1670,6 +1679,9 @@
 				3086D3B71CC72A1E007494D7 /* GMRegisterViewController.h */,
 				3086D3B81CC72A1E007494D7 /* GMRegisterViewController.m */,
 				3086D3B91CC72A1E007494D7 /* GMRegisterViewController.xib */,
+				AC513A331D0552F700531EB0 /* BindViewController.h */,
+				AC513A341D0552F700531EB0 /* BindViewController.m */,
+				AC513A351D0552F700531EB0 /* BindViewController.xib */,
 			);
 			name = Register;
 			sourceTree = "<group>";
@@ -2043,8 +2055,8 @@
 		AC03590D1CC4DB2500EC7BBC /* Tencent */ = {
 			isa = PBXGroup;
 			children = (
-				AC5B48CE1CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle */,
-				AC5B48CF1CCA496E00724914 /* TencentOpenAPI.framework */,
+				AC513A491D05BDE100531EB0 /* TencentOpenApi_IOS_Bundle.bundle */,
+				AC513A441D05BD1F00531EB0 /* TencentOpenAPI.framework */,
 			);
 			path = Tencent;
 			sourceTree = "<group>";
@@ -2207,11 +2219,10 @@
 		AC7AD4791CC72AF3004D9B61 /* WeChat */ = {
 			isa = PBXGroup;
 			children = (
-				AC5B48C71CCA48CA00724914 /* libWeChatSDK.a */,
-				AC5B48C81CCA48CA00724914 /* read_me.txt */,
-				AC5B48C91CCA48CA00724914 /* WechatAuthSDK.h */,
-				AC5B48CA1CCA48CA00724914 /* WXApi.h */,
-				AC5B48CB1CCA48CA00724914 /* WXApiObject.h */,
+				AC513A3F1D0572F700531EB0 /* WXApiObject.h */,
+				AC513A401D0572F700531EB0 /* WXApi.h */,
+				AC513A411D0572F700531EB0 /* WechatAuthSDK.h */,
+				AC513A421D0572F700531EB0 /* libWeChatSDK.a */,
 			);
 			path = WeChat;
 			sourceTree = "<group>";
@@ -2237,6 +2248,8 @@
 				AC7B3ADA1CDF2D7F0039C2A5 /* LoginViewModel.m */,
 				AC7B3AD71CDF2C7E0039C2A5 /* SignUpViewModel.h */,
 				AC7B3AD81CDF2C7E0039C2A5 /* SignUpViewModel.m */,
+				AC513A3C1D05631E00531EB0 /* BindViewModel.h */,
+				AC513A3D1D05631E00531EB0 /* BindViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2409,6 +2422,8 @@
 				AC5E17851D03D914002E1523 /* BrandCommentView.xib */,
 				AC513A2D1D05188400531EB0 /* BrandDetailCell.h */,
 				AC513A2E1D05188400531EB0 /* BrandDetailCell.m */,
+				ACDAAF041D0666BD0026A30A /* BrandDetailShowCell.h */,
+				ACDAAF051D0666BD0026A30A /* BrandDetailShowCell.m */,
 			);
 			path = brandDetail;
 			sourceTree = "<group>";
@@ -3185,10 +3200,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC513A4A1D05BDE100531EB0 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				E8DDDED31CF5DD7F000F147B /* FoodOrderMarkViewController.xib in Resources */,
 				ACFF32E81CF8711E008BD0D8 /* CouponRefundViewController.xib in Resources */,
 				ACFF33881CF9871B008BD0D8 /* Info.plist in Resources */,
-				AC5B48D01CCA496E00724914 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				AC8D75271CFB2B690023B619 /* refund.storyboard in Resources */,
 				ACFF32FC1CF87125008BD0D8 /* CouponCommentViewController.xib in Resources */,
 				7F7025691CF57FE0009653A6 /* FoodBillCell.xib in Resources */,
@@ -3199,7 +3214,6 @@
 				308E0D881CF2A4EF0048F38A /* GMMeInformationViewController.xib in Resources */,
 				AC90F5661CCFA292004C4C55 /* HomeIntroduceCell.xib in Resources */,
 				E8F047CD1CFC90FE00E08A40 /* GMMeTakeAwayRefundViewController.xib in Resources */,
-				AC5B48CD1CCA48CA00724914 /* read_me.txt in Resources */,
 				ACFF32CF1CF87114008BD0D8 /* OrderDetailViewController.xib in Resources */,
 				30D6D2731CC87ACE00FB0CFC /* ico_make.png in Resources */,
 				ACFF32EE1CF8711E008BD0D8 /* CouponOrderTableViewCell.xib in Resources */,
@@ -3310,6 +3324,7 @@
 				30FD1F4F1CE1A80B003C91A5 /* mapapi.bundle in Resources */,
 				3086D3D31CC72ABC007494D7 /* HomeNewsCell.xib in Resources */,
 				30B601C11CD05E88003ED671 /* ShopAllCell.xib in Resources */,
+				AC513A371D0552F700531EB0 /* BindViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3453,6 +3468,7 @@
 				308E0D871CF2A4EF0048F38A /* GMMeInformationViewController.m in Sources */,
 				AC2E04421CEB554900476087 /* CouponCommentCell.m in Sources */,
 				305E8D2D1CFC2E290063389E /* SDRefreshView.m in Sources */,
+				ACDAAF061D0666BD0026A30A /* BrandDetailShowCell.m in Sources */,
 				AC5B48D41CCA49D200724914 /* SDKManager.m in Sources */,
 				ACFF31C41CF86EE0008BD0D8 /* NSString+Expand.m in Sources */,
 				E8F047FD1CFDD62600E08A40 /* NewFoodDetailViewController.m in Sources */,
@@ -3515,6 +3531,7 @@
 				ACFF328A1CF86F8B008BD0D8 /* RSADataVerifier.m in Sources */,
 				E8F047C71CFB44B100E08A40 /* TakeAwayOrderStore.m in Sources */,
 				30B601CA1CD07C54003ED671 /* ShopCycleCell.m in Sources */,
+				AC513A3E1D05631E00531EB0 /* BindViewModel.m in Sources */,
 				AC987D401CE8AF9900E11CC5 /* NetworkFetcher+Group.m in Sources */,
 				7F9370A51CF6E4F10063F544 /* FoodShowAddressCell.m in Sources */,
 				AC6FF1BB1D01B23100B04388 /* BrandKindTableViewCell.m in Sources */,
@@ -3524,6 +3541,7 @@
 				AC71EAB11CC090EC00B101C2 /* NetworkFetcher+User.m in Sources */,
 				AC2E04361CEB2D3800476087 /* CouponPictureCell.m in Sources */,
 				ACAC174B1CD8DDCD00E04499 /* ResFood.m in Sources */,
+				AC513A361D0552F700531EB0 /* BindViewController.m in Sources */,
 				AC987D351CE89B8A00E11CC5 /* GroupViewController.m in Sources */,
 				AC4D73FA1CF1E42B00DF4997 /* MoreViewCell.m in Sources */,
 				303519571CCF1F9500EE0750 /* TicketHeaderCell.m in Sources */,

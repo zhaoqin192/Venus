@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -149,12 +149,20 @@
                     </variation>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFo-vL-XQm">
-                    <rect key="frame" x="8" y="16" width="36" height="36"/>
+                    <rect key="frame" x="328" y="30" width="24" height="24"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="24" id="HLH-5h-TEI"/>
                         <constraint firstAttribute="width" constant="36" id="Ilm-Tt-lpv"/>
                         <constraint firstAttribute="height" constant="36" id="SNX-pR-N2V"/>
+                        <constraint firstAttribute="height" constant="24" id="aK2-Jq-VPz"/>
                     </constraints>
-                    <state key="normal" image="clear"/>
+                    <state key="normal" image="关闭"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Ilm-Tt-lpv"/>
+                            <exclude reference="SNX-pR-N2V"/>
+                        </mask>
+                    </variation>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,6 +173,7 @@
                 <constraint firstItem="Uy1-Sf-8bN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="23L-Lf-96A"/>
                 <constraint firstItem="XFo-vL-XQm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="27p-R9-mfv"/>
                 <constraint firstItem="XFo-vL-XQm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="2dC-RJ-qNN"/>
+                <constraint firstAttribute="trailing" secondItem="XFo-vL-XQm" secondAttribute="trailing" constant="23" id="3AJ-vR-egf"/>
                 <constraint firstItem="ilm-Sc-Bhw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="4AW-E6-7sH"/>
                 <constraint firstItem="H1y-vy-6p9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4Kn-Ak-j6A"/>
                 <constraint firstItem="7pf-4f-Kly" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="4oG-eG-clg"/>
@@ -207,6 +216,7 @@
                 <constraint firstItem="7pf-4f-Kly" firstAttribute="top" secondItem="ilm-Sc-Bhw" secondAttribute="bottom" constant="18" id="rcB-ug-MGc"/>
                 <constraint firstItem="Uy1-Sf-8bN" firstAttribute="top" secondItem="ocA-jz-cbt" secondAttribute="bottom" constant="18" id="s8J-FD-7e2"/>
                 <constraint firstAttribute="trailing" secondItem="H1y-vy-6p9" secondAttribute="trailing" constant="41" id="tlq-lU-iJ4"/>
+                <constraint firstItem="XFo-vL-XQm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="vIf-KS-GE9"/>
                 <constraint firstAttribute="trailing" secondItem="ilm-Sc-Bhw" secondAttribute="trailing" constant="60" id="vO4-qe-TCl"/>
                 <constraint firstItem="Uy1-Sf-8bN" firstAttribute="leading" secondItem="7pf-4f-Kly" secondAttribute="leading" id="vbk-9g-KRQ"/>
                 <constraint firstItem="zkb-dd-UcP" firstAttribute="trailing" secondItem="GWs-0K-GwA" secondAttribute="trailing" id="yok-8e-ARz"/>
@@ -215,10 +225,10 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="AN9-aZ-imP"/>
                     <exclude reference="JGf-kZ-siv"/>
                     <exclude reference="Q0M-Xn-rmM"/>
                     <exclude reference="inf-eb-SUH"/>
+                    <exclude reference="AN9-aZ-imP"/>
                     <exclude reference="Xfx-Ou-v61"/>
                     <exclude reference="23L-Lf-96A"/>
                     <exclude reference="Uyg-Ub-aog"/>
@@ -226,6 +236,8 @@
                     <exclude reference="eeU-hM-UZn"/>
                     <exclude reference="oyX-k8-egK"/>
                     <exclude reference="vbk-9g-KRQ"/>
+                    <exclude reference="27p-R9-mfv"/>
+                    <exclude reference="2dC-RJ-qNN"/>
                     <exclude reference="WD2-AX-2xI"/>
                     <exclude reference="1HF-BG-vbU"/>
                     <exclude reference="4Kn-Ak-j6A"/>
@@ -234,8 +246,8 @@
         </view>
     </objects>
     <resources>
-        <image name="clear" width="36" height="36"/>
         <image name="loginButton" width="292" height="76"/>
+        <image name="关闭" width="24" height="24"/>
         <image name="国贸Stylelogo" width="214" height="76"/>
         <image name="手机注册" width="375" height="667"/>
     </resources>

@@ -21,6 +21,7 @@
 #import "MerchandiseModel.h"
 #import "BrandCommentView.h"
 #import "BrandDetailCell.h"
+#import "BrandDetailShowCell.h"
 
 
 typedef NS_ENUM(NSInteger, BrandState) {
@@ -226,7 +227,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
     else {
         switch (self.selectTab) {
             case BrandDetail:
-                return 1;
+                return 2;
             case BrandKind:
                 if (self.viewModel.kindArray.count % 2 == 0) {
                     return self.viewModel.kindArray.count / 2;
@@ -250,13 +251,18 @@ typedef NS_ENUM(NSInteger, BrandState) {
     else {
         switch (self.selectTab) {
             case BrandDetail:{
-                BrandDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:BrandDetailCellIdentifier];
-                if (self.viewModel.detailURL) {
-//                    [cell loadURL:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.viewModel.detailURL]];
-                    [cell loadURL:@"http://www.chinaworldstyle.com/bazaar/mobile/imageText?type=brandInfo&id=100016"];
-//                    [cell loadURL:@"http://www.baidu.com"];
+                if (indexPath.row == 0) {
+                    BrandDetailShowCell *cell = [tableView dequeueReusableCellWithIdentifier:BrandDetailShowCellIdentifier];
+                    [cell showArrayLoad:self.viewModel.showArray];
+                    return cell;
                 }
-                return cell;
+                else if (indexPath.row == 1) {
+                    BrandDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:BrandDetailCellIdentifier];
+                    if (self.viewModel.detailURL) {
+                        [cell loadURL:[@"http://www.chinaworldstyle.com" stringByAppendingString:self.viewModel.detailURL]];
+                    }
+                    return cell;
+                }
             }
             case BrandKind: {
                 BrandKindTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[BrandKindTableViewCell className]];
@@ -293,7 +299,12 @@ typedef NS_ENUM(NSInteger, BrandState) {
     else {
         switch (self.selectTab) {
             case BrandDetail:
-                return [self.webViewHeight floatValue];
+                if (indexPath.row == 0) {
+                    return 140;
+                }
+                else if (indexPath.row == 1) {
+                    return [self.webViewHeight floatValue];
+                }
             case BrandKind:
                 return 270;
             case BrandComment:

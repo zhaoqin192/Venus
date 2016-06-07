@@ -14,6 +14,7 @@ NSString *const BrandDetailWebViewHeight = @"BrandDetailWebViewHeight";
 
 @interface BrandDetailCell ()<UIWebViewDelegate>
 @property (nonatomic, assign) BOOL allowLoad;
+@property (nonatomic, assign) BOOL allowNotification;
 @end
 
 @implementation BrandDetailCell
@@ -35,9 +36,7 @@ NSString *const BrandDetailWebViewHeight = @"BrandDetailWebViewHeight";
 
 - (void)loadURL:(NSString *)url {
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    
     [self.webView loadRequest:request];
-    
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -48,11 +47,19 @@ NSString *const BrandDetailWebViewHeight = @"BrandDetailWebViewHeight";
     frame.size.width = width;
     self.webView.frame = frame;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailWebViewHeight object:nil userInfo:@{@"height": [NSNumber numberWithFloat:height]}];
+    if (self.allowNotification) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:BrandDetailWebViewHeight object:nil userInfo:@{@"height": [NSNumber numberWithFloat:height]}];
+    }
     self.allowLoad = NO;
 }
 
 - (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSString *requestString = [[request URL] absoluteString];
+    if ([requestString hasSuffix:@"/bazaar/imageText"]) {
+        self.allowNotification = YES;
+        return YES;
+    }
+    
     return self.allowLoad;
 }
 

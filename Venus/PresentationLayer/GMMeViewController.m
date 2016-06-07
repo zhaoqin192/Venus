@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) NSString *imgUrl;
+@property (nonatomic, strong) AccountDao *accountDao;
 @end
 
 @implementation GMMeViewController
@@ -34,10 +35,21 @@
     self.iconView.layer.cornerRadius = self.iconView.width/2;
     self.iconView.layer.masksToBounds = YES;
     self.iconView.userInteractionEnabled = YES;
+    
+    self.accountDao = [[DatabaseManager sharedInstance] accountDao];
+    
+    if (![_accountDao isLogin]) {
+        self.nameLabel.text = @"登录";
+    }
+
+    @weakify(self)
     [self.iconView bk_whenTapped:^{
-        GMMeShowIconViewController *vc = [[GMMeShowIconViewController alloc] init];
-        vc.imgUrl = self.imgUrl;
-        [self.navigationController pushViewController:vc animated:YES];
+        @strongify(self)
+        if ([_accountDao isLogin]) {
+            GMMeShowIconViewController *vc = [[GMMeShowIconViewController alloc] init];
+            vc.imgUrl = self.imgUrl;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }];
     [self configureTableView];
     [self onClickEvent];
@@ -45,11 +57,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-    if (![accountDao isLogin]) {
-        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
-        [self presentViewController:vc animated:YES completion:nil];
-    }
     [self configureHeadView];
 }
 
@@ -107,6 +114,17 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }];
+    
+    self.nameLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *nameTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentLoginView)];
+    [self.nameLabel addGestureRecognizer:nameTap];
+}
+
+- (void)presentLoginView {
+    if (![_accountDao isLogin]) {
+        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 #pragma mark - UITableViewDataSource

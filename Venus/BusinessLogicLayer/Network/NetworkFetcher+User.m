@@ -16,7 +16,7 @@
 @implementation NetworkFetcher (User)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
-static const BOOL LOGDEBUG = NO;
+static const BOOL LOGDEBUG = YES;
 
 + (void)userLoginWithAccount:(NSString *)phone
                     password:(NSString *)password
@@ -111,7 +111,7 @@ static const BOOL LOGDEBUG = NO;
             NSLog(@"%@", responseObject);
         }
         
-        [NetworkFetcher userWeChatIsBoundWithOpenID:responseObject[@"openid"] token:responseObject[@"access_token"] success:^{
+        [NetworkFetcher userWeChatIsBoundWithOpenID:responseObject[@"unionid"] token:responseObject[@"access_token"] success:^{
             
         } failure:^(NSString *error) {
             
@@ -160,7 +160,7 @@ static const BOOL LOGDEBUG = NO;
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     
-    NSString *urlString = [[[[[[[[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/api/weixin/bind/mobile?openId="] stringByAppendingString:openID] stringByAppendingString:@"&name="] stringByAppendingString:name] stringByAppendingString:@"&sex="] stringByAppendingString:[NSString stringWithFormat:@"%d", [sex intValue]]] stringByAppendingString:@"&headImgUrl="] stringByAppendingString:avatar];
+    NSString *urlString = [[[[[[[[[[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/api/weixin/bind/mobile?openId="] stringByAppendingString:openID] stringByAppendingString:@"&name="] stringByAppendingString:name] stringByAppendingString:@"&sex="] stringByAppendingString:[NSString stringWithFormat:@"%d", [sex intValue]]] stringByAppendingString:@"&headImgUrl="] stringByAppendingString:avatar] stringByAppendingString:@"&unionid="] stringByAppendingString:unionID];
     
     
     urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
@@ -194,7 +194,7 @@ static const BOOL LOGDEBUG = NO;
                             failure:(NetworkFetcherErrorHandler)failure{
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/api/isbound/weixin"]];
-    NSDictionary *parameters = @{@"openId": openID};
+    NSDictionary *parameters = @{@"unionid": openID};
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
@@ -257,17 +257,7 @@ static const BOOL LOGDEBUG = NO;
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-        
         success(responseObject);
-        
-        
-        //        NSDictionary *response = responseObject;
-        //        if([response[@"errCode"] isEqualToNumber:@0]){
-        //            success();
-        //        }else{
-        //            failure(response[@"msg"]);
-        //        }
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         if (LOGDEBUG) {
@@ -286,16 +276,25 @@ static const BOOL LOGDEBUG = NO;
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/sms/sendcode"]];
     NSDictionary *parameters = @{@"mobile": number};
     
+    @weakify(manager)
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        
+        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+        
+        for (NSString *key in cookieHeaders) {
+            
+            @strongify(manager)
+            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+            
+        }
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
         success(responseObject);
         
-        //        if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
-        //            success();
-        //        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (LOGDEBUG) {
             NSLog(@"%@", error);
@@ -318,13 +317,7 @@ static const BOOL LOGDEBUG = NO;
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-        
         success(responseObject);
-        //        if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
-        //            success(responseObject[@"token"]);
-        //        }else{
-        //            failure(@"验证码不正确");
-        //        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (LOGDEBUG) {
             NSLog(@"%@", error);
@@ -343,8 +336,6 @@ static const BOOL LOGDEBUG = NO;
     NSURL *url = [NSURL URLWithString:@"https://openmobile.qq.com/user/get_simple_userinfo"];
     NSDictionary *parameters = @{@"access_token": token, @"oauth_consumer_key": @"1105340672", @"openid": openID};
     
-    NSLog(@"token---%@", token);
-    NSLog(@"openID--%@", openID);
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
@@ -400,12 +391,13 @@ static const BOOL LOGDEBUG = NO;
                      account:(NSString *)phone
                     password:(NSString *)password
                        token:(NSString *)token
+                      gender:(NSString *)gender
                      success:(NetworkFetcherSuccessHandler)success
                      failure:(NetworkFetcherErrorHandler)failure{
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     
-    NSString *urlString = [[[[[[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/api/qq/bind/mobile?openId="] stringByAppendingString:openID] stringByAppendingString:@"&name="] stringByAppendingString:name] stringByAppendingString:@"&figure="] stringByAppendingString:avatar];
+    NSString *urlString = [[[[[[[[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/api/qq/bind/mobile?openId="] stringByAppendingString:openID] stringByAppendingString:@"&name="] stringByAppendingString:name] stringByAppendingString:@"&figure="] stringByAppendingString:avatar] stringByAppendingString:@"&gender="] stringByAppendingString:gender];
     
     urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
@@ -415,25 +407,10 @@ static const BOOL LOGDEBUG = NO;
     NSDictionary *parameters = @{@"token": token, @"password": password};
     
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-        
         success(responseObject);
-        
-        //        if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
-        //            AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-        //            Account *account = [accountDao fetchAccount];
-        //            account.openID = openID;
-        //            account.nickName = name;
-        //            account.avatar = avatar;
-        //            account.phone = phone;
-        //            account.password = password;
-        //            account.token = responseObject[@"userid"];
-        //            [accountDao save];
-        //        }
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         if (LOGDEBUG) {
@@ -447,25 +424,92 @@ static const BOOL LOGDEBUG = NO;
 }
 
 
++ (void)userWechatBindWithPhone:(NSString *)phone
+                       password:(NSString *)password
+                         openID:(NSString *)openID
+                           name:(NSString *)name
+                            sex:(NSNumber *)sex
+                         avatar:(NSString *)avatar
+                        unionID:(NSString *)unionID
+                        success:(NetworkFetcherSuccessHandler)success
+                        failure:(NetworkFetcherErrorHandler)failure {
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    
+    NSString *urlString = [[[[[[[[[[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/api/weixin/bind?openId="] stringByAppendingString:openID] stringByAppendingString:@"&name="] stringByAppendingString:name] stringByAppendingString:@"&sex="] stringByAppendingString:[NSString stringWithFormat:@"%d", [sex intValue]]] stringByAppendingString:@"&headImgUrl="] stringByAppendingString:avatar] stringByAppendingString:@"&unionid="] stringByAppendingString:unionID];
+    
+    
+    urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSDictionary *parameters = @{@"account": phone, @"password": password};
+    
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        
+        success(responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        
+        failure(@"网络异常");
+    }];
+    
+}
+
++ (void)userQQBindWithPhone:(NSString *)phone
+                   password:(NSString *)password
+                     openID:(NSString *)openID
+                       name:(NSString *)name
+                     gender:(NSString *)gender
+                     avatar:(NSString *)avatar
+                    success:(NetworkFetcherSuccessHandler)success
+                    failure:(NetworkFetcherErrorHandler)failure {
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    
+    NSString *urlString = [[[[[[[[URL_OF_USER_PREFIX
+                                  stringByAppendingString:@"/terra/api/qq/bind?openId="]
+                                    stringByAppendingString:openID]
+                                    stringByAppendingString:@"&name="]
+                                    stringByAppendingString:name]
+                                    stringByAppendingString:@"&gender="]
+                                    stringByAppendingString:gender]
+                                    stringByAppendingString:@"&figure="]
+                                    stringByAppendingString:avatar];
+    
+    urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSDictionary *parameters = @{@"account": phone, @"password": password};
+    
+    [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (LOGDEBUG) {
+            NSLog(@"%@", responseObject);
+        }
+        
+        success(responseObject);
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (LOGDEBUG) {
+            NSLog(@"%@", error);
+        }
+        
+        failure(@"网络异常");
+    }];
+    
+}
+
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

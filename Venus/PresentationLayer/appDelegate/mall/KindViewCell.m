@@ -47,7 +47,7 @@
     KindCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[KindCollectionViewCell className] forIndexPath:indexPath];
     
     cell.name.text = model.name;
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"loginLogo"]];
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"default"]];
     
     return cell;
 }

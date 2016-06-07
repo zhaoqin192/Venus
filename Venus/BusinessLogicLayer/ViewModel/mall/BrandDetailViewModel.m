@@ -100,6 +100,7 @@
             self.storeAddress = info[@"location"];
             self.logoURL = info[@"shopLogo"];
             self.detailURL = info[@"app"];
+            self.showArray = [NSString mj_objectArrayWithKeyValuesArray:info[@"brandShowUrls"]];
             [self.detailSuccessObject sendNext:nil];
         }
         

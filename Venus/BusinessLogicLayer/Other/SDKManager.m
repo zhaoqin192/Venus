@@ -61,7 +61,6 @@ static NSString *tencentAppID = @"1105340672";
 
 - (void)tencentDidLogin{
 
-    NSLog(@"%lu", (unsigned long)[[self.tencentOAuth openId] length]);
     [NetworkFetcher userQQIsBoundWithOpenID:[self.tencentOAuth openId] token:[self.tencentOAuth accessToken] success:^{
         
     } failure:^(NSString *error) {
@@ -71,6 +70,7 @@ static NSString *tencentAppID = @"1105340672";
 }
 
 - (void)tencentDidNotLogin:(BOOL)cancelled{
+    
     
 }
 

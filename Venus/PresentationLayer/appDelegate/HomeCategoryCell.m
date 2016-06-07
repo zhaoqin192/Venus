@@ -27,7 +27,10 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 
 - (void)reloadData {
     self.title.text = self.adversitement.name;
-    [self.mainPicture sd_setImageWithURL:[NSURL URLWithString:[PICTUREURL stringByAppendingString:self.adversitement.pictureUrl]] placeholderImage:[UIImage imageNamed:@"default"]];
+//    [self.mainPicture sd_setImageWithURL:[NSURL URLWithString:[PICTUREURL stringByAppendingString:self.adversitement.pictureUrl]] placeholderImage:[UIImage imageNamed:@"default"]];
+    
+    NSString *url = [[PICTUREURL stringByAppendingString:self.adversitement.pictureUrl] stringByAppendingString:@"?w=300&h=500&operator=cut&location=3"];
+    [self.mainPicture sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"default"]];
     
     
     
@@ -36,8 +39,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         if ([[self.contentView viewWithTag:i + 1] isKindOfClass:[UIButton class]]) {
             UIButton *button = [self.contentView viewWithTag:i + 1];
             [button sd_setBackgroundImageWithURL:[NSURL URLWithString:[PICTUREURL stringByAppendingString:picture.pictureUrl]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"default"]];
-            
-            
             
             [button addTarget:self action:@selector(sendNotification:) forControlEvents:UIControlEventTouchUpInside];
             if (i > 1) {

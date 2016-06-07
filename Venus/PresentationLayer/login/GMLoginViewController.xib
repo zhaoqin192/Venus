@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GMLoginViewController">
             <connections>
+                <outlet property="clearButton" destination="17G-s2-PGB" id="KMa-67-Gq1"/>
                 <outlet property="createAccountButton" destination="Y0N-VW-GY5" id="njv-rF-A0y"/>
                 <outlet property="forgetPasswordButton" destination="q5p-UA-Q4n" id="2mR-8t-XzC"/>
                 <outlet property="loginButton" destination="I6y-zM-Sf7" id="gdD-QP-6Is"/>
@@ -99,6 +100,14 @@
                         <constraint firstAttribute="width" constant="250" id="hnw-hR-SKM"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17G-s2-PGB">
+                    <rect key="frame" x="328" y="30" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="AAJ-aA-S6h"/>
+                        <constraint firstAttribute="width" constant="24" id="cT0-Vf-iiq"/>
+                    </constraints>
+                    <state key="normal" image="关闭"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -108,9 +117,11 @@
                 <constraint firstItem="sOI-Q1-12p" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5f8-Zx-Hin"/>
                 <constraint firstItem="0pw-eL-h08" firstAttribute="centerY" secondItem="iQr-Jr-pfu" secondAttribute="centerY" id="5py-AV-RA9"/>
                 <constraint firstItem="iQr-Jr-pfu" firstAttribute="leading" secondItem="0pw-eL-h08" secondAttribute="trailing" constant="50" id="Bru-cw-fvf"/>
+                <constraint firstAttribute="trailing" secondItem="17G-s2-PGB" secondAttribute="trailing" constant="23" id="DHh-YZ-8AD"/>
                 <constraint firstAttribute="trailing" secondItem="Y0N-VW-GY5" secondAttribute="trailing" constant="10" id="FrU-d5-7QU"/>
                 <constraint firstItem="sOI-Q1-12p" firstAttribute="top" secondItem="8na-Qy-fal" secondAttribute="bottom" id="HUd-E3-iqf"/>
                 <constraint firstItem="pFx-sP-6z1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IZZ-eb-iVa"/>
+                <constraint firstItem="17G-s2-PGB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="TRr-Qk-Zkl"/>
                 <constraint firstItem="sOI-Q1-12p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="Vu1-zU-VTI"/>
                 <constraint firstItem="8na-Qy-fal" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WJL-RF-d5f"/>
                 <constraint firstAttribute="bottom" secondItem="pFx-sP-6z1" secondAttribute="bottom" constant="100" id="Wfo-8C-fan"/>
@@ -140,6 +151,7 @@
     </objects>
     <resources>
         <image name="qq" width="36" height="36"/>
+        <image name="关闭" width="24" height="24"/>
         <image name="国贸Stylelogo" width="214" height="76"/>
         <image name="微信" width="36" height="36"/>
         <image name="微博" width="36" height="36"/>

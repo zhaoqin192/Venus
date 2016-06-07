@@ -12,6 +12,7 @@
 #import "MBProgressHUD.H"
 #import "LoginViewModel.h"
 #import "MeModifyPhoneNumberViewController.h"
+#import "BindViewController.h"
 
 @interface GMLoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *loginDataView;
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) WXTextField *phoneView;
 @property (nonatomic, strong) LoginViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet GMButton *forgetPasswordButton;
+@property (weak, nonatomic) IBOutlet UIButton *clearButton;
 
 @end
 
@@ -31,19 +33,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"loginBackground"]];
     [self configureTextField];
     
     @weakify(self);
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"CREATE_ACCOUNT" object:nil]
      subscribeNext:^(NSNotification *notification) {
-         @strongify(self);
-         //进入注册页面，注册账号并绑定
-         GMRegisterViewController *vc = [[GMRegisterViewController alloc] init];
-         NSDictionary *userInfo = [notification userInfo];
-         vc.token = userInfo[@"token"];
-         vc.openID = userInfo[@"openID"];
-         [self presentViewController:vc animated:NO completion:nil];
+         @strongify(self);         
+         BindViewController *bindVC = [[BindViewController alloc] init];
+         NSDictionary *userInfo = notification.userInfo;
+         bindVC.token = userInfo[@"token"];
+         bindVC.openID = userInfo[@"openID"];
+         [self presentViewController:bindVC animated:NO completion:nil];
+         
      }];
     
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"ENTER_HOME" object:nil]
@@ -138,14 +139,18 @@
         vc.isForget = YES;
         @strongify(self)
         [self presentViewController:vc animated:YES completion:nil];
-       // [self.navigationController pushViewController:vc animated:YES];
+    }];
+    
+    [[self.clearButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    subscribeNext:^(id x) {
+        @strongify(self)
+        [self dismissViewControllerAnimated:YES completion:nil];
     }];
     
 }
 
 - (void)configureTextField{
     _passwordView = [WXTextField fetchTextView];
-//    _passwordView.frame = CGRectMake((kScreenWidth - 250)/2, self.loginButton.frame.origin.y - 130, 250, 40);
     _passwordView.frame = CGRectMake(0, 50, 250, 40);
     _passwordView.imageName = @"lock";
     _passwordView.selectImageName = @"lock选中";
@@ -157,7 +162,6 @@
     [self.loginDataView addSubview:_passwordView];
     
     _phoneView = [WXTextField fetchTextView];
-//    _phoneView.frame = CGRectMake((kScreenWidth - 250)/2, self.loginButton.frame.origin.y - 130 - 50, 250, 40);
     _phoneView.frame = CGRectMake(0, 0, 250, 40);
     _phoneView.imageName = @"phone";
     _phoneView.selectImageName = @"phone选中";

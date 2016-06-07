@@ -22,5 +22,4 @@
 - (void)fetchDetailWithID:(NSNumber *)identifier;
 
 
-
 @end

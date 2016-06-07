@@ -173,10 +173,18 @@
     MerchandiseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MerchandiseCollectionViewCell className] forIndexPath:indexPath];
     MerchandiseModel *model = [self.viewModel.merchandiseArray objectAtIndex:indexPath.row];
     
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"loginLogo"]];
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"default"]];
     
     cell.title.text = model.name;
     cell.priceLabel.text = [NSString stringWithFormat:@"￥%@", model.price];
+    
+    cell.layer.masksToBounds = NO;
+    cell.layer.contentsScale = [UIScreen mainScreen].scale;
+    cell.layer.shadowOpacity = 0.2f;
+    cell.layer.shadowRadius = 0.5f;
+    cell.layer.shadowOffset = CGSizeZero;
+    cell.layer.shadowPath = [UIBezierPath bezierPathWithRect:cell.bounds].CGPath;
+    cell.layer.shouldRasterize = YES;
     
     return cell;
 }
@@ -192,8 +200,8 @@
 #pragma mark -UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
  
-    CGFloat width = 180.0f / 375 * kScreenWidth - 5;
-    CGFloat height = 260 / 667.0 * kScreenHeight - 5;
+    CGFloat width = 180.0f / 375 * kScreenWidth;
+    CGFloat height = 260.0f / 667.0 * kScreenHeight;
     
     return CGSizeMake(width, height);
     

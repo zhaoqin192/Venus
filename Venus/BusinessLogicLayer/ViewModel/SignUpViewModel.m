@@ -128,7 +128,7 @@
     
     [NetworkFetcher userFetchUserInfoWithWeChatToken:token openID:openID Success:^(NSDictionary *userInfo) {
         
-        [NetworkFetcher userBindWeChatWithOpenID:userInfo[@"openid"] name:userInfo[@"nickname"] sex:userInfo[@"sex"] avatar:userInfo[@"headimgurl"] account:_phone password:_password token:token unionID:userInfo[@"unionid"] success:^(NSDictionary *response) {
+        [NetworkFetcher userBindWeChatWithOpenID:userInfo[@"openid"] name:userInfo[@"nickname"] sex:userInfo[@"sex"] avatar:userInfo[@"headimgurl"] account:_phone password:_password token:_token unionID:userInfo[@"unionid"] success:^(NSDictionary *response) {
             
             if ([response[@"errCode"] isEqualToNumber:@0]) {
                 AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
@@ -161,16 +161,22 @@
     
     [NetworkFetcher userFetchUserInfoWithQQToken:token openID:openID success:^(NSDictionary *userInfo) {
         
-        [NetworkFetcher userBindQQWithOpenID:openID name:userInfo[@"nickname"] avatar:userInfo[@"figureurl"] account:_phone password:_password token:token success:^(NSDictionary *response){
+        [NetworkFetcher userBindQQWithOpenID:openID name:userInfo[@"nickname"] avatar:userInfo[@"figureurl"] account:_phone password:_password token:_token gender:userInfo[@"gender"] success:^(NSDictionary *response){
             
             if ([response[@"errCode"] isEqualToNumber:@0]) {
                 AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
                 Account *account = [accountDao fetchAccount];
                 account.openID = openID;
                 account.nickName = userInfo[@"nickname"];
-                account.avatar = userInfo[@"figureurl"];
+                account.avatar = userInfo[@"figureurl_qq_1"];
                 account.password = _password;
                 account.phone = _phone;
+                if ([userInfo[@"gender"] isEqualToString:@"男"]) {
+                    account.sex = @1;
+                }
+                else {
+                    account.sex = @2;
+                }
                 account.token = response[@"userid"];
                 [accountDao save];
                 [_signUpSuccessSubject sendNext:@"绑定成功"];

@@ -138,11 +138,11 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     }];
     
     @weakify(self)
-    [self.viewModel.loginFailureObject subscribeNext:^(id x) {
-        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
-        @strongify(self)
-        [self presentViewController:vc animated:YES completion:nil];
-    }];
+//    [self.viewModel.loginFailureObject subscribeNext:^(id x) {
+//        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+//        @strongify(self)
+//        [self presentViewController:vc animated:YES completion:nil];
+//    }];
     
     [self.viewModel.errorObject subscribeNext:^(NSString *message) {
         @strongify(self)
@@ -397,7 +397,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             HomeIntroduceCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeIntroduceCell class])];
             cell.myTitle.text = @"热门单品";
             cell.list = self.boutiqueArray;
-//            [cell setList:self.boutiqueArray];
             cell.buttonClicked = ^(UIButton *button){
                 
                 WebViewController *webVC = [[WebViewController alloc] init];
@@ -442,7 +441,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             break;
         case 2:
         case 3:
-            return 150;
+            return 200;
             break;
         default:
             return 444;

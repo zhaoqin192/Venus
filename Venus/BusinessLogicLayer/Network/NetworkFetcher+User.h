@@ -73,6 +73,7 @@
                      account:(NSString *)phone
                     password:(NSString *)password
                        token:(NSString *)token
+                      gender:(NSString *)gender
                      success:(NetworkFetcherSuccessHandler)success
                      failure:(NetworkFetcherErrorHandler)failure;
 
@@ -101,7 +102,7 @@
                                  failure:(NetworkFetcherErrorHandler)faiure;
 
 /**
- *  绑定微信号
+ *  注册手机号绑定微信
  *
  *  @param openID
  *  @param name
@@ -185,52 +186,48 @@
                 success:(void (^)(NSDictionary *response))success
                 failure:(NetworkFetcherErrorHandler)failure;
 
+/**
+ *  微信绑定已有手机号
+ *
+ *  @param phone
+ *  @param password
+ *  @param openID
+ *  @param name
+ *  @param sex
+ *  @param avatar
+ *  @param unionID
+ *  @param success
+ *  @param failure
+ */
++ (void)userWechatBindWithPhone:(NSString *)phone
+                       password:(NSString *)password
+                         openID:(NSString *)openID
+                           name:(NSString *)name
+                            sex:(NSNumber *)sex
+                         avatar:(NSString *)avatar
+                        unionID:(NSString *)unionID
+                        success:(NetworkFetcherSuccessHandler)success
+                        failure:(NetworkFetcherErrorHandler)failure;
 
-
+/**
+ *  QQ绑定已有手机号
+ *
+ *  @param phone
+ *  @param password
+ *  @param openID
+ *  @param name
+ *  @param gender
+ *  @param avatar
+ *  @param success
+ *  @param failure
+ */
++ (void)userQQBindWithPhone:(NSString *)phone
+                   password:(NSString *)password
+                     openID:(NSString *)openID
+                       name:(NSString *)name
+                     gender:(NSString *)gender
+                     avatar:(NSString *)avatar
+                    success:(NetworkFetcherSuccessHandler)success
+                    failure:(NetworkFetcherErrorHandler)failure;
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

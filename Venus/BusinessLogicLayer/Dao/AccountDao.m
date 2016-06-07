@@ -38,7 +38,7 @@
 
 - (BOOL)isLogin{
     Account *account = [self fetchAccount];
-    if (account.token != nil) {
+    if (account.phone != nil) {
         return YES;
     }else{
         return NO;

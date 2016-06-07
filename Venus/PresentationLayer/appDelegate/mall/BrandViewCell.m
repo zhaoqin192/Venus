@@ -43,7 +43,7 @@
     
     BrandCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[BrandCollectionViewCell className] forIndexPath:indexPath];
     
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"loginLogo"]];
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"default"]];
     
     return cell;
     
