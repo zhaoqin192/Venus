@@ -133,19 +133,18 @@ typedef NS_ENUM(NSInteger, BrandState) {
             self.selectTab = BrandDetail;
             NSMutableArray *deleteIndexPaths = [[NSMutableArray alloc] init];
             NSInteger count = self.viewModel.commentArray.count;
-            for (int i = 0; i < count; i++) {
+            for (int i = 2; i < count; i++) {
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
                 [deleteIndexPaths addObject:indexPath];
             }
-            [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationNone];
             NSMutableArray *insertIndexPaths = [[NSMutableArray alloc] init];
             for (int i = 0; i < 2; i++) {
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
                 [insertIndexPaths addObject:indexPath];
             }
-            [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView reloadRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationNone];
         }
-//        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
     }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadViewKind object:nil]
@@ -161,9 +160,25 @@ typedef NS_ENUM(NSInteger, BrandState) {
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
         @strongify(self)
-        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
+        if (_selectTab == BrandComment) {
+            return;
+        }
+        else if (_selectTab == BrandDetail) {
+            self.selectTab = BrandComment;
+            NSMutableArray *insertIndexPaths = [[NSMutableArray alloc] init];
+            NSInteger count = self.viewModel.commentArray.count;
+            for (int i = 2; i < count; i++) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                [insertIndexPaths addObject:indexPath];
+            }
+            [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationNone];
+            for (int i = 0; i < 2; i++) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                [insertIndexPaths insertObject:indexPath atIndex:0];
+            }
+            [self.tableView reloadRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationNone];
+        }
         [self.view addSubview:self.commentView];
-        self.selectTab = BrandComment;
     }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showDetail" object:nil]

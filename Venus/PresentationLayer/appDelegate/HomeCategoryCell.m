@@ -29,7 +29,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     self.title.text = self.adversitement.name;
 //    [self.mainPicture sd_setImageWithURL:[NSURL URLWithString:[PICTUREURL stringByAppendingString:self.adversitement.pictureUrl]] placeholderImage:[UIImage imageNamed:@"default"]];
     
-    NSString *url = [[PICTUREURL stringByAppendingString:self.adversitement.pictureUrl] stringByAppendingString:@"?w=300&h=500&operator=cut&location=3"];
+    NSString *url = [[PICTUREURL stringByAppendingString:self.adversitement.pictureUrl] stringByAppendingString:@"?w=365&operator=cut&location=3"];
     [self.mainPicture sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"default"]];
     
     
