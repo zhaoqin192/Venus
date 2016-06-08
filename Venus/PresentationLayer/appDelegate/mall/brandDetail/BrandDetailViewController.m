@@ -244,8 +244,8 @@ typedef NS_ENUM(NSInteger, BrandState) {
                 }
                 else if (count == 1) {
                     [self.tableView deleteRow:1 inSection:1 withRowAnimation:UITableViewRowAnimationNone];
+                    [self.tableView reloadRow:0 inSection:1 withRowAnimation:UITableViewRowAnimationNone];
                 }
-                [self.tableView reloadRow:0 inSection:1 withRowAnimation:UITableViewRowAnimationNone];
             }
             else {
                 for (int i = 2; i < count; i++) {
@@ -272,18 +272,29 @@ typedef NS_ENUM(NSInteger, BrandState) {
             }
             NSInteger commentCount = self.viewModel.commentArray.count;
             if (kindCount < commentCount) {
-                NSMutableArray *deleteIndexPaths = [[NSMutableArray alloc] init];
-                for (NSInteger i = kindCount; i < commentCount - kindCount; i++) {
-                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
-                    [deleteIndexPaths addObject:indexPath];
+                if (kindCount == 0) {
+                    NSMutableArray *deleteIndexPaths = [[NSMutableArray alloc] init];
+                    for (NSInteger i = kindCount; i < commentCount - kindCount; i++) {
+                        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                        [deleteIndexPaths addObject:indexPath];
+                    }
+                    [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationNone];
+                    return;
                 }
-                [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationNone];
-                NSMutableArray *reloadIndexPaths = [[NSMutableArray alloc] init];
-                for (NSInteger i = 0; i < kindCount; i++) {
-                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
-                    [reloadIndexPaths addObject:indexPath];
+                else {
+                    NSMutableArray *deleteIndexPaths = [[NSMutableArray alloc] init];
+                    for (NSInteger i = kindCount; i < commentCount - kindCount; i++) {
+                        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                        [deleteIndexPaths addObject:indexPath];
+                    }
+                    [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationNone];
+                    NSMutableArray *reloadIndexPaths = [[NSMutableArray alloc] init];
+                    for (NSInteger i = 0; i < kindCount; i++) {
+                        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                        [reloadIndexPaths addObject:indexPath];
+                    }
+                    [self.tableView reloadRowsAtIndexPaths:reloadIndexPaths withRowAnimation:UITableViewRowAnimationNone];
                 }
-                [self.tableView reloadRowsAtIndexPaths:reloadIndexPaths withRowAnimation:UITableViewRowAnimationNone];
             }
             else if (kindCount == commentCount) {
                 NSMutableArray *reloadIndexPaths = [[NSMutableArray alloc] init];
@@ -319,27 +330,51 @@ typedef NS_ENUM(NSInteger, BrandState) {
         }
         else if (_selectTab == BrandKind) {
             self.selectTab = BrandComment;
-            NSMutableArray *deleteIndexPaths = [[NSMutableArray alloc] init];
-            NSInteger count = 0;
+            NSInteger kindCount = 0;
             if (self.viewModel.kindArray.count % 2 == 0) {
-                count = self.viewModel.kindArray.count / 2;
+                kindCount = self.viewModel.kindArray.count / 2;
             }
             else {
-                count = self.viewModel.kindArray.count / 2 + 1;
+                kindCount = self.viewModel.kindArray.count / 2 + 1;
             }
-            for (int i = 0; i < count; i++) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
-                [deleteIndexPaths addObject:indexPath];
+            NSInteger commentCount = self.viewModel.commentArray.count;
+            
+            if (kindCount < commentCount) {
+                NSMutableArray *insertIndexPaths = [[NSMutableArray alloc] init];
+                for (NSInteger i = kindCount; i < commentCount - kindCount; i++) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                    [insertIndexPaths addObject:indexPath];
+                }
+                [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationNone];
+                NSMutableArray *reloadIndexPaths = [[NSMutableArray alloc] init];
+                for (NSInteger i = 0; i < commentCount; i++) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                    [reloadIndexPaths addObject:indexPath];
+                }
+                [self.tableView reloadRowsAtIndexPaths:reloadIndexPaths withRowAnimation:UITableViewRowAnimationNone];
             }
-            [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationNone];
-            NSMutableArray *insertIndexPaths = [[NSMutableArray alloc] init];
-            count = self.viewModel.commentArray.count;
-            for (int i = 0; i < count; i++) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
-                [insertIndexPaths addObject:indexPath];
+            else if (kindCount == commentCount) {
+                NSMutableArray *reloadIndexPaths = [[NSMutableArray alloc] init];
+                for (NSInteger i = 0; i < commentCount; i++) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                    [reloadIndexPaths addObject:indexPath];
+                }
+                [self.tableView reloadRowsAtIndexPaths:reloadIndexPaths withRowAnimation:UITableViewRowAnimationNone];
             }
-            [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationNone];
-            [self.tableView reloadRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationNone];
+            else if (kindCount > commentCount) {
+                NSMutableArray *deleteIndexPaths = [[NSMutableArray alloc] init];
+                for (NSInteger i = commentCount; i < kindCount - commentCount; i++) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                    [deleteIndexPaths addObject:indexPath];
+                }
+                [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationNone];
+                NSMutableArray *reloadIndexPaths = [[NSMutableArray alloc] init];
+                for (NSInteger i = 0; i < commentCount; i++) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                    [reloadIndexPaths addObject:indexPath];
+                }
+                [self.tableView reloadRowsAtIndexPaths:reloadIndexPaths withRowAnimation:UITableViewRowAnimationNone];
+            }
             [self.view addSubview:self.commentView];
         }
         else if (_selectTab == BrandDetail) {
@@ -355,17 +390,22 @@ typedef NS_ENUM(NSInteger, BrandState) {
                     }
                     [self.tableView deleteRowsAtIndexPaths:deleteIndexPahts withRowAnimation:UITableViewRowAnimationNone];
                 }
+                else if (count == 1) {
+                    [self.tableView deleteRow:1 inSection:1 withRowAnimation:UITableViewRowAnimationNone];
+                }
             }
-            for (int i = 2; i < count; i++) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
-                [insertIndexPaths addObject:indexPath];
+            else {
+                for (int i = 2; i < count; i++) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                    [insertIndexPaths addObject:indexPath];
+                }
+                [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationNone];
+                for (int i = 0; i < 2; i++) {
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                    [insertIndexPaths insertObject:indexPath atIndex:0];
+                }
+                [self.tableView reloadRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationNone];
             }
-            [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationNone];
-            for (int i = 0; i < 2; i++) {
-                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
-                [insertIndexPaths insertObject:indexPath atIndex:0];
-            }
-            [self.tableView reloadRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationNone];
             [self.view addSubview:self.commentView];
         }
     }];
