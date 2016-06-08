@@ -92,11 +92,11 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 
 - (void)networkRequest {
     [NetworkFetcher foodFetcherClassWithSuccess:^{
-        [_categoryData removeAllObjects];
+        [self.categoryData removeAllObjects];
         for (FoodClass *foodClass in _foodManager.foodClassArray) {
-            [_categoryData addObject:foodClass.name];
+            [self.categoryData addObject:foodClass.name];
         }
-        _foodClass = _foodManager.foodClassArray[0];
+        self.foodClass = self.foodManager.foodClassArray[0];
         [self selectClassWithFoodClass:_foodClass sort:@"0" page:[NSString stringWithFormat:@"%ld", (long)self.currentPage]];
     } failure:^(NSString *error) {
         
@@ -254,6 +254,50 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - getters and setters
+
+- (FoodManager *)foodManager {
+    if (!_foodManager) {
+        _foodManager  = [FoodManager sharedInstance];
+    }
+    return _foodManager;
+}
+
+- (NSMutableArray *)categoryData {
+    if (!_categoryData) {
+        _categoryData = [[NSMutableArray alloc] init];
+    }
+    return _categoryData;
+}
+
+- (NSMutableArray *)sortData {
+    if (!_sortData) {
+        _sortData = [[NSMutableArray alloc] init];
+    }
+    return _sortData;
+}
+
+- (FoodClass *)foodClass {
+    if (!_foodClass) {
+        _foodClass = [[FoodClass alloc] init];
+    }
+    return _foodClass;
+}
+
+- (NSMutableArray *)restaurantArray {
+    if (!_restaurantArray) {
+        _restaurantArray = [[NSMutableArray alloc] init];
+    }
+    return _restaurantArray;
+}
+
+- (NSString *)sort {
+    if (!_sort) {
+        _sort = @"";
+    }
+    return _sort;
 }
 
 @end
