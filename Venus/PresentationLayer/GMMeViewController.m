@@ -77,7 +77,6 @@
     NSDictionary *parameters = nil;
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);
         AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
         Account *account = [accountDao fetchAccount];
         account.avatar = responseObject[@"headimg"];
@@ -90,7 +89,6 @@
         [self.iconView sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
         self.nameLabel.text = account.nickName;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
     }];
 }
 

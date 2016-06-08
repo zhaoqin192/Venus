@@ -97,7 +97,6 @@
     NSDictionary *parameters = nil;
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);
         AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
         Account *account = [accountDao fetchAccount];
         self.account = account;
@@ -109,7 +108,6 @@
         [accountDao save];
         [self.myTableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
     }];
 }
 
@@ -145,13 +143,11 @@
         [formData appendPartWithFileData:imageData name:@"img" fileName:fileName mimeType:@"image/png"];
         
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"JSON: %@", responseObject);
         self.account.avatar = responseObject[@"url"];
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [self.myTableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationAutomatic];
         [self uploadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"Error: %@", error);
     }];
 }
 

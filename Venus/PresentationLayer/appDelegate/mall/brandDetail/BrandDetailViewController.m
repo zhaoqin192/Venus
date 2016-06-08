@@ -35,8 +35,6 @@ typedef NS_ENUM(NSInteger, BrandState) {
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) BrandState selectTab;
 @property (nonatomic, strong) BrandDetailViewModel *viewModel;
-@property (nonatomic, assign) BOOL commentActive;
-@property (nonatomic, assign) BOOL kindActive;
 @property (nonatomic, strong) BrandCommentView *commentView;
 @property (nonatomic, strong) NSNumber *webViewHeight;
 @property (nonatomic, assign) BOOL webViewActive;
@@ -58,6 +56,9 @@ typedef NS_ENUM(NSInteger, BrandState) {
     [self bindViewModel];
     
     [self.viewModel fetchDetailWithStoreID:self.storeID];
+    [self.viewModel fetchAllKindsWithStoreID:self.storeID page:self.viewModel.kindCurrentPage];
+    [self.viewModel fetchCommentWithStoreID:self.storeID page:self.viewModel.commentCurrentPage];
+
     
     [self configureCommentView];
     
@@ -76,8 +77,10 @@ typedef NS_ENUM(NSInteger, BrandState) {
     @weakify(self)
     [self.viewModel.commentSuccessObject subscribeNext:^(id x) {
         @strongify(self)
-        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
-        self.commentView.inputTextField.text = nil;
+        if (self.selectTab == BrandComment) {
+            [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
+            self.commentView.inputTextField.text = nil;
+        }
     }];
     
     [self.viewModel.commentFailureObject subscribeNext:^(id x) {
@@ -85,14 +88,16 @@ typedef NS_ENUM(NSInteger, BrandState) {
     }];
     
     [self.viewModel.commentLoadMoreObject subscribeNext:^(NSNumber *count) {
-        NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
-        @strongify(self)
-        NSInteger baseCount = self.viewModel.commentArray.count - [count integerValue];
-        for (int i = 0; i < [count integerValue]; i++) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:baseCount + i inSection:1];
-            [indexPaths addObject:indexPath];
+        if (self.selectTab == BrandComment) {
+            NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
+            @strongify(self)
+            NSInteger baseCount = self.viewModel.commentArray.count - [count integerValue];
+            for (int i = 0; i < [count integerValue]; i++) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:baseCount + i inSection:1];
+                [indexPaths addObject:indexPath];
+            }
+            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
         }
-        [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
     }];
     
     [self.viewModel.detailSuccessObject subscribeNext:^(id x) {
@@ -105,8 +110,6 @@ typedef NS_ENUM(NSInteger, BrandState) {
     }];
     
     [self.viewModel.kindSuccessObject subscribeNext:^(id x) {
-        @strongify(self)
-        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
     }];
     
     [self.viewModel.kindFailureObject subscribeNext:^(id x) {
@@ -125,39 +128,42 @@ typedef NS_ENUM(NSInteger, BrandState) {
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
         @strongify(self)
-        self.selectTab = BrandDetail;
-        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
         [self.commentView removeFromSuperview];
+        if (_selectTab == BrandComment) {
+            self.selectTab = BrandDetail;
+            NSMutableArray *deleteIndexPaths = [[NSMutableArray alloc] init];
+            NSInteger count = self.viewModel.commentArray.count;
+            for (int i = 0; i < count; i++) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                [deleteIndexPaths addObject:indexPath];
+            }
+            [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+            NSMutableArray *insertIndexPaths = [[NSMutableArray alloc] init];
+            for (int i = 0; i < 2; i++) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+                [insertIndexPaths addObject:indexPath];
+            }
+            [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+        }
+//        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
     }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadViewKind object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
         @strongify(self)
-        self.selectTab = BrandKind;
-        if (!self.kindActive) {
-            [self.viewModel fetchAllKindsWithStoreID:self.storeID page:self.viewModel.kindCurrentPage];
-            self.kindActive = YES;
-        }
-        else {
-            [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
-        }
         [self.commentView removeFromSuperview];
+        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
+        self.selectTab = BrandKind;
     }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadViewComment object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
         @strongify(self)
-        self.selectTab = BrandComment;
-        if (!self.commentActive) {
-            [self.viewModel fetchCommentWithStoreID:self.storeID page:self.viewModel.commentCurrentPage];
-            self.commentActive = YES;
-        }
-        else {
-            [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
-        }
+        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
         [self.view addSubview:self.commentView];
+        self.selectTab = BrandComment;
     }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showDetail" object:nil]
