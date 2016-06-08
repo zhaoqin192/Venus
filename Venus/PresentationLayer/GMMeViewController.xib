@@ -27,6 +27,7 @@
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认头像小" translatesAutoresizingMaskIntoConstraints="NO" id="B0H-kx-OQG">
                     <rect key="frame" x="20" y="53" width="60" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="039-OX-O17"/>
                         <constraint firstAttribute="width" constant="60" id="iTO-kf-fhY"/>

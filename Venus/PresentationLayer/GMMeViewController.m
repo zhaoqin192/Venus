@@ -35,6 +35,7 @@
     self.iconView.layer.cornerRadius = self.iconView.width/2;
     self.iconView.layer.masksToBounds = YES;
     self.iconView.userInteractionEnabled = YES;
+    //self.iconView.image = [UIImage imageNamed:@"默认头像小"];
     self.accountDao = [[DatabaseManager sharedInstance] accountDao];
     
     @weakify(self)
@@ -54,7 +55,7 @@
     [super viewDidAppear:animated];
     if (![_accountDao isLogin]) {
         self.nameLabel.text = @"登录";
-        self.iconView.image = nil;
+        self.iconView.image = [UIImage imageNamed:@"默认头像小"];
     }
     else {
         [self configureHeadView];
@@ -87,7 +88,7 @@
         account.birthday = responseObject[@"birthday"];
         account.realName = responseObject[@"realname"];
         [accountDao save];
-        [self.iconView sd_setImageWithURL:[NSURL URLWithString:account.avatar]];
+        [self.iconView sd_setImageWithURL:[NSURL URLWithString:account.avatar] placeholderImage:[UIImage imageNamed:@"默认头像小"]];
         self.nameLabel.text = account.nickName;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
