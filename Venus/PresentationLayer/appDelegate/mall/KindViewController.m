@@ -184,7 +184,6 @@
     cell.layer.shadowRadius = 0.5f;
     cell.layer.shadowOffset = CGSizeZero;
     cell.layer.shadowPath = [UIBezierPath bezierPathWithRect:cell.bounds].CGPath;
-    cell.layer.shouldRasterize = YES;
     
     return cell;
 }

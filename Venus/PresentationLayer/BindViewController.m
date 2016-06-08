@@ -81,8 +81,12 @@
         }];
     }];
     
-    [self.viewModel.bindFailureObject subscribeNext:^(id x) {
-        
+    [self.viewModel.bindFailureObject subscribeNext:^(NSString *message) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = message;
+        [hud hide:YES afterDelay:1.5f];
     }];
     
     [self.viewModel.infoSuccessObject subscribeNext:^(id x) {
