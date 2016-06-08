@@ -274,7 +274,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
             if (kindCount < commentCount) {
                 if (kindCount == 0) {
                     NSMutableArray *deleteIndexPaths = [[NSMutableArray alloc] init];
-                    for (NSInteger i = kindCount; i < commentCount - kindCount; i++) {
+                    for (NSInteger i = kindCount; i < commentCount; i++) {
                         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
                         [deleteIndexPaths addObject:indexPath];
                     }
@@ -283,7 +283,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
                 }
                 else {
                     NSMutableArray *deleteIndexPaths = [[NSMutableArray alloc] init];
-                    for (NSInteger i = kindCount; i < commentCount - kindCount; i++) {
+                    for (NSInteger i = kindCount; i < commentCount; i++) {
                         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
                         [deleteIndexPaths addObject:indexPath];
                     }
@@ -306,7 +306,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
             }
             else if (kindCount > commentCount) {
                 NSMutableArray *insertIndexPaths = [[NSMutableArray alloc] init];
-                for (NSInteger i = commentCount; i < kindCount - commentCount; i++) {
+                for (NSInteger i = commentCount; i < kindCount; i++) {
                     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
                     [insertIndexPaths addObject:indexPath];
                 }
@@ -338,10 +338,9 @@ typedef NS_ENUM(NSInteger, BrandState) {
                 kindCount = self.viewModel.kindArray.count / 2 + 1;
             }
             NSInteger commentCount = self.viewModel.commentArray.count;
-            
             if (kindCount < commentCount) {
                 NSMutableArray *insertIndexPaths = [[NSMutableArray alloc] init];
-                for (NSInteger i = kindCount; i < commentCount - kindCount; i++) {
+                for (NSInteger i = kindCount; i < commentCount; i++) {
                     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
                     [insertIndexPaths addObject:indexPath];
                 }
@@ -363,7 +362,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
             }
             else if (kindCount > commentCount) {
                 NSMutableArray *deleteIndexPaths = [[NSMutableArray alloc] init];
-                for (NSInteger i = commentCount; i < kindCount - commentCount; i++) {
+                for (NSInteger i = commentCount; i < kindCount; i++) {
                     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:1];
                     [deleteIndexPaths addObject:indexPath];
                 }
@@ -535,7 +534,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.viewModel.commentCurrentPage != self.viewModel.commentTotalPage && indexPath.row == self.viewModel.commentArray.count - 1) {
+    if (_selectTab == BrandComment && self.viewModel.commentCurrentPage != self.viewModel.commentTotalPage && indexPath.row == self.viewModel.commentArray.count - 1) {
         [self.viewModel loadMoreCommentWithStoreID:self.storeID page:++self.viewModel.commentCurrentPage];
     }
 }
