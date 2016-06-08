@@ -79,7 +79,7 @@
  *  @param success
  *  @param failure
  */
-+ (void)foodFetcherRestaurantInfoWithID:(NSNumber *)restaurantID
++ (void)foodFetcherRestaurantInfoWithID:(NSInteger)restaurantID
                                 success:(NetworkFetcherSuccessHandler)success
                                 failure:(NetworkFetcherErrorHandler)failure;
 

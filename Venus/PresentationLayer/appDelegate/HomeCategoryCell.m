@@ -39,7 +39,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         if ([[self.contentView viewWithTag:i + 1] isKindOfClass:[UIButton class]]) {
             UIButton *button = [self.contentView viewWithTag:i + 1];
             [button sd_setBackgroundImageWithURL:[NSURL URLWithString:[PICTUREURL stringByAppendingString:picture.pictureUrl]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"default"]];
-            
             [button addTarget:self action:@selector(sendNotification:) forControlEvents:UIControlEventTouchUpInside];
             if (i > 1) {
                 UILabel *label = [self.contentView viewWithTag:i + 11];
