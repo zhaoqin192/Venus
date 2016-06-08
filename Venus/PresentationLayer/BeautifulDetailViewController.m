@@ -109,7 +109,7 @@
         [SVProgressHUD show];
         [self loadHomeData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-         [self configureTableView];
+        [self configureTableView];
         NSLog(@"%@",error);
     }];
 }

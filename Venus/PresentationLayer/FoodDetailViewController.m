@@ -27,6 +27,7 @@
 #import "FoodOrderViewBaseItem.h"
 #import "FoodTrolleyTableViewCell.h"
 #import "BeautifulDetailViewController.h"
+#import "AFNetWorking.h"
 
 
 @interface FoodDetailViewController ()<TouchLabelDelegate, UITableViewDelegate, UITableViewDataSource>{
@@ -120,6 +121,15 @@
 //    if (self.restaurant.) {
 //        <#statements#>
 //    }
+//    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+//    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/info"]];
+//    NSDictionary *parameters = @{@"id":self.restaurantID};
+//    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"responseObject%@",responseObject);
+//
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"error%@",error);
+//    }];
     
     UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
     UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
