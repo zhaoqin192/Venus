@@ -25,7 +25,7 @@
 #import "AccountDao.h"
 #import "DatabaseManager.h"
 
-@interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface BeautifulDetailViewController () <UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (nonatomic, copy) NSString *currentSegmentName;
 @property (nonatomic, copy) NSArray *allFoodArray;
@@ -35,6 +35,8 @@
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) BeautifulCommitView *commitView;
 @property (nonatomic, assign) NSInteger commitPage;
+@property (nonatomic, assign) BOOL allowLoad;
+@property (nonatomic, assign) BOOL allowNotification;
 @end
 
 @implementation BeautifulDetailViewController
@@ -46,6 +48,9 @@
     [self configureNotification];
     [self configureRefresh];
     self.commitPage = 1;
+    self.webView = [[UIWebView alloc] init];
+    self.webView.delegate = self;
+    self.allowLoad = YES;
     if (!self.foodModel) {
         [self fetchFoodModel];
         return;
@@ -118,16 +123,17 @@
     self.commitView.hidden = YES;
     self.webView.hidden = YES;
     if ([self.currentSegmentName isEqualToString:@"店铺首页"]) {
-        if (self.foodModel.description_url.length == 0) {
-            self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 100)];
+        if (self.foodModel.app.length == 0) {
+            self.webView.frame = CGRectMake(0, 0, kScreenWidth, 100);
             self.myTableView.tableFooterView = self.webView;
             self.webView.hidden = YES;
             return;
         }
-        self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 400)];
+        //self.webView.frame = CGRectMake(0, 0, kScreenWidth, 0);
         self.myTableView.tableFooterView = self.webView;
         self.webView.hidden = NO;
-        [self.webView loadHTMLString:self.foodModel.description_url baseURL:[NSURL fileURLWithPath: [[NSBundle mainBundle] bundlePath]]];
+        NSLog(@"url %@",[URL_PREFIX stringByAppendingString:self.foodModel.app]);
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[URL_PREFIX stringByAppendingString:self.foodModel.app]]]];
     }
     else if ([self.currentSegmentName isEqualToString:@"评价"]) {
         self.commitView.hidden = NO;
@@ -519,6 +525,40 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSLog(@"finish");
+    CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.height"] floatValue];
+    CGFloat width = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.width"] floatValue];
+    CGRect frame = self.webView.frame;
+    frame.size.height = height;
+    frame.size.width = width;
+    self.webView.frame = frame;
+    self.myTableView.tableFooterView = self.webView;
+    if (self.allowNotification) {
+        self.webView.frame = CGRectMake(0, 0, width, height);
+        self.myTableView.tableFooterView = self.webView;
+        NSLog(@"finish %f",height);
+    }
+    self.allowLoad = NO;
+}
+
+- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSLog(@"finish should");
+    NSString *requestString = [[request URL] absoluteString];
+    NSLog(@"%@",requestString);
+    //    if ([requestString containsString:@"/bazaar/mobile/imageText"]) {
+    //        self.allowNotification = YES;
+    //        NSLog(@"yes");
+    //        return YES;
+    //    }
+    if ([requestString hasSuffix:@"/bazaar/imageText"]) {
+        self.allowNotification = YES;
+        NSLog(@"yes");
+        return YES;
+    }
+    return self.allowLoad;
 }
 
 @end
