@@ -147,6 +147,10 @@
 
 #pragma mark - event response
 - (IBAction)submitButtonClicked:(id)sender {
+    if ([self.commentContent isEqualToString:@""]) {
+        [PresentationUtility showTextDialog:self.view text:@"请先填写评论内容" success:nil];
+        return;
+    }
     NSLog(@"提交评论");
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
     GMMeTakeAwayRefundReasonCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
