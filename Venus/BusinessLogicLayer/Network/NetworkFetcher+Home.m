@@ -183,16 +183,6 @@ static const BOOL LOGDEBUG = NO;
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-//        NSDictionary *dic = responseObject;
-        
-//        if([dic[@"errCode"] isEqualToNumber:@0]){
-//            PictureManager *pictureManager = [PictureManager sharedInstance];
-//            pictureManager.recommendPictureArray = [Picture mj_objectArrayWithKeyValuesArray:dic[@"result"]];
-//            success();
-//        }else{
-//            failure(@"请求失败");
-//        }
-        
         success(responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

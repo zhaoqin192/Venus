@@ -126,7 +126,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
     subscribeNext:^(id x) {
         @strongify(self)
         self.selectTab = BrandDetail;
-        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
         [self.commentView removeFromSuperview];
     }];
     
@@ -140,7 +140,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
             self.kindActive = YES;
         }
         else {
-            [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
+            [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
         }
         [self.commentView removeFromSuperview];
     }];
@@ -155,7 +155,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
             self.commentActive = YES;
         }
         else {
-            [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
+            [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
         }
         [self.view addSubview:self.commentView];
     }];
@@ -272,6 +272,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
                 else {
                     [cell insertLeftModel:[self.viewModel.kindArray objectAtIndex:indexPath.row * 2]];
                 }
+                
                 return cell;
             }
             case BrandComment: {

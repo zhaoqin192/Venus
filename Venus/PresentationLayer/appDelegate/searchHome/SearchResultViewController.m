@@ -155,7 +155,7 @@
     SearchResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchResultTableViewCell"];
     
     cell.nameLabel.text = model.name;
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"large_Placeholder"]];
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"default"]];
     
     return cell;
     

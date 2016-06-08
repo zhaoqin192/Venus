@@ -69,7 +69,7 @@
 - (void)configureCell:(HomeNewsTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     HeadlineModel *model = [self.headlineArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = model.title;
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"loginLogo"]];
+    [cell.image sd_setImageWithURL:[NSURL URLWithString:model.pictureURL] placeholderImage:[UIImage imageNamed:@"default"]];
     cell.abstractLabel.text = model.abstract;
 }
 
