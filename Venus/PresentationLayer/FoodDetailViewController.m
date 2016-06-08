@@ -463,10 +463,10 @@
 }
 
 - (void)initViews {
-    self.salesText.text = [@"月销量 " stringByAppendingString:_restaurant.sales];
-    self.noteText.text = [@"通知:" stringByAppendingString:_restaurant.describer];
-    self.priceText.text = [NSString stringWithFormat:@"起送价￥%@ 配送费￥%@ 配送时间%@分钟", _restaurant.basePrice, _restaurant.packFee, _restaurant.costTime];
-    [self.restaurantPic sd_setImageWithURL:[NSURL URLWithString:_restaurant.pictureUrl]];
+    self.salesText.text = [@"月销量 " stringByAppendingString:self.restaurant.sales];
+    self.noteText.text = [@"通知:" stringByAppendingString:self.restaurant.describer];
+    self.priceText.text = [NSString stringWithFormat:@"起送价￥%@ 配送费￥%@ 配送时间%@分钟", self.restaurant.basePrice, self.restaurant.packFee, self.restaurant.costTime];
+    [self.restaurantPic sd_setImageWithURL:[NSURL URLWithString:self.restaurant.pictureUrl]];
     self.totalPrice = 0;
 }
 
@@ -479,6 +479,8 @@
     [self.orderVC didMoveToParentViewController:self];
     
     [self.orderVC.view setFrame:self.placeholderView.bounds];
+    CGRect rect = CGRectMake(self.placeholderView.bounds.origin.x, self.placeholderView.bounds.origin.y, self.placeholderView.bounds.size.width, self.placeholderView.bounds.size.height + 50.0);
+    [self.commitVC.view setFrame:rect];
     [self.placeholderView addSubview:self.orderVC.view];
 }
 
