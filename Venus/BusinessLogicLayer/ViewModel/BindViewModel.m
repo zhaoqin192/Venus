@@ -67,7 +67,7 @@
             [self.bindSuccessObject sendNext:nil];
         }
         else {
-            [self.bindFailureObject sendNext:@"用户名或密码不正确"];
+            [self.bindFailureObject sendNext:@"用户名或密码错误"];
         }
     } failure:^(NSString *error) {
         @strongify(self)
@@ -98,7 +98,7 @@
             [self.bindSuccessObject sendNext:nil];
         }
         else {
-            [self.bindFailureObject sendNext:@"用户名或密码不正确"];
+            [self.bindFailureObject sendNext:@"用户名或密码错误"];
         }
         
     } failure:^(NSString *error) {

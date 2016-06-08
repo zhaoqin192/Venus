@@ -53,6 +53,7 @@
             }];
             self.commentTotalPage = [response[@"pages"] integerValue];
             self.commentArray = [BrandDetailCommentModel mj_objectArrayWithKeyValuesArray:response[@"list"]];
+            
             [self.commentSuccessObject sendNext:nil];
         }
     } failure:^(NSString *error) {
