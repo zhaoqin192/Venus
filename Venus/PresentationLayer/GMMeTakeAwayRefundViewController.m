@@ -123,7 +123,7 @@
     [NetworkFetcher foodRefundOrderWithOrderId:self.orderID reason:self.reason success:^(NSDictionary *response) {
         if ([response[@"errCode"] isEqualToNumber:@0]) {
             // 成功退款
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"申请成功" message:@"退款预计一周内返回原账户" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"申请成功" message:@"等待商家确认" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
 //                [self dismissViewControllerAnimated:YES completion:nil];
                 [self.navigationController popViewControllerAnimated:YES];
