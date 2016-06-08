@@ -30,6 +30,8 @@
 @property (nonatomic, strong) NSMutableArray *kindArray;
 @property (nonatomic, copy) NSString *detailURL;
 @property (nonatomic, strong) NSMutableArray *showArray;
+@property (nonatomic, strong) NSMutableArray *commentCacheArray;
+@property (nonatomic, strong) NSMutableArray *kindCacheArray;
 
 - (void)fetchCommentWithStoreID:(NSNumber *)storeID
                            page:(NSInteger)page;
