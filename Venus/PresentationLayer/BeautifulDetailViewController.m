@@ -129,7 +129,7 @@
             self.webView.hidden = YES;
             return;
         }
-        self.webView.frame = CGRectMake(0, 0, kScreenWidth, 0);
+        //self.webView.frame = CGRectMake(0, 0, kScreenWidth, 0);
         self.myTableView.tableFooterView = self.webView;
         self.webView.hidden = NO;
         NSLog(@"url %@",[URL_PREFIX stringByAppendingString:self.foodModel.app]);
