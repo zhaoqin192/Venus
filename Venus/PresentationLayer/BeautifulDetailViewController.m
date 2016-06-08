@@ -159,7 +159,7 @@
         };
         headview.waiViewTapped = ^{
             FoodDetailViewController *vc = [[FoodDetailViewController alloc] init];
-            vc.restaurantID = @(self.foodModel.shopId);
+            vc.restaurantID = self.foodModel.shopId;
             [self.navigationController pushViewController:vc animated:YES];
            // NSLog(@"%d",self.foodModel.shopId);
         };

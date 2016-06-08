@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -67,7 +67,7 @@
                             <state key="normal" backgroundImage="店铺地址"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店铺电话：010-3098788" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcR-sF-BPV">
-                            <rect key="frame" x="74" y="8" width="193" height="21"/>
+                            <rect key="frame" x="74" y="8" width="291" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="JaG-3W-CdY"/>
                                 <constraint firstAttribute="width" constant="193" id="cUy-4c-pkR"/>
@@ -82,7 +82,7 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="海淀区知春路21号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTE-rb-iNL">
-                            <rect key="frame" x="74" y="37" width="137" height="21"/>
+                            <rect key="frame" x="74" y="37" width="291" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -97,7 +97,9 @@
                         <constraint firstItem="aUD-di-x6X" firstAttribute="leading" secondItem="7cz-wi-wY9" secondAttribute="leading" constant="30" id="cbT-Bs-Ha1"/>
                         <constraint firstItem="wkQ-wz-CvM" firstAttribute="centerX" secondItem="aUD-di-x6X" secondAttribute="centerX" id="fAl-B2-foz"/>
                         <constraint firstItem="wkQ-wz-CvM" firstAttribute="top" secondItem="aUD-di-x6X" secondAttribute="bottom" constant="8" id="gig-AY-1cE"/>
+                        <constraint firstAttribute="trailing" secondItem="AcR-sF-BPV" secondAttribute="trailing" constant="10" id="gn8-De-2To"/>
                         <constraint firstItem="TTE-rb-iNL" firstAttribute="centerY" secondItem="wkQ-wz-CvM" secondAttribute="centerY" id="ng2-TK-xj4"/>
+                        <constraint firstAttribute="trailing" secondItem="TTE-rb-iNL" secondAttribute="trailing" constant="10" id="vdS-6v-mGm"/>
                         <constraint firstAttribute="height" constant="72" id="zMH-tk-sjH"/>
                     </constraints>
                 </view>
