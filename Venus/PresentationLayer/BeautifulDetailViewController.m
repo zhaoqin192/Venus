@@ -109,6 +109,7 @@
         [SVProgressHUD show];
         [self loadHomeData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+         [self configureTableView];
         NSLog(@"%@",error);
     }];
 }
@@ -179,7 +180,9 @@
                 [self loadCommit];
             }
         };
-        headview.foodModel = self.foodModel;
+        if(self.foodModel) {
+            headview.foodModel = self.foodModel;
+        }
         [view addSubview:headview];
         view;
     });
