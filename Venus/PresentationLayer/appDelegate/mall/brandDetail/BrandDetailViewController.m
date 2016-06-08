@@ -35,8 +35,6 @@ typedef NS_ENUM(NSInteger, BrandState) {
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) BrandState selectTab;
 @property (nonatomic, strong) BrandDetailViewModel *viewModel;
-@property (nonatomic, assign) BOOL commentActive;
-@property (nonatomic, assign) BOOL kindActive;
 @property (nonatomic, strong) BrandCommentView *commentView;
 @property (nonatomic, strong) NSNumber *webViewHeight;
 @property (nonatomic, assign) BOOL webViewActive;
@@ -58,6 +56,9 @@ typedef NS_ENUM(NSInteger, BrandState) {
     [self bindViewModel];
     
     [self.viewModel fetchDetailWithStoreID:self.storeID];
+    [self.viewModel fetchAllKindsWithStoreID:self.storeID page:self.viewModel.kindCurrentPage];
+    [self.viewModel fetchCommentWithStoreID:self.storeID page:self.viewModel.commentCurrentPage];
+
     
     [self configureCommentView];
     
@@ -126,7 +127,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
     subscribeNext:^(id x) {
         @strongify(self)
         self.selectTab = BrandDetail;
-        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
         [self.commentView removeFromSuperview];
     }];
     
@@ -135,13 +136,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
     subscribeNext:^(id x) {
         @strongify(self)
         self.selectTab = BrandKind;
-        if (!self.kindActive) {
-            [self.viewModel fetchAllKindsWithStoreID:self.storeID page:self.viewModel.kindCurrentPage];
-            self.kindActive = YES;
-        }
-        else {
-            [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
-        }
+        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
         [self.commentView removeFromSuperview];
     }];
     
@@ -150,13 +145,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
     subscribeNext:^(id x) {
         @strongify(self)
         self.selectTab = BrandComment;
-        if (!self.commentActive) {
-            [self.viewModel fetchCommentWithStoreID:self.storeID page:self.viewModel.commentCurrentPage];
-            self.commentActive = YES;
-        }
-        else {
-            [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
-        }
+        [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationNone];
         [self.view addSubview:self.commentView];
     }];
     
@@ -204,8 +193,17 @@ typedef NS_ENUM(NSInteger, BrandState) {
     [[self.commentView.commentButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
         @strongify(self)
-        [self.viewModel sendCommentWithStoreID:self.storeID cotent:self.commentView.inputTextField.text];
-        [self.commentView.inputTextField resignFirstResponder];
+        if (self.commentView.inputTextField.text.length > 0) {
+            [self.viewModel sendCommentWithStoreID:self.storeID cotent:self.commentView.inputTextField.text];
+            [self.commentView.inputTextField resignFirstResponder];
+        }
+        else {
+            @strongify(self)
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"评论不能为空";
+            [hud hide:YES afterDelay:1.5f];
+        }
     }];
 }
 
