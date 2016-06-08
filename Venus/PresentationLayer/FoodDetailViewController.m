@@ -27,6 +27,8 @@
 #import "FoodOrderViewBaseItem.h"
 #import "FoodTrolleyTableViewCell.h"
 #import "BeautifulDetailViewController.h"
+#import "AFNetWorking.h"
+#import "GroupViewController.h"
 
 
 @interface FoodDetailViewController ()<TouchLabelDelegate, UITableViewDelegate, UITableViewDataSource>{
@@ -49,6 +51,8 @@
 
 @property (strong, nonatomic) UITableView *trolleyTableView;
 @property (assign, nonatomic) NSInteger orderFoodKindCount;
+
+@property (assign, nonatomic) BOOL isGroupBuyAvailable;
 
 
 @end
@@ -110,6 +114,28 @@
     
     
     [self.view addSubview:[self segementView]];
+    
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/info"]];
+    NSLog(@"restaurantID is %li",(long)self.restaurantID);
+    NSDictionary *parameters = @{@"id":@(self.restaurantID)};
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"responseObject%@",responseObject);
+        NSDictionary *result = responseObject;
+        if ([result[@"errCode"] isEqualToNumber:@0]) {
+            NSDictionary *shopInfo = result[@"shopInfo"];
+            self.isGroupBuyAvailable = [shopInfo[@"couponz"] isEqualToNumber:@1];
+            if (self.isGroupBuyAvailable) {
+                NSLog(@"yes");
+            } else {
+                NSLog(@"no");
+            }
+            
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error%@",error);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -121,10 +147,11 @@
 //        <#statements#>
 //    }
     
-    UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
-    UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
-    storeButton.imageInsets = UIEdgeInsetsMake(0, 0, 0, -40);
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:groupBuyButton, storeButton,nil];
+    
+//    UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
+//    UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
+//    storeButton.imageInsets = UIEdgeInsetsMake(0, 0, 0, -40);
+//    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:groupBuyButton, storeButton,nil];
     
 }
 
@@ -187,12 +214,14 @@
 #pragma mark - event response
 - (void)enterStore {
     BeautifulDetailViewController *vc = [[BeautifulDetailViewController alloc] init];
-    vc.shopId = [self.restaurantID integerValue];
+    vc.shopId = self.restaurantID;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)enterGroupBuy {
-    
+    UIStoryboard *group = [UIStoryboard storyboardWithName:@"group" bundle:nil];
+    GroupViewController *vc = (GroupViewController *)[group instantiateViewControllerWithIdentifier:@"group"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)touchLabelWithIndex:(NSInteger)index {
@@ -340,7 +369,8 @@
 }
 
 - (IBAction)confirmOrderButtonClicked:(id)sender {
-    if (self.totalPrice == 0) {
+    if (_trollyButtonBadgeCount == 0) {
+        [PresentationUtility showTextDialog:self.view text:@"请选择商品" success:nil];
         return;
     }
     AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
@@ -433,10 +463,10 @@
 }
 
 - (void)initViews {
-    self.salesText.text = [@"月销量 " stringByAppendingString:_restaurant.sales];
-    self.noteText.text = [@"通知:" stringByAppendingString:_restaurant.describer];
-    self.priceText.text = [NSString stringWithFormat:@"起送价￥%@ 配送费￥%@ 配送时间%@分钟", _restaurant.basePrice, _restaurant.packFee, _restaurant.costTime];
-    [self.restaurantPic sd_setImageWithURL:[NSURL URLWithString:_restaurant.pictureUrl]];
+    self.salesText.text = [@"月销量 " stringByAppendingString:self.restaurant.sales];
+    self.noteText.text = [@"通知:" stringByAppendingString:self.restaurant.describer];
+    self.priceText.text = [NSString stringWithFormat:@"起送价￥%@ 配送费￥%@ 配送时间%@分钟", self.restaurant.basePrice, self.restaurant.packFee, self.restaurant.costTime];
+    [self.restaurantPic sd_setImageWithURL:[NSURL URLWithString:self.restaurant.pictureUrl]];
     self.totalPrice = 0;
 }
 
@@ -449,6 +479,8 @@
     [self.orderVC didMoveToParentViewController:self];
     
     [self.orderVC.view setFrame:self.placeholderView.bounds];
+    CGRect rect = CGRectMake(self.placeholderView.bounds.origin.x, self.placeholderView.bounds.origin.y, self.placeholderView.bounds.size.width, self.placeholderView.bounds.size.height + 50.0);
+    [self.commitVC.view setFrame:rect];
     [self.placeholderView addSubview:self.orderVC.view];
 }
 
@@ -554,6 +586,19 @@
         _trolleyFoodArray = [[NSMutableArray alloc] init];
     }
     return _trolleyFoodArray;
+}
+
+- (void)setIsGroupBuyAvailable:(BOOL)isGroupBuyAvailable {
+    _isGroupBuyAvailable = isGroupBuyAvailable;
+    if (isGroupBuyAvailable) {
+        UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
+        UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
+        storeButton.imageInsets = UIEdgeInsetsMake(0, 0, 0, -40);
+        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:groupBuyButton, storeButton,nil];
+    } else {
+        UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
+        self.navigationItem.rightBarButtonItem = storeButton;
+    }
 }
 
 @end

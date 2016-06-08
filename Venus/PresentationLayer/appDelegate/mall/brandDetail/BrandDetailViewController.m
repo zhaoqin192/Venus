@@ -214,6 +214,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
                 [self.tableView reloadRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationNone];
             }
         }
+
     }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:BrandDetailSectionHeadViewKind object:nil]
@@ -407,6 +408,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
             }
             [self.view addSubview:self.commentView];
         }
+
     }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showDetail" object:nil]
@@ -453,8 +455,17 @@ typedef NS_ENUM(NSInteger, BrandState) {
     [[self.commentView.commentButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
         @strongify(self)
-        [self.viewModel sendCommentWithStoreID:self.storeID cotent:self.commentView.inputTextField.text];
-        [self.commentView.inputTextField resignFirstResponder];
+        if (self.commentView.inputTextField.text.length > 0) {
+            [self.viewModel sendCommentWithStoreID:self.storeID cotent:self.commentView.inputTextField.text];
+            [self.commentView.inputTextField resignFirstResponder];
+        }
+        else {
+            @strongify(self)
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"评论不能为空";
+            [hud hide:YES afterDelay:1.5f];
+        }
     }];
 }
 

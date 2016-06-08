@@ -178,7 +178,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     BeautifulDetailViewController *vc = [[BeautifulDetailViewController alloc] init];
-    vc.foodModel = self.foodArray[indexPath.row];
+    BeautifulFood *model = self.foodArray[indexPath.row];
+    vc.shopId = model.shopId;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

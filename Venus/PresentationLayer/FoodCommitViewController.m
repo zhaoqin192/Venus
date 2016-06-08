@@ -27,15 +27,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self configureTableView];
-    _commentManager = [CommentManager sharedManager];
+    self.commentManager = [CommentManager sharedManager];
     
     //设置多余的seperator
     [self.myTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     self.myTableView.separatorColor = [UIColor colorWithRed:236.0f/255.0f green:236.0f/255.0f blue:236.0f/255.0f alpha:1];
     
-    [NetworkFetcher foodFetcherCommentListWithID:_restaurant.identifier level:@"0" success:^{
-        _commentArray = _commentManager.commentArray;
-        [_myTableView reloadData];
+    [NetworkFetcher foodFetcherCommentListWithID:self.restaurant.identifier level:@"0" success:^{
+        self.commentArray = self.commentManager.commentArray;
+        [self.myTableView reloadData];
     } failure:^(NSString *error) {
         
     }];
@@ -47,6 +47,8 @@
     self.view.frame = CGRectMake(0, 0, width, height);
     self.myTableView.dataSource = self;
     self.myTableView.delegate = self;
+    self.myTableView.estimatedRowHeight=50.0;
+    self.myTableView.rowHeight=UITableViewAutomaticDimension;
 }
 
 #pragma mark <UITableView>
@@ -67,9 +69,9 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 108;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 108;
+//}
 
 // 分割线不靠左补全
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -106,7 +108,20 @@
     return str;
 }
 
+#pragma mark - getters and setters 
 
+- (NSMutableArray *)commentArray {
+    if (!_commentArray) {
+        _commentArray = [[NSMutableArray alloc] init];
+    }
+    return _commentArray;
+}
 
+- (Restaurant *)restaurant {
+    if (!_restaurant) {
+        _restaurant = [[Restaurant alloc] init];
+    }
+    return _restaurant;
+}
 
 @end
