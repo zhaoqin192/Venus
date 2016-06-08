@@ -162,6 +162,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     Restaurant *restaurant = _restaurantArray[indexPath.row];
     FoodDetailViewController *foodDetailVC = [[FoodDetailViewController alloc] init];
     foodDetailVC.restaurant = restaurant;
+    foodDetailVC.restaurantID = [restaurant.identifier integerValue];
     [self.navigationController pushViewController:foodDetailVC animated:YES];
     
     

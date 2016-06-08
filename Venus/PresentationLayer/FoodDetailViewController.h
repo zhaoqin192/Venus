@@ -18,7 +18,7 @@
 @property (assign, nonatomic) NSInteger trollyButtonBadgeCount;
 @property (assign, nonatomic) CGFloat totalPrice;
 //从分类跳转到详情页面需要的餐厅id
-@property (nonatomic, strong) NSNumber *restaurantID;
+@property (nonatomic, assign) NSInteger restaurantID;
 
 @property (strong, nonatomic) NSMutableArray *trolleyFoodArray;
 
