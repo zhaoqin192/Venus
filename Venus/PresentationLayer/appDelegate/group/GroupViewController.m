@@ -186,12 +186,13 @@
         return 40;
     }
     
-    @weakify(self)
-    return [tableView fd_heightForCellWithIdentifier:@"CouponCell" configuration:^(CouponCell *cell) {
-        @strongify(self)
-        [self configureCouponCell:cell atIndexPath:indexPath];
-        
-    }];
+    return 128;
+//    @weakify(self)
+//    return [tableView fd_heightForCellWithIdentifier:@"CouponCell" configuration:^(CouponCell *cell) {
+//        @strongify(self)
+//        [self configureCouponCell:cell atIndexPath:indexPath];
+//        
+//    }];
     
     
 }

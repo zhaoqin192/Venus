@@ -76,22 +76,16 @@
             
             NSMutableArray *allViewControllers = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
             for (UIViewController *viewController in allViewControllers) {
-                
                 if ([viewController isKindOfClass:[PersonalCouponViewController class]]) {
                     [self.navigationController popToViewController:viewController animated:YES];
                 }
-                
             }
             
             for (UIViewController *viewController in allViewControllers) {
-                
                 if ([viewController isKindOfClass:[GroupViewController class]]) {
                     [self.navigationController popToViewController:viewController animated:YES];
                 }
-                
             }
-            
-            
         }];
         
         [alertController addAction:confirmAction];

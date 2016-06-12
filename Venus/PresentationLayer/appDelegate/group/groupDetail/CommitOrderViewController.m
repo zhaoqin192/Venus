@@ -83,6 +83,9 @@
     
     [self.viewModel.orderFailureObject subscribeNext:^(NSString *message) {
         @strongify(self)
+        if (!self.commitButton.isEnabled) {
+            self.commitButton.enabled = YES;
+        }
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
         hud.labelText = message;
@@ -98,7 +101,6 @@
         if (!self.commitButton.isEnabled) {
             self.commitButton.enabled = YES;
         }
-        
     }];
     
     [self.viewModel initPrice:self.couponModel.price];

@@ -24,7 +24,8 @@
 #import "HCSStarRatingView.h"
 #import "ShowImageViewController.h"
 #import "MWPhotoBrowser.h"
-
+#import "DatabaseManager.h"
+#import "AccountDao.h"
 
 
 @interface CouponViewController ()<MWPhotoBrowserDelegate>
@@ -329,6 +330,21 @@
         commitVC.couponModel = self.couponModel;
     }
 }
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+    if ([accountDao isLogin]) {
+        return YES;
+    }
+    else {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"请先登录国贸账号";
+        [hud hide:YES afterDelay:1.5f];
+        return NO;
+    }
+}
+
 
 #pragma mark - MWPhotoBrowserDelegate
 

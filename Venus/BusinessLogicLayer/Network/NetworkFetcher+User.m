@@ -16,7 +16,7 @@
 @implementation NetworkFetcher (User)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
-static const BOOL LOGDEBUG = NO;
+static const BOOL LOGDEBUG = YES;
 
 + (void)userLoginWithAccount:(NSString *)phone
                     password:(NSString *)password
@@ -35,10 +35,8 @@ static const BOOL LOGDEBUG = NO;
         NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
         
         for (NSString *key in cookieHeaders) {
-            
             @strongify(manager)
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
-            
         }
         
         if (LOGDEBUG) {
@@ -207,6 +205,7 @@ static const BOOL LOGDEBUG = NO;
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/api/isbound/weixin"]];
     NSDictionary *parameters = @{@"unionid": openID};
     
+    @weakify(manager)
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -216,6 +215,15 @@ static const BOOL LOGDEBUG = NO;
             Account *account = [accountDao fetchAccount];
             account.token = responseObject[@"uid"];
             [accountDao save];
+            
+            NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+            NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+            
+            for (NSString *key in cookieHeaders) {
+                @strongify(manager)
+                [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+            }
+            
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ENTER_HOME" object:nil];
         }else{
             //注册新的国贸用户
@@ -373,6 +381,7 @@ static const BOOL LOGDEBUG = NO;
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/api/isbound/qq"]];
     NSDictionary *parameters = @{@"openId": openID};
     
+    @weakify(manager)
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -383,6 +392,13 @@ static const BOOL LOGDEBUG = NO;
             account.token = responseObject[@"userid"];
             [accountDao save];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ENTER_HOME" object:nil];
+            NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+            NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+            
+            for (NSString *key in cookieHeaders) {
+                @strongify(manager)
+                [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+            }
         }else{
             //注册新的国贸用户
             [[NSNotificationCenter defaultCenter] postNotificationName:@"CREATE_ACCOUNT" object:nil userInfo:@{@"openID": openID, @"token": token}];
@@ -532,10 +548,8 @@ static const BOOL LOGDEBUG = NO;
         NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
         
         for (NSString *key in cookieHeaders) {
-            
             @strongify(manager)
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
-            
         }
         
         if (LOGDEBUG) {
