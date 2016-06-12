@@ -24,7 +24,7 @@
 
 - (void)setIconUrl:(NSString *)iconUrl{
     _iconUrl = iconUrl;
-    [self.myImageView sd_setImageWithURL:[NSURL URLWithString:self.iconUrl] placeholderImage:[UIImage imageNamed:@"iconholder"] completed:nil];
+    [self.myImageView sd_setImageWithURL:[NSURL URLWithString:self.iconUrl] placeholderImage:[UIImage imageNamed:@"默认头像小"] completed:nil];
 }
 
 @end
