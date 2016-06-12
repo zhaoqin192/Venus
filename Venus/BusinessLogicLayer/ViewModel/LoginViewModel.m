@@ -60,6 +60,7 @@
             account.token = response[@"userid"];
             [accountDao save];
             [_successObject sendNext:nil];
+            accountDao.isLogin = YES;
         } else {
             [_failureObject sendNext:@"用户名或密码错误"];
         }

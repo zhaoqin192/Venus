@@ -37,12 +37,14 @@
 }
 
 - (BOOL)isLogin{
-    Account *account = [self fetchAccount];
-    if (account.token != nil) {
-        return YES;
-    }else{
-        return NO;
-    }
+//    Account *account = [self fetchAccount];
+//    if (account.phone != nil && account.password != nil) {
+//        return YES;
+//    }else{
+//        return NO;
+//    }
+    
+    return _isLogin;
 }
 
 - (void)deleteAccount{

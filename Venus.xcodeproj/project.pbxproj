@@ -2807,7 +2807,6 @@
 			isa = PBXGroup;
 			children = (
 				ACFF33511CF97B6F008BD0D8 /* paymentSuccess */,
-				ACFF33501CF97B4C008BD0D8 /* commitCoupon */,
 				ACFF334F1CF97B2A008BD0D8 /* detailCoupon */,
 				ACFF334E1CF97B1F008BD0D8 /* buyCouponHome */,
 			);
@@ -2970,13 +2969,6 @@
 				AC21A93E1CFEBD76000ECA37 /* CouponCommentTitleCell.m */,
 			);
 			name = detailCoupon;
-			sourceTree = "<group>";
-		};
-		ACFF33501CF97B4C008BD0D8 /* commitCoupon */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = commitCoupon;
 			sourceTree = "<group>";
 		};
 		ACFF33511CF97B6F008BD0D8 /* paymentSuccess */ = {

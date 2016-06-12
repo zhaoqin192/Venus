@@ -22,9 +22,9 @@
 @property (nonatomic, strong) RACSubject *errorSubject;
 
 
-- (id)authIsValid;
+//- (id)authIsValid;
 
-- (id)authAlpha;
+//- (id)authAlpha;
 
 - (id)signUpIsValid;
 

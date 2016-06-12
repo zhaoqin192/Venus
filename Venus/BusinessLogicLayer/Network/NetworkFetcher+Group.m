@@ -11,7 +11,7 @@
 @implementation NetworkFetcher (Group)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
-static const BOOL LOGDEBUG = YES;
+static const BOOL LOGDEBUG = NO;
 
 + (void)groupFetchMenuDataWithSuccess:(NetworkFetcherSuccessHandler)success
                               failure:(NetworkFetcherErrorHandler)failure {
@@ -75,9 +75,20 @@ static const BOOL LOGDEBUG = YES;
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/couponz/customer/getCouponDetail"]];
     NSDictionary *parameters = @{@"couponId": couponID};
     
+    NSLog(@"%@", [[manager requestSerializer] HTTPRequestHeaders]);
+    
+    @weakify(manager)
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
+        }
+        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+        
+        for (NSString *key in cookieHeaders) {
+            @strongify(manager)
+            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+            NSLog(@"%@", cookieHeaders[key]);
         }
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -197,10 +208,21 @@ static const BOOL LOGDEBUG = YES;
     
     NSDictionary *parameters = @{@"orderId": order};
     
+    @weakify(manager)
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
+        
+        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+        
+        for (NSString *key in cookieHeaders) {
+            @strongify(manager)
+            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+            NSLog(@"%@", cookieHeaders[key]);
+        }
+        
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (LOGDEBUG) {

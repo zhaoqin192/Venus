@@ -16,7 +16,7 @@
 @implementation NetworkFetcher (User)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
-static const BOOL LOGDEBUG = YES;
+static const BOOL LOGDEBUG = NO;
 
 + (void)userLoginWithAccount:(NSString *)phone
                     password:(NSString *)password
@@ -64,12 +64,9 @@ static const BOOL LOGDEBUG = YES;
     NSDictionary *parameters = @{@"redirectUrl": @"www.chinaworldstyle.com/"};
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-        
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         if (true) {
@@ -180,6 +177,9 @@ static const BOOL LOGDEBUG = YES;
             
         }
         
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        accountDao.isLogin = YES;
+        
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
@@ -215,15 +215,15 @@ static const BOOL LOGDEBUG = YES;
             Account *account = [accountDao fetchAccount];
             account.token = responseObject[@"uid"];
             [accountDao save];
+            accountDao.isLogin = YES;
             
             NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
             NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
-            
             for (NSString *key in cookieHeaders) {
                 @strongify(manager)
                 [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+                NSLog(@"%@", [[manager requestSerializer] HTTPRequestHeaders]);
             }
-            
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ENTER_HOME" object:nil];
         }else{
             //注册新的国贸用户
@@ -391,14 +391,15 @@ static const BOOL LOGDEBUG = YES;
             Account *account = [accountDao fetchAccount];
             account.token = responseObject[@"userid"];
             [accountDao save];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"ENTER_HOME" object:nil];
+            accountDao.isLogin = YES;
+            
             NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
             NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
-            
             for (NSString *key in cookieHeaders) {
                 @strongify(manager)
                 [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
             }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ENTER_HOME" object:nil];
         }else{
             //注册新的国贸用户
             [[NSNotificationCenter defaultCenter] postNotificationName:@"CREATE_ACCOUNT" object:nil userInfo:@{@"openID": openID, @"token": token}];
@@ -444,6 +445,9 @@ static const BOOL LOGDEBUG = YES;
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
             
         }
+        
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        accountDao.isLogin = YES;
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -495,6 +499,9 @@ static const BOOL LOGDEBUG = YES;
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
             
         }
+        
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        accountDao.isLogin = YES;
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -551,6 +558,9 @@ static const BOOL LOGDEBUG = YES;
             @strongify(manager)
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
         }
+        
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        accountDao.isLogin = YES;
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);

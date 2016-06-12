@@ -64,6 +64,13 @@
             self.couponModel.count = order[@"num"];
             
             
+            if ([coupon[@"backAble"] isEqualToNumber:@0]) {
+                self.backAble = NO;
+            }
+            else {
+                self.backAble = YES;
+            }
+            
             
             [StockModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{

@@ -26,7 +26,6 @@ typedef enum _ACCOUNT_STATE{
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property ACCOUNT_STATE state;
 
-
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
