@@ -94,7 +94,6 @@
         KindViewController *kindVC = (KindViewController *)[kind instantiateViewControllerWithIdentifier:@"kind"];
         NSDictionary *userInfo = notification.userInfo;
         kindVC.kindModel = userInfo[@"kindModel"];
-        @strongify(self)
         [self.navigationController pushViewController:kindVC animated:YES];
     }];
     
@@ -105,7 +104,6 @@
         NSDictionary *userInfo = notification.userInfo;
         BrandDetailViewController *brandVC = (BrandDetailViewController *)[kind instantiateViewControllerWithIdentifier:[BrandDetailViewController className]];
         brandVC.storeID = [NSNumber numberWithString:userInfo[@"storeID"]];
-        @strongify(self)
         [self.navigationController pushViewController:brandVC animated:YES];
     }];
 }
