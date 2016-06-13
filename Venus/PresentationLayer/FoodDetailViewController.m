@@ -60,16 +60,8 @@
 @implementation FoodDetailViewController
 
 #pragma mark - life circle
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.titleView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Group 11"]];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                                                  forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.view.backgroundColor = [UIColor clearColor];
-    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
 
+- (void)networkRequest {
     //从分类中跳转，只有id参数，需要重新获取数据
     if (self.restaurantID) {
         @weakify(self)
@@ -78,15 +70,18 @@
             if ([response[@"errCode"] isEqualToNumber:@0]) {
                 [Restaurant mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                     return @{
-                                @"identifier": @"id",
-                                @"pictureUrl": @"icon",
-                                @"packFee": @"pack_fee",
-                                @"costTime": @"cost_time",
-                                @"describer": @"description",
-                                @"basePrice": @"base_price"
-                               };
+                             @"identifier": @"id",
+                             @"pictureUrl": @"icon",
+                             @"packFee": @"pack_fee",
+                             @"costTime": @"cost_time",
+                             @"describer": @"description",
+                             @"basePrice": @"base_price"
+                             };
                 }];
                 self.restaurant = [Restaurant mj_objectWithKeyValues:response[@"data"]];
+                if (![self.restaurant.state boolValue]) {
+                    [PresentationUtility showTextDialog:self.view text:@"该店铺暂停营业" success:nil];
+                }
                 [self initViews];
                 [self configureChildController];
                 self.navigationItem.title = _restaurant.name;
@@ -111,41 +106,47 @@
         self.navigationItem.title = _restaurant.name;
     }
     
-    
-    
-    [self.view addSubview:[self segementView]];
-    
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/info"]];
-    NSLog(@"restaurantID is %li",(long)self.restaurantID);
     NSDictionary *parameters = @{@"id":@(self.restaurantID)};
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"responseObject%@",responseObject);
+        //        NSLog(@"responseObject%@",responseObject);
         NSDictionary *result = responseObject;
         if ([result[@"errCode"] isEqualToNumber:@0]) {
             NSDictionary *shopInfo = result[@"shopInfo"];
             self.isGroupBuyAvailable = [shopInfo[@"couponz"] isEqualToNumber:@1];
-            if (self.isGroupBuyAvailable) {
-                NSLog(@"yes");
-            } else {
-                NSLog(@"no");
-            }
-            
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error%@",error);
     }];
+
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.titleView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Group 11"]];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+
+    
+    
+    
+    [self.view addSubview:[self segementView]];
+    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self networkRequest];
     [self.rdv_tabBarController setTabBarHidden:YES];
     self.navigationController.navigationBar.translucent = YES;
-    
-//    if (self.restaurant.) {
-//        <#statements#>
-//    }
+
     
     
 //    UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
@@ -213,9 +214,14 @@
 
 #pragma mark - event response
 - (void)enterStore {
-    BeautifulDetailViewController *vc = [[BeautifulDetailViewController alloc] init];
-    vc.shopId = self.restaurantID;
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    if ([self.navigationController.viewControllers[self.navigationController.viewControllers.count-2] isKindOfClass:[BeautifulDetailViewController class]]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        BeautifulDetailViewController *vc = [[BeautifulDetailViewController alloc] init];
+        vc.shopId = self.restaurantID;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)enterGroupBuy {
@@ -369,6 +375,11 @@
 }
 
 - (IBAction)confirmOrderButtonClicked:(id)sender {
+    if (![self.restaurant.state boolValue]) {
+        [PresentationUtility showTextDialog:self.view text:@"该店铺暂停营业" success:nil];
+        return;
+    }
+    
     if (_trollyButtonBadgeCount == 0) {
         [PresentationUtility showTextDialog:self.view text:@"请选择商品" success:nil];
         return;
