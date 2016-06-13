@@ -10,7 +10,7 @@
 #import "NetworkFetcher+User.h"
 #import "GMLoginViewController.h"
 
-@interface MeModifyPhoneNumberViewController ()
+@interface MeModifyPhoneNumberViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UITextField *passTF;
 @property (weak, nonatomic) IBOutlet UITextField *confirmTF;
@@ -70,6 +70,7 @@ static NSInteger count = 30;
     [self.codeButton setTitleColor:GMTipFontColor forState:UIControlStateDisabled];
     [self.codeButton bk_whenTapped:^{
         [self.codeTF becomeFirstResponder];
+        self.phoneTF.delegate = self;
         if (self.isForget) {
             [self sendCode];
         }
@@ -134,6 +135,7 @@ static NSInteger count = 30;
         count = 30;
         [self.timer invalidate];
         self.codeButton.enabled = YES;
+        self.phoneTF.delegate = nil;
         [self.codeButton setTitle:@"再次发送" forState:UIControlStateNormal];
         [self.codeButton setTitle:@"再次发送" forState:UIControlStateDisabled];
     } else {
@@ -265,6 +267,10 @@ static NSInteger count = 30;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error %@",error);
     }];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    return NO;
 }
 
 
