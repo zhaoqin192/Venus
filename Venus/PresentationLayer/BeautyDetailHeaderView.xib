@@ -51,7 +51,7 @@
                     <rect key="frame" x="0.0" y="160" width="375" height="72"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUD-di-x6X">
-                            <rect key="frame" x="30" y="10" width="19" height="18"/>
+                            <rect key="frame" x="15" y="10" width="19" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="19" id="2rs-mC-BPa"/>
                                 <constraint firstAttribute="height" constant="18" id="5SS-JM-AZn"/>
@@ -59,7 +59,7 @@
                             <state key="normal" backgroundImage="电话"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkQ-wz-CvM">
-                            <rect key="frame" x="30" y="36" width="18" height="22"/>
+                            <rect key="frame" x="15" y="36" width="18" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="18" id="J71-Vj-iTc"/>
                                 <constraint firstAttribute="height" constant="22" id="hyi-IZ-pFL"/>
@@ -67,12 +67,12 @@
                             <state key="normal" backgroundImage="店铺地址"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店铺电话：010-3098788" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcR-sF-BPV">
-                            <rect key="frame" x="74" y="8" width="291" height="21"/>
+                            <rect key="frame" x="59" y="8" width="306" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="JaG-3W-CdY"/>
                                 <constraint firstAttribute="width" constant="193" id="cUy-4c-pkR"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
@@ -82,8 +82,8 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="海淀区知春路21号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTE-rb-iNL">
-                            <rect key="frame" x="74" y="37" width="291" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <rect key="frame" x="59" y="39" width="306" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -94,7 +94,7 @@
                         <constraint firstItem="TTE-rb-iNL" firstAttribute="leading" secondItem="AcR-sF-BPV" secondAttribute="leading" id="TRS-GZ-Kjo"/>
                         <constraint firstItem="AcR-sF-BPV" firstAttribute="centerY" secondItem="aUD-di-x6X" secondAttribute="centerY" id="Xwd-SZ-rP6"/>
                         <constraint firstItem="AcR-sF-BPV" firstAttribute="leading" secondItem="aUD-di-x6X" secondAttribute="trailing" constant="25" id="b1s-Kc-wtZ"/>
-                        <constraint firstItem="aUD-di-x6X" firstAttribute="leading" secondItem="7cz-wi-wY9" secondAttribute="leading" constant="30" id="cbT-Bs-Ha1"/>
+                        <constraint firstItem="aUD-di-x6X" firstAttribute="leading" secondItem="7cz-wi-wY9" secondAttribute="leading" constant="15" id="cbT-Bs-Ha1"/>
                         <constraint firstItem="wkQ-wz-CvM" firstAttribute="centerX" secondItem="aUD-di-x6X" secondAttribute="centerX" id="fAl-B2-foz"/>
                         <constraint firstItem="wkQ-wz-CvM" firstAttribute="top" secondItem="aUD-di-x6X" secondAttribute="bottom" constant="8" id="gig-AY-1cE"/>
                         <constraint firstAttribute="trailing" secondItem="AcR-sF-BPV" secondAttribute="trailing" constant="10" id="gn8-De-2To"/>
@@ -107,7 +107,7 @@
                     <rect key="frame" x="0.0" y="242" width="375" height="44"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dd4-4O-hPu">
-                            <rect key="frame" x="26" y="13" width="27" height="19"/>
+                            <rect key="frame" x="11" y="13" width="27" height="19"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="27" id="dzi-pF-Mk8"/>
                                 <constraint firstAttribute="height" constant="19" id="zzf-XN-VST"/>
@@ -115,7 +115,7 @@
                             <state key="normal" backgroundImage="美食外卖"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="外卖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SP-iB-otX">
-                            <rect key="frame" x="74" y="12" width="34" height="21"/>
+                            <rect key="frame" x="59" y="12" width="34" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="34" id="4ou-mK-XgA"/>
                                 <constraint firstAttribute="height" constant="21" id="QBQ-KT-oNd"/>

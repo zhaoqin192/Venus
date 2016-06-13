@@ -78,9 +78,18 @@
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
+        [BeautyCategory mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"identify": @"id"
+                     };
+        }];
+        [BeautifulFood mj_setupObjectClassInArray:^NSDictionary *{
+            return @{@"activity":@"BeautyCategory"};
+        }];
         [BeautifulFood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
-                     @"desp": @"description"
+                     @"desp": @"description",
+                     @"identify":@"id"
                      };
         }];
         self.foodArray = [BeautifulFood mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
@@ -133,6 +142,17 @@
                                  @"order":self.order};
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
+        [BeautyCategory mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"identify": @"id"
+                     };
+        }];
+        [BeautifulFood mj_setupObjectClassInArray:^NSDictionary *{
+           return @{@"activity":@"BeautyCategory"};
+        }];
+        [BeautifulFood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"identify":@"id"};
+        }];
         self.foodArray = [BeautifulFood mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.myTableView reloadData];
         [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
