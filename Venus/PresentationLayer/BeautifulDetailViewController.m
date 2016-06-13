@@ -158,9 +158,14 @@
             [self.navigationController popViewControllerAnimated:YES];
         };
         headview.waiViewTapped = ^{
-            FoodDetailViewController *vc = [[FoodDetailViewController alloc] init];
-            vc.restaurantID = self.foodModel.shopId;
-            [self.navigationController pushViewController:vc animated:YES];
+            if ([self.navigationController.viewControllers[self.navigationController.viewControllers.count-2] isKindOfClass:[FoodDetailViewController class]]) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            else {
+                FoodDetailViewController *vc = [[FoodDetailViewController alloc] init];
+                vc.restaurantID = self.foodModel.shopId;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
            // NSLog(@"%d",self.foodModel.shopId);
         };
         headview.homeButtonClicked = ^{
