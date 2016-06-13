@@ -48,11 +48,6 @@
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [SVProgressHUD dismiss];
-}
-
 - (void)configureTable {
     [self.myTableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     self.myTableView.separatorColor = [UIColor colorWithRed:236.0f/255.0f green:236.0f/255.0f blue:236.0f/255.0f alpha:1];
@@ -87,15 +82,13 @@
 }
 
 - (void)loadCouponCommit {
-    [SVProgressHUD show];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/couponz/customer/userComment"]];
     NSDictionary *parameters = nil;
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"coupon %@",responseObject);
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
-            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
-            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            [PresentationUtility showTextDialog:self.view text:responseObject[@"msg"] success:nil];
             return ;
         }
         NSDictionary *dic = responseObject[@"result"];
@@ -114,14 +107,12 @@
         }
         self.couponCommitArray = [array copy];
         [self.myTableView reloadData];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"coupon %@", error);
     }];
 }
 
 - (void)loadShopCommit {
-    [SVProgressHUD show];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/comment/getUserComment"]];
     NSDictionary *parameters = @{@"page":@(1),
@@ -129,40 +120,31 @@
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"shop %@",responseObject);
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
-            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
-            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            [PresentationUtility showTextDialog:self.view text:responseObject[@"msg"] success:nil];
             return ;
         }
         self.shopCommitArray = [MeShopCommit mj_objectArrayWithKeyValuesArray:responseObject[@"result"]];
         [self.myTableView reloadData];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"shop %@", error);
     }];
 }
 
 - (void)loadMiamiCommit {
-    [SVProgressHUD show];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/miami/customer/comment/getMyComments"]];
     NSDictionary *parameters = nil;
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"miami %@",responseObject);
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
-            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
-            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            [PresentationUtility showTextDialog:self.view text:responseObject[@"msg"] success:nil];
             return ;
         }
         self.takeCommitArray = [MeMiamiCommit mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.myTableView reloadData];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"miami %@", error);
     }];
-}
-
-- (void)dismiss {
-    [SVProgressHUD dismiss];
 }
 
 

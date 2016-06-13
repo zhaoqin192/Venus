@@ -56,7 +56,6 @@
         return;
     }
     [self configureTableView];
-    [SVProgressHUD show];
     [self loadHomeData];
 }
 
@@ -71,11 +70,6 @@
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO];
     [self.rdv_tabBarController setTabBarHidden:NO];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [SVProgressHUD dismiss];
 }
 
 - (void)configureRefresh {
@@ -111,7 +105,6 @@
         NSLog(@"%@",responseObject);
         self.foodModel = [BeautifulFood mj_objectWithKeyValues:responseObject[@"shopInfo"]];
         [self configureTableView];
-        [SVProgressHUD show];
         [self loadHomeData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self configureTableView];
@@ -174,20 +167,14 @@
         headview.segmentButtonClicked = ^(NSInteger index) {
             if (index == 0) {
                 self.currentSegmentName = @"店铺首页";
-                [SVProgressHUD dismiss];
-                [SVProgressHUD show];
                 [self loadHomeData];
             }
             else if (index == 1) {
                 self.currentSegmentName = @"全部宝贝";
-                [SVProgressHUD dismiss];
-                [SVProgressHUD show];
                 [self loadFoodItem];
             }
             else {
                 self.currentSegmentName = @"评价";
-                [SVProgressHUD dismiss];
-                [SVProgressHUD show];
                 [self loadCommit];
             }
         };
@@ -216,12 +203,11 @@
     self.commitView.sendButtonTapped = ^(NSString *text){
         AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
         if ([accountDao isLogin]) {
-            [SVProgressHUD show];
             [weakSelf sendCommit:text];
             weakSelf.commitPage = 1;
         }
         else {
-            [SVProgressHUD showErrorWithStatus:@"请先登录!"];
+            [PresentationUtility showTextDialog:self.view text:@"请先登录!" success:nil];
         }
     };
     [self.view addSubview:self.commitView];
@@ -241,15 +227,11 @@
         NSLog(@"%@",responseObject);
         self.commitView.textField.text = @"";
         [self.commitView.textField resignFirstResponder];
-        [SVProgressHUD showWithStatus:@"评论成功！"];
+        [PresentationUtility showTextDialog:self.view text:@"评论成功！" success:nil];
         [self loadCommit];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
-}
-
-- (void)dismiss {
-    [SVProgressHUD dismiss];
 }
 
 - (void)loadHomeData {
@@ -290,7 +272,6 @@
         self.allCouponsArray = [CouponModel mj_objectArrayWithKeyValuesArray:responseObject[@"coupons"]];
         [self configureFootView];
         [self.myTableView reloadData];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -311,7 +292,6 @@
         self.myTableView.tableFooterView = [[UIView alloc] init];
         [self configureFootView];
         [self.myTableView reloadData];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -337,7 +317,6 @@
         [self configureFootView];
         self.myTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 48)];
         [self.myTableView reloadData];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -364,7 +343,6 @@
         [self configureFootView];
         self.myTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 48)];
         [self.myTableView reloadData];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];

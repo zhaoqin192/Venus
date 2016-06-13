@@ -224,8 +224,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (![_accountDao isLogin]) {
-        [SVProgressHUD showErrorWithStatus:@"请登录"];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+        [PresentationUtility showTextDialog:self.view text:@"请登录" success:nil];
         return;
     }
     
@@ -242,10 +241,6 @@
             }
         }
     }
-}
-
-- (void)dismiss {
-    [SVProgressHUD dismiss];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

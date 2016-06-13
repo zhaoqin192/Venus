@@ -57,9 +57,7 @@ static NSInteger count = 30;
     [self.saveButton bk_whenTapped:^{
         if (self.isForget) {
             if (![self.passTF.text isEqualToString: self.confirmTF.text]) {
-                [SVProgressHUD showErrorWithStatus:@"两次输入的密码不一致，请重新输入"];
-                [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5
-                 ];
+                [PresentationUtility showTextDialog:self.view text:@"两次输入的密码不一致，请重新输入" success:nil];
                 return ;
             }
         }
@@ -126,9 +124,7 @@ static NSInteger count = 30;
     [self.view endEditing:YES];
 }
 
-- (void)dismiss {
-    [SVProgressHUD dismiss];
-}
+
 
 - (void)startTimer {
     if (count == 0) {
@@ -157,13 +153,13 @@ static NSInteger count = 30;
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
         }
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
-            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
-            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            [PresentationUtility showTextDialog:self.view text:responseObject[@"msg"] success:nil];
+          
             return ;
         }
         if ([responseObject[@"is_exists"] isEqual: @(1)]) {
-            [SVProgressHUD showErrorWithStatus:@"该手机已注册"];
-            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            [PresentationUtility showTextDialog:self.view text:@"该手机已注册" success:nil];
+           
             return ;
         }
         [self sendCode];
@@ -188,12 +184,12 @@ static NSInteger count = 30;
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
         }
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
-            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
-            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            [PresentationUtility showTextDialog:self.view text:responseObject[@"msg"] success:nil];
+            
             return ;
         }
-        [SVProgressHUD showSuccessWithStatus:@"验证码已发送"];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+        [PresentationUtility showTextDialog:self.view text:@"验证码已发送" success:nil];
+       
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -211,12 +207,12 @@ static NSInteger count = 30;
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
         }
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
-            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
-            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            [PresentationUtility showTextDialog:self.view text:responseObject[@"msg"] success:nil];
+           
             return ;
         }
-        [SVProgressHUD showSuccessWithStatus:@"修改手机号成功,请重新登录"];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+        [PresentationUtility showTextDialog:self.view text:@"修改手机号成功,请重新登录" success:nil];
+        
         [self.navigationController popViewControllerAnimated:NO];
         GMLoginViewController *vc = [[GMLoginViewController alloc] init];
         [self presentViewController:vc animated:YES completion:nil];
@@ -237,8 +233,8 @@ static NSInteger count = 30;
 //            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
 //        }
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
-            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
-            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            [PresentationUtility showTextDialog:self.view text:responseObject[@"msg"] success:nil];
+          
             return ;
         }
         self.token = responseObject[@"token"];
@@ -263,12 +259,12 @@ static NSInteger count = 30;
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"success %@",responseObject);
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
-            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
-            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            [PresentationUtility showTextDialog:self.view text:responseObject[@"msg"] success:nil];
+           
             return ;
         }
-        [SVProgressHUD showSuccessWithStatus:@"修改密码成功"];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:3];
+        [PresentationUtility showTextDialog:self.view text:@"修改密码成功" success:nil];
+        
         [self dismissViewControllerAnimated:YES completion:nil];
        // [self.navigationController popViewControllerAnimated:NO];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

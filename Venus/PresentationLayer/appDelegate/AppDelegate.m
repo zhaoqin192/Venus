@@ -39,14 +39,8 @@
     // Override point for customization after application launch.
     [WXApi registerApp:@"wxbafcc387a8a8fe31"];
     [self configureNavigationBar];
-    [self configureHUD];
     return YES;
 }
-
-- (void)configureHUD {
-    [[SVProgressHUD appearance] setDefaultStyle:SVProgressHUDStyleDark];
-    [[SVProgressHUD appearance] setDefaultMaskType:SVProgressHUDMaskTypeNone];
-}    
 
 - (void)configureNavigationBar {
     [[UINavigationBar appearance] setBarTintColor:GMRedColor];

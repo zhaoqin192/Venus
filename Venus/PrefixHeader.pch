@@ -13,7 +13,6 @@
 #import <BlocksKit/BlocksKit+UIKit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ReactiveCocoa/RACEXTScope.h>
-#import "SVProgressHUD.h"
 #import "UIImageView+WebCache.h"
 #import "EAIntroView.h"
 #import "BlocksKit+UIKit.h"
