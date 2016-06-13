@@ -7,7 +7,6 @@
 //
 
 #import "FoodOrderMarkViewController.h"
-#import <SwpTextView/SwpTextView.h>
 #import "PureLayout.h"
 #import "PlaceHolderTextView.h"
 
@@ -77,7 +76,7 @@ static NSInteger const textLimit = 50;
 #pragma mark - private methods
 
 - (void)textViewEditChanged:(NSNotification *)obj {
-    SwpTextView *textView = (SwpTextView *)obj.object;
+    PlaceHolderTextView *textView = (PlaceHolderTextView *)obj.object;
     
     NSString *toBeString = textView.text;
     

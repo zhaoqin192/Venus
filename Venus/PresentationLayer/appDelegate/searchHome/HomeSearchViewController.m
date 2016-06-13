@@ -48,7 +48,9 @@
     
     UITextField *searchField = [self.searchController.searchBar valueForKey:@"searchField"];
     searchField.textColor = GMBrownColor;
-    
+    searchField.layer.cornerRadius = 14;
+    searchField.layer.masksToBounds = YES;
+    searchField.placeholder = @"Search";
     
     // Include the search bar within the navigation bar.
     self.navigationItem.titleView = self.searchController.searchBar;
