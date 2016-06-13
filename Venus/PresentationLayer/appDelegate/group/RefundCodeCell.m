@@ -27,13 +27,12 @@
         if (self.isSelected) {
             self.isSelected = NO;
             [self.selectButton setImage:[UIImage imageNamed:@"unselect_rectange"] forState:UIControlStateNormal];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"CodeSubstraction" object:nil userInfo:@{@"code": self.codeIdentifier}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"CodeSubtraction" object:nil userInfo:@{@"code": self.codeIdentifier}];
         }
         else {
             self.isSelected = YES;
             [self.selectButton setImage:[UIImage imageNamed:@"select_rectange"] forState:UIControlStateNormal];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"CodeAdd" object:nil userInfo:@{@"code": self.codeIdentifier}];
-            
         }
     }];
     

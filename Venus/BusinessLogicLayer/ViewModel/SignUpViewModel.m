@@ -42,23 +42,23 @@
     return self;
 }
 
-- (id)authIsValid {
-    RACSignal *isValid = [RACSignal combineLatest:@[_phoneSignal]
-                          reduce:^id(NSString *phone){
-                              return @(phone.length == 11);
-                          }];
-    return isValid;
-}
-
-
-- (id)authAlpha {
-    RACSignal *isValid = [RACSignal combineLatest:@[_phoneSignal]
-                          reduce:^id(NSString *phone){
-                              return (phone.length == 11) ? @1.0f:@0.5f;
-                          }];
-    return isValid;
-}
-
+//- (id)authIsValid {
+//    RACSignal *isValid = [[RACSignal combineLatest:@[_phoneSignal]
+//                          reduce:^id(NSString *phone){
+//                              return @(phone.length > 0);
+//                          }]
+//                          distinctUntilChanged];
+//    return isValid;
+//}
+//
+//- (id)authAlpha {
+//    RACSignal *isValid = [[RACSignal combineLatest:@[_phoneSignal]
+//                          reduce:^id(NSString *phone){
+//                              return (phone.length > 0) ? @1.0f:@0.5f;
+//                          }]
+//                          distinctUntilChanged];
+//    return isValid;
+//}
 
 - (id)signUpIsValid {
     
@@ -73,10 +73,12 @@
     
     [NetworkFetcher userSendCodeWithNumber:_phone success:^(NSDictionary *response) {
         
+        NSLog(@"%@", response);
+        
         if ([response[@"errCode"] isEqualToNumber:@0]) {
             [_authSuccessSubject sendNext:nil];
         } else {
-            [_authFailureSubject sendNext:@"改用户已被注册"];
+            [_authFailureSubject sendNext:@"输入的手机号无效"];
         }
         
     } failure:^(NSString *error) {

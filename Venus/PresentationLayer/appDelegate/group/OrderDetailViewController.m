@@ -19,6 +19,8 @@
 #import "RefundViewController.h"
 #import "CouponCommentDetailViewController.h"
 #import <UITableView+FDTemplateLayoutCell.h>
+#import "DatabaseManager.h"
+#import "AccountDao.h"
 
 
 @interface OrderDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -54,9 +56,9 @@
     else if ([self.state isEqualToNumber:@3]) {
         [self.bottomView removeFromSuperview];
     }
+    
     [self onClickEvent];
     
-    NSLog(@"detailDidLoad");
     
 }
 
@@ -64,15 +66,11 @@
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     
-    NSLog(@"detailAppear");
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
-    
-    NSLog(@"deatilDisappear");
 }
 
 - (void)bindViewModel {
@@ -84,6 +82,9 @@
     @weakify(self)
     [self.viewModel.detailSuccessObject subscribeNext:^(id x) {
         @strongify(self)
+        if (!self.viewModel.backAble) {
+            [self.bottomView removeFromSuperview];
+        }
         [self.tableView reloadData];
         
     }];
@@ -113,40 +114,49 @@
     [[self.refundButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
         @strongify(self)
-        if ([self.state isEqualToNumber:@0]) {
-            
-            UIStoryboard *refund = [UIStoryboard storyboardWithName:@"refund" bundle:nil];
-            RefundViewController *refundVC = (RefundViewController *)[refund instantiateViewControllerWithIdentifier:@"refund"];
-            
-            
-            NSMutableArray *codeArray = [[NSMutableArray alloc] init];
-            
-            for (StockModel *model in self.viewModel.codeArray) {
+        
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        
+        if ([accountDao isLogin]) {
+            if ([self.state isEqualToNumber:@0]) {
                 
-                if ([model.status isEqualToNumber:@0]) {
-                    [codeArray addObject:model];
+                UIStoryboard *refund = [UIStoryboard storyboardWithName:@"refund" bundle:nil];
+                RefundViewController *refundVC = (RefundViewController *)[refund instantiateViewControllerWithIdentifier:@"refund"];
+                
+                
+                NSMutableArray *codeArray = [[NSMutableArray alloc] init];
+                
+                for (StockModel *model in self.viewModel.codeArray) {
+                    
+                    if ([model.status isEqualToNumber:@0]) {
+                        [codeArray addObject:model];
+                    }
+                    
                 }
                 
+                refundVC.unitPrice = self.viewModel.price;
+                refundVC.codeArray = codeArray;
+                refundVC.orderModel = self.orderModel;
+                [self.navigationController pushViewController:refundVC animated:YES];
+                
             }
-            
-            refundVC.unitPrice = self.viewModel.price;
-            refundVC.codeArray = codeArray;
-            refundVC.orderModel = self.orderModel;
-            [self.navigationController pushViewController:refundVC animated:YES];
-            
+            else if ([self.state isEqualToNumber:@1]) {
+                [self.viewModel paymentWithOrderID:self.orderModel.orderID];
+            }
+            else if ([self.state isEqualToNumber:@2]) {
+                UIStoryboard *commentStoryBoard = [UIStoryboard storyboardWithName:@"couponComment" bundle:nil];
+                CouponCommentDetailViewController *commentVC = (CouponCommentDetailViewController *)[commentStoryBoard instantiateViewControllerWithIdentifier:@"CouponCommentDetailViewController"];
+                commentVC.orderModel = self.orderModel;
+                [self.navigationController pushViewController:commentVC animated:YES];
+            }
         }
-        else if ([self.state isEqualToNumber:@1]) {
-            
-            [self.viewModel paymentWithOrderID:self.orderModel.orderID];
-            
+        else {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"请先登录国贸账号";
+            [hud hide:YES afterDelay:1.5f];
         }
-        else if ([self.state isEqualToNumber:@2]) {
-            UIStoryboard *commentStoryBoard = [UIStoryboard storyboardWithName:@"couponComment" bundle:nil];
-            CouponCommentDetailViewController *commentVC = (CouponCommentDetailViewController *)[commentStoryBoard instantiateViewControllerWithIdentifier:@"CouponCommentDetailViewController"];
-            commentVC.orderModel = self.orderModel;
-            [self.navigationController pushViewController:commentVC animated:YES];
-        }
-        
+    
     }];
     
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"PayFailure" object:nil]

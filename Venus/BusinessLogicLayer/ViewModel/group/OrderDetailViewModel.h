@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString *describe;
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) CouponOrderModel *couponModel;
+@property (nonatomic, assign) BOOL backAble;
 
 - (void)fetchDetailDataWithOrderID:(NSString *)orderID;
 

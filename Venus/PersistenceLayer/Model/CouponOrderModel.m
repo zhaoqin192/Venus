@@ -23,6 +23,7 @@
         id value = [self valueForKey:key];
         [coder encodeObject:value forKey:key];
     }
+    free(vars);
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -37,6 +38,7 @@
             id value = [coder decodeObjectForKey:key];
             [self setValue:value forKey:key];
         }
+        free(vars);
     }
     return self;
 }

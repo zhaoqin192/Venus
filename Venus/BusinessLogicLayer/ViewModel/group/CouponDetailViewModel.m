@@ -44,8 +44,18 @@
             NSDictionary *coupon = response[@"coupon"];
             NSArray *useRuleArray = coupon[@"useRule"];
             NSArray *tipsArray = coupon[@"warmTip"];
-            self.backable = coupon[@"backable"];
-            self.mustOrder = coupon[@"mustOrder"];
+            if ([coupon[@"backable"] isEqualToNumber:@0]) {
+                self.backable = NO;
+            }
+            else {
+                self.backable = YES;
+            }
+            if ([coupon[@"mustOrder"] isEqualToNumber:@0]) {
+                self.mustOrder = NO;
+            }
+            else {
+                self.mustOrder = YES;
+            }
             for (NSString *string in useRuleArray) {
                 if ([string isEqualToString:@""]) {
                     continue;

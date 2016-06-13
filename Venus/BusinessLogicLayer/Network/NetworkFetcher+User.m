@@ -35,10 +35,8 @@ static const BOOL LOGDEBUG = NO;
         NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
         
         for (NSString *key in cookieHeaders) {
-            
             @strongify(manager)
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
-            
         }
         
         if (LOGDEBUG) {
@@ -66,12 +64,9 @@ static const BOOL LOGDEBUG = NO;
     NSDictionary *parameters = @{@"redirectUrl": @"www.chinaworldstyle.com/"};
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-        
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         if (true) {
@@ -182,6 +177,9 @@ static const BOOL LOGDEBUG = NO;
             
         }
         
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        accountDao.isLogin = YES;
+        
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
@@ -207,6 +205,7 @@ static const BOOL LOGDEBUG = NO;
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/api/isbound/weixin"]];
     NSDictionary *parameters = @{@"unionid": openID};
     
+    @weakify(manager)
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -216,6 +215,15 @@ static const BOOL LOGDEBUG = NO;
             Account *account = [accountDao fetchAccount];
             account.token = responseObject[@"uid"];
             [accountDao save];
+            accountDao.isLogin = YES;
+            
+            NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+            NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+            for (NSString *key in cookieHeaders) {
+                @strongify(manager)
+                [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+                NSLog(@"%@", [[manager requestSerializer] HTTPRequestHeaders]);
+            }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ENTER_HOME" object:nil];
         }else{
             //注册新的国贸用户
@@ -373,6 +381,7 @@ static const BOOL LOGDEBUG = NO;
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/api/isbound/qq"]];
     NSDictionary *parameters = @{@"openId": openID};
     
+    @weakify(manager)
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -382,6 +391,14 @@ static const BOOL LOGDEBUG = NO;
             Account *account = [accountDao fetchAccount];
             account.token = responseObject[@"userid"];
             [accountDao save];
+            accountDao.isLogin = YES;
+            
+            NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+            NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+            for (NSString *key in cookieHeaders) {
+                @strongify(manager)
+                [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+            }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ENTER_HOME" object:nil];
         }else{
             //注册新的国贸用户
@@ -428,6 +445,9 @@ static const BOOL LOGDEBUG = NO;
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
             
         }
+        
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        accountDao.isLogin = YES;
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -479,6 +499,9 @@ static const BOOL LOGDEBUG = NO;
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
             
         }
+        
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        accountDao.isLogin = YES;
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -532,11 +555,12 @@ static const BOOL LOGDEBUG = NO;
         NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
         
         for (NSString *key in cookieHeaders) {
-            
             @strongify(manager)
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
-            
         }
+        
+        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+        accountDao.isLogin = YES;
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);

@@ -49,8 +49,8 @@
     RAC(self.viewModel, authCode) = self.codeTF.rac_textSignal;
     RAC(self.viewModel, password) = self.passwordTF.rac_textSignal;
     RAC(self.viewModel, rePassword) = self.repasswordTF.rac_textSignal;
-    RAC(self.codeButton, enabled) = [self.viewModel authIsValid];
-    RAC(self.codeButton, alpha) = [self.viewModel authAlpha];
+//    RAC(self.codeButton, enabled) = [self.viewModel authIsValid];
+//    RAC(self.codeButton, alpha) = [self.viewModel authAlpha];
     RAC(self.agreeButton, enabled) = [self.viewModel signUpIsValid];
     
     @weakify(self);
@@ -77,6 +77,10 @@
     
     [self.viewModel.authFailureSubject subscribeNext:^(NSString *message) {
         @strongify(self);
+        if (!self.codeButton.isEnabled) {
+            self.codeButton.enabled = YES;
+            self.codeButton.alpha = 1.0f;
+        }
         [PresentationUtility showTextDialog:self.view text:message success:nil];
     }];
     
