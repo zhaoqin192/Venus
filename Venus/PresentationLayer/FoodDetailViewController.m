@@ -74,6 +74,7 @@
     if (self.restaurantID) {
         @weakify(self)
         [NetworkFetcher foodFetcherRestaurantInfoWithID:self.restaurantID success:^(NSDictionary *response) {
+            NSLog(@"店铺信息：%@",response);
             @strongify(self)
             if ([response[@"errCode"] isEqualToNumber:@0]) {
                 [Restaurant mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
@@ -87,6 +88,9 @@
                                };
                 }];
                 self.restaurant = [Restaurant mj_objectWithKeyValues:response[@"data"]];
+                if (![self.restaurant.state boolValue]) {
+                    [PresentationUtility showTextDialog:self.view text:@"该店铺暂停营业" success:nil];
+                }
                 [self initViews];
                 [self configureChildController];
                 self.navigationItem.title = _restaurant.name;
@@ -117,19 +121,18 @@
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/info"]];
-    NSLog(@"restaurantID is %li",(long)self.restaurantID);
     NSDictionary *parameters = @{@"id":@(self.restaurantID)};
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"responseObject%@",responseObject);
+//        NSLog(@"responseObject%@",responseObject);
         NSDictionary *result = responseObject;
         if ([result[@"errCode"] isEqualToNumber:@0]) {
             NSDictionary *shopInfo = result[@"shopInfo"];
             self.isGroupBuyAvailable = [shopInfo[@"couponz"] isEqualToNumber:@1];
-            if (self.isGroupBuyAvailable) {
-                NSLog(@"yes");
-            } else {
-                NSLog(@"no");
-            }
+//            if (self.isGroupBuyAvailable) {
+//                NSLog(@"yes");
+//            } else {
+//                NSLog(@"no");
+//            }
             
         }
         
@@ -213,9 +216,14 @@
 
 #pragma mark - event response
 - (void)enterStore {
-    BeautifulDetailViewController *vc = [[BeautifulDetailViewController alloc] init];
-    vc.shopId = self.restaurantID;
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    if ([self.navigationController.viewControllers[self.navigationController.viewControllers.count-2] isKindOfClass:[BeautifulDetailViewController class]]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        BeautifulDetailViewController *vc = [[BeautifulDetailViewController alloc] init];
+        vc.shopId = self.restaurantID;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)enterGroupBuy {
@@ -369,6 +377,11 @@
 }
 
 - (IBAction)confirmOrderButtonClicked:(id)sender {
+    if (![self.restaurant.state boolValue]) {
+        [PresentationUtility showTextDialog:self.view text:@"该店铺暂停营业" success:nil];
+        return;
+    }
+    
     if (_trollyButtonBadgeCount == 0) {
         [PresentationUtility showTextDialog:self.view text:@"请选择商品" success:nil];
         return;
