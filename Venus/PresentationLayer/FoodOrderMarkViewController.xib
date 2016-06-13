@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodOrderMarkViewController">
             <connections>
                 <outlet property="currentCommentCount" destination="niV-Q2-637" id="N70-O7-lFI"/>
-                <outlet property="textField" destination="Cvw-Om-Q7t" id="ycg-qh-gQk"/>
+                <outlet property="theView" destination="EO7-JX-5ar" id="pJS-dh-6MD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,14 +20,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EO7-JX-5ar">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="在此处给商家留言" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cvw-Om-Q7t">
-                            <rect key="frame" x="10" y="10" width="355" height="108"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="W6a-NP-AWQ"/>
-                            </connections>
-                        </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/50个字" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OxW-YM-sKg">
                             <rect key="frame" x="326" y="108" width="44" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -43,15 +35,11 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="Cvw-Om-Q7t" firstAttribute="top" secondItem="EO7-JX-5ar" secondAttribute="top" constant="10" id="4jj-Q9-qbg"/>
-                        <constraint firstAttribute="trailing" secondItem="Cvw-Om-Q7t" secondAttribute="trailing" constant="10" id="6t9-0c-LqW"/>
                         <constraint firstItem="OxW-YM-sKg" firstAttribute="leading" secondItem="niV-Q2-637" secondAttribute="trailing" id="D3y-vv-yvF"/>
                         <constraint firstAttribute="trailing" secondItem="OxW-YM-sKg" secondAttribute="trailing" constant="5" id="Wsp-lO-XdE"/>
-                        <constraint firstAttribute="bottom" secondItem="Cvw-Om-Q7t" secondAttribute="bottom" constant="10" id="kRz-NJ-oO3"/>
                         <constraint firstAttribute="height" constant="128" id="p2f-Sf-15C"/>
                         <constraint firstAttribute="bottom" secondItem="OxW-YM-sKg" secondAttribute="bottom" constant="5" id="r6b-rj-zbk"/>
                         <constraint firstItem="niV-Q2-637" firstAttribute="centerY" secondItem="OxW-YM-sKg" secondAttribute="centerY" id="rt3-f1-1kQ"/>
-                        <constraint firstItem="Cvw-Om-Q7t" firstAttribute="leading" secondItem="EO7-JX-5ar" secondAttribute="leading" constant="10" id="vWx-Lr-eyT"/>
                     </constraints>
                 </view>
             </subviews>

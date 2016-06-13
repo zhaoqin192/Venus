@@ -66,11 +66,12 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.rdv_tabBarController setTabBarHidden:YES animated:NO];
+    [self networkRequest];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-}
+//- (void)viewWillDisappear:(BOOL)animated{
+//    [super viewWillDisappear:animated];
+//}
 
 
 - (void)configureTableView{
@@ -93,11 +94,11 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
 - (void)networkRequest {
     [NetworkFetcher foodFetcherClassWithSuccess:^{
         [self.categoryData removeAllObjects];
-        for (FoodClass *foodClass in _foodManager.foodClassArray) {
+        for (FoodClass *foodClass in self.foodManager.foodClassArray) {
             [self.categoryData addObject:foodClass.name];
         }
         self.foodClass = self.foodManager.foodClassArray[0];
-        [self selectClassWithFoodClass:_foodClass sort:@"0" page:[NSString stringWithFormat:@"%ld", (long)self.currentPage]];
+        [self selectClassWithFoodClass:self.foodClass sort:@"0" page:[NSString stringWithFormat:@"%ld", (long)self.currentPage]];
     } failure:^(NSString *error) {
         
     }];

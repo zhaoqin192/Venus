@@ -189,6 +189,7 @@
 		7F81FFCA1D05523100D3AEA0 /* FoodCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FFC91D05523100D3AEA0 /* FoodCategory.m */; };
 		7F81FFCE1D05531300D3AEA0 /* FoodGood.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FFCD1D05531300D3AEA0 /* FoodGood.m */; };
 		7F81FFD11D05543A00D3AEA0 /* FoodNewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F81FFD01D05543A00D3AEA0 /* FoodNewManager.m */; };
+		7F8E4DFD1D0E5EBE00D0ACAE /* PlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8E4DFC1D0E5EBE00D0ACAE /* PlaceHolderTextView.m */; };
 		7F9370A51CF6E4F10063F544 /* FoodShowAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370A31CF6E4F10063F544 /* FoodShowAddressCell.m */; };
 		7F9370A61CF6E4F10063F544 /* FoodShowAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9370A41CF6E4F10063F544 /* FoodShowAddressCell.xib */; };
 		7F9370AA1CF6EB2A0063F544 /* FoodAddressSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9370A81CF6EB2A0063F544 /* FoodAddressSelectionViewController.m */; };
@@ -767,6 +768,8 @@
 		7F81FFCD1D05531300D3AEA0 /* FoodGood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodGood.m; sourceTree = "<group>"; };
 		7F81FFCF1D05543A00D3AEA0 /* FoodNewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodNewManager.h; sourceTree = "<group>"; };
 		7F81FFD01D05543A00D3AEA0 /* FoodNewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodNewManager.m; sourceTree = "<group>"; };
+		7F8E4DFB1D0E5EBE00D0ACAE /* PlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceHolderTextView.h; sourceTree = "<group>"; };
+		7F8E4DFC1D0E5EBE00D0ACAE /* PlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceHolderTextView.m; sourceTree = "<group>"; };
 		7F9370A21CF6E4F10063F544 /* FoodShowAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodShowAddressCell.h; sourceTree = "<group>"; };
 		7F9370A31CF6E4F10063F544 /* FoodShowAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodShowAddressCell.m; sourceTree = "<group>"; };
 		7F9370A41CF6E4F10063F544 /* FoodShowAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodShowAddressCell.xib; sourceTree = "<group>"; };
@@ -1901,6 +1904,8 @@
 				7F9370C61CFADB750063F544 /* FoodPaymentDoneViewController.h */,
 				7F9370C71CFADB750063F544 /* FoodPaymentDoneViewController.m */,
 				7F9370C81CFADB750063F544 /* FoodPaymentDoneViewController.xib */,
+				7F8E4DFB1D0E5EBE00D0ACAE /* PlaceHolderTextView.h */,
+				7F8E4DFC1D0E5EBE00D0ACAE /* PlaceHolderTextView.m */,
 			);
 			name = food;
 			sourceTree = "<group>";
@@ -3152,6 +3157,7 @@
 				ACF83EA91CBF97F800A962BD /* Resources */,
 				4CBEA80F870898E2BE8C9772 /* 📦 Embed Pods Frameworks */,
 				67ADEA63BD431C2D62D4BDFE /* 📦 Copy Pods Resources */,
+				6070D85438457D141C489BD1 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3377,6 +3383,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venus/Pods-Venus-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6070D85438457D141C489BD1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venus/Pods-Venus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		67ADEA63BD431C2D62D4BDFE /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3586,6 +3607,7 @@
 				AC6FF1A01D01190700B04388 /* BrandDetailSectionHeadCell.m in Sources */,
 				30FEE6E31CF80AE3007E7A8B /* GMMeCommitViewController.m in Sources */,
 				AC90F5A51CD1EA8A004C4C55 /* FoodClass.m in Sources */,
+				7F8E4DFD1D0E5EBE00D0ACAE /* PlaceHolderTextView.m in Sources */,
 				7F81FFD11D05543A00D3AEA0 /* FoodNewManager.m in Sources */,
 				AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */,
 				AC21A93F1CFEBD76000ECA37 /* CouponCommentTitleCell.m in Sources */,

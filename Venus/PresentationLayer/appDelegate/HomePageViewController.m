@@ -273,7 +273,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HomeCategoryCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([HomeCategoryCell class])];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.scrollAdView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 220) delegate:self placeholderImage:[UIImage imageNamed:@""]];
+    self.scrollAdView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth * 9/16) delegate:self placeholderImage:[UIImage imageNamed:@""]];
 
     self.scrollAdView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
     self.tableView.tableHeaderView = self.scrollAdView;
@@ -448,7 +448,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             return 140.0f / 375 * kScreenWidth + 60;
             break;
         default:
-            return 444;
+            return kScreenWidth/375*444;
             break;
     }
     return 0;

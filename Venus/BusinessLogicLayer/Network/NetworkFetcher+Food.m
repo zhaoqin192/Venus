@@ -33,9 +33,9 @@ static const BOOL LOGDEBUG = NO;
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/miami/customer/store/listCat"]];
     
     [manager GET:url.absoluteString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if (LOGDEBUG) {
+//        if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
-        }
+//        }
         NSDictionary *dic = responseObject;
         
         if([dic[@"errCode"] isEqualToNumber:@0]){
@@ -79,9 +79,9 @@ static const BOOL LOGDEBUG = NO;
     NSDictionary *parameters = @{@"catId": foodClass.identifier, @"sort": sort, @"page": page};
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if (LOGDEBUG) {
+//        if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
-        }
+//        }
         NSDictionary *dic = responseObject;
         
         if([dic[@"errCode"] isEqualToNumber:@0]){
