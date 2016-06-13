@@ -104,6 +104,13 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     }];
     
     self.searchBar.delegate = self;
+    UITextField *searchField = [self.searchBar valueForKey:@"searchField"];
+    if (searchField) {
+        searchField.layer.cornerRadius = 14;
+        //searchField.layer.borderWidth = 1;
+        searchField.layer.masksToBounds = YES;
+    }
+    self.searchBar.placeholder = @"Search";
     
     [self bindViewModel];
     
