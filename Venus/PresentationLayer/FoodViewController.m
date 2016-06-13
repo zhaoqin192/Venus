@@ -66,7 +66,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.rdv_tabBarController setTabBarHidden:YES animated:NO];
-    [self networkRequest];
+//    [self networkRequest];
 }
 
 //- (void)viewWillDisappear:(BOOL)animated{

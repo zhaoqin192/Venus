@@ -32,9 +32,11 @@
                 <constraints>
                     <constraint firstItem="myk-2U-hWA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="B4h-Sa-5Iw"/>
                     <constraint firstAttribute="trailing" secondItem="GO2-gh-YEU" secondAttribute="trailing" id="CCz-iX-aUb"/>
+                    <constraint firstAttribute="bottom" secondItem="myk-2U-hWA" secondAttribute="bottom" constant="13" id="MSL-0G-Oph"/>
                     <constraint firstItem="myk-2U-hWA" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="QZT-L2-z7x"/>
                     <constraint firstItem="GO2-gh-YEU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="c47-iB-g92"/>
                     <constraint firstAttribute="bottom" secondItem="GO2-gh-YEU" secondAttribute="bottom" id="rSm-tH-fZx"/>
+                    <constraint firstItem="myk-2U-hWA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="tBg-z2-JB0"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">

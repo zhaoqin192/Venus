@@ -61,6 +61,12 @@
 }
 
 - (void)configureTableView{
+    self.dataTableView.estimatedRowHeight=50.0; //这里最好是prototype中cell的高度，越精确，系统计算的高度越精确。
+    self.dataTableView.rowHeight=UITableViewAutomaticDimension;
+    
+    self.categoryTableView.estimatedRowHeight=50.0; //这里最好是prototype中cell的高度，越精确，系统计算的高度越精确。
+    self.categoryTableView.rowHeight=UITableViewAutomaticDimension;
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([FoodCategoryCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([FoodCategoryCell class])];
     self.categoryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -167,13 +173,13 @@
     return 0.1;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView == _categoryTableView) {
-        return 48;
-    } else {
-        return 78;
-    }
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (tableView == _categoryTableView) {
+//        return 48;
+//    } else {
+//        return 78;
+//    }
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == _categoryTableView) {
