@@ -230,6 +230,12 @@ static NSInteger count = 30;
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/terra/sms/validate"]];
     NSDictionary *parameters = @{@"mobile": self.phoneTF.text, @"code": self.codeTF.text};
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@",responseObject);
+//        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+//        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+//        for (NSString *key in cookieHeaders) {
+//            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+//        }
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
             [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
             [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
@@ -251,8 +257,9 @@ static NSInteger count = 30;
     NSLog(@"jjj");
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/terra/customer/change/password"]];
-    NSDictionary *parameters = @{@"newpwd":self.passTF.text};
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/terra/customer/reset/password/mobile"]];
+    NSDictionary *parameters = @{@"password":self.passTF.text,
+                                 @"token":self.token};
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"success %@",responseObject);
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
