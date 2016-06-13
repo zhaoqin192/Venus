@@ -82,7 +82,7 @@
         }
         
     } failure:^(NSString *error) {
-        [_errorSubject sendNext:@"网路异常"];
+        [_errorSubject sendNext:@"网络异常"];
     }];
     
 }
@@ -103,7 +103,7 @@
         }
         
     } failure:^(NSString *error) {
-        [_errorSubject sendNext:@"网路异常"];
+        [_errorSubject sendNext:@"网络异常"];
     }];
     
 }
@@ -120,7 +120,7 @@
         
     } failure:^(NSString *error) {
         
-        [_errorSubject sendNext:@"网路异常"];
+        [_errorSubject sendNext:@"网络异常"];
         
     }];
     
@@ -150,11 +150,11 @@
             }
             
         } failure:^(NSString *error) {
-            [_errorSubject sendNext:@"网路异常"];
+            [_errorSubject sendNext:@"网络异常"];
         }];
         
     } failure:^(NSString *error) {
-        [_errorSubject sendNext:@"网路异常"];
+        [_errorSubject sendNext:@"网络异常"];
     }];
     
 }
@@ -188,11 +188,11 @@
             
             
         } failure:^(NSString *error) {
-            [_errorSubject sendNext:@"网路异常"];
+            [_errorSubject sendNext:@"网络异常"];
         }];
         
     } failure:^(NSString *error) {
-        [_errorSubject sendNext:@"网路异常"];
+        [_errorSubject sendNext:@"网络异常"];
     }];
     
     

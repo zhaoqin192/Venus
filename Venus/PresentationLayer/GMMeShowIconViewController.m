@@ -22,7 +22,7 @@
         [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.imgUrl]];
     }
     self.navigationItem.rightBarButtonItem = ({
-        UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(rightItemTapped)];
+        UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"保存到相册" style:UIBarButtonItemStyleDone target:self action:@selector(rightItemTapped)];
         right;
     });
 }
