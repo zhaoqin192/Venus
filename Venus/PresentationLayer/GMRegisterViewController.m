@@ -38,7 +38,7 @@
     self.appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [self selectTextForTitle];
     [self configureUI];
-    
+    self.phoneTF.delegate = self;
     [self bindViewModel];
     [self onClick];
 }
@@ -57,7 +57,7 @@
     [self.viewModel.authSuccessSubject subscribeNext:^(id x) {
         @strongify(self);
         [PresentationUtility showTextDialog:self.view text:@"验证码已发送" success:nil];
-        
+        [self.codeTF becomeFirstResponder];
         _timerCount = @30;
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 block:^(NSTimer * _Nonnull timer) {
             int value = [self.timerCount intValue];
@@ -228,6 +228,17 @@
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    NSString *title = [self.codeButton titleForState:UIControlStateNormal];
+    if (textField != self.phoneTF) {
+        return YES;
+    }
+    if ([title isEqualToString:@"获取验证码"]) {
+        return YES;
+    }
+    return NO;
 }
 
 @end
