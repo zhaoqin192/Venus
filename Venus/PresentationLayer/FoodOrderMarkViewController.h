@@ -16,6 +16,7 @@
 
 @interface FoodOrderMarkViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *currentCommentCount;
 @property (weak, nonatomic) id<FoodOrderMarkViewControllerDelegate> delegate;
 @property (copy, nonatomic) NSString *markContent;
 

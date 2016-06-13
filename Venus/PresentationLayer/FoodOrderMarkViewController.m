@@ -7,10 +7,15 @@
 //
 
 #import "FoodOrderMarkViewController.h"
+#import <SwpTextView/SwpTextView.h>
+#import "PureLayout.h"
+#import "PlaceHolderTextView.h"
 
 @interface FoodOrderMarkViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (weak, nonatomic) IBOutlet UILabel *currentCommentCount;
+
+@property (strong, nonatomic) PlaceHolderTextView *textView;
+@property (weak, nonatomic) IBOutlet UIView *theView;
+
 
 @property (strong, nonatomic) UIBarButtonItem *rightBarButtonItem;
 
@@ -27,15 +32,26 @@ static NSInteger const textLimit = 50;
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = self.rightBarButtonItem;
     self.navigationItem.title = @"添加备注";
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textViewEditChanged:)
+                                                name:@"UITextViewTextDidChangeNotification" object:self.textView];
+    [self.theView addSubview:self.textView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     if (![self.markContent isEqualToString:@""]) {
-        self.textField.text = self.markContent;
+        self.textView.text = self.markContent;
+        self.currentCommentCount.text = [NSString stringWithFormat:@"%li",(long)self.markContent.length];
     }
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:)
-                                                name:@"UITextFieldTextDidChangeNotification" object:self.textField];
+    [self.textView autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:10.0];
+    [self.textView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0];
+    [self.textView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0];
+    [self.textView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:20.0];
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"UITextFieldTextDidChangeNotification" object:self.textField];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"UITextViewTextDidChangeNotification" object:self.textView];
 }
 
 #pragma mark - TextFieldDelegate
@@ -59,21 +75,22 @@ static NSInteger const textLimit = 50;
 
 
 #pragma mark - private methods
--(void)textFiledEditChanged:(NSNotification *)obj {
-    UITextField *textField = (UITextField *)obj.object;
+
+- (void)textViewEditChanged:(NSNotification *)obj {
+    SwpTextView *textView = (SwpTextView *)obj.object;
     
-    NSString *toBeString = textField.text;
+    NSString *toBeString = textView.text;
     
-    NSString *lang = [textField.textInputMode primaryLanguage]; // 键盘输入模式
+    NSString *lang = [textView.textInputMode primaryLanguage]; // 键盘输入模式
     if ([lang isEqualToString:@"zh-Hans"]) { // 简体中文输入，包括简体拼音，健体五笔，简体手写
-        UITextRange *selectedRange = [textField markedTextRange];       //获取高亮部分
-        UITextPosition *position = [textField positionFromPosition:selectedRange.start offset:0];
+        UITextRange *selectedRange = [textView markedTextRange];       //获取高亮部分
+        UITextPosition *position = [textView positionFromPosition:selectedRange.start offset:0];
         // 没有高亮选择的字，则对已输入的文字进行字数统计和限制
         if (!position) {
             if (toBeString.length >= textLimit) {
-                textField.text = [toBeString substringToIndex:textLimit];
+                textView.text = [toBeString substringToIndex:textLimit];
             } else {
-                [textField setText:toBeString];
+                [textView setText:toBeString];
             }
         }       // 有高亮选择的字符串，则暂不对文字进行统计和限制
         else{
@@ -82,15 +99,16 @@ static NSInteger const textLimit = 50;
     } else {
         // 中文输入法以外的直接对其统计限制即可，不考虑其他语种情况
         if (toBeString.length > textLimit) {
-            textField.text = [toBeString substringToIndex:textLimit];
+            textView.text = [toBeString substringToIndex:textLimit];
         }
     }
-    self.currentCommentCount.text = [NSString stringWithFormat:@"%li",(long)textField.text.length];
+    self.currentCommentCount.text = [NSString stringWithFormat:@"%li",(long)textView.text.length];
 }
+
 
 #pragma mark - event response
 - (void)confirmButtonClicked:(id)sender {
-    self.remark = self.textField.text;
+    self.remark = self.textView.text;
     if (self.delegate) {
         [self.delegate didGetRemark:self.remark];
     }
@@ -99,7 +117,6 @@ static NSInteger const textLimit = 50;
 
 #pragma mark - getters and setters
 - (UIBarButtonItem *)rightBarButtonItem {
-    NSLog(@"lalala");
     if (!_rightBarButtonItem) {
         _rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(confirmButtonClicked:)];
     }
@@ -118,6 +135,14 @@ static NSInteger const textLimit = 50;
         _markContent = @"";
     }
     return _markContent;
+}
+
+- (PlaceHolderTextView *)textView {
+    if (!_textView) {
+        _textView = [[PlaceHolderTextView alloc] init];
+        _textView.placeholder = @"在此处给商家留言";
+    }
+    return _textView;
 }
 
 @end
