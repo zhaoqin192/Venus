@@ -22,7 +22,7 @@
         [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.imgUrl]];
     }
     self.navigationItem.rightBarButtonItem = ({
-        UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(rightItemTapped)];
+        UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"保存到相册" style:UIBarButtonItemStyleDone target:self action:@selector(rightItemTapped)];
         right;
     });
 }
@@ -35,12 +35,10 @@
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *) error contextInfo:(void *) contextInfo {
     if (error != NULL) {
-        [SVProgressHUD showErrorWithStatus:@"保存图片失败"];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+        [PresentationUtility showTextDialog:self.view text:@"保存图片失败" success:nil];
     }
     else {
-        [SVProgressHUD showSuccessWithStatus:@"保存图片成功"];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+        [PresentationUtility showTextDialog:self.view text:@"保存图片成功" success:nil];
     }
 }
 
@@ -53,10 +51,6 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.rdv_tabBarController setTabBarHidden:NO];
-}
-
-- (void)dismiss {
-    [SVProgressHUD dismiss];
 }
 
 /*

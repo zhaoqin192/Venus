@@ -43,11 +43,6 @@ static NSString *footerID = @"footerID";
     [self.navigationController setNavigationBarHidden:NO];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [SVProgressHUD dismiss];
-}
-
 - (void)configureCollectionView {
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumInteritemSpacing = 0;
@@ -63,7 +58,6 @@ static NSString *footerID = @"footerID";
 }
 
 - (void)loadShopData {
-    [SVProgressHUD show];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/mallcategory/getFirstClass"]];
     NSDictionary *parameters = nil;
@@ -81,20 +75,16 @@ static NSString *footerID = @"footerID";
     NSDictionary *parameters = nil;
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
-            [SVProgressHUD showErrorWithStatus:responseObject[@"msg"]];
-            [self performSelector:@selector(dismiss) withObject:nil afterDelay:1.5];
+            [PresentationUtility showTextDialog:self.view text:responseObject[@"msg"] success:nil];
+            
             return ;
         }
         self.foodArray = [BeautyCategory mj_objectArrayWithKeyValuesArray:responseObject[@"cat"]];
         [self.myCollectionView reloadData];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"confirm code %@", error);
     }];
-}
-
-- (void)dismiss {
-    [SVProgressHUD dismiss];
 }
 
 #pragma mark - UICollectionViewDataSource

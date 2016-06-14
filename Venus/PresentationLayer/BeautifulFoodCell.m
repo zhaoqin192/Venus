@@ -8,6 +8,7 @@
 
 #import "BeautifulFoodCell.h"
 #import "BeautifulFood.h"
+#import "BeautyCategory.h"
 
 @interface BeautifulFoodCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
@@ -42,10 +43,11 @@
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.shopLogo]];
     self.nameLabel.text = model.shopName;
     self.locationLabel.text = [NSString stringWithFormat:@"店铺地址：%@",model.location];
-    if (self.model.desp.length != 0) {
+    if (self.model.activity.count != 0) {
+        BeautyCategory *cat = self.model.activity[0];
         self.activityView.hidden = NO;
         self.despLabel.hidden = NO;
-        self.despLabel.text = model.desp;
+        self.despLabel.text = cat.name;
     }
     else {
         self.activityView.hidden = YES;

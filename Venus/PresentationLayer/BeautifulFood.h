@@ -18,4 +18,5 @@
 @property (nonatomic, copy) NSString *desp;
 @property (nonatomic, copy) NSString *phone;
 @property (nonatomic, copy) NSString *app;
+@property (nonatomic, copy) NSArray *activity;
 @end

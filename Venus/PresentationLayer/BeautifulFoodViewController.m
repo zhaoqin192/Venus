@@ -65,27 +65,29 @@
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [SVProgressHUD dismiss];
-}
-
 - (void)loadData {
-    [SVProgressHUD show];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/listShops"]];
     NSDictionary *parameters = @{@"id":@(self.identify),@"order":self.order};
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
+        [BeautyCategory mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"identify": @"id"
+                     };
+        }];
+        [BeautifulFood mj_setupObjectClassInArray:^NSDictionary *{
+            return @{@"activity":@"BeautyCategory"};
+        }];
         [BeautifulFood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
-                     @"desp": @"description"
+                     @"desp": @"description",
+                     @"identify":@"id"
                      };
         }];
         self.foodArray = [BeautifulFood mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.myTableView reloadData];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -125,7 +127,6 @@
 }
 
 - (void)loadCategoryShop:(NSInteger )identify {
-    [SVProgressHUD show];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/listShops"]];
@@ -133,9 +134,19 @@
                                  @"order":self.order};
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"%@",responseObject);
+        [BeautyCategory mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"identify": @"id"
+                     };
+        }];
+        [BeautifulFood mj_setupObjectClassInArray:^NSDictionary *{
+           return @{@"activity":@"BeautyCategory"};
+        }];
+        [BeautifulFood mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"identify":@"id"};
+        }];
         self.foodArray = [BeautifulFood mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.myTableView reloadData];
-        [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
     }];
@@ -300,10 +311,6 @@
         [self loadCategoryShop:category.identify];
         NSLog(@"%zd",indexPath.row);
     }
-}
-
-- (void)dismiss {
-    [SVProgressHUD dismiss];
 }
 
 @end

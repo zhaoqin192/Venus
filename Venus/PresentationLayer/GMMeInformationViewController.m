@@ -57,10 +57,6 @@
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
-- (void)dismiss {
-    [SVProgressHUD dismiss];
-}
-
 - (void)configureTableView {
     [self.myTableView registerNib:[UINib nibWithNibName:@"userIconCell" bundle:nil] forCellReuseIdentifier:@"userIconCell"];
     [self.myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"informationCell"];
@@ -84,8 +80,7 @@
             [accoutDao save];
             GMLoginViewController *vc = [[GMLoginViewController alloc] init];
             [self presentViewController:vc animated:YES completion:nil];
-            [SVProgressHUD showSuccessWithStatus:@"退出登录成功"];
-            [self performSelector:@selector(dismiss) withObject:nil afterDelay:2.0];
+            [PresentationUtility showTextDialog:self.view text:@"退出登录成功" success:nil];
         }];
         foot;
     });

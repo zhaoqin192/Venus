@@ -61,7 +61,6 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
-  - SVProgressHUD (2.0.3)
   - UITableView+FDTemplateLayoutCell (1.4)
   - YFStartView (0.0.1)
   - YYCategories (1.0.3):
@@ -84,7 +83,6 @@ DEPENDENCIES:
   - ReactiveCocoa (= 2.3.1)
   - SDCycleScrollView (~> 1.61)
   - SDWebImage
-  - SVProgressHUD
   - UITableView+FDTemplateLayoutCell
   - YFStartView
   - YYCategories
@@ -116,7 +114,6 @@ SPEC CHECKSUMS:
   ReactiveCocoa: 3fe9b233ca6db810e86681b5749488564c1179a1
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
-  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   YFStartView: 0f81260cc7da743133c738d9154e4e7d9cf20314
   YYCategories: 0fd4d9eb0994d8d0e355beb4081c8f7202a82b7b

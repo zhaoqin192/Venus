@@ -12,7 +12,6 @@ target "Venus" do
     pod 'RDVTabBarController'
     pod 'BlocksKit', '2.2.5'
     pod 'ReactiveCocoa', '2.3.1'
-    pod 'SVProgressHUD'
     pod 'EAIntroView', '~> 2.8.0'
     pod 'SDWebImage'
     pod 'YFStartView'

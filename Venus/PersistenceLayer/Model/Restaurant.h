@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSString *packFee;
 @property (nonatomic, copy) NSString *costTime;
 @property (nonatomic, copy) NSString *describer;
+@property (nonatomic, copy) NSString *state;
 
 
 @end
