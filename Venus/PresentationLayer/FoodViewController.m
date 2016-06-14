@@ -66,12 +66,7 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.rdv_tabBarController setTabBarHidden:YES animated:NO];
-    [self networkRequest];
 }
-
-//- (void)viewWillDisappear:(BOOL)animated{
-//    [super viewWillDisappear:animated];
-//}
 
 
 - (void)configureTableView{
@@ -165,11 +160,6 @@ static const NSString *PICTUREURL = @"www.chinaworldstyle.com/hestia/files/image
     foodDetailVC.restaurant = restaurant;
     foodDetailVC.restaurantID = [restaurant.identifier integerValue];
     [self.navigationController pushViewController:foodDetailVC animated:YES];
-    
-    
-//    NewFoodDetailViewController *vc = [[NewFoodDetailViewController alloc] init];
-//    vc.restaurant = restaurant;
-//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

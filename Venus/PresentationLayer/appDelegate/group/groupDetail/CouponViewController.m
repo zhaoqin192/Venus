@@ -180,10 +180,10 @@
             cell.backableView.hidden = NO;
         }
         if (!self.viewModel.mustOrder) {
-            cell.mustOrderView.hidden = YES;
+            cell.mustOrderView.hidden = NO;
         }
         else {
-            cell.mustOrderView.hidden = NO;
+            cell.mustOrderView.hidden = YES;
         }
         
         return cell;
