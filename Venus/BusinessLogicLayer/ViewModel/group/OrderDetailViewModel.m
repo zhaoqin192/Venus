@@ -38,7 +38,6 @@
     return self;
 }
 
-
 - (void)fetchDetailDataWithOrderID:(NSString *)orderID {
     
     [NetworkFetcher groupFetchOrderDetailWithOrderID:orderID success:^(NSDictionary *response) {
@@ -62,6 +61,9 @@
             
             NSDictionary *order = response[@"order"];
             self.couponModel.count = order[@"num"];
+            
+            self.type = coupon[@"type"];
+            self.moreDetailurl = coupon[@"richTextUrl"];
             
             
             if ([coupon[@"backAble"] isEqualToNumber:@0]) {

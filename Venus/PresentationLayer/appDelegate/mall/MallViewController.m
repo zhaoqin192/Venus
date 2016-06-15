@@ -19,6 +19,7 @@
 #import "MallKindModel.h"
 #import "MBProgressHUD.h"
 #import "BrandDetailViewController.h"
+#import "UMMobClick/MobClick.h"
 
 
 @interface MallViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -53,7 +54,7 @@
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    
+    [MobClick beginLogPageView:@"MallViewController"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -61,6 +62,7 @@
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
     
     [self.viewModel cacheData];
+    [MobClick endLogPageView:@"MallViewController"];
 }
 
 

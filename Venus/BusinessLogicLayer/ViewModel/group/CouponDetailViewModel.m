@@ -56,6 +56,10 @@
             else {
                 self.mustOrder = YES;
             }
+            
+            self.type = coupon[@"type"];
+            self.moreDetailurl = coupon[@"richTextUrl"];
+            
             for (NSString *string in useRuleArray) {
                 if ([string isEqualToString:@""]) {
                     continue;

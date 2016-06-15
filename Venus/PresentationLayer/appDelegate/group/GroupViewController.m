@@ -48,6 +48,7 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    [MobClick beginLogPageView:@"GroupViewController"];
 }
 
 
@@ -56,6 +57,7 @@
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
     [self.viewModel cachedMenuData];
     [self.viewModel cachedCouponData];
+    [MobClick endLogPageView:@"GroupViewController"];
 }
 
 - (void)initMenu {

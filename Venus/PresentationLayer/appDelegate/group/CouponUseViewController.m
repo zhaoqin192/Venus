@@ -42,14 +42,14 @@
     [super viewWillAppear:animated];
     
     [self.viewModel fetchUseData];
-
+    [MobClick beginLogPageView:@"CouponUseViewController"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     [self.viewModel cacheData];
-
+    [MobClick endLogPageView:@"CouponUseViewController"];
 }
 
 

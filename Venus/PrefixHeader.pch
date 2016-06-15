@@ -34,5 +34,6 @@
 #import "GMLabel.h"
 #import "WXTextField.h"
 #import "LCUIKit.h"
+#import "UMMobClick/MobClick.h"
 
 #endif /* PrefixHeader_pch */
