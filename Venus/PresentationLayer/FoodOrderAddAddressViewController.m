@@ -31,9 +31,15 @@
     self.tableView.dataSource = self;
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"FoodOrderAddAddressViewController"];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.title = @"新增地址";
+    [MobClick beginLogPageView:@"FoodOrderAddAddressViewController"];
 }
 
 #pragma mark - UITableViewDataSource

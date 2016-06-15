@@ -34,6 +34,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.title = @"编辑地址";
+    [MobClick beginLogPageView:@"FoodAddressEditViewController"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"FoodAddressEditViewController"];
 }
 
 #pragma mark - UITableViewDataSource

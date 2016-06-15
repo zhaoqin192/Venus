@@ -34,6 +34,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = @"申请退款";
+    [MobClick beginLogPageView:@"GMMeTakeAwayRefundViewController"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"GMMeTakeAwayRefundViewController"];
 }
 
 #pragma mark - UITableViewDataSource

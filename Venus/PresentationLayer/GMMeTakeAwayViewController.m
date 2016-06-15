@@ -71,6 +71,13 @@
     }];
     
     self.navigationItem.title = @"订单";
+    [MobClick beginLogPageView:@"GMMeTakeAwayViewController"];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"GMMeTakeAwayViewController"];
 }
 
 #pragma mark - UITableViewDataSource

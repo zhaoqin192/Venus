@@ -77,8 +77,13 @@
         [self.hud hide:YES];
         [PresentationUtility showTextDialog:self.view text:@"网络错误，请重试" success:nil];
     }];
+    [MobClick beginLogPageView:@"GMMeTakeAwayDetailViewController"];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"GMMeTakeAwayDetailViewController"];
+}
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.orderDetail) {

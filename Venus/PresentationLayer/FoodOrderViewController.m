@@ -60,6 +60,18 @@
     [self configureTableView];
 }
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"FoodOrderViewController"];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"FoodOrderViewController"];
+}
+
 - (void)configureTableView{
     self.dataTableView.estimatedRowHeight=50.0; //这里最好是prototype中cell的高度，越精确，系统计算的高度越精确。
     self.dataTableView.rowHeight=UITableViewAutomaticDimension;

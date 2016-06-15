@@ -146,7 +146,7 @@
     [self networkRequest];
     [self.rdv_tabBarController setTabBarHidden:YES];
     self.navigationController.navigationBar.translucent = YES;
-
+    [MobClick beginLogPageView:@"FoodDetailViewController"];
     
     
 //    UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
@@ -159,6 +159,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.translucent = NO;
+    [MobClick endLogPageView:@"FoodDetailViewController"];
 }
 
 #pragma mark - UITableViewDataSource

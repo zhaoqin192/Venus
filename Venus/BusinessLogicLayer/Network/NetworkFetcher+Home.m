@@ -86,7 +86,7 @@ static const BOOL LOGDEBUG = NO;
 //    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/facew/assemble/ios/getassemble"]];
 //    NSDictionary *parameters = @{@"owner": @1};
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/facew/assemble/wap/getassemble"]];
-    NSDictionary *parameters = @{@"owner":@1, @"num":@2};
+    NSDictionary *parameters = @{@"owner":@1, @"num":@7};
     
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
