@@ -62,6 +62,7 @@ PODS:
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
   - UITableView+FDTemplateLayoutCell (1.4)
+  - UMengAnalytics (4.0.4)
   - YFStartView (0.0.1)
   - YYCategories (1.0.3):
     - YYCategories/no-arc (= 1.0.3)
@@ -84,6 +85,7 @@ DEPENDENCIES:
   - SDCycleScrollView (~> 1.61)
   - SDWebImage
   - UITableView+FDTemplateLayoutCell
+  - UMengAnalytics
   - YFStartView
   - YYCategories
 
@@ -115,7 +117,10 @@ SPEC CHECKSUMS:
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
+  UMengAnalytics: 4ed421fb3bca63b26fc13c947743cabf3831d199
   YFStartView: 0f81260cc7da743133c738d9154e4e7d9cf20314
   YYCategories: 0fd4d9eb0994d8d0e355beb4081c8f7202a82b7b
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 46b563009f407a0b0fbb706ef6d9f69bf6dac5b8
+
+COCOAPODS: 1.0.0
