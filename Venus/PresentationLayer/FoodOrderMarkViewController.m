@@ -37,6 +37,12 @@ static NSInteger const textLimit = 50;
     [self.theView addSubview:self.textView];
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"FoodOrderMarkViewController"];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (![self.markContent isEqualToString:@""]) {
@@ -47,6 +53,7 @@ static NSInteger const textLimit = 50;
     [self.textView autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:10.0];
     [self.textView autoPinEdgeToSuperviewEdge:ALEdgeRight withInset:10.0];
     [self.textView autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:20.0];
+    [MobClick beginLogPageView:@"FoodOrderMarkViewController"];
 }
 
 - (void)dealloc {

@@ -22,6 +22,7 @@
 #import "RDVTabBarItem.h"
 #import "RDVTabBarController.h"
 #import "PresentationUtility.h"
+#import "UMMobClick/MobClick.h"
 
 #define GMRedColor [UIColor colorWithHexString:@"B01C2E"]
 #define GMBrownColor [UIColor colorWithHexString:@"A6873B"]

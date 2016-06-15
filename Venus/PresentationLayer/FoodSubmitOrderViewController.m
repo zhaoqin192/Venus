@@ -80,6 +80,12 @@
     }
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"FoodSubmitOrderViewController"];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = @"提交订单";
     _bargain.text = [NSString stringWithFormat:@"￥%.1f",_bargainFee];
@@ -89,6 +95,7 @@
     } failure:^(NSString *error) {
         NSLog(@"错误是：%@",error);
     }];
+    [MobClick beginLogPageView:@"FoodSubmitOrderViewController"];
 }
 
 - (void)dealloc {

@@ -30,6 +30,11 @@
     self.tableView.dataSource = self;
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"FoodAddressSelectionViewController"];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = NO;
@@ -42,6 +47,7 @@
     } failure:^(NSString *error){
         NSLog(@"获取最新地址失败，error是%@",error);
     }];
+    [MobClick beginLogPageView:@"FoodAddressSelectionViewController"];
 }
 
 #pragma mark - UITableViewDataSource

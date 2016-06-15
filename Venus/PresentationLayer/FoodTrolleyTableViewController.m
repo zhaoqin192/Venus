@@ -32,7 +32,16 @@
 //- (void)viewDidDisappear:(BOOL)animated {
 //    self.navigationController.navigationBar.translucent = YES;
 //}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"FoodTrolleyTableViewController"];
+}
 
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"FoodTrolleyTableViewController"];
+}
 - (void)configureTableView {
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

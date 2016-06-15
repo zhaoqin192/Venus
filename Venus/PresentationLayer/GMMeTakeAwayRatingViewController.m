@@ -53,6 +53,12 @@
     self.storeName.text = self.name;
     [self.storeIcon sd_setImageWithURL:[NSURL URLWithString:self.storeIconURL]];
     self.navigationItem.title = @"评价";
+    [MobClick beginLogPageView:@"GMMeTakeAwayRatingViewController"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"GMMeTakeAwayRatingViewController"];
 }
 
 #pragma mark - UITableViewDataSource
