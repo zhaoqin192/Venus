@@ -13,6 +13,7 @@
 #import "RootTabViewController.h"
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import <AlipaySDK/AlipaySDK.h>
+#import "UMMobClick/MobClick.h"
 
 
 @interface AppDelegate ()<WXApiDelegate>{
@@ -31,6 +32,10 @@
     if (!ret) {
         NSLog(@"manager start failed!");
     }
+    
+    //友盟统计
+    UMConfigInstance.appKey = @"5760e385e0f55a27b2000cf6";
+    UMConfigInstance.channelId = @"App Store";
     
     self.window = [[UIWindow alloc] init];
     self.window.rootViewController = [[RootTabViewController alloc] init];

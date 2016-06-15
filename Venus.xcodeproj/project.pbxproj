@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1727985DB8D7CF05F11295 /* libPods-Venus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B82F1FE7A4577D257469CC6 /* libPods-Venus.a */; };
 		300A191D1D0127B4006A0468 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 300A191C1D0127B4006A0468 /* Info.plist */; };
 		300A19201D014F0F006A0468 /* IndoorSwitchDemo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 300A191E1D014F0F006A0468 /* IndoorSwitchDemo.mm */; };
 		300A19241D014F5E006A0468 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300A19211D014F5E006A0468 /* BaiduMapAPI_Base.framework */; };
@@ -167,7 +168,6 @@
 		30FEE6F21CF96698007E7A8B /* MeCommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FEE6F01CF96698007E7A8B /* MeCommitCell.m */; };
 		30FEE6F31CF96698007E7A8B /* MeCommitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30FEE6F11CF96698007E7A8B /* MeCommitCell.xib */; };
 		30FEE6FA1CFA70C8007E7A8B /* MeCouponCommit.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FEE6F91CFA70C8007E7A8B /* MeCouponCommit.m */; };
-		31D9839B6190882830C041AF /* libPods-Venus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F147FF08FDF63B5103599E /* libPods-Venus.a */; };
 		7F7025481CE96651009653A6 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025471CE96651009653A6 /* UIButton+Badge.m */; };
 		7F70254E1CEC0682009653A6 /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F70254D1CEC0682009653A6 /* CALayer+XibConfiguration.m */; };
 		7F7025521CEC63A2009653A6 /* FoodTrolleyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7025501CEC63A2009653A6 /* FoodTrolleyTableViewController.m */; };
@@ -689,7 +689,6 @@
 		30D6D29B1CC8A85B00FB0CFC /* FoodCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodCategoryCell.h; sourceTree = "<group>"; };
 		30D6D29C1CC8A85B00FB0CFC /* FoodCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodCategoryCell.m; sourceTree = "<group>"; };
 		30D6D29D1CC8A85B00FB0CFC /* FoodCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodCategoryCell.xib; sourceTree = "<group>"; };
-		30F147FF08FDF63B5103599E /* libPods-Venus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Venus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FD1F4E1CE1A80B003C91A5 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
 		30FD1F9C1CE2C0B8003C91A5 /* MapFloorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFloorCell.h; sourceTree = "<group>"; };
 		30FD1F9D1CE2C0B8003C91A5 /* MapFloorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFloorCell.m; sourceTree = "<group>"; };
@@ -730,7 +729,7 @@
 		30FEE6F11CF96698007E7A8B /* MeCommitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeCommitCell.xib; sourceTree = "<group>"; };
 		30FEE6F81CFA70C8007E7A8B /* MeCouponCommit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeCouponCommit.h; sourceTree = "<group>"; };
 		30FEE6F91CFA70C8007E7A8B /* MeCouponCommit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeCouponCommit.m; sourceTree = "<group>"; };
-		6183C7C43582F008072502CA /* Pods-Venus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.release.xcconfig"; sourceTree = "<group>"; };
+		6B82F1FE7A4577D257469CC6 /* libPods-Venus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Venus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7025461CE96651009653A6 /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
 		7F7025471CE96651009653A6 /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
 		7F70254C1CEC0682009653A6 /* CALayer+XibConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XibConfiguration.h"; sourceTree = "<group>"; };
@@ -818,6 +817,8 @@
 		7F9370FA1CFC28B20063F544 /* GMMeTakeAwayDetailInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMMeTakeAwayDetailInfoCell.xib; sourceTree = "<group>"; };
 		7F9371011CFFD6D00063F544 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		7F9371041CFFD72C0063F544 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		9FA239FD5B3F13DA2992C0DA /* Pods-Venus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.debug.xcconfig"; sourceTree = "<group>"; };
+		A211F1E90300D70C9CE972E1 /* Pods-Venus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.release.xcconfig"; sourceTree = "<group>"; };
 		AC0358FF1CC4D70200EC7BBC /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		AC0359031CC4D76A00EC7BBC /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		AC0359051CC4D77900EC7BBC /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -1331,7 +1332,6 @@
 		ACFF33801CF9871B008BD0D8 /* HCSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCSStarRatingView.m; sourceTree = "<group>"; };
 		ACFF33811CF9871B008BD0D8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACFF33821CF9871B008BD0D8 /* HCSStarRatingView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = HCSStarRatingView.xcodeproj; sourceTree = "<group>"; };
-		B0598C861C4CA4E50C30CCE4 /* Pods-Venus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Venus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Venus/Pods-Venus.debug.xcconfig"; sourceTree = "<group>"; };
 		E8226C1E1CEB52B000980E30 /* FoodPaymentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodPaymentCell.h; sourceTree = "<group>"; };
 		E8226C1F1CEB52B000980E30 /* FoodPaymentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodPaymentCell.m; sourceTree = "<group>"; };
 		E8226C201CEB52B000980E30 /* FoodPaymentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodPaymentCell.xib; sourceTree = "<group>"; };
@@ -1417,23 +1417,14 @@
 				AC970C8D1CC4D27400FA171B /* CoreTelephony.framework in Frameworks */,
 				AC970C851CC4D25600FA171B /* SystemConfiguration.framework in Frameworks */,
 				AC970C7D1CC4D23C00FA171B /* Security.framework in Frameworks */,
-				31D9839B6190882830C041AF /* libPods-Venus.a in Frameworks */,
 				300A19261D014F5E006A0468 /* BaiduMapAPI_Map.framework in Frameworks */,
+				0F1727985DB8D7CF05F11295 /* libPods-Venus.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		009EC4722DD7419A4E64F45F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B0598C861C4CA4E50C30CCE4 /* Pods-Venus.debug.xcconfig */,
-				6183C7C43582F008072502CA /* Pods-Venus.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		3025A98B1CCE3ED500C5EAAB /* group */ = {
 			isa = PBXGroup;
 			children = (
@@ -2055,6 +2046,15 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		628F832C8F3BE2B71AA4733F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FA239FD5B3F13DA2992C0DA /* Pods-Venus.debug.xcconfig */,
+				A211F1E90300D70C9CE972E1 /* Pods-Venus.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7F7025451CE96619009653A6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -2463,7 +2463,7 @@
 				ACF83EAD1CBF97F800A962BD /* Venus */,
 				ACF83EAC1CBF97F800A962BD /* Products */,
 				E1998CF8726CD7D47CA05772 /* Frameworks */,
-				009EC4722DD7419A4E64F45F /* Pods */,
+				628F832C8F3BE2B71AA4733F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3049,7 +3049,7 @@
 				AC970C861CC4D26100FA171B /* CoreGraphics.framework */,
 				AC970C841CC4D25600FA171B /* SystemConfiguration.framework */,
 				AC970C7C1CC4D23C00FA171B /* Security.framework */,
-				30F147FF08FDF63B5103599E /* libPods-Venus.a */,
+				6B82F1FE7A4577D257469CC6 /* libPods-Venus.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3151,13 +3151,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACF83EC51CBF97F800A962BD /* Build configuration list for PBXNativeTarget "Venus" */;
 			buildPhases = (
-				2C8231D8E7FFE62277D7B030 /* 📦 Check Pods Manifest.lock */,
+				BBEEEB36E9029823DBD43065 /* 📦 Check Pods Manifest.lock */,
 				ACF83EA71CBF97F800A962BD /* Sources */,
 				ACF83EA81CBF97F800A962BD /* Frameworks */,
 				ACF83EA91CBF97F800A962BD /* Resources */,
-				4CBEA80F870898E2BE8C9772 /* 📦 Embed Pods Frameworks */,
-				67ADEA63BD431C2D62D4BDFE /* 📦 Copy Pods Resources */,
-				6070D85438457D141C489BD1 /* Embed Pods Frameworks */,
+				77A9E3D7507CE0FFCD3116D4 /* 📦 Embed Pods Frameworks */,
+				3DE674D5DDC0749FA8EA3B31 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3353,22 +3352,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2C8231D8E7FFE62277D7B030 /* 📦 Check Pods Manifest.lock */ = {
+		3DE674D5DDC0749FA8EA3B31 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venus/Pods-Venus-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4CBEA80F870898E2BE8C9772 /* 📦 Embed Pods Frameworks */ = {
+		77A9E3D7507CE0FFCD3116D4 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3383,34 +3382,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venus/Pods-Venus-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6070D85438457D141C489BD1 /* Embed Pods Frameworks */ = {
+		BBEEEB36E9029823DBD43065 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venus/Pods-Venus-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		67ADEA63BD431C2D62D4BDFE /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Venus/Pods-Venus-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3818,7 +3802,7 @@
 		};
 		ACF83EC61CBF97F800A962BD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0598C861C4CA4E50C30CCE4 /* Pods-Venus.debug.xcconfig */;
+			baseConfigurationReference = 9FA239FD5B3F13DA2992C0DA /* Pods-Venus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libstdc++";
@@ -3887,7 +3871,7 @@
 		};
 		ACF83EC71CBF97F800A962BD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6183C7C43582F008072502CA /* Pods-Venus.release.xcconfig */;
+			baseConfigurationReference = A211F1E90300D70C9CE972E1 /* Pods-Venus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libstdc++";
