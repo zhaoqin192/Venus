@@ -53,18 +53,14 @@
     
     [self.viewModel.refundFailureObject subscribeNext:^(id x) {
         
-        
-        
     }];
     
     [self.viewModel.errorObject subscribeNext:^(NSString *message) {
         
         @strongify(self)
-        
         if (self.refreshControl.refreshing) {
             [self.refreshControl endRefreshing];
         }
-        
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
         hud.labelText = message;

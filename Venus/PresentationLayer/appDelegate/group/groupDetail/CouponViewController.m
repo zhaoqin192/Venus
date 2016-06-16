@@ -27,6 +27,7 @@
 #import "DatabaseManager.h"
 #import "AccountDao.h"
 #import "WebViewController.h"
+#import "GMLoginViewController.h"
 
 
 @interface CouponViewController ()<MWPhotoBrowserDelegate>
@@ -357,10 +358,8 @@
         return YES;
     }
     else {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = @"请先登录国贸账号";
-        [hud hide:YES afterDelay:1.5f];
+        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
         return NO;
     }
 }

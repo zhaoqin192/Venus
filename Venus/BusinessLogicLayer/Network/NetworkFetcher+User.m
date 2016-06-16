@@ -16,7 +16,7 @@
 @implementation NetworkFetcher (User)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
-static const BOOL LOGDEBUG = YES;
+static const BOOL LOGDEBUG = NO;
 
 + (void)userLoginWithAccount:(NSString *)phone
                     password:(NSString *)password
@@ -36,6 +36,7 @@ static const BOOL LOGDEBUG = YES;
         
         for (NSString *key in cookieHeaders) {
             @strongify(manager)
+            NSLog(@"%@", key);
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
         }
         
@@ -221,8 +222,8 @@ static const BOOL LOGDEBUG = YES;
             NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
             for (NSString *key in cookieHeaders) {
                 @strongify(manager)
+                NSLog(@"%@", cookieHeaders[key]);
                 [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
-                NSLog(@"%@", [[manager requestSerializer] HTTPRequestHeaders]);
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ENTER_HOME" object:nil];
         }else{
