@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet GMButton *createAccountButton;
 @property (weak, nonatomic) IBOutlet UIButton *weChatButton;
 @property (weak, nonatomic) IBOutlet UIButton *qqButton;
+@property (weak, nonatomic) IBOutlet UIButton *weiboButton;
 @property (nonatomic, strong) WXTextField *passwordView;
 @property (nonatomic, strong) WXTextField *phoneView;
 @property (nonatomic, strong) LoginViewModel *viewModel;
@@ -125,6 +126,21 @@
          @strongify(self);
          [self.viewModel loginWithQQ];
      }];
+    
+    [[self.weiboButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    subscribeNext:^(id x) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"暂未开放此功能";
+        hud.mode = MBProgressHUDModeText;
+        [hud showAnimated:YES whileExecutingBlock:^{
+            //对话框显示时需要执行的操作
+            sleep(1.5);
+        } completionBlock:^{
+            [hud removeFromSuperview];
+        }];
+        
+    }];
     
     [[self.createAccountButton rac_signalForControlEvents:UIControlEventTouchUpInside]
      subscribeNext:^(id x) {

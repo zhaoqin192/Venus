@@ -66,8 +66,6 @@
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSString *cookie = [[manager requestSerializer] valueForHTTPHeaderField:@"Cookie"];
     [AppCacheManager cacheCookie:cookie];
-    NSLog(@"%@", [[manager requestSerializer] valueForHTTPHeaderField:@"Cookie"]);
-    NSLog(@"terminate");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -76,15 +74,12 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-//    NSString *cookie = [AppCacheManager fetchCookie];
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSString *cookie = [[manager requestSerializer] valueForHTTPHeaderField:@"Cookie"];
-    AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-    if (![accountDao isLogin]) {
+    if (!cookie) {
         cookie = [AppCacheManager fetchCookie];
+        [manager.requestSerializer setValue:cookie forHTTPHeaderField:@"Cookie"];
     }
-    NSLog(@"%@", cookie);
-    NSLog(@"active");
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

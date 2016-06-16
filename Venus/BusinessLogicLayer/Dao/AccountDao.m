@@ -53,7 +53,7 @@
     if ([array count] != 0) {
         [self.appContext deleteObject:[array objectAtIndex:0]];
         AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-        [manager.requestSerializer setValue:@"" forHTTPHeaderField:@"Cookie"];
+        [manager.requestSerializer setValue:nil forHTTPHeaderField:@"Cookie"];
         [AppCacheManager deleteCookie];
     }
 }

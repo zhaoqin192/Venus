@@ -82,14 +82,14 @@ static const BOOL LOGDEBUG = NO;
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
-        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
-        
-        for (NSString *key in cookieHeaders) {
-            @strongify(manager)
-            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
-            NSLog(@"%@", cookieHeaders[key]);
-        }
+//        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+//        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+//        
+//        for (NSString *key in cookieHeaders) {
+//            @strongify(manager)
+//            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+//            NSLog(@"%@", cookieHeaders[key]);
+//        }
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (LOGDEBUG) {
@@ -212,14 +212,14 @@ static const BOOL LOGDEBUG = NO;
             NSLog(@"%@", responseObject);
         }
         
-        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
-        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
-        
-        for (NSString *key in cookieHeaders) {
-            @strongify(manager)
-            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
-            NSLog(@"%@", cookieHeaders[key]);
-        }
+//        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+//        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+//        
+//        for (NSString *key in cookieHeaders) {
+//            @strongify(manager)
+//            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+//            NSLog(@"%@", cookieHeaders[key]);
+//        }
         
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
