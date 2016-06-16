@@ -111,6 +111,7 @@ static NSInteger count = 30;
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.rdv_tabBarController setTabBarHidden:YES];
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -118,6 +119,7 @@ static NSInteger count = 30;
     [self.rdv_tabBarController setTabBarHidden:NO];
     [self.timer invalidate];
     self.timer = nil;
+    [MobClick endLogPageView:NSStringFromClass([self class])];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

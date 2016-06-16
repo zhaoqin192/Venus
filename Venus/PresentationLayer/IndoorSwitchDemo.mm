@@ -89,6 +89,7 @@ BMKUserLocation* userLoc;
     [_mapView viewWillAppear];
     _mapView.delegate = self;
     _locService.delegate = self;
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
     [self.navigationController setNavigationBarHidden:YES];
     [self.rdv_tabBarController setTabBarHidden:NO animated:YES];
 }
@@ -99,6 +100,7 @@ BMKUserLocation* userLoc;
     _mapView.delegate = nil;
     _locService.delegate = nil;
     [self.navigationController setNavigationBarHidden:NO];
+    [MobClick endLogPageView:NSStringFromClass([self class])];
 }
 
 - (void)configureShopView {

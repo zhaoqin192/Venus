@@ -12,6 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *abstract;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UILabel *number;
-
+@property (weak, nonatomic) IBOutlet UIButton *moreDetail;
 
 @end

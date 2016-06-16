@@ -64,11 +64,13 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
     [self.rdv_tabBarController setTabBarHidden:NO animated:YES];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
+    [MobClick endLogPageView:NSStringFromClass([self class])];
     [super viewWillDisappear:animated];
 }
 

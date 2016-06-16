@@ -41,13 +41,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.viewModel fetchPayData];
-    
+    [MobClick beginLogPageView:@"CouponPayViewController"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
     
     [self.viewModel cacheData];
+    [MobClick endLogPageView:@"CouponPayViewController"];
 }
 
 

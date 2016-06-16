@@ -94,10 +94,16 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"CouponRefundViewController"];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     [self.viewModel cacheData];
+    [MobClick endLogPageView:@"CouponRefundViewController"];
 }
 
 #pragma mark -UITableViewDataSource

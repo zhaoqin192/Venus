@@ -26,6 +26,7 @@
 #import "MWPhotoBrowser.h"
 #import "DatabaseManager.h"
 #import "AccountDao.h"
+#import "WebViewController.h"
 
 
 @interface CouponViewController ()<MWPhotoBrowserDelegate>
@@ -52,11 +53,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    [MobClick beginLogPageView:@"CouponViewController"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+    [MobClick endLogPageView:@"CouponViewController"];
     
 }
 
@@ -78,6 +81,7 @@
     [self.viewModel.detailSuccessObject subscribeNext:^(id x) {
         @strongify(self)
         [self.tableView reloadSection:3 withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
         [self.tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationNone];
     }];
     
@@ -195,8 +199,24 @@
     }
     else if (indexPath.section == 2) {
         CouponCaseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponCaseCell"];
+        if ([self.viewModel.type isEqualToNumber:@0]) {
+            cell.abstract.text = @"代金券";
+        }
+        else {
+            cell.abstract.text = @"套餐劵";
+        }
         cell.price.text = [NSString stringWithFormat:@"￥%.2f", [self.couponModel.price floatValue] / 100];
         cell.number.text = @"1张";
+        @weakify(self)
+        [[[cell.moreDetail rac_signalForControlEvents:UIControlEventTouchUpInside]
+        takeUntil:cell.rac_prepareForReuseSignal]
+        subscribeNext:^(id x) {
+            @strongify(self)
+            WebViewController *webVC = [[WebViewController alloc] init];
+            webVC.url = self.viewModel.moreDetailurl;
+            webVC.title = @"团购劵图文详情";
+            [self.navigationController pushViewController:webVC animated:YES];
+        }];
         return cell;
     }
     else if (indexPath.section == 3) {
