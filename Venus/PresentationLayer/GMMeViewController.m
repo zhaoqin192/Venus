@@ -108,8 +108,11 @@
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"showCoupon" object:nil]
     takeUntil:[self rac_willDeallocSignal]]
     subscribeNext:^(id x) {
-       
         @strongify(self)
+        if (![_accountDao isLogin]) {
+            [PresentationUtility showTextDialog:self.view text:@"请登录" success:nil];
+            return;
+        }
         UIStoryboard *couponOrder = [UIStoryboard storyboardWithName:@"group" bundle:nil];
         PersonalCouponViewController *vc = (PersonalCouponViewController *)[couponOrder instantiateViewControllerWithIdentifier:@"personal"];
         
@@ -266,6 +269,10 @@
 }
 
 - (void)takeawayButtonClicked:(id)sender {
+    if (![_accountDao isLogin]) {
+        [PresentationUtility showTextDialog:self.view text:@"请登录" success:nil];
+        return;
+    }
     GMMeTakeAwayViewController *vc = [[GMMeTakeAwayViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
