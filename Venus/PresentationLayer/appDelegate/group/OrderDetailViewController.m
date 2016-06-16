@@ -21,7 +21,7 @@
 #import <UITableView+FDTemplateLayoutCell.h>
 #import "DatabaseManager.h"
 #import "AccountDao.h"
-
+#import "WebViewController.h"
 
 @interface OrderDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -65,12 +65,14 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    [MobClick beginLogPageView:@"OrderDetailViewController"];
     
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+    [MobClick endLogPageView:@"OrderDetailViewController"];
 }
 
 - (void)bindViewModel {
@@ -206,12 +208,16 @@
     }
     else if (indexPath.section == 1) {
         
-        @strongify(self)
-        return [tableView fd_heightForCellWithIdentifier:[OrderDescribeCell className] configuration:^(OrderDescribeCell *cell) {
-            
-            [self configureDescribeCell:cell atIndexPath:indexPath];
-
-        }];
+//        @strongify(self)
+//        return [tableView fd_heightForCellWithIdentifier:[OrderDescribeCell className] configuration:^(OrderDescribeCell *cell) {
+//            
+//            [self configureDescribeCell:cell atIndexPath:indexPath];
+//
+//        }];
+        
+        
+        
+        return 132;
         
     }
     else {
@@ -330,7 +336,26 @@
 
 - (void)configureDescribeCell:(OrderDescribeCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    cell.describeLabel.text = self.viewModel.describe;
+    
+    if ([self.viewModel.type isEqualToNumber:@0]) {
+        cell.typeLabel.text = @"代金券";
+    }
+    else {
+        cell.typeLabel.text = @"套餐券";
+    }
+    
+    cell.priceLabel.text = [NSString stringWithFormat:@"￥%.2f", [self.viewModel.price floatValue] / 100];
+    
+    @weakify(self)
+    [[[cell.moreDetailButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    takeUntil:cell.rac_prepareForReuseSignal]
+    subscribeNext:^(id x) {
+        @strongify(self)
+        WebViewController *webVC = [[WebViewController alloc] init];
+        webVC.url = self.viewModel.moreDetailurl;
+        webVC.title = @"团购劵图文详情";
+        [self.navigationController pushViewController:webVC animated:YES];
+    }];
     
 }
 

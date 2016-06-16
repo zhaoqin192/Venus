@@ -58,7 +58,7 @@
 #pragma mark - NJKWebViewProgressDelegate
 - (void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress {
     [self.progressView setProgress:progress animated:YES];
-    self.title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+//    self.title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 }
 
 

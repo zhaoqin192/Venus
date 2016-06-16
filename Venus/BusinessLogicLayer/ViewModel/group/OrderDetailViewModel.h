@@ -24,6 +24,8 @@
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) CouponOrderModel *couponModel;
 @property (nonatomic, assign) BOOL backAble;
+@property (nonatomic, strong) NSNumber *type;
+@property (nonatomic, strong) NSString *moreDetailurl;
 
 - (void)fetchDetailDataWithOrderID:(NSString *)orderID;
 

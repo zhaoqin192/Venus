@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface OrderDescribeCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *describeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *moreDetailButton;
 
 @end

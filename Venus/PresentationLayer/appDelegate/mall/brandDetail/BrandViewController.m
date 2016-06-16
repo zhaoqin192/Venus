@@ -7,6 +7,8 @@
 //
 
 #import "BrandViewController.h"
+#import "UMMobClick/MobClick.h"
+
 
 @interface BrandViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -30,6 +32,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
+    [MobClick beginLogPageView:@"BrandViewController"];
 }
 
 
@@ -37,6 +40,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[self rdv_tabBarController] setTabBarHidden:NO animated:YES];
+    [MobClick endLogPageView:@"BrandViewController"];
 }
 
 

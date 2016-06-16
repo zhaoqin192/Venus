@@ -23,6 +23,8 @@
 @property (nonatomic ,strong) NSNumber *totalComment;
 @property (nonatomic, assign) BOOL backable;
 @property (nonatomic, assign) BOOL mustOrder;
+@property (nonatomic, strong) NSNumber *type;//1是“套餐劵”，0是“代金券”
+@property (nonatomic, strong) NSString *moreDetailurl;//更多图文详情url；
 
 - (void)fetchDetailWithCouponID:(NSString *)couponID;
 
