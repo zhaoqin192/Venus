@@ -148,6 +148,7 @@
     self.navigationController.navigationBar.translucent = YES;
     [MobClick beginLogPageView:@"FoodDetailViewController"];
     
+    self.trollyButtonBadgeCount = self.trolleyFoodArray.count;
     
 //    UIBarButtonItem *storeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"store"] style:UIBarButtonItemStyleDone target:self action:@selector(enterStore)];
 //    UIBarButtonItem *groupBuyButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"groupBuy"] style:UIBarButtonItemStyleDone target:self action:@selector(enterGroupBuy)];
@@ -405,9 +406,10 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         // 弹出登录界面
-        [PresentationUtility showTextDialog:self.view text:@"请先登录" success:nil];
-//        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
+//        [PresentationUtility showTextDialog:self.view text:@"请先登录" success:nil];
+        GMLoginViewController *vc = [[GMLoginViewController alloc] init];
 //        [self.navigationController pushViewController:vc animated:YES];
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 
