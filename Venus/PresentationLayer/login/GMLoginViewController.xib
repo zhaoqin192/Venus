@@ -15,6 +15,7 @@
                 <outlet property="qqButton" destination="rg7-TZ-IZV" id="LNR-3O-KWs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weChatButton" destination="0pw-eL-h08" id="aXE-YL-1xv"/>
+                <outlet property="weiboButton" destination="iQr-Jr-pfu" id="BTs-Ej-z9w"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

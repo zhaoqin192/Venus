@@ -15,4 +15,10 @@
 + (void)cacheDataWithData:(NSMutableArray *)data
                  fileName:(NSString *)fileName;
 
++ (void)cacheCookie:(NSString *)cookie;
+
++ (NSString *)fetchCookie;
+
++ (void)deleteCookie;
+
 @end

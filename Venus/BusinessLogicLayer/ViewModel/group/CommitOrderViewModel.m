@@ -122,7 +122,7 @@
                 }
                 else {
                     @strongify(self)
-                    [self.orderFailureObject sendNext:@"下单失败"];
+                    [self.orderFailureObject sendNext:response[@"msg"]];
                 }
                 
             } failure:^(NSString *error) {
@@ -134,7 +134,7 @@
         }
         else {
             @strongify(self)
-            [self.orderFailureObject sendNext:@"下单失败"];
+            [self.orderFailureObject sendNext:response[@"msg"]];
         }
         
     } failure:^(NSString *error) {

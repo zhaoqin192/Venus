@@ -207,18 +207,7 @@
         return 44;
     }
     else if (indexPath.section == 1) {
-        
-//        @strongify(self)
-//        return [tableView fd_heightForCellWithIdentifier:[OrderDescribeCell className] configuration:^(OrderDescribeCell *cell) {
-//            
-//            [self configureDescribeCell:cell atIndexPath:indexPath];
-//
-//        }];
-        
-        
-        
         return 132;
-        
     }
     else {
         return 264;

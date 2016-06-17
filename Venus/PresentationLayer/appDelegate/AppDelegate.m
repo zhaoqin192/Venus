@@ -14,7 +14,9 @@
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import <AlipaySDK/AlipaySDK.h>
 #import "UMMobClick/MobClick.h"
-
+#import "AppCacheManager.h"
+#import "DatabaseManager.h"
+#import "AccountDao.h"
 
 @interface AppDelegate ()<WXApiDelegate>{
     BMKMapManager* _mapManager;
@@ -61,6 +63,9 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSString *cookie = [[manager requestSerializer] valueForHTTPHeaderField:@"Cookie"];
+    [AppCacheManager cacheCookie:cookie];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -69,11 +74,18 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSString *cookie = [[manager requestSerializer] valueForHTTPHeaderField:@"Cookie"];
+    if (!cookie) {
+        cookie = [AppCacheManager fetchCookie];
+        [manager.requestSerializer setValue:cookie forHTTPHeaderField:@"Cookie"];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
+    
     [self saveContext];
 }
 
@@ -207,7 +219,6 @@
 
 // NOTE: 9.0以后使用新API接口
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
-    NSLog(@"%@", url.host);
     if ([url.host isEqualToString:@"safepay"]) {
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {

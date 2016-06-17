@@ -83,16 +83,14 @@ static const BOOL LOGDEBUG = NO;
                              failure:(NetworkFetcherErrorHandler)failure {
     
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-//    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/facew/assemble/ios/getassemble"]];
-//    NSDictionary *parameters = @{@"owner": @1};
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/facew/assemble/wap/getassemble"]];
     NSDictionary *parameters = @{@"owner":@1, @"num":@7};
     
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        if (LOGDEBUG) {
+        if (LOGDEBUG) {
             NSLog(@"responseObject is:%@", responseObject);
-//        }
+        }
         NSDictionary *dic = responseObject;
         
         if([dic[@"errCode"] isEqualToNumber:@0]){
@@ -100,7 +98,6 @@ static const BOOL LOGDEBUG = NO;
                 return @{
                          @"name": @"categoryName",
                          @"pictureUrl": @"categoryPic",
-//                         @"advertisementArray": @"categoryLabelAds[0].lableAds"
                          @"advertisementArray": @"categoryLabelAds.lableAds"
                          };
             }];

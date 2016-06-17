@@ -59,7 +59,7 @@
                         <color key="textColor" red="0.69019607839999997" green="0.10980392160000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-08-sCW">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-08-sCW">
                         <rect key="frame" x="359" y="103" width="8" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="PWq-Bi-J6v"/>
@@ -72,7 +72,7 @@
                             <constraint firstAttribute="height" constant="1" id="C31-tg-CU4"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K56-a1-xxg">
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K56-a1-xxg">
                         <rect key="frame" x="8" y="101" width="343" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="jsE-CK-Txh"/>

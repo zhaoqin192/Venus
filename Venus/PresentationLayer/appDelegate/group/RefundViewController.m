@@ -17,6 +17,9 @@
 #import "CouponOrderModel.h"
 #import "PersonalCouponViewController.h"
 #import "GroupViewController.h"
+#import "DatabaseManager.h"
+#import "AccountDao.h"
+#import "Account.h"
 
 @interface RefundViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -162,6 +165,8 @@
     [[self.commitButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
         @strongify(self)
+        AccountDao *dao = [[DatabaseManager sharedInstance] accountDao];
+        [dao isLogin];
         [self.viewModel commitRefundWithOrderID:self.orderModel.orderID couponID:self.orderModel.couponID codeArray:self.viewModel.selectCode];
     }];
 }

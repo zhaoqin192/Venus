@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F1727985DB8D7CF05F11295 /* libPods-Venus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B82F1FE7A4577D257469CC6 /* libPods-Venus.a */; };
 		300A191D1D0127B4006A0468 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 300A191C1D0127B4006A0468 /* Info.plist */; };
-		300A19201D014F0F006A0468 /* IndoorSwitchDemo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 300A191E1D014F0F006A0468 /* IndoorSwitchDemo.mm */; };
+		300A19201D014F0F006A0468 /* IndoorSwitchDemo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 300A191E1D014F0F006A0468 /* IndoorSwitchDemo.mm */; settings = {COMPILER_FLAGS = "-Wobjc-protocol-property-synthesis"; }; };
 		300A19241D014F5E006A0468 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300A19211D014F5E006A0468 /* BaiduMapAPI_Base.framework */; };
 		300A19251D014F5E006A0468 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300A19221D014F5E006A0468 /* BaiduMapAPI_Location.framework */; };
 		300A19261D014F5E006A0468 /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300A19231D014F5E006A0468 /* BaiduMapAPI_Map.framework */; };
@@ -99,9 +99,9 @@
 		30B509F11CF2D27C00A2C30A /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509E71CF2D27C00A2C30A /* ActionSheetStringPicker.m */; };
 		30B509F21CF2D27C00A2C30A /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509E91CF2D27C00A2C30A /* DistancePickerView.m */; };
 		30B509F31CF2D27C00A2C30A /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509EB1CF2D27C00A2C30A /* SWActionSheet.m */; };
-		30B509FC1CF2D2F400A2C30A /* NSDate+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509F61CF2D2F400A2C30A /* NSDate+Common.m */; };
-		30B509FD1CF2D2F400A2C30A /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509F81CF2D2F400A2C30A /* NSDate+convenience.m */; };
-		30B509FE1CF2D2F400A2C30A /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509FA1CF2D2F400A2C30A /* NSDate+Helper.m */; };
+		30B509FC1CF2D2F400A2C30A /* NSDate+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509F61CF2D2F400A2C30A /* NSDate+Common.m */; settings = {COMPILER_FLAGS = "-Wdeprecated-declarations"; }; };
+		30B509FD1CF2D2F400A2C30A /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509F81CF2D2F400A2C30A /* NSDate+convenience.m */; settings = {COMPILER_FLAGS = "-Wdeprecated-declarations"; }; };
+		30B509FE1CF2D2F400A2C30A /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B509FA1CF2D2F400A2C30A /* NSDate+Helper.m */; settings = {COMPILER_FLAGS = "-Wdeprecated-declarations"; }; };
 		30B509FF1CF2D2F400A2C30A /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = 30B509FB1CF2D2F400A2C30A /* README.textile */; };
 		30B601BA1CD05DA4003ED671 /* ShopAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B601B81CD05DA4003ED671 /* ShopAllViewController.m */; };
 		30B601BB1CD05DA4003ED671 /* ShopAllViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B601B91CD05DA4003ED671 /* ShopAllViewController.xib */; };

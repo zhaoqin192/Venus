@@ -9,6 +9,7 @@
 #import "AccountDao.h"
 #import "Account.h"
 #import "AppDelegate.h"
+#import "AppCacheManager.h"
 
 @interface AccountDao ()
 
@@ -37,20 +38,23 @@
 }
 
 - (BOOL)isLogin{
-//    Account *account = [self fetchAccount];
-//    if (account.phone != nil && account.password != nil) {
-//        return YES;
-//    }else{
-//        return NO;
-//    }
-    
-    return _isLogin;
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSString *cookie = [[manager requestSerializer] valueForHTTPHeaderField:@"Cookie"];
+    if ([cookie hasPrefix:@"PLAY_SESSION"]) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
 
 - (void)deleteAccount{
     NSArray *array = [self fetchAccountArray];
     if ([array count] != 0) {
         [self.appContext deleteObject:[array objectAtIndex:0]];
+        AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+        [manager.requestSerializer setValue:nil forHTTPHeaderField:@"Cookie"];
+        [AppCacheManager deleteCookie];
     }
 }
 

@@ -26,6 +26,7 @@
     dispatch_once(&onceToken, ^{
         self.manager = [AFHTTPSessionManager manager];
         self.manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", @"text/html", nil];
+        [[self.manager requestSerializer] setHTTPShouldHandleCookies:YES];
     });
     return self.manager;
 }

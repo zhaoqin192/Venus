@@ -82,14 +82,14 @@ static const BOOL LOGDEBUG = NO;
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
         }
-        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
-        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
-        
-        for (NSString *key in cookieHeaders) {
-            @strongify(manager)
-            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
-            NSLog(@"%@", cookieHeaders[key]);
-        }
+//        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+//        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+//        
+//        for (NSString *key in cookieHeaders) {
+//            @strongify(manager)
+//            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+//            NSLog(@"%@", cookieHeaders[key]);
+//        }
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (LOGDEBUG) {
@@ -133,8 +133,6 @@ static const BOOL LOGDEBUG = NO;
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/couponz/customer/trade/preCreateForApp"]];
     
     NSDictionary *parameters = @{@"couponId": couponID, @"storeId": storeID, @"num": num};
-    
-    [[manager requestSerializer] setHTTPShouldHandleCookies:YES];
     
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
@@ -214,14 +212,14 @@ static const BOOL LOGDEBUG = NO;
             NSLog(@"%@", responseObject);
         }
         
-        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
-        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
-        
-        for (NSString *key in cookieHeaders) {
-            @strongify(manager)
-            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
-            NSLog(@"%@", cookieHeaders[key]);
-        }
+//        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+//        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+//        
+//        for (NSString *key in cookieHeaders) {
+//            @strongify(manager)
+//            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+//            NSLog(@"%@", cookieHeaders[key]);
+//        }
         
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -243,17 +241,23 @@ static const BOOL LOGDEBUG = NO;
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/couponz/customer/trade/applyRefund"]];
     
-    
     NSNumber *order = [NSNumber numberWithString:orderID];
-    
     
     NSDictionary *parameters = @{@"orderId": order, @"couponId": couponID, @"customerCouponIds": codeArray, @"backReason": reason, @"backDesc": reason};
     
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
+    @weakify(manager)
     [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
+        }
+        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+        
+        for (NSString *key in cookieHeaders) {
+            @strongify(manager)
+            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+            NSLog(@"%@", cookieHeaders[key]);
         }
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
