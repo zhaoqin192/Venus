@@ -104,7 +104,7 @@ static const BOOL LOGDEBUG = YES;
             
             [Picture mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
                 return @{
-                         @"name": @"title",
+                         @"name": @"title"
                          };
             }];
 

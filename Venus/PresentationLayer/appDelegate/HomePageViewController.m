@@ -204,7 +204,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         _scrollArray = [[NSMutableArray alloc] init];
         for (Picture *picture in _pictureManager.loopPictureArray) {
             NSString *urlPath = [PICTUREURL stringByAppendingString:picture.pictureUrl];
-//            NSString *urlPath = [[PICTUREURL stringByAppendingString:picture.pictureUrl] stringByAppendingString:@"?w=800&operator=cut&location=0"];
             [_scrollArray addObject:urlPath];
         }
         self.scrollAdView.imageURLStringsGroup = _scrollArray;
@@ -218,7 +217,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         _recommendArray= [[NSMutableArray alloc] init];
         for (Picture *picture in _pictureManager.recommendPictureArray) {
             NSString *urlPath = [PICTUREURL stringByAppendingString:picture.pictureUrl];
-//            NSString *urlPath = [[PICTUREURL stringByAppendingString:picture.pictureUrl] stringByAppendingString:[NSString stringWithFormat:@"?w=%@&h=%@", [NSNumber numberWithFloat: 140.0f/375 * kScreenWidth * 1.5], [NSNumber numberWithFloat: 140.0f/375 * kScreenWidth * 1.5]]];
             [_recommendArray addObject:urlPath];
         }
         [_tableView reloadData];
@@ -246,7 +244,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             self.boutiqueArray = [[NSMutableArray alloc] init];
             for (Picture *picture in array) {
                 [self.boutiqueArray addObject:[PICTUREURL stringByAppendingString:picture.pictureUrl]];
-//                [self.boutiqueArray addObject:[[PICTUREURL stringByAppendingString:picture.pictureUrl] stringByAppendingString:[NSString stringWithFormat:@"?w=%@&h=%@", [NSNumber numberWithFloat: 140.0f/375 * kScreenWidth * 1.5], [NSNumber numberWithFloat: 140.0f/375 * kScreenWidth * 1.5]]]];
             }
             [self.tableView reloadRow:3 inSection:0 withRowAnimation:UITableViewRowAnimationNone];
         }
