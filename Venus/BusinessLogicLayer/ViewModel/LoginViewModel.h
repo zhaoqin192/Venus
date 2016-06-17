@@ -14,13 +14,9 @@
 
 @property (nonatomic, strong) NSString *userName;
 @property (nonatomic, strong) NSString *password;
-@property (nonatomic, strong) RACSubject *successObject;
-@property (nonatomic, strong) RACSubject *failureObject;
-@property (nonatomic, strong) RACSubject *errorObject;
+@property (nonatomic, strong) RACCommand *loginCommand;
 
 - (id)buttonIsValid;
-
-- (void)login;
 
 - (void)loginWithWeChat;
 

@@ -27,6 +27,7 @@
 @property (nonatomic, strong) LoginViewModel *viewModel;
 @property (weak, nonatomic) IBOutlet GMButton *forgetPasswordButton;
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
@@ -55,7 +56,6 @@
      }];
     
     [self bindViewModel];
-    [self onClick];
     
 }
 
@@ -73,47 +73,65 @@
     RAC(self.viewModel, password) = self.passwordView.textField.rac_textSignal;
     RAC(self.loginButton, enabled) = [self.viewModel buttonIsValid];
     
-    @weakify(self);
-    [self.viewModel.successObject subscribeNext:^(id x) {
-        @strongify(self);
-        [self dismissViewControllerAnimated:NO completion:nil];
-    }];
-    
-    [self.viewModel.failureObject subscribeNext:^(NSString *failure) {
-        @strongify(self);
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = failure;
-        hud.mode = MBProgressHUDModeText;
-        [hud showAnimated:YES whileExecutingBlock:^{
-            //对话框显示时需要执行的操作
-            sleep(1.5);
-        } completionBlock:^{
-            [hud removeFromSuperview];
-        }];
-    }];
-    
-    [self.viewModel.errorObject subscribeNext:^(NSString *error) {
-        @strongify(self);
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = error;
-        hud.mode = MBProgressHUDModeText;
-        [hud showAnimated:YES whileExecutingBlock:^{
-            //对话框显示时需要执行的操作
-            sleep(1.5);
-        } completionBlock:^{
-            [hud removeFromSuperview];
-        }];
-    }];
-    
-}
 
-- (void)onClick {
-    @weakify(self);
-    [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    @weakify(self)
+    [[self.weiboButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+     subscribeNext:^(id x) {
+         @strongify(self)
+         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+         hud.labelText = @"暂未开放此功能";
+         hud.mode = MBProgressHUDModeText;
+         [hud showAnimated:YES whileExecutingBlock:^{
+             //对话框显示时需要执行的操作
+             sleep(1.5);
+         } completionBlock:^{
+             [hud removeFromSuperview];
+         }];
+         
+     }];
+    
+    [[self.createAccountButton rac_signalForControlEvents:UIControlEventTouchUpInside]
      subscribeNext:^(id x) {
          @strongify(self);
-         [self.viewModel login];
+         GMRegisterViewController *vc = [[GMRegisterViewController alloc] init];
+         [self presentViewController:vc animated:YES completion:nil];
      }];
+    
+    [self.forgetPasswordButton bk_whenTapped:^{
+        MeModifyPhoneNumberViewController *vc = [[MeModifyPhoneNumberViewController alloc] init];
+        vc.isForget = YES;
+        @strongify(self)
+        [self presentViewController:vc animated:YES completion:nil];
+    }];
+    
+    [[self.clearButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+     subscribeNext:^(id x) {
+         @strongify(self)
+         [self dismissViewControllerAnimated:YES completion:nil];
+     }];
+
+    [[[[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    doNext:^(id x) {
+        self.loginButton.enabled = NO;
+        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.hud.mode = MBProgressHUDModeIndeterminate;
+        self.hud.labelText = @"正在登录……";
+    }]
+    flattenMap:^RACStream *(id value) {
+        return [self.viewModel.loginCommand execute:nil];
+    }]
+    subscribeNext:^(NSNumber *signedIn) {
+        self.loginButton.enabled = YES;
+        if ([signedIn isEqualToNumber:@0]) {
+            [self.hud hide:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        else {
+            self.hud.mode = MBProgressHUDModeText;
+            self.hud.labelText = @"用户名或密码错误";
+            [self.hud hide:YES afterDelay:1.5f];
+        }
+    }];
     
     [[self.weChatButton rac_signalForControlEvents:UIControlEventTouchUpInside]
      subscribeNext:^(id x) {
@@ -127,43 +145,17 @@
          [self.viewModel loginWithQQ];
      }];
     
-    [[self.weiboButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    [[RACSignal merge:@[self.viewModel.loginCommand.errors]]
     subscribeNext:^(id x) {
-        @strongify(self)
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"暂未开放此功能";
-        hud.mode = MBProgressHUDModeText;
-        [hud showAnimated:YES whileExecutingBlock:^{
-            //对话框显示时需要执行的操作
-            sleep(1.5);
-        } completionBlock:^{
-            [hud removeFromSuperview];
-        }];
-        
+        if (!self.loginButton.isEnabled) {
+            self.loginButton.enabled = YES;
+        }
+        self.hud.mode = MBProgressHUDModeText;
+        self.hud.labelText = @"网络异常";
+        [self.hud hide:YES afterDelay:1.5f];
     }];
-    
-    [[self.createAccountButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-     subscribeNext:^(id x) {
-         @strongify(self);
-         GMRegisterViewController *vc = [[GMRegisterViewController alloc] init];
-         [self presentViewController:vc animated:YES completion:nil];
-     }];
-    
-    
-    [self.forgetPasswordButton bk_whenTapped:^{
-        MeModifyPhoneNumberViewController *vc = [[MeModifyPhoneNumberViewController alloc] init];
-        vc.isForget = YES;
-        @strongify(self)
-        [self presentViewController:vc animated:YES completion:nil];
-    }];
-    
-    [[self.clearButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-    subscribeNext:^(id x) {
-        @strongify(self)
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
-    
 }
+
 
 - (void)configureTextField{
     _passwordView = [WXTextField fetchTextView];

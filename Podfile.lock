@@ -36,7 +36,7 @@ PODS:
   - FDStackView (1.0)
   - MBProgressHUD (0.9.2)
   - MJExtension (3.0.10)
-  - MJRefresh (3.1.0)
+  - MJRefresh (3.1.7)
   - MWPhotoBrowser (2.1.2):
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
@@ -46,21 +46,21 @@ PODS:
     - NJKWebViewProgress/ProgressView (= 0.2.3)
   - NJKWebViewProgress/Core (0.2.3)
   - NJKWebViewProgress/ProgressView (0.2.3)
-  - PureLayout (3.0.1)
+  - PureLayout (3.0.2)
   - QRCodeReaderViewController (3.5.2)
   - RDVTabBarController (1.1.9)
-  - ReactiveCocoa (2.3.1):
-    - ReactiveCocoa/UI (= 2.3.1)
-  - ReactiveCocoa/Core (2.3.1):
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
     - ReactiveCocoa/no-arc
-  - ReactiveCocoa/no-arc (2.3.1)
-  - ReactiveCocoa/UI (2.3.1):
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
   - SDCycleScrollView (1.65):
     - SDWebImage (~> 3.7)
-  - SDWebImage (3.7.6):
-    - SDWebImage/Core (= 3.7.6)
-  - SDWebImage/Core (3.7.6)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
   - UITableView+FDTemplateLayoutCell (1.4)
   - UMengAnalytics (4.0.4)
   - YFStartView (0.0.1)
@@ -81,7 +81,7 @@ DEPENDENCIES:
   - PureLayout
   - QRCodeReaderViewController (from `https://github.com/zhengjinghua/MQRCodeReaderViewController.git`)
   - RDVTabBarController
-  - ReactiveCocoa (= 2.3.1)
+  - ReactiveCocoa (= 2.5)
   - SDCycleScrollView (~> 1.61)
   - SDWebImage
   - UITableView+FDTemplateLayoutCell
@@ -107,20 +107,20 @@ SPEC CHECKSUMS:
   FDStackView: 3a4bbe0ce9c35e974246a585168b9da8c32213f1
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
-  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  MJRefresh: f67f0750d57a4e4ae433da549359ca53b52cdc7d
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
-  PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   QRCodeReaderViewController: 557e3291d8fe8adf20d62b7f6bd79a3941f8ec31
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
-  ReactiveCocoa: 3fe9b233ca6db810e86681b5749488564c1179a1
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
-  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   UMengAnalytics: 4ed421fb3bca63b26fc13c947743cabf3831d199
   YFStartView: 0f81260cc7da743133c738d9154e4e7d9cf20314
   YYCategories: 0fd4d9eb0994d8d0e355beb4081c8f7202a82b7b
 
-PODFILE CHECKSUM: 46b563009f407a0b0fbb706ef6d9f69bf6dac5b8
+PODFILE CHECKSUM: d85a32d4bfa8685a43dd6b6cb320ed8f3810a372
 
 COCOAPODS: 1.0.0

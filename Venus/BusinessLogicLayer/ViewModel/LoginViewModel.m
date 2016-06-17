@@ -15,6 +15,7 @@
 #import "SDKManager.h"
 #import "GMRegisterViewController.h"
 
+static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
 
 @interface LoginViewModel ()
 
@@ -31,10 +32,31 @@
     if (self) {
         _userNameSignal = RACObserve(self, userName);
         _passwordSignal = RACObserve(self, password);
-        _successObject = [RACSubject subject];
-        _failureObject = [RACSubject subject];
-        _errorObject = [RACSubject subject];
         _appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        
+        self.loginCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+                AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+                NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/loginsubmit"]];
+                NSDictionary *parameters = @{@"account": _userName, @"password": _password};
+                @weakify(manager)
+                [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
+                        NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+                        NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+                        for (NSString *key in cookieHeaders) {
+                            @strongify(manager)
+                            [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+                        }   
+                    }
+                    [subscriber sendNext:responseObject[@"errCode"]];
+                    [subscriber sendCompleted];
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    [subscriber sendError:nil];
+                }];
+                return nil;
+            }];
+        }];
     }
     return self;
 }
@@ -48,27 +70,30 @@
     return isValid;
 }
 
-
-- (void)login {
-    
-    [NetworkFetcher userLoginWithAccount:_userName password:_password success:^(NSDictionary *response) {
-        if ([response[@"errCode"] isEqualToNumber:@0]) {
-            AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-            Account *account = [accountDao fetchAccount];
-            account.phone = _userName;
-            account.password = _password;
-            account.token = response[@"userid"];
-            [accountDao save];
-            [_successObject sendNext:nil];
-            accountDao.isLogin = YES;
-        } else {
-            [_failureObject sendNext:@"用户名或密码错误"];
-        }
-    } failure:^(NSString *error) {
-        [_errorObject sendNext:@"网络异常"];
-    }];
-    
-}
+//- (RACSignal *)login {
+//    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+//        
+//        AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+//        NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/loginsubmit"]];
+//        NSDictionary *parameters = @{@"account": _userName, @"password": _password};
+//        @weakify(manager)
+//        [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//            if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
+//                NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+//                NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
+//                for (NSString *key in cookieHeaders) {
+//                    @strongify(manager)
+//                    [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
+//                }
+//            }
+//            [subscriber sendNext:responseObject[@"errCode"]];
+//            [subscriber sendCompleted];
+//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//            [subscriber sendError:nil];
+//        }];
+//        return nil;
+//    }];
+//}
 
 - (void)loginWithWeChat {
     self.appDelegate.state = WECHAT;
