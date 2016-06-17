@@ -11,4 +11,5 @@
 @interface BeautyCategory : NSObject
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) NSInteger identify;
+@property (nonatomic, copy) NSArray *list;
 @end

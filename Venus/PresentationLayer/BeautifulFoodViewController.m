@@ -98,7 +98,7 @@
 - (void)loadCategory {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
-    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/getSecondCat?"]];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/getSecondCat"]];
     NSDictionary *parameters = @{@"id":@(self.identify)};
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"category %@",responseObject);
@@ -108,6 +108,7 @@
                      };
         }];
         self.categoryArray = [BeautyCategory mj_objectArrayWithKeyValuesArray:responseObject[@"cat"]];
+        NSLog(@"hahahahhahahahh %d",self.categoryArray.count);
         _data1 = [NSMutableArray array];
         [_data1 removeAllObjects];
         [_data1 addObject:@"分类"];
