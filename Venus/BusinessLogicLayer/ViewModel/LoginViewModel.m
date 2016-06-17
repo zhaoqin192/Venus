@@ -30,7 +30,7 @@ static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _userNameSignal = RACObserve(self, userName);
+        _userNameSignal = RACObserve(self, phone);
         _passwordSignal = RACObserve(self, password);
         _appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         
@@ -38,7 +38,7 @@ static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
             return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                 AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
                 NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/terra/loginsubmit"]];
-                NSDictionary *parameters = @{@"account": _userName, @"password": _password};
+                NSDictionary *parameters = @{@"account": _phone, @"password": _password};
                 @weakify(manager)
                 [manager POST:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     if ([responseObject[@"errCode"] isEqualToNumber:@0]) {

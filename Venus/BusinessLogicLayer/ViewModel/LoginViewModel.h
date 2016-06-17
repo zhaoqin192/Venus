@@ -12,7 +12,7 @@
 
 @interface LoginViewModel : NSObject
 
-@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *phone;
 @property (nonatomic, strong) NSString *password;
 @property (nonatomic, strong) RACCommand *loginCommand;
 

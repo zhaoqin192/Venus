@@ -178,8 +178,8 @@ static const BOOL LOGDEBUG = NO;
             
         }
         
-        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-        accountDao.isLogin = YES;
+//        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+//        accountDao.isLogin = YES;
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -216,7 +216,7 @@ static const BOOL LOGDEBUG = NO;
             Account *account = [accountDao fetchAccount];
             account.token = responseObject[@"uid"];
             [accountDao save];
-            accountDao.isLogin = YES;
+//            accountDao.isLogin = YES;
             
             NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
             NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
@@ -392,7 +392,7 @@ static const BOOL LOGDEBUG = NO;
             Account *account = [accountDao fetchAccount];
             account.token = responseObject[@"userid"];
             [accountDao save];
-            accountDao.isLogin = YES;
+//            accountDao.isLogin = YES;
             
             NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
             NSDictionary *cookieHeaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookieStorage];
@@ -447,8 +447,8 @@ static const BOOL LOGDEBUG = NO;
             
         }
         
-        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-        accountDao.isLogin = YES;
+//        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+//        accountDao.isLogin = YES;
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -501,8 +501,8 @@ static const BOOL LOGDEBUG = NO;
             
         }
         
-        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-        accountDao.isLogin = YES;
+//        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+//        accountDao.isLogin = YES;
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);
@@ -560,8 +560,8 @@ static const BOOL LOGDEBUG = NO;
             [[manager requestSerializer] setValue:cookieHeaders[key] forHTTPHeaderField:key];
         }
         
-        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
-        accountDao.isLogin = YES;
+//        AccountDao *accountDao = [[DatabaseManager sharedInstance] accountDao];
+//        accountDao.isLogin = YES;
         
         if (LOGDEBUG) {
             NSLog(@"%@", responseObject);

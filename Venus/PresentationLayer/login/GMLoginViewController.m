@@ -15,18 +15,21 @@
 #import "BindViewController.h"
 
 @interface GMLoginViewController ()<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UIView *loginDataView;
-
-@property (weak, nonatomic) IBOutlet GMButton *loginButton;
-@property (weak, nonatomic) IBOutlet GMButton *createAccountButton;
 @property (weak, nonatomic) IBOutlet UIButton *weChatButton;
 @property (weak, nonatomic) IBOutlet UIButton *qqButton;
 @property (weak, nonatomic) IBOutlet UIButton *weiboButton;
-@property (nonatomic, strong) WXTextField *passwordView;
-@property (nonatomic, strong) WXTextField *phoneView;
-@property (nonatomic, strong) LoginViewModel *viewModel;
-@property (weak, nonatomic) IBOutlet GMButton *forgetPasswordButton;
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
+@property (weak, nonatomic) IBOutlet UIButton *forgetPasswordButton;
+@property (weak, nonatomic) IBOutlet UIButton *createAccountButton;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIImageView *phoneImage;
+@property (weak, nonatomic) IBOutlet UIImageView *passwordImage;
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIView *phoneView;
+@property (weak, nonatomic) IBOutlet UIView *passwordView;
+
+@property (nonatomic, strong) LoginViewModel *viewModel;
 @property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
@@ -35,7 +38,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configureTextField];
+    
+    self.phoneTextField.delegate = self;
+    self.passwordTextField.delegate = self;
     
     @weakify(self);
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"CREATE_ACCOUNT" object:nil]
@@ -69,11 +74,10 @@
 
 - (void)bindViewModel {
     _viewModel = [[LoginViewModel alloc] init];
-    RAC(self.viewModel, userName) = self.phoneView.textField.rac_textSignal;
-    RAC(self.viewModel, password) = self.passwordView.textField.rac_textSignal;
+    RAC(self.viewModel, phone) = self.phoneTextField.rac_textSignal;
+    RAC(self.viewModel, password) = self.passwordTextField.rac_textSignal;
     RAC(self.loginButton, enabled) = [self.viewModel buttonIsValid];
     
-
     @weakify(self)
     [[self.weiboButton rac_signalForControlEvents:UIControlEventTouchUpInside]
      subscribeNext:^(id x) {
@@ -112,15 +116,18 @@
 
     [[[[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     doNext:^(id x) {
+        @strongify(self)
         self.loginButton.enabled = NO;
         self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         self.hud.mode = MBProgressHUDModeIndeterminate;
         self.hud.labelText = @"正在登录……";
     }]
     flattenMap:^RACStream *(id value) {
+        @strongify(self)
         return [self.viewModel.loginCommand execute:nil];
     }]
     subscribeNext:^(NSNumber *signedIn) {
+        @strongify(self)
         self.loginButton.enabled = YES;
         if ([signedIn isEqualToNumber:@0]) {
             [self.hud hide:YES];
@@ -154,35 +161,38 @@
         self.hud.labelText = @"网络异常";
         [self.hud hide:YES afterDelay:1.5f];
     }];
-}
 
-
-- (void)configureTextField{
-    _passwordView = [WXTextField fetchTextView];
-    _passwordView.frame = CGRectMake(0, 50, 250, 40);
-    _passwordView.imageName = @"lock";
-    _passwordView.selectImageName = @"lock选中";
-    _passwordView.placeHoleder = @"密码";
-    [_passwordView.textField setSecureTextEntry:YES];
-    [_passwordView.textField setReturnKeyType:UIReturnKeyDone];
-    _passwordView.textField.delegate = self;
-    _passwordView.autoresizingMask = UIViewAutoresizingNone;
-    [self.loginDataView addSubview:_passwordView];
     
-    _phoneView = [WXTextField fetchTextView];
-    _phoneView.frame = CGRectMake(0, 0, 250, 40);
-    _phoneView.imageName = @"phone";
-    _phoneView.selectImageName = @"phone选中";
-    _phoneView.placeHoleder = @"手机号";
-    [_phoneView.textField setKeyboardType:UIKeyboardTypeNumberPad];
-    [_phoneView.textField setReturnKeyType:UIReturnKeyDone];
-    _phoneView.textField.delegate = self;
-    _phoneView.autoresizingMask = UIViewAutoresizingNone;
-    [self.loginDataView addSubview:_phoneView];
 }
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (textField == _phoneTextField) {
+        self.phoneImage.image = [UIImage imageNamed:@"loginAccountHL"];
+        self.phoneView.backgroundColor = GMBrownColor;
+    }
+    else if (textField == _passwordTextField) {
+        self.passwordImage.image = [UIImage imageNamed:@"loginPasswordHL"];
+        self.passwordView.backgroundColor = GMBrownColor;
+    }
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    if (textField == _phoneTextField) {
+        self.phoneImage.image = [UIImage imageNamed:@"loginAccount"];
+        self.phoneView.backgroundColor = [UIColor whiteColor];
+    }
+    else if (textField == _passwordTextField) {
+        self.passwordImage.image = [UIImage imageNamed:@"loginPassword"];
+        self.passwordView.backgroundColor = [UIColor whiteColor];
+    }
+    return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

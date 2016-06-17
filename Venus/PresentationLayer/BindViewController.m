@@ -12,7 +12,7 @@
 #import "MBProgressHUD.h"
 #import "GMRegisterViewController.h"
 
-@interface BindViewController ()
+@interface BindViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
 @property (weak, nonatomic) IBOutlet UILabel *accountInfoLabel;
@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @property (nonatomic, strong) BindViewModel *viewModel;
 @property (nonatomic, strong) AppDelegate *appDelegate;
+@property (nonatomic, strong) MBProgressHUD *hud;
 @end
 
 @implementation BindViewController
@@ -36,13 +37,6 @@
     [self configureUI];
     [self bindViewModel];
     
-    if (_appDelegate.state == QQ) {
-        [_viewModel fetchQQInfoWithToken:_token openID:_openID];
-    }
-    else if (_appDelegate.state == WECHAT) {
-        [_viewModel fetcheWechatInfoWithToken:_token openID:_openID];
-    }
-    
 }
 
 - (void)configureUI {
@@ -52,6 +46,8 @@
     UIColor *color = [UIColor colorWithRed:255 green:255 blue:255 alpha:0.4];
     self.phoneTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"手机号" attributes:@{NSForegroundColorAttributeName: color}];
     self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"密码" attributes:@{NSForegroundColorAttributeName: color}];
+    self.phoneTextField.delegate = self;
+    self.passwordTextField.delegate = self;
     
 }
 
@@ -63,96 +59,96 @@
     RAC(self.commitButton, enabled) = [self.viewModel buttonIsValid];
     
     @weakify(self)
-    [self.viewModel.bindSuccessObject subscribeNext:^(id x) {
-        @strongify(self);
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"绑定成功";
-        hud.mode = MBProgressHUDModeText;
-        [hud showAnimated:YES whileExecutingBlock:^{
-            //对话框显示时需要执行的操作
-            sleep(1.5);
-        } completionBlock:^{
-            [hud removeFromSuperview];
-            UIViewController *vc = self.presentingViewController;
-            while (vc.presentingViewController) {
-                vc = vc.presentingViewController;
-            }
-            [vc dismissViewControllerAnimated:YES completion:NULL];
-        }];
-    }];
-    
-    [self.viewModel.bindFailureObject subscribeNext:^(NSString *message) {
-        @strongify(self)
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = message;
-        [hud hide:YES afterDelay:1.5f];
-    }];
-    
-    [self.viewModel.infoSuccessObject subscribeNext:^(id x) {
-        @strongify(self)
-        [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:self.viewModel.avatar] placeholderImage:[UIImage imageNamed:@"default_avatar_small"]];
-        if (_appDelegate.state == QQ) {
-            self.accountInfoLabel.text = [NSString stringWithFormat:@"您已登陆QQ账号：%@", self.viewModel.accountName];
-            self.tipLabel.text = @"绑定后，您的QQ账户和国贸账号都可登录";
-        }
-        else if (_appDelegate.state == WECHAT) {
-            self.accountInfoLabel.text = [NSString stringWithFormat:@"您已登陆微信账号：%@", self.viewModel.accountName];
-            self.tipLabel.text = @"绑定后，您的微信账户和国贸账号都可登录";
-        }
-        
-    }];
-    
-    [self.viewModel.infoFailureObject subscribeNext:^(id x) {
-        
-    }];
-    
-    [self.viewModel.errorObject subscribeNext:^(NSString *message) {
-        @strongify(self)
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = message;
-        [hud hide:YES afterDelay:1.5f];
-    }];
-    
-    [[self.commitButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    [[RACSignal merge:@[self.viewModel.bindCommand.errors, self.viewModel.infoCommand.errors]]
     subscribeNext:^(id x) {
         @strongify(self)
-        if (_appDelegate.state == QQ) {
-            [self.viewModel bindQQ];
+        if (!self.commitButton.isEnabled) {
+            self.commitButton.enabled = YES;
         }
-        else if (_appDelegate.state == WECHAT) {
-            [self.viewModel bindWechat];
+        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.hud.mode = MBProgressHUDModeText;
+        self.hud.labelText = @"网络异常";
+        [self.hud hide:YES afterDelay:1.5f];
+    }];
+    
+    [[[[self.commitButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+    doNext:^(id x) {
+        @strongify(self)
+        self.commitButton.enabled = NO;
+        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.hud.mode = MBProgressHUDModeIndeterminate;
+        self.hud.labelText = @"正在登录……";
+    }]
+    flattenMap:^RACStream *(id value) {
+        @strongify(self)
+        return [self.viewModel.bindCommand execute:nil];
+    }]
+    subscribeNext:^(NSNumber *signedIn) {
+        @strongify(self)
+        self.commitButton.enabled = YES;
+        if ([signedIn isEqualToNumber:@0]) {
+            self.hud.labelText = @"绑定成功";
+            self.hud.mode = MBProgressHUDModeText;
+            [self.hud showAnimated:YES whileExecutingBlock:^{
+                //对话框显示时需要执行的操作
+                sleep(1.5);
+            } completionBlock:^{
+                [self.hud removeFromSuperview];
+                UIViewController *vc = self.presentingViewController;
+                while (vc.presentingViewController) {
+                    vc = vc.presentingViewController;
+                }
+                [vc dismissViewControllerAnimated:YES completion:NULL];
+            }];
+        }
+        else {
+            self.hud.mode = MBProgressHUDModeText;
+            self.hud.labelText = @"用户名或密码错误";
+            [self.hud hide:YES afterDelay:1.5f];
         }
     }];
+    
     
     [[self.clearButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
-        @strongify(self)
         [self dismissViewControllerAnimated:YES completion:nil];
-        
     }];
     
     [[self.registerButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
-        @strongify(self)
         GMRegisterViewController *vc = [[GMRegisterViewController alloc] init];
-        vc.token = self.token;
-        vc.openID = self.openID;
+        vc.token = _token;
+        vc.openID = _openID;
         [self presentViewController:vc animated:NO completion:nil];
     }];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
+    NSDictionary *info = @{@"token": _token, @"openID": _openID};
+    [[self.viewModel.infoCommand execute:info]
+    subscribeNext:^(id x) {
+        if (_appDelegate.state == QQ) {
+            @strongify(self)
+            [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:self.viewModel.avatar] placeholderImage:[UIImage imageNamed:@"default_avatar_small"]];
+            self.accountInfoLabel.text = [NSString stringWithFormat:@"您已登陆QQ账号：%@", self.viewModel.accountName];
+            self.tipLabel.text = @"绑定后，您的QQ账户和国贸账号都可登录";
+        }
+        else if (_appDelegate.state == WECHAT) {
+            @strongify(self)
+            [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:self.viewModel.avatar] placeholderImage:[UIImage imageNamed:@"default_avatar_small"]];
+            self.accountInfoLabel.text = [NSString stringWithFormat:@"您已登陆微信账号：%@", self.viewModel.accountName];
+            self.tipLabel.text = @"绑定后，您的微信账户和国贸账号都可登录";
+        }
+    }];
     
 }
 
--(void)dismissKeyboard {
-    [self.phoneTextField resignFirstResponder];
-    [self.passwordTextField resignFirstResponder];
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

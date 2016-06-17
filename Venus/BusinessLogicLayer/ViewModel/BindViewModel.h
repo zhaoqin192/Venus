@@ -10,11 +10,6 @@
 
 @interface BindViewModel : NSObject
 
-@property (nonatomic, strong) RACSubject *bindSuccessObject;
-@property (nonatomic, strong) RACSubject *bindFailureObject;
-@property (nonatomic, strong) RACSubject *infoSuccessObject;
-@property (nonatomic, strong) RACSubject *infoFailureObject;
-@property (nonatomic, strong) RACSubject *errorObject;
 @property (nonatomic, strong) NSString *accountName;
 @property (nonatomic, strong) NSString *avatar;
 @property (nonatomic, strong) NSString *phone;
@@ -22,17 +17,13 @@
 @property (nonatomic, strong) NSNumber *sex;
 @property (nonatomic, strong) NSString *unionID;
 @property (nonatomic, strong) NSString *openID;
-
-- (void)bindWechat;
-
-- (void)bindQQ;
-
-- (void)fetcheWechatInfoWithToken:(NSString *)token
-                           openID:(NSString *)openID;
-
-- (void)fetchQQInfoWithToken:(NSString *)token
-                      openID:(NSString *)openID;
+@property (nonatomic, strong) RACCommand *wechatInfoCommand;
+@property (nonatomic, strong) RACCommand *qqInfoCommand;
+@property (nonatomic, strong) RACCommand *infoCommand;
+@property (nonatomic, strong) RACCommand *bindCommand;
 
 - (id)buttonIsValid;
+
+
 
 @end

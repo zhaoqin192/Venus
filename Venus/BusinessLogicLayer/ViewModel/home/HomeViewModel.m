@@ -43,7 +43,6 @@
                 Account *account = [accountDao fetchAccount];
                 account.token = response[@"userid"];
                 [accountDao save];
-                accountDao.isLogin = YES;
             }
         } failure:^(NSString *error) {
             [_errorObject sendNext:@"网络异常"];

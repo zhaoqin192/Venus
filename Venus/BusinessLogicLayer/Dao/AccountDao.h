@@ -12,8 +12,6 @@
 
 @interface AccountDao : NSObject
 
-@property (nonatomic, assign) BOOL isLogin;
-
 /**
  *  获取用户类
  *
