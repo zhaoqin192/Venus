@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GMAboutViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginLogo" translatesAutoresizingMaskIntoConstraints="NO" id="14y-JU-wu5">
+                    <rect key="frame" x="193" y="122" width="214" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="N0Z-GQ-qSJ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iPhone v1.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffG-YV-gVf">
+                    <rect key="frame" x="249.5" y="244" width="101" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="2in-an-eGj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.67450980390000004" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBK-nr-FLf">
+                    <rect key="frame" x="180" y="295" width="240" height="10"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="5IL-yD-YOi"/>
+                        <constraint firstAttribute="width" constant="240" id="h8h-wc-9H4"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网址：www.chinaworldstyle.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5Y-Zw-oTs">
+                    <rect key="frame" x="175" y="416" width="249.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.67450980390000004" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="传真：+86 10 65055735" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9E9-eD-aOI">
+                    <rect key="frame" x="205" y="387" width="190" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.67450980390000004" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail：cwtc@@tnetstar.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAm-iF-WGD">
+                    <rect key="frame" x="185" y="445" width="229" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.67450980390000004" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电话：+86 10 65358816" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gG-ft-SG7">
+                    <rect key="frame" x="205" y="358" width="189.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.67450980390000004" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="14y-JU-wu5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Bki-iH-yUj"/>
+                <constraint firstItem="9E9-eD-aOI" firstAttribute="top" secondItem="0gG-ft-SG7" secondAttribute="bottom" constant="8" id="Ghd-eW-J6W"/>
+                <constraint firstItem="0gG-ft-SG7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ROJ-0v-iAQ"/>
+                <constraint firstItem="9E9-eD-aOI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="RQ9-j8-QNt"/>
+                <constraint firstItem="f5Y-Zw-oTs" firstAttribute="top" secondItem="9E9-eD-aOI" secondAttribute="bottom" constant="8" id="Rhf-4J-b4d"/>
+                <constraint firstItem="ffG-YV-gVf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Yxc-fO-OMh"/>
+                <constraint firstItem="EBK-nr-FLf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="cq3-qU-ncX"/>
+                <constraint firstItem="0gG-ft-SG7" firstAttribute="top" secondItem="EBK-nr-FLf" secondAttribute="bottom" constant="53" id="fv4-gU-SbN"/>
+                <constraint firstItem="RAm-iF-WGD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iNi-Y7-sQh"/>
+                <constraint firstItem="EBK-nr-FLf" firstAttribute="top" secondItem="ffG-YV-gVf" secondAttribute="bottom" constant="30" id="kYa-wN-nQP"/>
+                <constraint firstItem="f5Y-Zw-oTs" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lcV-EM-mY4"/>
+                <constraint firstItem="RAm-iF-WGD" firstAttribute="top" secondItem="f5Y-Zw-oTs" secondAttribute="bottom" constant="8" id="owp-5r-XAt"/>
+                <constraint firstItem="ffG-YV-gVf" firstAttribute="top" secondItem="14y-JU-wu5" secondAttribute="bottom" constant="22" id="qy6-f9-J4L"/>
+                <constraint firstItem="EBK-nr-FLf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vLD-Ld-iz1"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="loginLogo" width="214" height="76"/>
+    </resources>
+</document>

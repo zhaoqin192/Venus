@@ -18,6 +18,7 @@
 #import "GMMeCommitViewController.h"
 #import "GMMeTakeAwayViewController.h"
 #import "PersonalCouponViewController.h"
+#import "GMAboutViewController.h"
 
 @interface GMMeViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -228,22 +229,30 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (![_accountDao isLogin]) {
-        [PresentationUtility showTextDialog:self.view text:@"请登录" success:nil];
-        return;
-    }
     
     switch (indexPath.section) {
         case 0:{
+            if (![_accountDao isLogin]) {
+                [PresentationUtility showTextDialog:self.view text:@"请登录" success:nil];
+                return;
+            }
             GMMeInformationViewController *vc = [[GMMeInformationViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
         case 2:{
+            if (![_accountDao isLogin]) {
+                [PresentationUtility showTextDialog:self.view text:@"请登录" success:nil];
+                return;
+            }
             if (indexPath.row == 0) {
                 GMMeCommitViewController *vc = [[GMMeCommitViewController alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];
             }
+        }
+        case 3:{
+            GMAboutViewController *aboutBC = [[GMAboutViewController alloc] init];
+            [self.navigationController pushViewController:aboutBC animated:YES];
         }
     }
 }
