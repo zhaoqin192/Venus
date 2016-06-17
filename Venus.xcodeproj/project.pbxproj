@@ -293,6 +293,8 @@
 		AC72CF2E1CEEA86C0077537E /* NetworkFetcher+Mall.m in Sources */ = {isa = PBXBuildFile; fileRef = AC72CF2D1CEEA86C0077537E /* NetworkFetcher+Mall.m */; };
 		AC72CF321CEEA9C50077537E /* MallViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC72CF311CEEA9C50077537E /* MallViewModel.m */; };
 		AC72CF351CEEAB8A0077537E /* AppCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC72CF341CEEAB8A0077537E /* AppCacheManager.m */; };
+		AC73E54D1D13A0CF0024EC7F /* GMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC73E54B1D13A0CF0024EC7F /* GMAboutViewController.m */; };
+		AC73E54E1D13A0CF0024EC7F /* GMAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC73E54C1D13A0CF0024EC7F /* GMAboutViewController.xib */; };
 		AC7AD4831CC72BF2004D9B61 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC7AD4821CC72BF2004D9B61 /* libc++.tbd */; };
 		AC7AD4911CC7A5A8004D9B61 /* Venus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD48F1CC7A5A8004D9B61 /* Venus.xcdatamodeld */; };
 		AC7AD4961CC7A6D2004D9B61 /* Account+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7AD4931CC7A6D2004D9B61 /* Account+CoreDataProperties.m */; };
@@ -952,6 +954,9 @@
 		AC72CF311CEEA9C50077537E /* MallViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MallViewModel.m; sourceTree = "<group>"; };
 		AC72CF331CEEAB8A0077537E /* AppCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCacheManager.h; sourceTree = "<group>"; };
 		AC72CF341CEEAB8A0077537E /* AppCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCacheManager.m; sourceTree = "<group>"; };
+		AC73E54A1D13A0CF0024EC7F /* GMAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMAboutViewController.h; sourceTree = "<group>"; };
+		AC73E54B1D13A0CF0024EC7F /* GMAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMAboutViewController.m; sourceTree = "<group>"; };
+		AC73E54C1D13A0CF0024EC7F /* GMAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GMAboutViewController.xib; sourceTree = "<group>"; };
 		AC7AD4821CC72BF2004D9B61 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		AC7AD4901CC7A5A8004D9B61 /* Venus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Venus.xcdatamodel; sourceTree = "<group>"; };
 		AC7AD4921CC7A6D2004D9B61 /* Account+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Account+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -1536,6 +1541,9 @@
 				30FEE6E01CF80AE3007E7A8B /* GMMeCommitViewController.h */,
 				30FEE6E11CF80AE3007E7A8B /* GMMeCommitViewController.m */,
 				30FEE6E21CF80AE3007E7A8B /* GMMeCommitViewController.xib */,
+				AC73E54A1D13A0CF0024EC7F /* GMAboutViewController.h */,
+				AC73E54B1D13A0CF0024EC7F /* GMAboutViewController.m */,
+				AC73E54C1D13A0CF0024EC7F /* GMAboutViewController.xib */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -3327,6 +3335,7 @@
 				7F9371021CFFD6D00063F544 /* Storyboard.storyboard in Resources */,
 				AC987D371CE89B9C00E11CC5 /* group.storyboard in Resources */,
 				30B601CB1CD07C54003ED671 /* ShopCycleCell.xib in Resources */,
+				AC73E54E1D13A0CF0024EC7F /* GMAboutViewController.xib in Resources */,
 				7F9370F21CFC1EAA0063F544 /* GMMeTakeAwayDetailTotalFeeCell.xib in Resources */,
 				30FEE6E41CF80AE3007E7A8B /* GMMeCommitViewController.xib in Resources */,
 				E8DDDED81CF5DF0D000F147B /* FoodOrderAddAddressViewController.xib in Resources */,
@@ -3423,6 +3432,7 @@
 				AC72CF2E1CEEA86C0077537E /* NetworkFetcher+Mall.m in Sources */,
 				ACFF32D01CF87114008BD0D8 /* OrderDetailViewController.m in Sources */,
 				3057B1F81CD99B66008172DD /* GMMeOrderCell.m in Sources */,
+				AC73E54D1D13A0CF0024EC7F /* GMAboutViewController.m in Sources */,
 				30D6D27D1CC87AF500FB0CFC /* FoodViewController.m in Sources */,
 				7F70255E1CEDAF31009653A6 /* ResFood+count.m in Sources */,
 				30B601C51CD07BDC003ED671 /* ShopHomeViewController.m in Sources */,

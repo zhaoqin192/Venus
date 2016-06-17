@@ -18,7 +18,7 @@
 @implementation NetworkFetcher (Home)
 
 static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
-static const BOOL LOGDEBUG = NO;
+static const BOOL LOGDEBUG = YES;
 
 
 + (void)homeFetcherLoopPictureWithSuccess:(NetworkFetcherCompletionHandler)success
