@@ -140,6 +140,7 @@ static NSString *footerID = @"footerID";
     else {
         BeautifulFoodViewController *vc = [[BeautifulFoodViewController alloc] init];
         vc.categoryIndex = indexPath.row;
+        vc.myTitle = @"美食";
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
