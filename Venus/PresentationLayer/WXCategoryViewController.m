@@ -101,7 +101,7 @@ static NSString *footerID = @"footerID";
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 7; //不要最后一个全球购
+    return 1 + self.foodArray.count; //不要最后一个全球购
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
@@ -166,15 +166,6 @@ static NSString *footerID = @"footerID";
     header.backgroundColor = [UIColor whiteColor];
     if (indexPath.section == 0) {
         header.text = @"购物" ;
-    }
-    else if (indexPath.section == 2){
-        header.text = @"酒店";
-    }
-    else if (indexPath.section == 3){
-        header.text = @"会议";
-    }
-    else if (indexPath.section == 5){
-        header.text = @"娱乐";
     }
     else {
         BeautyCategory *cat = self.foodArray[indexPath.section-1];
