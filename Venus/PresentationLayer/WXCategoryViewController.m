@@ -53,7 +53,7 @@ static NSString *footerID = @"footerID";
     UICollectionViewFlowLayout *flowLayout=[[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 0;
-    self.myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 10, kScreenWidth, kScreenHeight - 10) collectionViewLayout:flowLayout];
+    self.myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 10, kScreenWidth, kScreenHeight - 118) collectionViewLayout:flowLayout];
     self.myCollectionView.backgroundColor = [UIColor colorWithHexString:@"#F5F5F5"];
     [self.myCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([CategoryCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([CategoryCell class])];
     self.myCollectionView.delegate = self;
@@ -77,15 +77,20 @@ static NSString *footerID = @"footerID";
 
 - (void)loadFoodData {
     AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
-    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/getSecondCat?id=10000"]];
+    NSURL *url = [NSURL URLWithString:[URL_PREFIX stringByAppendingString:@"/bazaar/shop/catIdAndName"]];
     NSDictionary *parameters = nil;
     [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (![responseObject[@"errCode"] isEqual: @(0)]) {
             [PresentationUtility showTextDialog:self.view text:responseObject[@"msg"] success:nil];
-            
             return ;
         }
-        self.foodArray = [BeautyCategory mj_objectArrayWithKeyValuesArray:responseObject[@"cat"]];
+        [BeautyCategory mj_setupObjectClassInArray:^NSDictionary *{
+            return @{@"list":@"BeautyCategory"};
+        }];
+        [BeautyCategory mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"identify":@"id"};
+        }];
+        self.foodArray = [BeautyCategory mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         [self.myCollectionView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -96,7 +101,7 @@ static NSString *footerID = @"footerID";
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 2;
+    return 7; //不要最后一个全球购
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
@@ -106,7 +111,8 @@ static NSString *footerID = @"footerID";
         return self.shopArray.count;
     }
     else {
-        return self.foodArray.count;
+        BeautyCategory *cat = self.foodArray[section-1];
+        return cat.list.count;
     }
 }
 
@@ -120,8 +126,9 @@ static NSString *footerID = @"footerID";
         cell.contentLabel.text = cat.name;
     }
     else {
-        BeautyCategory *cat =self.foodArray[indexPath.row];
-        cell.contentLabel.text = cat.name;
+        BeautyCategory *cat =self.foodArray[indexPath.section-1];
+        BeautyCategory *detailCat = cat.list[indexPath.row];
+        cell.contentLabel.text = detailCat.name;
     }
     return cell;
 }
@@ -138,9 +145,11 @@ static NSString *footerID = @"footerID";
         [self.navigationController pushViewController:mallVC animated:YES];
     }
     else {
+        BeautyCategory *cat = self.foodArray[indexPath.section-1];
         BeautifulFoodViewController *vc = [[BeautifulFoodViewController alloc] init];
         vc.categoryIndex = indexPath.row;
-        vc.myTitle = @"美食";
+        vc.myTitle = cat.name;
+        vc.identify = cat.identify;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -155,7 +164,22 @@ static NSString *footerID = @"footerID";
     
     ReusableView *header = [collectionView  dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerID forIndexPath:indexPath];
     header.backgroundColor = [UIColor whiteColor];
-    header.text = indexPath.section == 0 ? @"购物" : @"美食";
+    if (indexPath.section == 0) {
+        header.text = @"购物" ;
+    }
+    else if (indexPath.section == 2){
+        header.text = @"酒店";
+    }
+    else if (indexPath.section == 3){
+        header.text = @"会议";
+    }
+    else if (indexPath.section == 5){
+        header.text = @"娱乐";
+    }
+    else {
+        BeautyCategory *cat = self.foodArray[indexPath.section-1];
+        header.text = cat.name;
+    }
     return header;
 }
 
