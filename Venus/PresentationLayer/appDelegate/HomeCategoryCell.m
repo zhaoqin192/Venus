@@ -38,9 +38,11 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             UIButton *button = [self.contentView viewWithTag:i + 1];
             [button sd_setBackgroundImageWithURL:[NSURL URLWithString:[PICTUREURL stringByAppendingString:picture.pictureUrl]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"default"]];
             [button addTarget:self action:@selector(sendNotification:) forControlEvents:UIControlEventTouchUpInside];
-            if (i > 1) {
-                UILabel *label = [self.contentView viewWithTag:i + 11];
-                label.text = picture.name;
+            UILabel *label = [self.contentView viewWithTag:i + 11];
+            NSArray *titleArray = [picture.name componentsSeparatedByString:[NSString stringWithFormat:@"%C", 0x0002]];
+            label.text = [titleArray objectAtIndex:0];
+            if (i < 2 && titleArray.count > 1) {
+                label.textColor = [UIColor colorWithHexString:[titleArray objectAtIndex:1]];
             }
         }
     }
