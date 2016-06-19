@@ -13,7 +13,7 @@
 @interface HomeNewsCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet MarqueeLabel *marqueeLabel;
 
-@property (nonatomic, strong) NSMutableArray *headlineArray;
+@property (nonatomic, strong) NSArray *headlineArray;
 
 - (void)showHeadline;
 

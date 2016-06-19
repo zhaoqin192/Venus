@@ -13,7 +13,9 @@
 #import "WebViewController.h"
 #import "HeadlineModel.h"
 #import "NetworkFetcher+Home.h"
+#import "MBProgressHUD.h"
 
+static const NSString *URL_OF_USER_PREFIX = @"http://www.chinaworldstyle.com";
 
 @interface HomeNewsViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -75,15 +77,25 @@
 
 - (void)fetchURLWithID:(NSNumber *)identifier {
     
-    [NetworkFetcher homeFetcherHeadlineDetailWithID:identifier success:^(NSDictionary *response) {
-        if ([response[@"errCode"] isEqualToNumber:@0]) {
+    AFHTTPSessionManager *manager = [[NetworkManager sharedInstance] fetchSessionManager];
+    NSURL *url = [NSURL URLWithString:[URL_OF_USER_PREFIX stringByAppendingString:@"/facew/QuickNews/getById"]];
+    NSDictionary *parameters = @{@"id": identifier};
+    
+    @weakify(self)
+    [manager GET:url.absoluteString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if ([responseObject[@"errCode"] isEqualToNumber:@0]) {
             WebViewController *webVC = [[WebViewController alloc] init];
-            webVC.url = response[@"msg"];
+            webVC.url = responseObject[@"msg"];
             webVC.title = @"今日头条";
+            @strongify(self)
             [self.navigationController pushViewController:webVC animated:YES];
         }
-    } failure:^(NSString *error) {
-        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        @strongify(self)
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"网络异常";
+        [hud hide:YES afterDelay:1.5f];
     }];
 
 }

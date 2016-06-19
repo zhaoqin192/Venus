@@ -10,6 +10,6 @@
 
 @interface HomeNewsViewController : UIViewController
 
-@property (nonatomic, strong) NSMutableArray *headlineArray;
+@property (nonatomic, strong) NSArray *headlineArray;
 
 @end

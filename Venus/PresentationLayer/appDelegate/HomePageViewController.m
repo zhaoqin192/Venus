@@ -12,22 +12,15 @@
 #import "HomeNewsCell.h"
 #import "HomeIntroduceCell.h"
 #import "HomeCategoryCell.h"
-#import "DatabaseManager.h"
-#import "AccountDao.h"
-#import "Account.h"
 #import "GMLoginViewController.h"
-#import "NetworkFetcher+Home.h"
-#import "PictureManager.h"
 #import "Picture.h"
 #import "WebViewController.h"
-#import "AdvertisementManager.h"
 #import "Adversitement.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
 #import "FoodViewController.h"
 #import "QRCodeReaderViewController.h"
 #import "QRCodeReader.h"
-
 #import "BeautifulFoodViewController.h"
 #import "MoneyCardViewController.h"
 #import "FoodViewController.h"
@@ -44,29 +37,16 @@
 
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) SDCycleScrollView *scrollAdView;
-@property (strong, nonatomic) NSMutableArray *menuArray;
-@property (nonatomic, copy) NSMutableArray *scrollArray;
-@property (nonatomic, copy) NSMutableArray *recommendArray;
-@property (nonatomic, strong) PictureManager *pictureManager;
-@property (nonatomic, strong) AdvertisementManager *advertisementManager;
-@property (nonatomic, copy) NSMutableArray *advertisementArray;
-@property (nonatomic, copy) NSString *buttonURL;
 @property (weak, nonatomic) IBOutlet UIButton *QCodeButton;
-@property (strong, nonatomic) QRCodeReaderViewController *reader;
-@property (nonatomic, strong) HomeViewModel *viewModel;
-@property (nonatomic, strong) UISearchController *searchController;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIButton *notificationButton;
-@property (nonatomic, assign) BOOL marqueeLabelIsActive;
-@property (nonatomic, strong) NSMutableArray *boutiqueArray;
+
+@property (strong, nonatomic) SDCycleScrollView *scrollAdView;
+@property (strong, nonatomic) QRCodeReaderViewController *reader;
+@property (strong, nonatomic) NSMutableArray *menuArray;
+@property (nonatomic, strong) HomeViewModel *viewModel;
 
 @end
-
-
-static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/files/image/OnlyForTest/";
-
-
 
 @implementation HomePageViewController
 
@@ -76,7 +56,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     self.titleView.backgroundColor = GMRedColor;
     [self configureTableView];
     
-
     self.navigationController.navigationBar.barTintColor = GMRedColor;
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = GMBrownColor;
@@ -107,20 +86,12 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     UITextField *searchField = [self.searchBar valueForKey:@"searchField"];
     if (searchField) {
         searchField.layer.cornerRadius = 14;
-        //searchField.layer.borderWidth = 1;
         searchField.layer.masksToBounds = YES;
     }
     self.searchBar.placeholder = @"Search";
     
     [self bindViewModel];
     
-    [self.viewModel login];
-
-    
-    [self.viewModel fetchHeadline];
-    
-    [self netWorkRequest];
-
     
 }
 
@@ -131,8 +102,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     HomeSearchViewController *vc = (HomeSearchViewController *)[group instantiateViewControllerWithIdentifier:@"HomeSearchViewController"];
     
     [self.navigationController pushViewController:vc animated:YES];
-    
-    
     return NO;
 }
 
@@ -140,30 +109,63 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
  
     self.viewModel = [[HomeViewModel alloc] init];
     
-    [self.viewModel.loginSuccessObject subscribeNext:^(id x) {
-        
-    }];
+    [self.viewModel login];
     
     @weakify(self)
-    [self.viewModel.errorObject subscribeNext:^(NSString *message) {
+    [[self.viewModel.loopPicCommand execute:nil]
+     subscribeNext:^(NSNumber *execute) {
+         if ([execute isEqualToNumber:@0]) {
+             @strongify(self)
+             self.scrollAdView.imageURLStringsGroup = self.viewModel.scrollURLArray;
+         }
+     }];
+    
+    [[self.viewModel.headlineCommand execute:nil]
+    subscribeNext:^(NSNumber *execute) {
+        if ([execute isEqualToNumber:@0]) {
+            @strongify(self)
+            [self.tableView reloadSection:1 withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }];
+    
+    [[self.viewModel.recommandCommand execute:nil]
+    subscribeNext:^(NSNumber *execute) {
+        if ([execute isEqualToNumber:@0]) {
+            @strongify(self)
+            [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }];
+    
+    [[self.viewModel.boutiqueCommand execute:nil]
+    subscribeNext:^(NSNumber *execute) {
+        if ([execute isEqualToNumber:@0]) {
+            @strongify(self)
+            [self.tableView reloadSection:3 withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }];
+    
+    [[self.viewModel.advertisementCommand execute:nil]
+    subscribeNext:^(NSNumber *execute) {
+        if ([execute isEqualToNumber:@0]) {
+            @strongify(self)
+            [self.tableView reloadSection:4 withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }];
+    
+    [self.viewModel.errorObject subscribeNext:^(id x) {
         @strongify(self)
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;
-        hud.labelText = message;
+        hud.labelText = @"网络异常";
         [hud hide:YES afterDelay:1.5f];
     }];
     
-    [self.viewModel.headlineSuccessObject subscribeNext:^(id x) {
-        @strongify(self)
-        [self.tableView reloadRow:1 inSection:0 withRowAnimation:UITableViewRowAnimationNone];
-    }];
  
     [[self.notificationButton rac_signalForControlEvents:UIControlEventTouchUpInside]
     subscribeNext:^(id x) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"当前没有新的信息" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleCancel handler:nil];
         [alertController addAction:cancelButton];
-        @strongify(self)
         [self presentViewController:alertController animated:YES completion:nil];
     }];
     
@@ -195,68 +197,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     [self.rdv_tabBarController setTabBarHidden:NO];
 }
 
-- (void)netWorkRequest {
-    
-    _pictureManager = [PictureManager sharedInstance];
-    
-    [NetworkFetcher homeFetcherLoopPictureWithSuccess:^{
-        
-        _scrollArray = [[NSMutableArray alloc] init];
-        for (Picture *picture in _pictureManager.loopPictureArray) {
-            NSString *urlPath = [PICTUREURL stringByAppendingString:picture.pictureUrl];
-            [_scrollArray addObject:urlPath];
-        }
-        self.scrollAdView.imageURLStringsGroup = _scrollArray;
-        
-    } failure:^(NSString *error) {
-        
-    }];
-    
-    [NetworkFetcher homeFetcherRecommmendWithSuccess:^{
-        
-        _recommendArray= [[NSMutableArray alloc] init];
-        for (Picture *picture in _pictureManager.recommendPictureArray) {
-            NSString *urlPath = [PICTUREURL stringByAppendingString:picture.pictureUrl];
-            [_recommendArray addObject:urlPath];
-        }
-        [_tableView reloadData];
-        
-    } failure:^(NSString *error) {
-        
-    }];
-    
-    [NetworkFetcher homeFetcherListADWithSuccess:^{
-       
-        _advertisementManager = [AdvertisementManager sharedInstance];
-        _advertisementArray = _advertisementManager.advertisementArray;
-        
-        [_tableView reloadData];
-        
-    } failure:^(NSString *error) {
-        
-    }];
-    
-    @weakify(self)
-    [NetworkFetcher homeFetcherBoutiqueWithSuccess:^(NSDictionary *response) {
-        @strongify(self)
-        if ([response[@"errCode"] isEqualToNumber:@0]) {
-            NSArray *array = [Picture mj_objectArrayWithKeyValuesArray:response[@"result"]];
-            self.boutiqueArray = [[NSMutableArray alloc] init];
-            for (Picture *picture in array) {
-                [self.boutiqueArray addObject:[PICTUREURL stringByAppendingString:picture.pictureUrl]];
-            }
-            [self.tableView reloadRow:3 inSection:0 withRowAnimation:UITableViewRowAnimationNone];
-        }
-    } failure:^(NSString *error) {
-        @strongify(self)
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = error;
-        [hud hide:YES afterDelay:1.5f];
-    }];
-    
-}
-
 - (NSMutableArray *)menuArray{
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"menuData" ofType:@"plist"];
     return [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
@@ -278,23 +218,31 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    
     WebViewController *webVC = [[WebViewController alloc] init];
-    Picture *picture = [self.pictureManager.loopPictureArray objectAtIndex:index];
+    Picture *picture = [self.viewModel.loopPicArray objectAtIndex:index];
     webVC.titilString = @"广告推荐";
     webVC.url = picture.url;
     [self.navigationController pushViewController:webVC animated:NO];
-    
 }
 
 #pragma mark <TableViewDelegate>
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 5;
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4 + _advertisementArray.count;
+    if (section != 4) {
+        return 1;
+    }
+    else {
+        return self.viewModel.advertisementArray.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.row) {
+    switch (indexPath.section) {
         case 0:{
             static NSString *cellIndentifier = @"menucell";
             HomeMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
@@ -382,10 +330,10 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             break;
         case 2:{
             HomeIntroduceCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeIntroduceCell class])];
-            cell.list = _recommendArray;
+            cell.list = self.viewModel.recommandURLArray;
             cell.buttonClicked = ^(UIButton *button){
                 WebViewController *webVC = [[WebViewController alloc] init];
-                Picture *picture = _pictureManager.recommendPictureArray[button.tag];
+                Picture *picture = self.viewModel.recommandArray[button.tag];
                 webVC.url = picture.url;
                 [self.navigationController pushViewController:webVC animated:NO];
             };
@@ -397,35 +345,35 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         case 3:{
             HomeIntroduceCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeIntroduceCell class])];
             cell.myTitle.text = @"热门单品";
-            cell.list = self.boutiqueArray;
+            cell.list = self.viewModel.boutiqueURLArray;
             cell.buttonClicked = ^(UIButton *button){
-                
                 WebViewController *webVC = [[WebViewController alloc] init];
-                Picture *picture = _pictureManager.recommendPictureArray[button.tag];
+                Picture *picture = self.viewModel.boutiqueArray[button.tag];
                 webVC.url = picture.url;
                 [self.navigationController pushViewController:webVC animated:NO];
-                
             };
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
             break;
             
-        default:{
+        case 4:{
             HomeCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeCategoryCell class])];
-            Adversitement *advertisement = _advertisementArray[indexPath.row - 4];
+            Adversitement *advertisement = self.viewModel.advertisementArray[indexPath.row];
             cell.adversitement = advertisement;
             [cell reloadData];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
             break;
+        default:
+            break;
     }
     return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 1) {
+    if (indexPath.section == 1) {
         HomeNewsViewController *homeNewsVC = [self.storyboard instantiateViewControllerWithIdentifier:[HomeNewsViewController className]];
         homeNewsVC.headlineArray = self.viewModel.headlineArray;
         [self.navigationController pushViewController:homeNewsVC animated:YES];
@@ -433,7 +381,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.row) {
+    switch (indexPath.section) {
         case 0:
             return 200;
             break;
@@ -445,7 +393,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             return 140.0f / 375 * kScreenWidth + 60;
             break;
         default:
-            return kScreenWidth/375*444;
+            return kScreenWidth / 375 * 444;
             break;
     }
     return 0;
@@ -458,7 +406,6 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 #pragma mark - QRCodeReader Delegate Methods
 - (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result {
     [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"%@",result);
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:result]];
     }];
 }
