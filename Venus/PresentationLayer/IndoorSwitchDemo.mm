@@ -226,7 +226,6 @@ BMKUserLocation* userLoc;
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MapFloorCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MapFloorCell class])];
-    
     NSString *title = [NSString stringWithFormat:@"%@",[_baseIndoorMapInfo.arrStrFloors objectAtIndex:indexPath.row]];
     [cell.contentLabel setText:title];
     [cell.contentLabel setTextAlignment:NSTextAlignmentCenter];
@@ -246,7 +245,7 @@ BMKUserLocation* userLoc;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString *floor = [NSString stringWithFormat:@"F%ld",(long)indexPath.row];
+    NSString *floor = [NSString stringWithFormat:@"%@",[_baseIndoorMapInfo.arrStrFloors objectAtIndex:indexPath.row]];
     //进行楼层切换
     NSLog(@"%@",floor);
     [_mapView switchBaseIndoorMapFloor:[_baseIndoorMapInfo.arrStrFloors objectAtIndex:indexPath.row] withID:_baseIndoorMapInfo.strID];
