@@ -39,6 +39,13 @@
 #import "HomeSearchViewController.h"
 #import "MBProgressHUD.h"
 #import "HomeNewsViewController.h"
+#import "CouponViewController.h"
+#import "CouponModel.h"
+#import "BrandDetailViewController.h"
+#import "KindDetailViewController.h"
+#import "MerchandiseModel.h"
+#import "FoodDetailViewController.h"
+#import "BeautifulDetailViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate, UITableViewDataSource, SDCycleScrollViewDelegate,QRCodeReaderDelegate, UISearchBarDelegate>
 
@@ -172,13 +179,61 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     subscribeNext:^(NSNotification *notification) {
         NSDictionary *userInfo = notification.userInfo;
         @strongify(self)
-        WebViewController *webVC = [[WebViewController alloc] init];
-        webVC.url = userInfo[@"advertisementURL"];
-        webVC.titilString = @"广告推荐";
-        [self.navigationController pushViewController:webVC animated:YES];
+        [self parseStringAndPushViewController:userInfo[@"advertisementURL"]];
     }];
 
 }
+
+- (void)parseStringAndPushViewController:(NSString *)string {
+    [self.viewModel parseURL:string];
+    switch (self.viewModel.type) {
+        case UNISHOP:{
+            BeautifulDetailViewController *beautifulDetailVC = [[BeautifulDetailViewController alloc] init];
+            beautifulDetailVC.shopId = [[NSNumber numberWithString:self.viewModel.typeID] integerValue];
+            [self.navigationController pushViewController:beautifulDetailVC animated:YES];
+        }
+            break;
+        case SHOP:{
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
+            BrandDetailViewController *brandDetailVC = (BrandDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"BrandDetailViewController"];
+            brandDetailVC.storeID = [NSNumber numberWithString:self.viewModel.typeID];
+            [self.navigationController pushViewController:brandDetailVC animated:YES];
+        }
+            break;
+        case ITEM:{
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"mall" bundle:nil];
+            KindDetailViewController *kindDetaiVC = (KindDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"KindDetailViewController"];
+            MerchandiseModel *model = [[MerchandiseModel alloc] init];
+            model.identifier = self.viewModel.typeID;
+            kindDetaiVC.merchandiseModel = model;
+            [self.navigationController pushViewController:kindDetaiVC animated:YES];
+        }
+            break;
+        case COUPON:{
+            UIStoryboard *group = [UIStoryboard storyboardWithName:@"group" bundle:nil];
+            CouponViewController *couponVC = (CouponViewController *)[group instantiateViewControllerWithIdentifier:@"CouponViewController"];
+            CouponModel *model = [[CouponModel alloc] init];
+            model.identifier = self.viewModel.typeID;
+            couponVC.couponModel = model;
+            [self.navigationController pushViewController:couponVC animated:YES];
+        }
+            break;
+        case FOOD:{
+            FoodDetailViewController *foodDetailVC = [[FoodDetailViewController alloc] init];
+            foodDetailVC.restaurantID = [[NSNumber numberWithString:self.viewModel.typeID] integerValue];
+            [self.navigationController pushViewController:foodDetailVC animated:YES];
+        }
+            break;
+        case WEB:{
+            WebViewController *webVC = [[WebViewController alloc] init];
+            webVC.url = string;
+            webVC.titilString = @"广告推荐";
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+            break;
+    }
+}
+
 
 - (void)viewDidAppear:(BOOL)animated{
     if (self.view.isHidden) {
@@ -278,13 +333,8 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
 
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    
-    WebViewController *webVC = [[WebViewController alloc] init];
     Picture *picture = [self.pictureManager.loopPictureArray objectAtIndex:index];
-    webVC.titilString = @"广告推荐";
-    webVC.url = picture.url;
-    [self.navigationController pushViewController:webVC animated:NO];
-    
+    [self parseStringAndPushViewController:picture.url];
 }
 
 #pragma mark <TableViewDelegate>
@@ -383,11 +433,11 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
         case 2:{
             HomeIntroduceCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeIntroduceCell class])];
             cell.list = _recommendArray;
+            @weakify(self)
             cell.buttonClicked = ^(UIButton *button){
-                WebViewController *webVC = [[WebViewController alloc] init];
                 Picture *picture = _pictureManager.recommendPictureArray[button.tag];
-                webVC.url = picture.url;
-                [self.navigationController pushViewController:webVC animated:NO];
+                @strongify(self)
+                [self parseStringAndPushViewController:picture.url];
             };
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
@@ -398,13 +448,11 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             HomeIntroduceCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HomeIntroduceCell class])];
             cell.myTitle.text = @"热门单品";
             cell.list = self.boutiqueArray;
+            @weakify(self)
             cell.buttonClicked = ^(UIButton *button){
-                
-                WebViewController *webVC = [[WebViewController alloc] init];
                 Picture *picture = _pictureManager.recommendPictureArray[button.tag];
-                webVC.url = picture.url;
-                [self.navigationController pushViewController:webVC animated:NO];
-                
+                @strongify(self)
+                [self parseStringAndPushViewController:picture.url];
             };
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
