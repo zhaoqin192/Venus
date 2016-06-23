@@ -39,6 +39,8 @@
     UMConfigInstance.appKey = @"5760e385e0f55a27b2000cf6";
     UMConfigInstance.channelId = @"App Store";
     
+    [MobClick startWithConfigure:UMConfigInstance];
+    
     self.window = [[UIWindow alloc] init];
     self.window.rootViewController = [[RootTabViewController alloc] init];
     [self.window makeKeyAndVisible];
