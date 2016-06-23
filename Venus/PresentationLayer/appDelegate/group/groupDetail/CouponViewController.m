@@ -45,9 +45,9 @@
     
     [self bindViewMode];
     
-    [self.viewModel fetchDetailWithCouponID:self.couponModel.identifier];
+    [self.viewModel fetchDetailWithCouponID:self.viewModel.couponModel.identifier];
     
-    [self.viewModel fetchCommentWithCouponID:self.couponModel.identifier page:[NSNumber numberWithInteger:self.viewModel.currentPage]];
+    [self.viewModel fetchCommentWithCouponID:self.viewModel.couponModel.identifier page:[NSNumber numberWithInteger:self.viewModel.currentPage]];
 
 }
 
@@ -55,6 +55,8 @@
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     [MobClick beginLogPageView:@"CouponViewController"];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -67,6 +69,8 @@
 - (void)bindViewMode{
     
     self.viewModel = [[CouponDetailViewModel alloc] init];
+    
+    self.viewModel.couponModel = self.couponModel;
     
     @weakify(self)
     [self.viewModel.commentSuccessObject subscribeNext:^(id x) {
@@ -81,9 +85,7 @@
     
     [self.viewModel.detailSuccessObject subscribeNext:^(id x) {
         @strongify(self)
-        [self.tableView reloadSection:3 withRowAnimation:UITableViewRowAnimationNone];
-        [self.tableView reloadSection:2 withRowAnimation:UITableViewRowAnimationNone];
-        [self.tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadData];
     }];
     
     [self.viewModel.detailFailureObject subscribeNext:^(id x) {
@@ -173,11 +175,11 @@
     if (indexPath.section == 0) {
         CouponPictureCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CouponPictureCell"];
         cell.button.layer.cornerRadius = 5;
-        cell.abstract.text = self.couponModel.abstract;
-        [cell.image sd_setImageWithURL:[NSURL URLWithString:self.couponModel.pictureUrl]];
-        cell.price.text = [NSString stringWithFormat:@"原价￥%.2f", [self.couponModel.asPrice floatValue] / 100];
-        cell.asPrice.text = [NSString stringWithFormat:@"￥%.2f", [self.couponModel.price floatValue] / 100];
-        cell.sales.text = [NSString stringWithFormat:@"已售%@", self.couponModel.purchaseNum];
+        cell.abstract.text = self.viewModel.couponModel.abstract;
+        [cell.image sd_setImageWithURL:[NSURL URLWithString:self.viewModel.couponModel.pictureUrl]];
+        cell.price.text = [NSString stringWithFormat:@"原价￥%.2f", [self.viewModel.couponModel.asPrice floatValue] / 100];
+        cell.asPrice.text = [NSString stringWithFormat:@"￥%.2f", [self.viewModel.couponModel.price floatValue] / 100];
+        cell.sales.text = [NSString stringWithFormat:@"已售%@", self.viewModel.couponModel.purchaseNum];
         if (!self.viewModel.backable) {
             cell.backableView.hidden = YES;
         }
@@ -206,7 +208,7 @@
         else {
             cell.abstract.text = @"套餐劵";
         }
-        cell.price.text = [NSString stringWithFormat:@"￥%.2f", [self.couponModel.price floatValue] / 100];
+        cell.price.text = [NSString stringWithFormat:@"￥%.2f", [self.viewModel.couponModel.price floatValue] / 100];
         cell.number.text = @"1张";
         @weakify(self)
         [[[cell.moreDetail rac_signalForControlEvents:UIControlEventTouchUpInside]
@@ -254,25 +256,27 @@
 }
 
 - (void)configureInformationCell:(CouponInformationCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    cell.validity.text = [NSString stringWithFormat:@"%@至%@", [NSString convertTime:self.couponModel.startTime] , [NSString convertTime:self.couponModel.endTime]];
+    cell.validity.text = [NSString stringWithFormat:@"%@至%@", [NSString convertTime:self.viewModel.couponModel.startTime] , [NSString convertTime:self.viewModel.couponModel.endTime]];
     cell.useRuleLabel.text = self.viewModel.useRule;
     cell.tipsLabel.text = self.viewModel.tips;
 }
 
 - (void)configureStoreCell:(CouponStoreCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
-    cell.storeName.text = self.couponModel.name;
-    cell.storeAddress.text = [NSString stringWithFormat:@"地址:%@", self.couponModel.address];
+    cell.storeName.text = self.viewModel.couponModel.name;
+    cell.storeAddress.text = [NSString stringWithFormat:@"地址:%@", self.viewModel.couponModel.address];
     @weakify(self)
     [[cell.contactButton rac_signalForControlEvents:UIControlEventTouchUpInside]
      subscribeNext:^(id x) {
          
          @strongify(self)
-         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"拨打商家电话" message:self.couponModel.phone  preferredStyle:UIAlertControllerStyleAlert];
+         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"拨打商家电话" message:self.viewModel.couponModel.phone  preferredStyle:UIAlertControllerStyleAlert];
          UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
          UIAlertAction *callAction = [UIAlertAction actionWithTitle:@"拨打" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-             NSString *phoneNumber = [@"tel://" stringByAppendingString:self.couponModel.phone];
-             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+             if (self.viewModel.couponModel.phone) {
+                 NSString *phoneNumber = [@"tel://" stringByAppendingString:self.viewModel.couponModel.phone];
+                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+             }
          }];
          [alertController addAction:cancelAction];
          [alertController addAction:callAction];
@@ -338,7 +342,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (self.viewModel.currentPage != self.viewModel.totalPage && indexPath.row == self.viewModel.commentArray.count - 1) {
-        [self.viewModel loadMoreCommentWithCouponID:self.couponModel.identifier page:[NSNumber numberWithInteger:++self.viewModel.currentPage]];
+        [self.viewModel loadMoreCommentWithCouponID:self.viewModel.couponModel.identifier page:[NSNumber numberWithInteger:++self.viewModel.currentPage]];
     }
     
 }
@@ -348,7 +352,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"CommitOrder"]) {
         CommitOrderViewController *commitVC = segue.destinationViewController;
-        commitVC.couponModel = self.couponModel;
+        commitVC.couponModel = self.viewModel.couponModel;
     }
 }
 

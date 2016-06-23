@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class CouponModel;
+
 @interface CouponDetailViewModel : UITableViewCell
 
 @property (nonatomic, strong) RACSubject *detailSuccessObject;
@@ -25,6 +27,7 @@
 @property (nonatomic, assign) BOOL mustOrder;
 @property (nonatomic, strong) NSNumber *type;//1是“套餐劵”，0是“代金券”
 @property (nonatomic, strong) NSString *moreDetailurl;//更多图文详情url；
+@property (nonatomic, strong) CouponModel *couponModel;
 
 - (void)fetchDetailWithCouponID:(NSString *)couponID;
 

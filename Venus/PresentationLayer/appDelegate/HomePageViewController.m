@@ -67,6 +67,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *notificationButton;
 @property (nonatomic, assign) BOOL marqueeLabelIsActive;
 @property (nonatomic, strong) NSMutableArray *boutiqueArray;
+@property (nonatomic, strong) NSArray *boutiqueObjectArray;
 
 @end
 
@@ -295,9 +296,9 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
     [NetworkFetcher homeFetcherBoutiqueWithSuccess:^(NSDictionary *response) {
         @strongify(self)
         if ([response[@"errCode"] isEqualToNumber:@0]) {
-            NSArray *array = [Picture mj_objectArrayWithKeyValuesArray:response[@"result"]];
+            self.boutiqueObjectArray = [Picture mj_objectArrayWithKeyValuesArray:response[@"result"]];
             self.boutiqueArray = [[NSMutableArray alloc] init];
-            for (Picture *picture in array) {
+            for (Picture *picture in _boutiqueObjectArray) {
                 [self.boutiqueArray addObject:[PICTUREURL stringByAppendingString:picture.pictureUrl]];
             }
             [self.tableView reloadRow:3 inSection:0 withRowAnimation:UITableViewRowAnimationNone];
@@ -450,7 +451,7 @@ static const NSString *PICTUREURL = @"http://www.chinaworldstyle.com/hestia/file
             cell.list = self.boutiqueArray;
             @weakify(self)
             cell.buttonClicked = ^(UIButton *button){
-                Picture *picture = _pictureManager.recommendPictureArray[button.tag];
+                Picture *picture = self.boutiqueObjectArray[button.tag];
                 @strongify(self)
                 [self parseStringAndPushViewController:picture.url];
             };

@@ -690,6 +690,7 @@
                             <constraint firstItem="23H-gh-J2c" firstAttribute="top" secondItem="O5U-t5-GWs" secondAttribute="bottom" id="smB-rc-cqe"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -862,6 +863,7 @@
                             <constraint firstAttribute="trailing" secondItem="5Ae-ID-ONJ" secondAttribute="trailing" id="zHK-rO-FVH"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>

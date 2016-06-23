@@ -9,6 +9,7 @@
 #import "CouponDetailViewModel.h"
 #import "NetworkFetcher+Group.h"
 #import "CouponCommentModel.h"
+#import "CouponModel.h"
 
 @interface CouponDetailViewModel ()
 
@@ -42,6 +43,10 @@
         if ([response[@"errCode"] isEqualToNumber:@0]) {
             
             NSDictionary *coupon = response[@"coupon"];
+            
+            self.couponModel = [CouponModel mj_objectWithKeyValues:coupon];
+            self.couponModel.pictureUrl = coupon[@"picUrl"];
+            
             NSArray *useRuleArray = coupon[@"useRule"];
             NSArray *tipsArray = coupon[@"warmTip"];
             if ([coupon[@"backable"] isEqualToNumber:@0]) {

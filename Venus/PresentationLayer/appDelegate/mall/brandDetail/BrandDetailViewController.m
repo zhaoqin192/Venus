@@ -71,6 +71,7 @@ typedef NS_ENUM(NSInteger, BrandState) {
     [super viewWillAppear:animated];
     [[self rdv_tabBarController] setTabBarHidden:YES animated:YES];
     [MobClick beginLogPageView:@"BrandDetailViewController"];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

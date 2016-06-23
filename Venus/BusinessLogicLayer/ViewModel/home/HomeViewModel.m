@@ -102,6 +102,11 @@
     regular = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionDotMatchesLineSeparators error:nil];
     firstMatch = [regular firstMatchInString:url options:0 range:NSMakeRange(0, url.length)];
     if (firstMatch) {
+        NSString *type = [url substringWithRange:NSMakeRange(url.length - 1, 1)];
+        if ([type isEqualToString:@"2"]) {
+            self.type = WEB;
+            return;
+        }
         pattern = @"[0-9]{5,}";
         regular = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionDotMatchesLineSeparators error:nil];
         NSTextCheckingResult *second = [regular firstMatchInString:url options:0 range:NSMakeRange(0, url.length)];
